@@ -17,8 +17,10 @@ For more information, see
 
 | Skill | Description |
 |-------|-------------|
+| [context-aware-ops](context-aware-ops/SKILL.md) | Intelligent resource management with size checking and filtering |
 | [git](git/SKILL.md) | Guide for using git with non-interactive, safe operations |
 | [github-actions](github-actions/SKILL.md) | Diagnosing and debugging failing GitHub Actions workflows |
+| [robust-commands](robust-commands/SKILL.md) | Resilient command execution with automatic fallbacks and error recovery |
 
 ## Creating skills
 
