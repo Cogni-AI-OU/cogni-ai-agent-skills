@@ -20,6 +20,7 @@ For more information, see
 | [git](git/SKILL.md) | Guide for using git with non-interactive, safe operations |
 | [github-actions](github-actions/SKILL.md) | Diagnosing and debugging failing GitHub Actions workflows |
 | [robust-commands](robust-commands/SKILL.md) | Resilient command execution with automatic fallbacks and error recovery |
+| [skill-writer](skill-writer/SKILL.md) | Generate or update SKILL.md files for GitHub Copilot coding agents |
 
 ## Creating skills
 
