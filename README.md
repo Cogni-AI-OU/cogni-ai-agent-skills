@@ -1,4 +1,3 @@
-<!-- markdownlint-disable MD060 -->
 # Agent Skills
 
 Agent Skills are folders of instructions, scripts, and resources that GitHub
@@ -16,11 +15,12 @@ For more information, see
 ## Skills in this repository
 
 | Skill | Description |
-|-------|-------------|
+| ----- | ----------- |
 | [context-aware-ops](context-aware-ops/SKILL.md) | Intelligent resource management with size checking and filtering |
 | [git](git/SKILL.md) | Guide for using git with non-interactive, safe operations |
 | [github-actions](github-actions/SKILL.md) | Diagnosing and debugging failing GitHub Actions workflows |
 | [robust-commands](robust-commands/SKILL.md) | Resilient command execution with automatic fallbacks and error recovery |
+| [skill-writer](skill-writer/SKILL.md) | Generate or update SKILL.md files for GitHub Copilot coding agents |
 
 ## Creating skills
 
@@ -40,7 +40,7 @@ Instructions for Copilot to follow when this skill is activated.
 ### SKILL.md frontmatter
 
 | Field | Required | Description |
-|-------|----------|-------------|
+| ----- | -------- | ----------- |
 | `name` | Yes | Unique identifier (lowercase, hyphens for spaces) |
 | `description` | Yes | What the skill does and when to use it |
 | `license` | No | License that applies to this skill |
@@ -50,7 +50,7 @@ Instructions for Copilot to follow when this skill is activated.
 Skills can be stored at different levels:
 
 | Level | Location | Scope |
-|-------|----------|-------|
+| ----- | -------- | ----- |
 | Project | `.github/skills/` or `.claude/skills/` | Single repository |
 | Personal | `~/.copilot/skills/` or `~/.claude/skills/` | All projects (CLI only) |
 

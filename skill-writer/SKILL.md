@@ -40,7 +40,7 @@ repository standards.
    formatting).
 
 4. Structure the file exactly as:
-   - First line: `<!-- markdownlint-disable MD022 MD026 MD041 -->`
+   - First line: `<!-- markdownlint-disable MD003 MD022 MD026 MD041 -->`
    - YAML frontmatter block
    - Pure Markdown body with minimal, value-adding sections only
 
@@ -54,9 +54,9 @@ repository standards.
 7. Keep total length to minimum.
 
 8. Section Discipline: Use sections sparingly and only when they clearly improve
-  readability or organization; always follow a logical progression
-  (e.g., Brief Intro → When to Activate → Core Process → Diagnostics
-  → Patterns → What to Avoid → Limitations → Safety).
+   readability or organization; always follow a logical progression
+   (e.g., Brief Intro → When to Activate → Core Process → Diagnostics
+   → Patterns → What to Avoid → Limitations → Safety).
 
 9. Output only the complete, ready-to-commit SKILL.md content.
 

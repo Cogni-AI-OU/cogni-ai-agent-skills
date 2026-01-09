@@ -6,8 +6,7 @@ description: Diagnose GitHub Actions workflow failures by retrieving run statuse
 
 This skill enables autonomous diagnosis of GitHub Actions failures, preferring MCP tools for summaries and falling back to gh CLI.
 
-When to Activate
-----------------
+## When to Activate
 
 - User reports a failing GitHub Actions workflow, CI failure, or red status check
 - User provides a GitHub Actions URL (e.g., `https://github.com/owner/repo/actions/runs/RUN_ID/job/JOB_ID`)
@@ -15,8 +14,7 @@ When to Activate
 - Task requires identifying or fixing a workflow failure
 - Error output references Actions job steps
 
-Step-by-Step Process
---------------------
+## Step-by-Step Process
 
 1. Extract IDs from GitHub Actions URL if provided.
 
@@ -68,8 +66,7 @@ Step-by-Step Process
 
 6. Before committing fixes, verify logically against observed error. Stage changes and re-run verification if possible.
 
-Finding Build Issues via `gh` Command
--------------------------------------
+## Finding Build Issues via `gh` Command
 
 - Use `gh` command to interact with GitHub resources. For example:
   - `gh run list --limit 3` to list recent builds.
@@ -77,8 +74,7 @@ Finding Build Issues via `gh` Command
   - `gh run view <run_id> --log | rg -C3 -iw "failed|error|exit"` to search full logs for key terms.
 - When reading long logs, use `sed` or `awk` to read content in smaller parts (e.g. `sed -n '100,200p'`).
 
-Useful Diagnostic Commands
---------------------------
+## Useful Diagnostic Commands
 
 **MCP tools (preferred):**
 
@@ -114,16 +110,14 @@ gh run view <run_id> --log-failed     # Failed jobs only (recommended first)
 gh run view <run_id> --log | grep -C 10 -i "error\|failed\|exit code"
 ```
 
-What to Avoid
--------------
+## What to Avoid
 
 - Never fetch full raw logs first — always use summaries (`summarize_job_log_failures`) or `--log-failed`
 - Do not guess causes without log evidence
 - Avoid modifying workflow YAML unless failure clearly originates there
 - Do not trigger re-runs or external commands unless explicitly safety-checked
 
-Limitations
------------
+## Limitations
 
 - MCP tools require server access and may not be available in all environments
 - gh CLI requires installation, authentication, and repository access (limited on public repos without login)
@@ -131,8 +125,7 @@ Limitations
 - Large log output may truncate in terminal — prioritize failed-only retrieval
 - Cannot trigger new workflow runs autonomously
 
-Repository Context in CI
--------------------------
+## Repository Context in CI
 
 When working with GitHub Actions build logs and investigating issues:
 
