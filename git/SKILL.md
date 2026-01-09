@@ -57,6 +57,24 @@ GitHub Actions and other CI environments often check out repositories as shallow
 - Commit template check: `git config commit.template`
 - Signed commit verification: `git log --show-signature -1`
 
+## Resolving Merge Conflicts with Minimal Changes
+
+When a merge introduces too many unrelated changes, maintain PR focus with selective conflict resolution:
+
+- **Reset to clean state**: `git reset --hard <commit-sha>` (reset to commit before problematic merge)
+- **Revert merge commit**: `git revert -m 1 <merge-commit-sha> --no-edit` (revert merge keeping first parent)
+- **Remove lock files**: `rm -f .git/index.lock` (if git operations fail due to lock)
+- **Clean untracked files**: `git clean -fd` (remove untracked files from working directory)
+- **Check file state in commit**: `git ls-tree -r <commit-sha>:.github/workflows/ --name-only` (list files at specific commit)
+- **Verify changes**: `git diff <commit-sha> HEAD --name-status` (compare commits to see what changed)
+
+Strategy for focused PRs:
+
+- Avoid merging large changesets when PR has single purpose
+- Use `git reset --hard` to target commit with desired changes only
+- Document resolution approach for future reference
+- Keep PR changes minimal and reviewable
+
 ## What to Avoid
 
 - Interactive operations (`git rebase -i`, `git add -p` without scripting, editor prompts).
