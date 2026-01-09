@@ -7,8 +7,7 @@ license: MIT
 
 Expert in advanced git usage for repository agents. Prioritize non-interactive, safe, reproducible operations that maintain clean history and respect repository conventions.
 
-Core Principles
----------------
+## Core Principles
 
 - **Non-interactive execution**: Commands must run without prompting. Never use interactive modes (`-i`, `--interactive`, default editors).
 - **Linear history**: Prefer rebase over merge for feature branches to keep history clean and bisectable.
@@ -17,8 +16,7 @@ Core Principles
 - **Hook handling**: Aim to satisfy pre-commit/pre-push hooks. Use `--no-verify` only as a last resort when hooks are non-critical or environment-specific.
 - **Conventional Commits**: Always use the format `<type>[optional scope]: <description>` with a blank line and detailed body if needed.
 
-Non-Interactive Patterns
-------------------------
+## Non-Interactive Patterns
 
 - **Amending last commit** (preserve author date): `git commit --amend --no-edit --date="$(git log -1 --format=%aD)"`
 - **Fixup previous commits** (non-interactive preparation):
@@ -28,8 +26,7 @@ Non-Interactive Patterns
 - **Cherry-picking without conflicts**: `git cherry-pick -x <commit-sha>` (`-x` records original SHA for traceability)
 - **Stashing partial work** (non-interactive): `git stash push -m "wip-description" -- path/to/file` (use pathspec for selective stashing; avoid `-p` as it is interactive)
 
-Working with Shallow Clones
----------------------------
+## Working with Shallow Clones
 
 GitHub Actions and other CI environments often check out repositories as shallow clones (limited history).
 
@@ -43,8 +40,7 @@ GitHub Actions and other CI environments often check out repositories as shallow
   - Fetch specific PR: `git fetch origin pull/<pr-number>/head:pr-<pr-number>`
   - List all branches containing commit: `git branch -a --contains <commit-sha>`
 
-Safety & Recovery
------------------
+## Safety & Recovery
 
 - **Check repository state non-interactively**:
 - Clean working tree: `git diff --quiet && git diff --cached --quiet`
@@ -54,16 +50,14 @@ Safety & Recovery
 - **Backup before destructive ops**: Create temp tag: `git tag backup/pre-op-$(date +%s)`
 - **Force push only when required** (e.g., after approved history rewrite): `git push --force-with-lease origin <branch>`
 
-Useful Diagnostic Commands
---------------------------
+## Useful Diagnostic Commands
 
 - Verify identity: `git config user.name && git config user.email`
 - Remote tracking status: `git status -sb`
 - Commit template check: `git config commit.template`
 - Signed commit verification: `git log --show-signature -1`
 
-What to Avoid
--------------
+## What to Avoid
 
 - Interactive operations (`git rebase -i`, `git add -p` without scripting, editor prompts).
 - Direct pushes to protected branches (main/master).
