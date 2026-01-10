@@ -77,8 +77,7 @@ When a merge introduces too many unrelated changes, maintain PR focus with selec
 
 - **Reset to clean state**: `git reset --hard <commit-sha>` (reset to commit before problematic merge)
 - **Revert merge commit**: `git revert -m 1 <merge-commit-sha> --no-edit` (revert merge keeping first parent)
-- **Remove lock files**: `rm -f .git/index.lock` (if git operations fail due to lock)
-- **Clean untracked files**: `git clean -fd` (remove untracked files from working directory)
+- **Remove lock files**: `rm .git/index.lock` (if git operations fail due to lock)
 - **Check file state in commit**: `git ls-tree -r <commit-sha>:.github/workflows/ --name-only` (list files at specific commit)
 - **Verify changes**: `git diff <commit-sha> HEAD --name-status` (compare commits to see what changed)
 
