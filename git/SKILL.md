@@ -20,11 +20,25 @@ Expert in advanced git usage for repository agents. Prioritize non-interactive, 
 
 - **Amending last commit** (preserve author date): `git commit --amend --no-edit --date="$(git log -1 --format=%aD)"`
 - **Fixup previous commits** (non-interactive preparation):
-- Create fixup: `git commit --fixup <commit-sha>`
-- Later autosquash (requires interactive rebase—propose to user or defer to PR squash if agent cannot handle `-i`): `git rebase -i --autosquash origin/main`
+  - Create fixup: `git commit --fixup <commit-sha>`
+  - Later autosquash (requires interactive rebase—propose to user or defer to PR squash if agent cannot handle `-i`): `git rebase -i --autosquash origin/main`
 - **Rebasing feature branches**: `git fetch origin && git rebase origin/main --no-verify` (add `--no-verify` only if hooks block)
 - **Cherry-picking without conflicts**: `git cherry-pick -x <commit-sha>` (`-x` records original SHA for traceability)
+- **Cherry-picking with editor bypass**: `GIT_EDITOR=true git cherry-pick --continue` (auto-accept commit message during conflict resolution)
 - **Stashing partial work** (non-interactive): `git stash push -m "wip-description" -- path/to/file` (use pathspec for selective stashing; avoid `-p` as it is interactive)
+
+### Bypassing Editor Prompts
+
+Git commands that normally open an editor can be made non-interactive:
+
+- **Set editor to true**: `GIT_EDITOR=true git <command>` (auto-accepts default message)
+- **Use --no-edit flag**: `git commit --amend --no-edit`, `git merge --no-edit`, `git revert --no-edit`
+- **Pre-set commit message**: `git commit -m "message"` (avoids editor entirely)
+- **Cherry-pick continuation**: `GIT_EDITOR=true git cherry-pick --continue` (after resolving conflicts)
+- **Revert with message**: `git revert <commit-sha> --no-edit` (uses default revert message)
+
+**Important**: Automation tools (like `report_progress`) may fail if they encounter editor prompts.
+Always use non-interactive patterns when preparing changes for automated tools.
 
 ## Working with Shallow Clones
 
@@ -74,6 +88,127 @@ Strategy for focused PRs:
 - Use `git reset --hard` to target commit with desired changes only
 - Document resolution approach for future reference
 - Keep PR changes minimal and reviewable
+
+## Integrating Changes from Target Branch (Avoiding Merge Commits)
+
+**Problem**: When asked to "integrate changes from dev/main", using `git merge <target-branch>` creates a merge commit
+that includes ALL commits from the target branch in your PR, making it impossible to review only your feature changes.
+
+**Solution**: Rebase your commits on top of the target branch using the cherry-pick workflow.
+
+### Step-by-Step Cherry-Pick Workflow
+
+1. **Identify your feature commits**:
+
+   ```bash
+   # List commits in your branch not in target
+   git log --oneline origin/<target-branch>..HEAD
+   
+   # Save commit SHAs for later
+   git log --oneline origin/<target-branch>..HEAD | awk '{print $1}' | tac
+   ```
+
+2. **Fetch latest target branch**:
+
+   ```bash
+   git fetch origin <target-branch>
+   ```
+
+3. **Create backup before destructive operation**:
+
+   ```bash
+   git tag backup/before-rebase-$(date +%s)
+   ```
+
+4. **Reset branch to target** (creates clean starting point):
+
+   ```bash
+   git reset --hard origin/<target-branch>
+   ```
+
+5. **Cherry-pick your feature commits**:
+
+   ```bash
+   # Method 1: Individual commits
+   git cherry-pick <commit-1> <commit-2> <commit-3>
+   
+   # Method 2: Range syntax (note the ^)
+   git cherry-pick <first-commit>^..<last-commit>
+   ```
+
+6. **Handle conflicts during cherry-pick**:
+
+   - Resolve conflicts in files (preserve target content, add your changes)
+   - Stage resolved files: `git add <resolved-files>`
+   - Continue non-interactively: `GIT_EDITOR=true git cherry-pick --continue`
+   - Or skip commit: `git cherry-pick --skip`
+   - Or abort: `git cherry-pick --abort`
+
+7. **Verify only your changes are present**:
+
+   ```bash
+   # Check changed files
+   git diff origin/<target-branch>..HEAD --name-status
+   
+   # Check stats
+   git diff origin/<target-branch>..HEAD --stat
+   
+   # Verify commit count matches expectations
+   git log --oneline origin/<target-branch>..HEAD | wc -l
+   ```
+
+   The diff should show ONLY files you created/modified for your feature, not unrelated files from target branch.
+
+### Common Pitfalls
+
+- **Merge commits in PR**: Indicates wrong approach was used. Start over with reset + cherry-pick workflow.
+- **Too many changed files**: Verify you reset to correct target branch before cherry-picking.
+- **Conflict resolution mistakes**: When resolving conflicts, don't remove existing target branch content—only add your feature changes.
+- **Wrong commit order**: When cherry-picking multiple commits, maintain original chronological order.
+
+### Working with Automation Tools
+
+**Important**: Automation tools like `report_progress` automatically attempt to rebase your branch against the
+remote tracking branch. This causes issues when:
+
+- You've rewritten history (e.g., using reset + cherry-pick)
+- Your branch has diverged from remote
+- The remote has many commits that would trigger rebase conflicts
+
+**Best Practice**: Complete all git operations manually (fetch, reset, cherry-pick, verify) BEFORE calling
+automation tools. The tool will then simply push your clean, prepared commits.
+
+If automation tool fails with rebase errors:
+
+1. **Abort the rebase**: `git rebase --abort`
+2. **Verify your local state**: `git log --oneline -5` and `git diff origin/<target-branch>..HEAD --stat`
+3. **Explain to user** what you prepared and ask them to push manually: `git push --force-with-lease origin <branch-name>`
+
+### Example: Rebasing Feature Branch on Dev
+
+```bash
+# 1. Identify your commits
+git log --oneline origin/dev..HEAD
+# Output: abc123 Feature commit 3
+#         def456 Feature commit 2  
+#         ghi789 Feature commit 1
+
+# 2. Fetch latest dev
+git fetch origin dev
+
+# 3. Backup and reset
+git tag backup/before-dev-$(date +%s)
+git reset --hard origin/dev
+
+# 4. Cherry-pick in original order
+git cherry-pick ghi789 def456 abc123
+
+# 5. Verify only your 3 commits on top of dev
+git log --oneline origin/dev..HEAD
+git diff origin/dev..HEAD --stat
+
+# 6. Branch is now clean and ready for automation tools or manual push
+```
 
 ## What to Avoid
 
