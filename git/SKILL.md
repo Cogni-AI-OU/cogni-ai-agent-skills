@@ -285,6 +285,8 @@ git diff origin/dev..HEAD --stat
 - If workflow switches branches unexpectedly or shows HEAD inconsistencies, re-verify branch state with git status and git branch -av.
 - For diverged branches, prefer creating and pushing to a new branch rather than force-pushing on top of remote history.
 - Rebase and push failures may require manual intervention—always review the logs for non-fast-forward or remote rejection errors.
+- Always verify the branch exists on the remote after a git push, using git ls-remote, git branch -r, or by checking the GitHub UI,
+  but never rely solely on success messages from the automation or Copilot agent.
 
 ## What to Avoid
 
