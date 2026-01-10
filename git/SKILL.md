@@ -103,7 +103,7 @@ that includes ALL commits from the target branch in your PR, making it impossibl
    ```bash
    # List commits in your branch not in target
    git log --oneline origin/<target-branch>..HEAD
-   
+
    # Save commit SHAs for later
    git log --oneline origin/<target-branch>..HEAD | awk '{print $1}' | tac
    ```
@@ -131,7 +131,7 @@ that includes ALL commits from the target branch in your PR, making it impossibl
    ```bash
    # Method 1: Individual commits
    git cherry-pick <commit-1> <commit-2> <commit-3>
-   
+
    # Method 2: Range syntax (note the ^)
    git cherry-pick <first-commit>^..<last-commit>
    ```
@@ -149,10 +149,10 @@ that includes ALL commits from the target branch in your PR, making it impossibl
    ```bash
    # Check changed files
    git diff origin/<target-branch>..HEAD --name-status
-   
+
    # Check stats
    git diff origin/<target-branch>..HEAD --stat
-   
+
    # Verify commit count matches expectations
    git log --oneline origin/<target-branch>..HEAD | wc -l
    ```
@@ -184,7 +184,7 @@ The crash sequence:
 
 ### Prevention Strategies
 
-**Strategy 1: Use New Branch Name** (Safest after history rewrite)
+#### Strategy 1: Use New Branch Name (Safest after history rewrite)
 
 ```bash
 # After reset + cherry-pick workflow is complete
@@ -195,7 +195,7 @@ git checkout -b <feature>-rebased
 # Now report_progress won't attempt rebase - no remote tracking branch exists yet
 ```
 
-**Strategy 2: Manual Push Before Automation**
+#### Strategy 2: Manual Push Before Automation
 
 If you must reuse the same branch:
 
@@ -212,7 +212,7 @@ git diff origin/<target-branch>..HEAD --stat
 # Explain: "Branch ready, needs force-push: git push --force-with-lease origin <branch>"
 ```
 
-**Strategy 3: Fresh Branch from Clean State**
+#### Strategy 3: Fresh Branch from Clean State
 
 ```bash
 # If you haven't pushed anything yet
@@ -226,7 +226,7 @@ git checkout -b <new-feature-branch> origin/<target-branch>
 Error patterns indicating auto-rebase crash:
 
 - `Rebasing (1/NNN)` where NNN is very large (e.g., 113 commits)
-- `error: could not apply <sha>...`
+- `error: could not apply <commit-sha>...`
 - `CONFLICT (content): Merge conflict in <file>`
 - `warning: skipped previously applied commit`
 - Session terminates with `GitError: rebase git error`
@@ -239,7 +239,7 @@ If automation tool fails with rebase errors:
 2. **Verify your local state**: `git log --oneline -5` and `git diff origin/<target-branch>..HEAD --stat`
 3. **Choose recovery path**:
    - Create new branch: `git checkout -b <branch>-v2 && git push origin <branch>-v2`
-   - Or explain to user: "Branch ready at commit <sha>, needs manual push: `git push --force-with-lease origin <branch>`"
+   - Or explain to user: "Branch ready at commit `<commit-sha>`, needs manual push: `git push --force-with-lease origin <branch>`"
 
 **Best Practice**: Complete all git operations manually (fetch, reset, cherry-pick, verify) BEFORE calling
 automation tools. The tool will then simply push your clean, prepared commits.
@@ -250,7 +250,7 @@ automation tools. The tool will then simply push your clean, prepared commits.
 # 1. Identify your commits
 git log --oneline origin/dev..HEAD
 # Output: abc123 Feature commit 3
-#         def456 Feature commit 2  
+#         def456 Feature commit 2
 #         ghi789 Feature commit 1
 
 # 2. Fetch latest dev
