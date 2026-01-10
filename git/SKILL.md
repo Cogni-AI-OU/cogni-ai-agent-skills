@@ -276,6 +276,16 @@ git diff origin/dev..HEAD --stat
 # 6. Branch is now clean and ready for automation tools or manual push
 ```
 
+## Troubleshooting tips
+
+- Always use non-interactive git commands in automation (e.g., git commit -m "msg") to avoid editor locks.
+- If you encounter index.lock errors, terminate all git processes and remove .git/index.lock before retrying.
+- After rebasing or rewriting branch history, use git push -f to update the remote branch, or push to a new branch if uncertain.
+- Do not trust success messages until git push returns exit code 0 and the branch is visible on GitHub.
+- If workflow switches branches unexpectedly or shows HEAD inconsistencies, re-verify branch state with git status and git branch -av.
+- For diverged branches, prefer creating and pushing to a new branch rather than force-pushing on top of remote history.
+- Rebase and push failures may require manual intervention—always review the logs for non-fast-forward or remote rejection errors.
+
 ## What to Avoid
 
 - Interactive operations (`git rebase -i`, `git add -p` without scripting, editor prompts).
