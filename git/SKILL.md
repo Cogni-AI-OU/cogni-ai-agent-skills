@@ -244,12 +244,6 @@ If automation tool fails with rebase errors:
 **Best Practice**: Complete all git operations manually (fetch, reset, cherry-pick, verify) BEFORE calling
 automation tools. The tool will then simply push your clean, prepared commits.
 
-If automation tool fails with rebase errors:
-
-1. **Abort the rebase**: `git rebase --abort`
-2. **Verify your local state**: `git log --oneline -5` and `git diff origin/<target-branch>..HEAD --stat`
-3. **Explain to user** what you prepared and ask them to push manually: `git push --force-with-lease origin <branch-name>`
-
 ### Example: Rebasing Feature Branch on Dev
 
 ```bash
