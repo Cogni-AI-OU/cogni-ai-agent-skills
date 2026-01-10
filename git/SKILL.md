@@ -168,12 +168,78 @@ that includes ALL commits from the target branch in your PR, making it impossibl
 
 ### Working with Automation Tools
 
-**Important**: Automation tools like `report_progress` automatically attempt to rebase your branch against the
-remote tracking branch. This causes issues when:
+**CRITICAL**: Automation tools like `report_progress` automatically attempt to rebase your branch against the
+remote tracking branch. **This causes session crashes** when:
 
 - You've rewritten history (e.g., using reset + cherry-pick)
 - Your branch has diverged from remote
 - The remote has many commits that would trigger rebase conflicts
+
+The crash sequence:
+
+1. Tool switches to your branch
+2. Tool runs `git rebase origin/<your-branch>` automatically
+3. Rebase encounters conflicts from diverged history
+4. Tool cannot resolve conflicts interactively → crash
+
+### Prevention Strategies
+
+**Strategy 1: Use New Branch Name** (Safest after history rewrite)
+
+```bash
+# After reset + cherry-pick workflow is complete
+git checkout -b <feature>-v2
+# or
+git checkout -b <feature>-rebased
+
+# Now report_progress won't attempt rebase - no remote tracking branch exists yet
+```
+
+**Strategy 2: Manual Push Before Automation**
+
+If you must reuse the same branch:
+
+```bash
+# Complete all operations manually
+git fetch origin <target-branch>
+git reset --hard origin/<target-branch>
+git cherry-pick <commits...>
+
+# Verify changes
+git diff origin/<target-branch>..HEAD --stat
+
+# DON'T call report_progress here - ask user to push instead
+# Explain: "Branch ready, needs force-push: git push --force-with-lease origin <branch>"
+```
+
+**Strategy 3: Fresh Branch from Clean State**
+
+```bash
+# If you haven't pushed anything yet
+git checkout -b <new-feature-branch> origin/<target-branch>
+# Do your work
+# Call report_progress - safe because no divergence
+```
+
+### Detection: When You've Hit This Issue
+
+Error patterns indicating auto-rebase crash:
+
+- `Rebasing (1/NNN)` where NNN is very large (e.g., 113 commits)
+- `error: could not apply <sha>...`
+- `CONFLICT (content): Merge conflict in <file>`
+- `warning: skipped previously applied commit`
+- Session terminates with `GitError: rebase git error`
+
+### Recovery Steps
+
+If automation tool fails with rebase errors:
+
+1. **Abort the rebase**: `git rebase --abort`
+2. **Verify your local state**: `git log --oneline -5` and `git diff origin/<target-branch>..HEAD --stat`
+3. **Choose recovery path**:
+   - Create new branch: `git checkout -b <branch>-v2 && git push origin <branch>-v2`
+   - Or explain to user: "Branch ready at commit <sha>, needs manual push: `git push --force-with-lease origin <branch>`"
 
 **Best Practice**: Complete all git operations manually (fetch, reset, cherry-pick, verify) BEFORE calling
 automation tools. The tool will then simply push your clean, prepared commits.
