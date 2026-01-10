@@ -278,15 +278,13 @@ git diff origin/dev..HEAD --stat
 
 ## Troubleshooting tips
 
-- Always use non-interactive git commands in automation (e.g., git commit -m "msg") to avoid editor locks.
-- If you encounter index.lock errors, terminate all git processes and remove .git/index.lock before retrying.
-- After rebasing or rewriting branch history, use git push -f to update the remote branch, or push to a new branch if uncertain.
-- Do not trust success messages until git push returns exit code 0 and the branch is visible on GitHub.
-- If workflow switches branches unexpectedly or shows HEAD inconsistencies, re-verify branch state with git status and git branch -av.
-- For diverged branches, prefer creating and pushing to a new branch rather than force-pushing on top of remote history.
-- Rebase and push failures may require manual intervention—always review the logs for non-fast-forward or remote rejection errors.
-- Always verify the branch exists on the remote after a git push, using git ls-remote, git branch -r, or by checking the GitHub UI,
-  but never rely solely on success messages from the automation or Copilot agent.
+- Always use non-interactive git commands (e.g., git commit -m) to prevent editor locks in automation.
+- Never trust only success messages—verify branches exist on the remote using git ls-remote or the GitHub UI after any push.
+- For rewritten or rebased branches, use git push -f or push to a new branch; never attempt a normal push.
+- Check for merge conflicts (git status) before any push, and abort (git rebase --abort) and clean up on conflict.
+- Inspect all push/rebase failures in logs—manual intervention may be required if you see non-fast-forward or remote rejection errors.
+- Use unique branch names if retrying after failure or history rewrite.
+- Ensure your automation accounts have the correct GitHub permissions to create and push branches.
 
 ## What to Avoid
 
