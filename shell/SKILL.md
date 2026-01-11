@@ -2,7 +2,7 @@
 
 ---
 name: shell
-description: Efficient shell command execution with timing and timeout controls
+description: Efficient shell command handling
 license: MIT
 ---
 
