@@ -21,7 +21,7 @@ Expert in advanced git usage for repository agents. Prioritize non-interactive, 
 - **Amending last commit** (preserve author date): `git commit --amend --no-edit --date="$(git log -1 --format=%aD)"`
 - **Fixup previous commits** (non-interactive preparation):
   - Create fixup: `git commit --fixup <commit-sha>`
-  - Later autosquash (requires interactive rebase—propose to user or defer to PR squash if agent cannot handle `-i`): `git rebase -i --autosquash origin/main`
+  - Later autosquash (requires interactive rebase-propose to user or defer to PR squash if agent cannot handle `-i`): `git rebase -i --autosquash origin/main`
 - **Rebasing feature branches**: `git fetch origin && git rebase origin/main --no-verify` (add `--no-verify` only if hooks block)
 - **Cherry-picking without conflicts**: `git cherry-pick -x <commit-sha>` (`-x` records original SHA for traceability)
 - **Cherry-picking with editor bypass**: `GIT_EDITOR=true git cherry-pick --continue` (auto-accept commit message during conflict resolution)
@@ -162,7 +162,7 @@ that includes ALL commits from the target branch in your PR, making it impossibl
 
 - **Merge commits in PR**: Indicates wrong approach was used. Start over with reset + cherry-pick workflow.
 - **Too many changed files**: Verify you reset to correct target branch before cherry-picking.
-- **Conflict resolution mistakes**: When resolving conflicts, don't remove existing target branch content—only add your feature changes.
+- **Conflict resolution mistakes**: When resolving conflicts, don't remove existing target branch content-only add your feature changes.
 - **Wrong commit order**: When cherry-picking multiple commits, maintain original chronological order.
 
 ### Working with Automation Tools
@@ -179,7 +179,7 @@ The crash sequence:
 1. Tool switches to your branch
 2. Tool runs `git rebase origin/<your-branch>` automatically
 3. Rebase encounters conflicts from diverged history
-4. Tool cannot resolve conflicts interactively → crash
+4. Tool cannot resolve conflicts interactively -> crash
 
 ### Prevention Strategies
 
@@ -272,10 +272,10 @@ git diff origin/dev..HEAD --stat
 ## Troubleshooting tips
 
 - Always use non-interactive git commands (e.g., git commit -m) to prevent editor locks in automation.
-- Never trust only success messages—verify branches exist on the remote using git ls-remote or the GitHub UI after any push.
+- Never trust only success messages-verify branches exist on the remote using git ls-remote or the GitHub UI after any push.
 - For rewritten or rebased branches, use git push -f or push to a new branch; never attempt a normal push.
 - Check for merge conflicts (git status) before any push, and abort (git rebase --abort) and clean up on conflict.
-- Inspect all push/rebase failures in logs—manual intervention may be required if you see non-fast-forward or remote rejection errors.
+- Inspect all push/rebase failures in logs-manual intervention may be required if you see non-fast-forward or remote rejection errors.
 - Use unique branch names if retrying after failure or history rewrite.
 - Ensure your automation accounts have the correct GitHub permissions to create and push branches.
 
@@ -283,7 +283,7 @@ git diff origin/dev..HEAD --stat
 
 - Interactive operations (`git rebase -i`, `git add -p` without scripting, editor prompts).
 - Direct pushes to protected branches (main/master).
-- `git pull` in scripts—prefer explicit `fetch` + `rebase` or `merge --no-edit`.
+- `git pull` in scripts-prefer explicit `fetch` + `rebase` or `merge --no-edit`.
 - `--force` pushes without `--force-with-lease`.
 - Unqualified `git reset --hard` (prefer `git reset --hard origin/main` with backup tag).
 

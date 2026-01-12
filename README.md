@@ -74,7 +74,7 @@ the skill's directory.
 
 Find and share skills with the community:
 
-- [anthropics/skills](https://github.com/anthropics/skills) — Reference skills
+- [anthropics/skills](https://github.com/anthropics/skills) - Reference skills
   repository
-- [github/awesome-copilot](https://github.com/github/awesome-copilot) — Community
+- [github/awesome-copilot](https://github.com/github/awesome-copilot) - Community
   collection of Copilot resources
