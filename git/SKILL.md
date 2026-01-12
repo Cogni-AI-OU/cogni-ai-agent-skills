@@ -162,7 +162,7 @@ that includes ALL commits from the target branch in your PR, making it impossibl
 
 - **Merge commits in PR**: Indicates wrong approach was used. Start over with reset + cherry-pick workflow.
 - **Too many changed files**: Verify you reset to correct target branch before cherry-picking.
-- **Conflict resolution mistakes**: When resolving conflicts, don't remove existing target branch content-only add your feature changes.
+- **Conflict resolution mistakes**: When resolving conflicts, don't remove existing target branch content - only add your feature changes.
 - **Wrong commit order**: When cherry-picking multiple commits, maintain original chronological order.
 
 ### Working with Automation Tools
