@@ -272,10 +272,10 @@ git diff origin/dev..HEAD --stat
 ## Troubleshooting tips
 
 - Always use non-interactive git commands (e.g., git commit -m) to prevent editor locks in automation.
-- Never trust only success messages-verify branches exist on the remote using git ls-remote or the GitHub UI after any push.
+- Never trust only success messages - verify branches exist on the remote using git ls-remote or the GitHub UI after any push.
 - For rewritten or rebased branches, use git push -f or push to a new branch; never attempt a normal push.
 - Check for merge conflicts (git status) before any push, and abort (git rebase --abort) and clean up on conflict.
-- Inspect all push/rebase failures in logs-manual intervention may be required if you see non-fast-forward or remote rejection errors.
+- Inspect all push/rebase failures in logs - manual intervention may be required if you see non-fast-forward or remote rejection errors.
 - Use unique branch names if retrying after failure or history rewrite.
 - Ensure your automation accounts have the correct GitHub permissions to create and push branches.
 
@@ -283,7 +283,7 @@ git diff origin/dev..HEAD --stat
 
 - Interactive operations (`git rebase -i`, `git add -p` without scripting, editor prompts).
 - Direct pushes to protected branches (main/master).
-- `git pull` in scripts-prefer explicit `fetch` + `rebase` or `merge --no-edit`.
+- `git pull` in scripts - prefer explicit `fetch` + `rebase` or `merge --no-edit`.
 - `--force` pushes without `--force-with-lease`.
 - Unqualified `git reset --hard` (prefer `git reset --hard origin/main` with backup tag).
 
