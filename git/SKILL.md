@@ -21,7 +21,7 @@ Expert in advanced git usage for repository agents. Prioritize non-interactive, 
 - **Amending last commit** (preserve author date): `git commit --amend --no-edit --date="$(git log -1 --format=%aD)"`
 - **Fixup previous commits** (non-interactive preparation):
   - Create fixup: `git commit --fixup <commit-sha>`
-  - Later autosquash (requires interactive rebase-propose to user or defer to PR squash if agent cannot handle `-i`): `git rebase -i --autosquash origin/main`
+  - Later autosquash (requires interactive rebase - propose to user or defer to PR squash if agent cannot handle `-i`): `git rebase -i --autosquash origin/main`
 - **Rebasing feature branches**: `git fetch origin && git rebase origin/main --no-verify` (add `--no-verify` only if hooks block)
 - **Cherry-picking without conflicts**: `git cherry-pick -x <commit-sha>` (`-x` records original SHA for traceability)
 - **Cherry-picking with editor bypass**: `GIT_EDITOR=true git cherry-pick --continue` (auto-accept commit message during conflict resolution)
