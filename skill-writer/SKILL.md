@@ -90,10 +90,16 @@ When creating or updating a skill file, ensure the following format:
   self-contained loops, built-in error recovery, verification steps, and no user
   confirmation prompts except for safety-critical actions.
 
-- **Skill Length Management**: If a skill exceeds or approaches 400 lines, or
-  if content becomes unfocused, split it into multiple specialized skills with
-  narrow, non-overlapping activation descriptions to maintain conciseness,
-  precise triggering, and efficient token usage.
+- **Skill Length Management**: Keep skills concise and focused, ideally under 100
+  lines. If a skill exceeds or approaches 400 lines, or if content becomes
+  unfocused, split it into multiple specialized skills with narrow,
+  non-overlapping activation descriptions to maintain conciseness, precise
+  triggering, and efficient token usage.
+
+- **Example Discipline**: Use fewer, shorter examples. Include only essential
+  examples that demonstrate key patterns—avoid multiple variations of the same
+  concept. Prefer single-line examples over multi-line blocks when possible.
+  Quality over quantity: each example must add distinct value.
 
 - **Avoid Hardcoding**: Never embed specific values, file paths, repository
   names, user details, or tool versions; instead, use clear placeholders (e.g.,
@@ -101,7 +107,6 @@ When creating or updating a skill file, ensure the following format:
 
 - **Command-Line Tool Examples**: When the skill involves command-line tools,
   derive them dynamically via tools/read operations to maximize skill generality
-  and cross-project reusability. Always provide useful examples of key
-  commands—especially for complex, multi-flag, piped, or non-standard
-  operations—to ensure precise reproduction, minimize agent misinterpretation,
-  and reduce execution failures.
+  and cross-project reusability. Provide concise examples of key commands—focus
+  on complex, multi-flag, piped, or non-standard operations that require precise
+  reproduction. Avoid repetitive or overly specific examples.
