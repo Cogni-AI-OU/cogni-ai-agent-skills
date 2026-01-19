@@ -19,6 +19,7 @@ Expert in advanced git usage for repository agents. Prioritize non-interactive, 
 ## Non-Interactive Patterns
 
 - **Amending last commit** (preserve author date): `git commit --amend --no-edit --date="$(git log -1 --format=%aD)"`
+- **Renaming files** (preserve history): `git mv old_file new_file` (instead of `mv` or `rm`)
 - **Fixup previous commits** (non-interactive preparation):
   - Create fixup: `git commit --fixup <commit-sha>`
   - Later autosquash (requires interactive rebase - propose to user or defer to PR squash if agent cannot handle `-i`): `git rebase -i --autosquash origin/main`
