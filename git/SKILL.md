@@ -287,5 +287,6 @@ git diff origin/dev..HEAD --stat
 - `git pull` in scripts - prefer explicit `fetch` + `rebase` or `merge --no-edit`.
 - `--force` pushes without `--force-with-lease`.
 - Unqualified `git reset --hard` (prefer `git reset --hard origin/main` with backup tag).
+- When user asks to remove files, use `git rm` instead of `rm`.
 
 Always explain proposed git operations step-by-step, quote exact commands, and confirm irreversible actions with the user.
