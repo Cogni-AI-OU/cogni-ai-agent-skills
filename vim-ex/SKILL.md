@@ -19,29 +19,29 @@ incompatibilities between GNU/Linux and macOS), `ex` safely and natively edits t
 You can run `ex` using the `-c` flag for commands and `-s` for silent (batch) mode:
 
 ```bash
-# Search and replace all occurrences
-ex -s -c '%s/oldString/newString/g' -c 'wq' filename.txt
+# Search and replace all occurrences in a user-owned configuration file
+ex -s -c '%s/alias/alias_new/g' -c 'wq' ~/.bashrc
 
-# Append text to the end of a file
-ex -s -c '$put =\"New appended line\"' -c 'wq' filename.txt
+# Append text (e.g., a new export path) to the end of your bash profile
+ex -s -c '$put =\"export PATH=$PATH:~/bin\"' -c 'wq' ~/.bash_profile
 
-# Delete a specific line (e.g., line 5)
-ex -s -c '5d' -c 'wq' filename.txt
+# Delete a specific line (e.g., line 5) from an SSH configuration
+ex -s -c '5d' -c 'wq' ~/.ssh/config
 
-# Wrap all lines in a file to 120 characters
-ex -s -c 'set tw=120' -c '%normal gqq' -c 'wq' filename.txt
+# Wrap all lines in a markdown document to 120 characters
+ex -s -c 'set tw=120' -c '%normal gqq' -c 'wq' README.md
 
 # Wrap specific lines (e.g., lines 19 to 23) to 120 characters
-ex -s -c 'set tw=120' -c '19,23normal gqq' -c 'wq' filename.txt
+ex -s -c 'set tw=120' -c '19,23normal gqq' -c 'wq' README.md
 ```
 
 ## Using Heredocs
 
-For multiple commands, a heredoc is often cleaner:
+For multiple commands, a heredoc is often cleaner (e.g., removing debugging logs from a python code file):
 
 ```bash
-ex -s filename.txt << 'VIMEOF'
-%s/foo/bar/g
+ex -s main.py << 'VIMEOF'
+%s/print("debug: .*/pass/g
 3,5d
 wq
 VIMEOF
@@ -49,15 +49,15 @@ VIMEOF
 
 ## Using a Script File
 
-When you have a complex or reusable set of commands, you can store them in a script file
-and apply them to your target file using standard input redirection or the `source` command:
+When you have a complex or reusable set of commands, you can store them in a `.vim` file
+and apply them to your target using standard input redirection or the `source` command:
 
 ```bash
 # Using standard input redirection
-ex -s Makefile < Makefile-Fix1.vim
+ex -s ~/.bashrc < ~/.vim/custom_bash_rules.vim
 
 # Alternatively, using the source command
-ex -s -c "source Makefile-Fix1.vim" Makefile
+ex -s -c "source ~/.vim/custom_bash_rules.vim" ~/.bashrc
 ```
 
 ## Advanced Examples
@@ -81,23 +81,25 @@ ex -s -c '/<div.*id="the_div_id"/norm nvatd' -c '%p' -c 'q!' index.html
 echo "This is example." | vim -es '+s/example/test/g' '+%print' '+q!' /dev/stdin
 echo "This is example." | ex -s -c '%s/example/test/g' -c '%p' -c 'q!' /dev/stdin
 
-# More examples for editing files in-place (non-interactive)
-ex -s -c '%s/127/128/g' -c 'wq' file
-ex -s -c '%s/olddomain\.com/newdomain.com/g' -c 'wq' file
-printf '%s\n' '%s/olddomain\.com/newdomain.com/ge' w q | ex -s file
-ex -s file <<< $'%s/old/new/ge\nw\nq'
+# More examples for editing files in-place or via streams (non-interactive)
+ex -s -c '%s/127/128/g' -c 'wq' /etc/hosts
+ex -s -c '%s/olddomain\.com/newdomain.com/g' -c 'wq' /etc/nginx/nginx.conf
+printf '%s\n' '%s/olddomain\.com/newdomain.com/ge' w q | ex -s /etc/nginx/nginx.conf
+ex -s /etc/hosts <<< $'%s/localhost/localhost.localdomain/ge\nw\nq'
 ex -s -c 'argdo %s/old/new/ge|update' -c 'q' ./**
 find . -type f -exec ex -s -c '%s/old/new/ge' -c 'wq' {} \;
 ex -s -c '%p' -c 'q!' /etc/hosts
 ```
 
-Running vim/ex commands from a file:
+Instead of maintaining an external `.vim` script file (which adds clutter),
+you can stream multiple `ex` commands directly using a here-document:
 
 ```bash
-echo :%s/127/128/g > cmds.vim
-echo :%print >> cmds.vim
-echo :%quit! >> cmds.vim
-ex -s /etc/hosts < cmds.vim # The same as: vim -s cmds.vim /etc/hosts
+ex -s /etc/hosts << 'EOF'
+%s/127/128/g
+%print
+q!
+EOF
 ```
 
 ### Parse HTML/XML with Ex Mode
@@ -108,46 +110,46 @@ Examples:
 # Extracting html tags
 ex -s -c 'bufdo! /<div.*id=.the_div_id/norm nvatdggdG"2p' -c 'bufdo! %p' -c 'qa!' *.html
 
-# Removing XML tags
-ex -s -c '%s/<[^>].\{-}>//ge' -c '%p' -c 'q!' file.txt
+# Removing XML tags by piping stream data directly to standard input
+echo "<root> <item>data</item> </root>" | ex -s -c '%s/<[^>].\{-}>//ge' -c '%p' -c 'q!' /dev/stdin
 
 # Removing style tag from the header and print the parsed output
 curl -s http://example.com/ | ex -s -c '/<style.*/norm nvatd' -c '%p' -c 'q!' /dev/stdin
 
-# Parse html with multiple complex rules
-ex -s index.html << 'EOF'
+# Parse html with multiple complex rules by passing HTML dynamically
+curl -s http://example.com | ex -s /dev/stdin << 'EOF'
   %s,'//,'http://,ge
   %s,"//,"http://,ge
-  %s,[^,]\zs'/\ze[^>],'http://www.example.com/,ge
-  %s,[^,]\zs"/\ze[^>],"http://www.example.com/,ge
   " Remove the margin on the left of the main block. "
   %s/id="doc_container"/id="doc_container" style="min-width:0px;margin-left : 0px;"/ge
   %s/<div class="outer_page/<div style="margin: 0px;" class="outer_page/ge
   " Remove useless html elements. "
   /<div.*id="global_header"/norm nvatd
-  wq " Update changes and quit.
+  %p " Print changes
+  q! " Quit without saving
 EOF
 
-# Real live example from the RPM specification
-ex -s Makefile << 'EOF'
+# Real live example from an RPM specification dynamically compiled via stdin
+cat main.spec | ex -s /dev/stdin << 'EOF'
    %s/CFLAGS = -g$/CFLAGS =-fPIC -DPIC -g/ge
    %s/CFLAGS =$/CFLAGS =-fPIC -DPIC/ge
    %s/ADAFLAGS =$/ADAFLAGS =-fPIC -DPIC/ge
-   wq
+   %p
+   q!
 EOF
 ```
 
-Create a new HTML file by downloading html of Example site
-and replacing its body by auto-generated 20x20 table with random numbers in it:
+Create a new HTML structure by downloading HTML of Example site
+and replacing its body by an auto-generated 20x20 table with random numbers in it (streamed to standard out):
 
 ```bash
-ex -s table.html << 'VIMEOF'
-%!curl -s example.com
+curl -s example.com | ex -s /dev/stdin << 'VIMEOF' > generated_table.html
 let @t='<table>'.repeat('<tr>'.repeat('<td>_</td>',20).'</tr>',20).'</table>'
 /<body
 norm! vitd"tP
 %s/_/\=trim(system('echo $RANDOM'))/g
-wq
+%p
+q!
 VIMEOF
 ```
 
@@ -157,7 +159,7 @@ One-liner to convert source code file into HTML using one of the standard plugin
 (redirecting standard output to `/dev/null` avoids unnecessary logging):
 
 ```bash
-ex -s -c 'let g:html_no_progress=1' -c 'syntax on' -c 'set ft=c' -c 'runtime syntax/2html.vim' -c 'wqa' my_code.c > /dev/null
+ex -s -c 'let g:html_no_progress=1' -c 'syntax on' -c 'set ft=c' -c 'runtime syntax/2html.vim' -c 'wqa' main.c > /dev/null
 ```
 
 ## Tips
@@ -167,6 +169,10 @@ ex -s -c 'let g:html_no_progress=1' -c 'syntax on' -c 'set ft=c' -c 'runtime syn
 - Use `ex` when complex string replacements or regular expression-based modifications are required directly
   from the terminal without breaking the automated flow.
 - When adding or updating examples in this file, ensure they work non-interactively and do not require user input.
+
+## Troubleshooting
+
+- When testing new commands, use `timeout` to prevent hanging risks.
 
 ## References
 
