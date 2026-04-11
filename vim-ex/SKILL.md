@@ -130,7 +130,7 @@ curl -s http://example.com | ex -s /dev/stdin << 'EOF'
 EOF
 
 # Real live example from an RPM specification dynamically compiled via stdin
-cat main.spec | ex -s /dev/stdin << 'EOF'
+ex -s main.spec << 'EOF'
    %s/CFLAGS = -g$/CFLAGS =-fPIC -DPIC -g/ge
    %s/CFLAGS =$/CFLAGS =-fPIC -DPIC/ge
    %s/ADAFLAGS =$/ADAFLAGS =-fPIC -DPIC/ge
