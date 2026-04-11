@@ -172,7 +172,18 @@ ex -s -c 'let g:html_no_progress=1' -c 'syntax on' -c 'set ft=c' -c 'runtime syn
 
 ## Troubleshooting
 
-- When testing new commands, use `timeout` to prevent hanging risks.
+- **Hanging Commands:** When testing new commands, use `timeout` to prevent hanging risks on read-only files.
+- **Range Errors (e.g. Exit code 1 with no output):** Complex address ranges like `/<pattern>/+1,+3command` often fail
+  because `ex` evaluates the second relative address before the cursor moves to the pattern. Splitting them solves this by
+  explicitly moving the cursor first:
+
+  ```bash
+  # Fails (evaluates +3 relative to line 1)
+  ex -s -c '/MyPattern/+1,+3d' -c 'wq' file.txt
+
+  # Succeeds (moves cursor to MyPattern, then deletes the next 3 lines)
+  ex -s -c '/MyPattern/' -c '+1,+3d' -c 'wq' file.txt
+  ```
 
 ## References
 
