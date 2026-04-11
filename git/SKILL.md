@@ -272,13 +272,23 @@ git diff origin/dev..HEAD --stat
 
 ## Troubleshooting tips
 
-- Always use non-interactive git commands (e.g., git commit -m) to prevent editor locks in automation.
-- Never trust only success messages - verify branches exist on the remote using git ls-remote or the GitHub UI after any push.
-- For rewritten or rebased branches, use git push -f or push to a new branch; never attempt a normal push.
-- Check for merge conflicts (git status) before any push, and abort (git rebase --abort) and clean up on conflict.
-- Inspect all push/rebase failures in logs - manual intervention may be required if you see non-fast-forward or remote rejection errors.
+- Always use non-interactive git commands (e.g., git commit -m) to prevent editor locks in
+  automation.
+- Never trust only success messages - verify branches exist on the remote using git ls-remote or
+  the GitHub UI after any push.
+- For rewritten or rebased branches, use git push -f or push to a new branch; never attempt a
+  normal push.
+- Check for merge conflicts (git status) before any push, and abort (git rebase --abort) and
+  clean up on conflict.
+- **Handling rejected pushes (fetch first)**: If `git push` fails with `rejected ... (fetch first)`
+  because the remote contains new work you do not have locally, NEVER forcefully overwrite it.
+  Always pull the latest changes first (e.g. `git pull --rebase origin <branch>`) to apply your
+  local commits on top of the remote changes, resolve conflicts if any, and then retry `git push`.
+- Inspect all push/rebase failures in logs - manual intervention may be required if you see
+  non-fast-forward or remote rejection errors.
 - Use unique branch names if retrying after failure or history rewrite.
-- Ensure your automation accounts have the correct GitHub permissions to create and push branches.
+- Ensure your automation accounts have the correct GitHub permissions to create and push
+  branches.
 
 ## What to Avoid
 
