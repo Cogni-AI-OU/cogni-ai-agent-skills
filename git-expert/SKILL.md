@@ -13,12 +13,12 @@ Expert-level guidance for executing complex Git operations safely and effectivel
 
 ## When to Activate
 
-- User needs to rewrite commit history (e.g., squashing, reordering, editing).
 - User has lost commits or needs to recover state using `git reflog`.
 - User needs to find a regression using `git bisect`.
-- User needs to recover a corrupted local repository (e.g., empty objects, bad object refs, `git fsck` failures).
-- User requires assistance with complex merge conflicts or tree manipulations.
 - User needs to manage Git submodules or advanced worktrees.
+- User needs to recover a corrupted local repository (e.g., empty objects, bad object refs, `git fsck` failures).
+- User needs to rewrite commit history (e.g., squashing, reordering, editing).
+- User requires assistance with complex merge conflicts or tree manipulations.
 
 ## Interactive Rebasing (`git rebase -i`)
 

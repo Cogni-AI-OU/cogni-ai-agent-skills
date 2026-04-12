@@ -10,6 +10,12 @@ license: MIT
 ---
 Expert guide for pre-commit framework usage, configuration, and custom hook development. Focus on autonomous validation, diagnostics, and fix workflows.
 
+## When to Activate
+
+- Analyzing why pre-commit validation blocked a user's local git commit.
+- Running mass syntax/lint checks on the repository proactively.
+- User needs to configure, update, or bypass a pre-commit hook (markdownlint, yamllint, etc.).
+
 ## Core Principles
 
 - **Staged files only**: Pre-commit runs exclusively on staged (cached) files, not the entire working directory.

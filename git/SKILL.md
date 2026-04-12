@@ -10,6 +10,13 @@ license: MIT
 ---
 Expert in advanced git usage for repository agents. Prioritize non-interactive, safe, reproducible operations that maintain clean history and respect repository conventions.
 
+## When to Activate
+
+- A user wants to understand repository git hooks related to their commits.
+- The agent needs to perform safe, non-interactive Git lifecycle tasks.
+- User asks for help to execute Git operations natively (committing, moving files, merging).
+- User encounters issues when amending or reverting code changes in history.
+
 ## Core Principles
 
 - **Non-interactive execution**: Commands must run without prompting. Never use interactive modes (`-i`, `--interactive`, default editors).

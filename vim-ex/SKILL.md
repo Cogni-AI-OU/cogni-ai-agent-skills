@@ -17,7 +17,7 @@ execute complex multi-line modifications, and utilize powerful normal-mode comma
 mimics in-place editing by secretly using temporary files (which leads to notoriously frustrating syntax
 incompatibilities between GNU/Linux and macOS), `ex` safely and natively edits the file directly in-place.
 
-## When to Use Ex Mode
+## When to Activate
 
 You should prefer using `ex` over standard shell utilities (`sed`, `awk`, `grep`) in the following scenarios:
 

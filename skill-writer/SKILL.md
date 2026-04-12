@@ -17,16 +17,16 @@ repository standards.
 
 ## When to Activate
 
-- User explicitly asks to create or update a skill for a specific issue, topic
-  or task.
-- User requests to update, improve, or refactor an existing SKILL.md.
-- User provides new rules, examples, or feedback intended to guide skill
-  authoring.
 - Capture Agent Insights: When the agent struggles with a recurring task,
   encounters repeated failures, or discovers an effective new solution/workaround
   not already documented, update the relevant existing skill (or create a new
   one) to incorporate the insight, ensuring future activations handle the case
   more efficiently.
+- User explicitly asks to create or update a skill for a specific issue, topic
+  or task.
+- User provides new rules, examples, or feedback intended to guide skill
+  authoring.
+- User requests to update, improve, or refactor an existing SKILL.md.
 
 ## Core Process
 

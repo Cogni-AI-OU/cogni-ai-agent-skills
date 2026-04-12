@@ -8,6 +8,12 @@ description: >-
 ---
 # Molecule Testing
 
+## When to Activate
+
+- Agent needs to execute syntax/lint/test checks for Ansible playbooks locally.
+- Troubleshooting configuration logic inside devcontainers or codespaces.
+- User needs to run or debug Ansible role testing frameworks using Molecule.
+
 ## Commands
 
 ```bash
