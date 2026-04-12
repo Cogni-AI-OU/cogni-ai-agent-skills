@@ -1,6 +1,9 @@
 ---
 name: vim-ex
-description: 'How to use Ex mode in Vim for non-interactive file editing (e.g., complex text substitution, deleting lines, file parsing, wrapping text, sorting lines)'
+description: >-
+  How to use Ex mode in Vim for non-interactive file editing (e.g., complex text substitution, deleting lines, file parsing, wrapping text, sorting lines)
+
+  Maintained at: https://github.com/Cogni-AI-OU/.github/blob/main/.github/skills/vim-ex/SKILL.md
 ---
 
 # File Editing with Ex Mode
@@ -261,9 +264,14 @@ ex -s -c 'let g:html_no_progress=1' -c 'syntax on' -c 'set ft=c' \
 
 ## Tips
 
+- **Appending Text in Heredocs:** When appending lines within an `ex` heredoc script, use `a` followed by a newline,
+  the text to insert, and a single `.` on a new line to terminate the block. Do not use the `a\` syntax
+  (which is only suitable for inline `-c` commands).
 - **Custom Delimiters:** Use alternative delimiters in substitutions (e.g., `%s!pattern!replacement!g` or
   `%s,pattern,replacement,g`) when manipulating HTML tags (like `</body>`), paths, or URLs to bypass
   repetitive backslash escaping.
+- **Inserting Newlines in Substitutions:** When using the substitution command (`s/.../.../`),
+  you cannot insert literal newlines or `\n`. You must use `\r` in the replacement string to generate a newline (e.g., `%s/old/new\rnewLine/g`).
 - **Non-interactive Execution:** When adding or updating examples in this file, ensure they work
   non-interactively and do not require user input.
 - **Preserve Examples:** Do not change existing examples unless they are not working; keep proven examples unchanged.
