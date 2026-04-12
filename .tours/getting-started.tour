@@ -1,21 +1,21 @@
 {
   "$schema": "https://aka.ms/codetour-schema",
-  "title": "Getting Started with Example Ops Template",
+  "title": "Getting Started with Cogni AI Agent Skills",
   "description": "A comprehensive walkthrough of the repository structure, development setup, and contribution guidelines",
   "isPrimary": true,
   "steps": [
     {
       "title": "Welcome!",
-      "description": "# Welcome to the Example Ops Template Repository! \ud83c\udf89\n\nThis code tour will guide you through the repository structure and help you understand how to contribute to this project.\n\n## What You'll Learn\n\n- Repository structure and organization\n- Development environment setup\n- Coding standards and best practices\n- How to run validation tools\n- Contribution workflow\n\nLet's get started!"
+      "description": "# Welcome to the Cogni AI Agent Skills Repository! \ud83c\udf89\n\nThis code tour will guide you through the repository structure and help you understand how to contribute to this project.\n\n## What You'll Learn\n\n- Repository structure and organization\n- Development environment setup\n- Coding standards and best practices\n- How to run validation tools\n- Contribution workflow\n\nLet's get started!"
     },
     {
       "title": "Project Overview",
-      "description": "## About This Project\n\nThis is a template repository that provides a standardized starting point for operational projects. It's designed to provide:\n\n- Python 3.11+ development environment\n- Pre-configured devcontainer for consistent development\n- Comprehensive pre-commit hooks for code quality\n- GitHub Actions for CI/CD\n- Claude and OpenCode automation assets\n- Multiple coding standards and guidelines\n\nThe project uses modern Python tooling including `uv` for dependency management and `pre-commit` for automated checks.",
+      "description": "## About This Project\n\nThis repository maintains technical skills commonly used by AI agents. It's designed to provide:\n\n- Python 3.11+ development environment\n- Pre-configured devcontainer for consistent development\n- Comprehensive pre-commit hooks for code quality\n- GitHub Actions for CI/CD\n- Claude and OpenCode automation assets\n- Multiple coding standards and guidelines\n\nThe project uses modern Python tooling including `uv` for dependency management and `pre-commit` for automated checks.",
       "file": "README.md"
     },
     {
       "title": "Project Configuration",
-      "description": "## Project Metadata\n\nThe `pyproject.toml` file contains the project's metadata and dependencies:\n\n- **Name**: example-ops-template\n- **Python Version**: >=3.11\n- **Key Dependencies**: requests, tabulate, PyYAML\n\nThis follows modern Python packaging standards using the `hatchling` build backend.",
+      "description": "## Project Metadata\n\nThe `pyproject.toml` file contains the project's metadata and dependencies:\n\n- **Name**: cogni-ai-agent-skills\n- **Python Version**: >=3.11\n- **Key Dependencies**: requests, tabulate, PyYAML\n\nThis follows modern Python packaging standards using the `hatchling` build backend.",
       "file": "pyproject.toml",
       "line": 7
     },
