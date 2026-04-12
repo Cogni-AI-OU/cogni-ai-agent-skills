@@ -111,3 +111,7 @@ When creating or updating a skill file, ensure the following format:
   and cross-project reusability. Provide concise examples of key commands—focus
   on complex, multi-flag, piped, or non-standard operations that require precise
   reproduction. Avoid repetitive or overly specific examples.
+
+## Maintenance
+
+Note that this file should be updated if outdated or steps/examples are not-working.

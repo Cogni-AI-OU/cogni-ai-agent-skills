@@ -373,3 +373,7 @@ sed -n "${current},$((current + chunk_size))p" file.txt
 - **Iterate**: You can always come back for more details if needed
 
 Your context window is precious - use it wisely!
+
+## Maintenance
+
+Note that this file should be updated if outdated or steps/examples are not-working.

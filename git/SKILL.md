@@ -306,3 +306,7 @@ git diff origin/dev..HEAD --stat
 - When user asks to remove files, use `git rm` instead of `rm`.
 
 Always explain proposed git operations step-by-step, quote exact commands, and confirm irreversible actions with the user.
+
+## Maintenance
+
+Note that this file should be updated if outdated or steps/examples are not-working.

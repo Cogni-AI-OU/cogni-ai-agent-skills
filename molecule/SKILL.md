@@ -39,3 +39,7 @@ environment.
 Python but Ansible still cannot import it, check `ansible --version` to identify the interpreter in use. In
 Codespaces/devcontainers, Ansible may run from a pipx-managed environment, so install controller-side libraries there as
 well, for example with `pipx inject ansible -r .devcontainer/requirements-ansible.txt`.
+
+## Maintenance
+
+Note that this file should be updated if outdated or steps/examples are not-working.
