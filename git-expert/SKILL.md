@@ -24,8 +24,9 @@ Expert-level guidance for executing complex Git operations safely and effectivel
 
 - **Objective**: Clean up local commit history before pushing.
 - **Process**:
-  - Start rebase: `git rebase -i <base-commit-or-branch>`
-  - Set `GIT_SEQUENCE_EDITOR=true` for non-interactive automated rewrites if scripted.
+  - **WARNING**: Interactive modes (`-i`) are FORBIDDEN in runtime automation. Ensure `-i` is strictly scoped to local manual-only usage.
+  - Start manual rebase: `git rebase -i <base-commit-or-branch>`
+  - Automated rewrites: Set `GIT_SEQUENCE_EDITOR=true` for non-interactive execution if scripted.
   - Actions: `pick`, `reword`, `edit`, `squash` (or `s`), `fixup` (or `f`), `drop`.
 - **Safety**: NEVER rebase commits that have already been pushed to a shared public
   branch unless explicitly coordinating a force-push.
