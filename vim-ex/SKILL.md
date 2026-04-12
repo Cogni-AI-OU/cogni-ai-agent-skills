@@ -87,6 +87,8 @@ ex -s -c '%s/olddomain\.com/newdomain.com/g' -c 'wq' /etc/nginx/nginx.conf
 printf '%s\n' '%s/olddomain\.com/newdomain.com/ge' w q | ex -s /etc/nginx/nginx.conf
 ex -s /etc/hosts <<< $'%s/localhost/localhost.localdomain/ge\nw\nq'
 ex -s -c 'argdo %s/old/new/ge|update' -c 'q' ./**/*.txt
+ex -s -c 'argdo g/TODO/d|update' -c 'q' ./**/*.txt
+ex -s -c 'argdo g/^debug_print/s/^/# /|update' -c 'q' ./**/*.py
 find . -type f -name '*.txt' -exec ex -s -c '%s/old/new/ge' -c 'wq' {} \;
 ex -s -c '%p' -c 'q!' /etc/hosts
 ```
