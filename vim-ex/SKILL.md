@@ -14,6 +14,21 @@ execute complex multi-line modifications, and utilize powerful normal-mode comma
 mimics in-place editing by secretly using temporary files (which leads to notoriously frustrating syntax
 incompatibilities between GNU/Linux and macOS), `ex` safely and natively edits the file directly in-place.
 
+## When to Use Ex Mode
+
+You should prefer using `ex` over standard shell utilities (`sed`, `awk`, `grep`) in the following scenarios:
+
+- **Batch editing multiple files:** When modifying multiple files at once, especially for small identical changes,
+  making `ex` (via `find -exec` or `argdo`) far more efficient and flexible than generating and applying patch tooling.
+- **Complex structured parsing:** When editing unstructured or multi-line formats (HTML, XML) where strict line-by-line
+  stream processing is too fragile.
+- **Multi-line manipulation:** When your edits require moving around a file (e.g., finding a specific pattern, moving up
+  a few lines, and applying a change).
+- **Native in-place editing:** To avoid the GNU/BSD syntax nightmare of `sed -i` across different operating systems.
+- **Script reliability:** When writing bash heredocs (`<< EOF`) for complex configuration file patching.
+- **Vim power from the shell:** Whenever you want to leverage Vim's normal mode commands (like `gqq` for formatting or
+  `norm! vitd` for text object deletion) non-interactively.
+
 ## Basic Usage
 
 You can run `ex` using the `-c` flag for commands and `-s` for silent (batch) mode:
