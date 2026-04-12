@@ -1,0 +1,16 @@
+# Lychee ignore patterns for link checking
+# Patterns in this file will be excluded from link checking
+# It supports regular expressions. One expression per line.
+
+# Localhost and example URLs
+http://localhost
+https://localhost
+http://127.0.0.1
+https://127.0.0.1
+http://example.com
+https://example.com
+https://github.com/org/repo
+
+# URLs that fail due to network blocks
+# If DNS/firewall is the issue, allowlist the host in .github/agents/FIREWALL.md
+# Only ignore here when link checks still fail after that.

@@ -1,0 +1,176 @@
+---
+# See: <https://opencode.ai/docs>
+# Note: Keep keys and envs in alphabetical order.
+name: OpenCode
+# Prevent concurrent runs on the same branch to avoid push conflicts.
+# When a new run is triggered, the previous pending run is cancelled.
+concurrency:
+  cancel-in-progress: false
+  group: >-
+    ${{
+      github.workflow
+    }}-${{
+      github.event.pull_request.number ||
+      github.event.issue.number ||
+      github.head_ref ||
+      github.ref_name
+    }}
+on:
+  issue_comment:
+    types:
+      - created
+      - edited
+  pull_request_review_comment:
+    types:
+      - created
+      - edited
+  workflow_call:
+    inputs:
+      agent:
+        default: build
+        description: Agent to use.
+        required: false
+        type: string
+      model:
+        default: opencode/claude-opus-4-5
+        description: Model to use for OpenCode
+        required: false
+        type: string
+      prompt:
+        description: Custom prompt to override the default prompt
+        required: false
+        type: string
+  workflow_dispatch:
+    inputs:
+      agent:
+        default: cogni-ai
+        description: Agent to use.
+        options:
+          - build
+          - cogni-ai
+          - compaction
+          - plan
+          - summary
+          - title
+        required: false
+        type: choice
+      model:
+        default: opencode/claude-opus-4-5
+        description: Model to use for OpenCode
+        options:
+          - opencode/big-pickle
+          - opencode/claude-3-5-haiku
+          - opencode/claude-haiku-4-5
+          - opencode/claude-opus-4-1
+          - opencode/claude-opus-4-5
+          - opencode/claude-opus-4-6
+          - opencode/claude-sonnet-4
+          - opencode/claude-sonnet-4-5
+          - opencode/claude-sonnet-4-6
+          - opencode/gemini-3.1-pro
+          - opencode/gemini-3-flash
+          - opencode/gemini-3-pro
+          - opencode/glm-4.6
+          - opencode/glm-4.7-free
+          - opencode/glm-5
+          - opencode/glm-5.1
+          - opencode/gpt-5
+          - opencode/gpt-5-codex
+          - opencode/gpt-5-nano
+          - opencode/gpt-5.1
+          - opencode/gpt-5.1-codex
+          - opencode/gpt-5.1-codex-max
+          - opencode/gpt-5.1-codex-mini
+          - opencode/gpt-5.2
+          - opencode/gpt-5.2-codex
+          - opencode/gpt-5.3-codex
+          - opencode/gpt-5.3-codex-spark
+          - opencode/gpt-5.4
+          - opencode/gpt-5.4-mini
+          - opencode/gpt-5.4-nano
+          - opencode/gpt-5.4-pro
+          - opencode/grok-code
+          - opencode/kimi-k2
+          - opencode/kimi-k2-thinking
+          - opencode/kimi-k2.5
+          - opencode/minimax-m2.1-free
+          - opencode/minimax-m2.5
+          - opencode/minimax-m2.5-free
+          - opencode/nemotron-3-super-free
+          - opencode/qwen3-coder
+          - opencode/qwen3.6-plus-free
+        required: false
+        type: choice
+      prompt:
+        description: Custom prompt to override the default prompt
+        required: false
+jobs:
+  opencode:
+    if: |
+      github.event_name == 'workflow_dispatch' || github.event_name == 'workflow_call' || (
+        !endsWith(github.actor, '[bot]') &&
+        contains(fromJson('["COLLABORATOR","CONTRIBUTOR","MEMBER","OWNER"]'), github.event.comment.author_association)
+        && (
+          contains(github.event.comment.body, '/oc') ||
+          contains(github.event.comment.body, '/opencode') ||
+          contains(github.event.comment.body, '@opencode') ||
+          contains(github.event.comment.body, '@OpenCode')
+        )
+      )
+    name: OpenCode
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      id-token: write  # Needed so opencode can request an OIDC token for GitHub API calls
+      issues: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false  # Prevents duplicate Authorization header
+      - uses: actions/setup-python@v6.1.0
+        with:
+          python-version: '3.12'
+      - name: Install pre-commit
+        run: pip install pre-commit
+      - name: Run opencode
+        uses: anomalyco/opencode/github@latest
+        timeout-minutes: 60
+        env:
+          GITHUB_EVENT_NAME: ${{ github.event_name == 'pull_request_target' && 'pull_request' || github.event_name }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          OPENCODE_API_KEY: ${{ secrets.OPENCODE_API_KEY }}
+          # Keep shell permissions aligned with .vscode/settings.json allowlist and in alphabetical order.
+          OPENCODE_PERMISSION: |-
+            {
+              "bash": {
+                "*": "deny",
+                "ansible*": "allow",
+                "ansible-galaxy*": "allow",
+                "ansible-playbook*": "allow",
+                "awk*": "allow",
+                "continue*": "allow",
+                "cp*": "allow",
+                "ex*": "allow",
+                "gh*": "allow",
+                "gh pr review*": "deny",
+                "git*": "allow",
+                "hexdump*": "allow",
+                "links*": "allow",
+                "mawk*": "allow",
+                "pipx*": "allow",
+                "pre-commit*": "allow",
+                "set*": "allow",
+                "time*": "allow",
+                "timeout*": "allow",
+                "touch*": "allow",
+                "true*": "allow",
+                "vim*": "allow"
+              }
+            }
+        with:
+          agent: ${{ inputs.agent }}
+          model: >-
+            ${{ (github.event_name == 'workflow_dispatch' || github.event_name == 'workflow_call')
+            && inputs.model || 'opencode/claude-opus-4-5' }}
+          prompt: ${{ inputs.prompt || '' }}

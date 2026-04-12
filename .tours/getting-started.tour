@@ -1,0 +1,89 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "Getting Started with Example Ops Template",
+  "description": "A comprehensive walkthrough of the repository structure, development setup, and contribution guidelines",
+  "isPrimary": true,
+  "steps": [
+    {
+      "title": "Welcome!",
+      "description": "# Welcome to the Example Ops Template Repository! \ud83c\udf89\n\nThis code tour will guide you through the repository structure and help you understand how to contribute to this project.\n\n## What You'll Learn\n\n- Repository structure and organization\n- Development environment setup\n- Coding standards and best practices\n- How to run validation tools\n- Contribution workflow\n\nLet's get started!"
+    },
+    {
+      "title": "Project Overview",
+      "description": "## About This Project\n\nThis is a template repository that provides a standardized starting point for operational projects. It's designed to provide:\n\n- Python 3.11+ development environment\n- Pre-configured devcontainer for consistent development\n- Comprehensive pre-commit hooks for code quality\n- GitHub Actions for CI/CD\n- Claude and OpenCode automation assets\n- Multiple coding standards and guidelines\n\nThe project uses modern Python tooling including `uv` for dependency management and `pre-commit` for automated checks.",
+      "file": "README.md"
+    },
+    {
+      "title": "Project Configuration",
+      "description": "## Project Metadata\n\nThe `pyproject.toml` file contains the project's metadata and dependencies:\n\n- **Name**: example-ops-template\n- **Python Version**: >=3.11\n- **Key Dependencies**: requests, tabulate, PyYAML\n\nThis follows modern Python packaging standards using the `hatchling` build backend.",
+      "file": "pyproject.toml",
+      "line": 7
+    },
+    {
+      "title": "Development Environment Setup",
+      "description": "## Devcontainer Configuration\n\nThis project uses VS Code's devcontainer for a consistent development environment.\n\n### Key Features:\n\n- **Base Image**: Ubuntu Jammy (22.04)\n- **Pre-installed Tools**: Python, Node.js, Docker, Make, Ripgrep, and OpenCode support\n- **VS Code Extensions**: Markdownlint, Copilot, CodeTour, Claude Code, and more\n- **Automatic Setup**: Runs `pip install` and `pre-commit install` on creation\n- **OpenCode Host Dirs**: Pre-creates the bind mount directories required by OpenCode\n\n### Important Extension:\n\nNotice the `vsls-contrib.codetour` extension is included - that's what enables this tour!",
+      "file": ".devcontainer/devcontainer.json",
+      "line": 20
+    },
+    {
+      "title": "GitHub Copilot Instructions",
+      "description": "## Copilot Configuration\n\nThis file provides context-aware instructions to GitHub Copilot when working in this repository.\n\n### Key Guidelines:\n\n- **Python Standards**: Use Python 3.11+, PEP 8, and `uv` for dependency management\n- **Formatting**: Follow markdownlint and yamllint rules\n- **Project Structure**: Uses Codespaces and pre-commit hooks\n\nThese instructions help Copilot provide more accurate and consistent code suggestions.",
+      "file": ".github/copilot-instructions.md",
+      "line": 1
+    },
+    {
+      "title": "Custom Agents",
+      "description": "## Custom Agent Profiles\n\nThe `.github/agents/` directory contains reusable custom agent profiles for this repository.\n\n### Notable Files:\n\n- **`cogni-ai.agent.md`**: The newer Cogni AI agent profile that replaces the older Copilot Plus reference\n- **`code-tour.agent.md`**: Guidance for creating and maintaining CodeTour files\n- **`README.md`**: Human-readable overview of the available custom agents\n\nThe repository also includes `.opencode/` assets so OpenCode can load the matching Cogni AI behavior and helper commands.",
+      "file": ".github/agents/README.md",
+      "line": 1
+    },
+    {
+      "title": "Instructions Directory",
+      "description": "## Repository-Wide Coding Standards\n\nThe `.github/instructions/` directory contains detailed guidelines for different file types:\n\n- **markdown.instructions.md**: Markdown formatting rules\n- **yaml.instructions.md**: YAML formatting standards\n- **ansible.instructions.md**: Ansible best practices\n- **blog.instructions.md**: Blog post requirements\n- **readme.instructions.md**: README.md specific guidelines\n\nThese files use the `applyTo` frontmatter to scope rules to specific file patterns and are integrated with GitHub Copilot.",
+      "directory": ".github/instructions"
+    },
+    {
+      "title": "Pre-commit Configuration",
+      "description": "## Automated Code Quality Checks\n\nThe `.pre-commit-config.yaml` file defines hooks that run automatically before each commit:\n\n### Linters & Formatters:\n- **yamllint**: YAML syntax and style validation\n- **ansible-lint**: Ansible best practices\n- **markdownlint**: Markdown formatting\n- **black**: Python code formatting\n- **flake8**: Python linting\n\n### Security & Quality:\n- **gitleaks**: Secret detection\n- **detect-secrets**: Credential scanning\n- **codespell**: Spell checking\n\n### Running Manually:\n```bash\npre-commit run --all-files\n```",
+      "file": ".pre-commit-config.yaml",
+      "line": 1
+    },
+    {
+      "title": "Markdown Linting Rules",
+      "description": "## Markdownlint Configuration\n\nThis configuration enforces consistent markdown formatting:\n\n### Key Rules:\n- Line length: 120 characters max\n- No trailing spaces\n- Blank lines around headings, lists, and code blocks\n- Single trailing newline\n- Explicit language for code blocks\n\n### Testing Locally:\n```bash\npre-commit run markdownlint -a\n```",
+      "file": ".markdownlint.yaml"
+    },
+    {
+      "title": "YAML Linting Rules",
+      "description": "## YAML Validation\n\nThe `.yamllint` file defines YAML formatting standards:\n\n### Standards:\n- 2-space indentation\n- 120 character line length\n- Explicit booleans (`true`/`false`)\n- Single trailing newline\n- Lexicographical ordering where practical\n\n### Validation:\n```bash\npre-commit run yamllint -a\n```",
+      "file": ".yamllint"
+    },
+    {
+      "title": "GitHub Actions Workflow",
+      "description": "## Continuous Integration\n\nThe repository keeps the standard `check.yml` validation workflow and now also includes OpenCode automation workflows.\n\n### Reusable Workflow:\n\nThe `check.yml` workflow uses a reusable workflow call from the `.github` organization repository:\n- **Location**: `Cogni-AI-OU/.github/.github/workflows/check.yml@main`\n- **Jobs**: actionlint and pre-commit checks\n\n### OpenCode Workflows:\n\n- **`opencode.yml`**: Handles `/oc` and `/opencode` issue and PR commands\n- **`opencode-review.yml`**: Runs OpenCode-based PR reviews\n\nThis centralizes workflow definitions across all organization repositories while keeping repository-specific entrypoints checked in here.",
+      "file": ".github/workflows/check.yml",
+      "line": 10
+    },
+    {
+      "title": "VS Code Settings",
+      "description": "## VS Code Configuration\n\nThe `settings.json` file configures VS Code behavior for this repository.\n\n### Code Runner Configuration:\n\nThe code-runner extension is configured to execute various file types:\n- Python scripts with `python -u`\n- JavaScript with `node`\n- Pre-commit checks with `pre-commit run --all-files`\n- Ansible Molecule tests for specific scenarios\n\n### Agent-Friendly Terminal Defaults:\n\nTerminal auto-approval includes common validation and automation commands such as `gh`, `git`, `pipx`, and `pre-commit`.",
+      "file": ".vscode/settings.json",
+      "line": 2
+    },
+    {
+      "title": "Contributing Guidelines",
+      "description": "## How to Contribute\n\nThe `CONTRIBUTING.md` file outlines the contribution process:\n\n### Key Steps:\n\n1. **Report Bugs**: Use GitHub Issues with detailed information\n2. **Code Standards**: Follow the coding conventions (2-space indentation, readable code)\n3. **Pull Requests**: Submit changes via GitHub PRs\n4. **CI Checks**: Ensure all tests pass before merging\n\n### Before Submitting:\n```bash\npre-commit run --all-files\n```",
+      "file": ".github/CONTRIBUTING.md",
+      "line": 1
+    },
+    {
+      "title": "License",
+      "description": "## Project License\n\nThis project is licensed under the MIT License.\n\n### Key Points:\n\n- \u2705 Commercial use allowed\n- \u2705 Modification allowed\n- \u2705 Distribution allowed\n- \u2705 Private use allowed\n- \u26a0\ufe0f License and copyright notice must be included\n\nFor full details, see the LICENSE file or visit [TLDRLegal](https://tldrlegal.com/license/mit-license).",
+      "file": "LICENSE"
+    },
+    {
+      "title": "Next Steps",
+      "description": "# You're All Set! \ud83d\ude80\n\n## Quick Start Checklist:\n\n\u2705 Explored the repository structure\n\u2705 Learned about development environment setup\n\u2705 Understand coding standards and guidelines\n\u2705 Know how to run validation tools\n\u2705 Reviewed contribution process\n\n## What's Next?\n\n1. **Set Up Environment**: Open this repository in a devcontainer or install dependencies locally\n2. **Install Pre-commit**: Run `pre-commit install` to enable automatic checks\n3. **Explore Instructions**: Review `.github/instructions/` for detailed guidelines\n4. **Review OpenCode Assets**: Inspect `.opencode/` and `.github/workflows/opencode.yml`\n5. **Start Contributing**: Pick an issue or create a new feature\n6. **Run Validations**: Always run `pre-commit run --all-files` before committing\n\n## Helpful Commands:\n\n```bash\n# Install pre-commit hooks\npre-commit install\n\n# Run all validation checks\npre-commit run --all-files\n\n# Run specific check\npre-commit run markdownlint -a\npre-commit run yamllint -a\n```\n\n## Questions?\n\nRefer to the documentation in `.github/instructions/` or open an issue for help!\n\nHappy coding! \ud83d\udcbb"
+    }
+  ]
+}

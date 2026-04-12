@@ -1,0 +1,13 @@
+---
+messages:
+  - role: system
+    content: |
+      System prompt
+  - role: user
+    content: Test
+  - role: assistant
+    content: Assistant
+  - role: user
+    content: User
+model: openai/gpt-4o
+responseFormat: text

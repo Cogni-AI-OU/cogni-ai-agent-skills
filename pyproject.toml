@@ -1,0 +1,26 @@
+# Example pyproject template; update name, description, author info, and metadata for your project.
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "example-ops-template"
+version = "0.1.0"
+description = "Template for Example ops utilities that interact with external APIs."
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.11"
+dependencies = [
+  "requests>=2.32.0",
+  "tabulate>=0.9.0",
+  "PyYAML>=6.0.1",
+]
+
+authors = [
+  { name = "Cogni AI" },
+]
+
+[project.urls]
+Homepage = "https://github.com/Cogni-AI-OU/example-ops-template"
+Repository = "https://github.com/Cogni-AI-OU/example-ops-template"
