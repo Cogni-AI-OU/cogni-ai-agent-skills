@@ -81,17 +81,28 @@ Expert-level guidance for executing complex Git operations safely and effectivel
 
 ## Extracting a Subdirectory with History (Subtree/Filter-Branch)
 
-- **Objective**: Extract a specific subdirectory from an external repository and merge it into another repository's root, permanently preserving the git commit history of those files.
+- **Objective**: Extract a specific subdirectory from an external repository and merge it into another repository's root,
+  permanently preserving the git commit history of those files.
 - **Process**:
-  - When `git filter-repo` or `git subtree` are unavailable in the current environment, `git filter-branch` can act as a reliable fallback.
-  - Clone the external source repository into a temporary directory: `git clone --depth 50 <url> temp-repo && cd temp-repo`.
-  - Rewrite the history in the temporary repository so the targeted subdirectory becomes the root: `export FILTER_BRANCH_SQUELCH_WARNING=1 && git filter-branch -f --subdirectory-filter <path-to-folder> HEAD`.
-  - In your main repository, add the temporary clone as a remote: `git remote add temp-repo /path/to/temp-repo`.
-  - Fetch and merge the unrelated histories: `git fetch temp-repo && git merge temp-repo/main --allow-unrelated-histories`.
+  1. **Fallback Tool**: When `git filter-repo` or `git subtree` are unavailable, `git filter-branch` serves as a
+     reliable built-in fallback.
+  2. **Clone Source**: Clone the external repository into a temporary directory and navigate into it:
+     `git clone --depth 50 <url> temp-repo && cd temp-repo`
+  3. **Rewrite History**: Isolate the target subdirectory so it becomes the root of the temporary repository:
+     `export FILTER_BRANCH_SQUELCH_WARNING=1`
+     `git filter-branch -f --subdirectory-filter <path> HEAD`
+  4. **Add Remote**: Navigate back to your main repository and add the temporary clone as a new remote:
+     `cd /path/to/main && git remote add temp-repo /path/to/temp-repo`
+  5. **Merge**: Fetch and merge the isolated history into your main repository:
+     `git fetch temp-repo && git merge temp-repo/main --allow-unrelated-histories`
 - **Challenges & Solutions**:
-  - **Tool Availability**: Modern tools (`filter-repo`, `subtree`) may be missing. `filter-branch` provides a built-in albeit older solution.
-  - **Root File Conflicts**: Files pulled from the target subdirectory may conflict with your main repository if they share generic names (e.g., `README.md`, `AGENTS.md`). Handle these deliberately (e.g., `git checkout --ours README.md`).
-  - **Hook Interference**: Pre-commit hooks might trigger heavily on the newly merged files. Use `--no-verify` on the merge commit if the upstream is already trusted, followed by independent linting to avoid timeout crashes in constrained environments.
+  - **Tool Availability**: Modern tools (`filter-repo`, `subtree`) may be missing. `filter-branch` provides a built-in
+    albeit older solution.
+  - **Root File Conflicts**: Files pulled from the target subdirectory may conflict with your main repository if they
+    share generic names (e.g., `README.md`, `AGENTS.md`). Handle these deliberately (e.g., `git checkout --ours README.md`).
+  - **Hook Interference**: Pre-commit hooks might trigger heavily on the newly merged files. Use `--no-verify` on the
+    merge commit if the upstream is already trusted, followed by independent linting to avoid timeout crashes in
+    constrained environments.
 
 ## Verification
 
