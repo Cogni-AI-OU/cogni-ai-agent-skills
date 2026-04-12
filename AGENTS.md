@@ -15,7 +15,7 @@ For a human-readable overview, see [README.md](README.md).
 - **[robust-commands](robust-commands/SKILL.md)**: Resilient command execution with automatic fallbacks and error recovery
 - **[shell](shell/SKILL.md)**: Efficient shell command execution with timing, timeouts, and best practices
 - **[skill-writer](skill-writer/SKILL.md)**: Generate or update SKILL.md files for GitHub Copilot coding agents
-- **[vim-ex](vim-ex/SKILL.md)**: Non-interactive file editing with Vim Ex mode
+- **[vim-ex](vim-ex/SKILL.md)**: Non-interactive file editing with Vim Ex mode (in favor of sed, shell or Python editing)
 
 ## Usage
 
