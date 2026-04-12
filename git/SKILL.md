@@ -282,8 +282,11 @@ git diff origin/dev..HEAD --stat
   clean up on conflict.
 - **Handling rejected pushes (fetch first)**: If `git push` fails with `rejected ... (fetch first)`
   because the remote contains new work you do not have locally, NEVER forcefully overwrite it.
-  Always pull the latest changes first (e.g. `git pull --rebase origin <branch>`) to apply your
-  local commits on top of the remote changes, resolve conflicts if any, and then retry `git push`.
+  In **non-GitHub-Actions** environments, pull the latest changes first
+  (e.g. `git pull --rebase origin <branch>`) to apply your local commits on top of the remote changes,
+  resolve conflicts if any, and then retry `git push`.
+  In **GitHub Actions runtime**, use `git pull --no-rebase origin <branch>` (merge semantics) instead,
+  as the workflow's auto-PR/push logic requires compatible remote branch history.
 - Inspect all push/rebase failures in logs - manual intervention may be required if you see
   non-fast-forward or remote rejection errors.
 - Use unique branch names if retrying after failure or history rewrite.
