@@ -8,7 +8,7 @@ used by AI agents to learn technical IT skills. These skills can be loaded into 
 other repository by placing them into the `.github/skills/` directory, ideally
 integrating this repository as a Git submodule.
 
-This template mirrors the structure and conventions of the
+This repository mirrors the structure and conventions of the
 [Cogni-AI-OU/.github](https://github.com/Cogni-AI-OU/.github) organization repository.
 
 ## Adding this Repository as a Submodule
@@ -50,9 +50,9 @@ To load these skills into your own repository, you can add this repository as a 
 - **[skill-writer](skill-writer/SKILL.md)**: Generate or update SKILL.md files for GitHub Copilot coding agents
 - **[vim-ex](vim-ex/SKILL.md)**: Non-interactive file editing with Vim Ex mode (in favor of sed, shell or Python editing)
 
-## What This Template Provides
+## What This Repository Provides
 
-This template repository includes the standard operations infrastructure for
+This repository includes the standard operations infrastructure and AI agent skills for
 Cogni-AI-OU projects:
 
 ### Key Features
@@ -62,12 +62,6 @@ Cogni-AI-OU projects:
 - **Coding Instructions**: Language-specific standards in `.github/instructions/`
 - **Pre-commit Hooks**: Linting and validation tooling
 - **Code Tours**: Guided walkthroughs for repository onboarding
-
-### How to Use
-
-1. Create a new repository from this template
-2. Customize the configuration files for your project
-3. Remove or modify sections that don't apply to your use case
 
 ## Getting Started
 
@@ -133,7 +127,7 @@ This repository provides AI agent configurations for automated development.
 | [AGENTS.md](AGENTS.md) | All agents | Repository-specific guidance and workflows |
 | [.github/copilot-instructions.md](.github/copilot-instructions.md) | Copilot | Coding standards and project context |
 | [.github/agents/](.github/agents/) | Orchestrators | Specialized agent configs for specific tasks |
-| [.github/skills/](.github/skills/) | All agents | Reusable capabilities (git, GitHub Actions, etc.) |
+| [.github/skills/](.github/skills/) | All agents | Reusable capabilities. |
 | [.github/prompts/](.github/prompts/) | All | Prompt templates (`.md` for VSCode, `.yaml` for GitHub Models) |
 | [.github/instructions/](.github/instructions/) | Linters & agents | Language-specific code standards |
 
@@ -168,7 +162,7 @@ This repository is licensed under MIT. See [LICENSE](LICENSE) for the full text.
 
 <!-- Named links -->
 
-[pr-reviews-image]: https://img.shields.io/github/issues-pr/Cogni-AI-OU/example-ops-template?label=PR+Reviews&logo=github
-[pr-reviews-link]: https://github.com/Cogni-AI-OU/example-ops-template/pulls
+[pr-reviews-image]: https://img.shields.io/github/issues-pr/Cogni-AI-OU/cogni-ai-agent-skills?label=PR+Reviews&logo=github
+[pr-reviews-link]: https://github.com/Cogni-AI-OU/cogni-ai-agent-skills/pulls
 [license-image]: https://img.shields.io/badge/License-MIT-blue.svg
 [license-link]: https://tldrlegal.com/license/mit-license
