@@ -1,12 +1,54 @@
-# Example Ops Template
+# Cogni AI Agent Skills
 
 [![PR Reviews][pr-reviews-image]][pr-reviews-link]
 [![License][license-image]][license-link]
 
-Template repository for applying Cogni-AI-OU operations standards, reusable workflows,
-prompt catalogs, coding instructions, and agent guidance to a project repository.
+The primary purpose of this project/repository is to maintain technical skills commonly
+used by AI agents to learn technical IT skills. These skills can be loaded into any
+other repository by placing them into the `.github/skills/` directory, ideally
+integrating this repository as a Git submodule.
+
 This template mirrors the structure and conventions of the
 [Cogni-AI-OU/.github](https://github.com/Cogni-AI-OU/.github) organization repository.
+
+## Adding this Repository as a Submodule
+
+To load these skills into your own repository, you can add this repository as a Git submodule in the `.github/skills/` directory.
+
+1. Navigate to the root of your repository.
+2. Run the following command to add the submodule:
+
+   ```bash
+   git submodule add https://github.com/Cogni-AI-OU/cogni-ai-agent-skills.git .github/skills/cogni-ai
+   ```
+
+3. Initialize and update the submodule:
+
+   ```bash
+   git submodule update --init --recursive
+   ```
+
+4. Commit the changes:
+
+   ```bash
+   git add .gitmodules .github/skills/cogni-ai
+   git commit -m "feat: add cogni-ai-agent-skills submodule"
+   ```
+
+## Skills
+
+- **[context-aware-ops](context-aware-ops/SKILL.md)**: Intelligent resource management with size checking and filtering
+- **[git](git/SKILL.md)**: Guide for using git with non-interactive, safe operations
+- **[git-expert](git-expert/SKILL.md)**: Advanced Git operations including interactive rebasing, reflog recovery,
+  bisecting, complex conflict resolution, and history manipulation
+- **[github](github/SKILL.md)**: GitHub specific features and collaborative practices
+- **[github-actions](github-actions/SKILL.md)**: Diagnosing and debugging failing GitHub Actions workflows
+- **[molecule](molecule/SKILL.md)**: Molecule testing workflows for Ansible roles
+- **[pre-commit](pre-commit/SKILL.md)**: Using pre-commit to validate code formatting, linting, and security checks
+- **[robust-commands](robust-commands/SKILL.md)**: Resilient command execution with automatic fallbacks and error recovery
+- **[shell](shell/SKILL.md)**: Efficient shell command execution with timing, timeouts, and best practices
+- **[skill-writer](skill-writer/SKILL.md)**: Generate or update SKILL.md files for GitHub Copilot coding agents
+- **[vim-ex](vim-ex/SKILL.md)**: Non-interactive file editing with Vim Ex mode (in favor of sed, shell or Python editing)
 
 ## What This Template Provides
 

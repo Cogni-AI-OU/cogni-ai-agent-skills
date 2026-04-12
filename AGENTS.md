@@ -147,6 +147,21 @@ Read and merge these when operating inside corresponding sub-directories (order 
 - For latest standard see: <https://agents.md/>
 ```
 
+## Skills
+
+- **[context-aware-ops](context-aware-ops/SKILL.md)**: Intelligent resource management with size checking and filtering
+- **[git](git/SKILL.md)**: Guide for using git with non-interactive, safe operations
+- **[git-expert](git-expert/SKILL.md)**: Advanced Git operations including interactive rebasing, reflog recovery,
+  bisecting, complex conflict resolution, and history manipulation
+- **[github](github/SKILL.md)**: GitHub specific features and collaborative practices
+- **[github-actions](github-actions/SKILL.md)**: Diagnosing and debugging failing GitHub Actions workflows
+- **[molecule](molecule/SKILL.md)**: Molecule testing workflows for Ansible roles
+- **[pre-commit](pre-commit/SKILL.md)**: Using pre-commit to validate code formatting, linting, and security checks
+- **[robust-commands](robust-commands/SKILL.md)**: Resilient command execution with automatic fallbacks and error recovery
+- **[shell](shell/SKILL.md)**: Efficient shell command execution with timing, timeouts, and best practices
+- **[skill-writer](skill-writer/SKILL.md)**: Generate or update SKILL.md files for GitHub Copilot coding agents
+- **[vim-ex](vim-ex/SKILL.md)**: Non-interactive file editing with Vim Ex mode (in favor of sed, shell or Python editing)
+
 ## Common Tasks
 
 ### Before each commit
@@ -206,7 +221,7 @@ on top of the updated target branch:
 5. Verify only your changes remain
 
 **For detailed step-by-step instructions with commands**, see:
-[`.github/skills/git/SKILL.md`](.github/skills/git/SKILL.md)
+[`git/SKILL.md`](git/SKILL.md)
 
 ### Key Points
 
@@ -239,7 +254,7 @@ tries to auto-rebase (e.g., 113 commits), it encounters conflicts it cannot reso
 **Error Patterns:** `Rebasing (1/XXX)` with large numbers, `CONFLICT (content)`, session crash with `GitError`
 
 **For complete details**, see:
-[`.github/skills/git/SKILL.md` - "Working with Automation Tools"](.github/skills/git/SKILL.md#working-with-automation-tools)
+[`git/SKILL.md` - "Working with Automation Tools"](git/SKILL.md#working-with-automation-tools)
 
 ## References
 
