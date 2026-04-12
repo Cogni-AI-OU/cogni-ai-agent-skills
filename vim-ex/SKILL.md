@@ -1,6 +1,6 @@
 ---
 name: vim-ex
-description: 'How to use Ex mode in Vim for non-interactive file editing'
+description: 'How to use Ex mode in Vim for non-interactive file editing (e.g., complex text substitution, deleting lines, file parsing, wrapping text, sorting lines)'
 ---
 
 # File Editing with Ex Mode
@@ -33,6 +33,12 @@ ex -s -c 'set tw=120' -c '%normal gqq' -c 'wq' README.md
 
 # Wrap specific lines (e.g., lines 19 to 23) to 120 characters
 ex -s -c 'set tw=120' -c '19,23normal gqq' -c 'wq' README.md
+
+# Sort a specific range of lines alphabetically (e.g., lines 10 to 20)
+ex -s -c '10,20sort' -c 'wq' list.txt
+
+# Reverse sort the entire file
+ex -s -c '%sort!' -c 'wq' list.txt
 ```
 
 ## Using Heredocs
@@ -119,14 +125,14 @@ echo "<root> <item>data</item> </root>" | ex -s -c '%s/<[^>].\{-}>//ge' -c '%p' 
 curl -s https://example.com/ | ex -s -c '/<style.*/norm nvatd' -c '%p' -c 'q!' /dev/stdin
 
 # Parse html with multiple complex rules by passing HTML dynamically
-curl -s https://example.com | ex -s /dev/stdin << 'EOF'
+ex -s <(curl -s https://example.com) << 'EOF'
   %s,'//,'http://,ge
   %s,"//,"http://,ge
   " Remove the margin on the left of the main block. "
-  %s/id="doc_container"/id="doc_container" style="min-width:0px;margin-left : 0px;"/ge
-  %s/<div class="outer_page/<div style="margin: 0px;" class="outer_page/ge
+  %s!id="doc_container"!id="doc_container" style="min-width:0px;margin-left : 0px;"!ge
+  %s!<div class="outer_page!<div style="margin: 0px;" class="outer_page!ge
   " Remove useless html elements. "
-  /<div.*id="global_header"/norm nvatd
+  %s!<div.*id="global_header".*</div>!!ge
   %p " Print changes
   q! " Quit without saving
 EOF
@@ -145,11 +151,10 @@ Create a new HTML structure by downloading HTML of Example site
 and replacing its body by an auto-generated 20x20 table with random numbers in it (streamed to standard out):
 
 ```bash
-curl -s https://example.com | ex -s /dev/stdin << 'VIMEOF' > generated_table.html
+ex -s <(curl -s https://example.com) << 'VIMEOF' > generated_table.html
 let @t='<table>'.repeat('<tr>'.repeat('<td>_</td>',20).'</tr>',20).'</table>'
-/<body
-norm! vitd"tP
-%s/_/\=trim(system('echo $RANDOM'))/g
+%s!<body>.*</body>!\='<body>'.@t.'</body>'!g
+%s!_!\=trim(system('echo $RANDOM'))!g
 %p
 q!
 VIMEOF
@@ -167,18 +172,26 @@ ex -s -c 'let g:html_no_progress=1' -c 'syntax on' -c 'set ft=c' \
 
 ## Tips
 
-- Always include `wq` at the end to write changes and quit when you intend in-place edits.
-- The `-s` flag suppresses prompts and feedback, making it ideal for automated file edits.
-- When testing commands, prefix with `timeout` (e.g., `timeout 5s ex ...`) to prevent hangs on
-  read-only or problematic files. Remove `timeout` for production use.
-- Use `ex` when complex string replacements or regular expression-based modifications are required directly
-  from the terminal without breaking the automated flow.
-- When adding or updating examples in this file, ensure they work non-interactively and do not require user input.
-- Do not change existing examples unless they are not working; keep proven examples unchanged.
+- **Custom Delimiters:** Use alternative delimiters in substitutions (e.g., `%s!pattern!replacement!g` or
+  `%s,pattern,replacement,g`) when manipulating HTML tags (like `</body>`), paths, or URLs to bypass
+  repetitive backslash escaping.
+- **Non-interactive Execution:** When adding or updating examples in this file, ensure they work
+  non-interactively and do not require user input.
+- **Preserve Examples:** Do not change existing examples unless they are not working; keep proven examples unchanged.
+- **Silent Mode:** The `-s` flag suppresses prompts and feedback, making it ideal for automated file edits.
+- **Terminal Automation:** Use `ex` when complex string replacements or regular expression-based modifications
+  are required directly from the terminal without breaking the automated flow.
+- **Write and Quit:** Always include `wq` at the end to write changes and quit when you intend in-place edits.
 
 ## Troubleshooting
 
+- **Debugging Silent Failures:** If a command fails silently with an exit code or hangs without output,
+  temporarily replace the `-s` (silent) flag with `-V1` (verbose level 1) to print the command execution steps
+  and exact error messages to the terminal.
 - **Hanging Commands:** When testing new commands, use `timeout` to prevent hanging risks on read-only files.
+- **Heredoc Conflicts / Infinite Hangs:** Avoid piping data (`command | ex -s /dev/stdin`) when you are also
+  providing commands via a heredoc (`<< EOF`). This causes `ex` to confuse its input streams and hang indefinitely.
+  Use process substitution instead: `ex -s <(command) << EOF`.
 - **Range Errors (e.g. Exit code 1 with no output):** Complex address ranges like `/<pattern>/+1,+3command` often fail
   because `ex` evaluates the second relative address before the cursor moves to the pattern. Splitting them solves this by
   explicitly moving the cursor first:
@@ -190,6 +203,10 @@ ex -s -c 'let g:html_no_progress=1' -c 'syntax on' -c 'set ft=c' \
   # Succeeds (moves cursor to MyPattern, then deletes the next 3 lines)
   ex -s -c '/MyPattern/' -c '+1,+3d' -c 'wq' file.txt
   ```
+
+- **Unexpected Pattern Errors:** Prefer using `ex` string substitution commands (`%s/...`) instead of automated
+  normal mode actions (e.g., `norm! vitd`) when editing unstructured data like raw HTML, which might break
+  text-object selections and fail implicitly if tags are unexpectedly unclosed.
 
 ## References
 
