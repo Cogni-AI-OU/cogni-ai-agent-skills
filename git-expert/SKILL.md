@@ -24,7 +24,8 @@ Expert-level guidance for executing complex Git operations safely and effectivel
 
 - **Objective**: Clean up local commit history before pushing.
 - **Process**:
-  - **WARNING**: Interactive modes (`-i`) are FORBIDDEN in runtime automation. Ensure `-i` is strictly scoped to local manual-only usage.
+  - **WARNING**: Interactive modes (`-i`) are FORBIDDEN in runtime automation. Ensure `-i` is strictly scoped to
+    local manual-only usage or fixing in the non-github runtime (like in local agent or devcontainer runtime).
   - Start manual rebase: `git rebase -i <base-commit-or-branch>`
   - Automated rewrites: Set `GIT_SEQUENCE_EDITOR=true` for non-interactive execution if scripted.
   - Actions: `pick`, `reword`, `edit`, `squash` (or `s`), `fixup` (or `f`), `drop`.

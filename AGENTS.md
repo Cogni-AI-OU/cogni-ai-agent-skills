@@ -9,7 +9,8 @@ For a human-readable overview, see [README.md](README.md).
 
 - **[context-aware-ops](context-aware-ops/SKILL.md)**: Intelligent resource management with size checking and filtering
 - **[git](git/SKILL.md)**: Guide for using git with non-interactive, safe operations
-- **[git-expert](git-expert/SKILL.md)**: Advanced Git operations including interactive rebasing, reflog recovery, bisecting, complex conflict resolution, and history manipulation
+- **[git-expert](git-expert/SKILL.md)**: Advanced Git operations including interactive rebasing, reflog recovery,
+  bisecting, complex conflict resolution, and history manipulation
 - **[github-actions](github-actions/SKILL.md)**: Diagnosing and debugging failing GitHub Actions workflows
 - **[molecule](molecule/SKILL.md)**: Molecule testing workflows for Ansible roles
 - **[pre-commit](pre-commit/SKILL.md)**: Using pre-commit to validate code formatting, linting, and security checks

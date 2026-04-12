@@ -326,7 +326,8 @@ Example of safely appending text across multiple files via `argdo` and `call app
 ```bash
 ex -s .github/skills/*/SKILL.md << 'VIMEOF'
 set hidden
-argdo call append('$', ['', '## Maintenance', '', 'Note that this file should be updated if outdated or steps/examples are not working.']) | update
+let m = 'Note that this file should be updated if outdated or steps/examples are not working.'
+argdo call append('$', ['', '## Maintenance', '', m]) | update
 qa!
 VIMEOF
 ```
