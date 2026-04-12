@@ -1,10 +1,13 @@
 <!-- markdownlint-disable MD003 MD013 MD022 MD026 MD041 -->
 ---
 name: pre-commit
-description: Guide for using pre-commit hooks to validate code formatting, linting, and security checks before commits.
-license: MIT
----
+description: >-
+  Guide for using pre-commit hooks to validate code formatting, linting, and security checks before commits.
 
+  Maintained at: <https://github.com/Cogni-AI-OU/.github/blob/main/.github/skills/pre-commit/SKILL.md>
+license: MIT
+
+---
 Expert guide for pre-commit framework usage, configuration, and custom hook development. Focus on autonomous validation, diagnostics, and fix workflows.
 
 ## Core Principles

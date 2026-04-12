@@ -1,13 +1,14 @@
 <!-- markdownlint-disable MD003 MD022 MD026 MD041 -->
-
 ---
 name: skill-writer
 description: >-
   When the user requests to create, update, or refine a GitHub Copilot skill,
   generate or revise a complete SKILL.md file that strictly adheres to the
   official format, validation rules, and community best practices.
----
 
+  Maintained at: <https://github.com/Cogni-AI-OU/.github/blob/main/.github/skills/skill-writer/SKILL.md>
+
+---
 # Skill Writer
 
 Generate or update SKILL.md files for GitHub Copilot coding agents, ensuring

@@ -1,9 +1,12 @@
 <!-- markdownlint-disable MD003 MD013 MD022 MD026 MD041 -->
 ---
 name: github-actions
-description: Diagnose GitHub Actions workflow failures by retrieving run statuses and logs using MCP tools or gh CLI.
----
+description: >-
+  Diagnose GitHub Actions workflow failures by retrieving run statuses and logs using MCP tools or gh CLI.
 
+  Maintained at: <https://github.com/Cogni-AI-OU/.github/blob/main/.github/skills/github-actions/SKILL.md>
+
+---
 This skill enables autonomous diagnosis of GitHub Actions failures, preferring MCP tools for summaries and falling back to gh CLI.
 
 ## When to Activate

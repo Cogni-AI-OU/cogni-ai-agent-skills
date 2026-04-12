@@ -1,10 +1,13 @@
 <!-- markdownlint-disable MD003 MD013 MD022 MD026 MD041 -->
 ---
 name: git
-description: Guide for using git
-license: MIT
----
+description: >-
+  Guide for using git.
 
+  Maintained at: <https://github.com/Cogni-AI-OU/.github/blob/main/.github/skills/git/SKILL.md>
+license: MIT
+
+---
 Expert in advanced git usage for repository agents. Prioritize non-interactive, safe, reproducible operations that maintain clean history and respect repository conventions.
 
 ## Core Principles

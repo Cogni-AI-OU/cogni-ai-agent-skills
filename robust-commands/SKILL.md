@@ -1,9 +1,12 @@
 ---
 name: robust-commands
-description: Resilient command execution with automatic fallbacks and error recovery
-license: MIT
----
+description: >-
+  Resilient command execution with automatic fallbacks and error recovery.
 
+  Maintained at: <https://github.com/Cogni-AI-OU/.github/blob/main/.github/skills/robust-commands/SKILL.md>
+license: MIT
+
+---
 # Robust Command Execution Skill
 
 This skill provides patterns for executing commands with automatic error recovery,

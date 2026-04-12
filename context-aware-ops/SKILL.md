@@ -1,9 +1,12 @@
 ---
 name: context-aware-ops
-description: Intelligent resource management with size checking and filtering to preserve context window
-license: MIT
----
+description: >-
+  Intelligent resource management with size checking and filtering to preserve context window.
 
+  Maintained at: <https://github.com/Cogni-AI-OU/.github/blob/main/.github/skills/context-aware-ops/SKILL.md>
+license: MIT
+
+---
 # Context-Aware Operations Skill
 
 This skill provides patterns and techniques for managing large files and command outputs
