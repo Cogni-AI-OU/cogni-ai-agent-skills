@@ -24,6 +24,7 @@
         "hexdump": true,
         "links": true,
         "mawk": true,
+        "mkdir": true,
         "pipx": true,
         "pre-commit": true,
         "set": true,
