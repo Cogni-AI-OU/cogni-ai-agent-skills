@@ -229,6 +229,7 @@ jobs:
                 "hexdump*": "allow",
                 "links*": "allow",
                 "mawk*": "allow",
+                "mkdir*": "allow",
                 "pipx*": "allow",
                 "pre-commit*": "allow",
                 "set*": "allow",
