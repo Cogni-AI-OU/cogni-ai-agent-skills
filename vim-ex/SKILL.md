@@ -164,6 +164,41 @@ ex -s -c 'argdo silent! /^\[plugins\]/a\
 enable_new_feature = true' -c 'update' -c 'q' ./**/*.conf
 ```
 
+### Practical Examples with Macros
+
+When complex line-by-line transformations are too tedious to write via regular expressions (like parsing nested
+brackets or dynamically moving text objects), you can define and execute Vim macros programmatically.
+
+```bash
+# Example: Extract just the URLs from Markdown links (e.g. `[name](URL)` -> `URL`).
+# The macro 'q' performs the exact Vim keystrokes:
+# 1. di[ - Delete inner bracket content
+# 2. da[ - Delete the now-empty brackets
+# 3. x   - Delete the leading '('
+# 4. $x  - Go to the end of the line and delete the trailing ')'
+ex -s links.md << 'EOF'
+let @q = 'di[da[x$x'
+%norm! @q
+update
+q
+EOF
+```
+
+```bash
+# Example: Convert a list of unformatted words into a quoted YAML array.
+# The macro 'q' uses `\e` in double quotes to represent the <Esc> key:
+# 1. I"  - Insert quote at the beginning of the line
+# 2. \e  - Return to Normal mode
+# 3. A", - Append quote and comma at the end of the line
+# 4. \e  - Return to Normal mode
+ex -s items.txt << 'EOF'
+let @q = "I\"\eA\",\e"
+%norm! @q
+update
+q
+EOF
+```
+
 ### Parse HTML/XML with Ex Mode
 
 Examples:
