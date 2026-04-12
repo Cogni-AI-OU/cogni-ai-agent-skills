@@ -143,4 +143,4 @@ When working with GitHub Actions build logs and investigating issues:
 
 ## Maintenance
 
-Note that this file should be updated if outdated or steps/examples are not-working.
+This file should be updated if it becomes outdated or if the steps/examples no longer work.

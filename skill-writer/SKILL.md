@@ -72,7 +72,7 @@ When creating or updating a skill file, ensure the following format:
   must pass all repository validation and linting rules.
 
 - **Start with Lint Disable**: Always open the file with
-  `<!-- markdownlint-disable MD022 MD026 MD041 -->` to suppress common
+  `<!-- markdownlint-disable MD003 MD022 MD026 MD041 -->` to suppress common
   markdownlint warnings.
 
 - **Description Precision**: Write the `description` as a single, highly
@@ -114,4 +114,4 @@ When creating or updating a skill file, ensure the following format:
 
 ## Maintenance
 
-Note that this file should be updated if outdated or steps/examples are not-working.
+Note that this file should be updated if outdated or steps/examples are not working.

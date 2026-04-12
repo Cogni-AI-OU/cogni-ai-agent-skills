@@ -334,4 +334,4 @@ pre-commit run yamlfix --all-files
 
 ## Maintenance
 
-Note that this file should be updated if outdated or steps/examples are not-working.
+Note that this file should be updated if outdated or if steps/examples are not working.

@@ -521,4 +521,4 @@ Commands fail for many reasons - most are fixable!
 
 ## Maintenance
 
-Note that this file should be updated if outdated or steps/examples are not-working.
+Note that this file should be updated if outdated or steps/examples are not working.

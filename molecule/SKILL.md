@@ -48,4 +48,4 @@ well, for example with `pipx inject ansible -r .devcontainer/requirements-ansibl
 
 ## Maintenance
 
-Note that this file should be updated if outdated or steps/examples are not-working.
+Note that this file should be updated if outdated or steps/examples are not working.

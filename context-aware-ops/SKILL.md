@@ -376,4 +376,4 @@ Your context window is precious - use it wisely!
 
 ## Maintenance
 
-Note that this file should be updated if outdated or steps/examples are not-working.
+Note that this file should be updated if outdated or steps/examples are not working.

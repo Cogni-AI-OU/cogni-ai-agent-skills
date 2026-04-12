@@ -316,4 +316,4 @@ Always explain proposed git operations step-by-step, quote exact commands, and c
 
 ## Maintenance
 
-Note that this file should be updated if outdated or steps/examples are not-working.
+Note that this file should be updated if outdated or steps/examples are not working.
