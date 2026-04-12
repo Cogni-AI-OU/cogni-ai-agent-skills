@@ -125,6 +125,45 @@ q!
 EOF
 ```
 
+### Overcoming Patch Tooling Limitations
+
+Standard patching (`diff`/`patch`) often fails across multiple files if surrounding line offsets drift or function
+boundaries vary slightly in spacing. Using `ex` solves this by applying structural or contextual logic independently
+of line numbers.
+
+**1. Replacing a Multi-line Block Across Many Files:**
+If files contain dynamically sized headers (e.g., varying length copyright blocks), `patch` often rejects changes.
+Using `ex` and `argdo`, you can safely target and overwrite the entire block contextually without caring about line
+numbers or varied spacing:
+
+```bash
+# Delete everything between two patterns and insert a new standardized block
+ex -s -c 'argdo silent! /^# BEGIN COPYRIGHT/,/^# END COPYRIGHT/c\
+# BEGIN COPYRIGHT 2026\
+# All rights reserved.\
+# END COPYRIGHT' -c 'update' -c 'q' ./**/*.py
+```
+
+**2. Conditionally Removing Code Structures (e.g., Functions):**
+Traditional patches fail if the body of a target function has extra newlines injected by another developer.
+`ex` utilizes Vim's structural text objects (like `dap` to delete a paragraph or `da{` to delete a bracket group):
+
+```bash
+# Locate 'function deprecated_handler' and structurally delete its entire body
+ex -s -c 'argdo silent! /function deprecated_handler/norm! dap' -c 'update' -c 'q' ./**/*.js
+```
+
+**3. Conditionally Appending to Contextual Sections:**
+When appending settings into config files with varying contents, a `.patch` file will fail if the target section is
+on line 10 in one file and line 50 in another. `ex` finds the explicit section context and intelligently drops the
+new payload directly beneath it:
+
+```bash
+# Safely append a new property immediately following the '[plugins]' category
+ex -s -c 'argdo silent! /^\[plugins\]/a\
+enable_new_feature = true' -c 'update' -c 'q' ./**/*.conf
+```
+
 ### Parse HTML/XML with Ex Mode
 
 Examples:
