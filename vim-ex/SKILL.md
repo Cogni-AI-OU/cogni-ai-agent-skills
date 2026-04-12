@@ -286,9 +286,23 @@ ex -s -c 'let g:html_no_progress=1' -c 'syntax on' -c 'set ft=c' \
   temporarily replace the `-s` (silent) flag with `-V1` (verbose level 1) to print the command execution steps
   and exact error messages to the terminal.
 - **Hanging Commands:** When testing new commands, use `timeout` to prevent hanging risks on read-only files.
+- **Hanging Processes (Control-Z or infinite wait)**: If you accidentally find yourself stuck in an
+  interactive `ex` command-line prompt (often indicated by messages like `The terminal is
+  awaiting input` or `Type "visual" to go to Normal mode`), **do not kill the terminal** and
+  **never type `visual`** (this launches the full interactive UI and completely breaks headless
+  agents). This usually happens if you forget the `-s` (silent) flag. Simply type `qa!` and press
+  Enter to safely abort. In batch mode using `argdo`, a missing `update` or standard `q` command
+  may leave `ex` waiting for interactively unsaved buffers. Run `qa!` unconditionally at the end
+  of heredocs to cleanly abort everything if any step stalled.
 - **Heredoc Conflicts / Infinite Hangs:** Avoid piping data (`command | ex -s /dev/stdin`) when you are also
   providing commands via a heredoc (`<< EOF`). This causes `ex` to confuse its input streams and hang indefinitely.
   Use process substitution instead: `ex -s <(command) << EOF`.
+
+- **Newline appending via string (`$put=""/a\`)**: In headless automated CI or agent scripts,
+  using `$put="string"` or `a\` across multiple files via `argdo` can fail explicitly or
+  invisibly swallow newlines depending on shell escaping. Use Vimscript's explicit `call
+  append('$', 'your string')` to safely bypass multiline shell escaping issues completely.
+
 - **Range Errors (e.g. Exit code 1 with no output):** Complex address ranges like `/<pattern>/+1,+3command` often fail
   because `ex` evaluates the second relative address before the cursor moves to the pattern. Splitting them solves this by
   explicitly moving the cursor first:
@@ -305,6 +319,20 @@ ex -s -c 'let g:html_no_progress=1' -c 'syntax on' -c 'set ft=c' \
   normal mode actions (e.g., `norm! vitd`) when editing unstructured data like raw HTML, which might break
   text-object selections and fail implicitly if tags are unexpectedly unclosed.
 
+## Appending to multiple files
+
+Example of safely appending text across multiple files via `argdo` and `call append()` instead of multi-line shell escaping:
+
+```bash
+ex -s .github/skills/*/SKILL.md << 'VIMEOF'
+set hidden
+argdo call append('$', ['', '## Maintenance
+
+Note that this file should be updated if outdated or steps/examples are not-working.']) | update
+qa!
+VIMEOF
+```
+
 ## References
 
 - [Does Ex mode have any practical use?](https://vi.stackexchange.com/a/2692/467)
@@ -312,3 +340,7 @@ ex -s -c 'let g:html_no_progress=1' -c 'syntax on' -c 'set ft=c' \
 - [Vim Ex Mode Documentation](https://vimhelp.org/)
 - [Vim Q&A](https://vi.stackexchange.com/)
 - [Learning the vi Editor/Vim/Modes](https://en.wikibooks.org/wiki/Learning_the_vi_Editor/Vim/Modes#Ex-mode)
+
+## Maintenance
+
+Note that this file should be updated if outdated or steps/examples are not-working.
