@@ -26,6 +26,7 @@
         "mawk": true,
         "mkdir": true,
         "pipx": true,
+        "printf": true,
         "pre-commit": true,
         "set": true,
         "time": true,
