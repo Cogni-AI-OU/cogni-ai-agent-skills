@@ -32,7 +32,7 @@ on:
         required: false
         type: string
       model:
-        default: opencode/claude-opus-4-5
+        default: ${{ vars.OPENCODE_MODEL_DEFAULT || 'opencode/gemini-3.1-pro' }}
         description: Model to use for OpenCode
         required: false
         type: string
@@ -64,7 +64,7 @@ on:
         required: false
         type: choice
       model:
-        default: opencode/claude-opus-4-5
+        default: opencode/gemini-3.1-pro
         description: Model to use for OpenCode
         options:
           - opencode/big-pickle
@@ -121,6 +121,8 @@ on:
           - pr-review
         required: false
         type: choice
+env:
+  OPENCODE_MODEL_DEFAULT: opencode/gemini-3.1-pro
 jobs:
   opencode-review:
     # Run automatically for trusted PRs, including Copilot-authored PRs,
@@ -190,11 +192,27 @@ jobs:
         with:
           fetch-depth: 1
           persist-credentials: false
+          submodules: recursive
+      - uses: actions/cache@v5.0.1
+        with:
+          path: ~/.cache/pre-commit
+          key: pre-commit|${{ hashFiles('.pre-commit-config.yaml') }}
+          restore-keys: |
+            pre-commit|
       - uses: actions/setup-python@v6.1.0
         with:
+          cache: pip
+          cache-dependency-path: .devcontainer/requirements.txt
           python-version: '3.12'
-      - name: Install pre-commit
-        run: pip install pre-commit
+      - name: Cache installed dependencies
+        id: cache-dependencies
+        uses: actions/cache@v5.0.1
+        with:
+          path: ${{ env.pythonLocation }}
+          key: ${{ runner.os }}-pip-${{ env.pythonLocation }}-${{ hashFiles('.devcontainer/requirements.txt') }}
+      - name: Install dependencies
+        if: steps.cache-dependencies.outputs.cache-hit != 'true'
+        run: pip install -r .devcontainer/requirements.txt
       - name: Load review prompt
         id: load-prompt
         env:
@@ -229,9 +247,9 @@ jobs:
                 "hexdump*": "allow",
                 "links*": "allow",
                 "mawk*": "allow",
-                "mkdir*": "allow",
                 "pipx*": "allow",
                 "pre-commit*": "allow",
+                "printf*": "allow",
                 "set*": "allow",
                 "time*": "allow",
                 "timeout*": "allow",
@@ -243,9 +261,7 @@ jobs:
         with:
           agent: ${{ inputs.agent || 'build' }}
           # See: <https://opencode.ai/docs/models/>
-          model: >-
-            ${{ (github.event_name == 'workflow_call' || github.event_name == 'workflow_dispatch')
-            && inputs.model || 'opencode/claude-opus-4-5' }}
+          model: ${{ inputs.model || env.OPENCODE_MODEL_DEFAULT }}
           prompt: |-
             Pull request needs to be reviewed in the context of the following repository:
             <repo>
