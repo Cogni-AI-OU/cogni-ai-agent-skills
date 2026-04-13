@@ -2,13 +2,16 @@
   "$schema": "https://opencode.ai/config.json",
   "instructions": [
     "AGENTS.md",
+    ".github/copilot-instructions.md",
     ".github/skills/AGENTS.md"
   ],
-  "provider": {
-    "opencode": {
-      "options": {},
+  "agent": {
+    "cogni-ai": {
+      "mode": "primary",
+      "model": "opencode/gemini-3.1-pro",
+      "prompt": "{file:../.github/agents/cogni-ai.agent.md}",
       "tools": {
-        "read": true,
+        "write": true,
         "edit": true,
         "bash": true
       },
@@ -27,9 +30,9 @@
           "hexdump": "allow",
           "links": "allow",
           "mawk": "allow",
-          "mkdir": "allow",
           "pipx": "allow",
           "pre-commit": "allow",
+          "printf": "allow",
           "set": "allow",
           "time": "allow",
           "timeout": "allow",
@@ -40,15 +43,19 @@
       }
     }
   },
+  "provider": {
+    "opencode": {
+      "options": {},
+    },
+  },
   "mcp": {
-    // Context7 provides remote docs and context lookups during OpenCode sessions.
     "context7": {
       "type": "remote",
-      "url": "https://mcp.context7.com/mcp"
-    }
+      "url": "https://mcp.context7.com/mcp",
+    },
   },
   "tools": {
     "github-triage": false,
-    "github-pr-search": false
-  }
+    "github-pr-search": false,
+  },
 }
