@@ -20,6 +20,8 @@ Read and merge these when operating inside corresponding sub-directories (order 
 
 ## Skills
 
+You must load the skill relevant to the user prompt into the current context:
+
 - **[context-aware-ops](context-aware-ops/SKILL.md)**: Intelligent resource management with size checking and filtering
 - **[git](git/SKILL.md)**: Guide for using git with non-interactive, safe operations
 - **[git-expert](git-expert/SKILL.md)**: Advanced Git operations including interactive rebasing, reflog recovery,
