@@ -31,6 +31,13 @@ Never blindly dump large resources into your context. Always:
 2. Use filtering if needed
 3. Focus on relevant portions only
 
+## Exemptions
+
+Load these files in full without partial/chunked reading:
+
+- `AGENTS.md`
+- `SKILL.md`
+
 ## File Size Checking
 
 ### Check Line Count
