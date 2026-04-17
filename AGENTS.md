@@ -23,6 +23,7 @@ Read and merge these when operating inside corresponding sub-directories (order 
 You must load the skills relevant to the user prompt, inferred intent,
 and planned work into the current context:
 
+- **[ansible](ansible/SKILL.md)**: How to run and manage Ansible operations safely and prevent hangs
 - **[context-aware-ops](context-aware-ops/SKILL.md)**: Intelligent resource management with size checking and filtering
 - **[git](git/SKILL.md)**: Guide for using git with non-interactive, safe operations
 - **[git-expert](git-expert/SKILL.md)**: Advanced Git operations including interactive rebasing, reflog recovery,
