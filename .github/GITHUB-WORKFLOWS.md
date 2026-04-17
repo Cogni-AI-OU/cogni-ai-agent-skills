@@ -84,7 +84,7 @@ before running the corresponding tools.
 
 ### OpenCode Workflow Git Access
 
-The OpenCode workflow (`opencode.yml`) grants intentionally broad git access
+The OpenCode workflow (`opencode-agent.yml`) grants intentionally broad git access
 via `Bash(git:*)` to enable autonomous code changes. This permission is necessary
 for OpenCode to commit and push changes, but requires proper safeguards.
 
