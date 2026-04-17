@@ -42,7 +42,7 @@ For a human-readable overview, see [README.md](README.md).
 ### opencode-review.yml
 
 - Purpose: OpenCode-driven PR review.
-- Inputs: agent (cogni-ai), model (workflow_call default via
+- Inputs: agent (reviewer), model (workflow_call default via
   `vars.OPENCODE_MODEL_DEFAULT` with fallback `opencode/gpt-5.3-codex`; workflow_dispatch
   default `opencode/gpt-5.3-codex`), additional_prompt, pr_number (req for call/dispatch),
   prompt (default pr-review).

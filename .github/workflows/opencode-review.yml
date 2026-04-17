@@ -27,7 +27,7 @@ on:
         required: false
         type: string
       agent:
-        default: build
+        default: reviewer
         description: Agent to use.
         required: false
         type: string
@@ -52,13 +52,14 @@ on:
         required: false
         type: string
       agent:
-        default: cogni-ai
+        default: reviewer
         description: Agent to use.
         options:
           - build
           - cogni-ai
           - compaction
           - plan
+          - reviewer
           - summary
           - title
         required: false
@@ -259,7 +260,7 @@ jobs:
               }
             }
         with:
-          agent: ${{ inputs.agent || 'build' }}
+          agent: ${{ inputs.agent || 'reviewer' }}
           # See: <https://opencode.ai/docs/models/>
           model: ${{ inputs.model || env.OPENCODE_MODEL_DEFAULT }}
           prompt: |-
