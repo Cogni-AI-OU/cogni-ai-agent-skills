@@ -89,6 +89,5 @@ The `model` input options for `workflow_dispatch` must be identical in both work
 
 ## Notes
 
-- Follow [github-workflows.instruction.md](../../github-workflows.instruction.md)
-  when editing workflow files (ordering, formatting, validation).
+- Format workflow files with `yamlfix` and validate with `actionlint` and `yamllint` before committing.
 - Keep this catalog updated when workflows are added, removed, or renamed.

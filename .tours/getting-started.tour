@@ -38,9 +38,9 @@
       "line": 1
     },
     {
-      "title": "Instructions Directory",
-      "description": "## Repository-Wide Coding Standards\n\nThe `.github/instructions/` directory contains detailed guidelines for different file types:\n\n- **markdown.instructions.md**: Markdown formatting rules\n- **yaml.instructions.md**: YAML formatting standards\n- **ansible.instructions.md**: Ansible best practices\n- **blog.instructions.md**: Blog post requirements\n- **readme.instructions.md**: README.md specific guidelines\n\nThese files use the `applyTo` frontmatter to scope rules to specific file patterns and are integrated with GitHub Copilot.",
-      "directory": ".github/instructions"
+      "title": "Coding Standards",
+      "description": "## Repository-Wide Coding Standards\n\nThis repository relies on a few core resources instead of a `.github/instructions/` catalog:\n\n- **.github/copilot-instructions.md**: Central coding standards for agents\n- **Skill directories** (for example `ansible/`, `git/`, `shell/`): each ships a `SKILL.md` with task-specific guidance\n- **Pre-commit hooks**: `.markdownlint.yaml`, `.yamllint`, and `.editorconfig` enforce formatting automatically\n\nReview these before editing files so your changes stay aligned with the automation tooling.",
+      "directory": ".github"
     },
     {
       "title": "Pre-commit Configuration",
@@ -83,7 +83,7 @@
     },
     {
       "title": "Next Steps",
-      "description": "# You're All Set! \ud83d\ude80\n\n## Quick Start Checklist:\n\n\u2705 Explored the repository structure\n\u2705 Learned about development environment setup\n\u2705 Understand coding standards and guidelines\n\u2705 Know how to run validation tools\n\u2705 Reviewed contribution process\n\n## What's Next?\n\n1. **Set Up Environment**: Open this repository in a devcontainer or install dependencies locally\n2. **Install Pre-commit**: Run `pre-commit install` to enable automatic checks\n3. **Explore Instructions**: Review `.github/instructions/` for detailed guidelines\n4. **Review OpenCode Assets**: Inspect `.opencode/` and `.github/workflows/opencode.yml`\n5. **Start Contributing**: Pick an issue or create a new feature\n6. **Run Validations**: Always run `pre-commit run --all-files` before committing\n\n## Helpful Commands:\n\n```bash\n# Install pre-commit hooks\npre-commit install\n\n# Run all validation checks\npre-commit run --all-files\n\n# Run specific check\npre-commit run markdownlint -a\npre-commit run yamllint -a\n```\n\n## Questions?\n\nRefer to the documentation in `.github/instructions/` or open an issue for help!\n\nHappy coding! \ud83d\udcbb"
+      "description": "# You're All Set! \ud83d\ude80\n\n## Quick Start Checklist:\n\n\u2705 Explored the repository structure\n\u2705 Learned about development environment setup\n\u2705 Understand coding standards and guidelines\n\u2705 Know how to run validation tools\n\u2705 Reviewed contribution process\n\n## What's Next?\n\n1. **Set Up Environment**: Open this repository in a devcontainer or install dependencies locally\n2. **Install Pre-commit**: Run `pre-commit install` to enable automatic checks\n3. **Scan Skill Guides**: Review relevant `SKILL.md` files in the root skill directories\n4. **Review OpenCode Assets**: Inspect `.opencode/` and `.github/workflows/opencode.yml`\n5. **Start Contributing**: Pick an issue or create a new feature\n6. **Run Validations**: Always run `pre-commit run --all-files` before committing\n\n## Helpful Commands:\n\n```bash\n# Install pre-commit hooks\npre-commit install\n\n# Run all validation checks\npre-commit run --all-files\n\n# Run specific check\npre-commit run markdownlint -a\npre-commit run yamllint -a\n```\n\n## Questions?\n\nCheck `.github/copilot-instructions.md`, browse the skill directories, or open an issue for help.\n\nHappy coding! \ud83d\udcbb"
     }
   ]
 }

@@ -44,19 +44,17 @@ Key contents:
 
 ### JSON
 
-Follow the JSON rules in `json.instructions.md`, which mirror the repository `.editorconfig` configuration.
-
-To test locally, use `jq` for validation or use the VS Code JSON formatter.
+Follow the `.editorconfig` spacing rules (2-space indent, newline at EOF) and ensure files remain valid JSON.
+Use `jq . <file>` to validate and format as needed.
 
 ### Markdown
 
-Follow the Markdown rules in `markdown.instructions.md`, which mirror the repository markdownlint configuration.
-
-To test locally, run via `pre-commit run markdownlint -a` or use the VS Code Markdownlint extension.
+Conform to `.markdownlint.yaml` (80-character guidance, heading structure, fenced code blocks).
+Run `pre-commit run markdownlint -a` or use the Markdownlint extension in VS Code before committing.
 
 ### YAML
 
-Follow the YAML rules in `yaml.instructions.md`, which mirror the repository `.yamllint` configuration.
+Follow `.yamllint` and `yamlfix` defaults. Run `pre-commit run yamllint -a` or `yamlfix` to normalize formatting.
 
 Notes:
 
@@ -100,17 +98,13 @@ runtime and as the source of required controller-side dependencies.
 ├── .github/
 │   ├── ISSUE_TEMPLATE/      # Issue templates (bug reports, feature requests)
 │   ├── agents/              # AI agent configurations
-│   ├── instructions/        # Language-specific coding standards
-│   ├── skills/              # Agent skills definitions
 │   ├── workflows/           # GitHub Actions workflows
 │   ├── copilot-instructions.md
 │   └── pull_request_template.md
-├── .tours/                   # VS Code guided tours
-├── profile/
-│   └── README.md             # Organization profile (shown on GitHub org page)
-├── AGENTS.md                 # AI agent guidance
-├── CODE_OF_CONDUCT.md        # Community standards
-└── README.md                 # Repository documentation
+├── ansible/, git/, ...      # Skill directories with SKILL.md guidance
+├── .tours/                  # VS Code guided tours
+├── AGENTS.md                # Repository-specific agent guidance
+└── README.md                # Repository overview
 ```
 
 ### Tours

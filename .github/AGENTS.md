@@ -10,11 +10,8 @@ Use this as the entry point for agent work, and follow linked catalogs where pre
 | [.github/agents/](agents/) | Agent configuration files (e.g., specialized agent definitions) | — |
 | [.github/workflows/](workflows/) | Reusable GitHub Actions workflows | [.github/workflows/AGENTS.md](workflows/AGENTS.md) |
 
-Instruction, prompt, and workflow-template catalogs now live at the repository root:
-
-- [INSTRUCTIONS_OVERVIEW.md](../INSTRUCTIONS_OVERVIEW.md)
-- [PROMPTS.md](../PROMPTS.md)
-- [WORKFLOW_TEMPLATES.md](../WORKFLOW_TEMPLATES.md)
+Archived catalogs for prompts and instructions have been removed; rely on the skill directories in the
+repository root or `.github/copilot-instructions.md` for active guidance.
 
 ## Additional key files
 

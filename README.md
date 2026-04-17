@@ -58,8 +58,8 @@ Cogni-AI-OU projects:
 ### Key Features
 
 - **GitHub Actions Workflows**: CI/CD and automation (OpenCode, pre-commit, etc.)
-- **AI Agent Configurations**: AGENTS.md, skills, and prompts for automated development
-- **Coding Instructions**: Language-specific standards captured in `INSTRUCTIONS_OVERVIEW.md` and root `*.instructions.md`
+- **AI Agent Configurations**: AGENTS.md and the skill directories in the repository root
+- **Coding Guidance**: Follow `.github/copilot-instructions.md` and the instructions stored within each skill directory
 - **Pre-commit Hooks**: Linting and validation tooling
 - **Code Tours**: Guided walkthroughs for repository onboarding
 
@@ -112,7 +112,6 @@ pre-commit run flake8 -a
 ## Project Layout
 
 - `.github/`: default templates, workflows, and agent configuration
-- `INSTRUCTIONS_OVERVIEW.md`, `PROMPTS.md`, `WORKFLOW_TEMPLATES.md`: root-level catalogs for instructions, prompts, and reusable workflow templates
 - `.tours/`: guided walkthroughs for repository onboarding
 - `AGENTS.md`: repository-specific guidance for automation agents
 - `README.md`: repository overview and local development workflow
@@ -128,9 +127,6 @@ This repository provides AI agent configurations for automated development.
 | [AGENTS.md](AGENTS.md) | All agents | Repository-specific guidance and workflows |
 | [.github/copilot-instructions.md](.github/copilot-instructions.md) | Copilot | Coding standards and project context |
 | [.github/agents/](.github/agents/) | Orchestrators | Specialized agent configs for specific tasks |
-| [AGENT_SKILLS.md](AGENT_SKILLS.md) | All agents | Human-readable overview of available skills |
-| [PROMPTS.md](PROMPTS.md) | All agents | Prompt catalog for Copilot and OpenCode workflows |
-| [INSTRUCTIONS_OVERVIEW.md](INSTRUCTIONS_OVERVIEW.md) | Linters & agents | Entry point to language-specific instructions |
 
 See also:
 
