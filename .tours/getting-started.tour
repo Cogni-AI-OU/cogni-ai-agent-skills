@@ -27,7 +27,7 @@
     },
     {
       "title": "Custom Agents",
-      "description": "## Custom Agent Profiles\n\nThe `.github/agents/` directory contains reusable custom agent profiles for this repository.\n\n### Notable Files:\n\n- **`cogni-ai.agent.md`**: The newer Cogni AI agent profile that replaces the older Copilot Plus reference\n- **`code-tour.agent.md`**: Guidance for creating and maintaining CodeTour files\n- **`README.md`**: Human-readable overview of the available custom agents\n\nThe repository also includes `.opencode/` assets so OpenCode can load the matching Cogni AI behavior and helper commands.",
+      "description": "## Custom Agent Profiles\n\nThe `.github/agents/` directory contains reusable custom agent profiles for this repository.\n\n### Notable Files:\n\n- **`code-tour.agent.md`**: Guidance for creating and maintaining CodeTour files\n- **`README.md`**: Human-readable overview of the available custom agents\n\nThe repository also includes `.opencode/` assets so OpenCode can load the matching Cogni AI behavior and helper commands.",
       "file": ".github/agents/README.md",
       "line": 1
     },

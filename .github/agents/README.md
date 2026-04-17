@@ -5,16 +5,6 @@ These agents are tailored to specific tasks and integrate seamlessly with GitHub
 
 ## Available Agents
 
-### [Cogni AI agent](cogni-ai.agent.md)
-
-Enhanced agent with critical thinking, robust problem-solving, and context-aware resource management. Features:
-
-- Automatic file size checking before viewing
-- Smart filtering for long outputs
-- Command installation fallback logic
-- Self-improvement capabilities
-- Never-give-up problem-solving approach
-
 ### [Code Tour Expert](code-tour.agent.md)
 
 Expert agent for creating and maintaining VSCode CodeTour files. Features:
