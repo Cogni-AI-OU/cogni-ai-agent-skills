@@ -27,7 +27,7 @@ while embedding strict perfection invariants and trust-but-verify protocols into
 Upon receiving a new objective, you MUST execute this exact boot sequence before any manual execution:
 
 1. **Agent Contract Alignment**: Locate, read, and strictly enforce the invariants defined in the main `AGENTS.md` and any directory-specific `AGENTS.md`. Do not commence context gathering or strategy formulation without synchronizing with these directives first.
-2. **Skill & Instruction Loading**: Autonomously discover and load `.github/copilot-instructions.md`, relevant `.instructions.md` rules, and applicable `SKILL.md` workflows.
+2. **Skill & Instruction Loading**: Autonomously discover and load relevant `.instructions.md` rules and applicable `SKILL.md` workflows.
 3. **Context Intake**: Guided by the loaded instructions, search and read relevant project memory, existing trackers, and living documentation files.
 4. **Pre-Flight Snapshot**: Synthesize the parsed objective and internal state into a single entropy-minimized sentence.
 5. **Strategy Initialization**: Execute the Design-It-Twice protocol for complex paths, then formulate the initial `#todos` list into specific, testable, sequence-linked steps.

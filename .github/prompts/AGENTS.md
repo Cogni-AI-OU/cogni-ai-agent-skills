@@ -11,7 +11,6 @@ For a human-readable overview, see [README.md](README.md).
 | ------ | ------ | ------- |
 | [default.prompt.yml](default.prompt.yml) | YAML | Default GitHub Models prompt for general agent tasks |
 | [pr-review.prompt.md](pr-review.prompt.md) | Markdown | Manual review checklist and inline comment guidance for pull requests |
-| [repository-setup.prompt.md](repository-setup.prompt.md) | Markdown | Full repository setup checklist using org standards from Cogni-AI-OU/.github |
 | [test.prompt.yml](test.prompt.yml) | YAML | Minimal example prompt for GitHub Models experimentation |
 
 ## Notes

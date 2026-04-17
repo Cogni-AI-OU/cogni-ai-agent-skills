@@ -14,7 +14,6 @@ Use this as the entry point for agent work, and follow linked catalogs where pre
 
 ## Additional key files
 
-- [.github/copilot-instructions.md](copilot-instructions.md): main coding standards for agents.
 - [.github/actionlint-matcher.json](actionlint-matcher.json): problem matchers used in workflows.
 - [.github/pre-commit-matcher.json](pre-commit-matcher.json): problem matchers used in workflows.
 

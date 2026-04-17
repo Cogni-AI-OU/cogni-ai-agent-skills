@@ -14,7 +14,6 @@ Read and merge these when operating inside corresponding sub-directories (order 
 ## Required References
 
 - Project overview & install: [README.md](README.md)
-- Agent configuration & conventions: [.github/copilot-instructions.md](.github/copilot-instructions.md)
 - Workflow navigation: [.tours/getting-started.tour](.tours/getting-started.tour)
 - Latest org baseline: <https://github.com/Cogni-AI-OU/.github/blob/main/AGENTS.md>
 
