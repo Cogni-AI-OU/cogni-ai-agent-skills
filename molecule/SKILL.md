@@ -3,7 +3,7 @@ name: molecule
 description: >-
   How to run and manage Molecule tests for Ansible roles and playbooks.
 
-  Maintained at: <https://github.com/Cogni-AI-OU/.github/blob/main/.github/skills/molecule/SKILL.md>
+  Maintained at: <https://github.com/Cogni-AI-OU/cogni-ai-agent-skills>
 
 ---
 # Molecule Testing

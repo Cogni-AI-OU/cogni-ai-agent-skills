@@ -3,7 +3,7 @@ name: vim-ex
 description: >-
   How to use Ex mode in Vim for non-interactive file editing (e.g., complex text substitution, deleting lines, file parsing, wrapping text, sorting lines).
 
-  Maintained at: <https://github.com/Cogni-AI-OU/.github/blob/main/.github/skills/vim-ex/SKILL.md>
+  Maintained at: <https://github.com/Cogni-AI-OU/cogni-ai-agent-skills>
 
 ---
 # File Editing with Ex Mode
