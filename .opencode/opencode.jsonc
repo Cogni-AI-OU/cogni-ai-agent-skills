@@ -7,7 +7,6 @@
     "cogni-ai": {
       "mode": "primary",
       "model": "opencode/gemini-3.1-pro",
-      "prompt": "{file:../.github/agents/cogni-ai-architect.agent.md}",
       "tools": {
         "write": true,
         "edit": true,
