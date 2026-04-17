@@ -71,18 +71,6 @@ molecule syntax
 
 ## Troubleshooting
 
-### Molecule Testing issues
-
-If you encounter problems or hangs during `molecule test`:
-
-- Run molecule using separate commands (e.g., `molecule create`, `molecule converge`, `molecule destroy`)
-  to isolate the issue.
-- Always use a timeout prefix command when running separate commands to prevent indefinite hangs
-  (e.g., `timeout 600s molecule create` for a max of 5-10 minutes).
-- If dealing with upstream plugins that have broken conditionals, you may need to temporarily use
-  the `ANSIBLE_ALLOW_BROKEN_CONDITIONALS=1` environment variable
-  (e.g., `timeout 600s env ANSIBLE_ALLOW_BROKEN_CONDITIONALS=1 molecule create`).
-
 ### GitHub Build issues
 
 - Use `gh` command to interact with GitHub resources. For example:
