@@ -260,9 +260,9 @@ exist. Do not skip items just because a file already exists.
   - Purpose: Agent instruction file describing workflows, triggers, and inputs
   - Action: Create if missing; update when workflows are added, removed, or renamed
 
-- [ ] **`.github/prompts/` directory**
-  - Check if directory exists with prompt files
-  - Reference: `https://github.com/Cogni-AI-OU/.github/tree/main/.github/prompts`
+- [ ] **Prompt files (repository root)**
+  - Check that prompt files exist at the repository root for reuse across tools
+  - Reference: `PROMPTS.md`
   - Purpose: Prompt templates for GitHub Models, OpenCode, and Copilot
   - Action: Include relevant prompt files; keep formats (Markdown/YAML) as upstream
   - Available prompts:
@@ -271,10 +271,10 @@ exist. Do not skip items just because a file already exists.
     - `test.prompt.yml` - Example prompt
   - Customize: Add prompts for repository-specific tasks as needed
 
-- [ ] **`.github/prompts/AGENTS.md`**
+- [ ] **`PROMPTS_AGENTS.md`**
   - Check if file exists
-  - Reference: `https://github.com/Cogni-AI-OU/.github/blob/main/.github/prompts/AGENTS.md`
-  - Purpose: Agent instruction file describing workflows, triggers, and inputs
+  - Reference: `https://github.com/Cogni-AI-OU/cogni-ai-agent-skills/blob/main/PROMPTS_AGENTS.md`
+  - Purpose: Agent instruction file describing prompt usage and scope
   - Action: Create if missing; update when prompts change
 
 ### Phase 4: Development Container Configuration
@@ -328,7 +328,7 @@ exist. Do not skip items just because a file already exists.
 
 - [ ] **Create or update repository README.md**
   - Check if `README.md` exists
-  - Reference instructions: `https://github.com/Cogni-AI-OU/.github/blob/main/.github/instructions/readme.instructions.md`
+  - Reference instructions: `https://github.com/Cogni-AI-OU/cogni-ai-agent-skills/blob/main/readme.instructions.md`
   - Purpose: Main documentation for repository
   - Action: Ensure it follows organization standards
   - Required sections: Project overview, getting started, development, structure, contributing, license
@@ -399,13 +399,13 @@ exist. Do not skip items just because a file already exists.
   - Content: Project overview, coding standards, formatting guidelines, troubleshooting
   - Customize: Add repository-specific standards, dependencies, build/test commands
 
-- [ ] **`.github/instructions/` directory**
-  - Check if directory exists with language-specific instruction files
-  - Reference: `https://github.com/Cogni-AI-OU/.github/tree/main/.github/instructions`
+- [ ] **Instruction files (`*.instructions.md`)**
+  - Check that root-level instruction files exist for each format used in the repository
+  - Reference: `INSTRUCTIONS_OVERVIEW.md`
   - Purpose: Detailed formatting and content rules for different file types
   - Action: Copy relevant instruction files based on languages used in repository
   - Available files:
-    - `README.md` - Overview of instructions
+    - `INSTRUCTIONS_OVERVIEW.md` - Summary of available instructions
     - `ansible.instructions.md` - Ansible conventions
     - `blog.instructions.md` - Blog post standards (if applicable)
     - `json.instructions.md` - JSON formatting
@@ -414,9 +414,9 @@ exist. Do not skip items just because a file already exists.
     - `yaml.instructions.md` - YAML formatting
   - Customize: Only include files relevant to languages/formats used in repository
 
-- [ ] **`.github/instructions/AGENTS.md`**
+- [ ] **`INSTRUCTIONS_AGENTS.md`**
   - Check if file exists
-  - Reference: `https://github.com/Cogni-AI-OU/.github/blob/main/.github/instructions/AGENTS.md`
+  - Reference: `https://github.com/Cogni-AI-OU/cogni-ai-agent-skills/blob/main/INSTRUCTIONS_AGENTS.md`
   - Purpose: Catalog of instruction files with scopes for agents
   - Action: Create if missing and keep in sync when instruction files change
 

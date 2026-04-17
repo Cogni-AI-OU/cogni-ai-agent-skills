@@ -59,7 +59,7 @@ Cogni-AI-OU projects:
 
 - **GitHub Actions Workflows**: CI/CD and automation (OpenCode, pre-commit, etc.)
 - **AI Agent Configurations**: AGENTS.md, skills, and prompts for automated development
-- **Coding Instructions**: Language-specific standards in `.github/instructions/`
+- **Coding Instructions**: Language-specific standards captured in `INSTRUCTIONS_OVERVIEW.md` and root `*.instructions.md`
 - **Pre-commit Hooks**: Linting and validation tooling
 - **Code Tours**: Guided walkthroughs for repository onboarding
 
@@ -111,7 +111,8 @@ pre-commit run flake8 -a
 
 ## Project Layout
 
-- `.github/`: default templates, workflows, instructions, prompts, skills, and agent configuration
+- `.github/`: default templates, workflows, and agent configuration
+- `INSTRUCTIONS_OVERVIEW.md`, `PROMPTS.md`, `WORKFLOW_TEMPLATES.md`: root-level catalogs for instructions, prompts, and reusable workflow templates
 - `.tours/`: guided walkthroughs for repository onboarding
 - `AGENTS.md`: repository-specific guidance for automation agents
 - `README.md`: repository overview and local development workflow
@@ -127,9 +128,9 @@ This repository provides AI agent configurations for automated development.
 | [AGENTS.md](AGENTS.md) | All agents | Repository-specific guidance and workflows |
 | [.github/copilot-instructions.md](.github/copilot-instructions.md) | Copilot | Coding standards and project context |
 | [.github/agents/](.github/agents/) | Orchestrators | Specialized agent configs for specific tasks |
-| [.github/skills/](.github/skills/) | All agents | Reusable capabilities. |
-| [.github/prompts/](.github/prompts/) | All | Prompt templates (`.md` for VSCode, `.yaml` for GitHub Models) |
-| [.github/instructions/](.github/instructions/) | Linters & agents | Language-specific code standards |
+| [AGENT_SKILLS.md](AGENT_SKILLS.md) | All agents | Human-readable overview of available skills |
+| [PROMPTS.md](PROMPTS.md) | All agents | Prompt catalog for Copilot and OpenCode workflows |
+| [INSTRUCTIONS_OVERVIEW.md](INSTRUCTIONS_OVERVIEW.md) | Linters & agents | Entry point to language-specific instructions |
 
 See also:
 

@@ -41,7 +41,7 @@ model configuration.
 
    ```text
    /opencode Please follow the checklist in
-   https://github.com/Cogni-AI-OU/.github/blob/main/.github/prompts/repository-setup.prompt.md
+   https://github.com/Cogni-AI-OU/cogni-ai-agent-skills/blob/main/repository-setup.prompt.md
    to review and update this repository's configuration.
    ```
 
@@ -53,7 +53,7 @@ model configuration.
 
    ```text
    @workspace Please follow the repository setup checklist from
-   .github/prompts/repository-setup.prompt.md to standardize this repository.
+   repository-setup.prompt.md to standardize this repository.
    ```
 
 2. **In Pull Request**: Create a PR and ask Copilot to review using the prompt guidelines.
@@ -148,7 +148,7 @@ all configuration files in this repository. Run linters and report any issues.
 To contribute new prompts or improve existing ones:
 
 1. Fork the repository
-2. Create or update prompt files in `.github/prompts/`
+2. Create or update prompt files alongside this document (repository root)
 3. Test the prompt with an AI agent
 4. Update this README if adding a new prompt
 5. Submit a PR with your changes

@@ -44,19 +44,19 @@ Key contents:
 
 ### JSON
 
-Follow the JSON rules in `.github/instructions/json.instructions.md`, which mirror the repository `.editorconfig` configuration.
+Follow the JSON rules in `json.instructions.md`, which mirror the repository `.editorconfig` configuration.
 
 To test locally, use `jq` for validation or use the VS Code JSON formatter.
 
 ### Markdown
 
-Follow the Markdown rules in `.github/instructions/markdown.instructions.md`, which mirror the repository markdownlint configuration.
+Follow the Markdown rules in `markdown.instructions.md`, which mirror the repository markdownlint configuration.
 
 To test locally, run via `pre-commit run markdownlint -a` or use the VS Code Markdownlint extension.
 
 ### YAML
 
-Follow the YAML rules in `./.github/instructions/yaml.instructions.md`, which mirror the repository `.yamllint` configuration.
+Follow the YAML rules in `yaml.instructions.md`, which mirror the repository `.yamllint` configuration.
 
 Notes:
 

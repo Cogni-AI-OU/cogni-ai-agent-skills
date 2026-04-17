@@ -33,7 +33,7 @@ applyTo:
 - Start with a concise summary of the project purpose and scope.
 - Add a "Getting Started" section covering prerequisites, setup, and a minimal quickstart.
 - Add a "Development" section for local workflows (e.g., `pre-commit run --all-files`, running tests).
-- Add a "Project Layout" section describing key directories (e.g., `.github/instructions/`, `.github/agents/`).
+- Add a "Project Layout" section describing key directories (e.g., root `*.instructions.md`, `.github/agents/`).
 - Add a "Contributing" section summarizing contribution expectations and linking to any contributing guide if present.
 - Add a "License" section that links to the local `LICENSE` file if it exists in the repository,
   otherwise link to the TLDRLegal page (e.g. <https://www.tldrlegal.com/license/mit-license>) for the project's license.

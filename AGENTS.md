@@ -62,7 +62,7 @@ molecule syntax
 
 ### Updating Coding Standards
 
-- Language-specific instructions are in `.github/instructions/`
+- Language-specific instructions live alongside `INSTRUCTIONS_OVERVIEW.md` as root-level `*.instructions.md` files
 - Update `.markdownlint.yaml`, `.yamllint`, or `.editorconfig` for linting rules
 - Run `pre-commit run -a` to verify changes pass all checks
 
