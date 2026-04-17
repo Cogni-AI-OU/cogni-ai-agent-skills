@@ -26,12 +26,6 @@
       "line": 20
     },
     {
-      "title": "GitHub Copilot Instructions",
-      "description": "## Copilot Configuration\n\nThis file provides context-aware instructions to GitHub Copilot when working in this repository.\n\n### Key Guidelines:\n\n- **Python Standards**: Use Python 3.11+, PEP 8, and `uv` for dependency management\n- **Formatting**: Follow markdownlint and yamllint rules\n- **Project Structure**: Uses Codespaces and pre-commit hooks\n\nThese instructions help Copilot provide more accurate and consistent code suggestions.",
-      "file": ".github/copilot-instructions.md",
-      "line": 1
-    },
-    {
       "title": "Custom Agents",
       "description": "## Custom Agent Profiles\n\nThe `.github/agents/` directory contains reusable custom agent profiles for this repository.\n\n### Notable Files:\n\n- **`cogni-ai.agent.md`**: The newer Cogni AI agent profile that replaces the older Copilot Plus reference\n- **`code-tour.agent.md`**: Guidance for creating and maintaining CodeTour files\n- **`README.md`**: Human-readable overview of the available custom agents\n\nThe repository also includes `.opencode/` assets so OpenCode can load the matching Cogni AI behavior and helper commands.",
       "file": ".github/agents/README.md",

@@ -14,7 +14,6 @@ Read and merge these when operating inside corresponding sub-directories (order 
 ## Required References
 
 - Project overview & install: [README.md](README.md)
-- Agent configuration & conventions: [.github/copilot-instructions.md](.github/copilot-instructions.md)
 - Workflow navigation: [.tours/getting-started.tour](.tours/getting-started.tour)
 - Latest org baseline: <https://github.com/Cogni-AI-OU/.github/blob/main/AGENTS.md>
 
@@ -36,6 +35,17 @@ and planned work into the current context:
 - **[shell](shell/SKILL.md)**: Efficient shell command execution with timing, timeouts, and best practices
 - **[skill-writer](skill-writer/SKILL.md)**: Generate or update SKILL.md files for GitHub Copilot coding agents
 - **[vim-ex](vim-ex/SKILL.md)**: Non-interactive file editing with Vim Ex mode (in favor of sed, shell or Python editing)
+
+### Structural Invariant
+
+- **Skills Location**: Skills are located directly in the root directory of this repository.
+- **Do Not Add To Subdirectories**: Do not create or add new skills inside `.github/skills/` or other subdirectories.
+
+### Final Assurance Gates
+
+- Keep this file entropy-pruned and up-to-date.
+- Inject full content into every sub-agent context.
+- For latest standard see: <https://agents.md/>
 
 ## Common Tasks
 
