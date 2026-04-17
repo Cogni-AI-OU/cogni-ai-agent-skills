@@ -6,7 +6,7 @@ description: >-
   generate or revise a complete SKILL.md file that strictly adheres to the
   official format, validation rules, and community best practices.
 
-  Maintained at: <https://github.com/Cogni-AI-OU/.github/blob/main/.github/skills/skill-writer/SKILL.md>
+  Maintained at: <https://github.com/Cogni-AI-OU/cogni-ai-agent-skills>
 
 ---
 # Skill Writer

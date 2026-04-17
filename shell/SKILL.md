@@ -5,7 +5,7 @@ name: shell
 description: >-
   Efficient shell command handling.
 
-  Maintained at: <https://github.com/Cogni-AI-OU/.github/blob/main/.github/skills/shell/SKILL.md>
+  Maintained at: <https://github.com/Cogni-AI-OU/cogni-ai-agent-skills>
 license: MIT
 
 ---

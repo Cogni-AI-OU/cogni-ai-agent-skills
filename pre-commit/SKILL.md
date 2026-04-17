@@ -4,7 +4,7 @@ name: pre-commit
 description: >-
   Guide for using pre-commit hooks to validate code formatting, linting, and security checks before commits.
 
-  Maintained at: <https://github.com/Cogni-AI-OU/.github/blob/main/.github/skills/pre-commit/SKILL.md>
+  Maintained at: <https://github.com/Cogni-AI-OU/cogni-ai-agent-skills>
 license: MIT
 
 ---
