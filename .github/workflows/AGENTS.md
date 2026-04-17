@@ -10,7 +10,7 @@ For a human-readable overview, see [README.md](README.md).
 | Workflow | Purpose | Key triggers / notes |
 | -------- | ------- | -------------------- |
 | [check.yml](check.yml) | Linting and quality gates via actionlint and pre-commit | push, pull_request, schedule, workflow_run (after OpenCode); reusable via `workflow_call` |
-| [opencode.yml](opencode.yml) | OpenCode agent invocation via comments or manual triggers | issue_comment keywords `/oc` or `/opencode`, workflow_dispatch, `workflow_call` |
+| [opencode-agent.yml](opencode-agent.yml) | OpenCode agent invocation via comments or manual triggers | issue_comment keywords `/oc` or `/opencode`, workflow_dispatch, `workflow_call` |
 | [devcontainer-ci.yml](devcontainer-ci.yml) | Build/test devcontainer and required tools/packages | push/pull_request touching .devcontainer or workflow; schedule; `workflow_call` |
 
 ## Details
@@ -25,18 +25,17 @@ For a human-readable overview, see [README.md](README.md).
 - Reusable: `uses: Cogni-AI-OU/.github/.github/workflows/check.yml@main`.
 - Jobs: `actionlint`, `link-checker`, `pre-commit`.
 
-### opencode.yml
+### opencode-agent.yml
 
 - Purpose: invoke OpenCode agents via slash commands or manual triggers.
+- Uses: `Cogni-AI-OU/cogni-ai-agent-action/opencode@main` composite action.
 - Inputs: `agent` (default `cogni-ai`), `model` (workflow_call default via
   `vars.OPENCODE_MODEL_DEFAULT` with fallback `opencode/gemini-3.1-pro`; workflow_dispatch
   default `opencode/gemini-3.1-pro`), `prompt` (optional override).
 - Triggers: `workflow_dispatch`, `workflow_call`, or issue comments with `/oc` or `/opencode` from trusted (non-bot) collaborators/members/owners.
 - Concurrency: one run per branch/PR context via workflow-level `concurrency` group to avoid competing pushes.
-- Guardrail: comment-triggered runs do not populate `inputs.*`; back shared OpenCode defaults
-  with workflow-level `env` values instead of hardcoding agent/model literals in steps.
-- Permissions: `contents: read`, `id-token: write`, `issues: write`, `pull-requests: write`.
-- Reusable: `uses: Cogni-AI-OU/.github/.github/workflows/opencode.yml@main`.
+- Permissions: `contents: write`, `id-token: write`, `issues: write`, `pull-requests: write`.
+- Reusable: `uses: Cogni-AI-OU/.github/.github/workflows/opencode-agent.yml@main`.
 
 ### devcontainer-ci.yml
 
