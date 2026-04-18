@@ -7,12 +7,11 @@ For a human-readable overview, see [README.md](README.md).
 
 ## Workflow catalog
 
-| Workflow | Purpose | Key triggers / notes |
-| -------- | ------- | -------------------- |
-| [check.yml](check.yml) | Linting and quality gates via actionlint and pre-commit | push, pull_request, schedule, workflow_run (after OpenCode); reusable via `workflow_call` |
-| [opencode-agent.yml](opencode-agent.yml) | OpenCode agent invocation via comments or manual triggers | issue_comment keywords `/oc` or `/opencode`, workflow_dispatch, `workflow_call` |
-| [devcontainer-ci.yml](devcontainer-ci.yml) | Build/test devcontainer and required tools/packages | push/pull_request touching .devcontainer or workflow; schedule; `workflow_call` |
-| [cogni-ai-agent.yml](cogni-ai-agent.yml) | Logic for the Cogni AI Agent | issue_comment, pull_request_review_comment, workflow_dispatch |
+- **[check.yml](check.yml)**: Linting and quality gates via actionlint and pre-commit.
+- **[cogni-ai-agent.yml](cogni-ai-agent.yml)**: Logic for the Cogni AI Agent.
+- **[copilot-setup-steps.yml](copilot-setup-steps.yml)**: Environment setup utility.
+- **[devcontainer-ci.yml](devcontainer-ci.yml)**: Build/test devcontainer and required tools/packages.
+- **[opencode-agent.yml](opencode-agent.yml)**: OpenCode agent invocation via comments or manual triggers.
 
 ## Details
 
