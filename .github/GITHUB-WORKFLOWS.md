@@ -39,20 +39,6 @@ pre-commit run markdown-link-check -a
 The hook uses `.markdown-link-check.json` and checks both local file references
 and remote URLs before you push changes.
 
-## Workflow Templates
-
-The `workflow-templates/` directory contains reference workflows that are not
-actively executed but are preserved for future use or copying to other
-repositories. These templates can be customized and moved to the `workflows/`
-directory when needed.
-
-## Agent Prompts
-
-The `prompts/` directory contains ready-to-use prompts for AI agents to perform
-common repository management tasks. For agent-loading guidance and catalog, see
-[prompts/AGENTS.md](prompts/AGENTS.md). For human-oriented details, see
-[prompts/README.md](prompts/README.md).
-
 ## Problem Matchers
 
 GitHub Actions problem matchers automatically annotate files with errors and
@@ -84,7 +70,7 @@ before running the corresponding tools.
 
 ### OpenCode Workflow Git Access
 
-The OpenCode workflow (`opencode.yml`) grants intentionally broad git access
+The OpenCode workflow (`opencode-agent.yml`) grants intentionally broad git access
 via `Bash(git:*)` to enable autonomous code changes. This permission is necessary
 for OpenCode to commit and push changes, but requires proper safeguards.
 

@@ -10,7 +10,7 @@
     },
     {
       "title": "Project Overview",
-      "description": "## About This Project\n\nThis repository maintains technical skills commonly used by AI agents. It's designed to provide:\n\n- Python 3.11+ development environment\n- Pre-configured devcontainer for consistent development\n- Comprehensive pre-commit hooks for code quality\n- GitHub Actions for CI/CD\n- Claude and OpenCode automation assets\n- Multiple coding standards and guidelines\n\nThe project uses modern Python tooling including `uv` for dependency management and `pre-commit` for automated checks.",
+      "description": "## About This Project\n\nThis repository maintains technical skills commonly used by AI agents. It's designed to provide:\n\n- Python 3.11+ development environment\n- Pre-configured devcontainer for consistent development\n- Comprehensive pre-commit hooks for code quality\n- GitHub Actions for CI/CD\n- OpenCode automation assets\n- Multiple coding standards and guidelines\n\nThe project uses modern Python tooling including `uv` for dependency management and `pre-commit` for automated checks.",
       "file": "README.md"
     },
     {
@@ -21,7 +21,7 @@
     },
     {
       "title": "Development Environment Setup",
-      "description": "## Devcontainer Configuration\n\nThis project uses VS Code's devcontainer for a consistent development environment.\n\n### Key Features:\n\n- **Base Image**: Ubuntu Jammy (22.04)\n- **Pre-installed Tools**: Python, Node.js, Docker, Make, Ripgrep, and OpenCode support\n- **VS Code Extensions**: Markdownlint, Copilot, CodeTour, Claude Code, and more\n- **Automatic Setup**: Runs `pip install` and `pre-commit install` on creation\n- **OpenCode Host Dirs**: Pre-creates the bind mount directories required by OpenCode\n\n### Important Extension:\n\nNotice the `vsls-contrib.codetour` extension is included - that's what enables this tour!",
+      "description": "## Devcontainer Configuration\n\nThis project uses VS Code's devcontainer for a consistent development environment.\n\n### Key Features:\n\n- **Base Image**: Ubuntu Jammy (22.04)\n- **Pre-installed Tools**: Python, Node.js, Docker, Make, Ripgrep, and OpenCode support\n- **VS Code Extensions**: Markdownlint, Copilot, CodeTour, and more\n- **Automatic Setup**: Runs `pip install` and `pre-commit install` on creation\n- **OpenCode Host Dirs**: Pre-creates the bind mount directories required by OpenCode\n\n### Important Extension:\n\nNotice the `vsls-contrib.codetour` extension is included - that's what enables this tour!",
       "file": ".devcontainer/devcontainer.json",
       "line": 20
     },
@@ -33,14 +33,14 @@
     },
     {
       "title": "Custom Agents",
-      "description": "## Custom Agent Profiles\n\nThe `.github/agents/` directory contains reusable custom agent profiles for this repository.\n\n### Notable Files:\n\n- **`cogni-ai.agent.md`**: The newer Cogni AI agent profile that replaces the older Copilot Plus reference\n- **`code-tour.agent.md`**: Guidance for creating and maintaining CodeTour files\n- **`README.md`**: Human-readable overview of the available custom agents\n\nThe repository also includes `.opencode/` assets so OpenCode can load the matching Cogni AI behavior and helper commands.",
+      "description": "## Custom Agent Profiles\n\nThe `.github/agents/` directory contains reusable custom agent profiles for this repository.\n\n### Notable Files:\n\n- **`cogni-ai.agent.md`**: The newer Cogni AI agent profile that replaces the older Copilot Plus reference\n- **`code-tour.agent.md`**: Guidance for creating and maintaining CodeTour files\n- **`README.md`**: Human-readable overview of the available custom agents\n\nThe repository also includes OpenCode assets so OpenCode can load the matching Cogni AI behavior and helper commands.",
       "file": ".github/agents/README.md",
       "line": 1
     },
     {
       "title": "Coding Standards",
-      "description": "## Repository-Wide Coding Standards\n\nThis repository relies on a few core resources instead of a `.github/instructions/` catalog:\n\n- **.github/copilot-instructions.md**: Central coding standards for agents\n- **Skill directories** (for example `ansible/`, `git/`, `shell/`): each ships a `SKILL.md` with task-specific guidance\n- **Pre-commit hooks**: `.markdownlint.yaml`, `.yamllint`, and `.editorconfig` enforce formatting automatically\n\nReview these before editing files so your changes stay aligned with the automation tooling.",
-      "directory": ".github"
+      "description": "## Repository-Wide Coding Standards\n\nThis repository relies on root skill directories for detailed guidelines:\n\n- **.github/copilot-instructions.md**: Central coding standards for agents\n- **Skill directories** (for example `ansible/`, `git/`, `shell/`): each ships a `SKILL.md` with task-specific guidance\n- **Pre-commit hooks**: `.markdownlint.yaml`, `.yamllint`, and `.editorconfig` enforce formatting automatically\n\nReview these before editing files so your changes stay aligned with the automation tooling.",
+      "directory": "."
     },
     {
       "title": "Pre-commit Configuration",
@@ -60,7 +60,7 @@
     },
     {
       "title": "GitHub Actions Workflow",
-      "description": "## Continuous Integration\n\nThe repository keeps the standard `check.yml` validation workflow and now also includes OpenCode automation workflows.\n\n### Reusable Workflow:\n\nThe `check.yml` workflow uses a reusable workflow call from the `.github` organization repository:\n- **Location**: `Cogni-AI-OU/.github/.github/workflows/check.yml@main`\n- **Jobs**: actionlint and pre-commit checks\n\n### OpenCode Workflows:\n\n- **`opencode.yml`**: Handles `/oc` and `/opencode` issue and PR commands\n- **`opencode-review.yml`**: Runs OpenCode-based PR reviews\n\nThis centralizes workflow definitions across all organization repositories while keeping repository-specific entrypoints checked in here.",
+      "description": "## Continuous Integration\n\nThe repository keeps the standard `check.yml` validation workflow and now also includes OpenCode automation workflows.\n\n### Reusable Workflow:\n\nThe `check.yml` workflow uses a reusable workflow call from the `.github` organization repository:\n- **Location**: `Cogni-AI-OU/.github/.github/workflows/check.yml@main`\n- **Jobs**: actionlint and pre-commit checks\n\n### OpenCode Workflows:\n\n- **`opencode-agent.yml`**: Handles `/oc` and `/opencode` issue and PR commands via composite action\n- **`cogni-ai-agent.yml`**: Runs the Cogni AI agent\n\nThis centralizes workflow definitions across all organization repositories while keeping repository-specific entrypoints checked in here.",
       "file": ".github/workflows/check.yml",
       "line": 10
     },
@@ -83,7 +83,7 @@
     },
     {
       "title": "Next Steps",
-      "description": "# You're All Set! \ud83d\ude80\n\n## Quick Start Checklist:\n\n\u2705 Explored the repository structure\n\u2705 Learned about development environment setup\n\u2705 Understand coding standards and guidelines\n\u2705 Know how to run validation tools\n\u2705 Reviewed contribution process\n\n## What's Next?\n\n1. **Set Up Environment**: Open this repository in a devcontainer or install dependencies locally\n2. **Install Pre-commit**: Run `pre-commit install` to enable automatic checks\n3. **Scan Skill Guides**: Review relevant `SKILL.md` files in the root skill directories\n4. **Review OpenCode Assets**: Inspect `.opencode/` and `.github/workflows/opencode.yml`\n5. **Start Contributing**: Pick an issue or create a new feature\n6. **Run Validations**: Always run `pre-commit run --all-files` before committing\n\n## Helpful Commands:\n\n```bash\n# Install pre-commit hooks\npre-commit install\n\n# Run all validation checks\npre-commit run --all-files\n\n# Run specific check\npre-commit run markdownlint -a\npre-commit run yamllint -a\n```\n\n## Questions?\n\nCheck `.github/copilot-instructions.md`, browse the skill directories, or open an issue for help.\n\nHappy coding! \ud83d\udcbb"
+      "description": "# You're All Set! \ud83d\ude80\n\n## Quick Start Checklist:\n\n\u2705 Explored the repository structure\n\u2705 Learned about development environment setup\n\u2705 Understand coding standards and guidelines\n\u2705 Know how to run validation tools\n\u2705 Reviewed contribution process\n\n## What's Next?\n\n1. **Set Up Environment**: Open this repository in a devcontainer or install dependencies locally\n2. **Install Pre-commit**: Run `pre-commit install` to enable automatic checks\n3. **Scan Skill Guides**: Review relevant `SKILL.md` files in the root skill directories\n4. **Review Workflows**: Inspect `.github/workflows/opencode-agent.yml`\n5. **Start Contributing**: Pick an issue or create a new feature\n6. **Run Validations**: Always run `pre-commit run --all-files` before committing\n\n## Helpful Commands:\n\n```bash\n# Install pre-commit hooks\npre-commit install\n\n# Run all validation checks\npre-commit run --all-files\n\n# Run specific check\npre-commit run markdownlint -a\npre-commit run yamllint -a\n```\n\n## Questions?\n\nCheck `.github/copilot-instructions.md`, browse the skill directories, or open an issue for help.\n\nHappy coding! \ud83d\udcbb"
     }
   ]
 }

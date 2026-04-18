@@ -1,7 +1,7 @@
 ---
 # See: <https://opencode.ai/docs>
 # Note: Keep keys and envs in alphabetical order.
-name: OpenCode
+name: OpenCode Agent
 # Prevent concurrent runs on the same branch to avoid push conflicts.
 # When a new run is triggered, the previous pending run is cancelled.
 concurrency:
@@ -32,7 +32,7 @@ on:
         required: false
         type: string
       model:
-        default: ${{ vars.OPENCODE_MODEL_DEFAULT || 'opencode/gemini-3.1-pro' }}
+        default: ${{ vars.OPENCODE_MODEL_DEFAULT || 'opencode/gemini-3-flash' }}
         description: Model to use for OpenCode
         required: false
         type: string
@@ -55,7 +55,7 @@ on:
         required: false
         type: choice
       model:
-        default: opencode/gemini-3.1-pro
+        default: opencode/gemini-3-flash
         description: Model to use for OpenCode
         options:
           - opencode/big-pickle
@@ -104,90 +104,65 @@ on:
       prompt:
         description: Custom prompt to override the default prompt
         required: false
-env:
-  OPENCODE_MODEL_DEFAULT: opencode/gemini-3.1-pro
 jobs:
-  opencode:
-    if: |
-      github.event_name == 'workflow_dispatch' || github.event_name == 'workflow_call' || (
-        !endsWith(github.actor, '[bot]') &&
-        contains(fromJson('["COLLABORATOR","CONTRIBUTOR","MEMBER","OWNER"]'), github.event.comment.author_association)
-        && (
-          contains(github.event.comment.body, '/oc') ||
-          contains(github.event.comment.body, '/opencode') ||
-          contains(github.event.comment.body, '@opencode') ||
-          contains(github.event.comment.body, '@OpenCode')
-        )
-      )
-    name: OpenCode
+  opencode-agent:
+    name: Run OpenCode agent
     runs-on: ubuntu-latest
     permissions:
       contents: write
-      id-token: write  # Needed so opencode can request an OIDC token for GitHub API calls
+      id-token: write
       issues: write
       pull-requests: write
     steps:
       - uses: actions/checkout@v6
         with:
-          persist-credentials: false  # Prevents duplicate Authorization header
+          persist-credentials: false  # Prevents Duplicate header: "Authorization" error.
           submodules: recursive
-      - uses: actions/cache@v5.0.1
-        with:
-          path: ~/.cache/pre-commit
-          key: pre-commit|${{ hashFiles('.pre-commit-config.yaml') }}
-          restore-keys: |
-            pre-commit|
       - uses: actions/setup-python@v6.1.0
         with:
-          cache: pip
-          cache-dependency-path: .devcontainer/requirements.txt
           python-version: '3.12'
-      - name: Cache installed dependencies
-        id: cache-dependencies
+      - name: Restore Python user site
+        id: python-user-site
         uses: actions/cache@v5.0.1
         with:
-          path: ${{ env.pythonLocation }}
-          key: ${{ runner.os }}-pip-${{ env.pythonLocation }}-${{ hashFiles('.devcontainer/requirements.txt') }}
-      - name: Install dependencies
-        if: steps.cache-dependencies.outputs.cache-hit != 'true'
-        run: pip install -r .devcontainer/requirements.txt
-      - name: Run opencode
-        uses: anomalyco/opencode/github@latest
-        timeout-minutes: 60
-        env:
-          GITHUB_EVENT_NAME: ${{ github.event_name == 'pull_request_target' && 'pull_request' || github.event_name }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          OPENCODE_API_KEY: ${{ secrets.OPENCODE_API_KEY }}
-          # Keep shell permissions aligned with .vscode/settings.json allowlist and in alphabetical order.
-          OPENCODE_PERMISSION: |-
-            {
-              "bash": {
-                "*": "deny",
-                "ansible*": "allow",
-                "ansible-galaxy*": "allow",
-                "ansible-playbook*": "allow",
-                "awk*": "allow",
-                "continue*": "allow",
-                "cp*": "allow",
-                "ex*": "allow",
-                "gh*": "allow",
-                "gh pr review*": "deny",
-                "git*": "allow",
-                "hexdump*": "allow",
-                "links*": "allow",
-                "mawk*": "allow",
-                "pipx*": "allow",
-                "pre-commit*": "allow",
-                "printf*": "allow",
-                "set*": "allow",
-                "time*": "allow",
-                "timeout*": "allow",
-                "touch*": "allow",
-                "true*": "allow",
-                "vim*": "allow"
-              }
-            }
+          path: ~/.local
+          key: ${{ runner.os }}-pip-${{ hashFiles('.devcontainer/requirements.txt') }}
+      - name: Install Python dependencies
+        if: steps.python-user-site.outputs.cache-hit != 'true'
+        run: python -m pip install --user -r .devcontainer/requirements.txt
+      - name: Ensure local bin on PATH
+        run: echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+      # See: <https://github.com/Cogni-AI-OU/cogni-ai-agent-action/tree/main/opencode>
+      - name: Run OpenCode Agent
+        uses: Cogni-AI-OU/cogni-ai-agent-action/opencode@main
         with:
           agent: ${{ inputs.agent }}
-          model: ${{ inputs.model || env.OPENCODE_MODEL_DEFAULT }}
+          model: ${{ inputs.model || vars.OPENCODE_MODEL_DEFAULT || 'opencode/gemini-3-flash' }}
+          opencode-api-key: ${{ secrets.OPENCODE_API_KEY }}
+          # Keep shell permissions aligned with .vscode/settings.json allowlist and in alphabetical order.
+          permissions: |-
+            bash:
+              '*': deny
+              ansible*: allow
+              ansible-galaxy*: allow
+              ansible-playbook*: allow
+              awk*: allow
+              continue*: allow
+              cp*: allow
+              ex*: allow
+              gh*: allow
+              gh pr review*: deny
+              git*: allow
+              hexdump*: allow
+              links*: allow
+              mawk*: allow
+              pipx*: allow
+              pre-commit*: allow
+              printf*: allow
+              set*: allow
+              time*: allow
+              timeout*: allow
+              touch*: allow
+              true*: allow
+              vim*: allow
           prompt: ${{ inputs.prompt || '' }}

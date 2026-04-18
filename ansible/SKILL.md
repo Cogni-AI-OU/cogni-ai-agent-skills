@@ -18,7 +18,8 @@ description: >-
 
 ### Ansible Environment issues
 
-If you encounter hangs during Ansible execution, especially when interacting with package managers like `apt` on Debian/Ubuntu systems:
+If you encounter hangs during Ansible execution, especially when interacting with package managers
+like `apt` on Debian/Ubuntu systems:
 
 - Use the `DEBIAN_FRONTEND` environment variable to prevent prompts from hanging the process.
 - Set `DEBIAN_FRONTEND=noninteractive` when running your Ansible commands or in your playbook environment.

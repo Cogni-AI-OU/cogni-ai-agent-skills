@@ -324,7 +324,7 @@ ex -s -c 'let g:html_no_progress=1' -c 'syntax on' -c 'set ft=c' \
 Example of safely appending text across multiple files via `argdo` and `call append()` instead of multi-line shell escaping:
 
 ```bash
-ex -s .github/skills/*/SKILL.md << 'VIMEOF'
+ex -s */SKILL.md << 'VIMEOF'
 set hidden
 let m = 'Note that this file should be updated if outdated or steps/examples are not working.'
 argdo call append('$', ['', '## Maintenance', '', m]) | update
