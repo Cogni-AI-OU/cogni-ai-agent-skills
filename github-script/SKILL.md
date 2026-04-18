@@ -1,15 +1,14 @@
+<!-- markdownlint-disable MD003 MD013 MD022 MD026 MD041 -->
 ---
 name: github-script
 description: >-
   Advanced use cases and examples for using actions/github-script.
 
   Maintained at: <https://github.com/Cogni-AI-OU/cogni-ai-agent-skills>
+license: MIT
 
 ---
-# GitHub Script
-
-This skill provides advanced examples and best practices for using `actions/github-script`
-in GitHub Actions to interact with the GitHub API.
+Expert guide for using actions/github-script in GitHub Actions workflows. Focuses on advanced API interactions, cross-platform execution, and secure script implementation.
 
 ## When to Activate
 
@@ -196,3 +195,7 @@ jobs:
 2. **Require Authentication for External Repo Access**: The default `GITHUB_TOKEN` is
    scoped only to the current repository. To access other repos, configure a PAT
    and pass it to `github-token`.
+
+## Maintenance
+
+Note that this file should be updated if outdated or steps/examples are not working.
