@@ -12,7 +12,7 @@ on:
   workflow_dispatch:
     inputs:
       model:
-        default: opencode/gpt-5-codex
+        default: opencode/gemini-3-flash
         description: Model to use for OpenCode
         options:
           - opencode/big-pickle
@@ -50,6 +50,10 @@ on:
 jobs:
   cogni-ai-agent:
     name: Run Cogni AI agent
+    if: |
+      github.event_name == 'workflow_dispatch' ||
+      contains(github.event.comment.body, '/') ||
+      contains(github.event.comment.body, '@')
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -78,7 +82,7 @@ jobs:
       - name: Run Cogni AI Agent
         uses: Cogni-AI-OU/cogni-ai-agent-action@main
         with:
-          model: ${{ inputs.model }}
+          model: ${{ inputs.model || 'opencode/gemini-3-flash' }}
           opencode-api-key: ${{ secrets.OPENCODE_API_KEY }}  # <https://opencode.ai/auth>
           permissions: |-
             bash:
