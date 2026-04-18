@@ -50,6 +50,10 @@ on:
 jobs:
   cogni-ai-agent:
     name: Run Cogni AI agent
+    if: |
+      github.event_name == 'workflow_dispatch' ||
+      contains(github.event.comment.body, '/') ||
+      contains(github.event.comment.body, '@')
     runs-on: ubuntu-latest
     permissions:
       contents: write
