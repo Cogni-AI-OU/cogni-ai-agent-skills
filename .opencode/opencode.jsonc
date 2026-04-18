@@ -8,7 +8,7 @@
     "cogni-ai": {
       "mode": "primary",
       "model": "opencode/gemini-3-flash",
-      "prompt": "{file:../.github/agents/cogni-ai.agent.md}",
+      "prompt": "{file:agent/cogni-ai.md}",
       "tools": {
         "write": true,
         "edit": true,
