@@ -25,6 +25,7 @@
       "file": ".devcontainer/devcontainer.json",
       "line": 20
     },
+    },
     {
       "title": "GitHub Copilot Instructions",
       "description": "## Copilot Configuration\n\nThis file provides context-aware instructions to GitHub Copilot when working in this repository.\n\n### Key Guidelines:\n\n- **Python Standards**: Use Python 3.11+, PEP 8, and `uv` for dependency management\n- **Formatting**: Follow markdownlint and yamllint rules\n- **Project Structure**: Uses Codespaces and pre-commit hooks\n\nThese instructions help Copilot provide more accurate and consistent code suggestions.",

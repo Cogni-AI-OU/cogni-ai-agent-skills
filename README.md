@@ -39,6 +39,7 @@ To load these skills into your own repository, you can add this repository as a 
 
 - **[ansible](ansible/SKILL.md)**: How to run and manage Ansible operations safely and prevent hangs
 - **[context-aware-ops](context-aware-ops/SKILL.md)**: Intelligent resource management with size checking and filtering
+
 - **[git](git/SKILL.md)**: Guide for using git with non-interactive, safe operations
 - **[git-expert](git-expert/SKILL.md)**: Advanced Git operations including interactive rebasing, reflog recovery,
   bisecting, complex conflict resolution, and history manipulation
@@ -59,7 +60,7 @@ Cogni-AI-OU projects:
 
 ### Key Features
 
-- **GitHub Actions Workflows**: CI/CD and automation (OpenCode, pre-commit, etc.)
+- **[GitHub Actions Workflows](GitHub Actions Workflows)**: CI/CD and automation (OpenCode, pre-commit, etc.)
 - **AI Agent Configurations**: AGENTS.md and the skill directories in the repository root
 - **Coding Guidance**: Follow `.github/copilot-instructions.md` and the instructions stored within each skill directory
 - **Pre-commit Hooks**: Linting and validation tooling
