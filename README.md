@@ -44,6 +44,7 @@ To load these skills into your own repository, you can add this repository as a 
 - **[github](github/SKILL.md)**: GitHub specific features and collaborative practices
 - **[github-actions](github-actions/SKILL.md)**: Diagnosing and debugging failing GitHub Actions workflows
 - **[molecule](molecule/SKILL.md)**: Molecule testing workflows for Ansible roles
+- **[pdf](pdf/SKILL.md)**: PDF file inspection, object-level editing, and lossless size reduction
 - **[pre-commit](pre-commit/SKILL.md)**: Using pre-commit to validate code formatting, linting, and security checks
 - **[robust-commands](robust-commands/SKILL.md)**: Resilient command execution with automatic fallbacks and error recovery
 - **[shell](shell/SKILL.md)**: Efficient shell command execution with timing, timeouts, and best practices
