@@ -177,6 +177,8 @@ Instructions for Copilot to follow when this skill is activated.
 
 #### Skill locations
 
+Skills can be stored at different levels:
+
 | Level | Location | Scope |
 | ----- | -------- | ----- |
 | Project | Root directory (`/`) | Single repository |
@@ -204,6 +206,7 @@ Find and share skills with the community:
   repository
 - [github/awesome-copilot](https://github.com/github/awesome-copilot) - Community
   collection of Copilot resources
+
 ## GitHub Actions
 
 For documentation on GitHub Actions workflows, problem matchers, and CI/CD

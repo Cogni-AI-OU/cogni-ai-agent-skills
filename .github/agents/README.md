@@ -61,4 +61,3 @@ See [FIREWALL.md](FIREWALL.md) for recommended hosts to allow and the official g
 
 [customize-env]: https://docs.github.com/en/copilot/how-tos/use-copilot-agents/coding-agent/customize-the-agent-environment
 [firewall-config]: https://gh.io/copilot/firewall-config
-

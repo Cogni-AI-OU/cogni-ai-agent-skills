@@ -35,11 +35,11 @@ pre-commit run markdown-link-check --files path/to/file.md
 # Check all Markdown files
 pre-commit run markdown-link-check -a
 ```
-
 The hook uses `.markdown-link-check.json` and checks both local file references
 and remote URLs before you push changes.
 
 ## Problem Matchers
+
 
 GitHub Actions problem matchers automatically annotate files with errors and
 warnings in pull requests, making it easier to identify and fix issues.

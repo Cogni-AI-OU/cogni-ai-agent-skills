@@ -1,0 +1,231 @@
+<!-- markdownlint-disable MD003 MD013 MD022 MD026 MD041 -->
+---
+name: github-script
+description: >-
+  Advanced use cases and examples for using actions/github-script.
+
+  Maintained at: <https://github.com/Cogni-AI-OU/cogni-ai-agent-skills>
+license: MIT
+
+---
+Expert guide for using actions/github-script in GitHub Actions workflows. Focuses on advanced API interactions, cross-platform execution, and secure script implementation.
+
+## When to Activate
+
+- You need to perform complex interactions with the GitHub API from within a workflow.
+- You want to use JavaScript/TypeScript to automate issue management, PR reviews, or other GitHub actions.
+- You're looking for examples of how to use the pre-authenticated `octokit` client provided by `actions/github-script`.
+- You need to execute shell commands cross-platform within a GitHub Script block.
+
+## Core Concepts
+
+`actions/github-script` allows you to write JavaScript within your workflow to interact
+directly with the GitHub API via an authenticated `octokit` client.
+
+- **`github`**: A pre-authenticated `octokit/rest.js` client.
+- **`context`**: An object containing the workflow run context.
+- **`core`**: A reference to `@actions/core`.
+- **`glob`**: A reference to `@actions/glob`.
+- **`io`**: A reference to `@actions/io`.
+- **`exec`**: A reference to `@actions/exec`.
+- **`getOctokit`**: A factory function to create additional clients with different tokens.
+
+## Common Use Cases
+
+### 1. Comment on an Issue
+
+```yaml
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  comment:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: '👋 Thanks for reporting!'
+            })
+```
+
+### 2. Apply a Label to an Issue
+
+```yaml
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  apply-label:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.addLabels({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              labels: ['Triage']
+            })
+```
+
+### 3. Create or Update File Contents (Poller Example)
+
+Useful when polling repositories and updating a `README.md` periodically.
+
+```yaml
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 12 * * *"
+jobs:
+  poll:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fetch all
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.ORG_PAT }}
+          script: |
+            const repos = await github.paginate(github.rest.search.repos, {
+              q: "<query string>",
+            })
+
+            let newReadme = `
+            <updating the README>
+            `
+            const existingReadme = await github.rest.repos.getContent({
+              owner: context.repo.owner,
+              repo: "<repo>",
+              path: "README.md",
+            })
+
+            await github.rest.repos.createOrUpdateFileContents({
+              owner: context.repo.owner,
+              repo: "<repo>",
+              path: "README.md",
+              message: "Update README",
+              content: btoa(newReadme),
+              sha: existingReadme.data.sha,
+            })
+```
+
+### 4. Welcome a First-Time Contributor
+
+```yaml
+on: pull_request_target
+
+jobs:
+  welcome:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@v9
+        with:
+          script: |
+            const creator = context.payload.sender.login
+            const opts = github.rest.issues.listForRepo.endpoint.merge({
+              ...context.issue,
+              creator,
+              state: 'all'
+            })
+            const issues = await github.paginate(opts)
+            for (const issue of issues) {
+              if (issue.number === context.issue.number) {
+                continue
+              }
+              if (issue.pull_request) {
+                return // Creator is already a contributor.
+              }
+            }
+            await github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: `**Welcome**, new contributor!
+                Please make sure you've read our [contributing guide](CONTRIBUTING.md)
+                and we look forward to reviewing your Pull request shortly ✨`
+            })
+```
+
+### 5. Executing Commands Cross-Platform
+
+Use the `@actions/exec` package directly inside your script:
+
+```yaml
+on: push
+
+jobs:
+  use-exec:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/github-script@v9
+        with:
+          script: |
+            const {
+              exitCode,
+              stdout,
+              stderr
+            } = await exec.getExecOutput('echo', ['hello']);
+            console.log(exitCode, stdout, stderr)
+```
+
+### 6. Complex Condition Checking and Workflow Control
+
+Replace verbose GitHub Actions expressions with a centralized `github-script` block to determine if subsequent steps should run based on complex logic (e.g., event type, user roles, and message content).
+
+```yaml
+    - name: Check conditions
+      id: check
+      uses: actions/github-script@v7
+      env:
+        TRIGGERS: '/co, /cogni'
+      with:
+        script: |
+          const triggers = process.env.TRIGGERS.split(',').map(t => t.trim());
+          const isBot = context.actor.endsWith('[bot]');
+          const eventName = context.eventName;
+          let run = false;
+
+          if (eventName === 'issue_comment' && !isBot) {
+            const body = context.payload.comment?.body;
+            const assoc = context.payload.comment?.author_association;
+            const isAllowed = ['MEMBER', 'OWNER'].includes(assoc);
+            run = isAllowed && triggers.some(t => body?.includes(t));
+          }
+
+          core.setOutput('run', run ? 'true' : '');
+    - name: Dependent Step
+      if: steps.check.outputs.run == 'true'
+      run: echo "Logic passed!"
+```
+
+## Security Best Practices
+
+1. **Avoid Script Injections**: Do NOT evaluate expressions directly in the `script`.
+   Pass them as environment variables.
+
+   ```yaml
+   # BAD: vulnerable to script injection
+   script: console.log('${{ github.event.pull_request.title }}')
+
+   # GOOD: pass via env
+   env:
+     TITLE: ${{ github.event.pull_request.title }}
+   script: console.log(process.env.TITLE)
+   ```
+
+2. **Require Authentication for External Repo Access**: The default `GITHUB_TOKEN` is
+   scoped only to the current repository. To access other repos, configure a PAT
+   and pass it to `github-token`.
+
+## Maintenance
+
+Note that this file should be updated if outdated or steps/examples are not working.

@@ -18,5 +18,7 @@ repository root or `.github/copilot-instructions.md` for active guidance.
 - [.github/copilot-instructions.md](copilot-instructions.md): main coding standards for agents.
 - [.github/actionlint-matcher.json](actionlint-matcher.json): problem matchers used in workflows.
 - [.github/pre-commit-matcher.json](pre-commit-matcher.json): problem matchers used in workflows.
+- [.github/actionlint-matcher.json](actionlint-matcher.json): problem matchers used in workflows.
+- [.github/pre-commit-matcher.json](pre-commit-matcher.json): problem matchers used in workflows.
 
 Keep this catalog updated when adding, removing, or renaming folders or agent catalogs.
