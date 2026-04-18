@@ -26,7 +26,6 @@
       "line": 20
     },
     {
-    {
       "title": "GitHub Copilot Instructions",
       "description": "## Copilot Configuration\n\nThis file provides context-aware instructions to GitHub Copilot when working in this repository.\n\n### Key Guidelines:\n\n- **Python Standards**: Use Python 3.11+, PEP 8, and `uv` for dependency management\n- **Formatting**: Follow markdownlint and yamllint rules\n- **Project Structure**: Uses Codespaces and pre-commit hooks\n\nThese instructions help Copilot provide more accurate and consistent code suggestions.",
       "file": ".github/copilot-instructions.md",
@@ -42,28 +41,6 @@
       "title": "Coding Standards",
       "description": "## Repository-Wide Coding Standards\n\nThis repository relies on root skill directories for detailed guidelines:\n\n- **.github/copilot-instructions.md**: Central coding standards for agents\n- **Skill directories** (for example `ansible/`, `git/`, `shell/`): each ships a `SKILL.md` with task-specific guidance\n- **Pre-commit hooks**: `.markdownlint.yaml`, `.yamllint`, and `.editorconfig` enforce formatting automatically\n\nReview these before editing files so your changes stay aligned with the automation tooling.",
       "directory": "."
-    },
-
-    {
-      "title": "Custom Agents",
-      "description": "## Custom Agent Profiles\n\nThe `.github/agents/` directory contains reusable custom agent profiles for this repository.\n\n### Notable Files:\n\n- **`cogni-ai.agent.md`**: The newer Cogni AI agent profile that replaces the older Copilot Plus reference\n- **`code-tour.agent.md`**: Guidance for creating and maintaining CodeTour files\n- **`README.md`**: Human-readable overview of the available custom agents\n\nThe repository also includes OpenCode assets so OpenCode can load the matching Cogni AI behavior and helper commands.",
-=======
-      "title": "Custom Agents",
-      "description": "## Custom Agent Profiles\n\nThe `.github/agents/` directory contains reusable custom agent profiles for this repository.\n\n### Notable Files:\n\n- **`cogni-ai.agent.md`**: The newer Cogni AI agent profile that replaces the older Copilot Plus reference\n- **`code-tour.agent.md`**: Guidance for creating and maintaining CodeTour files\n- **`README.md`**: Human-readable overview of the available custom agents",
->>>>>>> origin/main
-      "file": ".github/agents/README.md",
-      "line": 1
-    },
-    {
-<<<<<<< HEAD
-      "title": "Coding Standards",
-      "description": "## Repository-Wide Coding Standards\n\nThis repository relies on root skill directories for detailed guidelines:\n\n- **.github/copilot-instructions.md**: Central coding standards for agents\n- **Skill directories** (for example `ansible/`, `git/`, `shell/`): each ships a `SKILL.md` with task-specific guidance\n- **Pre-commit hooks**: `.markdownlint.yaml`, `.yamllint`, and `.editorconfig` enforce formatting automatically\n\nReview these before editing files so your changes stay aligned with the automation tooling.",
-      "directory": "."
-=======
-      "title": "Instructions Directory",
-      "description": "## Repository-Wide Coding Standards\n\nThe `.github/instructions/` directory contains detailed guidelines for different file types:\n\n- **markdown.instructions.md**: Markdown formatting rules\n- **yaml.instructions.md**: YAML formatting standards\n- **ansible.instructions.md**: Ansible best practices\n- **blog.instructions.md**: Blog post requirements\n- **readme.instructions.md**: README.md specific guidelines\n\nThese files use the `applyTo` frontmatter to scope rules to specific file patterns and are integrated with GitHub Copilot.",
-      "directory": ".github/instructions"
->>>>>>> origin/main
     },
     {
       "title": "Pre-commit Configuration",

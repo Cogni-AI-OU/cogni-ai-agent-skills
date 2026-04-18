@@ -37,12 +37,14 @@ To load these skills into your own repository, you can add this repository as a 
 
 ## Skills
 
+- **[ansible](ansible/SKILL.md)**: How to run and manage Ansible operations safely and prevent hangs
 - **[context-aware-ops](context-aware-ops/SKILL.md)**: Intelligent resource management with size checking and filtering
 - **[git](git/SKILL.md)**: Guide for using git with non-interactive, safe operations
 - **[git-expert](git-expert/SKILL.md)**: Advanced Git operations including interactive rebasing, reflog recovery,
   bisecting, complex conflict resolution, and history manipulation
 - **[github](github/SKILL.md)**: GitHub specific features and collaborative practices
 - **[github-actions](github-actions/SKILL.md)**: Diagnosing and debugging failing GitHub Actions workflows
+- **[github-script](github-script/SKILL.md)**: Advanced use cases and examples for using actions/github-script
 - **[molecule](molecule/SKILL.md)**: Molecule testing workflows for Ansible roles
 - **[pre-commit](pre-commit/SKILL.md)**: Using pre-commit to validate code formatting, linting, and security checks
 - **[robust-commands](robust-commands/SKILL.md)**: Resilient command execution with automatic fallbacks and error recovery
