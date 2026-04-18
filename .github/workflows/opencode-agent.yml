@@ -32,7 +32,7 @@ on:
         required: false
         type: string
       model:
-        default: ${{ vars.OPENCODE_MODEL_DEFAULT || 'opencode/gemini-3.1-pro' }}
+        default: ${{ vars.OPENCODE_MODEL_DEFAULT || 'opencode/gemini-3-flash' }}
         description: Model to use for OpenCode
         required: false
         type: string
@@ -55,7 +55,7 @@ on:
         required: false
         type: choice
       model:
-        default: opencode/gemini-3.1-pro
+        default: opencode/gemini-3-flash
         description: Model to use for OpenCode
         options:
           - opencode/big-pickle
@@ -137,7 +137,7 @@ jobs:
         uses: Cogni-AI-OU/cogni-ai-agent-action/opencode@main
         with:
           agent: ${{ inputs.agent }}
-          model: ${{ inputs.model || vars.OPENCODE_MODEL_DEFAULT || 'opencode/gemini-3.1-pro' }}
+          model: ${{ inputs.model || vars.OPENCODE_MODEL_DEFAULT || 'opencode/gemini-3-flash' }}
           opencode-api-key: ${{ secrets.OPENCODE_API_KEY }}
           # Keep shell permissions aligned with .vscode/settings.json allowlist and in alphabetical order.
           permissions: |-
