@@ -10,7 +10,7 @@
     },
     {
       "title": "Project Overview",
-      "description": "## About This Project\n\nThis repository maintains technical skills commonly used by AI agents. It's designed to provide:\n\n- Python 3.11+ development environment\n- Pre-configured devcontainer for consistent development\n- Comprehensive pre-commit hooks for code quality\n- GitHub Actions for CI/CD\n- OpenCode automation assets\n- Multiple coding standards and guidelines\n\nThe project uses modern Python tooling including `uv` for dependency management and `pre-commit` for automated checks.",
+      "description": "## About This Project\n\nThis repository maintains technical skills commonly used by AI agents. It's designed to provide:\n\n- Python 3.11+ development environment\n- Pre-configured devcontainer for consistent development\n- Comprehensive pre-commit hooks for code quality\n- GitHub Actions for CI/CD\n- Multiple coding standards and guidelines\n\nThe project uses modern Python tooling including `uv` for dependency management and `pre-commit` for automated checks.",
       "file": "README.md"
     },
     {
@@ -34,7 +34,7 @@
     },
     {
       "title": "Custom Agents",
-      "description": "## Custom Agent Profiles\n\nThe `.github/agents/` directory contains reusable custom agent profiles for this repository.\n\n### Notable Files:\n\n- **`code-tour.agent.md`**: Guidance for creating and maintaining CodeTour files\n- **`README.md`**: Human-readable overview of the available custom agents\n\nThe repository also includes OpenCode assets so OpenCode can load the matching Cogni AI behavior and helper commands.",
+      "description": "## Custom Agent Profiles\n\nThe `.github/agents/` directory contains reusable custom agent profiles for this repository.\n\n### Notable Files:\n\n- **`code-tour.agent.md`**: Guidance for creating and maintaining CodeTour files\n- **`README.md`**: Human-readable overview of the available custom agents\n",
       "file": ".github/agents/README.md",
       "line": 1
     },
