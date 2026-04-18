@@ -14,6 +14,7 @@ Read and merge these when operating inside corresponding sub-directories (order 
 ## Required References
 
 - Project overview & install: [README.md](README.md)
+- Agent configuration & conventions: [.github/copilot-instructions.md](.github/copilot-instructions.md)
 - Workflow navigation: [.tours/getting-started.tour](.tours/getting-started.tour)
 - Latest org baseline: <https://github.com/Cogni-AI-OU/.github/blob/main/AGENTS.md>
 
@@ -79,7 +80,7 @@ molecule syntax
 
 ### Updating Coding Standards
 
-- Language-specific instructions are in `.github/instructions/`
+- Language-specific conventions reside in individual skill directories alongside their `SKILL.md`
 - Update `.markdownlint.yaml`, `.yamllint`, or `.editorconfig` for linting rules
 - Run `pre-commit run -a` to verify changes pass all checks
 

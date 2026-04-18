@@ -1,10 +1,20 @@
-# GitHub Workflows and Actions
+# GitHub Actions Workflows
 
-This directory contains GitHub Actions workflows, agent prompts, and related configuration.
+Reusable and repository workflows that automate checks, reviews, and AI-powered tasks.
+
+- For the agent-facing workflow catalog, see [AGENTS.md](AGENTS.md).
+- For editing guidelines, rely on `actionlint`, `yamlfix`, and `.yamllint` along with `.github/copilot-instructions.md`.
+
+## Using these workflows
+
+- Reference a workflow from another repo with `uses: Cogni-AI-OU/.github/.github/workflows/<file>@main`.
+- Consult the catalog in [AGENTS.md](AGENTS.md) for inputs, triggers, and job details.
+- Keep branch protection and required checks enabled when consuming workflows that can push commits.
+- Use `opencode-agent.yml` for slash-command-driven OpenCode automation.
 
 ## Workflows
 
-### Check Workflow (`check.yml`)
+### Check Workflow
 
 The `check.yml` workflow runs on pull requests, pushes, and weekly schedule to
 ensure code quality and correctness.
@@ -92,7 +102,7 @@ jobs:
       packages: write  # Required for pushing to GitHub Container Registry
 ```
 
-### OpenCode Agent Workflow (`opencode-agent.yml`)
+### OpenCode Workflow (`opencode-agent.yml`)
 
 The `opencode-agent.yml` workflow provides OpenCode automation for AI-assisted development.
 
@@ -108,6 +118,10 @@ on:
     types: [created, edited]
   pull_request_review_comment:
     types: [created, edited]
+  issues:
+    types: [opened]
+  pull_request_review:
+    types: [submitted]
   workflow_call:
     inputs:
       agent:
@@ -168,27 +182,9 @@ jobs:
     secrets: inherit
 ```
 
-## Workflow Templates
-
-The `../workflow-templates/` directory contains reference workflows that are not
-actively executed but are preserved for future use or copying to other
-repositories. These templates can be customized and moved to the `workflows/`
-directory when needed.
-
-## Agent Prompts
-
-The `../prompts/` directory contains ready-to-use prompts for AI agents to perform
-common repository management tasks. For agent-loading guidance and catalog, see
-[../prompts/AGENTS.md](../prompts/AGENTS.md). For human-oriented details, see
-[../prompts/README.md](../prompts/README.md).
-
-## MCP Configuration
-
-The `../mcp-config.json` configuration provides GitHub Copilot access to built-in tools:
-
-- **Repository & Code:** `get_file_contents`, `search_code`, `search_repositories`, `list_branches`, `list_commits`
-- **Issues & PRs:** `get_issue`, `list_pull_requests`, `create_pull_request`
-- **Actions:** `list_workflows`, `list_workflow_runs`, `get_job_logs`
+*Note: Requires `OPENCODE_API_KEY` secret to be set in repository settings.
+You must also install the [GitHub OpenCode app](https://github.com/apps/opencode-agent)
+or follow the [manual setup guide](https://opencode.ai/docs/github/#manual-setup).*
 
 ## Problem Matchers
 
@@ -197,8 +193,8 @@ warnings in pull requests, making it easier to identify and fix issues.
 
 ### Available Matchers
 
-- **actionlint-matcher.json**: Captures errors from actionlint workflow linting
-- **pre-commit-matcher.json**: Captures errors from pre-commit hooks
+- [**actionlint-matcher.json**](../actionlint-matcher.json): Captures errors from actionlint workflow linting
+- [**pre-commit-matcher.json**](../pre-commit-matcher.json): Captures errors from pre-commit hooks
 
 ### Pre-commit Problem Matcher
 
@@ -216,6 +212,26 @@ annotations directly and don't need the problem matcher.
 
 Problem matchers are registered in the `check.yml` workflow
 before running the corresponding tools.
+
+### Using Matchers in Reusable Workflows
+
+When using the `check.yml` workflow as a reusable workflow (via `workflow_call`),
+the matcher files are automatically provided from this repository. You don't need
+to copy the matcher files to your repository.
+
+If you want to use custom matcher files, you can specify them using the inputs:
+
+```yaml
+jobs:
+  check:
+    uses: Cogni-AI-OU/cogni-ai-agent-skills/.github/workflows/check.yml@main
+    with:
+      actionlint-matcher-path: .github/custom-actionlint-matcher.json
+      pre-commit-matcher-path: .github/custom-pre-commit-matcher.json
+```
+
+If these inputs are not provided, the workflow will automatically use the default
+matcher files from this repository.
 
 ## Security
 

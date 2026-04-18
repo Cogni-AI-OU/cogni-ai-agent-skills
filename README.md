@@ -37,12 +37,15 @@ To load these skills into your own repository, you can add this repository as a 
 
 ## Skills
 
+- **[ansible](ansible/SKILL.md)**: How to run and manage Ansible operations safely and prevent hangs
 - **[context-aware-ops](context-aware-ops/SKILL.md)**: Intelligent resource management with size checking and filtering
+
 - **[git](git/SKILL.md)**: Guide for using git with non-interactive, safe operations
 - **[git-expert](git-expert/SKILL.md)**: Advanced Git operations including interactive rebasing, reflog recovery,
   bisecting, complex conflict resolution, and history manipulation
 - **[github](github/SKILL.md)**: GitHub specific features and collaborative practices
 - **[github-actions](github-actions/SKILL.md)**: Diagnosing and debugging failing GitHub Actions workflows
+- **[github-script](github-script/SKILL.md)**: Advanced use cases and examples for using actions/github-script
 - **[molecule](molecule/SKILL.md)**: Molecule testing workflows for Ansible roles
 - **[pdf](pdf/SKILL.md)**: PDF file inspection, object-level editing, and lossless size reduction
 - **[pre-commit](pre-commit/SKILL.md)**: Using pre-commit to validate code formatting, linting, and security checks
@@ -58,9 +61,9 @@ Cogni-AI-OU projects:
 
 ### Key Features
 
-- **GitHub Actions Workflows**: CI/CD and automation (OpenCode, pre-commit, etc.)
-- **AI Agent Configurations**: AGENTS.md, skills, and prompts for automated development
-- **Coding Instructions**: Language-specific standards in `.github/instructions/`
+- **[GitHub Actions Workflows](GitHub Actions Workflows)**: CI/CD and automation (OpenCode, pre-commit, etc.)
+- **AI Agent Configurations**: AGENTS.md and the skill directories in the repository root
+- **Coding Guidance**: Follow `.github/copilot-instructions.md` and the instructions stored within each skill directory
 - **Pre-commit Hooks**: Linting and validation tooling
 - **Code Tours**: Guided walkthroughs for repository onboarding
 
@@ -112,7 +115,7 @@ pre-commit run flake8 -a
 
 ## Project Layout
 
-- `.github/`: default templates, workflows, instructions, prompts, skills, and agent configuration
+- `.github/`: default templates, workflows, and agent configuration
 - `.tours/`: guided walkthroughs for repository onboarding
 - `AGENTS.md`: repository-specific guidance for automation agents
 - `README.md`: repository overview and local development workflow
@@ -126,9 +129,8 @@ This repository provides AI agent configurations for automated development.
 | File/Directory | Audience | Purpose |
 | -------------- | -------- | ------- |
 | [AGENTS.md](AGENTS.md) | All agents | Repository-specific guidance and workflows |
+| [.github/copilot-instructions.md](.github/copilot-instructions.md) | Copilot | Coding standards and project context |
 | [.github/agents/](.github/agents/) | Orchestrators | Specialized agent configs for specific tasks |
-| [.github/prompts/](.github/prompts/) | All | Prompt templates (`.md` for VSCode, `.yaml` for GitHub Models) |
-| [.github/instructions/](.github/instructions/) | Linters & agents | Language-specific code standards |
 
 See also:
 

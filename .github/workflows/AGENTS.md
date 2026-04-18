@@ -53,15 +53,13 @@ For a human-readable overview, see [README.md](README.md).
 ### opencode-agent.yml
 
 - Purpose: invoke OpenCode agents via slash commands or manual triggers.
-- Inputs: `agent` (default `cogni-ai-architect`), `model` (workflow_call default via
+- Uses: `Cogni-AI-OU/cogni-ai-agent-action/opencode@main` composite action.
+- Inputs: `agent` (default `cogni-ai`), `model` (workflow_call default via
   `vars.OPENCODE_MODEL_DEFAULT` with fallback `opencode/gemini-3-flash`; workflow_dispatch
   default `opencode/gemini-3-flash`), `prompt` (optional override).
-- Triggers: `workflow_dispatch`, `workflow_call`, or issue comments and PR review comments with `/oc` or `/opencode`
-  from trusted (non-bot) collaborators/members/owners.
-- Guardrail: comment-triggered runs do not populate `inputs.*`; back shared OpenCode defaults
-  with workflow-level `env` values instead of hardcoding agent/model literals in steps.
-- Concurrency: Only one run per issue/PR/branch at a time; new runs cancel pending ones.
-- Permissions: `contents: read`, `id-token: write`, `issues: write`, `pull-requests: write`.
+- Triggers: `workflow_dispatch`, `workflow_call`, or issue comments and PR review comments with `/oc` or `/opencode` from trusted (non-bot) collaborators/members/owners.
+- Concurrency: one run per branch/PR context via workflow-level `concurrency` group to avoid competing pushes.
+- Permissions: `contents: write`, `id-token: write`, `issues: write`, `pull-requests: write`.
 - Reusable: `uses: Cogni-AI-OU/cogni-ai-agent-skills/.github/workflows/opencode-agent.yml@main`.
 
 ## Synchronized Configuration
@@ -88,6 +86,4 @@ The `model` input options for `workflow_dispatch` must be identical in the corre
 
 ## Notes
 
-- Follow [.github/instructions/github-workflows.instruction.md](../instructions/github-workflows.instruction.md)
-  when editing workflow files (ordering, formatting, validation).
 - Keep this catalog updated when workflows are added, removed, or renamed.
