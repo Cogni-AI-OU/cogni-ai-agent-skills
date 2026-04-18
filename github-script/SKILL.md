@@ -1,10 +1,27 @@
-# github-script
+---
+name: github-script
+description: >-
+  Advanced use cases and examples for using actions/github-script.
 
-This skill provides advanced examples and best practices for using `actions/github-script` in GitHub Actions to interact with the GitHub API.
+  Maintained at: <https://github.com/Cogni-AI-OU/cogni-ai-agent-skills>
+
+---
+# GitHub Script
+
+This skill provides advanced examples and best practices for using `actions/github-script`
+in GitHub Actions to interact with the GitHub API.
+
+## When to Activate
+
+- You need to perform complex interactions with the GitHub API from within a workflow.
+- You want to use JavaScript/TypeScript to automate issue management, PR reviews, or other GitHub actions.
+- You're looking for examples of how to use the pre-authenticated `octokit` client provided by `actions/github-script`.
+- You need to execute shell commands cross-platform within a GitHub Script block.
 
 ## Core Concepts
 
-`actions/github-script` allows you to write JavaScript within your workflow to interact directly with the GitHub API via an authenticated `octokit` client.
+`actions/github-script` allows you to write JavaScript within your workflow to interact
+directly with the GitHub API via an authenticated `octokit` client.
 
 - **`github`**: A pre-authenticated `octokit/rest.js` client.
 - **`context`**: An object containing the workflow run context.
@@ -133,7 +150,8 @@ jobs:
               owner: context.repo.owner,
               repo: context.repo.repo,
               body: `**Welcome**, new contributor!
-                Please make sure you've read our [contributing guide](CONTRIBUTING.md) and we look forward to reviewing your Pull request shortly ✨`
+                Please make sure you've read our [contributing guide](CONTRIBUTING.md)
+                and we look forward to reviewing your Pull request shortly ✨`
             })
 ```
 
@@ -162,14 +180,19 @@ jobs:
 
 ## Security Best Practices
 
-1. **Avoid Script Injections**: Do NOT evaluate expressions directly in the `script`. Pass them as environment variables.
+1. **Avoid Script Injections**: Do NOT evaluate expressions directly in the `script`.
+   Pass them as environment variables.
+
    ```yaml
    # BAD: vulnerable to script injection
    script: console.log('${{ github.event.pull_request.title }}')
-   
+
    # GOOD: pass via env
    env:
      TITLE: ${{ github.event.pull_request.title }}
    script: console.log(process.env.TITLE)
    ```
-2. **Require Authentication for External Repo Access**: The default `GITHUB_TOKEN` is scoped only to the current repository. To access other repos, configure a PAT and pass it to `github-token`.
+
+2. **Require Authentication for External Repo Access**: The default `GITHUB_TOKEN` is
+   scoped only to the current repository. To access other repos, configure a PAT
+   and pass it to `github-token`.
