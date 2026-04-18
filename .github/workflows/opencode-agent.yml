@@ -109,14 +109,9 @@ jobs:
     name: Run OpenCode agent
     if: |
       github.event_name == 'workflow_dispatch' ||
-      github.event_name == 'workflow_call' || (
-        !endsWith(github.actor, '[bot]') &&
-        contains(fromJson('["COLLABORATOR","CONTRIBUTOR","MEMBER","OWNER"]'), github.event.comment.author_association) &&
-        (
-          contains(github.event.comment.body, '/') ||
-          contains(github.event.comment.body, '@')
-        )
-      )
+      github.event_name == 'workflow_call' ||
+      contains(github.event.comment.body, '/') ||
+      contains(github.event.comment.body, '@')
     runs-on: ubuntu-latest
     permissions:
       contents: write
