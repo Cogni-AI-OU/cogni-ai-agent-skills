@@ -177,6 +177,36 @@ jobs:
             console.log(exitCode, stdout, stderr)
 ```
 
+### 6. Complex Condition Checking and Workflow Control
+
+Replace verbose GitHub Actions expressions with a centralized `github-script` block to determine if subsequent steps should run based on complex logic (e.g., event type, user roles, and message content).
+
+```yaml
+    - name: Check conditions
+      id: check
+      uses: actions/github-script@v7
+      env:
+        TRIGGERS: '/co, /cogni'
+      with:
+        script: |
+          const triggers = process.env.TRIGGERS.split(',').map(t => t.trim());
+          const isBot = context.actor.endsWith('[bot]');
+          const eventName = context.eventName;
+          let run = false;
+
+          if (eventName === 'issue_comment' && !isBot) {
+            const body = context.payload.comment?.body;
+            const assoc = context.payload.comment?.author_association;
+            const isAllowed = ['MEMBER', 'OWNER'].includes(assoc);
+            run = isAllowed && triggers.some(t => body?.includes(t));
+          }
+
+          core.setOutput('run', run ? 'true' : '');
+    - name: Dependent Step
+      if: steps.check.outputs.run == 'true'
+      run: echo "Logic passed!"
+```
+
 ## Security Best Practices
 
 1. **Avoid Script Injections**: Do NOT evaluate expressions directly in the `script`.
