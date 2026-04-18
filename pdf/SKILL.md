@@ -40,13 +40,15 @@ Analyze, edit, and shrink PDF files at the object level without losing content.
 ```bash
 sudo apt install -y qpdf ghostscript mupdf-tools poppler-utils
 
-# pdf-parser.py (Didier Stevens)
-wget https://raw.githubusercontent.com/DidierStevens/DidierStevensSuite/master/pdf-parser.py \
+# pdf-parser.py (Didier Stevens) — pin to a known commit for reproducibility
+# Update <COMMIT_SHA> to the latest verified commit from the repository.
+wget "https://raw.githubusercontent.com/DidierStevens/DidierStevensSuite/<COMMIT_SHA>/pdf-parser.py" \
   -O /usr/local/bin/pdf-parser.py && chmod +x /usr/local/bin/pdf-parser.py
 
-# pdfsizeopt
+# pdfsizeopt — pin to a known commit for reproducibility
+# Update <COMMIT_SHA> to the latest verified commit from the repository.
 curl -L -o /usr/local/bin/pdfsizeopt \
-  https://raw.githubusercontent.com/pts/pdfsizeopt/master/pdfsizeopt.single
+  "https://raw.githubusercontent.com/pts/pdfsizeopt/<COMMIT_SHA>/pdfsizeopt.single"
 chmod +x /usr/local/bin/pdfsizeopt
 ```
 
