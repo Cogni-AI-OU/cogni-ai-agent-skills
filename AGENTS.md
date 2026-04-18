@@ -19,7 +19,10 @@ Read and merge these when operating inside corresponding sub-directories (order 
 
 ## Skills
 
-**CRITICAL Path Resolution**: These instructions may be loaded from a temporary directory (e.g., `${{ runner.temp }}/.skills/`). When reading a skill file below, you MUST resolve its relative path against the directory where this `AGENTS.md` file is located (check the "Instructions from: <path>" header in your system prompt), NOT your current working directory.
+**CRITICAL Path Resolution**: For GitHub runtime within runner when triggered by `cogni-ai-agent-action`, these
+instructions may be loaded from a temporary directory (e.g., `${{ runner.temp }}/.skills/`). When reading a skill
+file below, you MUST resolve its relative path against the directory where this `AGENTS.md` file is located
+(check the "Instructions from: `<path>`" header in your system prompt), NOT your current working directory.
 
 You must load the skills relevant to the user prompt, inferred intent,
 and planned work into the current context:
