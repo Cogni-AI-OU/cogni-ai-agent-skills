@@ -34,7 +34,7 @@ To profile the execution time of your playbooks and roles, you can enable the `p
 - In `ansible.cfg`:
   ```ini
   [defaults]
-  callbacks_enabled = profile_tasks
+  callbacks_enabled = ansible.posix.profile_tasks
   ```
 
 ## Maintenance
