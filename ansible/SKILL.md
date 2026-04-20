@@ -25,6 +25,18 @@ like `apt` on Debian/Ubuntu systems:
 - Set `DEBIAN_FRONTEND=noninteractive` when running your Ansible commands or in your playbook environment.
 - Example: `DEBIAN_FRONTEND=noninteractive ansible-playbook playbook.yml`
 
+## Performance Profiling
+
+To profile the execution time of your playbooks and roles, you can enable the `profile_tasks` callback plugin. This is useful for identifying slow tasks and optimizing your automation.
+
+- Enable the plugin by adding it to your `ansible.cfg` file under `[defaults]` or via environment variables.
+- Using environment variables: `ANSIBLE_CALLBACKS_ENABLED=profile_tasks ansible-playbook playbook.yml`
+- In `ansible.cfg`:
+  ```ini
+  [defaults]
+  callbacks_enabled = ansible.posix.profile_tasks
+  ```
+
 ## Maintenance
 
 Note that this file should be updated if outdated or steps/examples are not working.
