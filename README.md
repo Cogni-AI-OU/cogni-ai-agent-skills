@@ -11,35 +11,27 @@ integrating this repository as a Git submodule.
 This repository mirrors the structure and conventions of the
 [Cogni-AI-OU/.github](https://github.com/Cogni-AI-OU/.github) organization repository.
 
-## Adding this Repository as a Submodule
+## Installation
 
-To load these skills into your own repository, you can add this repository as a Git submodule in the `.github/skills/` directory.
+To set up the required agents, instructions, and skills in your repository:
 
-1. Navigate to the root of your repository.
-2. Run the following command to add the submodule:
+```bash
+# Clone agents, instructions and skills.
+git clone --depth=1 https://github.com/Cogni-AI-OU/cogni-ai-agents .github/agents
+git clone --depth=1 https://github.com/Cogni-AI-OU/cogni-ai-agent-instructions .github/instructions
+git clone --depth=1 https://github.com/Cogni-AI-OU/cogni-ai-agent-skills .github/skills
 
-   ```bash
-   git submodule add https://github.com/Cogni-AI-OU/cogni-ai-agent-skills.git .github/skills/cogni-ai
-   ```
+# Symlink individual agents from their subdirectories to the discovery directory.
+for d in .github/agents/*/ ; do ln -fsv "$(basename "$d")/$(basename "$d").agent.md" .github/agents/ ; done
+```
 
-3. Initialize and update the submodule:
-
-   ```bash
-   git submodule update --init --recursive
-   ```
-
-4. Commit the changes:
-
-   ```bash
-   git add .gitmodules .github/skills/cogni-ai
-   git commit -m "feat: add cogni-ai-agent-skills submodule"
-   ```
+After cloning the repositories, your project will have access to the full suite of
+Cogni AI capabilities loaded into the `.github/` directory.
 
 ## Skills
 
 - **[ansible](ansible/SKILL.md)**: How to run and manage Ansible operations safely and prevent hangs
 - **[context-aware-ops](context-aware-ops/SKILL.md)**: Intelligent resource management with size checking and filtering
-
 - **[git](git/SKILL.md)**: Guide for using git with non-interactive, safe operations
 - **[git-expert](git-expert/SKILL.md)**: Advanced Git operations including interactive rebasing, reflog recovery,
   bisecting, complex conflict resolution, and history manipulation
@@ -132,7 +124,6 @@ This repository provides AI agent configurations for automated development.
 | -------------- | -------- | ------- |
 | [AGENTS.md](AGENTS.md) | All agents | Repository-specific guidance and workflows |
 | [.github/copilot-instructions.md](.github/copilot-instructions.md) | Copilot | Coding standards and project context |
-| [.github/agents/](.github/agents/) | Orchestrators | Specialized agent configs for specific tasks |
 
 See also:
 
@@ -213,6 +204,37 @@ Find and share skills with the community:
 - [github/awesome-copilot](https://github.com/github/awesome-copilot) - Community
   collection of Copilot resources
 
+## Customizing development environment
+
+See: [Customizing the development environment for GitHub Copilot coding agent][customize-env].
+
+## Firewall
+
+See: [Customizing or disabling the firewall for GitHub Copilot coding agent][firewall-config].
+
+### Firewall allowlist
+
+See [.github/FIREWALL.md](.github/FIREWALL.md) for recommended hosts to allow and the official guidance link.
+
+## Troubleshooting
+
+### Claude Not Responding to Comments
+
+If Claude isn't responding to your comments, verify:
+
+1. **Permissions**: You must have one of these roles:
+   - Repository OWNER, MEMBER, COLLABORATOR, or CONTRIBUTOR
+   - PR/issue author (on your own content only)
+
+2. **Trigger conditions** for PR review comments:
+   - Your comment contains `@claude`, OR
+   - You're replying to a comment from `github-actions[bot]` (Claude's responses), OR
+   - You're replying to a comment that contains `@claude`
+
+The workflow uses a two-stage filter to prevent abuse while allowing natural
+conversation flow. Check the Actions tab in your repository for workflow run details
+if Claude doesn't respond as expected.
+
 ## GitHub Actions
 
 For documentation on GitHub Actions workflows, problem matchers, and CI/CD
@@ -243,3 +265,5 @@ This repository is licensed under MIT. See [LICENSE](LICENSE) for the full text.
 [pr-reviews-link]: https://github.com/Cogni-AI-OU/cogni-ai-agent-skills/pulls
 [license-image]: https://img.shields.io/badge/License-MIT-blue.svg
 [license-link]: https://tldrlegal.com/license/mit-license
+[customize-env]: https://docs.github.com/en/copilot/how-tos/use-copilot-agents/coding-agent/customize-the-agent-environment
+[firewall-config]: https://gh.io/copilot/firewall-config

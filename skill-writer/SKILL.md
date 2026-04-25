@@ -65,52 +65,43 @@ repository standards.
 
 When creating or updating a skill file, ensure the following format:
 
-- **YAML Frontmatter is Mandatory**: Begin every SKILL.md with required fields
-  `name` (lowercase-hyphenated, exactly matching folder name) and `description`
-  (one precise, activation-triggering sentence explaining exactly what the skill
-  does and when Copilot should load it). Include `license` only if needed. YAML
-  must pass all repository validation and linting rules.
-
-- **Start with Lint Disable**: Always open the file with
-  `<!-- markdownlint-disable MD003 MD022 MD026 MD041 -->` to suppress common
-  markdownlint warnings.
-
-- **Description Precision**: Write the `description` as a single, highly
-  specific sentence that matches user intent patterns without overlap—poor
-  phrasing causes missed or false activations.
-
-- **Pure Markdown Body**: Use only Markdown in the body; never include
-  extraneous files, scripts, or resources unless explicitly required for the
-  skill.
-
-- **Section Discipline**: Use sections sparingly and only when they add clear
-  value; prioritize logical flow (e.g., Core Process → Diagnostics → Patterns →
-  Limitations → Safety).
-
 - **Autonomous Execution Focus**: Write for non-interactive agent flow:
   self-contained loops, built-in error recovery, verification steps, and no user
   confirmation prompts except for safety-critical actions.
-
-- **Skill Length Management**: Keep skills concise and focused, ideally under 100
-  lines. If a skill exceeds or approaches 400 lines, or if content becomes
-  unfocused, split it into multiple specialized skills with narrow,
-  non-overlapping activation descriptions to maintain conciseness, precise
-  triggering, and efficient token usage.
-
-- **Example Discipline**: Use fewer, shorter examples. Include only essential
-  examples that demonstrate key patterns—avoid multiple variations of the same
-  concept. Prefer single-line examples over multi-line blocks when possible.
-  Quality over quantity: each example must add distinct value.
-
 - **Avoid Hardcoding**: Never embed specific values, file paths, repository
   names, user details, or tool versions; instead, use clear placeholders (e.g.,
   `<repository-name>`, `<file-path>`, `<version>`).
-
 - **Command-Line Tool Examples**: When the skill involves command-line tools,
   derive them dynamically via tools/read operations to maximize skill generality
   and cross-project reusability. Provide concise examples of key commands—focus
   on complex, multi-flag, piped, or non-standard operations that require precise
   reproduction. Avoid repetitive or overly specific examples.
+- **Description Precision**: Write the `description` as a single, highly
+  specific sentence that matches user intent patterns without overlap—poor
+  phrasing causes missed or false activations.
+- **Example Discipline**: Use fewer, shorter examples. Include only essential
+  examples that demonstrate key patterns—avoid multiple variations of the same
+  concept. Prefer single-line examples over multi-line blocks when possible.
+  Quality over quantity: each example must add distinct value.
+- **Pure Markdown Body**: Use only Markdown in the body; never include
+  extraneous files, scripts, or resources unless explicitly required for the
+  skill.
+- **Section Discipline**: Use sections sparingly and only when they add clear
+  value; prioritize logical flow (e.g., Core Process → Diagnostics → Patterns →
+  Limitations → Safety).
+- **Skill Length Management**: Keep skills concise and focused, ideally under 100
+  lines. If a skill exceeds or approaches 400 lines, or if content becomes
+  unfocused, split it into multiple specialized skills with narrow,
+  non-overlapping activation descriptions to maintain conciseness, precise
+  triggering, and efficient token usage.
+- **Start with Lint Disable**: Always open the file with
+  `<!-- markdownlint-disable MD003 MD022 MD026 MD041 -->` to suppress common
+  markdownlint warnings.
+- **YAML Frontmatter is Mandatory**: Begin every SKILL.md with required fields
+  `name` (lowercase-hyphenated, exactly matching folder name) and `description`
+  (one precise, activation-triggering sentence explaining exactly what the skill
+  does and when Copilot should load it). Include `license` only if needed. YAML
+  must pass all repository validation and linting rules.
 
 ## Maintenance
 

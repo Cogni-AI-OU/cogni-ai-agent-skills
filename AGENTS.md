@@ -13,10 +13,10 @@ Read and merge these when operating inside corresponding sub-directories (order 
 
 ## Required References
 
-- Project overview & install: [README.md](README.md)
 - Agent configuration & conventions: [.github/copilot-instructions.md](.github/copilot-instructions.md)
-- Workflow navigation: [.tours/getting-started.tour](.tours/getting-started.tour)
 - Latest org baseline: <https://github.com/Cogni-AI-OU/.github/blob/main/AGENTS.md>
+- Project overview & install: [README.md](README.md)
+- Workflow navigation: [.tours/getting-started.tour](.tours/getting-started.tour)
 
 ## Skills
 
@@ -104,10 +104,10 @@ molecule syntax
 If you encounter firewall issues when using the GitHub Copilot Agent:
 
 - Refer to <https://gh.io/copilot/firewall-config> for configuration details.
-- Do not workaround blocked URLs by adding markdown-link-check ignore/whitelist patterns for real links.
+- Do not work around blocked URLs by adding markdown-link-check ignore/whitelist patterns for real links.
 - Keep markdown-link-check validating real links, and request firewall allowlisting instead.
 - If you need to allowlist additional hosts, update your firewall configuration accordingly
-  by following `.github/agents/FIREWALL.md` and keep that file up to date.
+  by following `.github/FIREWALL.md` and keep that file up to date.
 
 ### Linting issues
 
