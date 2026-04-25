@@ -104,7 +104,7 @@ molecule syntax
 If you encounter firewall issues when using the GitHub Copilot Agent:
 
 - Refer to <https://gh.io/copilot/firewall-config> for configuration details.
-- Do not workaround blocked URLs by adding markdown-link-check ignore/whitelist patterns for real links.
+- Do not work around blocked URLs by adding markdown-link-check ignore/whitelist patterns for real links.
 - Keep markdown-link-check validating real links, and request firewall allowlisting instead.
 - If you need to allowlist additional hosts, update your firewall configuration accordingly
   by following `.github/FIREWALL.md` and keep that file up to date.
