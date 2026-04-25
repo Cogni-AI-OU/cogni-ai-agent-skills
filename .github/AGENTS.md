@@ -7,7 +7,6 @@ Use this as the entry point for agent work, and follow linked catalogs where pre
 
 | Folder | Purpose | Agent catalog |
 | ------ | ------- | ------------- |
-| [.github/agents/](agents/) | Agent configuration files (e.g., specialized agent definitions) | — |
 | [.github/workflows/](workflows/) | Reusable GitHub Actions workflows | [.github/workflows/AGENTS.md](workflows/AGENTS.md) |
 
 Archived catalogs for prompts and instructions have been removed; rely on the skill directories in the
