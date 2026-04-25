@@ -51,7 +51,7 @@ architecture-beta
 
 ### Flowcharts
 
-- Use `graph TD` (Top-Down) or `graph LR` (Left-Right) based on the flow's nature.
+- Use `flowchart TD` (Top-Down) or `flowchart LR` (Left-Right) based on the flow's nature.
 - Use meaningful shapes: `([ ])` for start/end, `[ ]` for processes, `{ }` for decisions.
 
 Example:
@@ -150,44 +150,29 @@ erDiagram
 
 ### Mindmap Diagrams
 
-- Use `mindmap` to show system structure and relationships.
+- Use `mindmap` for hierarchical information and brainstorming.
 
 Example:
 
 ```mermaid
-%% Example canonical facts store
-%% Note: Keep items in alphabetical order.
 mindmap
   root((Project Name))
     Architecture
       Components
-        ComponentA::Role
-        ComponentB::Role
+        Frontend
+        Backend
+        Database
       Protocols
-        ProtocolA
-          Rule_1
-          Rule_2
-    Context
-      Agents_Path::Location
-      Deployment::Target_Environment
-      Documentation::Location
-      License::Type
-      Metrics
-        MetricA::Value
-      Organization::Name
-      Purpose::Description
-    Ecosystem
-      Dependencies
-        LibA
-        LibB
-      Languages
-        PrimaryLanguage::Version
-      Tools
-        Automation
-          ToolA
-        Linters
-          LinterA
-          LinterB
+        HTTPS
+        WebSockets
+    Team
+      Lead
+      Developers
+      Designers
+    Goals
+      Stability
+      Performance
+      Scalability
 ```
 
 ### Sequence Diagrams
