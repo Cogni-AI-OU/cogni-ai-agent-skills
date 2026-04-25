@@ -326,6 +326,29 @@ zenuml
 
 Docs: <https://mermaid.js.org/syntax/zenuml.html>
 
+## Troubleshooting
+
+```mermaid
+mindmap
+  root((Troubleshooting))
+    %% Keep items in alphabetical order within branches
+    Parsing Issues
+      Hierarchy breaks
+        ::icon(fa fa-indent)
+        Fix: Use strict indentation
+    Rendering Issues
+      Architecture connection
+        ::icon(fa fa-network-wired)
+        Fix: Use side indicators (L,R,T,B)
+      Missing ZenUML
+        ::icon(fa fa-puzzle-piece)
+        Fix: Register external plugin
+    Version Issues
+      Beta Volatility
+        ::icon(fa fa-flask)
+        Fix: Check official docs for changes
+```
+
 ## What to Avoid
 
 - **Assuming Beta Syntax**: Avoid guessing syntax rules for `-beta` chart types. Always consult the

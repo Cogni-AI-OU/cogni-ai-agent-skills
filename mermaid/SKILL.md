@@ -1,34 +1,60 @@
-<!-- markdownlint-disable MD003 MD022 MD026 MD041 -->
 ---
+<!-- markdownlint-disable MD003 MD022 MD026 MD041 -->
 name: mermaid
 description: >-
-  Guide for creating and maintaining stable Mermaid.js diagrams (C4, Class,
-  Entity Relationship, Flowcharts, Gantt, GitGraph, Kanban, Mindmap, Pie,
-  Quadrant, Requirement, Sequence, State, Timeline, User Journey).
-
+  Expert guide for creating, optimizing, troubleshooting, and maintaining **stable** Mermaid.js diagrams (v11+).
+  Covers C4, Class, Entity Relationship, Flowchart (with v11.3+ shapes/icons/images), Gantt, GitGraph, Kanban,
+  Mindmap, Pie, Quadrant, Requirement, Sequence, State, Timeline, User Journey.
+  Emphasizes clarity, render-portability, and Doc-Rot prevention.
   Maintained at: <https://github.com/Cogni-AI-OU/cogni-ai-agent-skills>
 license: MIT
-
 ---
-# Mermaid Skill
 
-Expert in creating, optimizing, and troubleshooting Mermaid.js diagrams.
-Prioritize clarity, readability, and adherence to Mermaid syntax standards for
-various diagram types (flowcharts, sequence diagrams, Gantt charts, etc.).
+# Mermaid Skill (Stable – v11+)
+
+**Expert in generating production-grade, cross-platform Mermaid.js diagrams.** Prioritizes **clarity first**,
+**render compatibility** (GitHub, VS Code, Mermaid Live Editor, Markdown), **minimalism**, and **Easy-To-Change (ETC)**
+design so diagrams remain maintainable as systems evolve.
 
 ## When to Activate
 
-- User wants to visualize a process, architecture, or sequence of events using diagrams.
-- User needs to update existing Mermaid diagrams in Markdown files.
-- Agent needs to explain complex logic or flows using a visual representation.
-- Troubleshooting syntax errors in existing Mermaid code blocks.
+- Agent must explain complex logic, system architecture, or requirements via diagrams.
+- Generating diagrams that must render correctly in GitHub, Obsidian, Notion,
+  or production docs.
+- Updating or troubleshooting existing Mermaid code blocks in Markdown.
+- User requests visualization of processes, architecture, sequences, data flows,
+  timelines, or user journeys.
 
-## Core Principles
+## Core Principles (Invariants)
 
-- **Clarity First**: Diagrams should be easy to follow and not overly cluttered.
-- **Consistent Styling**: Use consistent naming conventions and styling for nodes and edges.
-- **Standard Syntax**: Adhere strictly to Mermaid.js syntax to ensure compatibility across viewers (GitHub, VS Code, etc.).
-- **Minimalism**: Only include essential information in diagrams to maintain focus.
+- **Clarity First + Minimalism**: Only essential nodes/edges; avoid clutter. Diagrams must be readable at a glance.
+- **Consistent Styling**: Prefer `classDef` / `class` over inline styles; use `%%` comments for clarity.
+- **Doc-Rot Prevention**: Keep diagrams in the same Markdown as code/docs so they stay in sync.
+- **Render-Portability**: All examples tested for GitHub + Mermaid Live Editor. Use standard syntax; quote strings
+  containing spaces/special chars.
+- **Testability (Tracer-Bullet Rule)**: Always recommend testing in [Mermaid Live Editor](https://mermaid.live/).
+  Generate → test → refine.
+- **Version Compatibility**: Target Mermaid v11+ (current stable). Note beta features separately.
+
+## General Usage & Configuration
+
+```mermaid
+%% Example of YAML frontmatter for per-diagram config (v10+)
+---
+config:
+  theme: default
+  flowchart:
+    defaultRenderer: "elk"  # or "dagre"
+    curve: basis
+---
+flowchart TD
+    A --> B
+```
+
+- **Live Editor**: Primary verification tool – paste code, preview instantly, export SVG/PNG.
+- **Markdown Integration**: Use fenced code blocks with language `mermaid`.
+- **Styling**: `classDef`, `linkStyle`, `style` keywords. Register icons via config for FontAwesome.
+- **Security Note**: For public sites, Mermaid sanitizes input; use sandboxed iframe for user-generated diagrams.
 
 ## Diagram Types & Patterns
 
@@ -169,14 +195,38 @@ erDiagram
 
 Docs: <https://mermaid.js.org/syntax/entityRelationshipDiagram.html>
 
-### Flowcharts
+### Flowcharts (Enhanced v11.3+)
 
-- Use `flowchart` to show process flows, algorithms, or any step-by-step logic.
-- Specify direction (e.g., `TD` for top-down, `LR` for left-right).
-- Utilize different node shapes (e.g., `[rect]`, `(rounded)`, `([stadium])`, `{diamond}`, `[(database)]`).
-- Group nodes logically using `subgraph` blocks.
+Use `flowchart` (preferred) or legacy `graph`. Direction: `TD`/`TB`/`LR`/`RL`/`BT`.
 
-Example with Subgraphs and Styling:
+**New v11.3+ Shapes** (use `@{ shape: ..., label: "..." }` syntax):
+
+```mermaid
+flowchart RL
+    A@{ shape: manual-file, label: "File Handling"}
+    B@{ shape: manual-input, label: "User Input"}
+    C@{ shape: docs, label: "Multiple Documents"}
+    D@{ shape: procs, label: "Process Automation"}
+    E@{ shape: paper-tape, label: "Paper Records"}
+```
+
+**Icons & Images** (v11.7+):
+
+```mermaid
+flowchart TD
+    A@{ icon: "fa:user", form: "circle", label: "User", pos: "t", h: 60 }
+```
+
+**Markdown Labels & Animations**:
+
+```mermaid
+flowchart TD
+    A["`This **is** _Markdown_`"]
+    e1@--> B
+    e1@{ animate: true }
+```
+
+**Styling**:
 
 ```mermaid
 flowchart LR
@@ -199,17 +249,6 @@ flowchart LR
 
     classDef success fill:#d4edda,stroke:#28a745,stroke-width:2px;
     class DB success
-```
-
-Example Flowchart with New Shapes:
-
-```mermaid
-flowchart RL
-    A@{ shape: manual-file, label: "File Handling"}
-    B@{ shape: manual-input, label: "User Input"}
-    C@{ shape: docs, label: "Multiple Documents"}
-    D@{ shape: procs, label: "Process Automation"}
-    E@{ shape: paper-tape, label: "Paper Records"}
 ```
 
 Docs: <https://mermaid.js.org/syntax/flowchart.html>
@@ -605,15 +644,73 @@ journey
 
 Docs: <https://mermaid.js.org/syntax/userJourney.html>
 
-## What to Avoid
+## Configuration & Advanced Styling
 
-- **Hardcoding Styles**: Prefer class-based styling or default themes over inline styles where possible.
-- **Inconsistent Indentation**: Avoid mixing tabs and spaces. Using strict, consistent indentation is
-  critical for hierarchy-based diagrams like Mindmaps, TreeViews, and Treemaps.
-- **Non-standard Extensions**: Stick to core Mermaid features for maximum portability.
-- **Over-complexity**: Avoid massive diagrams that are hard to render or read.
-- **Unquoted Strings**: Avoid leaving strings that contain spaces or special characters unquoted to prevent parser breaks.
+- **Themes**: `default`, `dark`, `forest`, `neutral`, `base`.
+- **Frontmatter YAML** for renderer, curve style, etc.
+- **ELK Renderer** (for very large/complex flowcharts): set `defaultRenderer: "elk"`.
+- **Edge Animations & classDef** (see Flowchart example above).
+
+## Best Practices (Agent Directives)
+
+- **Design-it-Twice**: Generate two alternative layouts; pick the clearest.
+- **ETC Mandate**: Name nodes descriptively; use aliases; avoid hard-coded coordinates.
+- **Exhaustive Enumeration**: Cover all key entities before connecting.
+- **Minimal Reproducible Example**: Test smallest viable diagram first.
+- **Single-Variable Delta**: Change one node/edge/style at a time when iterating.
+- **Verification Protocol**:
+  1. Generate diagram.
+  2. Paste into Mermaid Live Editor.
+  3. Verify rendering on GitHub preview.
+  4. Check for parser errors (unquoted strings, bad indentation).
+  5. Confirm no "doc-rot" risk (diagram lives with code).
+
+## What to Avoid (Hardened)
+
+- **Assuming Beta Syntax**: Do not guess syntax for stable diagrams based on beta patterns.
+- **Hardcoding Styles**: Prefer reusable `classDef` over inline styles.
+- **Inconsistent Indentation**: Critical for Mindmap, TreeView, and hierarchical diagrams.
+- **Keywords as IDs**: Avoid using `end` as node ID without quotes (flowchart pitfall).
+- **Over-complexity**: Avoid massive diagrams (> 50 nodes) that become unreadable.
+- **Unquoted Strings**: Avoid strings with spaces, commas, or special chars without quotes.
+
+## Troubleshooting
+
+```mermaid
+mindmap
+  root((Troubleshooting))
+    %% Keep items in alphabetical order within branches
+    Parsing Issues
+      "end" keyword conflict
+        ::icon(fa fa-exclamation-triangle)
+        Fix: Quote "End" or rename ID
+      Unquoted strings
+        ::icon(fa fa-quote-right)
+        Fix: Use double quotes
+    Rendering Issues
+      Missing Icons
+        ::icon(fa fa-font-awesome)
+        Fix: Register icon pack
+      Performance lag
+        ::icon(fa fa-clock)
+        Fix: Use ELK renderer
+      Subgraph direction
+        ::icon(fa fa-compress-arrows-alt)
+        Fix: Remove external links
+    Version Issues
+      Rendering mismatch
+        ::icon(fa fa-sync)
+        Fix: Use v11+ syntax consistently
+    Common Pitfalls
+      Avoid accidental edges
+        ::icon(fa fa-project-diagram)
+        Fix: Space before "o"/"x" in IDs
+      stroke-dasharray commas
+        ::icon(fa fa-minus)
+        Fix: Escape as "\,"
+```
 
 ## Maintenance
 
-Note that this file should be updated if Mermaid syntax changes or new useful patterns are discovered.
+Note that this file should be updated if Mermaid syntax changes or new stable features land.
+Separate `mermaid-beta/SKILL.md` is maintained for experimental diagrams.
