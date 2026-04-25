@@ -37,6 +37,7 @@ and planned work into the current context:
 - **[github-actions](github-actions/SKILL.md)**: Diagnosing and debugging failing GitHub Actions workflows
 - **[github-script](github-script/SKILL.md)**: Advanced use cases and examples for using actions/github-script
 - **[molecule](molecule/SKILL.md)**: Molecule testing workflows for Ansible roles
+- **[mermaid](mermaid/SKILL.md)**: Guide for creating and maintaining Mermaid.js diagrams
 - **[pdf](pdf/SKILL.md)**: PDF file inspection, object-level editing, and lossless size reduction
 - **[pre-commit](pre-commit/SKILL.md)**: Using pre-commit to validate code formatting, linting, and security checks
 - **[robust-commands](robust-commands/SKILL.md)**: Resilient command execution with automatic fallbacks and error recovery
