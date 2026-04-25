@@ -6,6 +6,7 @@ description: >-
   Covers C4, Class, Entity Relationship, Flowchart (with v11.3+ shapes/icons/images), Gantt, GitGraph, Kanban,
   Mindmap, Pie, Quadrant, Requirement, Sequence, State, Timeline, User Journey.
   Emphasizes clarity, render-portability, and Doc-Rot prevention.
+
   Maintained at: <https://github.com/Cogni-AI-OU/cogni-ai-agent-skills>
 license: MIT
 ---
@@ -198,6 +199,12 @@ Docs: <https://mermaid.js.org/syntax/entityRelationshipDiagram.html>
 ### Flowcharts (Enhanced v11.3+)
 
 Use `flowchart` (preferred) or legacy `graph`. Direction: `TD`/`TB`/`LR`/`RL`/`BT`.
+
+- Use `([ ])` for start and end nodes (stadium shape).
+- Use `[ ]` for processes and standard steps (rectangular shape).
+- Use `{ }` for decisions (diamond shape).
+- Use `(( ))` for events or circular nodes.
+- Use `[( )]` for databases or persistent storage.
 
 **New v11.3+ Shapes** (use `@{ shape: ..., label: "..." }` syntax):
 

@@ -1,13 +1,13 @@
-<!-- markdownlint-disable MD003 MD022 MD026 MD041 -->
 ---
+<!-- markdownlint-disable MD003 MD022 MD026 MD041 -->
 name: mermaid-beta
 description: >-
   Guide for creating and maintaining experimental Mermaid.js beta diagrams
   (Architecture, Block, Ishikawa, Packet, Radar, Sankey, Treemap, TreeView,
   Venn, XY Chart, ZenUML).
+
   Maintained at: <https://github.com/Cogni-AI-OU/cogni-ai-agent-skills>
 license: MIT
-
 ---
 # Mermaid Beta Skill
 
