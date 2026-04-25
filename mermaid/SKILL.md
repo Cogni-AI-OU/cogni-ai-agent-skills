@@ -52,18 +52,39 @@ architecture-beta
 ### Flowcharts
 
 - Use `graph TD` (Top-Down) or `graph LR` (Left-Right) based on the flow's nature.
-- Use meaningful shapes: `[ ]` for processes, `( )` for start/end, `{ }` for decisions.
+- Use meaningful shapes: `([ ])` for start/end, `[ ]` for processes, `{ }` for decisions.
 
 Example:
 
   ```mermaid
 flowchart TD
-    A[Christmas] -->|Get money| B(Go shopping)
-    B --> C{Let me think}
-    C -->|One| D[Laptop]
-    C -->|Two| E[iPhone]
-    C -->|Three| F[fa:fa-car Car]
+    Start([Start]) --> GetMoney[Get money]
+    GetMoney --> GoShopping[Go shopping]
+    GoShopping --> Laptop{Is it a Laptop?}
+    Laptop -->|Yes| BuyLaptop[Buy Laptop]
+    Laptop -->|No| BuyiPhone[Buy iPhone]
+    BuyLaptop --> Stop([End])
+    BuyiPhone --> Stop
   ```
+
+### Gantt Charts
+
+- Use `gantt` for project schedules and timelines.
+- Define `dateFormat`, `title`, and `section` for organization.
+
+Example:
+
+```mermaid
+gantt
+    title Project Timeline
+    dateFormat  YYYY-MM-DD
+    section Planning
+    Market Research      :active, a1, 2026-04-01, 7d
+    Resource Allocation  :a2, after a1, 3d
+    section Development
+    Design Phase         :2026-04-11, 10d
+    Implementation       :2026-04-21, 20d
+```
 
 ### Class Diagrams
 
