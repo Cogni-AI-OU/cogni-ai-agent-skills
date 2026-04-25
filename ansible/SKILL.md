@@ -4,6 +4,7 @@ description: >-
   How to run and manage Ansible operations safely and prevent hangs.
 
   Maintained at: <https://github.com/Cogni-AI-OU/cogni-ai-agent-skills>
+license: MIT
 
 ---
 # Ansible Operations

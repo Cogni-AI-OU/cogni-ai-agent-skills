@@ -5,6 +5,8 @@ description: >-
   Guide for creating and maintaining experimental Mermaid.js beta diagrams.
 
   Maintained at: <https://github.com/Cogni-AI-OU/cogni-ai-agent-skills>
+license: MIT
+
 ---
 # Mermaid Beta Skill
 

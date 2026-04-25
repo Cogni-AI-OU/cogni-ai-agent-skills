@@ -5,6 +5,7 @@ description: >-
   Guide for creating and maintaining Mermaid.js diagrams for documentation, architecture, and flow visualization.
 
   Maintained at: <https://github.com/Cogni-AI-OU/cogni-ai-agent-skills>
+license: MIT
 
 ---
 # Mermaid Skill
@@ -170,7 +171,7 @@ Docs: <https://mermaid.js.org/syntax/entityRelationshipDiagram.html>
 
 - Use `flowchart` to show process flows, algorithms, or any step-by-step logic.
 - Specify direction (e.g., `TD` for top-down, `LR` for left-right).
-- Utilize different node shapes (e.g., `[rect]`, `(rounded)`, `{diamond}`, `[(database)]`).
+- Utilize different node shapes (e.g., `[rect]`, `(rounded)`, `([stadium])`, `{diamond}`, `[(database)]`).
 - Group nodes logically using `subgraph` blocks.
 
 Example with Subgraphs and Styling:
