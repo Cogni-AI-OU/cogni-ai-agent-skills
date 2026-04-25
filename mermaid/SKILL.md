@@ -49,46 +49,35 @@ architecture-beta
     disk2:T -- B:db
 ```
 
-### Flowcharts
+### Block Diagrams
 
-- Use `flowchart TD` (Top-Down) or `flowchart LR` (Left-Right) based on the flow's nature.
-- Use meaningful shapes: `([ ])` for start/end, `[ ]` for processes, `{ }` for decisions.
-
-Example:
-
-  ```mermaid
-flowchart TD
-    Start([Start]) --> GetMoney[Get money]
-    GetMoney --> GoShopping[Go shopping]
-    GoShopping --> Laptop{Is it a Laptop?}
-    Laptop -->|Yes| BuyLaptop[Buy Laptop]
-    Laptop -->|No| BuyiPhone[Buy iPhone]
-    BuyLaptop --> Stop([End])
-    BuyiPhone --> Stop
-  ```
-
-### Gantt Charts
-
-- Use `gantt` for project schedules and timelines.
-- Define `dateFormat`, `title`, and `section` for organization.
+- Use `block-beta` to show ...
 
 Example:
 
 ```mermaid
-gantt
-    title Project Timeline
-    dateFormat  YYYY-MM-DD
-    section Planning
-    Market Research      :active, a1, 2026-04-01, 7d
-    Resource Allocation  :a2, after a1, 3d
-    section Development
-    Design Phase         :2026-04-11, 10d
-    Implementation       :2026-04-21, 20d
+block-beta
+columns 1
+  db(("DB"))
+  blockArrowId6<["&nbsp;&nbsp;&nbsp;"]>(down)
+  block:ID
+    A
+    B["A wide one in the middle"]
+    C
+  end
+  space
+  D
+  ID --> D
+  C --> D
+  style B fill:#969,stroke:#333,stroke-width:4px
 ```
 
 ### Class Diagrams
 
-- Use `classDiagram` to show system structure and relationships.
+> In software engineering, a class diagram in the Unified Modeling Language (UML) is a type of static structure diagram
+> that describes the structure of a system by showing the system's classes, their attributes, operations (or methods), and the relationships among objects.
+
+- Use `classDiagram` to show ...
 
 Example:
 
@@ -116,9 +105,45 @@ classDiagram
     }
 ```
 
+Docs: <https://mermaid.js.org/syntax/classDiagram.html>
+
+### Flowcharts
+
+- Use `flowchart to show ...
+
+Example:
+
+  ```mermaid
+flowchart TD
+    Start([Start]) --> GetMoney[Get money]
+    GetMoney --> GoShopping[Go shopping]
+    GoShopping --> Laptop{Is it a Laptop?}
+    Laptop -->|Yes| BuyLaptop[Buy Laptop]
+    Laptop -->|No| BuyiPhone[Buy iPhone]
+    BuyLaptop --> Stop([End])
+    BuyiPhone --> Stop
+  ```
+
+Example Flowchart with New Shapes:
+
+```mermaid
+flowchart RL
+    A@{ shape: manual-file, label: "File Handling"}
+    B@{ shape: manual-input, label: "User Input"}
+    C@{ shape: docs, label: "Multiple Documents"}
+    D@{ shape: procs, label: "Process Automation"}
+    E@{ shape: paper-tape, label: "Paper Records"}
+```
+
+Docs: <https://mermaid.js.org/syntax/flowchart.html>
+
 ### Entity Relationship Diagrams
 
-- Use `erDiagram` to show system structure and relationships.
+> An entity–relationship model (or ER model) describes interrelated things of interest in a specific domain of knowledge.
+> A basic ER model is composed of entity types (which classify the things of interest) and specifies relationships that
+> can exist between entities (instances of those entity types)
+
+- Use `erDiagram` to show ...
 
 Example:
 
@@ -148,6 +173,68 @@ erDiagram
     }
 ```
 
+Docs: <https://mermaid.js.org/syntax/entityRelationshipDiagram.html>
+
+### Gantt Charts
+
+> A Gantt chart is a type of bar chart, first developed by Karol Adamiecki in 1896, and independently by Henry Gantt in the 1910s,
+> that illustrates a project schedule and the amount of time it would take for any one project to finish.
+> Gantt charts illustrate number of days between the start and finish dates of the terminal elements and summary elements of a project.
+
+- Use `gantt` for project schedules and timelines.
+- Define `dateFormat`, `title`, and `section` for organization.
+
+Example:
+
+```mermaid
+gantt
+    title A Gantt Diagram
+    dateFormat  YYYY-MM-DD
+    section Section
+    A task           :a1, 2014-01-01, 30d
+    Another task     :after a1  , 20d
+    section Another
+    Task in sec      :2014-01-12  , 12d
+    another task      : 24d
+```
+
+Syntax:
+
+```mermaid
+gantt
+    dateFormat  YYYY-MM-DD
+    title       Adding GANTT diagram functionality to mermaid
+    excludes    weekends
+    %% (`excludes` accepts specific dates in YYYY-MM-DD format, days of the week ("sunday") or "weekends", but not the word "weekdays".)
+
+    section A section
+    Completed task            :done,    des1, 2014-01-06,2014-01-08
+    Active task               :active,  des2, 2014-01-09, 3d
+    Future task               :         des3, after des2, 5d
+    Future task2              :         des4, after des3, 5d
+
+    section Critical tasks
+    Completed task in the critical line :crit, done, 2014-01-06,24h
+    Implement parser and jison          :crit, done, after des1, 2d
+    Create tests for parser             :crit, active, 3d
+    Future task in critical line        :crit, 5d
+    Create tests for renderer           :2d
+    Add to mermaid                      :until isadded
+    Functionality added                 :milestone, isadded, 2014-01-25, 0d
+
+    section Documentation
+    Describe gantt syntax               :active, a1, after des1, 3d
+    Add gantt diagram to demo page      :after a1  , 20h
+    Add another diagram to demo page    :doc1, after a1  , 48h
+
+    section Last section
+    Describe gantt syntax               :after doc1, 3d
+    Add gantt diagram to demo page      :20h
+    Add another diagram to demo page    :48h
+```
+
+Docs: <https://mermaid.js.org/syntax/gantt.html>
+
 ### Mindmap Diagrams
 
 - Use `mindmap` for hierarchical information and brainstorming.
@@ -155,24 +242,39 @@ erDiagram
 Example:
 
 ```mermaid
+%% Example canonical facts store
+%% Note: Keep items in alphabetical order.
 mindmap
   root((Project Name))
     Architecture
       Components
-        Frontend
-        Backend
-        Database
+        ComponentA::Role
+        ComponentB::Role
       Protocols
-        HTTPS
-        WebSockets
-    Team
-      Lead
-      Developers
-      Designers
-    Goals
-      Stability
-      Performance
-      Scalability
+        ProtocolA
+          Rule_1
+          Rule_2
+    Context
+      Agents_Path::Location
+      Deployment::Target_Environment
+      Documentation::Location
+      License::Type
+      Metrics
+        MetricA::Value
+      Organization::Name
+      Purpose::Description
+    Ecosystem
+      Dependencies
+        LibA
+        LibB
+      Languages
+        PrimaryLanguage::Version
+      Tools
+        Automation
+          ToolA
+        Linters
+          LinterA
+          LinterB
 ```
 
 ### Sequence Diagrams
@@ -181,16 +283,38 @@ mindmap
 - Utilize `participant` and `actor` for clarity.
 - Use `autonumber` for step-by-step flows.
 
-- Example:
+Examples:
 
-  ```mermaid
-  sequenceDiagram
-      autonumber
-      Alice->>Bob: Hello Bob, how are you?
-      Bob-->>Alice: I am good thanks!
-  ```
+```mermaid
+sequenceDiagram
+  autonumber
+  Alice->>Bob: Hello Bob, how are you?
+  Bob-->>Alice: I am good thanks!
+```
+
+```mermaid
+sequenceDiagram
+    participant Alice
+    participant Bob
+    Bob->>Alice: Hi Alice
+    Alice->>Bob: Hi Bob
+```
+
+```mermaid
+sequenceDiagram
+    participant Alice@{ "type" : "boundary" }
+    participant Bob
+    Alice->>Bob: Request from boundary
+    Bob->>Alice: Response to boundary
+```
+
+Docs: <https://mermaid.js.org/syntax/sequenceDiagram.html>
 
 ### State Diagrams
+
+> A state diagram is a type of diagram used in computer science and related fields to describe the behavior of systems.
+> State diagrams require that the system described is composed of a finite number of states; sometimes, this is indeed the case,
+> while at other times this is a reasonable abstraction.
 
 - Use `stateDiagram-v2` for state machine visualization.
 
@@ -205,6 +329,31 @@ stateDiagram-v2
     Moving --> Crash
     Crash --> [*]
 ```
+
+Docs: <https://mermaid.js.org/syntax/stateDiagram.html>
+
+### User Journey Diagram
+
+> User journeys describe at a high level of detail exactly what steps different users take to complete a specific task within a system,
+> application or website. This technique shows the current (as-is) user workflow, and reveals areas of improvement for the to-be workflow.
+
+- Use `journey` for state machine visualization.
+
+Example:
+
+```mermaid
+journey
+    title My working day
+    section Go to work
+      Make tea: 5: Me
+      Go upstairs: 3: Me
+      Do work: 1: Me, Cat
+    section Go home
+      Go downstairs: 5: Me
+      Sit down: 5: Me
+```
+
+Docs: <https://mermaid.js.org/syntax/userJourney.html>
 
 ## What to Avoid
 
