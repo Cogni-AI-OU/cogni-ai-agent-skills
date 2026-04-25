@@ -11,9 +11,9 @@ This skill enables autonomous diagnosis of GitHub Actions failures, preferring M
 
 ## When to Activate
 
+- Agent needs to identify or fix a workflow failure
 - Error output references Actions job steps
 - Pull request shows failed Actions checks
-- Task requires identifying or fixing a workflow failure
 - User provides a GitHub Actions URL (e.g., `https://github.com/owner/repo/actions/runs/RUN_ID/job/JOB_ID`)
 - User reports a failing GitHub Actions workflow, CI failure, or red status check
 
