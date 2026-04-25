@@ -29,19 +29,145 @@ various diagram types (flowcharts, sequence diagrams, Gantt charts, etc.).
 
 ## Diagram Types & Patterns
 
+### Architecture Diagrams
+
+- Use `architecture-beta` to show system structure and relationships.
+
+Example:
+
+```mermaid
+architecture-beta
+    group api(cloud)[API]
+
+    service db(database)[Database] in api
+    service disk1(disk)[Storage] in api
+    service disk2(disk)[Storage] in api
+    service server(server)[Server] in api
+
+    db:L -- R:server
+    disk1:T -- B:server
+    disk2:T -- B:db
+```
+
 ### Flowcharts
 
 - Use `graph TD` (Top-Down) or `graph LR` (Left-Right) based on the flow's nature.
 - Use meaningful shapes: `[ ]` for processes, `( )` for start/end, `{ }` for decisions.
 
-- Example:
+Example:
 
   ```mermaid
-  graph TD
-      A(Start) --> B{Decision}
-      B -- Yes --> C[Process]
-      B -- No --> D[End]
+flowchart TD
+    A[Christmas] -->|Get money| B(Go shopping)
+    B --> C{Let me think}
+    C -->|One| D[Laptop]
+    C -->|Two| E[iPhone]
+    C -->|Three| F[fa:fa-car Car]
   ```
+
+### Class Diagrams
+
+- Use `classDiagram` to show system structure and relationships.
+
+Example:
+
+```mermaid
+classDiagram
+    Animal <|-- Duck
+    Animal <|-- Fish
+    Animal <|-- Zebra
+    Animal : +int age
+    Animal : +String gender
+    Animal: +isMammal()
+    Animal: +mate()
+    class Duck{
+      +String beakColor
+      +swim()
+      +quack()
+    }
+    class Fish{
+      -int sizeInFeet
+      -canEat()
+    }
+    class Zebra{
+      +bool is_wild
+      +run()
+    }
+```
+
+### Entity Relationship Diagrams
+
+- Use `erDiagram` to show system structure and relationships.
+
+Example:
+
+```mermaid
+erDiagram
+    CUSTOMER ||--o{ ORDER : places
+    ORDER ||--|{ ORDER_ITEM : contains
+    PRODUCT ||--o{ ORDER_ITEM : includes
+    CUSTOMER {
+        string id
+        string name
+        string email
+    }
+    ORDER {
+        string id
+        date orderDate
+        string status
+    }
+    PRODUCT {
+        string id
+        string name
+        float price
+    }
+    ORDER_ITEM {
+        int quantity
+        float price
+    }
+```
+
+### Mindmap Diagrams
+
+- Use `mindmap` to show system structure and relationships.
+
+Example:
+
+```mermaid
+%% Example canonical facts store
+%% Note: Keep items in alphabetical order.
+mindmap
+  root((Project Name))
+    Architecture
+      Components
+        ComponentA::Role
+        ComponentB::Role
+      Protocols
+        ProtocolA
+          Rule_1
+          Rule_2
+    Context
+      Agents_Path::Location
+      Deployment::Target_Environment
+      Documentation::Location
+      License::Type
+      Metrics
+        MetricA::Value
+      Organization::Name
+      Purpose::Description
+    Ecosystem
+      Dependencies
+        LibA
+        LibB
+      Languages
+        PrimaryLanguage::Version
+      Tools
+        Automation
+          ToolA
+        Linters
+          LinterA
+          LinterB
+```
 
 ### Sequence Diagrams
 
@@ -58,13 +184,21 @@ various diagram types (flowcharts, sequence diagrams, Gantt charts, etc.).
       Bob-->>Alice: I am good thanks!
   ```
 
-### Class Diagrams
-
-- Use `classDiagram` to show system structure and relationships.
-
 ### State Diagrams
 
 - Use `stateDiagram-v2` for state machine visualization.
+
+Example:
+
+```mermaid
+stateDiagram-v2
+    [*] --> Still
+    Still --> [*]
+    Still --> Moving
+    Moving --> Still
+    Moving --> Crash
+    Crash --> [*]
+```
 
 ## What to Avoid
 
