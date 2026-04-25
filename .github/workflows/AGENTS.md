@@ -57,7 +57,8 @@ For a human-readable overview, see [README.md](README.md).
 - Inputs: `agent` (default `cogni-ai`), `model` (workflow_call default via
   `vars.OPENCODE_MODEL_DEFAULT` with fallback `opencode/gemini-3-flash`; workflow_dispatch
   default `opencode/gemini-3-flash`), `prompt` (optional override).
-- Triggers: `workflow_dispatch`, `workflow_call`, or issue comments and PR review comments with `/oc` or `/opencode` from trusted (non-bot) collaborators/members/owners.
+- Triggers: `workflow_dispatch`, `workflow_call`, or issue comments and PR review comments with `/oc` or `/opencode`
+  from trusted (non-bot) collaborators/members/owners.
 - Concurrency: one run per branch/PR context via workflow-level `concurrency` group to avoid competing pushes.
 - Permissions: `contents: write`, `id-token: write`, `issues: write`, `pull-requests: write`.
 - Reusable: `uses: Cogni-AI-OU/cogni-ai-agent-skills/.github/workflows/opencode-agent.yml@main`.

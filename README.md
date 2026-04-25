@@ -46,6 +46,8 @@ To load these skills into your own repository, you can add this repository as a 
 - **[github](github/SKILL.md)**: GitHub specific features and collaborative practices
 - **[github-actions](github-actions/SKILL.md)**: Diagnosing and debugging failing GitHub Actions workflows
 - **[github-script](github-script/SKILL.md)**: Advanced use cases and examples for using actions/github-script
+- **[mermaid](mermaid/SKILL.md)**: Guide for creating and maintaining stable Mermaid.js diagrams
+- **[mermaid-beta](mermaid-beta/SKILL.md)**: Guide for creating and maintaining experimental Mermaid.js beta diagrams
 - **[molecule](molecule/SKILL.md)**: Molecule testing workflows for Ansible roles
 - **[pdf](pdf/SKILL.md)**: PDF file inspection, object-level editing, and lossless size reduction
 - **[pre-commit](pre-commit/SKILL.md)**: Using pre-commit to validate code formatting, linting, and security checks
