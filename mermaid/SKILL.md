@@ -11,7 +11,7 @@ description: >-
 
 Expert in creating, optimizing, and troubleshooting Mermaid.js diagrams.
 Prioritize clarity, readability, and adherence to Mermaid syntax standards for
-various diagram types (flowcharts, sequence diagrams, gantt charts, etc.).
+various diagram types (flowcharts, sequence diagrams, Gantt charts, etc.).
 
 ## When to Activate
 
