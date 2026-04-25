@@ -2,7 +2,9 @@
 ---
 name: mermaid
 description: >-
-  Guide for creating and maintaining Mermaid.js diagrams for documentation, architecture, and flow visualization.
+  Guide for creating and maintaining stable Mermaid.js diagrams (C4, Class,
+  Entity Relationship, Flowcharts, Gantt, GitGraph, Kanban, Mindmap, Pie,
+  Quadrant, Requirement, Sequence, State, Timeline, User Journey).
 
   Maintained at: <https://github.com/Cogni-AI-OU/cogni-ai-agent-skills>
 license: MIT
