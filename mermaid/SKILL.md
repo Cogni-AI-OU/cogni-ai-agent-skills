@@ -1,5 +1,5 @@
----
 <!-- markdownlint-disable MD003 MD022 MD026 MD041 -->
+---
 name: mermaid
 description: >-
   Expert guide for creating, optimizing, troubleshooting, and maintaining **stable** Mermaid.js diagrams (v11+).
@@ -198,6 +198,13 @@ Docs: <https://mermaid.js.org/syntax/entityRelationshipDiagram.html>
 ### Flowcharts (Enhanced v11.3+)
 
 Use `flowchart` (preferred) or legacy `graph`. Direction: `TD`/`TB`/`LR`/`RL`/`BT`.
+
+- Define node shapes using specific brackets:
+  - **Start/End**: Stadium `([ ])`
+  - **Process**: Rectangle `[ ]` or Rounded `( )`
+  - **Decision**: Rhombus `{ }`
+  - **Database**: Cylindrical `[( )]`
+- Use subgraphs to group related components and indicate system boundaries.
 
 **New v11.3+ Shapes** (use `@{ shape: ..., label: "..." }` syntax):
 
