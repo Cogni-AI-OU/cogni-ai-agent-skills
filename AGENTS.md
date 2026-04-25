@@ -107,7 +107,7 @@ If you encounter firewall issues when using the GitHub Copilot Agent:
 - Do not workaround blocked URLs by adding markdown-link-check ignore/whitelist patterns for real links.
 - Keep markdown-link-check validating real links, and request firewall allowlisting instead.
 - If you need to allowlist additional hosts, update your firewall configuration accordingly
-  by following `.github/agents/FIREWALL.md` and keep that file up to date.
+  by following `.github/FIREWALL.md` and keep that file up to date.
 
 ### Linting issues
 
