@@ -681,14 +681,11 @@ Docs: <https://mermaid.js.org/syntax/userJourney.html>
 - **Inconsistent Indentation**: Critical for Mindmap, TreeView, and hierarchical diagrams.
 - **Keywords as IDs**: Avoid using `end` as node ID without quotes (flowchart pitfall).
 - **Over-complexity**: Avoid massive diagrams (> 50 nodes) that become unreadable.
-- **Unquoted Parentheses & Strings**: **NEVER** use unquoted parentheses `()` in node
-  labels, edge labels (`-->|...|`), or subgraph titles. Doing so triggers `error[FL-LABEL-PARENS-UNQUOTED]`
-  or `Parse error... got 'PS'`. Always wrap them in exactly one pair of double quotes
-  (e.g., `subgraph ID ["Title (Details)"]` or `A["Node (Details)"]`). Avoid parentheses entirely
-  in edge labels (prefer `-->|Condition, details|` over `-->|Condition (details)|`).
+- **Unquoted Parentheses & Strings**: **NEVER** use unquoted parentheses `()` or strings with spaces/commas/special chars without quotes in node labels, edge labels (`-->|...|`), or subgraph titles. Doing so triggers `error[FL-LABEL-PARENS-UNQUOTED]` or `Parse error... got 'PS'`. Always wrap them in exactly one pair of double quotes (e.g., `subgraph ID ["Title (Details)"]` or `A["Node (Details)"]`). Avoid parentheses entirely in edge labels (prefer `-->|Condition, details|` over `-->|Condition (details)|`).
 - **Double Double-Quotes**: Do not use `[""...""]`. Mermaid expects exactly one pair of double quotes `["..."]`.
-- **Non-ASCII Characters**: Avoid typographic characters like `→` (right arrow) or `–` (en dash) in labels;
-  use standard ASCII `->` or `-` to prevent `require-ascii` pre-commit failures.
+- **Quotes in Pipe Labels**: Never use double quotes `"` inside pipe-delimited labels (e.g., `-->|"text"|`). Use `&quot;` or switch to un-piped quoted labels `--> "text"`.
+- **Special Chars in Pipe Labels**: Avoid structural characters (especially parentheses `()`) inside pipe-delimited labels `|...|`. Use quoted strings `--> "Label (text)"` instead.
+- **Non-ASCII Characters**: Avoid typographic characters like `→` (right arrow) or `–` (en dash) in labels; use standard ASCII `->` or `-` to prevent `require-ascii` pre-commit failures.
 
 ## Troubleshooting
 
