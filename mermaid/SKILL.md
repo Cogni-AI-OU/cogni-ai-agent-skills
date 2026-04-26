@@ -237,21 +237,21 @@ flowchart TD
 
 ```mermaid
 flowchart LR
-    subgraph Client
-        UI([User Interface])
+    subgraph Client ["Client (Frontend)"]
+        UI(["User Interface (Web)"])
     end
 
-    subgraph Server
-        API(API Gateway)
-        Auth{Authorized?}
-        App[Application Logic]
-        DB[(Database)]
+    subgraph Server ["Server (Backend)"]
+        API("API Gateway")
+        Auth{"Authorized?"}
+        App["Application Logic"]
+        DB[("Database (SQL)")]
     end
 
     UI -- "REST Request" --> API
     API --> Auth
     Auth -- "Yes" --> App
-    Auth -.->|"No (401 Unauthorized)"| UI
+    Auth -.->|"No, 401 Unauthorized"| UI
     App ==> DB
 
     classDef success fill:#d4edda,stroke:#28a745,stroke-width:2px;
@@ -679,7 +679,14 @@ Docs: <https://mermaid.js.org/syntax/userJourney.html>
 - **Inconsistent Indentation**: Critical for Mindmap, TreeView, and hierarchical diagrams.
 - **Keywords as IDs**: Avoid using `end` as node ID without quotes (flowchart pitfall).
 - **Over-complexity**: Avoid massive diagrams (> 50 nodes) that become unreadable.
-- **Unquoted Strings**: Avoid strings with spaces, commas, or special chars without quotes.
+- **Unquoted Parentheses & Strings**: **NEVER** use unquoted parentheses `()` in node
+  labels, edge labels (`-->|...|`), or subgraph titles. Doing so triggers `error[FL-LABEL-PARENS-UNQUOTED]`
+  or `Parse error... got 'PS'`. Always wrap them in exactly one pair of double quotes
+  (e.g., `subgraph ID ["Title (Details)"]` or `A["Node (Details)"]`). Avoid parentheses entirely
+  in edge labels (prefer `-->|Condition, details|` over `-->|Condition (details)|`).
+- **Double Double-Quotes**: Do not use `[""...""]`. Mermaid expects exactly one pair of double quotes `["..."]`.
+- **Non-ASCII Characters**: Avoid typographic characters like `->` (decimal 8594) or `-` in labels;
+  use standard ASCII `->` or `-` to prevent `require-ascii` pre-commit failures.
 
 ## Troubleshooting
 
@@ -691,9 +698,15 @@ mindmap
       "end" keyword conflict
         ::icon(fa fa-exclamation-triangle)
         Fix: Quote "End" or rename ID
-      Unquoted strings
+      Double double-quotes (""..."")
+        ::icon(fa fa-xmark)
+        Fix: Remove inner quotes
+      Non-ASCII arrows
+        ::icon(fa fa-arrow-right)
+        Fix: Use standard ASCII (->)
+      Unquoted strings & parens
         ::icon(fa fa-quote-right)
-        Fix: Use double quotes
+        Fix: Use exactly one pair of double quotes
     Rendering Issues
       Missing Icons
         ::icon(fa fa-font-awesome)
