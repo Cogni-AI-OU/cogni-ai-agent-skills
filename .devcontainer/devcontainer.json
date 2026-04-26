@@ -17,6 +17,7 @@
         "GitHub.copilot",
         "GitHub.copilot-chat",
         "GitHub.vscode-github-actions",
+        "MermaidChart.vscode-mermaid-chart",
         "vscodevim.vim",
         "vsls-contrib.codetour",
         "xaver.clang-format"

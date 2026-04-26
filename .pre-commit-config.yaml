@@ -106,3 +106,6 @@ repos:
         additional_dependencies:
           - '@probelabs/maid@0.0.29'
         files: \.(md|mmd)$
+        # Exclude SKILL.md because @probelabs/maid AST parser is outdated
+        # and fails on Mermaid v11+ syntax (e.g., kanban).
+        exclude: SKILL\.md$

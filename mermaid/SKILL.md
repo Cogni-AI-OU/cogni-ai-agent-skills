@@ -40,7 +40,6 @@ design so diagrams remain maintainable as systems evolve.
 ## General Usage & Configuration
 
 ```mermaid
-%% Example of YAML frontmatter for per-diagram config (v10+)
 ---
 config:
   theme: default
@@ -676,18 +675,24 @@ Docs: <https://mermaid.js.org/syntax/userJourney.html>
 
 ## What to Avoid (Hardened)
 
+- **Frontmatter Comments Before Target**: NEVER place `%%` comments before the `---` YAML frontmatter block.
+  Frontmatter config must be the absolute first lines inside the ` ```mermaid ` block.
+- **Mindmap Implicit Nodes**: NEVER use implicit text nodes (e.g., just `"Label"`) in mindmaps.
+  ALWAYS explicitly map every node to an ID (e.g., `node_id["Label"]`), especially for child nodes.
+- **Mindmap Icon Placement**: When attaching `::icon(...)` to a mindmap node, place it on the exact subsequent line
+  with the EXACT same indentation as the node declaration to avoid parser ambiguity.
 - **Assuming Beta Syntax**: Do not guess syntax for stable diagrams based on beta patterns.
 - **Hardcoding Styles**: Prefer reusable `classDef` over inline styles.
 - **Inconsistent Indentation**: Critical for Mindmap, TreeView, and hierarchical diagrams.
 - **Keywords as IDs**: Avoid using `end` as node ID without quotes (flowchart pitfall).
-- **Nested Quotes in Pipes**: NEVER use raw double quotes (`"`) inside pipe-delimited edge labels (e.g., `-->|"Label"|`). This crashes many standard renderers.
-  Use the HTML entity `&quot;` instead: `-->|&quot;Label&quot;|`.
+- **Nested Quotes in Pipes**: NEVER use raw double quotes (`"`) inside pipe-delimited edge labels (e.g., `-->|"Label"|`).
+  This crashes many standard renderers. Use the HTML entity `&quot;` instead: `-->|&quot;Label&quot;|`.
 - **Over-complexity**: Avoid massive diagrams (> 50 nodes) that become unreadable.
 - **Unquoted Parentheses & Strings**: **NEVER** use unquoted parentheses `()` or strings with spaces/commas/special chars
-  without quotes in node labels, edge labels (`-->|...|`), or subgraph titles. Doing so triggers
-  `error[FL-LABEL-PARENS-UNQUOTED]` or `Parse error... got 'PS'`. Always wrap them in exactly one pair of double quotes
-  (e.g., `subgraph ID ["Title (Details)"]` or `A["Node (Details)"]`). Avoid parentheses entirely in edge labels
-  (prefer `-->|Condition, details|` over `-->|Condition (details)|`).
+  without quotes in node labels, edge labels (`-->|...|`), or subgraph titles.
+  Doing so triggers `error[FL-LABEL-PARENS-UNQUOTED]` or `Parse error... got 'PS'`.
+  Always wrap them in exactly one pair of double quotes (e.g., `subgraph ID ["Title (Details)"]` or `A["Node (Details)"]`).
+  Avoid parentheses entirely in edge labels (prefer `-->|Condition, details|` over `-->|Condition (details)|`).
 - **Double Double-Quotes**: Do not use `[""...""]`. Mermaid expects exactly one pair of double quotes `["..."]`.
 - **Quotes in Pipe Labels**: Never use double quotes `"` inside pipe-delimited labels (e.g., `-->|"text"|`). Use `&quot;`
   or switch to un-piped quoted labels `--> "text"`.
@@ -705,39 +710,39 @@ mindmap
   root((Troubleshooting))
     %% Keep items in alphabetical order within branches
     Parsing Issues
-      "'end' keyword conflict"
-        ::icon(fa fa-exclamation-triangle)
-        "Fix: Quote keywords or rename ID"
-      "Double double-quotes"
-        ::icon(fa fa-xmark)
-        "Fix: Avoid using nested double-quotes"
-      "Non-ASCII characters (e.g., →, –)"
-        ::icon(fa fa-arrow-right)
-        "Fix: Use standard ASCII (-> or -)"
-      "Unquoted strings & parens"
-        ::icon(fa fa-quote-right)
-        "Fix: Use exactly one pair of double quotes"
+      id_parse1["'end' keyword conflict"]
+      ::icon(fa fa-exclamation-triangle)
+        id_parse1_fix["Fix: Quote keywords or rename ID"]
+      id_parse2["Double double-quotes"]
+      ::icon(fa fa-xmark)
+        id_parse2_fix["Fix: Avoid using nested double-quotes"]
+      id_parse3["Non-ASCII characters (standardize)"]
+      ::icon(fa fa-arrow-right)
+        id_parse3_fix["Fix: Use standard ASCII (-> or -)"]
+      id_parse4["Unquoted strings & parens"]
+      ::icon(fa fa-quote-right)
+        id_parse4_fix["Fix: Use exactly one pair of double quotes"]
     Rendering Issues
-      Missing Icons
-        ::icon(fa fa-font-awesome)
-        "Fix: Register icon pack"
-      Performance lag
-        ::icon(fa fa-clock)
-        "Fix: Use ELK renderer"
-      Subgraph direction
-        ::icon(fa fa-compress-arrows-alt)
-        "Fix: Remove external links"
+      id_ren1["Missing Icons"]
+      ::icon(fa fa-font-awesome)
+        id_ren1_fix["Fix: Register icon pack"]
+      id_ren2["Performance lag"]
+      ::icon(fa fa-clock)
+        id_ren2_fix["Fix: Use ELK renderer"]
+      id_ren3["Subgraph direction"]
+      ::icon(fa fa-compress-arrows-alt)
+        id_ren3_fix["Fix: Remove external links"]
     Version Issues
-      Rendering mismatch
-        ::icon(fa fa-sync)
-        "Fix: Use v11+ syntax consistently"
+      id_ver1["Rendering mismatch"]
+      ::icon(fa fa-sync)
+        id_ver1_fix["Fix: Use v11+ syntax consistently"]
     Common Pitfalls
-      Avoid accidental edges
-        ::icon(fa fa-project-diagram)
-        "Fix: Space before 'o'/'x' in IDs"
-      stroke-dasharray commas
-        ::icon(fa fa-minus)
-        "Fix: Escape as '\,'"
+      id_pit1["Avoid accidental edges"]
+      ::icon(fa fa-project-diagram)
+        id_pit1_fix["Fix: Space before 'o'/'x' in IDs"]
+      id_pit2["stroke-dasharray commas"]
+      ::icon(fa fa-minus)
+        id_pit2_fix["Fix: Escape as '\,'"]
 ```
 
 ## Maintenance
