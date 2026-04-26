@@ -1,6 +1,6 @@
 <!-- markdownlint-disable MD003 MD022 MD026 MD041 MD013 -->
 ---
-name: MiniZinc
+name: minizinc
 description: When the user requests creation, refinement, debugging, or optimization of MiniZinc models for constraint satisfaction, scheduling, assignment, or any combinatorial problem, immediately apply expert advanced modeling.
 ---
 
