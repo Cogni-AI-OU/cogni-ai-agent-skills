@@ -42,7 +42,7 @@ and bounded fallbacks over brittle shell post-processing.
 ## Structured Query Patterns
 
 - Prefer native JSON first:
-  - `gh issue view <number> --json number,title,state,author,url`
+  - `gh issue view <number> --json comments,number,title,state,author,url`
   - `gh pr view <number> --json number,title,state,reviewDecision,url`
   - `gh run list --limit 20 --json databaseId,workflowName,status,conclusion,url`
 - Use `gh api` for objects that native subcommands do not expose cleanly:
