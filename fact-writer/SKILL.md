@@ -29,11 +29,34 @@ Guidance for structuring and maintaining verifiable project fact files. Use this
     Enforce rigid hierarchical structures (e.g., Mermaid `mindmap` or perfectly nested Markdown lists). Group by logical
     domains like `Architecture`, `Context`, `Ecosystem`.
 5. **Lexical Sorting**:
-    Insert new facts in strict alphabetical order within their domain/level to guarantee deterministic versioning and
-    minimize diff noise.
+    Insert new facts in strict alphabetical order within their domain/level.
+    - **Case**: Case-insensitive (e.g., `A` and `a` share same priority; `App` before `apple`).
+    - **Numbers**: Natural sort (e.g., `v2` < `v10`).
+    - **Special Characters**: Sort symbols (e.g., `@`, `_`) before alphanumeric characters.
 6. **Reversibility Focus**:
     Offload history, diffs, and rollback logic entirely to Git. Eradicate historical changelogs, sequence IDs, and
     obsolete states from the fact file itself.
+
+## Examples
+
+### Contradiction Replacement
+
+**Scenario**: Project migrates from Python 3.9 to 3.11.
+
+**Incorrect (Appending)**:
+
+```markdown
+- Language: Python 3.9
+- Language: Python 3.11
+```
+
+**Correct (Replacement)**:
+
+```markdown
+- Language: Python 3.11
+```
+
+The 3.9 entry is removed entirely; the 3.11 entry is inserted at the same lexical position.
 
 ## Diagnostics and Revisions
 
