@@ -36,8 +36,9 @@ description: When the user requests creation, refinement, debugging, or optimiza
    `cumulative`, `disjunctive`, `circuit`, `regular`, `table`, `lex_lesseq`
    over raw loops. For grids/matrices, use `all_different` on row/column slices:
    `forall(i in 1..n)(all_different(row(grid, i)))`.
-   Add `redundant_constraint(...)` and `symmetry_breaking_constraint(...)`
-   liberally for free propagation.
+   Add redundant constraints annotated with `:: redundant_constraint` and
+   symmetry-breaking constraints annotated with
+   `:: symmetry_breaking_constraint` liberally for free propagation.
 
 4. **Symmetry Breaking** – Always apply lexicographic ordering on identical
    objects (`lex_lesseq` or `lex_less` on arrays of symmetric vars).
