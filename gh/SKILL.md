@@ -39,6 +39,22 @@ and bounded fallbacks over brittle shell post-processing.
 6. If the same normalized command shape fails twice with the same warning,
    error, or empty result, pivot strategy instead of retrying.
 
+## API Parameter Handling
+
+When using `gh api` (including `gh api graphql`), choose the correct flag for parameters:
+
+- Use `-F` (`--field`) for **magic type conversion**:
+  - **File expansion**: `-F body=@path/to/file.md` (reads file content)
+  - **Typed values**: `-F is_public=true`, `-F count=42`, `-F parent=null`
+  - **Placeholders**: `-F repo={repo}`, `-F owner={owner}`
+- Use `-f` (`--raw-field`) for **static strings**:
+  - Use this when you want the literal value, even if it starts with `@` or looks like a boolean/number.
+  - For GraphQL, `query` is usually passed with `-f` to avoid accidental expansion or type conversion of the query string itself.
+
+**GraphQL Variables**:
+For `gh api graphql`, all fields other than `query` and `operationName` are automatically passed as GraphQL variables.
+Example: `gh api graphql -f query='mutation($title: String!) { ... }' -F title=@title.txt`
+
 ## Structured Query Patterns
 
 - Prefer native JSON first:
@@ -63,6 +79,8 @@ and bounded fallbacks over brittle shell post-processing.
   ...
   EOF
   )"`
+- For GraphQL mutations with large bodies from files:
+  `gh api graphql -f query='mutation($body: String!) { ... }' -F body=@file.md`
 - For non-code-change tasks, verify workspace cleanliness after posting.
 
 ## Workflow Run Diagnostics
@@ -171,6 +189,8 @@ agent MUST integrate remote changes with a merge commit workflow.
 
 ## What to Avoid
 
+- Do not use `-f` (`--raw-field`) when you intend to read a value from a file
+  using `@`; always use `-F` (`--field`) for file expansion.
 - Do not build `gh ... | grep ... | grep ...` chains as the default diagnostic
   path.
 - Do not retry the same `gh` command shape after semantic warnings.
