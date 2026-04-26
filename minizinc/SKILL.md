@@ -22,7 +22,9 @@ description: When the user requests creation, refinement, debugging, or optimiza
    % parameters + tight instance data (prefer .dzn)
    % decision variables with tightest feasible domains
    % constraints (globals first, then custom predicates)
-   solve :: [search-annotation] satisfy | minimize | maximize objective;
+   solve :: [search-annotation] satisfy;
+   % solve :: [search-annotation] minimize objective;
+   % solve :: [search-annotation] maximize objective;
    output [ ... ];
    ```
 
