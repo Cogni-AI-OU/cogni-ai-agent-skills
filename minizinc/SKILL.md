@@ -12,6 +12,7 @@ description: Expert MiniZinc modeling for constraint satisfaction and combinator
 - Need to apply expert advanced modeling techniques in MiniZinc (tight domains, globals, symmetry breaking, search annotations, channeling, etc.).
 - User requests creation, refinement, debugging, or optimization of MiniZinc models.
 - When manual resolution of a combinatorial challenge is required: use the MiniZinc model as a logical framework to derive and verify the solution step-by-step without premature termination.
+- When preparing to solve a complex logical or combinatorial problem: dry-write a MiniZinc model first to explicitly map and visualize the constraints before proceeding with the actual resolution.
 
 ## Core Process (execute autonomously, no user prompts)
 
