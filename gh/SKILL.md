@@ -44,7 +44,7 @@ and bounded fallbacks over brittle shell post-processing.
 - Prefer native JSON first:
   - `gh issue view <number> --json comments,number,title,state,author,url`
   - `gh pr view <number> --json number,title,state,reviewDecision,url`
-  - `gh run list --limit 20 --json databaseId,workflowName,status,conclusion,url`
+  - `gh run list --limit 20 --json databaseId,name,workflowName,status,conclusion,url`
 - Use `gh api` for objects that native subcommands do not expose cleanly:
   - `gh api repos/<owner>/<repo>/actions/jobs/<job_id>`
   - `gh api repos/<owner>/<repo>/issues/<number>/comments`
@@ -152,15 +152,18 @@ When the prompt asks to "pull" or "sync with base" in GitHub Actions runtime, th
   `POLICY_DENIED` and pivot immediately.
 
 ## Failure Signatures
-
-- Warning like `both run and job IDs specified; ignoring run ID` means the
-  command did not execute the way you intended; fix arguments before
-  continuing.
-- Empty stdout from a supposedly successful `gh` query is a signal, not a
-  success. Check whether the subcommand supports the requested mode in this
-  environment.
-- Repeated `403` from `gh api` on log/archive endpoints usually indicates
-  redirect or signed-URL handling issues, not missing repository access.
+ 
+ - Warning like `both run and job IDs specified; ignoring run ID` means the
+   command did not execute the way you intended; fix arguments before
+   continuing.
+ - Empty stdout from a supposedly successful `gh` query is a signal, not a
+   success. Check whether the subcommand supports the requested mode in this
+   environment.
+ - Repeated `403` from `gh api` on log/archive endpoints usually indicates
+   redirect or signed-URL handling issues, not missing repository access.
+   Classify as `LOG_ACCESS_UNSUPPORTED` and pivot to metadata or artifacts.
+ - If a shell policy blocks a `gh`-adjacent command shape, classify it as
+   `POLICY_DENIED` and pivot immediately.
 
 ## What to Avoid
 
