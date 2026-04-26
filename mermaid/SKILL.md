@@ -680,6 +680,8 @@ Docs: <https://mermaid.js.org/syntax/userJourney.html>
 - **Hardcoding Styles**: Prefer reusable `classDef` over inline styles.
 - **Inconsistent Indentation**: Critical for Mindmap, TreeView, and hierarchical diagrams.
 - **Keywords as IDs**: Avoid using `end` as node ID without quotes (flowchart pitfall).
+- **Nested Quotes in Pipes**: NEVER use raw double quotes (`"`) inside pipe-delimited edge labels (e.g., `-->|"Label"|`). This crashes many standard renderers.
+  Use the HTML entity `&quot;` instead: `-->|&quot;Label&quot;|`.
 - **Over-complexity**: Avoid massive diagrams (> 50 nodes) that become unreadable.
 - **Unquoted Parentheses & Strings**: **NEVER** use unquoted parentheses `()` or strings with spaces/commas/special chars
   without quotes in node labels, edge labels (`-->|...|`), or subgraph titles. Doing so triggers
@@ -691,6 +693,8 @@ Docs: <https://mermaid.js.org/syntax/userJourney.html>
   or switch to un-piped quoted labels `--> "text"`.
 - **Special Chars in Pipe Labels**: Avoid structural characters (especially parentheses `()`) inside pipe-delimited
   labels `|...|`. Use quoted strings `--> "Label (text)"` instead.
+- **Special Characters in Labels**: Avoid unquoted labels containing parentheses `()`, brackets `[]`,
+  or operators `< >` if they are not the primary node shape. Quote them or use HTML entities.
 - **Non-ASCII Characters**: Avoid typographic characters like `→` (right arrow) or `–` (en dash) in labels; use standard
   ASCII `->` or `-` to prevent `require-ascii` pre-commit failures.
 
