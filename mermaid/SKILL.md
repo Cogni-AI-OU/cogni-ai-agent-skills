@@ -698,13 +698,13 @@ mindmap
       "end" keyword conflict
         ::icon(fa fa-exclamation-triangle)
         Fix: Quote "End" or rename ID
-      Double double-quotes (""..."")
+      "Double double-quotes (""..."")"
         ::icon(fa fa-xmark)
         Fix: Remove inner quotes
-      Non-ASCII characters (e.g., →, –)
+      "Non-ASCII characters (e.g., →, –)"
         ::icon(fa fa-arrow-right)
         Fix: Use standard ASCII (-> or -)
-      Unquoted strings & parens
+      "Unquoted strings & parens"
         ::icon(fa fa-quote-right)
         Fix: Use exactly one pair of double quotes
     Rendering Issues
