@@ -69,9 +69,9 @@ and bounded fallbacks over brittle shell post-processing.
 
 - `gh run view <run_id> --log-failed` is only reliable when the relevant job
   or run concluded with failure.
-- `gh run view <run_id> --log | rg -iw "failed|error|exit"` can be used to find
-  errors in runs that might have partially succeeded or where `--log-failed` is
-  insufficient.
+- Prefer structured inspection with `gh run view <run_id> --json ...` or
+  `gh run view <run_id>` metadata. Only use external filters like `rg` if shell
+  policy explicitly permits them.
 - Jobs can conclude `success` while still containing pathological agent
   behavior; inspect run/job metadata before assuming failed-only logs are
   sufficient.
