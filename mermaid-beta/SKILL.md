@@ -335,18 +335,18 @@ mindmap
     Parsing Issues
       Hierarchy breaks
         ::icon(fa fa-indent)
-        Fix: Use strict indentation
+        "Fix: Use strict indentation"
     Rendering Issues
       Architecture connection
         ::icon(fa fa-network-wired)
-        Fix: Use side indicators (L,R,T,B)
+        "Fix: Use side indicators (L,R,T,B)"
       Missing ZenUML
         ::icon(fa fa-puzzle-piece)
-        Fix: Register external plugin
+        "Fix: Register external plugin"
     Version Issues
       Beta Volatility
         ::icon(fa fa-flask)
-        Fix: Check official docs for changes
+        "Fix: Check official docs for changes"
 ```
 
 ## What to Avoid
@@ -356,8 +356,10 @@ mindmap
 - **Inconsistent Indentation**: Avoid mixing tabs and spaces. Using strict, consistent indentation is
   critical for hierarchy-based diagrams like Mindmaps, TreeViews, and Treemaps.
 - **Unquoted Strings**: Avoid leaving strings that contain spaces or special characters unquoted to prevent parser breaks.
-- **Quotes in Pipe Labels**: Never use double quotes `"` inside pipe-delimited labels (e.g., `-->|"text"|`). Use `&quot;` or switch to un-piped quoted labels `--> "text"`.
-- **Special Chars in Pipe Labels**: Avoid parentheses `()` or other structural characters inside pipe-delimited labels `|...|`. Use quoted strings `--> "Label (text)"` instead.
+- **Quotes in Pipe Labels**: Never use double quotes `"` inside pipe-delimited labels (e.g., `-->|"text"|`). Use `&quot;`
+  or switch to un-piped quoted labels `--> "text"`.
+- **Special Chars in Pipe Labels**: Avoid parentheses `()` or other structural characters inside pipe-delimited
+  labels `|...|`. Use quoted strings `--> "Label (text)"` instead.
 
 ## Maintenance
 

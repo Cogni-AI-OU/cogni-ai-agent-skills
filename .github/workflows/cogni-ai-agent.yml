@@ -63,6 +63,7 @@ jobs:
     steps:
       - uses: actions/checkout@v6
         with:
+          fetch-depth: 0
           persist-credentials: false  # Prevents Duplicate header: "Authorization" error.
       - uses: actions/setup-python@v6.1.0
         with:

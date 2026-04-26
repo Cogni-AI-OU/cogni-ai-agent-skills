@@ -54,6 +54,7 @@ Always use non-interactive patterns when preparing changes for automated tools.
 ## Working with Shallow Clones
 
 GitHub Actions and other CI environments often check out repositories as shallow clones (limited history).
+**Note**: This repository is configured to check out as unshallow by default (`fetch-depth: 0`) in its main workflows.
 
 - **Detect shallow clone**:
   - `test -f .git/shallow && echo "Shallow clone" || echo "Full clone"`

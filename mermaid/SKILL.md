@@ -40,7 +40,6 @@ design so diagrams remain maintainable as systems evolve.
 ## General Usage & Configuration
 
 ```mermaid
-%% Example of YAML frontmatter for per-diagram config (v10+)
 ---
 config:
   theme: default
@@ -116,9 +115,9 @@ classDiagram
         +calculateTotal() float
     }
     class Payment {
-        <<interface>>
         +processPayment() bool
     }
+    <<interface>> Payment
 
     Customer "1" --> "*" Order : places
     Order "*" *-- "1..*" OrderItem : contains
@@ -224,34 +223,33 @@ flowchart TD
     A@{ icon: "fa:user", form: "circle", label: "User", pos: "t", h: 60 }
 ```
 
-**Markdown Labels & Animations**:
+**Markdown Labels**:
 
 ```mermaid
 flowchart TD
-    A["`This **is** _Markdown_`"]
-    e1@--> B
-    e1@{ animate: true }
+    A["`This **is** _Markdown_`"] --> B["`More **Markdown**`"]
+    A -.->|"`**Optional** step`"| C
 ```
 
 **Styling**:
 
 ```mermaid
 flowchart LR
-    subgraph Client
-        UI([User Interface])
+    subgraph Client ["Client (Frontend)"]
+        UI(["User Interface (Web)"])
     end
 
-    subgraph Server
-        API(API Gateway)
-        Auth{Authorized?}
-        App[Application Logic]
-        DB[(Database)]
+    subgraph Server ["Server (Backend)"]
+        API("API Gateway")
+        Auth{"Authorized?"}
+        App["Application Logic"]
+        DB[("Database (SQL)")]
     end
 
-    UI -- "REST Request" --> API
+    UI --|REST Request|--> API
     API --> Auth
-    Auth -- "Yes" --> App
-    Auth -.->|"No (401 Unauthorized)"| UI
+    Auth --|Yes|--> App
+    Auth -.->|No, 401 Unauthorized| UI
     App ==> DB
 
     classDef success fill:#d4edda,stroke:#28a745,stroke-width:2px;
@@ -378,27 +376,27 @@ mindmap
   root((Project Name))
     Architecture
       Components
-        ComponentA::Role
-        ComponentB::Role
+        "ComponentA::Role"
+        "ComponentB::Role"
       Protocols
         ProtocolA
           Rule_1
           Rule_2
     Context
-      Agents_Path::Location
-      Deployment::Target_Environment
-      Documentation::Location
-      License::Type
+      "Agents_Path::Location"
+      "Deployment::Target_Environment"
+      "Documentation::Location"
+      "License::Type"
       Metrics
-        MetricA::Value
-      Organization::Name
-      Purpose::Description
+        "MetricA::Value"
+      "Organization::Name"
+      "Purpose::Description"
     Ecosystem
       Dependencies
         LibA
         LibB
       Languages
-        PrimaryLanguage::Version
+        "PrimaryLanguage::Version"
       Tools
         Automation
           ToolA
@@ -485,14 +483,14 @@ requirementDiagram
 
     requirement user_login {
     id: 1
-    text: Users must be able to log in securely.
+    text: "Users must be able to log in securely."
     risk: high
     verifymethod: test
     }
 
     requirement password_complexity {
     id: 2
-    text: Passwords must be at least 8 characters.
+    text: "Passwords must be at least 8 characters."
     risk: medium
     verifymethod: inspection
     }
@@ -524,13 +522,15 @@ Example with Actors, Grouping, Logic, and Activations:
 sequenceDiagram
     autonumber
     actor U as User
-    box LightBlue Internal System
+    box "Internal System" #LightBlue
         participant A as API Gateway
         participant S as Database
     end
 
-    U->>+A: Request
-    A->>+S: Query
+    U->>A: Request
+    activate A
+    A->>S: Query
+    activate S
     Note right of S: Processing...
 
     alt is found
@@ -540,7 +540,8 @@ sequenceDiagram
     end
 
     deactivate S
-    A-->>-U: Response
+    A-->>U: Response
+    deactivate A
 ```
 
 Example with Special Participant Types:
@@ -656,7 +657,7 @@ Docs: <https://mermaid.js.org/syntax/userJourney.html>
 - **Themes**: `default`, `dark`, `forest`, `neutral`, `base`.
 - **Frontmatter YAML** for renderer, curve style, etc.
 - **ELK Renderer** (for very large/complex flowcharts): set `defaultRenderer: "elk"`.
-- **Edge Animations & classDef** (see Flowchart example above).
+- **Markdown Labels & classDef** (see Flowchart example above).
 
 ## Best Practices (Agent Directives)
 
@@ -674,14 +675,33 @@ Docs: <https://mermaid.js.org/syntax/userJourney.html>
 
 ## What to Avoid (Hardened)
 
+- **Frontmatter Comments Before Target**: NEVER place `%%` comments before the `---` YAML frontmatter block.
+  Frontmatter config must be the absolute first lines inside the ` ```mermaid ` block.
+- **Mindmap Implicit Nodes**: NEVER use implicit text nodes (e.g., just `"Label"`) in mindmaps.
+  ALWAYS explicitly map every node to an ID (e.g., `node_id["Label"]`), especially for child nodes.
+- **Mindmap Icon Placement**: When attaching `::icon(...)` to a mindmap node, place it on the exact subsequent line
+  with the EXACT same indentation as the node declaration to avoid parser ambiguity.
 - **Assuming Beta Syntax**: Do not guess syntax for stable diagrams based on beta patterns.
 - **Hardcoding Styles**: Prefer reusable `classDef` over inline styles.
 - **Inconsistent Indentation**: Critical for Mindmap, TreeView, and hierarchical diagrams.
 - **Keywords as IDs**: Avoid using `end` as node ID without quotes (flowchart pitfall).
+- **Nested Quotes in Pipes**: NEVER use raw double quotes (`"`) inside pipe-delimited edge labels (e.g., `-->|"Label"|`).
+  This crashes many standard renderers. Use the HTML entity `&quot;` instead: `-->|&quot;Label&quot;|`.
 - **Over-complexity**: Avoid massive diagrams (> 50 nodes) that become unreadable.
-- **Unquoted Strings**: Avoid strings with spaces, commas, or special chars without quotes.
-- **Quotes in Pipe Labels**: Never use double quotes `"` inside pipe-delimited labels (e.g., `-->|"text"|`). Use `&quot;` or switch to un-piped quoted labels `--> "text"`.
-- **Special Chars in Pipe Labels**: Avoid parentheses `()` or other structural characters inside pipe-delimited labels `|...|`. Use quoted strings `--> "Label (text)"` instead.
+- **Unquoted Parentheses & Strings**: **NEVER** use unquoted parentheses `()` or strings with spaces/commas/special chars
+  without quotes in node labels, edge labels (`-->|...|`), or subgraph titles.
+  Doing so triggers `error[FL-LABEL-PARENS-UNQUOTED]` or `Parse error... got 'PS'`.
+  Always wrap them in exactly one pair of double quotes (e.g., `subgraph ID ["Title (Details)"]` or `A["Node (Details)"]`).
+  Avoid parentheses entirely in edge labels (prefer `-->|Condition, details|` over `-->|Condition (details)|`).
+- **Double Double-Quotes**: Do not use `[""...""]`. Mermaid expects exactly one pair of double quotes `["..."]`.
+- **Quotes in Pipe Labels**: Never use double quotes `"` inside pipe-delimited labels (e.g., `-->|"text"|`). Use `&quot;`
+  or switch to un-piped quoted labels `--> "text"`.
+- **Special Chars in Pipe Labels**: Avoid structural characters (especially parentheses `()`) inside pipe-delimited
+  labels `|...|`. Use quoted strings `--> "Label (text)"` instead.
+- **Special Characters in Labels**: Avoid unquoted labels containing parentheses `()`, brackets `[]`,
+  or operators `< >` if they are not the primary node shape. Quote them or use HTML entities.
+- **Non-ASCII Characters**: Avoid typographic characters like `→` (right arrow) or `–` (en dash) in labels; use standard
+  ASCII `->` or `-` to prevent `require-ascii` pre-commit failures.
 
 ## Troubleshooting
 
@@ -690,33 +710,39 @@ mindmap
   root((Troubleshooting))
     %% Keep items in alphabetical order within branches
     Parsing Issues
-      "end" keyword conflict
-        ::icon(fa fa-exclamation-triangle)
-        Fix: Quote "End" or rename ID
-      Unquoted strings
-        ::icon(fa fa-quote-right)
-        Fix: Use double quotes
+      id_parse1["'end' keyword conflict"]
+      ::icon(fa fa-exclamation-triangle)
+        id_parse1_fix["Fix: Quote keywords or rename ID"]
+      id_parse2["Double double-quotes"]
+      ::icon(fa fa-xmark)
+        id_parse2_fix["Fix: Avoid using nested double-quotes"]
+      id_parse3["Non-ASCII characters (standardize)"]
+      ::icon(fa fa-arrow-right)
+        id_parse3_fix["Fix: Use standard ASCII (-> or -)"]
+      id_parse4["Unquoted strings & parens"]
+      ::icon(fa fa-quote-right)
+        id_parse4_fix["Fix: Use exactly one pair of double quotes"]
     Rendering Issues
-      Missing Icons
-        ::icon(fa fa-font-awesome)
-        Fix: Register icon pack
-      Performance lag
-        ::icon(fa fa-clock)
-        Fix: Use ELK renderer
-      Subgraph direction
-        ::icon(fa fa-compress-arrows-alt)
-        Fix: Remove external links
+      id_ren1["Missing Icons"]
+      ::icon(fa fa-font-awesome)
+        id_ren1_fix["Fix: Register icon pack"]
+      id_ren2["Performance lag"]
+      ::icon(fa fa-clock)
+        id_ren2_fix["Fix: Use ELK renderer"]
+      id_ren3["Subgraph direction"]
+      ::icon(fa fa-compress-arrows-alt)
+        id_ren3_fix["Fix: Remove external links"]
     Version Issues
-      Rendering mismatch
-        ::icon(fa fa-sync)
-        Fix: Use v11+ syntax consistently
+      id_ver1["Rendering mismatch"]
+      ::icon(fa fa-sync)
+        id_ver1_fix["Fix: Use v11+ syntax consistently"]
     Common Pitfalls
-      Avoid accidental edges
-        ::icon(fa fa-project-diagram)
-        Fix: Space before "o"/"x" in IDs
-      stroke-dasharray commas
-        ::icon(fa fa-minus)
-        Fix: Escape as "\,"
+      id_pit1["Avoid accidental edges"]
+      ::icon(fa fa-project-diagram)
+        id_pit1_fix["Fix: Space before 'o'/'x' in IDs"]
+      id_pit2["stroke-dasharray commas"]
+      ::icon(fa fa-minus)
+        id_pit2_fix["Fix: Escape as '\,'"]
 ```
 
 ## Maintenance
