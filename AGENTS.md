@@ -101,7 +101,9 @@ molecule syntax
 - Use `gh` command to interact with GitHub resources. For example:
 
   - `gh run list --limit 3` to list recent builds.
-  - `gh run view {ID} --log` can be used for full log inspection when metadata is insufficient. Avoid complex pipelines in restricted shells.
+  - Use `gh run view {ID} --log` for full inspection when metadata is
+    insufficient.
+  - Avoid complex pipelines in restricted shells.
 
 ### Firewall issues
 

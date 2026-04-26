@@ -69,7 +69,8 @@ and bounded fallbacks over brittle shell post-processing.
 
 - `gh run view <run_id> --log-failed` is only reliable when the relevant job
   or run concluded with failure.
-- Prefer structured inspection with `gh run view <run_id> --json ...` or
+- Prefer structured inspection with
+  `gh run view <run_id> --json databaseId,status,conclusion,jobs,url` or
   `gh run view <run_id>` metadata. Only use external filters like `rg` if shell
   policy explicitly permits them.
 - Jobs can conclude `success` while still containing pathological agent
@@ -114,10 +115,12 @@ When executing autonomously within a GitHub Actions environment, adhere strictly
 
 ### Branch Sync Policy (No Rebase During Runtime)
 
-When the prompt asks to "pull" or "sync with base" in GitHub Actions runtime, the agent MUST integrate remote changes with a merge commit workflow.
+When the prompt asks to "pull" or "sync with base" in GitHub Actions runtime, the
+agent MUST integrate remote changes with a merge commit workflow.
 
 - **MUST NOT** run any rebase-based update command during runtime.
-- **FORBIDDEN**: `gh pr update-branch --rebase`, `git pull --rebase`, `git rebase`, or any history rewrite that changes commit SHAs.
+- **FORBIDDEN**: `gh pr update-branch --rebase`, `git pull --rebase`, `git rebase`,
+  or any history rewrite that changes commit SHAs.
 - **MUST** use pull-with-merge semantics: `git pull --no-rebase`.
 - **MUST** preserve remote branch compatibility for post-run auto PR/push logic.
 
@@ -126,7 +129,8 @@ When the prompt asks to "pull" or "sync with base" in GitHub Actions runtime, th
 1. Determine PR base/head from context (`## Pull Request Context`, `gh pr view`).
 2. Ensure work is on the PR head branch (not detached HEAD).
 3. Sync head branch from remote with merge semantics: `git pull --no-rebase origin <head-branch>`.
-4. If base changes must be integrated into head, merge base explicitly: `git fetch origin <base-branch> && git merge --no-ff origin/<base-branch>`.
+4. If base changes must be integrated into head, merge base explicitly:
+   `git fetch origin <base-branch> && git merge --no-ff origin/<base-branch>`.
 5. Resolve conflicts, commit merge if required, then push normally (no force).
 
 **Verification Gate (required before push)**:
@@ -152,18 +156,18 @@ When the prompt asks to "pull" or "sync with base" in GitHub Actions runtime, th
   `POLICY_DENIED` and pivot immediately.
 
 ## Failure Signatures
- 
- - Warning like `both run and job IDs specified; ignoring run ID` means the
-   command did not execute the way you intended; fix arguments before
-   continuing.
- - Empty stdout from a supposedly successful `gh` query is a signal, not a
-   success. Check whether the subcommand supports the requested mode in this
-   environment.
- - Repeated `403` from `gh api` on log/archive endpoints usually indicates
-   redirect or signed-URL handling issues, not missing repository access.
-   Classify as `LOG_ACCESS_UNSUPPORTED` and pivot to metadata or artifacts.
- - If a shell policy blocks a `gh`-adjacent command shape, classify it as
-   `POLICY_DENIED` and pivot immediately.
+
+- Warning like `both run and job IDs specified; ignoring run ID` means the
+  command did not execute the way you intended; fix arguments before
+  continuing.
+- Empty stdout from a supposedly successful `gh` query is a signal, not a
+  success. Check whether the subcommand supports the requested mode in this
+  environment.
+- Repeated `403` from `gh api` on log/archive endpoints usually indicates
+  redirect or signed-URL handling issues, not missing repository access.
+  Classify as `LOG_ACCESS_UNSUPPORTED` and pivot to metadata or artifacts.
+- If a shell policy blocks a `gh`-adjacent command shape, classify it as
+  `POLICY_DENIED` and pivot immediately.
 
 ## What to Avoid
 
