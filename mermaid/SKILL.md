@@ -680,6 +680,8 @@ Docs: <https://mermaid.js.org/syntax/userJourney.html>
 - **Keywords as IDs**: Avoid using `end` as node ID without quotes (flowchart pitfall).
 - **Over-complexity**: Avoid massive diagrams (> 50 nodes) that become unreadable.
 - **Unquoted Strings**: Avoid strings with spaces, commas, or special chars without quotes.
+- **Quotes in Pipe Labels**: Never use double quotes `"` inside pipe-delimited labels (e.g., `-->|"text"|`). Use `&quot;` or switch to un-piped quoted labels `--> "text"`.
+- **Special Chars in Pipe Labels**: Avoid parentheses `()` or other structural characters inside pipe-delimited labels `|...|`. Use quoted strings `--> "Label (text)"` instead.
 
 ## Troubleshooting
 
