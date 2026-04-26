@@ -2,40 +2,53 @@
 ---
 name: fact-writer
 description: >-
-  Guidelines for creating, structuring, and maintaining verifiable project fact files (e.g., FACTS.md) without contradictions.
+  Strict guidelines for creating, writing, and maintaining verifiable project fact files
+  (e.g., FACTS.md or FACTS.mmd) without contradictions, ensuring state compression and lexical ordering.
 ---
 # Fact Writer
 
-Guidance for writing, structuring, and maintaining verifiable project fact files without contradictions. Use this skill when managing `FACTS.md`, `FACTS.mmd` (in mermaid format), or similar canonical stores of project facts.
+Guidance for structuring and maintaining verifiable project fact files. Use this skill when managing `FACTS.md`,
+`FACTS.mmd`, or similar canonical stores.
 
 ## When to Activate
 
-- Documenting verifiable facts, architectural decisions, and ecosystem properties.
-- Managing, creating, or updating a canonical fact store (e.g., `FACTS.md` or `FACTS.mmd`) in the project root.
-- Resolving state conflicts or contradictions in project documentation.
+- Creating or updating canonical fact stores (e.g., `FACTS.md`, `FACTS.mmd`).
+- Documenting verifiable ecosystem properties, constraints, or architectural decisions.
+- Resolving state conflicts or contradictions within documentation limits.
 
 ## Core Process
 
-1. **Verify Before Writing**: Always read the existing fact file (e.g., `FACTS.md`) thoroughly before proposing or writing updates to ensure you do not introduce conflicting information.
-2. **Contradiction Transparency**: Reject silent overwrites. If a newly proposed fact contradicts an existing fact, explicitly surface the conflict and resolve it by replacing the outdated fact, not appending a conflicting one.
-3. **Verifiable Facts**: Only record objective, verifiable facts based on the repository's configuration, code, and explicit documentation. Avoid subjective language or assumptions.
-4. **Structured Formatting**: Maintain a rigid, hierarchical format (such as Mermaid mindmaps or strictly nested Markdown lists). Group facts by logical domains (e.g., Architecture, Ecosystem, Settings).
-5. **Lexical Sorting**: Insert new facts in strict alphabetical or lexical order within their respective sections to minimize diff noise and ensure deterministic versioning.
-6. **Reversibility Focus**: Offload history, diffs, and rollback mechanics entirely to the Version Control System (Git). Do not clutter the fact file with historical change logs, sequence IDs, or obsolete states.
+1. **Verify State**:
+    Read existing fact files entirely before proposing updates; never infer missing state.
+2. **Contradiction Transparency**:
+    Surface conflicts immediately; reject silent overwrites when a proposed fact contradicts an existing `A ≠ ¬A` state.
+    Replace, do not append.
+3. **Verifiable Facts Only**:
+    Record objective facts grounded in repository configuration, code, and explicit documentation. Zero subjective prose.
+4. **Structured Format**:
+    Enforce rigid hierarchical structures (e.g., Mermaid `mindmap` or perfectly nested Markdown lists). Group by logical
+    domains like `Architecture`, `Context`, `Ecosystem`.
+5. **Lexical Sorting**:
+    Insert new facts in strict alphabetical order within their domain/level to guarantee deterministic versioning and
+    minimize diff noise.
+6. **Reversibility Focus**:
+    Offload history, diffs, and rollback logic entirely to Git. Eradicate historical changelogs, sequence IDs, and
+    obsolete states from the fact file itself.
 
 ## Diagnostics and Revisions
 
-- **Contradiction Check**: Before finalizing edits, perform a self-review of the entire file to ensure no `A ≠ ¬A` condition exists.
-- **Orphan Pruning**: Remove redundant, outdated, or orphaned facts seamlessly to maintain a high-density, strictly necessary state compression.
+- **Contradiction Sweep**: Pre-commit self-review to guarantee zero logical conflicts.
+- **Orphan Pruning**: Seamlessly drop redundant, outdated, or superseded facts (e.g., deprecated libraries) to
+  maintain high-density state compression.
 
 ## What to Avoid
 
-- **NEVER** append nodes or lists out of alphabetical order.
-- **NEVER** mix unrelated prose or narratives into the structured fact lists.
-- **NEVER** guess or hallucinate facts; if a fact cannot be traced to the repository state, do not record it.
-- **NEVER** leave unresolved contradictions in the file.
+- **NEVER** insert nodes or lists out of alphabetical order.
+- **NEVER** include conversational prose, narratives, or explanations in fact structures.
+- **NEVER** hallucinate project details. If unsupported by repo state, reject ingestion.
+- **NEVER** preserve historical states when superseded. Replace with the new fact.
 
 ## Related Skills
 
-- [mermaid](../mermaid/SKILL.md): Guide for creating and maintaining stable Mermaid.js diagrams.
-- [mermaid-beta](../mermaid-beta/SKILL.md): Guide for creating and maintaining experimental Mermaid.js beta diagrams.
+- [mermaid](../mermaid/SKILL.md)
+- [mermaid-beta](../mermaid-beta/SKILL.md)
