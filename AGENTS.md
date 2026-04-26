@@ -18,42 +18,26 @@ Read and merge these when operating inside corresponding sub-directories (order 
 - Project overview & install: [README.md](README.md)
 - Workflow navigation: [.tours/getting-started.tour](.tours/getting-started.tour)
 
+## Project Structure and Workflows
+
+### Directory Layout
+
+- `/`: Skill directories (each contains a `SKILL.md`)
+- `.github/workflows/`: GitHub Actions for CI/CD and automation
+- `.tours/`: Guided walkthroughs for repository onboarding
+
+### Key Workflows
+
+- `check.yml`: Runs pre-commit checks and validation
+- `opencode-agent.yml`: Orchestrates autonomous agent operations
+- `cogni-ai-agent.yml`: Primary agent interaction workflow
+- `devcontainer-ci.yml`: Validates development container configuration
+
 ## Skills
 
-**CRITICAL Path Resolution**: For GitHub runtime within runner when triggered by `cogni-ai-agent-action`, these
-instructions may be loaded from a temporary directory (e.g., `${{ runner.temp }}/.skills/`). When reading a skill
-file below, you MUST resolve its relative path against the directory where this `AGENTS.md` file is located
-(check the "Instructions from: `<path>`" header in your system prompt), NOT your current working directory.
-
 You must load the skills relevant to the user prompt, inferred intent,
-and planned work into the current context:
-
-- **[ansible](ansible/SKILL.md)**: How to run and manage Ansible operations safely and prevent hangs
-- **[context-aware-ops](context-aware-ops/SKILL.md)**: Intelligent resource management with size checking and filtering
-- **[fact-writer](fact-writer/SKILL.md)**: Guidance for writing, structuring, and maintaining verifiable project
-  fact files without contradictions
-- **[gh](gh/SKILL.md)**: GitHub CLI (`gh`) operations for issues, PRs, workflows, and API
-- **[git](git/SKILL.md)**: Guide for using git with non-interactive, safe operations
-- **[git-expert](git-expert/SKILL.md)**: Advanced Git operations including interactive rebasing, reflog recovery,
-  bisecting, complex conflict resolution, and history manipulation
-- **[github](github/SKILL.md)**: GitHub specific features and collaborative practices
-- **[github-actions](github-actions/SKILL.md)**: Diagnosing and debugging failing GitHub Actions workflows
-- **[github-script](github-script/SKILL.md)**: Advanced use cases and examples for using actions/github-script
-- **[mermaid](mermaid/SKILL.md)**: Guide for creating and maintaining stable Mermaid.js diagrams
-- **[mermaid-beta](mermaid-beta/SKILL.md)**: Guide for creating and maintaining experimental Mermaid.js beta diagrams
-- **[minizinc](minizinc/SKILL.md)**: Expert MiniZinc modeling for constraint satisfaction and combinatorial problems
-- **[molecule](molecule/SKILL.md)**: Molecule testing workflows for Ansible roles
-- **[pdf](pdf/SKILL.md)**: PDF file inspection, object-level editing, and lossless size reduction
-- **[pre-commit](pre-commit/SKILL.md)**: Using pre-commit to validate code formatting, linting, and security checks
-- **[robust-commands](robust-commands/SKILL.md)**: Resilient command execution with automatic fallbacks and error recovery
-- **[shell](shell/SKILL.md)**: Efficient shell command execution with timing, timeouts, and best practices
-- **[skill-writer](skill-writer/SKILL.md)**: Generate or update SKILL.md files for GitHub Copilot coding agents
-- **[vim-ex](vim-ex/SKILL.md)**: Non-interactive file editing with Vim Ex mode (in favor of sed, shell or Python editing)
-
-### Structural Invariant
-
-- **Skills Location**: Skills are located directly in the root directory of this repository.
-- **Do Not Add To Subdirectories**: Do not create or add new skills inside `.github/skills/` or other subdirectories.
+and planned work into the current context. See [AGENTS-RUNTIME.md](AGENTS-RUNTIME.md)
+for the full skills catalog, loading instructions, and structural invariants.
 
 ### Final Assurance Gates
 
@@ -63,26 +47,55 @@ and planned work into the current context:
 
 ## Common Tasks
 
-### Linting and Validation
+### Before each commit
 
-```bash
-# Run all pre-commit checks
-pre-commit run -a
+- Verify your expected changes with `git diff --no-color`.
+- Ensure no temporary, dummy, or unrelated test files are included in the commit.
+- Use the project linting/validation tools to confirm your changes meet the coding standard.
+- If the repo uses git hooks, run them to validate your changes.
 
-# Run specific checks
-pre-commit run markdownlint -a
-pre-commit run yamllint -a
-```
+### File operations
 
-### Testing
+### Editing files
 
-```bash
-# Run Molecule tests
-molecule test
+- When modifying or creating documentation and plain text files, always enforce line-wrapping and length
+  limits in accordance with project-defined standards (such as `.markdownlint.yaml` or `.editorconfig`).
 
-# Syntax check
-molecule syntax
-```
+### Renaming/removing files
+
+- Use `git mv`, `git rm`, or equivalent Git-aware tooling (instead of `mv` or `rm`) to preserve history
+  when working with files under source control.
+
+## Feature-specific Notes
+
+### opencode
+
+OpenCode (if installed) uses XDG base directories (not a single `~/.opencode` dir):
+
+| Directory                 | Purpose                                                |
+| ------------------------- | ------------------------------------------------------ |
+| `~/.local/share/opencode` | Data **and** auth credentials (`auth.json` lives here) |
+| `~/.config/opencode`      | User configuration (`opencode.json`/`opencode.jsonc`)  |
+| `~/.cache/opencode`       | Ephemeral binary cache - not worth persisting          |
+| `~/.local/state/opencode` | Runtime state - not worth persisting                   |
+
+## Tooling
+
+- Use MCP when possible.
+- Use `pre-commit` for linting and validation if installed.
+- For dumping links use `links -dump` if installed.
+
+### Understanding the Task
+
+- When the task is not clear, look for additional context.
+- If triggered by a brief comment, check whether the parent comment exists and includes more detail.
+- If it's still ambiguous, communicate with the user and propose options.
+
+### Adding or Modifying Workflows
+
+- Workflows in `.github/workflows/` can be reused via `workflow_call`
+- Test workflow changes on a feature branch before merging to main
+- Use `actionlint` to validate workflow syntax locally
 
 ### Updating Coding Standards
 
@@ -96,15 +109,6 @@ molecule syntax
 
 ## Troubleshooting
 
-### GitHub Build issues
-
-- Use `gh` command to interact with GitHub resources. For example:
-
-  - `gh run list --limit 3` to list recent builds.
-  - Use `gh run view {ID} --log` for full inspection when metadata is
-    insufficient.
-  - Avoid complex pipelines in restricted shells.
-
 ### Firewall issues
 
 If you encounter firewall issues when using the GitHub Copilot Agent:
@@ -115,10 +119,6 @@ If you encounter firewall issues when using the GitHub Copilot Agent:
 - If you need to allowlist additional hosts, update your firewall configuration accordingly
   by following `.github/FIREWALL.md` and keep that file up to date.
 
-### Linting issues
+### GitHub Runtime issues
 
-If Copilot or automated checks behave unexpectedly:
-
-- Re-run `pre-commit run -a` locally to surface formatting or linting issues.
-- Verify `.markdownlint.yaml` and `.yamllint` have not been modified incorrectly.
-- If problems persist, open an issue with details of the command run and any error output.
+- If you encounter issues while running in GitHub Actions, refer to the loading instructions in [AGENTS-RUNTIME.md](AGENTS-RUNTIME.md).
