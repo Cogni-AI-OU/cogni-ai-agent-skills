@@ -1,7 +1,7 @@
 <!-- markdownlint-disable MD003 MD022 MD026 MD041 MD013 -->
 ---
 name: minizinc
-description: When the user requests creation, refinement, debugging, or optimization of MiniZinc models for constraint satisfaction, scheduling, assignment, or any combinatorial problem, immediately apply expert advanced modeling.
+description: Expert MiniZinc modeling for constraint satisfaction and combinatorial problems.
 ---
 
 # MiniZinc Modeling
@@ -22,9 +22,9 @@ description: When the user requests creation, refinement, debugging, or optimiza
    % parameters + tight instance data (prefer .dzn)
    % decision variables with tightest feasible domains
    % constraints (globals first, then custom predicates)
-   solve :: [search-annotation] satisfy;
-   % solve :: [search-annotation] minimize objective;
-   % solve :: [search-annotation] maximize objective;
+   solve satisfy;
+   % solve :: int_search(vars, first_fail, indomain_min) satisfy;
+   % solve minimize objective;
    output [ ... ];
    ```
 
@@ -54,7 +54,7 @@ description: When the user requests creation, refinement, debugging, or optimiza
    - **Grid Patterns**: Model 2D structures using `array[1..N, 1..N]` and
      comprehensions like `[grid[r, c] | r in i*S+1..i*S+S, c in j*S+1..j*S+S]`
      for sub-blocks. Use `row(grid, i)` and `col(grid, j)` for matrix slice
-     iteration in globals. Use `show_2d(grid)` or `format` for readable
+     iteration in globals. Use `show2d(grid)` or `format` for readable
      matrices.
    - **Channeling**: Model same problem in two views + link with `inverse`, `element`, or `lex` constraints.
    - **Let + Local Constraints**: Hide auxiliary vars inside large expressions.
