@@ -31,8 +31,10 @@ description: When the user requests creation, refinement, debugging, or optimiza
 
 3. **Global Constraints First** – Prefer `all_different`, `global_cardinality`,
    `cumulative`, `disjunctive`, `circuit`, `regular`, `table`, `lex_lesseq`
-   over raw loops. Add `redundant_constraint(...)` and
-   `symmetry_breaking_constraint(...)` liberally for free propagation.
+   over raw loops. For grids/matrices, use `all_different` on row/column slices:
+   `forall(i in 1..n)(all_different(row(grid, i)))`.
+   Add `redundant_constraint(...)` and `symmetry_breaking_constraint(...)`
+   liberally for free propagation.
 
 4. **Symmetry Breaking** – Always apply lexicographic ordering on identical
    objects (`lex_lesseq` or `lex_less` on arrays of symmetric vars).
@@ -45,6 +47,9 @@ description: When the user requests creation, refinement, debugging, or optimiza
    constraints). Keep bodies <30 LOC.
 
 7. **Advanced Techniques (use in order of impact)**
+   - **Grid Patterns**: Model 2D structures using `array[1..N, 1..N]` and
+     comprehensions like `[grid[r, c] | r in i*S+1..i*S+S, c in j*S+1..j*S+S]`
+     for sub-blocks. Use `show_2d(grid)` or `format` for readable matrices.
    - **Channeling**: Model same problem in two views + link with `inverse`, `element`, or `lex` constraints.
    - **Let + Local Constraints**: Hide auxiliary vars inside large expressions.
    - **Optionals & Absents**: Use `opt int` + `occurs` / `absent` for optional assignments.
