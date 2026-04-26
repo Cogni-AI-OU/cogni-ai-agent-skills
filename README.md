@@ -127,6 +127,7 @@ This repository provides AI agent configurations for automated development.
 | File/Directory | Audience | Purpose |
 | -------------- | -------- | ------- |
 | [AGENTS.md](AGENTS.md) | All agents | Repository-specific guidance and workflows |
+| [AGENTS-RUNTIME.md](AGENTS-RUNTIME.md) | GitHub Runtime agents | Skill loading instructions and catalog |
 | [.github/copilot-instructions.md](.github/copilot-instructions.md) | Copilot | Coding standards and project context |
 
 See also:
@@ -150,8 +151,9 @@ For more information, see
 
 #### Skills catalog
 
-The full, machine-readable list of skills lives in [AGENTS.md](AGENTS.md). Use it when you need the
-authoritative catalog for agent loading. This README stays human-focused.
+The full, machine-readable list of skills lives in [AGENTS-RUNTIME.md](AGENTS-RUNTIME.md). Use it when you need the
+authoritative catalog for agent loading. [AGENTS.md](AGENTS.md) provides repository-specific guidance.
+This README stays human-focused.
 
 #### Creating skills
 
