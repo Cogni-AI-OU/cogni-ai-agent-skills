@@ -116,9 +116,9 @@ classDiagram
         +calculateTotal() float
     }
     class Payment {
-        <<interface>>
         +processPayment() bool
     }
+    <<interface>> Payment
 
     Customer "1" --> "*" Order : places
     Order "*" *-- "1..*" OrderItem : contains
@@ -247,10 +247,10 @@ flowchart LR
         DB[("Database (SQL)")]
     end
 
-    UI -- "REST Request" --> API
+    UI --|REST Request|--> API
     API --> Auth
-    Auth -- "Yes" --> App
-    Auth -.->|"No, 401 Unauthorized"| UI
+    Auth --|Yes|--> App
+    Auth -.->|No, 401 Unauthorized| UI
     App ==> DB
 
     classDef success fill:#d4edda,stroke:#28a745,stroke-width:2px;
@@ -523,13 +523,15 @@ Example with Actors, Grouping, Logic, and Activations:
 sequenceDiagram
     autonumber
     actor U as User
-    box "Internal System" LightBlue
+    box "Internal System" #LightBlue
         participant A as API Gateway
         participant S as Database
     end
 
-    U->>+A: Request
-    A->>+S: Query
+    U->>A: Request
+    activate A
+    A->>S: Query
+    activate S
     Note right of S: Processing...
 
     alt is found
@@ -539,7 +541,8 @@ sequenceDiagram
     end
 
     deactivate S
-    A-->>-U: Response
+    A-->>U: Response
+    deactivate A
 ```
 
 Example with Special Participant Types:
