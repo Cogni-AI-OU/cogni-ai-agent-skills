@@ -106,4 +106,3 @@ repos:
         additional_dependencies:
           - '@probelabs/maid@0.0.29'
         files: \.(md|mmd)$
-        exclude: (mermaid/SKILL\.md|mermaid-beta/SKILL\.md)
