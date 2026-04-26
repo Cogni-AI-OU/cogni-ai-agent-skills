@@ -685,7 +685,7 @@ Docs: <https://mermaid.js.org/syntax/userJourney.html>
   (e.g., `subgraph ID ["Title (Details)"]` or `A["Node (Details)"]`). Avoid parentheses entirely
   in edge labels (prefer `-->|Condition, details|` over `-->|Condition (details)|`).
 - **Double Double-Quotes**: Do not use `[""...""]`. Mermaid expects exactly one pair of double quotes `["..."]`.
-- **Non-ASCII Characters**: Avoid typographic characters like `->` (decimal 8594) or `-` in labels;
+- **Non-ASCII Characters**: Avoid typographic characters like `→` (right arrow) or `–` (en dash) in labels;
   use standard ASCII `->` or `-` to prevent `require-ascii` pre-commit failures.
 
 ## Troubleshooting
@@ -701,9 +701,9 @@ mindmap
       Double double-quotes (""..."")
         ::icon(fa fa-xmark)
         Fix: Remove inner quotes
-      Non-ASCII arrows
+      Non-ASCII characters (e.g., →, –)
         ::icon(fa fa-arrow-right)
-        Fix: Use standard ASCII (->)
+        Fix: Use standard ASCII (-> or -)
       Unquoted strings & parens
         ::icon(fa fa-quote-right)
         Fix: Use exactly one pair of double quotes
