@@ -377,27 +377,27 @@ mindmap
   root((Project Name))
     Architecture
       Components
-        ComponentA::Role
-        ComponentB::Role
+        "ComponentA::Role"
+        "ComponentB::Role"
       Protocols
         ProtocolA
           Rule_1
           Rule_2
     Context
-      Agents_Path::Location
-      Deployment::Target_Environment
-      Documentation::Location
-      License::Type
+      "Agents_Path::Location"
+      "Deployment::Target_Environment"
+      "Documentation::Location"
+      "License::Type"
       Metrics
-        MetricA::Value
-      Organization::Name
-      Purpose::Description
+        "MetricA::Value"
+      "Organization::Name"
+      "Purpose::Description"
     Ecosystem
       Dependencies
         LibA
         LibB
       Languages
-        PrimaryLanguage::Version
+        "PrimaryLanguage::Version"
       Tools
         Automation
           ToolA
@@ -484,14 +484,14 @@ requirementDiagram
 
     requirement user_login {
     id: 1
-    text: Users must be able to log in securely.
+    text: "Users must be able to log in securely."
     risk: high
     verifymethod: test
     }
 
     requirement password_complexity {
     id: 2
-    text: Passwords must be at least 8 characters.
+    text: "Passwords must be at least 8 characters."
     risk: medium
     verifymethod: inspection
     }
@@ -523,7 +523,7 @@ Example with Actors, Grouping, Logic, and Activations:
 sequenceDiagram
     autonumber
     actor U as User
-    box LightBlue Internal System
+    box "Internal System" LightBlue
         participant A as API Gateway
         participant S as Database
     end
@@ -694,39 +694,39 @@ mindmap
   root((Troubleshooting))
     %% Keep items in alphabetical order within branches
     Parsing Issues
-      "end" keyword conflict
+      "'end' keyword conflict"
         ::icon(fa fa-exclamation-triangle)
-        Fix: Quote "End" or rename ID
+        "Fix: Quote keywords or rename ID"
       "Double double-quotes"
         ::icon(fa fa-xmark)
         "Fix: Avoid using nested double-quotes"
       "Non-ASCII characters (e.g., →, –)"
         ::icon(fa fa-arrow-right)
-        Fix: Use standard ASCII (-> or -)
+        "Fix: Use standard ASCII (-> or -)"
       "Unquoted strings & parens"
         ::icon(fa fa-quote-right)
-        Fix: Use exactly one pair of double quotes
+        "Fix: Use exactly one pair of double quotes"
     Rendering Issues
       Missing Icons
         ::icon(fa fa-font-awesome)
-        Fix: Register icon pack
+        "Fix: Register icon pack"
       Performance lag
         ::icon(fa fa-clock)
-        Fix: Use ELK renderer
+        "Fix: Use ELK renderer"
       Subgraph direction
         ::icon(fa fa-compress-arrows-alt)
-        Fix: Remove external links
+        "Fix: Remove external links"
     Version Issues
       Rendering mismatch
         ::icon(fa fa-sync)
-        Fix: Use v11+ syntax consistently
+        "Fix: Use v11+ syntax consistently"
     Common Pitfalls
       Avoid accidental edges
         ::icon(fa fa-project-diagram)
-        Fix: Space before "o"/"x" in IDs
+        "Fix: Space before 'o'/'x' in IDs"
       stroke-dasharray commas
         ::icon(fa fa-minus)
-        Fix: Escape as "\,"
+        "Fix: Escape as '\,'"
 ```
 
 ## Maintenance
