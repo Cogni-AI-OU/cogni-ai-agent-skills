@@ -2,14 +2,7 @@
 
 Persistent single-source truth for autonomous agent behavior.
 
-For general project invariants see [README.md](README.md) and [AGENTS.md](AGENTS.md).
-
 ## Skills
-
-**CRITICAL Path Resolution**: For GitHub runtime within runner when triggered by `cogni-ai-agent-action`, these
-instructions may be loaded from a temporary directory (e.g., `${{ runner.temp }}/.skills/`). When reading a skill
-file below, you MUST resolve its relative path against the directory where this `AGENTS-RUNTIME.md` file is located
-(check the "Instructions from: `<path>`" header in your system prompt), NOT your current working directory.
 
 You must load the skills relevant to the user prompt, inferred intent,
 and planned work into the current context:
@@ -36,13 +29,11 @@ and planned work into the current context:
 - **[skill-writer](skill-writer/SKILL.md)**: Generate or update SKILL.md files for GitHub Copilot coding agents
 - **[vim-ex](vim-ex/SKILL.md)**: Non-interactive file editing with Vim Ex mode (in favor of sed, shell or Python editing)
 
+Note: **Path Resolution**: For GitHub runtime within runner when triggered by `cogni-ai-agent-action`, these
+instructions may be loaded from a temporary directory (e.g., `${{ runner.temp }}/.skills/`). When reading a skill
+file below, you MUST resolve its relative path against the directory where this `AGENTS-RUNTIME.md` file is located
+(check the "Instructions from: `<path>`" header in your system prompt), NOT your current working directory.
+
 ### Structural Invariant
 
 - **Skills Location**: Skills are located directly in the root directory of this repository.
-- **Do Not Add To Subdirectories**: Do not create or add new skills inside `.github/skills/` or other subdirectories.
-
-### Final Assurance Gates
-
-- Keep this file entropy-pruned and up-to-date.
-- Inject full content into every sub-agent context.
-- For latest standard see: <https://agents.md/>
