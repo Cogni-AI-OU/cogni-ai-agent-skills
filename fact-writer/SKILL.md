@@ -37,27 +37,6 @@ Guidance for structuring and maintaining verifiable project fact files. Use this
     Offload history, diffs, and rollback logic entirely to Git. Eradicate historical changelogs, sequence IDs, and
     obsolete states from the fact file itself.
 
-## Examples
-
-### Contradiction Replacement
-
-**Scenario**: Project migrates from Python 3.9 to 3.11.
-
-**Incorrect (Appending)**:
-
-```markdown
-- Language: Python 3.9
-- Language: Python 3.11
-```
-
-**Correct (Replacement)**:
-
-```markdown
-- Language: Python 3.11
-```
-
-The 3.9 entry is removed entirely; the 3.11 entry is inserted at the same lexical position.
-
 ## Diagnostics and Revisions
 
 - **Contradiction Sweep**: Pre-commit self-review to guarantee zero logical conflicts.
