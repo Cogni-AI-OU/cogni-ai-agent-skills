@@ -2,13 +2,14 @@
 ---
 name: gh
 description: >-
-  Use when operating the GitHub CLI (`gh`) for issues, pull requests,
-  workflow runs, or API queries, especially in restricted CI shells where
-  pipelines and log endpoints can mislead or fail.
+  Use when planning or executing GitHub CLI (`gh`) commands for issues, pull
+  requests, workflow runs, reviews, or API queries, especially in restricted
+  shells where structured output and fallback choice matter.
 ---
 # gh Skill
 
-Use `gh` as a structured client first, not as text to be post-processed by brittle shell pipelines.
+Use `gh` as a structured client first. Prefer native fields, explicit routing,
+and bounded fallbacks over brittle shell post-processing.
 
 ## When to Activate
 
@@ -19,45 +20,67 @@ Use `gh` as a structured client first, not as text to be post-processed by britt
 ## Core Process
 
 1. Verify availability and auth first: `gh --version`, then `gh auth status`.
-2. Prefer `gh` native structure over shell filtering:
+2. Choose the narrowest native `gh` surface before reaching for `gh api`:
+   - `gh issue view/comment` for issues
+   - `gh pr view/comment/review` for pull requests and reviews
+   - `gh run list/view` for workflow runs
+   - `gh api` only when native subcommands do not expose the needed field
+3. Prefer structured output over shell filtering:
    - use `--json`, `--jq`, or `--template` instead of `grep`/`rg`
    - use `gh api` for metadata, not ad hoc HTML scraping
-3. Query the smallest object that answers the question:
-   - issue/PR metadata before comments
+4. Query the smallest object that answers the question:
+   - issue or PR metadata before comments
    - run metadata before logs
    - job metadata before job logs
-4. After each command, verify progress explicitly:
-   - non-empty stdout
-   - expected field present
+5. After each command, verify progress explicitly:
+   - non-empty stdout or expected JSON field
    - no warning that changes command semantics
-5. If the same normalized command shape fails twice with the same error or empty result, pivot strategy instead of retrying.
+   - result actually answers the current question
+6. If the same normalized command shape fails twice with the same warning,
+   error, or empty result, pivot strategy instead of retrying.
+
+## Structured Query Patterns
+
+- Prefer native JSON first:
+  - `gh issue view <number> --json number,title,state,author,url`
+  - `gh pr view <number> --json number,title,state,reviewDecision,url`
+  - `gh run list --limit 20 --json databaseId,workflowName,status,conclusion,url`
+- Use `gh api` for objects that native subcommands do not expose cleanly:
+  - `gh api repos/<owner>/<repo>/actions/jobs/<job_id>`
+  - `gh api repos/<owner>/<repo>/issues/<number>/comments`
+- Use `--jq` or `--template` before external filters.
 
 ## Preferred Patterns
 
 - Comment directly without touching workspace files:
   `gh issue comment <number> --body "..."`
+- Reply through the originating GitHub surface:
+  - issue thread -> `gh issue comment`
+  - PR thread -> `gh pr comment` or `gh pr review`
+  - inline review thread -> `gh api .../replies`
 - For long comments, use a HEREDOC body:
   `gh issue comment <number> --body "$(cat <<'EOF'
   ...
   EOF
   )"`
-- Use JSON-capable commands first:
-  `gh run list --limit 20 --json databaseId,workflowName,status,conclusion,url`
-- Use `gh api repos/<owner>/<repo>/actions/jobs/<job_id>` for job metadata.
+- For non-code-change tasks, verify workspace cleanliness after posting.
 
 ## Workflow Run Diagnostics
 
-- `gh run view <run_id> --log-failed` is only reliable when the relevant job or run concluded with failure.
+- `gh run view <run_id> --log-failed` is only reliable when the relevant job
+  or run concluded with failure.
 - Jobs can conclude `success` while still containing pathological agent
   behavior; inspect run/job metadata before assuming failed-only logs are
   sufficient.
-- Do not pass both run ID and job ID to `gh run view`; the CLI warns and ignores the run ID.
+- Do not pass both run ID and job ID to `gh run view`; the CLI warns and
+  ignores the run ID.
 - Treat `gh run view ... --log` as environment-sensitive. If it returns
   empty output, do not loop on it; switch to metadata, artifacts, or another
   supported log source.
 - Treat `gh api .../logs` as a special case. The endpoint may redirect to a
   signed blob URL that does not behave like normal JSON API calls and can
   return `403` when replayed incorrectly.
+- Probe one run or one job first before launching parallel diagnostics.
 
 ## Restricted Shell Rules
 
@@ -81,12 +104,15 @@ Use `gh` as a structured client first, not as text to be post-processed by britt
 
 ## What to Avoid
 
-- Do not build `gh ... | grep ... | grep ...` chains as the default diagnostic path.
+- Do not build `gh ... | grep ... | grep ...` chains as the default diagnostic
+  path.
 - Do not retry the same `gh` command shape after semantic warnings.
 - Do not assume Actions log retrieval is uniform across public pages, API
   endpoints, and CLI subcommands.
-- Do not create temp files for comments or analysis when direct `gh` subcommands are available.
+- Do not create temp files for comments or analysis when direct `gh`
+  subcommands are available.
 
 ## Maintenance
 
-Update this skill when new `gh` failure signatures or reliable structured-query patterns are discovered.
+Update this skill when new `gh` failure signatures, routing patterns, or
+reliable structured-query workflows are discovered.
