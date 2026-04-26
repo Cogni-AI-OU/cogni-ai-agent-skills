@@ -1,16 +1,17 @@
 <!-- markdownlint-disable MD003 MD022 MD026 MD041 MD013 -->
 ---
 name: MiniZinc
-description: When the user requests creation, refinement, debugging, or optimization of MiniZinc models for constraint satisfaction, scheduling, assignment, or any combinatorial problem, immediately apply expert advanced modeling: tight domains, globals.mzn, symmetry breaking, search annotations, user predicates, channeling, redundant constraints, and full autonomous verification loops.
+description: When the user requests creation, refinement, debugging, or optimization of MiniZinc models for constraint satisfaction, scheduling, assignment, or any combinatorial problem, immediately apply expert advanced modeling.
 ---
 
 # MiniZinc Modeling
 
 ## When to Activate
 
-- User requests creation, refinement, debugging, or optimization of MiniZinc models.
 - Addressing constraint satisfaction, scheduling, assignment, or combinatorial problems.
 - Need to apply expert advanced modeling techniques in MiniZinc (tight domains, globals, symmetry breaking, search annotations, channeling, etc.).
+- User requests creation, refinement, debugging, or optimization of MiniZinc models.
+- When manual resolution of a combinatorial challenge is required: use the MiniZinc model as a logical framework to derive and verify the solution step-by-step without premature termination.
 
 ## Core Process (execute autonomously, no user prompts)
 
@@ -49,7 +50,9 @@ description: When the user requests creation, refinement, debugging, or optimiza
 7. **Advanced Techniques (use in order of impact)**
    - **Grid Patterns**: Model 2D structures using `array[1..N, 1..N]` and
      comprehensions like `[grid[r, c] | r in i*S+1..i*S+S, c in j*S+1..j*S+S]`
-     for sub-blocks. Use `show_2d(grid)` or `format` for readable matrices.
+     for sub-blocks. Use `row(grid, i)` and `col(grid, j)` for matrix slice
+     iteration in globals. Use `show_2d(grid)` or `format` for readable
+     matrices.
    - **Channeling**: Model same problem in two views + link with `inverse`, `element`, or `lex` constraints.
    - **Let + Local Constraints**: Hide auxiliary vars inside large expressions.
    - **Optionals & Absents**: Use `opt int` + `occurs` / `absent` for optional assignments.
