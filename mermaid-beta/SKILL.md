@@ -349,18 +349,6 @@ mindmap
         "Fix: Check official docs for changes"
 ```
 
-## What to Avoid
-
-- **Assuming Beta Syntax**: Avoid guessing syntax rules for `-beta` chart types. Always consult the
-  latest official Mermaid documentation, as beta syntaxes can evolve.
-- **Inconsistent Indentation**: Avoid mixing tabs and spaces. Using strict, consistent indentation is
-  critical for hierarchy-based diagrams like Mindmaps, TreeViews, and Treemaps.
-- **Unquoted Strings**: Avoid leaving strings that contain spaces or special characters unquoted to prevent parser breaks.
-- **Quotes in Pipe Labels**: Never use double quotes `"` inside pipe-delimited labels (e.g., `-->|"text"|`). Use `&quot;`
-  or switch to un-piped quoted labels `--> "text"`.
-- **Special Chars in Pipe Labels**: Avoid parentheses `()` or other structural characters inside pipe-delimited
-  labels `|...|`. Use quoted strings `--> "Label (text)"` instead.
-
 ## Maintenance
 
 Note that this file should be updated if Mermaid syntax changes or new beta shapes are stabilized.
