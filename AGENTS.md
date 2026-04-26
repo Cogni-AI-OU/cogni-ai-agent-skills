@@ -126,34 +126,8 @@ Read and merge these when operating inside corresponding sub-directories (order 
 ## Skills
 
 You must load the skills relevant to the user prompt, inferred intent,
-and planned work into the current context:
-
-- **[ansible](ansible/SKILL.md)**: How to run and manage Ansible operations safely and prevent hangs
-- **[context-aware-ops](context-aware-ops/SKILL.md)**: Intelligent resource management with size checking and filtering
-- **[fact-writer](fact-writer/SKILL.md)**: Guidance for writing, structuring, and maintaining verifiable project
-  fact files without contradictions
-- **[gh](gh/SKILL.md)**: GitHub CLI (`gh`) operations for issues, PRs, workflows, and API
-- **[git](git/SKILL.md)**: Guide for using git with non-interactive, safe operations
-- **[git-expert](git-expert/SKILL.md)**: Advanced Git operations including interactive rebasing, reflog recovery,
-  bisecting, complex conflict resolution, and history manipulation
-- **[github](github/SKILL.md)**: GitHub specific features and collaborative practices
-- **[github-actions](github-actions/SKILL.md)**: Diagnosing and debugging failing GitHub Actions workflows
-- **[github-script](github-script/SKILL.md)**: Advanced use cases and examples for using actions/github-script
-- **[mermaid](mermaid/SKILL.md)**: Guide for creating and maintaining stable Mermaid.js diagrams
-- **[mermaid-beta](mermaid-beta/SKILL.md)**: Guide for creating and maintaining experimental Mermaid.js beta diagrams
-- **[minizinc](minizinc/SKILL.md)**: Expert MiniZinc modeling for constraint satisfaction and combinatorial problems
-- **[molecule](molecule/SKILL.md)**: Molecule testing workflows for Ansible roles
-- **[pdf](pdf/SKILL.md)**: PDF file inspection, object-level editing, and lossless size reduction
-- **[pre-commit](pre-commit/SKILL.md)**: Using pre-commit to validate code formatting, linting, and security checks
-- **[robust-commands](robust-commands/SKILL.md)**: Resilient command execution with automatic fallbacks and error recovery
-- **[shell](shell/SKILL.md)**: Efficient shell command execution with timing, timeouts, and best practices
-- **[skill-writer](skill-writer/SKILL.md)**: Generate or update SKILL.md files for GitHub Copilot coding agents
-- **[vim-ex](vim-ex/SKILL.md)**: Non-interactive file editing with Vim Ex mode (in favor of sed, shell or Python editing)
-
-### Structural Invariant
-
-- **Skills Location**: Skills are located directly in the root directory of this repository.
-- **Do Not Add To Subdirectories**: Do not create or add new skills inside `.github/skills/` or other subdirectories.
+and planned work into the current context. See [AGENTS-RUNTIME.md](AGENTS-RUNTIME.md)
+for the full skills catalog, loading instructions, and structural invariants.
 
 ### Final Assurance Gates
 
@@ -170,33 +144,12 @@ and planned work into the current context:
 - Use the project linting/validation tools to confirm your changes meet the coding standard.
 - If the repo uses git hooks, run them to validate your changes.
 
-### Linting and Validation
-
-```bash
-# Run all pre-commit checks
-pre-commit run -a
-
-# Run specific checks
-pre-commit run markdownlint -a
-pre-commit run yamllint -a
-```
-
 ### File operations
 
 ### Editing files
 
 - When modifying or creating documentation and plain text files, always enforce line-wrapping and length
   limits in accordance with project-defined standards (such as `.markdownlint.yaml` or `.editorconfig`).
-
-### Editing files with ex
-
-- While files should normally be edited directly via MCP tools, `ex` (Vim in Ex mode) provides powerful
-  non-interactive text manipulation directly from the terminal shell.
-- Use `ex` when it is more beneficial to manipulate text programmatically, such as rapidly wrapping long lines,
-  performing complex regex parsing, or safely editing a few lines in-place within an automated script context.
-  It is especially useful for large files where patching the whole file via MCP could take a lot of context
-  processing for simple changes.
-- For detailed commands and examples, see `vim-ex/SKILL.md`.
 
 ### Renaming/removing files
 
@@ -207,7 +160,7 @@ pre-commit run yamllint -a
 
 ### opencode
 
-OpenCode (if installed), it uses XDG base directories (not a single `~/.opencode` dir):
+OpenCode (if installed) uses XDG base directories (not a single `~/.opencode` dir):
 
 | Directory                 | Purpose                                                |
 | ------------------------- | ------------------------------------------------------ |
@@ -228,16 +181,6 @@ OpenCode (if installed), it uses XDG base directories (not a single `~/.opencode
 - If triggered by a brief comment, check whether the parent comment exists and includes more detail.
 - If it's still ambiguous, communicate with the user and propose options.
 
-### Testing
-
-```bash
-# Run Molecule tests
-molecule test
-
-# Syntax check
-molecule syntax
-```
-
 ### Adding or Modifying Workflows
 
 - Workflows in `.github/workflows/` can be reused via `workflow_call`
@@ -250,72 +193,11 @@ molecule syntax
 - Update `.markdownlint.yaml`, `.yamllint`, or `.editorconfig` for linting rules
 - Run `pre-commit run -a` to verify changes pass all checks
 
-## Local Interactive Development: Integrating Changes from Target Branch
-
-> **Note:** The following policy applies ONLY to local interactive development sessions.
-> When operating autonomously inside a GitHub Actions runtime,
-> refer to the [GitHub Actions Runtime](#github-actions-runtime) section which explicitly forbids rebasing
-> and requires merge commits.
-
-Recommended way is to use the **cherry-pick workflow** to rebase your commits (local sessions only)
-on top of the updated target branch:
-
-1. Identify your feature commits (local sessions only)
-2. Fetch the latest target branch
-3. Reset your branch to target (with backup)
-4. Cherry-pick your feature commits
-5. Verify only your changes remain
-
-**For detailed step-by-step instructions with commands**, see:
-`git/SKILL.md`
-
-### Key Points
-
-- **Never** use `git merge <target-branch>` for branch integration
-- **Always** create backup tags before destructive operations
-- **Always** verify with `git diff` that only your changes remain
-- **Use** `GIT_EDITOR=true` for non-interactive cherry-pick operations
-
-### Using `report_progress` Tool
-
-**WARNING**: The `report_progress` tool automatically rebases your branch against the remote
-tracking branch. This **WILL CRASH** the session if your local history has diverged from remote.
-
-**When Crash Occurs:**
-
-After using `git reset --hard` to rewrite history, your local branch diverges from remote. When `report_progress`
-tries to auto-rebase (e.g., 113 commits), it encounters conflicts it cannot resolve, crashing the session.
-
-**Prevention (Choose One):**
-
-1. **Use new branch name** after rewriting history: `git checkout -b <feature>-v2` (safest)
-2. **Complete git operations manually**, then ask user for manual push (never call `report_progress` after `git reset --hard`)
-
-**If Already Crashed:**
-
-1. Run `git rebase --abort`
-2. Create new branch: `git checkout -b <feature>-v2`
-3. Push new branch: `git push origin <feature>-v2`
-
-**Error Patterns:** `Rebasing (1/XXX)` with large numbers, `CONFLICT (content)`, session crash with `GitError`
-
-**For complete details**, see:
-`git/SKILL.md` - "Working with Automation Tools"
-
 ## References
 
 - Main documentation: [README.md](README.md)
 
 ## Troubleshooting
-
-### GitHub Build issues
-
-- Use `gh` command to interact with GitHub resources. For example:
-
-  - `gh run list --limit 3` to list recent builds.
-  - Use `gh run view {ID} --log` for full inspection when metadata is
-    insufficient.
-  - Avoid complex pipelines in restricted shells.
 
 ### Firewall issues
 
@@ -326,14 +208,6 @@ If you encounter firewall issues when using the GitHub Copilot Agent:
 - Keep markdown-link-check validating real links, and request firewall allowlisting instead.
 - If you need to allowlist additional hosts, update your firewall configuration accordingly
   by following `.github/FIREWALL.md` and keep that file up to date.
-
-### Linting issues
-
-If Copilot or automated checks behave unexpectedly:
-
-- Re-run `pre-commit run -a` locally to surface formatting or linting issues.
-- Verify `.markdownlint.yaml` and `.yamllint` have not been modified incorrectly.
-- If problems persist, open an issue with details of the command run and any error output.
 
 ### GitHub Runtime issues
 

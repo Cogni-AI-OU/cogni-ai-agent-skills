@@ -2,7 +2,7 @@
 
 Persistent single-source truth for autonomous agent behavior.
 
-For general project invariants see [README.md](README.md).
+For general project invariants see [README.md](README.md) and [AGENTS.md](AGENTS.md).
 
 ## Skills
 
