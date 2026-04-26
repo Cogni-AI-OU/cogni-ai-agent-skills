@@ -224,13 +224,12 @@ flowchart TD
     A@{ icon: "fa:user", form: "circle", label: "User", pos: "t", h: 60 }
 ```
 
-**Markdown Labels & Animations**:
+**Markdown Labels**:
 
 ```mermaid
 flowchart TD
-    A["`This **is** _Markdown_`"]
-    e1@--> B
-    e1@{ animate: true }
+    A["`This **is** _Markdown_`"] --> B["`More **Markdown**`"]
+    A -.->|"`**Optional** step`"| C
 ```
 
 **Styling**:
@@ -656,7 +655,7 @@ Docs: <https://mermaid.js.org/syntax/userJourney.html>
 - **Themes**: `default`, `dark`, `forest`, `neutral`, `base`.
 - **Frontmatter YAML** for renderer, curve style, etc.
 - **ELK Renderer** (for very large/complex flowcharts): set `defaultRenderer: "elk"`.
-- **Edge Animations & classDef** (see Flowchart example above).
+- **Markdown Labels & classDef** (see Flowchart example above).
 
 ## Best Practices (Agent Directives)
 
@@ -698,9 +697,9 @@ mindmap
       "end" keyword conflict
         ::icon(fa fa-exclamation-triangle)
         Fix: Quote "End" or rename ID
-      "Double double-quotes (""..."")"
+      "Double double-quotes"
         ::icon(fa fa-xmark)
-        Fix: Remove inner quotes
+        "Fix: Avoid using nested double-quotes"
       "Non-ASCII characters (e.g., →, –)"
         ::icon(fa fa-arrow-right)
         Fix: Use standard ASCII (-> or -)
