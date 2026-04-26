@@ -224,3 +224,4 @@ actionlint
 *.org
 *.orig
 *.swp
+test*.md
