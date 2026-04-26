@@ -69,6 +69,9 @@ and bounded fallbacks over brittle shell post-processing.
 
 - `gh run view <run_id> --log-failed` is only reliable when the relevant job
   or run concluded with failure.
+- `gh run view <run_id> --log | rg -iw "failed|error|exit"` can be used to find
+  errors in runs that might have partially succeeded or where `--log-failed` is
+  insufficient.
 - Jobs can conclude `success` while still containing pathological agent
   behavior; inspect run/job metadata before assuming failed-only logs are
   sufficient.
@@ -81,6 +84,63 @@ and bounded fallbacks over brittle shell post-processing.
   signed blob URL that does not behave like normal JSON API calls and can
   return `403` when replayed incorrectly.
 - Probe one run or one job first before launching parallel diagnostics.
+
+## GitHub Actions Runtime
+
+When executing autonomously within a GitHub Actions environment, adhere strictly to these interaction constraints:
+
+### OpenCode PR Context & Response Routing
+
+**Context & Targeting Invariants**:
+
+- **Extract Context**: Parse the `## Pull Request Context` block containing `**Base Branch:**` dynamically.
+- **Dynamic PR Targeting**: ALWAYS target this explicitly provided **Base Branch** when creating/updating PRs.
+
+**Response Detection & Routing**: Check `github.event_name` and payload to identify trigger source:
+
+- **General PR comment** (`issue_comment`):
+  - Condition: `if: ${{ github.event.issue.pull_request }}`
+  - Reply Method: `gh pr comment`
+- **Issue comment** (`issue_comment`):
+  - Condition: `if: ${{ !github.event.issue.pull_request }}`
+  - Reply Method: `gh issue comment`
+- **Inline code review** (`pull_request_review_comment`):
+  - Reply Method: `gh api repos/{owner}/{repo}/pulls/{pr}/comments/{comment_id}/replies -f body="..."`
+
+**Routing Invariants**:
+
+- **Symmetric Routing**: ALWAYS reply via the exact originating channel. NEVER cross threads.
+- Parse `github.event.comment.id` and `in_reply_to_id` to maintain thread continuity.
+
+### Branch Sync Policy (No Rebase During Runtime)
+
+When the prompt asks to "pull" or "sync with base" in GitHub Actions runtime, the agent MUST integrate remote changes with a merge commit workflow.
+
+- **MUST NOT** run any rebase-based update command during runtime.
+- **FORBIDDEN**: `gh pr update-branch --rebase`, `git pull --rebase`, `git rebase`, or any history rewrite that changes commit SHAs.
+- **MUST** use pull-with-merge semantics: `git pull --no-rebase`.
+- **MUST** preserve remote branch compatibility for post-run auto PR/push logic.
+
+**Execution Steps (strict order)**:
+
+1. Determine PR base/head from context (`## Pull Request Context`, `gh pr view`).
+2. Ensure work is on the PR head branch (not detached HEAD).
+3. Sync head branch from remote with merge semantics: `git pull --no-rebase origin <head-branch>`.
+4. If base changes must be integrated into head, merge base explicitly: `git fetch origin <base-branch> && git merge --no-ff origin/<base-branch>`.
+5. Resolve conflicts, commit merge if required, then push normally (no force).
+
+**Verification Gate (required before push)**:
+
+- Confirm no rebase command was executed in this run.
+- Confirm `git log --oneline --graph -n 10` shows merge topology (no rewritten linearized history from rebase).
+- Proceed with normal `git push` only after these checks pass.
+
+### GitHub Runtime Decision Policy
+
+- **Default to Best Practice:** Implement the most recommended path autonomously when multiple options exist.
+- **Document Trade-offs:** Capture unresolved decisions, explicit options, and impacts in the PR description.
+- **Never Stall:** Proceed immediately with safe defaults. Request preference feedback in the PR instead of waiting.
+- **Report Defensively:** Present recommended option first; list alternatives only if they alter scope or risk.
 
 ## Restricted Shell Rules
 
