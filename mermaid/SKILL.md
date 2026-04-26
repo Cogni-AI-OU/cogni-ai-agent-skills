@@ -26,6 +26,15 @@ design so diagrams remain maintainable as systems evolve.
 - User requests visualization of processes, architecture, sequences, data flows,
   timelines, or user journeys.
 
+## Related Skills
+
+- **mermaid-beta**: Guide for experimental and beta Mermaid.js diagram types.
+
+## Related Instructions
+
+- **mermaid.instructions.md**: Formatting standards, best
+  practices, and anti-patterns for Mermaid.js.
+
 ## General Usage & Configuration
 
 ```mermaid

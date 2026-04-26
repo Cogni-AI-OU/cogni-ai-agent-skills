@@ -18,6 +18,15 @@ Expert in creating, optimizing, and troubleshooting experimental Mermaid.js beta
 - User wants to use experimental beta Mermaid diagram types like Architecture, Flow, Sankey, etc.
 - Working with newer versions of Mermaid.js.
 
+## Related Instructions
+
+- **mermaid.instructions.md**: Formatting standards, best
+  practices, and anti-patterns for Mermaid.js.
+
+## Related Skills
+
+- **mermaid**: Expert guide for stable, production-grade Mermaid.js diagrams.
+
 ## Diagram Types & Patterns
 
 ### Architecture Diagrams
