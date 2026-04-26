@@ -43,7 +43,7 @@ description: When the user requests creation, refinement, debugging, or optimiza
 4. **Symmetry Breaking** – Always apply lexicographic ordering on identical
    objects (`lex_lesseq` or `lex_less` on arrays of symmetric vars).
 
-5. **Search Annotations** – Default: `solve :: int_search([vars], first_fail, indomain_min, complete) minimize obj;`.
+5. **Search Annotations** – Default: `solve :: int_search([vars], first_fail, indomain_min) satisfy;`.
    Tune only after profiling: `dom_w_deg` + `indomain_median` for hard instances.
 
 6. **Reusable Primitives** – Extract repeated sub-structures into
@@ -66,16 +66,16 @@ description: When the user requests creation, refinement, debugging, or optimiza
 
 - Solve tiny instance first (tracer bullet).
 - If UNSAT: add `trace` debug statements, relax one constraint at a time, re-solve.
-- If SAT but unexpected: assert post-solution invariants via `constraint` + `fix` in output.
+- If SAT but unexpected: assert post-solution invariants via `constraint` or `trace` in output.
 - Run with Gecode → Chuffed → HiGHS; compare solutions.
 - If performance <1s on medium instance: tighten domains or add redundant globals.
-- Final output must include human-readable `show` + `fix` for all decision vars.
+- Final output must include human-readable `show` for all decision vars.
 
 ## Diagnostics & Patterns
 
 - **Common Smells** → fix immediately: loose domains, raw `forall` loops
   replaceable by globals, missing symmetry, no search annotation.
-- **Output Template**: `output ["solution = \(fix(x))", ...];`
+- **Output Template**: `output ["solution = \(x)", ...];`
   (never print raw decision vars).
 - **Comprehensions**: `forall(i,j in 1..n where i<j)(x[i] != x[j]);`
   – most restrictive generator first.

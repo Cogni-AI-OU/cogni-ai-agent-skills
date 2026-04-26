@@ -40,9 +40,7 @@ Cogni AI capabilities loaded into the `.github/` directory.
 - **[github-script](github-script/SKILL.md)**: Advanced use cases and examples for using actions/github-script
 - **[mermaid](mermaid/SKILL.md)**: Guide for creating and maintaining stable Mermaid.js diagrams
 - **[mermaid-beta](mermaid-beta/SKILL.md)**: Guide for creating and maintaining experimental Mermaid.js beta diagrams
-- **[minizinc](minizinc/SKILL.md)**: When the user requests creation, refinement, debugging, or optimization of MiniZinc
-  models for constraint satisfaction, scheduling, assignment, or any combinatorial problem, immediately apply expert
-  advanced modeling.
+- **[minizinc](minizinc/SKILL.md)**: Expert MiniZinc modeling for constraint satisfaction and combinatorial problems
 - **[molecule](molecule/SKILL.md)**: Molecule testing workflows for Ansible roles
 - **[pdf](pdf/SKILL.md)**: PDF file inspection, object-level editing, and lossless size reduction
 - **[pre-commit](pre-commit/SKILL.md)**: Using pre-commit to validate code formatting, linting, and security checks
