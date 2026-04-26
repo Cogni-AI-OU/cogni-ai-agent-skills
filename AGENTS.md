@@ -32,6 +32,7 @@ and planned work into the current context:
 - **[context-aware-ops](context-aware-ops/SKILL.md)**: Intelligent resource management with size checking and filtering
 - **[fact-writer](fact-writer/SKILL.md)**: Guidance for writing, structuring, and maintaining verifiable project
   fact files without contradictions
+- **[gh](gh/SKILL.md)**: GitHub CLI (`gh`) operations for issues, PRs, workflows, and API
 - **[git](git/SKILL.md)**: Guide for using git with non-interactive, safe operations
 - **[git-expert](git-expert/SKILL.md)**: Advanced Git operations including interactive rebasing, reflog recovery,
   bisecting, complex conflict resolution, and history manipulation
@@ -100,7 +101,9 @@ molecule syntax
 - Use `gh` command to interact with GitHub resources. For example:
 
   - `gh run list --limit 3` to list recent builds.
-  - `gh run view {ID} --log | rg -iw "failed|error|exit"` to look for build errors.
+  - Use `gh run view {ID} --log` for full inspection when metadata is
+    insufficient.
+  - Avoid complex pipelines in restricted shells.
 
 ### Firewall issues
 

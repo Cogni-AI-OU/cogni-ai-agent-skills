@@ -53,12 +53,12 @@ This skill enables autonomous diagnosis of GitHub Actions failures, preferring M
 
 4. Fallback path: Use gh CLI (if available and authenticated).
 
-   - Run_in_terminal `gh run list --limit 20` (adds `--branch $(git rev-parse --abbrev-ref HEAD)` if needed).
-   - Identify the most recent failed `run_id` from output.
-   - Run_in_terminal `gh run view <run_id> --log-failed` to get only failed job logs (avoids full output).
-   - If more context needed: `gh run view <run_id> --log | grep -EC 10 -i 'error|failed|exception|traceback|exit code [1-9][0-9]*'`.
-   - If ripgrep available: `gh run view <run_id> --log-failed | rg -i -C 10 "failed|error|exception|exit"`.
-   - Capture and analyze output for root cause.
+   - Run_in_terminal `gh run list --limit 20 --json databaseId,name,status,conclusion,url`.
+   - Inspect run metadata first; do not assume pathological sessions conclude with `failure`.
+   - Use `gh run view <run_id> --log-failed` only when the relevant run or job actually concluded with failure.
+   - For job metadata, prefer `gh api repos/<owner>/<repo>/actions/jobs/<job_id>` over shell pipelines.
+   - If `gh run view ... --log` returns empty output or `gh api .../logs` returns a signed-blob `403`, classify it as `LOG_ACCESS_UNSUPPORTED` and pivot instead of retrying the same command shape.
+   - In restricted shells, prefer `gh --json/--jq/--template` over `grep` or `rg` pipelines.
 
 5. With evidence from either path:
 
@@ -71,10 +71,10 @@ This skill enables autonomous diagnosis of GitHub Actions failures, preferring M
 
 ## Finding Build Issues via `gh` Command
 
-- Use `gh` command to interact with GitHub resources. For example:
-  - `gh run list --limit 3` to list recent builds.
-  - `gh run view <run_id> --log-failed` to view only failed job logs.
-  - `gh run view <run_id> --log | rg -C3 -iw "failed|error|exit"` to search full logs for key terms.
+- Use `gh run list --limit 3` to list recent builds.
+- Use `gh run view <run_id>` to inspect run status and conclusion before choosing a log path.
+- Use `gh run view <run_id> --log-failed` only when the run or job actually failed.
+- Use `gh api repos/<owner>/<repo>/actions/jobs/<job_id>` to inspect job metadata when logs are unavailable or the session concluded `success`.
 - When reading long logs, use `sed` or `awk` to read content in smaller parts (e.g. `sed -n '100,200p'`).
 
 ## Useful Diagnostic Commands
@@ -108,15 +108,18 @@ github-mcp-server-actions_list(method="list_workflow_runs", owner="{org}", repo=
 ```bash
 gh --version                          # Check availability
 gh auth status                        # Verify login and repo access
-gh run list --limit 20                # List recent runs
-gh run view <run_id> --log-failed     # Failed jobs only (recommended first)
-gh run view <run_id> --log | grep -C 10 -i "error\|failed\|exit code"
+gh run list --limit 20 --json databaseId,name,status,conclusion,url
+gh run view <run_id>                  # Inspect status before choosing log access
+gh run view <run_id> --log-failed     # Failed jobs only, when failure is confirmed
+gh api repos/<owner>/<repo>/actions/jobs/<job_id>
 ```
 
 ## What to Avoid
 
 - Never fetch full raw logs first — always use summaries (`summarize_job_log_failures`) or `--log-failed`
+- Do not assume `gh run view --log` or `gh api .../logs` will work in every environment; empty output and signed-blob `403` should trigger a pivot, not retries.
 - Do not guess causes without log evidence
+- Do not default to `grep` or `rg` pipelines in restricted or allowlisted shells
 - Avoid modifying workflow YAML unless failure clearly originates there
 - Do not trigger re-runs or external commands unless explicitly safety-checked
 
