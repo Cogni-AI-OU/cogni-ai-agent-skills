@@ -10,6 +10,23 @@ description: >-
 Run, evaluate, and auto-generate tests for AI prompts directly from the terminal. Ideal for CLI-centric
 agentic workflows on issues, PRs, repo events, and prompt engineering at scale.
 
+## Mindmap of Commands
+
+```mermaid
+mindmap
+  root((gh models))
+    eval
+      Evaluate prompts
+    generate
+      Generate tests
+    list
+      List models
+    run
+      Run inference
+    view
+      View details
+```
+
 ## When to Activate
 
 - Agentic workflows require automated prompt engineering, scoring, or regression testing for LLMs.
