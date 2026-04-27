@@ -19,381 +19,381 @@ mindmap
     actions
       cache
         delete
-          )Delete GitHub Actions caches(
+          Delete GitHub Actions caches
         list
-          )List GitHub Actions caches(
+          List GitHub Actions caches
       run
         cancel
-          )Cancel a workflow run(
+          Cancel a workflow run
         delete
-          )Delete a workflow run(
+          Delete a workflow run
         download
-          )Download artifacts(
+          Download artifacts
         list
-          )List recent workflow runs(
+          List recent workflow runs
         rerun
-          )Rerun a run(
+          Rerun a run
         view
-          )View summary of a run(
+          View summary of a run
         watch
-          )Watch progress(
+          Watch progress
       workflow
         disable
-          )Disable a workflow(
+          Disable a workflow
         enable
-          )Enable a workflow(
+          Enable a workflow
         list
-          )List workflows(
+          List workflows
         run
-          )Run a workflow(
+          Run a workflow
         view
-          )View summary of a workflow(
+          View summary of a workflow
     agent-task
       create
-        )Create an agent task(
+        Create an agent task
       list
-        )List agent tasks(
+        List agent tasks
       view
-        )View an agent task session(
+        View an agent task session
     alias
       delete
-        )Delete set aliases(
+        Delete set aliases
       import
-        )Import aliases(
+        Import aliases
       list
-        )List aliases(
+        List aliases
       set
-        )Create a shortcut(
+        Create a shortcut
     api
-      )Make authenticated API request(
+      Make authenticated API request
     attestation
       download
-        )Download attestations(
+        Download attestations
       trusted-root
-        )Output trusted root(
+        Output trusted root
       verify
-        )Verify integrity(
+        Verify integrity
     auth
       login
-        )Log in to a GitHub account(
+        Log in to a GitHub account
       logout
-        )Log out of a GitHub account(
+        Log out of a GitHub account
       refresh
-        )Refresh stored authentication credentials(
+        Refresh stored authentication credentials
       setup-git
-        )Set up Git with GitHub CLI(
+        Set up Git with GitHub CLI
       status
-        )Display active account and authentication state(
+        Display active account and authentication state
       switch
-        )Switch active GitHub account(
+        Switch active GitHub account
       token
-        )Print the authentication token(
+        Print the authentication token
     browse
-      )Open repositories, issues, PRs in browser(
+      Open repositories, issues, PRs in browser
     codespace
       code
-        )Open in VS Code(
+        Open in VS Code
       cp
-        )Copy files(
+        Copy files
       create
-        )Create a codespace(
+        Create a codespace
       delete
-        )Delete codespaces(
+        Delete codespaces
       edit
-        )Edit a codespace(
+        Edit a codespace
       jupyter
-        )Open in JupyterLab(
+        Open in JupyterLab
       list
-        )List codespaces(
+        List codespaces
       logs
-        )Access codespace logs(
+        Access codespace logs
       ports
-        )List ports(
+        List ports
       rebuild
-        )Rebuild a codespace(
+        Rebuild a codespace
       ssh
-        )SSH into a codespace(
+        SSH into a codespace
       stop
-        )Stop a codespace(
+        Stop a codespace
       view
-        )View details(
+        View details
     config
       clear-cache
-        )Clear cli cache(
+        Clear cli cache
       get
-        )Print value(
+        Print value
       list
-        )Print keys/values(
+        Print keys/values
       set
-        )Update configuration(
+        Update configuration
     extension
       browse
-        )UI for extensions(
+        UI for extensions
       create
-        )Create new extension(
+        Create new extension
       exec
-        )Execute extension(
+        Execute extension
       install
-        )Install extension(
+        Install extension
       list
-        )List extensions(
+        List extensions
       remove
-        )Remove extension(
+        Remove extension
       search
-        )Search extensions(
+        Search extensions
       upgrade
-        )Upgrade extensions(
+        Upgrade extensions
     gist
       clone
-        )Clone locally(
+        Clone locally
       create
-        )Create new gist(
+        Create new gist
       delete
-        )Delete a gist(
+        Delete a gist
       edit
-        )Edit a gist(
+        Edit a gist
       list
-        )List gists(
+        List gists
       rename
-        )Rename a file in a gist(
+        Rename a file in a gist
       view
-        )View a gist(
+        View a gist
     gpg-key
       add
-        )Add a GPG key(
+        Add a GPG key
       delete
-        )Delete a GPG key(
+        Delete a GPG key
       list
-        )List GPG keys(
+        List GPG keys
     issue
       close
-        )Close issue(
+        Close issue
       comment
-        )Add a comment(
+        Add a comment
       create
-        )Create a new issue(
+        Create a new issue
       delete
-        )Delete issue(
+        Delete issue
       develop
-        )Manage linked branches(
+        Manage linked branches
       edit
-        )Edit issues(
+        Edit issues
       list
-        )List issues(
+        List issues
       lock
-        )Lock conversation(
+        Lock conversation
       pin
-        )Pin an issue(
+        Pin an issue
       reopen
-        )Reopen issue(
+        Reopen issue
       status
-        )Show status(
+        Show status
       transfer
-        )Transfer issue(
+        Transfer issue
       unlock
-        )Unlock conversation(
+        Unlock conversation
       unpin
-        )Unpin an issue(
+        Unpin an issue
       view
-        )View an issue(
+        View an issue
     label
       clone
-        )Clone labels(
+        Clone labels
       create
-        )Create new label(
+        Create new label
       delete
-        )Delete a label(
+        Delete a label
       edit
-        )Edit a label(
+        Edit a label
       list
-        )List labels(
+        List labels
     models
       eval
-        )Evaluate prompts(
+        Evaluate prompts
       generate
-        )Generate tests(
+        Generate tests
       list
-        )List models(
+        List models
       run
-        )Run inference(
+        Run inference
       view
-        )View details(
+        View details
     org
       list
-        )List organizations(
+        List organizations
     pr
       checkout
-        )Check out in git(
+        Check out in git
       checks
-        )Show CI status(
+        Show CI status
       close
-        )Close a PR(
+        Close a PR
       comment
-        )Add a comment(
+        Add a comment
       create
-        )Create a pull request(
+        Create a pull request
       diff
-        )View changes(
+        View changes
       edit
-        )Edit a PR(
+        Edit a PR
       list
-        )List pull requests(
+        List pull requests
       lock
-        )Lock conversation(
+        Lock conversation
       merge
-        )Merge a PR(
+        Merge a PR
       ready
-        )Mark as ready for review(
+        Mark as ready for review
       reopen
-        )Reopen a PR(
+        Reopen a PR
       revert
-        )Revert a PR(
+        Revert a PR
       review
-        )Add a review(
+        Add a review
       status
-        )Show status(
+        Show status
       unlock
-        )Unlock conversation(
+        Unlock conversation
       update-branch
-        )Update branch(
+        Update branch
       view
-        )View a PR(
+        View a PR
     project
       close
-        )Close a project(
+        Close a project
       copy
-        )Copy a project(
+        Copy a project
       create
-        )Create a project(
+        Create a project
       delete
-        )Delete a project(
+        Delete a project
       edit
-        )Edit a project(
+        Edit a project
       field-create
-        )Create a field(
+        Create a field
       field-delete
-        )Delete a field(
+        Delete a field
       field-list
-        )List fields(
+        List fields
       item-add
-        )Add item(
+        Add item
       item-archive
-        )Archive item(
+        Archive item
       item-create
-        )Create item(
+        Create item
       item-delete
-        )Delete item(
+        Delete item
       item-edit
-        )Edit item(
+        Edit item
       item-list
-        )List items(
+        List items
       link
-        )Link project(
+        Link project
       list
-        )List projects(
+        List projects
       mark-template
-        )Mark as template(
+        Mark as template
       unlink
-        )Unlink project(
+        Unlink project
       view
-        )View a project(
+        View a project
     release
       create
-        )Create a new release(
+        Create a new release
       delete
-        )Delete a release(
+        Delete a release
       delete-asset
-        )Delete an asset(
+        Delete an asset
       download
-        )Download assets(
+        Download assets
       edit
-        )Edit a release(
+        Edit a release
       list
-        )List releases(
+        List releases
       upload
-        )Upload assets(
+        Upload assets
       verify
-        )Verify attestation(
+        Verify attestation
       verify-asset
-        )Verify asset(
+        Verify asset
       view
-        )View information(
+        View information
     repo
       archive
-        )Archive a repository(
+        Archive a repository
       autolink
-        )Manage autolink references(
+        Manage autolink references
       clone
-        )Clone locally(
+        Clone locally
       create
-        )Create a new repository(
+        Create a new repository
       delete
-        )Delete a repository(
+        Delete a repository
       deploy-key
-        )Manage deploy keys(
+        Manage deploy keys
       edit
-        )Edit settings(
+        Edit settings
       fork
-        )Create a fork(
+        Create a fork
       gitignore
-        )List gitignore templates(
+        List gitignore templates
       license
-        )Explore licenses(
+        Explore licenses
       list
-        )List repositories(
+        List repositories
       rename
-        )Rename a repository(
+        Rename a repository
       set-default
-        )Configure default(
+        Configure default
       sync
-        )Sync a repository(
+        Sync a repository
       unarchive
-        )Unarchive(
+        Unarchive
       view
-        )View a repository(
+        View a repository
     ruleset
       check
-        )View rules for branch(
+        View rules for branch
       list
-        )List rulesets(
+        List rulesets
       view
-        )View information(
+        View information
     search
       code
-        )Search within code(
+        Search within code
       commits
-        )Search for commits(
+        Search for commits
       issues
-        )Search for issues(
+        Search for issues
       prs
-        )Search for pull requests(
+        Search for pull requests
       repos
-        )Search for repositories(
+        Search for repositories
     secret
       delete
-        )Delete secrets(
+        Delete secrets
       list
-        )List secrets(
+        List secrets
       set
-        )Create or update secrets(
+        Create or update secrets
     ssh-key
       add
-        )Add an SSH key(
+        Add an SSH key
       delete
-        )Delete an SSH key(
+        Delete an SSH key
       list
-        )List SSH keys(
+        List SSH keys
     status
-      )Show work status(
+      Show work status
     variable
       delete
-        )Delete variables(
+        Delete variables
       get
-        )Get variables(
+        Get variables
       list
-        )List variables(
+        List variables
       set
-        )Create or update variables(
+        Create or update variables
 ```
 
 ## When to Activate
