@@ -1,10 +1,13 @@
-<!-- markdownlint-disable MD003 MD022 MD026 MD041 -->
 ---
 name: fact-writer
 description: >-
   Strict guidelines for creating, writing, and maintaining verifiable project fact files
   (e.g., FACTS.md or FACTS.mmd) without contradictions, ensuring state compression and lexical ordering.
+
+  Maintained at: <https://github.com/Cogni-AI-OU/cogni-ai-agent-skills>
+license: MIT
 ---
+<!-- markdownlint-disable MD003 MD013 MD022 MD023 MD026 MD031 MD032 MD041 -->
 # Fact Writer
 
 Guidance for structuring and maintaining verifiable project fact files. Use this skill when managing `FACTS.md`,
@@ -54,3 +57,7 @@ Guidance for structuring and maintaining verifiable project fact files. Use this
 
 - [mermaid](../mermaid/SKILL.md)
 - [mermaid-beta](../mermaid-beta/SKILL.md)
+
+## Maintenance
+
+Note that this file should be updated if outdated or steps/examples are not working.

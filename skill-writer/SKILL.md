@@ -1,4 +1,3 @@
-<!-- markdownlint-disable MD003 MD022 MD026 MD041 -->
 ---
 name: skill-writer
 description: >-
@@ -7,8 +6,9 @@ description: >-
   official format, validation rules, and community best practices.
 
   Maintained at: <https://github.com/Cogni-AI-OU/cogni-ai-agent-skills>
-
+license: MIT
 ---
+<!-- markdownlint-disable MD003 MD013 MD022 MD023 MD026 MD031 MD032 MD041 -->
 # Skill Writer
 
 Generate or update SKILL.md files for GitHub Copilot coding agents, ensuring

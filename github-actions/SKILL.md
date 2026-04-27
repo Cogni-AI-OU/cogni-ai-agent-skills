@@ -1,12 +1,12 @@
-<!-- markdownlint-disable MD003 MD013 MD022 MD026 MD041 -->
 ---
 name: github-actions
 description: >-
   Diagnose GitHub Actions workflow failures by retrieving run statuses and logs using MCP tools or gh CLI.
 
   Maintained at: <https://github.com/Cogni-AI-OU/cogni-ai-agent-skills>
-
+license: MIT
 ---
+<!-- markdownlint-disable MD003 MD013 MD022 MD023 MD026 MD031 MD032 MD041 -->
 This skill enables autonomous diagnosis of GitHub Actions failures, preferring MCP tools for summaries and falling back to gh CLI.
 
 ## When to Activate
