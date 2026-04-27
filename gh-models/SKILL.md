@@ -6,6 +6,7 @@ description: >-
   Maintained at: <https://github.com/Cogni-AI-OU/cogni-ai-agent-skills>
 license: MIT
 ---
+<!-- markdownlint-disable MD003 MD013 MD022 MD023 MD026 MD031 MD032 MD041 -->
 
 # gh-models Skill
 
@@ -113,3 +114,7 @@ Store prompts anywhere in repo (e.g. `.github/prompts/`). Structure enables:
 - Never use `run` without corresponding eval harness.
 - Always version the exact model ID + parameters + prompt hash.
 - On any regression: root-cause via single-variable delta (change one test case or param), re-generate, re-eval.
+
+## Maintenance
+
+Note that this file should be updated if outdated or steps/examples are not working.

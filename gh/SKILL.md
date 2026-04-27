@@ -1,11 +1,14 @@
-<!-- markdownlint-disable MD003 MD022 MD026 MD041 -->
 ---
 name: gh
 description: >-
   Use when planning or executing GitHub CLI (`gh`) commands for issues, pull
   requests, workflow runs, reviews, or API queries, especially in restricted
   shells where structured output and fallback choice matter.
+
+  Maintained at: <https://github.com/Cogni-AI-OU/cogni-ai-agent-skills>
+license: MIT
 ---
+<!-- markdownlint-disable MD003 MD013 MD022 MD023 MD026 MD031 MD032 MD041 -->
 # gh Skill
 
 Use `gh` as a structured client first. Prefer native fields, explicit routing,
@@ -53,6 +56,7 @@ When using `gh api` (including `gh api graphql`), choose the correct flag for pa
   - For GraphQL, `query` is usually passed with `-f` to avoid accidental expansion or type conversion of the query string itself.
 
 **Large Bodies & Files**:
+
 - Prefer `-F body=@path/to/file.md` for large content.
 - **Process Substitution**: Avoid `-F body=@<(...)` in `gh api`; it is brittle across shells. Write to a temporary file first, then use `-F body=@tempfile`.
 
@@ -76,6 +80,7 @@ Example: `gh api graphql -f query='mutation($title: String!) { ... }' -F title=@
 Since `gh` often lacks a native `discussion` subcommand, use `gh api graphql`. Avoid process substitution for the body; use a temporary file.
 
 - **Get repositoryId and categoryId**:
+
   ```bash
   gh api graphql -f query='query {
     repository(owner: "OWNER", name: "REPO") {
@@ -86,7 +91,9 @@ Since `gh` often lacks a native `discussion` subcommand, use `gh api graphql`. A
     }
   }'
   ```
+
 - **Create Discussion**:
+
   ```bash
   gh api graphql -F repositoryId="$REPO_ID" -F categoryId="$CAT_ID" \
     -F title="Title" -F body=@body.md \
@@ -96,7 +103,9 @@ Since `gh` often lacks a native `discussion` subcommand, use `gh api graphql`. A
       }
     }'
   ```
+
 - **Comment on Discussion**:
+
   ```bash
   gh api graphql -F discussionId="$DISCUSSION_ID" -F body=@comment.md \
     -f query='mutation($discussionId:ID!, $body:String!){

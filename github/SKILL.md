@@ -1,9 +1,12 @@
-<!-- markdownlint-disable MD003 MD022 MD026 MD041 -->
 ---
 name: github
 description: >-
   Provides guidance on GitHub specific features, pull requests viewing modes, and collaborative practices.
+
+  Maintained at: <https://github.com/Cogni-AI-OU/cogni-ai-agent-skills>
+license: MIT
 ---
+<!-- markdownlint-disable MD003 MD013 MD022 MD023 MD026 MD031 MD032 MD041 -->
 # GitHub Skill
 
 Guidance on interacting with GitHub features, specifically around Pull Requests and diff viewing.
@@ -33,3 +36,7 @@ and you need to retrieve the diff or patch content for processing.
 ### References
 
 - [GitHub Docs: About comparing branches in pull requests](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-comparing-branches-in-pull-requests)
+
+## Maintenance
+
+Note that this file should be updated if outdated or steps/examples are not working.

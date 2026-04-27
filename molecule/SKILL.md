@@ -4,8 +4,9 @@ description: >-
   How to run and manage Molecule tests for Ansible roles and playbooks.
 
   Maintained at: <https://github.com/Cogni-AI-OU/cogni-ai-agent-skills>
-
+license: MIT
 ---
+<!-- markdownlint-disable MD003 MD013 MD022 MD023 MD026 MD031 MD032 MD041 -->
 # Molecule Testing
 
 ## When to Activate

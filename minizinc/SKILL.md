@@ -1,8 +1,12 @@
-<!-- markdownlint-disable MD003 MD022 MD026 MD041 MD013 -->
 ---
 name: minizinc
-description: Expert MiniZinc modeling for constraint satisfaction and combinatorial problems.
+description: >-
+  Expert MiniZinc modeling for constraint satisfaction and combinatorial problems.
+
+  Maintained at: <https://github.com/Cogni-AI-OU/cogni-ai-agent-skills>
+license: MIT
 ---
+<!-- markdownlint-disable MD003 MD013 MD022 MD023 MD026 MD031 MD032 MD041 -->
 
 # MiniZinc Modeling
 
@@ -95,3 +99,7 @@ description: Expert MiniZinc modeling for constraint satisfaction and combinator
 - For very large instances, split into staged models or use external data generators.
 - Safety-critical scheduling: always add explicit resource bounds and
   post-solution validation predicates.
+
+## Maintenance
+
+Note that this file should be updated if outdated or steps/examples are not working.
