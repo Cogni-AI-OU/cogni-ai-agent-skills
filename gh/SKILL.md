@@ -20,7 +20,7 @@ mindmap
       login)Log in to a GitHub account(
       logout)Log out of a GitHub account(
       refresh)Refresh stored authentication credentials(
-      setup-git)Setup git with GitHub CLI(
+      setup-git)Set up Git with GitHub CLI(
       status)Display active account and authentication state(
       switch)Switch active GitHub account(
       token)Print the authentication token(
