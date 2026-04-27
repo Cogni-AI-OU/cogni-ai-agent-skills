@@ -16,207 +16,384 @@ and bounded fallbacks over brittle shell post-processing.
 ```mermaid
 mindmap
   root((gh))
-    auth
-      login)Log in to a GitHub account(
-      logout)Log out of a GitHub account(
-      refresh)Refresh stored authentication credentials(
-      setup-git)Set up Git with GitHub CLI(
-      status)Display active account and authentication state(
-      switch)Switch active GitHub account(
-      token)Print the authentication token(
-    browse)Open repositories, issues, PRs in browser(
-    codespace
-      code)Open in VS Code(
-      cp)Copy files(
-      create)Create a codespace(
-      delete)Delete codespaces(
-      edit)Edit a codespace(
-      jupyter)Open in JupyterLab(
-      list)List codespaces(
-      logs)Access codespace logs(
-      ports)List ports(
-      rebuild)Rebuild a codespace(
-      ssh)SSH into a codespace(
-      stop)Stop a codespace(
-      view)View details(
-    gist
-      clone)Clone locally(
-      create)Create new gist(
-      delete)Delete a gist(
-      edit)Edit a gist(
-      list)List gists(
-      rename)Rename a file in a gist(
-      view)View a gist(
-    issue
-      create)Create a new issue(
-      list)List issues(
-      status)Show status(
-      close)Close issue(
-      comment)Add a comment(
-      delete)Delete issue(
-      develop)Manage linked branches(
-      edit)Edit issues(
-      lock)Lock conversation(
-      pin)Pin an issue(
-      reopen)Reopen issue(
-      transfer)Transfer issue(
-      unlock)Unlock conversation(
-      unpin)Unpin an issue(
-      view)View an issue(
-    org
-      list)List organizations(
-    pr
-      create)Create a pull request(
-      list)List pull requests(
-      status)Show status(
-      checkout)Check out in git(
-      checks)Show CI status(
-      close)Close a PR(
-      comment)Add a comment(
-      diff)View changes(
-      edit)Edit a PR(
-      lock)Lock conversation(
-      merge)Merge a PR(
-      ready)Mark as ready for review(
-      reopen)Reopen a PR(
-      revert)Revert a PR(
-      review)Add a review(
-      unlock)Unlock conversation(
-      update-branch)Update branch(
-      view)View a PR(
-    project
-      close)Close a project(
-      copy)Copy a project(
-      create)Create a project(
-      delete)Delete a project(
-      edit)Edit a project(
-      field-create)Create a field(
-      field-delete)Delete a field(
-      field-list)List fields(
-      item-add)Add item(
-      item-archive)Archive item(
-      item-create)Create item(
-      item-delete)Delete item(
-      item-edit)Edit item(
-      item-list)List items(
-      link)Link project(
-      list)List projects(
-      mark-template)Mark as template(
-      unlink)Unlink project(
-      view)View a project(
-    release
-      create)Create a new release(
-      list)List releases(
-      delete)Delete a release(
-      delete-asset)Delete an asset(
-      download)Download assets(
-      edit)Edit a release(
-      upload)Upload assets(
-      verify)Verify attestation(
-      verify-asset)Verify asset(
-      view)View information(
-    repo
-      create)Create a new repository(
-      list)List repositories(
-      archive)Archive a repository(
-      autolink)Manage autolink references(
-      clone)Clone locally(
-      delete)Delete a repository(
-      deploy-key)Manage deploy keys(
-      edit)Edit settings(
-      fork)Create a fork(
-      gitignore)List gitignore templates(
-      license)Explore licenses(
-      rename)Rename a repository(
-      set-default)Configure default(
-      sync)Sync a repository(
-      unarchive)Unarchive(
-      view)View a repository(
-    cache
-      delete)Delete GitHub Actions caches(
-      list)List GitHub Actions caches(
-    run
-      cancel)Cancel a workflow run(
-      delete)Delete a workflow run(
-      download)Download artifacts(
-      list)List recent workflow runs(
-      rerun)Rerun a run(
-      view)View summary of a run(
-      watch)Watch progress(
-    workflow
-      disable)Disable a workflow(
-      enable)Enable a workflow(
-      list)List workflows(
-      run)Run a workflow(
-      view)View summary of a workflow(
-    alias
-      delete)Delete set aliases(
-      import)Import aliases(
-      list)List aliases(
-      set)Create a shortcut(
-    api)Make authenticated API request(
-    attestation
-      download)Download attestations(
-      trusted-root)Output trusted root(
-      verify)Verify integrity(
-    config
-      clear-cache)Clear cli cache(
-      get)Print value(
-      list)Print keys/values(
-      set)Update configuration(
-    extension
-      browse)UI for extensions(
-      create)Create new extension(
-      exec)Execute extension(
-      install)Install extension(
-      list)List extensions(
-      remove)Remove extension(
-      search)Search extensions(
-      upgrade)Upgrade extensions(
-    gpg-key
-      add)Add a GPG key(
-      delete)Delete a GPG key(
-      list)List GPG keys(
-    label
-      clone)Clone labels(
-      create)Create new label(
-      delete)Delete a label(
-      edit)Edit a label(
-      list)List labels(
-    ruleset
-      check)View rules for branch(
-      list)List rulesets(
-      view)View information(
-    search
-      code)Search within code(
-      commits)Search for commits(
-      issues)Search for issues(
-      prs)Search for pull requests(
-      repos)Search for repositories(
-    secret
-      delete)Delete secrets(
-      list)List secrets(
-      set)Create or update secrets(
-    ssh-key
-      add)Add an SSH key(
-      delete)Delete an SSH key(
-      list)List SSH keys(
-    status)Show work status(
-    variable
-      delete)Delete variables(
-      get)Get variables(
-      list)List variables(
-      set)Create or update variables(
-    models
-      eval)Evaluate prompts(
-      generate)Generate tests(
-      list)List models(
-      run)Run inference(
-      view)View details(
+    actions
+      cache
+        delete
+          )Delete GitHub Actions caches(
+        list
+          )List GitHub Actions caches(
+      run
+        cancel
+          )Cancel a workflow run(
+        delete
+          )Delete a workflow run(
+        download
+          )Download artifacts(
+        list
+          )List recent workflow runs(
+        rerun
+          )Rerun a run(
+        view
+          )View summary of a run(
+        watch
+          )Watch progress(
+      workflow
+        disable
+          )Disable a workflow(
+        enable
+          )Enable a workflow(
+        list
+          )List workflows(
+        run
+          )Run a workflow(
+        view
+          )View summary of a workflow(
     agent-task
-      create)Create an agent task(
-      list)List agent tasks(
-      view)View an agent task session(
+      create
+        )Create an agent task(
+      list
+        )List agent tasks(
+      view
+        )View an agent task session(
+    alias
+      delete
+        )Delete set aliases(
+      import
+        )Import aliases(
+      list
+        )List aliases(
+      set
+        )Create a shortcut(
+    api
+      )Make authenticated API request(
+    attestation
+      download
+        )Download attestations(
+      trusted-root
+        )Output trusted root(
+      verify
+        )Verify integrity(
+    auth
+      login
+        )Log in to a GitHub account(
+      logout
+        )Log out of a GitHub account(
+      refresh
+        )Refresh stored authentication credentials(
+      setup-git
+        )Set up Git with GitHub CLI(
+      status
+        )Display active account and authentication state(
+      switch
+        )Switch active GitHub account(
+      token
+        )Print the authentication token(
+    browse
+      )Open repositories, issues, PRs in browser(
+    codespace
+      code
+        )Open in VS Code(
+      cp
+        )Copy files(
+      create
+        )Create a codespace(
+      delete
+        )Delete codespaces(
+      edit
+        )Edit a codespace(
+      jupyter
+        )Open in JupyterLab(
+      list
+        )List codespaces(
+      logs
+        )Access codespace logs(
+      ports
+        )List ports(
+      rebuild
+        )Rebuild a codespace(
+      ssh
+        )SSH into a codespace(
+      stop
+        )Stop a codespace(
+      view
+        )View details(
+    config
+      clear-cache
+        )Clear cli cache(
+      get
+        )Print value(
+      list
+        )Print keys/values(
+      set
+        )Update configuration(
+    extension
+      browse
+        )UI for extensions(
+      create
+        )Create new extension(
+      exec
+        )Execute extension(
+      install
+        )Install extension(
+      list
+        )List extensions(
+      remove
+        )Remove extension(
+      search
+        )Search extensions(
+      upgrade
+        )Upgrade extensions(
+    gist
+      clone
+        )Clone locally(
+      create
+        )Create new gist(
+      delete
+        )Delete a gist(
+      edit
+        )Edit a gist(
+      list
+        )List gists(
+      rename
+        )Rename a file in a gist(
+      view
+        )View a gist(
+    gpg-key
+      add
+        )Add a GPG key(
+      delete
+        )Delete a GPG key(
+      list
+        )List GPG keys(
+    issue
+      close
+        )Close issue(
+      comment
+        )Add a comment(
+      create
+        )Create a new issue(
+      delete
+        )Delete issue(
+      develop
+        )Manage linked branches(
+      edit
+        )Edit issues(
+      list
+        )List issues(
+      lock
+        )Lock conversation(
+      pin
+        )Pin an issue(
+      reopen
+        )Reopen issue(
+      status
+        )Show status(
+      transfer
+        )Transfer issue(
+      unlock
+        )Unlock conversation(
+      unpin
+        )Unpin an issue(
+      view
+        )View an issue(
+    label
+      clone
+        )Clone labels(
+      create
+        )Create new label(
+      delete
+        )Delete a label(
+      edit
+        )Edit a label(
+      list
+        )List labels(
+    models
+      eval
+        )Evaluate prompts(
+      generate
+        )Generate tests(
+      list
+        )List models(
+      run
+        )Run inference(
+      view
+        )View details(
+    org
+      list
+        )List organizations(
+    pr
+      checkout
+        )Check out in git(
+      checks
+        )Show CI status(
+      close
+        )Close a PR(
+      comment
+        )Add a comment(
+      create
+        )Create a pull request(
+      diff
+        )View changes(
+      edit
+        )Edit a PR(
+      list
+        )List pull requests(
+      lock
+        )Lock conversation(
+      merge
+        )Merge a PR(
+      ready
+        )Mark as ready for review(
+      reopen
+        )Reopen a PR(
+      revert
+        )Revert a PR(
+      review
+        )Add a review(
+      status
+        )Show status(
+      unlock
+        )Unlock conversation(
+      update-branch
+        )Update branch(
+      view
+        )View a PR(
+    project
+      close
+        )Close a project(
+      copy
+        )Copy a project(
+      create
+        )Create a project(
+      delete
+        )Delete a project(
+      edit
+        )Edit a project(
+      field-create
+        )Create a field(
+      field-delete
+        )Delete a field(
+      field-list
+        )List fields(
+      item-add
+        )Add item(
+      item-archive
+        )Archive item(
+      item-create
+        )Create item(
+      item-delete
+        )Delete item(
+      item-edit
+        )Edit item(
+      item-list
+        )List items(
+      link
+        )Link project(
+      list
+        )List projects(
+      mark-template
+        )Mark as template(
+      unlink
+        )Unlink project(
+      view
+        )View a project(
+    release
+      create
+        )Create a new release(
+      delete
+        )Delete a release(
+      delete-asset
+        )Delete an asset(
+      download
+        )Download assets(
+      edit
+        )Edit a release(
+      list
+        )List releases(
+      upload
+        )Upload assets(
+      verify
+        )Verify attestation(
+      verify-asset
+        )Verify asset(
+      view
+        )View information(
+    repo
+      archive
+        )Archive a repository(
+      autolink
+        )Manage autolink references(
+      clone
+        )Clone locally(
+      create
+        )Create a new repository(
+      delete
+        )Delete a repository(
+      deploy-key
+        )Manage deploy keys(
+      edit
+        )Edit settings(
+      fork
+        )Create a fork(
+      gitignore
+        )List gitignore templates(
+      license
+        )Explore licenses(
+      list
+        )List repositories(
+      rename
+        )Rename a repository(
+      set-default
+        )Configure default(
+      sync
+        )Sync a repository(
+      unarchive
+        )Unarchive(
+      view
+        )View a repository(
+    ruleset
+      check
+        )View rules for branch(
+      list
+        )List rulesets(
+      view
+        )View information(
+    search
+      code
+        )Search within code(
+      commits
+        )Search for commits(
+      issues
+        )Search for issues(
+      prs
+        )Search for pull requests(
+      repos
+        )Search for repositories(
+    secret
+      delete
+        )Delete secrets(
+      list
+        )List secrets(
+      set
+        )Create or update secrets(
+    ssh-key
+      add
+        )Add an SSH key(
+      delete
+        )Delete an SSH key(
+      list
+        )List SSH keys(
+    status
+      )Show work status(
+    variable
+      delete
+        )Delete variables(
+      get
+        )Get variables(
+      list
+        )List variables(
+      set
+        )Create or update variables(
 ```
 
 ## When to Activate
