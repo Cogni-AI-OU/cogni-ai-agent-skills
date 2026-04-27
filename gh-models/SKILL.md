@@ -1,8 +1,20 @@
-# gh-models
+---
+name: gh-models
+description: >-
+  GitHub CLI models (`gh models`) operations for running and evaluating AI models.
+---
+# gh-models Skill
 
 **CLI extension for GitHub Models service** — `gh extension install github/gh-models` (requires authenticated `gh` CLI).
 
 Run, evaluate, and auto-generate tests for AI prompts directly from the terminal. Ideal for CLI-centric agentic workflows on issues, PRs, repo events, and prompt engineering at scale.
+
+## When to Activate
+
+- User asks to use GitHub Models, `gh models`, or perform AI inference via CLI.
+- Task involves running, evaluating, or generating tests for AI prompts and LLM-based workflows.
+- Need to version control prompts as `.prompt.yml` assets and perform structured evaluations.
+- Agentic workflows require automated prompt engineering, scoring, or regression testing for LLMs.
 
 ## Installation & Upgrade
 
