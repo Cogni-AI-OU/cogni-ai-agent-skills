@@ -208,16 +208,7 @@ mindmap
       list
         List labels
     models
-      eval
-        Evaluate prompts
-      generate
-        Generate tests
-      list
-        List models
-      run
-        Run inference
-      view
-        View details
+      (Load gh-models skill for full list)
     org
       list
         List organizations
