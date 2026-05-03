@@ -10,7 +10,7 @@ and planned work into the current context:
 - **[ansible](ansible/SKILL.md)**: How to run and manage Ansible operations safely and prevent hangs.
   You must load this skill when working with the `ansible` command.
 - **[cat](cat/SKILL.md)**: Guidelines for safely using `cat` and avoiding shell hangs with heredocs.
-  You must load this skill when attempting to read, write, or pipe files using `cat`.
+  You must load this skill before running `cat` command (especially with `EOF`).
 - **[context-aware-ops](context-aware-ops/SKILL.md)**: Intelligent resource management with size checking and filtering
   to preserve context window.
   You must load this skill when managing large resources or context window limits.
