@@ -2,7 +2,7 @@
 name: cat
 description: >-
   Guidelines for safely using `cat` and avoiding shell hangs with heredocs.
-  You must load this skill when attempting to read, write, or pipe files using `cat`.
+  You must load this skill before running `cat` command (especially with `EOF`).
 license: MIT
 ---
 
