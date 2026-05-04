@@ -66,4 +66,4 @@ When a subdirectory contains specific functionality, workflows, or architectural
 
 ## Related Skills
 
-- **docs-review**: Guidance for reviewing and checking consistency of documentation.
+- **docs-review**: You must load this skill when reviewing documentation.
