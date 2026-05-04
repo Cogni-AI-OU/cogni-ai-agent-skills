@@ -69,6 +69,8 @@ and planned work into the current context:
 - **[robust-commands](robust-commands/SKILL.md)**: Resilient command execution with automatic fallbacks and error
   recovery.
   You must load this skill when executing commands requiring resilient error recovery or fallbacks.
+- **[security-auditing](security-auditing/SKILL.md)**: Commands, step-by-step procedures, and mechanical execution for performing deep security audits, vulnerability assessments, and threat modeling.
+  You must load this skill when performing security audits or validation.
 - **[shell](shell/SKILL.md)**: Efficient shell command execution with timing, timeouts, and best practices.
   You must load this skill when handling shell commands with performance monitoring or timeouts.
 - **[skill-writer](skill-writer/SKILL.md)**: Generate or update SKILL.md files for GitHub Copilot coding agents.
