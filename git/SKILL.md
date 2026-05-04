@@ -22,15 +22,22 @@ maintain clean history and respect repository conventions.
 
 ## Core Principles
 
-- **Non-interactive execution**: Commands must run without prompting. Never use interactive modes (`-i`, `--interactive`,
-  default editors).
-- **Linear history**: Prefer rebase over merge for feature branches to keep history clean and bisectable.
+- **Anti-Panic Mutation Ban (Desperation Guardrail)**: NEVER chain rapid-fire state-mutating Git commands
+  (e.g., forced commits, `git reset --hard`) as a blind fallback when a prior command fails.
+  If an operation fails unexpectedly, you MUST immediately halt state-mutation and execute purely
+  read-only diagnostic commands (`git status`, `git log`) to re-sync your mental model.
 - **Atomic changes**: Favor small, focused commits. Use amend/fixup patterns for corrections.
-- **Safety**: Never perform destructive operations without explicit reasoning and user confirmation.
-- **Hook handling**: Aim to satisfy pre-commit/pre-push hooks. Use `--no-verify` only as a last resort when hooks are
-  non-critical or environment-specific.
 - **Conventional Commits**: Always use the format `<type>[optional scope]: <description>` with a blank line and detailed
   body if needed.
+- **Hook handling**: Aim to satisfy pre-commit/pre-push hooks. Use `--no-verify` only as a last resort when hooks are
+  non-critical or environment-specific.
+- **Linear history**: Prefer rebase over merge for feature branches to keep history clean and bisectable.
+- **Non-interactive execution**: Commands must run without prompting. Never use interactive modes (`-i`, `--interactive`,
+  default editors).
+- **Safety**: Never perform destructive operations without explicit reasoning and user confirmation.
+- **Situational Awareness & OODA Loop Enforcer**: Before executing Git operations with side-effects (e.g. `git add`, `git commit`, `git rm`),
+  always verify your environmental context (e.g., checking `git status` or `pwd` to ensure you aren't inadvertently crossing submodule boundaries).
+  Observe and Orient using read-only commands to establish ground-truth before you Decide and Act.
 
 ## Non-Interactive Patterns
 
