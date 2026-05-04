@@ -17,7 +17,6 @@ Guidance for reviewing core architecture, documentation, and constraint files fo
 
 - Checking core architecture files (`*.mmd`, `*.mzn`) for consistency.
 - Reviewing documentation (`**/AGENTS.md`, `**/README.md`) for outdated references.
-- Validating that `CONSTRAINTS.mzn` aligns with `FLOWS.mmd` and agent definitions.
 
 ## Core Process
 
