@@ -39,6 +39,8 @@ Cogni AI capabilities loaded into the `.github/` directory.
 - **[context-aware-ops](context-aware-ops/SKILL.md)**: Intelligent resource management with size checking and filtering
 - **[docs-review](docs-review/SKILL.md)**: Enforce documentation quality, completeness, and mutual consistency
   across architecture, ADRs, runbooks, and code
+- **[docs-writer](docs-writer/SKILL.md)**: Create, update, and maintain documentation including Architectural Decision
+  Records (ADRs), runbooks, READMEs, and code-level documentation
 - **[fact-writer](fact-writer/SKILL.md)**: Guidance for writing, structuring, and maintaining verifiable project
   fact files without contradictions
 - **[gh](gh/SKILL.md)**: GitHub CLI (`gh`) operations for issues, pull requests, workflow runs, reviews, and API

@@ -23,6 +23,10 @@ and planned work into the current context:
 - **[docs-review](docs-review/SKILL.md)**:
   Enforce documentation quality, completeness, and mutual consistency across architecture, ADRs, runbooks, and code.
   You must load this skill when asked to review or check consistency of documentation.
+- **[docs-writer](docs-writer/SKILL.md)**:
+  Create, update, and maintain documentation including Architectural Decision Records (ADRs),
+  runbooks, READMEs, and code-level documentation.
+  You must load this skill when asked to write, document, or generate new documentation.
 - **[fact-writer](fact-writer/SKILL.md)**: Guidance for writing, structuring, and maintaining verifiable project
   fact files without contradictions.
   You must load this skill when managing canonical project fact files.

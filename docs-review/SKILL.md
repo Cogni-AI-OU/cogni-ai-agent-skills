@@ -11,16 +11,15 @@ license: MIT
 
 # Docs Review
 
-Guidance for reviewing core architecture, documentation, and constraint files for mutual consistency and accuracy. Use this skill when checking or updating repository documentation.
+Guidance for reviewing core architecture, documentation, and constraint files for mutual consistency and accuracy. Use this skill when checking repository documentation.
 
 ## When to Activate
 
 - Checking core architecture files (`*.mmd`, `*.mzn`) for consistency.
 - Reviewing documentation (`**/AGENTS.md`, `**/README.md`) for outdated references.
-- After any significant architectural decision to verify documentation.
-- When encountering complex code that future maintainers will question.
-- When an operational procedure isn't self-evident.
-- When a non-obvious tradeoff was made.
+- After any significant architectural decision to verify documentation exists and is accurate.
+- When encountering complex code to ensure it's properly documented.
+- When verifying an operational procedure or tradeoff.
 
 ## Core Process
 
@@ -35,53 +34,31 @@ Guidance for reviewing core architecture, documentation, and constraint files fo
    or outdated information are found. If all files are mutually consistent and up-to-date,
    do not make any edits—simply report back that the files are in order.
 
-## Architectural Decision Records (ADRs)
-
-Code explains what. Documentation explains why. The most valuable documentation records decisions that aren't obvious from reading the code: why this architecture, why this tradeoff, why not the obvious alternative.
-
-For every significant architectural decision, verify or write an ADR with:
-- **Context**: What was the situation requiring a decision?
-- **Decision**: What was decided?
-- **Alternatives considered**: What else was evaluated and why rejected?
-- **Consequences**: What are the positive and negative consequences?
-- **Status**: Proposed | Accepted | Deprecated | Superseded
+## Architectural Decision Records (ADRs) Verification
 
 **Verify:** Every significant decision has an ADR (typically stored in `docs/decisions/`).
 
-## Code-Level Documentation
-
-- Document the WHY, not the WHAT:
-  - ✅ `// Using exponential backoff here — the payment API has strict rate limits (3 req/sec)`
-  - ❌ `// Retry the request`
-- Document non-obvious algorithmic choices.
-- Document external constraints (rate limits, API quirks, platform limitations).
-- Remove comments that state the obvious — they add noise.
+## Code-Level Documentation Verification
 
 **Verify:** Every non-obvious code block has a "why" comment.
+**Verify:** Code-level comments don't state the obvious.
 
-## Runbooks
-
-For every production process that humans execute, verify or write a runbook:
-- When is this runbook used?
-- What steps to execute?
-- What does "done" look like?
-- What could go wrong and how to recover?
+## Runbooks Verification
 
 **Verify:** Every on-call alert has a linked runbook (typically stored in `docs/runbooks/`).
 
-## README Currency
+## README Currency Verification
 
-- README reflects current state (not v1 state).
-- Setup instructions work on a fresh machine.
-- Architecture diagrams are updated after significant changes.
+**Verify:** README reflects current state (not v1 state).
+**Verify:** Setup instructions work on a fresh machine.
+**Verify:** Architecture diagrams are up to date.
 
-## Subdirectory Agents (`AGENTS.md`)
+## Subdirectory Agents (`AGENTS.md`) Verification
 
-When a subdirectory contains specific functionality, workflows, or architectural patterns that require clarification, consider creating a dedicated `AGENTS.md` file within that folder.
-- Use this file to provide targeted instructions, constraints, and context for autonomous agents operating in that specific folder.
-- Ensure the local `AGENTS.md` aligns with the global repository invariants.
+**Verify:** Subdirectories with specific functionality have local `AGENTS.md` context files.
+**Verify:** Local `AGENTS.md` aligns with the global repository invariants.
 
-## Verification
+## Verification Checklist
 
 - [ ] ADRs written for significant architectural decisions
 - [ ] Non-obvious code blocks have "why" comments
