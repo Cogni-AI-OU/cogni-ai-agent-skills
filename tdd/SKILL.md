@@ -26,14 +26,15 @@ description: >-
 ## 1. Pre-Execution: Code Testability Audit
 
 Before writing test code, execute this mechanical audit on the target module:
+
 1. **Inversion of Control**: Identify if dependencies are hardcoded. If yes, extract them into constructor or method parameters before testing.
 2. **State Accessibility**: Locate internal state mutations. Determine if state can be verified through public APIs. If not, isolate the pure logic into a verifiable function.
 3. **Negative Space Matrix**: Generate a list of explicitly untested paths:
    - Error paths (exceptions thrown, null inputs)
    - Hidden boundaries (max lengths, 0 values)
    - Security input vectors (untrusted strings, out-of-bounds access)
-4. **Intent Documentation Check**: Ensure test names read as explicit behavioral specifications. 
-   - *Pattern*: `"returns 404 when user strictly lacks tenant access"` 
+4. **Intent Documentation Check**: Ensure test names read as explicit behavioral specifications.
+   - *Pattern*: `"returns 404 when user strictly lacks tenant access"`
    - *Anti-Pattern*: `"test_user_error"`
 
 ## 2. TDD Lifecycle Execution Protocol
@@ -41,28 +42,34 @@ Before writing test code, execute this mechanical audit on the target module:
 When instructed to address requirements or fix bugs, perform these exact steps:
 
 ### Step 2.1: Assert the Gap (Red)
-1. Write a strict, failing test *first*. 
-2. Execute the test suite. 
+
+1. Write a strict, failing test *first*.
+2. Execute the test suite.
 3. **Verification**: The test MUST fail. If it passes, the test is invalid or the test setup is flawed.
 
 ### Step 2.2: Dimensional Scaling
+
 Expand the failing test (or add new tests) to cover the following permutations:
+
 - **Happy Path**: The optimal flow.
 - **Boundary Conditions**: Edges of scale, min/max limits.
 - **Error Handling**: Graceful degradation, expected failure states.
 
 ### Step 2.3: Resolve the Gap (Green)
+
 1. Implement the minimal atomic code required to turn the failing test green.
 2. Do not add speculative features or abstract prematurely.
 3. Run the test suite: Verify the test now passes.
 
 ### Step 2.4: Optimize (Refactor)
+
 1. Restructure the implementation for readability, DRY (Don't Repeat Yourself), and adherence to architecture rules.
 2. Run the test suite: Verify the test still passes.
 
 ## 3. Signal Extraction & Execution Rules
 
 When executing test commands (e.g., `npm test`, `pytest`, `cargo test`):
+
 - **Filter Mass-Logs**: Do not output raw mass-logs to the user. Extract the exact stack trace and pinpoint the assertion violation locus.
 - **Flakiness Eradication**: If a test fails intermittently during standard runs, treat it as a hard failure. Identify the race condition or timeline dependency and patch the test harness.
 - **Non-Destructive Testing Check**: Ensure the test command runs in isolation. If testing databases, verify transactional rollbacks or tear-down commands are executed post-run.
@@ -96,4 +103,3 @@ Before concluding a test-engineering cycle, assert these completion invariant ga
 - [ ] **Lifecycle Adherence**: The strict Red-Green-Refactor phase progression was respected.
 - [ ] **Negative Space Verified**: Key edge cases (null injections, boundary limitations, empty states) are actively asserted.
 - [ ] **Zero-Defect Run**: 100% of tests pass consistently without flakiness.
-

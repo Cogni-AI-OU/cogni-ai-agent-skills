@@ -73,6 +73,9 @@ and planned work into the current context:
   You must load this skill when handling shell commands with performance monitoring or timeouts.
 - **[skill-writer](skill-writer/SKILL.md)**: Generate or update SKILL.md files for GitHub Copilot coding agents.
   You must load this skill when creating or updating GitHub Copilot skill files.
+- **[tdd](tdd/SKILL.md)**: Commands, step-by-step procedures, and mechanical execution for test engineering,
+  testability audits, and the TDD lifecycle.
+  You must load this skill when executing test tasks, designing tests, doing TDD, or verifying system behavior.
 - **[vim-ex](vim-ex/SKILL.md)**: Non-interactive file editing with Vim Ex mode (in favor of sed, shell or Python
   editing).
   You must load this skill when using Vim Ex mode for non-interactive file editing.
