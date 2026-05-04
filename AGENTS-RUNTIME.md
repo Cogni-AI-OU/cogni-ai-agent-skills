@@ -7,6 +7,9 @@ Persistent single-source truth for autonomous agent behavior.
 You must load the skills relevant to the user prompt, inferred intent,
 and planned work into the current context:
 
+- **[agent-log-analysis](agent-log-analysis/SKILL.md)**: Procedures and templates for analyzing agent session
+  logs, extracting telemetry, and generating standardized visual audit reports.
+  You must load this skill when auditing or analyzing autonomous agent log files.
 - **[ansible](ansible/SKILL.md)**: How to run and manage Ansible operations safely and prevent hangs.
   You must load this skill when working with the `ansible` command.
 - **[cat](cat/SKILL.md)**: Guidelines for safely using `cat` and avoiding shell hangs with heredocs.

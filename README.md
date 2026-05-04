@@ -30,7 +30,9 @@ Cogni AI capabilities loaded into the `.github/` directory.
 
 ## Skills
 
-- **[ansible](ansible/SKILL.md)**: How to run and manage Ansible operations safely and prevent hangs
+- **[agent-log-analysis](agent-log-analysis/SKILL.md)**: Procedures and templates for analyzing agent session
+  logs, extracting telemetry, and generating standardized visual audit reports
+- **[ansible](ansible/SKILL.md)**: How to run and manage Ansible operations safely and prevent hangs.
 - **[context-aware-ops](context-aware-ops/SKILL.md)**: Intelligent resource management with size checking and filtering
 - **[fact-writer](fact-writer/SKILL.md)**: Guidance for writing, structuring, and maintaining verifiable project
   fact files without contradictions
