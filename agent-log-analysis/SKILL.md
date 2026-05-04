@@ -57,15 +57,12 @@ The agent discovered a **[brief description of the core issue]**:
 
 #### A. Agent Radar Analysis
 
-Score the agent from 1 to 10 on the axes below and output a YAML data block:
-```yaml
-radar_data:
-  Task Completion: [1-10]
-  Protocol Compliance: [1-10]
-  Tool Proficiency: [1-10]
-  Self-Verification: [1-10]
-  Analytical Depth: [1-10]
-  Execution Efficiency: [1-10]
+Generate a `radar-beta` diagram to score the agent from 1 to 10 on core competencies:
+```mermaid
+radar-beta
+    title "Agent Performance Alignment"
+    axis Task_Completion, Protocol_Compliance, Tool_Proficiency, Self_Verification, Analytical_Depth, Execution_Efficiency
+    curve Agent {8, 9, 7, 8, 9, 7}
 ```
 
 #### B. Agent Execution Flow (Sequence Diagram)
@@ -89,12 +86,36 @@ Generate a Mermaid `journey` diagram of problem-solving friction.
 
 #### E. Agent Execution Alignment (Venn Diagram)
 
-Generate a Mermaid `venn-beta` diagram visualizing action alignment.
-- **Sets**: `Intent` (User Request), `Actions` (Agent Tool Calls), `Rules` (System Protocols).
-- **Intersection Labels**: Compliant, Unprompted, Hallucinated, etc.
+Generate a Mermaid `venn-beta` diagram visualizing action alignment. Ensure strings are properly delimited.
+```mermaid
+venn-beta
+    title "Action Alignment"
+    set Intent["User Request"]
+    set Actions["Agent Tool Calls"]
+    set Rules["System Protocols"]
+    
+    union Intent,Actions["Targeted Actions"]
+    union Intent,Rules["Expected Protocol"]
+    union Actions,Rules["Compliant Actions"]
+    union Intent,Actions,Rules["Perfect Execution"]
+```
 
 #### F. Root Cause & System Architecture (If Errors Occurred)
 
 If failures or bugs hit the agent, you MUST generate:
-1. **`ishikawa-beta`**: Evaluate branches (`Context & Prompts`, `Tools & Capabilities`, `Logic & Reasoning`, `Workflow & Protocols`, `Environment`).
+1. **`ishikawa-beta`**: Evaluate branches to find the root cause of the failure.
+```mermaid
+ishikawa-beta
+    Agent Failure Description
+    Context & Prompts
+        Missing instructions
+    Tools & Capabilities
+        Bash restricted
+    Logic & Reasoning
+        Hallucinated path
+    Workflow & Protocols
+        Skipped verification
+    Environment
+        Read-only repo
+```
 2. **`architecture-beta`**: Visualize mechanical boundaries to show where data dropped or the chain failed.
