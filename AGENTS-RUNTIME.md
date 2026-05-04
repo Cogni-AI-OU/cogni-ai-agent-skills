@@ -14,6 +14,9 @@ and planned work into the current context:
   You must load this skill when working with the `ansible` command.
 - **[cat](cat/SKILL.md)**: Guidelines for safely using `cat` and avoiding shell hangs with heredocs.
   You must load this skill before running `cat` command (especially with `EOF`).
+- **[code-tour](code-tour/SKILL.md)**: Create, update, and maintain VSCode CodeTour (.tour) JSON walkthrough files with
+  full schema compliance and interactive step configuration.
+  You must load this skill when creating or updating .tours/ files.
 - **[context-aware-ops](context-aware-ops/SKILL.md)**: Intelligent resource management with size checking and filtering
   to preserve context window.
   You must load this skill when managing large resources or context window limits.

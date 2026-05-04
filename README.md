@@ -33,6 +33,8 @@ Cogni AI capabilities loaded into the `.github/` directory.
 - **[agent-log-analysis](agent-log-analysis/SKILL.md)**: Procedures and templates for analyzing agent session
   logs, extracting telemetry, and generating standardized visual audit reports
 - **[ansible](ansible/SKILL.md)**: How to run and manage Ansible operations safely and prevent hangs.
+- **[code-tour](code-tour/SKILL.md)**: Create, update, and maintain VSCode CodeTour (.tour) JSON walkthrough files
+  with full schema compliance and interactive step configuration.
 - **[context-aware-ops](context-aware-ops/SKILL.md)**: Intelligent resource management with size checking and filtering
 - **[docs-review](docs-review/SKILL.md)**: Check core architecture and documentation files for mutual consistency
 - **[fact-writer](fact-writer/SKILL.md)**: Guidance for writing, structuring, and maintaining verifiable project

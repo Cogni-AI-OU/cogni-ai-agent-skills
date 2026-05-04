@@ -28,6 +28,7 @@ Expert guidance for creating and maintaining VSCode CodeTour files, providing st
 ## Usage Patterns
 
 ### Primary Tour Initialization
+
 ```json
 {
   "title": "1 - Getting Started",
@@ -43,6 +44,7 @@ Expert guidance for creating and maintaining VSCode CodeTour files, providing st
 ```
 
 ### Advanced Step Configuration
+
 ```json
 {
   "steps": [
