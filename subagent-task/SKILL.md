@@ -54,14 +54,14 @@ end
 flowchart TD
     Trigger{Task Requirement}
 
-    Trigger -->|Docs updated| Docs["docs-editor<br/>Review and update documentation"]
+    Trigger -->|Automation/CI/CD/IaC| DevOps["devops<br/>CI/CD and automation tasks"]
     Trigger -->|Complex task| Brain["brain-ops<br/>Brainstorm and architect plan"]
-    Trigger -->|Python needed| PyDev["python-dev<br/>Write and test Python code"]
+    Trigger -->|Docs updated| Docs["docs-editor<br/>Review and update documentation"]
     Trigger -->|GitHub writes| GHOps["github-ops<br/>Invoke GitHub write operations"]
     Trigger -->|Plan validation| PlanRev["plan-reviewer<br/>Validate plan plausibility"]
+    Trigger -->|Python needed| PyDev["python-dev<br/>Write and test Python code"]
     Trigger -->|Large diff| CodeRev["code-reviewer<br/>Final code quality review"]
     Trigger -->|Security audit| SecAud["security-auditor<br/>Perform deep security audit"]
-    Trigger -->|Automation/CI/CD| DevOps["devops<br/>CI/CD and automation tasks"]
 
     classDef scenario fill:#f9f,stroke:#333,stroke-width:2px;
     class Docs,Brain,PyDev,GHOps,PlanRev,CodeRev,SecAud,DevOps scenario
