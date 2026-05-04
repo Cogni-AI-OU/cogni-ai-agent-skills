@@ -1,7 +1,8 @@
 ---
 name: security-auditing
 description: >-
-  Commands, step-by-step procedures, and mechanical execution for performing deep security audits, vulnerability assessments, and threat modeling on codebases and configurations. You must load this skill when performing security audits or validation.
+  Commands, step-by-step procedures, and mechanical execution for performing deep security audits, vulnerability assessments, and threat modeling on codebases and configurations.
+  You must load this skill when performing security audits or validation.
 ---
 
 # Security Auditing Skill
@@ -41,7 +42,8 @@ Execute a rigorous, ordered security analysis against the target codebase by exa
 When a vulnerability is suspected or found:
 
 1. **Attack Scenario Formulation**: Define the specific vector and sequence of operations an attacker would use to abuse the flaw.
-2. **Blast-Radius Check**: Model the lateral movement achievable if the identified weakness is exploited. Determine if the component is isolated by strict privilege boundaries.
+2. **Blast-Radius Check**: Model the lateral movement achievable if the identified weakness is exploited.
+  Determine if the component is isolated by strict privilege boundaries.
 
 ## 4. Remediation Reporting
 
