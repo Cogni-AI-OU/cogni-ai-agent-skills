@@ -1,5 +1,5 @@
 ---
-name: security-auditing
+name: security-audit
 description: >-
   Commands, step-by-step procedures, and mechanical execution for performing deep security audits, vulnerability
   assessments, and threat modeling on codebases and configurations.

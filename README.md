@@ -64,7 +64,7 @@ Cogni AI capabilities loaded into the `.github/` directory.
 - **[pre-commit](pre-commit/SKILL.md)**: Using pre-commit to validate code formatting, linting, and security checks
 - **[robust-commands](robust-commands/SKILL.md)**: Resilient command execution with automatic
   fallbacks and error recovery
-- **[security-auditing](security-auditing/SKILL.md)**: Commands, step-by-step procedures, and mechanical execution for
+- **[security-audit](security-audit/SKILL.md)**: Commands, step-by-step procedures, and mechanical execution for
   performing deep security audits, vulnerability assessments, and threat modeling
 - **[shell](shell/SKILL.md)**: Efficient shell command execution with timing, timeouts, and best practices
 - **[skill-writer](skill-writer/SKILL.md)**: Generate or update SKILL.md files for GitHub Copilot coding agents
