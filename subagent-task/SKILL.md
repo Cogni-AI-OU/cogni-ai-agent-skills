@@ -1,6 +1,8 @@
 ---
 name: subagent-task
-description: Guidance and protocols for spawning sub-agents via the task tool to handle complex, multi-step, or parallelizable tasks.
+description: >-
+  Guidance and protocols for spawning sub-agents via the task tool to handle complex, multi-step, or parallelizable tasks.
+  Must be loaded when task for invoking sub-agents is available.
 ---
 
 # subagent-task
