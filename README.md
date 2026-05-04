@@ -37,7 +37,8 @@ Cogni AI capabilities loaded into the `.github/` directory.
 - **[code-tour](code-tour/SKILL.md)**: Create, update, and maintain VSCode CodeTour (.tour) JSON walkthrough files
   with full schema compliance and interactive step configuration.
 - **[context-aware-ops](context-aware-ops/SKILL.md)**: Intelligent resource management with size checking and filtering
-- **[docs-review](docs-review/SKILL.md)**: Check core architecture and documentation files for mutual consistency
+- **[docs-review](docs-review/SKILL.md)**: Enforce documentation quality, completeness, and mutual consistency
+  across architecture, ADRs, runbooks, and code
 - **[fact-writer](fact-writer/SKILL.md)**: Guidance for writing, structuring, and maintaining verifiable project
   fact files without contradictions
 - **[gh](gh/SKILL.md)**: GitHub CLI (`gh`) operations for issues, pull requests, workflow runs, reviews, and API

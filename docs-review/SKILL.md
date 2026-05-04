@@ -1,8 +1,8 @@
 ---
 name: docs-review
 description: >-
-  Check core architecture and documentation files for mutual consistency,
-  identifying contradictions, outdated references, and structural mismatches.
+  Enforce documentation quality, completeness, and mutual consistency across
+  architecture files, ADRs, runbooks, READMEs, and code-level documentation.
   You must load this skill when asked to review or check consistency of documentation (such as *.md/*.mmd files).
 license: MIT
 ---
