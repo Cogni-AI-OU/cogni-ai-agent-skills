@@ -34,6 +34,7 @@ Cogni AI capabilities loaded into the `.github/` directory.
   logs, extracting telemetry, and generating standardized visual audit reports
 - **[ansible](ansible/SKILL.md)**: How to run and manage Ansible operations safely and prevent hangs.
 - **[context-aware-ops](context-aware-ops/SKILL.md)**: Intelligent resource management with size checking and filtering
+- **[docs-review](docs-review/SKILL.md)**: Check core architecture and documentation files for mutual consistency
 - **[fact-writer](fact-writer/SKILL.md)**: Guidance for writing, structuring, and maintaining verifiable project
   fact files without contradictions
 - **[gh](gh/SKILL.md)**: GitHub CLI (`gh`) operations for issues, pull requests, workflow runs, reviews, and API
