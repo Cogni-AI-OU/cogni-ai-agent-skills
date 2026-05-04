@@ -41,6 +41,7 @@ subgraph Flow_Agent_Delegation ["Agent Delegation Protocol"]
     Arch -->|task tool| BrainOps[cogni-ai-brain-ops<br/>Gather facts, constraints, plan]
     Arch -->|task tool| GHOps[cogni-ai-github-ops<br/>Modify comments, issues, discussions]
     Arch -->|task tool| CodeRev[cogni-ai-code-reviewer<br/>PR analysis, quality, security]
+    Arch -->|task tool| SecAud_Arch[cogni-ai-security-auditor<br/>Expert deep security audit]
     Arch -->|task tool| PlanRev[cogni-ai-plan-reviewer<br/>Architectural & plan validation]
     Arch -->|task tool| Tester[cogni-ai-tester<br/>Execute tests, verify behavior]
     Arch -->|task tool| C7Ops[cogni-ai-context7-ops<br/>Retrieve & filter documentation]
@@ -59,9 +60,11 @@ flowchart TD
     Trigger -->|GitHub writes| GHOps["github-ops<br/>Invoke GitHub write operations"]
     Trigger -->|Plan validation| PlanRev["plan-reviewer<br/>Validate plan plausibility"]
     Trigger -->|Large diff| CodeRev["code-reviewer<br/>Final code quality review"]
+    Trigger -->|Security audit| SecAud["security-auditor<br/>Perform deep security audit"]
+    Trigger -->|Automation/CI/CD| DevOps["devops<br/>CI/CD and automation tasks"]
 
     classDef scenario fill:#f9f,stroke:#333,stroke-width:2px;
-    class Docs,Brain,PyDev,GHOps,PlanRev,CodeRev scenario
+    class Docs,Brain,PyDev,GHOps,PlanRev,CodeRev,SecAud,DevOps scenario
 ```
 
 ## Usage Patterns
