@@ -20,8 +20,8 @@ and planned work into the current context:
 - **[context-aware-ops](context-aware-ops/SKILL.md)**: Intelligent resource management with size checking and filtering
   to preserve context window.
   You must load this skill when managing large resources or context window limits.
-- **[docs-review](docs-review/SKILL.md)**: Enforce documentation quality, completeness, and mutual consistency
-  across architecture, ADRs, runbooks, and code.
+- **[docs-review](docs-review/SKILL.md)**:
+  Enforce documentation quality, completeness, and mutual consistency across architecture, ADRs, runbooks, and code.
   You must load this skill when asked to review or check consistency of documentation.
 - **[fact-writer](fact-writer/SKILL.md)**: Guidance for writing, structuring, and maintaining verifiable project
   fact files without contradictions.
