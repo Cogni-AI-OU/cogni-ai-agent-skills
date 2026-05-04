@@ -65,3 +65,7 @@ Guidance for reviewing core architecture, documentation, and constraint files fo
 - [ ] Every production alert has a linked runbook
 - [ ] README is current and setup instructions work
 - [ ] Subdirectories with specific functionality have local `AGENTS.md` context files
+
+## Related Skills
+
+- **docs-writer**: Guidance for writing and maintaining documentation.

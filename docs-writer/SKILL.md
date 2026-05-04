@@ -63,3 +63,7 @@ For every production process that humans execute, write a runbook:
 When a subdirectory contains specific functionality, workflows, or architectural patterns that require clarification, create a dedicated `AGENTS.md` file within that folder.
 - Use this file to provide targeted instructions, constraints, and context for autonomous agents operating in that specific folder.
 - Ensure the local `AGENTS.md` aligns with the global repository invariants.
+
+## Related Skills
+
+- **docs-review**: Guidance for reviewing and checking consistency of documentation.
