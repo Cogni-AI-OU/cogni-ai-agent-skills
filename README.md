@@ -33,6 +33,7 @@ Cogni AI capabilities loaded into the `.github/` directory.
 - **[agent-log-analysis](agent-log-analysis/SKILL.md)**: Procedures and templates for analyzing agent session
   logs, extracting telemetry, and generating standardized visual audit reports
 - **[ansible](ansible/SKILL.md)**: How to run and manage Ansible operations safely and prevent hangs.
+- **[cat](cat/SKILL.md)**: Guidelines for safely using `cat` and avoiding shell hangs with heredocs.
 - **[code-tour](code-tour/SKILL.md)**: Create, update, and maintain VSCode CodeTour (.tour) JSON walkthrough files
   with full schema compliance and interactive step configuration.
 - **[context-aware-ops](context-aware-ops/SKILL.md)**: Intelligent resource management with size checking and filtering
@@ -67,6 +68,9 @@ Cogni AI capabilities loaded into the `.github/` directory.
   performing deep security audits, vulnerability assessments, and threat modeling
 - **[shell](shell/SKILL.md)**: Efficient shell command execution with timing, timeouts, and best practices
 - **[skill-writer](skill-writer/SKILL.md)**: Generate or update SKILL.md files for GitHub Copilot coding agents
+- **[subagent-task](subagent-task/SKILL.md)**: Guidance and protocols for spawning sub-agents via the task tool.
+- **[tdd](tdd/SKILL.md)**: Commands, step-by-step procedures, and mechanical execution for test engineering,
+  testability audits, and the TDD lifecycle.
 - **[vim-ex](vim-ex/SKILL.md)**: Non-interactive file editing with Vim Ex mode (in favor of sed, shell
   or Python editing)
 
@@ -77,7 +81,7 @@ Cogni-AI-OU projects:
 
 ### Key Features
 
-- **[GitHub Actions Workflows](GitHub Actions Workflows)**: CI/CD and automation (OpenCode, pre-commit, etc.)
+- **[GitHub Actions Workflows](.github/workflows/)**: CI/CD and automation (OpenCode, pre-commit, etc.)
 - **AI Agent Configurations**: AGENTS.md and the skill directories in the repository root
 - **Coding Guidance**: Follow `.github/copilot-instructions.md` and the instructions stored within each skill directory
 - **Pre-commit Hooks**: Linting and validation tooling
