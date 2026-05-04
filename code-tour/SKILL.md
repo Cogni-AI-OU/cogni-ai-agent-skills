@@ -1,6 +1,8 @@
 ---
 name: code-tour
-description: Create, update, and maintain VSCode CodeTour (.tour) JSON walkthrough files with full schema compliance and interactive step configuration.
+description: >-
+  Create, update, and maintain VSCode CodeTour (.tour) JSON walkthrough files with full schema compliance and interactive step configuration.
+  You must load this skill when creating or updating .tours/ files.
 ---
 
 # Code Tour
