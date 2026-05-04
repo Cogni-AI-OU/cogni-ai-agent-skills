@@ -66,3 +66,34 @@ When executing test commands (e.g., `npm test`, `pytest`, `cargo test`):
 - **Filter Mass-Logs**: Do not output raw mass-logs to the user. Extract the exact stack trace and pinpoint the assertion violation locus.
 - **Flakiness Eradication**: If a test fails intermittently during standard runs, treat it as a hard failure. Identify the race condition or timeline dependency and patch the test harness.
 - **Non-Destructive Testing Check**: Ensure the test command runs in isolation. If testing databases, verify transactional rollbacks or tear-down commands are executed post-run.
+
+## 4. Anti-Rationalization Invariants
+
+Autonomous agents must strictly reject attempts to bypass the TDD lifecycle. Enforce these axiomatic rebuttals:
+
+- **Reject "I'll add tests after"**: Post-hoc tests validate implementation artifacts, not behavioral contracts. Tests MUST precede implementation.
+- **Reject "Integration tests are enough"**: High-level tests lack root-cause localization precision. Adhere strictly to the test pyramid; prioritize fast, isolated unit tests.
+- **Reject "This code is too simple to test"**: Simplicity is volatile. Un-tested code breaks silently during lifecycle evolution. Guarantee verifiable behavior through tests.
+- **Reject "We don't have time for TDD"**: Unverified code generates exponential debugging debt. Enforce TDD to compress the total verification timeline.
+
+## 5. Architectural Red Flags
+
+Halt execution and refactor if any of these conditions are detected:
+
+- Coverage metrics inflated by testing trivial auto-generated code (e.g., getters/setters).
+- Tests authored post-implementation.
+- Tests binding to internal implementation details (e.g., asserting private methods or raw DB schemas) rather than public API contracts.
+- Tests passing despite intentional fault-injection (indicates over-mocking or tautological assertions).
+- Verification restricted to "Happy Path" vectors, omitting negative space constraints.
+
+## 6. Final Assurance Gates
+
+Before concluding a test-engineering cycle, assert these completion invariant gates:
+
+- [ ] **Behavioral Specification**: Every test maps to a distinct, traceable business behavior.
+- [ ] **Contract-First**: Tests were explicitly authored prior to the implementation block (or concurrently for bug reproductions).
+- [ ] **Critical Path Coverage**: No blind spots remain in core execution invariants based on coverage analysis.
+- [ ] **Lifecycle Adherence**: The strict Red-Green-Refactor phase progression was respected.
+- [ ] **Negative Space Verified**: Key edge cases (null injections, boundary limitations, empty states) are actively asserted.
+- [ ] **Zero-Defect Run**: 100% of tests pass consistently without flakiness.
+
