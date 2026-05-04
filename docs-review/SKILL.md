@@ -69,3 +69,4 @@ Guidance for reviewing core architecture, documentation, and constraint files fo
 ## Related Skills
 
 - **docs-writer**: Guidance for writing and maintaining documentation.
+  You must load this skill when asked to write, document, or generate new documentation.
