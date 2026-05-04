@@ -145,7 +145,7 @@ jobs:
               owner: context.repo.owner,
               repo: context.repo.repo,
               body: `**Welcome**, new contributor!
-                Please make sure you've read our [contributing guide](CONTRIBUTING.md)
+                Please make sure you've read our [contributing guide](.github/CONTRIBUTING.md)
                 and we look forward to reviewing your Pull request shortly ✨`
             })
 ```

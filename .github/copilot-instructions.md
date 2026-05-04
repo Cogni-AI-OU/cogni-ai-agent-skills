@@ -15,8 +15,9 @@ Key contents:
 
 ### Getting started
 
-- Refer to the `README.md` in the project root for setup and installation instructions.
-- Check also `.tours/getting-started.tour` which provides a guided walkthrough of key project features and structure.
+- Refer to the [README.md](../README.md) in the project root for setup and installation instructions.
+- Check also [.tours/getting-started.tour](../.tours/getting-started.tour) which
+  provides a guided walkthrough of key project features and structure.
 
 ## Coding Standards
 

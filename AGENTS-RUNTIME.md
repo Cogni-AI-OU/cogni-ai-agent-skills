@@ -81,6 +81,8 @@ and planned work into the current context:
   You must load this skill when handling shell commands with performance monitoring or timeouts.
 - **[skill-writer](skill-writer/SKILL.md)**: Generate or update SKILL.md files for GitHub Copilot coding agents.
   You must load this skill when creating or updating GitHub Copilot skill files.
+- **[subagent-task](subagent-task/SKILL.md)**: Guidance and protocols for spawning sub-agents via the task tool.
+  You must load this skill when delegating complex tasks to sub-agents.
 - **[tdd](tdd/SKILL.md)**: Commands, step-by-step procedures, and mechanical execution for test engineering,
   testability audits, and the TDD lifecycle.
   You must load this skill when executing test tasks, designing tests, doing TDD, or verifying system behavior.
