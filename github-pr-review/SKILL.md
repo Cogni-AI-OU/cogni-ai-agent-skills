@@ -78,3 +78,5 @@ gh api repos/:owner/:repo/pulls/<pr-number>/comments
   Must be loaded when working with `gh pr` command.
 - **github**:
   Must be loaded when working with GitHub-specific features or web-based PR interactions.
+- **subagent-task**:
+  Must be loaded when working with other agents for completion of the review.
