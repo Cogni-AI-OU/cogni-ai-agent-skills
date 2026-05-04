@@ -2,8 +2,8 @@
 name: agent-log-analysis
 description: >-
   Procedures and templates for analyzing agent session logs, extracting telemetry, and generating
-  standardized visual audit reports. You must load this skill when auditing or analyzing autonomous
-  agent log files.
+  standardized visual audit reports.
+  You must load this skill when auditing or analyzing autonomous agent log files.
 ---
 
 # Agent Log Analysis & Reporting
