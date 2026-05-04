@@ -75,9 +75,16 @@ For every production process that humans execute, verify or write a runbook:
 - Setup instructions work on a fresh machine.
 - Architecture diagrams are updated after significant changes.
 
+## Subdirectory Agents (`AGENTS.md`)
+
+When a subdirectory contains specific functionality, workflows, or architectural patterns that require clarification, consider creating a dedicated `AGENTS.md` file within that folder.
+- Use this file to provide targeted instructions, constraints, and context for autonomous agents operating in that specific folder.
+- Ensure the local `AGENTS.md` aligns with the global repository invariants.
+
 ## Verification
 
 - [ ] ADRs written for significant architectural decisions
 - [ ] Non-obvious code blocks have "why" comments
 - [ ] Every production alert has a linked runbook
 - [ ] README is current and setup instructions work
+- [ ] Subdirectories with specific functionality have local `AGENTS.md` context files
