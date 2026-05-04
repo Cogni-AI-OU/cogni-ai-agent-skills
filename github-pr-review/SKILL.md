@@ -61,11 +61,12 @@ gh api repos/:owner/:repo/pulls/<pr-number>/comments
 
 ### 3. Agent Delegation
 
-For complex PRs, delegate specialized reviews to relevant project agents using the `task` tool to ensure thorough coverage:
+For a comprehensive PR review, delegate specialized reviews to relevant project agents
+using the `task` tool to ensure thorough coverage:
 
-- **Security Audit**: Delegate to `cogni-ai-security-auditor` for deep vulnerability tracing and threat modeling.
 - **Architectural Alignment**: Delegate to `cogni-ai-plan-reviewer` to validate structural changes against project patterns.
-- **Deep Code Quality**: Delegate to `cogni-ai-code-reviewer` for exhaustive idiomatic inspection and quality enforcement.
+- **Code Quality**: Delegate to `cogni-ai-code-reviewer` for exhaustive idiomatic inspection and quality enforcement.
+- **Security Audit**: Delegate to `cogni-ai-security-auditor` for deep vulnerability tracing and threat modeling.
 - **Verification**: Delegate to `cogni-ai-tester` to execute tests and verify edge-case behavior.
 
 ### 4. Verification
