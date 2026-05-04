@@ -47,6 +47,23 @@ subgraph Flow_Agent_Delegation ["Agent Delegation Protocol"]
 end
 ```
 
+## Example: Delegation Scenarios
+
+```mermaid
+flowchart TD
+    Trigger{Task Requirement}
+
+    Trigger -->|Docs updated| Docs["docs-editor<br/>Review and update documentation"]
+    Trigger -->|Complex task| Brain["brain-ops<br/>Brainstorm and architect plan"]
+    Trigger -->|Python needed| PyDev["python-dev<br/>Write and test Python code"]
+    Trigger -->|GitHub writes| GHOps["github-ops<br/>Invoke GitHub write operations"]
+    Trigger -->|Plan validation| PlanRev["plan-reviewer<br/>Validate plan plausibility"]
+    Trigger -->|Large diff| CodeRev["code-reviewer<br/>Final code quality review"]
+
+    classDef scenario fill:#f9f,stroke:#333,stroke-width:2px;
+    class Docs,Brain,PyDev,GHOps,PlanRev,CodeRev scenario
+```
+
 ## Usage Patterns
 
 - Always pass a clear `description` and a detailed `prompt` to the sub-agent.
