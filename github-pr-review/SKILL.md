@@ -20,17 +20,23 @@ Execute these checks systematically using `gh` and `git` tools:
 
 - **Discovery & Scope Alignment**:
   - **Branch State**: Verify if the PR branch is up-to-date with the base branch.
-  - **Comments Resolution**: Check for any existing unresolved comments or threads on the PR to ensure previous feedback has been integrated.
-  - **Metadata Accuracy**: Ensure PR Title follows conventions (Conventional Commits) and Description accurately reflects all changes.
+  - **Comments Resolution**: Check for any existing unresolved comments or threads on the PR to ensure previous feedback
+    has been integrated.
+  - **Metadata Accuracy**: Ensure PR Title follows Conventional Commits and Description accurately reflects all changes.
 - **Deep Code Inspection**:
   - **Atomic File Analysis**: Step through the diff file-by-file or component-by-component.
-  - **Code Hygiene**: Scan for temporary/debug statements (`console.log`, `print`, `TODO`, `FIXME`, debugger breakpoints) and unintended files (`.env`, logs).
-  - **Scope Control & Drive-by Prevention**: Ensure the PR does strictly what it claims. Flag any drive-by changes or unrelated refactoring that expand the PR's impact.
-  - **Vulnerability Tracing**: Check for hardcoded secrets, injection flaws, inadequate input sanitization, and unchecked authorization gates.
-  - **Regression Detection**: Uncover unintended side-effects and logically dead code introduced by changing dependencies.
+  - **Code Hygiene**: Scan for temporary/debug statements (`console.log`, `print`, `TODO`, `FIXME`, debugger breakpoints)
+    and unintended files (`.env`, logs).
+  - **Scope Control & Drive-by Prevention**: Ensure the PR does strictly what it claims. Flag any drive-by changes or
+    unrelated refactoring that expand the PR's impact.
+  - **Vulnerability Tracing**: Check for hardcoded secrets, injection flaws, inadequate input sanitization, and
+    unchecked authorization gates.
+  - **Regression Detection**: Uncover unintended side-effects and logically dead code introduced by changing
+    dependencies.
 - **Verification & Merge Readiness**:
   - **Build & CI Status**: Verify that all CI/CD checks (status checks) are passing.
-  - **Test-Driven Audit**: Validate that adequate unit and integration tests accompany the changed vectors. Flag tested edge cases that were overlooked.
+  - **Test-Driven Audit**: Validate that adequate unit and integration tests accompany the changed vectors. Flag
+    untested edge cases that were overlooked.
   - **Mergeability**: Check mergeability status for conflicts.
 
 ## Workflow Execution
