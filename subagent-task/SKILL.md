@@ -72,3 +72,4 @@ flowchart TD
 - Always pass a clear `description` and a detailed `prompt` to the sub-agent.
 - Provide the `subagent_type` argument to match the desired role. Ensure you check your available tools dynamically to find the currently supported list of project-specific agents rather than relying on a hardcoded list, as this functionality exists and is strongly recommended to be utilized for more specialized agents for relevant context.
 - Ensure the primary agent acts as a coordinator, processing the `task_result` from each sub-agent before continuing the plan.
+- If a sub-agent misbehaves (e.g., returning an unexpected reply) or fails to meet expectations, report this issue to the user with a clear explanation.
