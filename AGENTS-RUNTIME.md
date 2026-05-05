@@ -88,6 +88,8 @@ and planned work into the current context.
   You must load this skill when addressing constraint satisfaction or combinatorial problems using MiniZinc.
 - **[molecule](molecule/SKILL.md)**: Molecule testing workflows for Ansible roles.
   You must load this skill when running or managing Molecule tests for Ansible.
+- **[opencode](opencode/SKILL.md)**: Manage OpenCode configuration, credentials, and access the OpenCode Zen API.
+  You must load this skill when working with OpenCode configuration or listing models.
 - **[pdf](pdf/SKILL.md)**: PDF file inspection, object-level editing, and lossless size reduction.
   You must load this skill when inspecting, editing, or optimizing PDF files.
 - **[pre-commit](pre-commit/SKILL.md)**: Using pre-commit to validate code formatting, linting, and security checks.

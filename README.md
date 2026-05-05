@@ -63,6 +63,7 @@ Cogni AI capabilities loaded into the `.github/` directory.
 - **[mermaid-beta](mermaid-beta/SKILL.md)**: Guide for creating and maintaining experimental Mermaid.js beta diagrams
 - **[minizinc](minizinc/SKILL.md)**: Expert MiniZinc modeling for constraint satisfaction and combinatorial problems
 - **[molecule](molecule/SKILL.md)**: Molecule testing workflows for Ansible roles
+- **[opencode](opencode/SKILL.md)**: Manage OpenCode configuration, credentials, and access the OpenCode Zen API
 - **[pdf](pdf/SKILL.md)**: PDF file inspection, object-level editing, and lossless size reduction
 - **[pre-commit](pre-commit/SKILL.md)**: Using pre-commit to validate code formatting, linting, and security checks
 - **[robust-commands](robust-commands/SKILL.md)**: Resilient command execution with automatic
