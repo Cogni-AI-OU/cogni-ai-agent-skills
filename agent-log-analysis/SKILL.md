@@ -111,12 +111,13 @@ Generate a Mermaid `pie` diagram to visualize the relative frequency of tool cal
 
 ```mermaid
 pie title Tool Call Distribution
-    "Glob" : 1
-    "Read" : 2
-    "Shell" : 3
-    "Skill" : 4
-    "Task" : 5
-    "Todo" : 1
+    "glob" : 1
+    "read" : 2
+    "shell" : 3
+    "skill" : 4
+    "task" : 5
+    "todo" : 1
+    "webfetch": 1
 ```
 
 **Command Utilization Pie Chart**
@@ -138,21 +139,23 @@ and their key parameters or sub-commands executed during the session.
 ```mermaid
 mindmap
   root((Tools))
-    Glob
+    glob
       pattern
-    Read
+    read
       filePath
-    Shell
+    shell
       command
         gh
         grep
-    Skill
+    skill
       gh-run
       git
-    Task
+    task
       subagent_type
         brain-ops
-    Todo
+    todo
+    webfetch
+      url
 ```
 
 #### C. Agent Execution Flow (Sequence Diagram)
