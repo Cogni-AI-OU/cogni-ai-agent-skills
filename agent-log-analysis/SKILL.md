@@ -141,7 +141,7 @@ mindmap
 Generate a Mermaid `sequenceDiagram` visualizing chronological actions.
 
 - **Participants**: `Workflow`, `Agent`, `[Sub-Agent]`, `Tools`, `FileSystem`, `GitHub`
-- **Focus**: Initialization, Context Gathering, Agent Interactions (e.g., Task/delegation calls), Execution, Verification.
+- **Focus**: Initialization, Skill Loading, Context Gathering, Agent Interactions (e.g., Task/delegation calls), Execution, Verification.
 
 Example showing sub-agent interaction:
 
@@ -155,6 +155,7 @@ sequenceDiagram
     participant T as Tools
 
     W->>A: Start Task
+    A->>T: Load Skills
     A->>T: Search Context
     T-->>A: Results
     A->>B: Delegate Architecture Plan
