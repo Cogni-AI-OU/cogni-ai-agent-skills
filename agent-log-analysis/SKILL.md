@@ -118,6 +118,7 @@ pie title Tool Call Distribution
     "Task" : 5
     "Todo" : 1
     "Webfetch": 1
+    "Write": 1
 ```
 
 Note: Include only high level tool names without actual commands.
