@@ -30,12 +30,19 @@ When analyzing logs, specifically identify any external artifacts created or mod
 - **Issues**: Look for "Created issue #<number>", "gh issue create" success messages, or comments.
 - **Commits/Branches**: Look for "git push", "Pushed to <branch>", or commit SHA references.
 
-## 3. Standardized Reporting Structure
+## 3. Skill Loading Analysis
+
+When analyzing logs, verify the skill loading process:
+- **Skill Discovery**: Identify which skills the agent attempted to load (e.g., `skill` tool calls).
+- **Loading Success**: Confirm if the skills were successfully loaded into the context.
+- **Missing Skills**: Identify if the agent failed to load a skill that was clearly relevant to the task.
+
+## 4. Standardized Reporting Structure
 
 You MUST systematically output your findings adhering to this strict standardized structure.
 Do not invent new structures or deviate from these templates.
 
-### 3.1 Text Report (Markdown)
+### 4.1 Text Report (Markdown)
 
 ```markdown
 #### Brief
@@ -63,6 +70,7 @@ project's initialization and verification workflows.
 
 #### Key Actions & Decisions
 
+* **Skill Loading:** [List the skills loaded and their relevance to the task.]
 * **Context Gathering:** [How did the agent acquire necessary information?]
 * **Agent Interactions:** [List any sub-agents called and their purpose (e.g., Architect -> Brain Ops).]
 * **Task/Workflow Management:** [How did it track progress?]
@@ -91,7 +99,7 @@ The agent discovered a **[brief description of the core issue]**:
 
 Note: The Text Report must be output as direct Markdown; do not wrap the resulting report in an outer code block.
 
-### 3.2 Comprehensive Visual Audit Suite (Mermaid & Data)
+### 4.2 Comprehensive Visual Audit Suite (Mermaid & Data)
 
 #### A. Agent Tool Utilization (Pie Chart)
 
