@@ -171,3 +171,21 @@ jobs:
               true*: allow
               vim*: allow
           prompt: ${{ inputs.prompt || '' }}
+  summary:
+    name: Generate Summary (post-run)
+    needs: opencode-agent
+    if: always() && needs.opencode-agent.result != 'skipped'
+    runs-on: ubuntu-latest
+    permissions:
+      actions: read
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - name: Generate Summary
+        uses: Cogni-AI-OU/cogni-ai-agent-action/ai-inference/summary@main
+        with:
+          agent_job_id: opencode-agent
+          github_token: ${{ secrets.GITHUB_TOKEN }}
