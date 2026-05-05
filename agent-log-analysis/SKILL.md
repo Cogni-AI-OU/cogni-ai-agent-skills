@@ -248,17 +248,20 @@ treeView-beta
 #### H. Agent Task Board (Kanban)
 
 Generate a Mermaid `kanban` diagram to visualize the task board and tracking state.
-Column headers SHOULD include status metadata. To avoid breaking Mermaid syntax, DO NOT use structural characters like
+Column headers SHOULD include status metadata. This MUST be based on the actual `todos` found in the agent session logs (e.g., from `todowrite` tool calls or explicit task tracking), not invented tasks.
+To avoid breaking Mermaid syntax, DO NOT use structural characters like
 `{}`, `[]`, `()`, `<`, or `>` in labels.
+
+**Agent Task Board**
 
 ```mermaid
 kanban
-  Todo - Status: completed
+  Todo - Status: pending
     [Create Documentation]
     docs[Create Blog about the new diagram]
   In Progress - Status: in_progress
     id6[Create renderer for all cases]
-  Ready for Deploy - Status: pending
+  Completed - Status: completed
     id8[Design grammar]@{ assigned: 'agent' }
 ```
 
