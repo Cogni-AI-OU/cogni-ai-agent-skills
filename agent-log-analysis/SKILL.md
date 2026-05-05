@@ -120,6 +120,8 @@ pie title Tool Call Distribution
     "webfetch": 1
 ```
 
+Note: Include only high level tool names without actual commands.
+
 **Command Utilization Pie Chart**
 
 ```mermaid
@@ -128,6 +130,8 @@ pie title Command Call Distribution
     "gh" : 2
     "ls" : 3
 ```
+
+Note: Include only actual bash tool commands.
 
 #### B. Agent Tool Usage Mindmap
 
