@@ -259,6 +259,7 @@ kanban
   Todo - Status: pending
     [Create Documentation]
     docs[Create Blog about the new diagram]
+    id4[Create parsing tests]@{ ticket: 2038, assigned: 'K.Sveidqvist', priority: 'High' }
   In Progress - Status: in_progress
     id6[Create renderer for all cases]
   Completed - Status: completed
