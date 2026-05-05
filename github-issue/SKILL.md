@@ -58,8 +58,6 @@ Check `github.event_name` and payload to identify trigger source:
   remote branch to persist.
 - **Restricted Command Allowlist**: You are operating in a highly restricted shell environment where arbitrary
   commands are denied by default. Only explicitly allowed tools can be invoked.
-- **Native Tool Calling ONLY**: When executing tools (including the `skill` tool, `bash`, or others), you MUST use the native tool calling mechanism provided by your environment. NEVER emit literal text strings like `[tool_call: ...]` or write out your intended tool calls as plain text in your response.
-- **Parallel Tool Calls**: If you need to load multiple skills or call multiple tools, invoke the native tool call for each tool independently in the same turn. Do not write pseudo-code or text blocks mimicking tool calls.
 
 ### General Safety
 
