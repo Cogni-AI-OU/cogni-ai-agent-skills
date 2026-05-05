@@ -148,7 +148,8 @@ gh api repos/<owner>/<repo>/actions/jobs/<job_id>
 
 When working with GitHub Actions build logs and investigating issues:
 
-- **Shallow clones**: GitHub Actions often checks out repositories as shallow clones (limited history). See the `git` skill for detection and unshallowing procedures.
+- **Shallow clones**: GitHub Actions often checks out repositories as shallow clones (limited history).
+  See the `git` skill for detection and unshallowing procedures.
 - **Commits from other PRs/branches**: If a commit isn't found, it may be from a different PR or branch
   - Search all branches: `git log --all --oneline | grep <commit-sha>`
   - Fetch specific PR: `git fetch origin pull/<pr-number>/head:pr-<pr-number>`
