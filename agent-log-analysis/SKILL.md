@@ -73,7 +73,7 @@ project's initialization and verification workflows.
 
 * **Execution Time:** [Total time taken]
 * **Steps Taken:** [Number of steps]
-* **Tool Calls:** [Total number of tool calls]
+* **Tool Calls:** [Total number of tool calls] ([Tool1]: [N], [Tool2]: [M], ...)
 * **Tokens Used:** [Optional: total tokens if available]
 
 #### Root Cause Identified (If Applicable)
