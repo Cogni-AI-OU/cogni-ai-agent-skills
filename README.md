@@ -190,12 +190,17 @@ YAML frontmatter:
 
 ```markdown
 ---
-name: my-skill-name
-description: Brief description of when Copilot should use this skill
+name: github-pr-review
+description: >-
+  Provides expert review for GitHub Pull Requests, focusing on code quality,
+  security, and adherence to project conventions.
+  You must load this skill when reviewing or auditing a PR.
 license: MIT
 ---
 
-Instructions for Copilot to follow when this skill is activated.
+# GitHub PR Review
+
+Follow these instructions to perform a high-quality PR review...
 ```
 
 ##### SKILL.md frontmatter

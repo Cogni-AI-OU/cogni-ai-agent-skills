@@ -75,6 +75,29 @@ using the `task` tool to ensure thorough coverage:
 - Perform a "Design-It-Twice" comparison if the PR implements a complex architectural change.
 - Synthesize results from delegated agents (if any) into the final review summary.
 
+## Review Summary Template
+
+When providing a final review summary, use this structured format:
+
+```markdown
+/review
+The review for PR #<number> "<title>" is complete.
+
+### **Summary of Analysis**
+<1-2 sentences summarizing the overall impact and quality.>
+
+*   **<Category>**: <Brief description of improvement or issue.>
+*   **<Category>**: <Brief description of improvement or issue.>
+
+### **Key Recommendations**
+1.  **<Issue>**: <Description of issue and recommended fix.>
+2.  **<Observation>**: <Note about code pattern or future improvement.>
+
+The PR is <approved/requested changes> and ready for <merging/further work>.
+
+**Final Workspace Status:** Clean.
+```
+
 ## What to Avoid
 
 - **Blanket Approvals**: Never approve without verifying EVERY checkpoint.

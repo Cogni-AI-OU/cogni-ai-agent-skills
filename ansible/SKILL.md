@@ -33,3 +33,26 @@ This is useful for identifying slow tasks and optimizing your automation.
   [defaults]
   callbacks_enabled = ansible.posix.profile_tasks
   ```
+
+## Best Practices
+
+### Idempotency and Changed State
+
+When using the `shell` or `command` modules, Ansible cannot automatically determine if a change was made.
+Always use `creates` or `removes` to ensure idempotency:
+
+```yaml
+- name: Install custom tool
+  command: /usr/local/bin/install_tool.sh
+  args:
+    creates: /usr/local/bin/custom_tool
+```
+
+Alternatively, use `changed_when` to manually control the task status:
+
+```yaml
+- name: Check if tool is up to date
+  command: /usr/local/bin/custom_tool --version
+  register: tool_version
+  changed_when: "'1.2.3' not in tool_version.stdout"
+```

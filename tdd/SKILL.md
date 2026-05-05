@@ -96,3 +96,38 @@ Before concluding a test-engineering cycle, assert these completion invariant ga
 - [ ] **Lifecycle Adherence**: The strict Red-Green-Refactor phase progression was respected.
 - [ ] **Negative Space Verified**: Key edge cases (null injections, boundary limitations, empty states) are actively asserted.
 - [ ] **Zero-Defect Run**: 100% of tests pass consistently without flakiness.
+
+## Examples
+
+### Practical TDD: Adding an Email Validator
+
+**1. Red (Failing Test)**
+```python
+def test_email_validation_rejects_invalid_format():
+    # Behavioral Spec: Should return False for emails without '@'
+    assert validate_email("invalid-email") is False
+```
+
+**2. Green (Minimal Implementation)**
+```python
+def validate_email(email: str) -> bool:
+    return "@" in email
+```
+
+**3. Scaling (More Tests)**
+```python
+def test_email_validation_rejects_missing_domain():
+    assert validate_email("user@") is False
+
+def test_email_validation_accepts_valid_email():
+    assert validate_email("user@example.com") is True
+```
+
+**4. Refactor (Optimized Implementation)**
+```python
+import re
+
+def validate_email(email: str) -> bool:
+    pattern = r"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
+    return bool(re.match(pattern, email))
+```

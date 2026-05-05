@@ -49,6 +49,28 @@ Structure the file exactly as:
    - `## Limitations`
    - `## Related Skills`
 
+## Examples
+
+### Example: Practical SKILL.md for Ansible
+
+```markdown
+---
+name: ansible-expert
+description: >-
+  Provides expert-level Ansible automation guidance, focusing on idempotency,
+  security, and performance optimization.
+  You must load this skill when writing or refactoring Ansible playbooks or roles.
+license: MIT
+---
+
+# Ansible Expert
+
+## Core Principles
+- **Idempotency**: Ensure every task can run multiple times without changing the result.
+- **Security**: Never hardcode secrets; use `ansible-vault` or environment variables.
+...
+```
+
 ## Writing Style & Philosophy
 
 - Write dense, imperative, expert-level instructions assuming ninja proficiency.
