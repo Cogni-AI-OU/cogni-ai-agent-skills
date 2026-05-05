@@ -81,6 +81,7 @@ project's initialization and verification workflows.
 
 * **Execution Time:** [Total time taken]
 * **Steps Taken:** [Number of steps]
+* **Total Tasks:** [Total number of tasks (from todos)]
 * **Tool Calls:** [Total number of tool calls] ([Tool1]: [N], [Tool2]: [M], ...)
 * **Tokens Used:** [Optional: total tokens if available]
 
@@ -268,9 +269,10 @@ kanban
     docs[Create file with the new diagram]
     id4[Create parsing tests]@{ ticket: 2038, assigned: 'agent', priority: 'High' }
   In Progress - Status: in progress
-    id6[Create renderer for all cases]
+    id6[Create renderer for all cases]@{ ticket: 2039, priority: 'Medium' }
   Completed - Status: completed
     id8[Design grammar]@{ assigned: 'agent' }
+    id9[Verify environment]@{ ticket: 2040, assigned: 'agent' }
 ```
 
 #### I. Agent Cognitive & Execution Loop (State Diagram)
