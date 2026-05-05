@@ -119,6 +119,15 @@ pie title Tool Call Distribution
     "Todo" : 1
 ```
 
+**Command Utilization Pie Chart**
+
+```mermaid
+pie title Command Call Distribution
+    "git" : 1
+    "gh" : 2
+    "ls" : 3
+```
+
 #### B. Agent Tool Usage Mindmap
 
 Generate a Mermaid `mindmap` visualizing the hierarchy of tools
