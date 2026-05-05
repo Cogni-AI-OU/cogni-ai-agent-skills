@@ -111,13 +111,13 @@ Generate a Mermaid `pie` diagram to visualize the relative frequency of tool cal
 
 ```mermaid
 pie title Tool Call Distribution
-    "glob" : 1
-    "read" : 2
-    "shell" : 3
-    "skill" : 4
-    "task" : 5
-    "todo" : 1
-    "webfetch": 1
+    "Glob" : 1
+    "Read" : 2
+    "Shell" : 3
+    "Skill" : 4
+    "Task" : 5
+    "Todo" : 1
+    "Webfetch": 1
 ```
 
 Note: Include only high level tool names without actual commands.
@@ -143,22 +143,22 @@ and their key parameters or sub-commands executed during the session.
 ```mermaid
 mindmap
   root((Tools))
-    glob
+    Glob
       pattern
-    read
+    Read
       filePath
-    shell
+    Shell
       command
         gh
         grep
-    skill
+    Skill
       gh-run
       git
-    task
+    Task
       subagent_type
         brain-ops
-    todo
-    webfetch
+    Todo
+    Webfetch
       url
 ```
 
