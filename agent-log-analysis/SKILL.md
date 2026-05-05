@@ -94,6 +94,7 @@ The agent discovered a **[brief description of the core issue]**:
 * **[Issue / None]:** [Describe any tool failures or explicitly state "None".]
 
 #### Recommendation Provided (Optional)
+
 [Summarize any recommendations]
 ```
 
