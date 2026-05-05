@@ -150,7 +150,7 @@ When working with GitHub Actions build logs and investigating issues:
 
 - **Shallow clones**: GitHub Actions often checks out repositories as shallow clones (limited history)
   - Detect: `git rev-parse --is-shallow-repository` or `test -f .git/shallow`
-  - Fix: `git fetch --unshallow` to retrieve complete history
+  - Fix: `git fetch --unshallow origin <current-branch>` to retrieve complete history for the current branch, then fetch target branches if needed (`git fetch origin <target-branch>`). Avoid using just `git fetch --unshallow` as it may fail or be incomplete depending on remote configurations in CI.
 - **Commits from other PRs/branches**: If a commit isn't found, it may be from a different PR or branch
   - Search all branches: `git log --all --oneline | grep <commit-sha>`
   - Fetch specific PR: `git fetch origin pull/<pr-number>/head:pr-<pr-number>`

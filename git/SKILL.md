@@ -72,7 +72,7 @@ GitHub Actions and other CI environments often check out repositories as shallow
 - **Detect shallow clone**:
   - `test -f .git/shallow && echo "Shallow clone" || echo "Full clone"`
   - `git rev-parse --is-shallow-repository` (outputs `true` or `false`)
-- **Unshallow repository**: `git fetch --unshallow` (retrieves complete history)
+- **Unshallow repository**: `git fetch --unshallow origin <current-branch>` (retrieves complete history for the current branch). Then fetch target branches if needed (e.g., `git fetch origin <target-branch>`). Avoid using just `git fetch --unshallow` as it may fail or be incomplete in CI environments.
 - **Find commits not in current branch**:
   - Check if commit exists: `git cat-file -e <commit-sha> 2>/dev/null && echo "Exists" || echo "Not found"`
   - Search across all branches: `git log --all --oneline | grep <commit-sha-prefix>`
