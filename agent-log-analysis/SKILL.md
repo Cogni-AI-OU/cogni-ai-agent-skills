@@ -23,12 +23,19 @@ Raw logs from GitHub runs can be filtered by:
 awk '/PROMPT:/,/Post job cleanup/ { $1=""; print substr($0,2) }'
 ```
 
-## 2. Standardized Reporting Structure
+## 2. Artifact Extraction
+
+When analyzing logs, specifically identify any external artifacts created or modified:
+- **Pull Requests**: Look for "Created PR #<number>", "Creating pull request...", or "gh pr create" success messages.
+- **Issues**: Look for "Created issue #<number>", "gh issue create" success messages, or comments.
+- **Commits/Branches**: Look for "git push", "Pushed to <branch>", or commit SHA references.
+
+## 3. Standardized Reporting Structure
 
 You MUST systematically output your findings adhering to this strict standardized structure.
 Do not invent new structures or deviate from these templates.
 
-### 2.1 Text Report (Markdown)
+### 3.1 Text Report (Markdown)
 
 ```markdown
 #### Brief
@@ -49,6 +56,10 @@ project's initialization and verification workflows.
 * **Primary Task:** [What was the agent explicitly instructed to do?]
 * **Workflow Compliance:** [Did the agent load the necessary constraints, flows, and instructions?]
 * **Conclusion:** [What was the final state?]
+
+#### Produced Artifacts
+
+* **[Artifact Type]:** [Link/Reference, e.g., Pull Request #179, Issue #42, or commit `deadbeef`]
 
 #### Key Actions & Decisions
 
@@ -80,7 +91,7 @@ The agent discovered a **[brief description of the core issue]**:
 
 Note: The Text Report must be output as direct Markdown; do not wrap the resulting report in an outer code block.
 
-### 2.2 Comprehensive Visual Audit Suite (Mermaid & Data)
+### 3.2 Comprehensive Visual Audit Suite (Mermaid & Data)
 
 #### A. Agent Tool Utilization (Pie Chart)
 
