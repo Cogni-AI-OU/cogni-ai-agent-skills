@@ -58,28 +58,28 @@ project's initialization and verification workflows.
 * **Trigger Source:** [e.g., GitHub issue comment, manual workflow run]
 * **Prompt Summary:** [Brief summary of the input prompt/trigger.]
 
-#### Session Summary
-
-* **Primary Task:** [What was the agent explicitly instructed to do?]
-* **Workflow Compliance:** [Did the agent load the necessary constraints, flows, and instructions?]
-* **Conclusion:** [What was the final state?]
-
-#### Produced Artifacts
-
-* **[Artifact Type]:** [Link/Reference, e.g., Pull Request #179, Issue #42, or commit `deadbeef`]
-
 #### Key Actions & Decisions
 
-* **Skill Loading:** [List the skills loaded and their relevance to the task.]
 * **Context Gathering:** [How did the agent acquire necessary information?]
 * **Agent Interactions:** [List any sub-agents called and their purpose (e.g., Architect -> Brain Ops).]
 * **Task/Workflow Management:** [How did it track progress?]
 * **Execution / Tracing:** [What were the core actions taken?]
 * **Self-Verification:** [Did it verify the environment state?]
 
+#### Produced Artifacts
+
+* **[Artifact Type]:** [Link/Reference, e.g., Pull Request #179, Issue #42, or commit `deadbeef`]
+
+#### Session Summary
+
+* **Primary Task:** [What was the agent explicitly instructed to do?]
+* **Workflow Compliance:** [Did the agent load the necessary constraints, flows, and instructions?]
+* **Conclusion:** [What was the final state?]
+
 #### Session Telemetry
 
 * **Execution Time:** [Total time taken]
+* **Total Skills:** [Number of skills loaded] ([List of skills loaded])
 * **Steps Taken:** [Number of steps]
 * **Total Tasks:** [Total number of tasks (from todos)]
 * **Tool Calls:** [Total number of tool calls] ([Tool1]: [N], [Tool2]: [M], ...)
@@ -90,9 +90,10 @@ project's initialization and verification workflows.
 The agent discovered a **[brief description of the core issue]**:
 1. **[Step 1]**: [Description]
 
-#### Issues Encountered
+#### Issues/Limitations Encountered
 
-* **[Issue / None]:** [Describe any tool failures or explicitly state "None".]
+* **[Issue / None]:** [Describe any tool failures or explicitly state "None"]
+* **[Limitation / None]:** [Describe any failures due to access or environent limitations]
 
 #### Recommendation Provided (Optional)
 
@@ -105,7 +106,7 @@ Note: The Text Report must be output as direct Markdown; do not wrap the resulti
 
 #### A. Agent Tool Utilization (Pie Chart)
 
-Generate a Mermaid `pie` diagram to visualize the relative frequency of tool calls.
+Generate the following Mermaid `pie` diagrams to visualize the relative frequency of tool and command calls.
 
 **Tool Utilization Pie Chart**
 
@@ -168,7 +169,8 @@ mindmap
 Generate a Mermaid `sequenceDiagram` visualizing chronological actions.
 
 - **Participants**: `Workflow`, `Agent`, `[Sub-Agent]`, `Tools`, `FileSystem`, `GitHub`
-- **Focus**: Initialization, Skill Loading, Context Gathering, Agent Interactions (e.g., Task/delegation calls), Execution, Verification.
+- **Focus**: Initialization, Skill Loading, Context Gathering, Agent Interactions
+  (e.g., Task/delegation calls), Execution, Verification.
 
 Example showing sub-agent interaction:
 
