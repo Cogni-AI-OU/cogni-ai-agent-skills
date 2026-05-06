@@ -93,7 +93,7 @@ The agent discovered a **[brief description of the core issue]**:
 #### Issues/Limitations Encountered
 
 * **[Issue / None]:** [Describe any tool failures or explicitly state "None"]
-* **[Limitation / None]:** [Describe any failures due to access or environent limitations]
+* **[Limitation / None]:** [Describe any failures due to access or environment limitations]
 
 #### Recommendation Provided (Optional)
 
