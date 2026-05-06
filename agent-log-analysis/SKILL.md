@@ -344,7 +344,27 @@ Generate a Mermaid `stateDiagram-v2` modeling the internal state machine.
 - **States**: `Initializing`, `ContextGathering`, `Executing`, `ErrorRecovery`, `Verifying`.
 - **Transitions**: Explain *why* the agent moved states (e.g., "Syntax Error Detected").
 
-#### J. Agent Radar Analysis
+#### J. Agent Performance Quadrant
+
+Generate a `quadrantChart` to visualize agent performance across tasks:
+
+```mermaid
+quadrantChart
+    title Agent Task Analysis
+    x-axis Low Efficiency --> High Efficiency
+    y-axis Low Accuracy --> High Accuracy
+    quadrant-1 Elite
+    quadrant-2 Methodical
+    quadrant-3 Struggling
+    quadrant-4 Careless
+    "Refactor": [0.3, 0.8]
+    "Bug Fix": [0.6, 0.9]
+    "Doc Update": [0.9, 0.7]
+    "Feature": [0.2, 0.4]
+    "Test": [0.8, 0.2]
+```
+
+#### K. Agent Radar Analysis
 
 Generate a `radar-beta` diagram to score the agent from 1 to 10 on core competencies:
 
