@@ -351,6 +351,7 @@ represent stages and cards to represent individual work items.
 - Use `kanban` to initialize the diagram type.
 - Define columns by writing the column name directly (e.g., `Todo`, `Done`).
 - Add tasks underneath their corresponding column using square brackets (`[Task Name]`).
+  **DO NOT** use special characters like brackets `()` within the task name; they must be escaped or removed to prevent syntax errors.
 - Optionally add metadata like `id: <number>` or `assigned: <name>` indented under a task.
 
 Example demonstrating a simple workflow with assignments:

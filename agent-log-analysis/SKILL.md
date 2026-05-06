@@ -312,6 +312,7 @@ treeView-beta
 
 Generate a Mermaid `kanban` diagram to visualize the task board and tracking state.
 Column headers SHOULD include status metadata.
+**IMPORTANT**: Do not use special characters such as brackets `()` within task labels; they must be escaped or removed as they will break Mermaid syntax.
 This MUST be based on the actual `todos` found in the agent session logs
 (e.g., from `todowrite` tool calls or explicit task tracking), not invented tasks.
 To avoid breaking Mermaid syntax, DO NOT use structural characters like
