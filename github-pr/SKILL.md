@@ -27,7 +27,9 @@ Ensure appropriate todos are created before starting work, so the session can be
 
 ### Context Recovery & Re-implementations
 
-When instructed to revert, correct, or re-implement a previous change (e.g., "revert everything", "you implemented this wrong"), you MUST NOT proceed with only the context of the latest comment. You MUST:
+When instructed to revert, correct, fix or re-implement a previous change (e.g., "revert everything", "you implemented this wrong"),
+you MUST NOT proceed with only the context of the latest comment.
+You MUST:
 
 1. **Retrieve the Original Prompt:**
   Read the original PR body, issue description, or the initial comment that triggered the work.
