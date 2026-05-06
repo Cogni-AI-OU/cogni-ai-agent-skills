@@ -150,10 +150,11 @@ pie title Tool Call Distribution
     "Glob" : 1
     "Grep": 2
     "Read" : 3
-    "Shell" : 4
-    "Skill" : 5
-    "Task" : 6
-    "Todo" : 7
+    "Search": 4
+    "Shell" : 5
+    "Skill" : 6
+    "Task" : 7
+    "Todo" : 8
     "Webfetch": 1
     "Write": 1
 ```
@@ -187,6 +188,9 @@ mindmap
       pattern
     Read
       filePath
+    Search
+      query
+        site
     Shell
       command
         gh
