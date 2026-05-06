@@ -20,18 +20,24 @@ Identify the trigger source first to understand context and avoid ambiguity. A c
 to an inline thread comment, a specific line, the whole file, a previous comment, quote, or build failures.
 Ensure appropriate todos are created before starting work, so the session can be continued upon restart.
 
-### Context Recovery & Re-implementations
-
-When instructed to revert, correct, or re-implement a previous change (e.g., "revert everything", "you implemented this wrong"), you MUST NOT proceed with only the context of the latest comment. You MUST:
-
-1. **Retrieve the Original Prompt:** Read the original PR body, issue description, or the initial comment that triggered the work. This ensures you do not lose crucial constraints, URLs, or instructions provided at the very beginning.
-2. **Analyze Previous Agent Execution:** Load and review the previous agent session logs (using `gh run view --log` or available logging tools) and examine the incorrect changes (using `gh pr diff`). Understand *what* the previous agent did wrong and *why*.
-3. **Synthesize and Revise:** Combine the original instructions with the user's new clarification. Explicitly state your revised understanding in your plan to confirm you have incorporated both the initial context and the course correction before making changes.
-
 ### Context & Response Routing
 
 **Extract Context**: Parse the `## Pull Request Context` block containing `**Base Branch:**` dynamically.
 **Dynamic PR Targeting**: ALWAYS target this explicitly provided **Base Branch** when creating/updating PRs.
+
+### Context Recovery & Re-implementations
+
+When instructed to revert, correct, or re-implement a previous change (e.g., "revert everything", "you implemented this wrong"), you MUST NOT proceed with only the context of the latest comment. You MUST:
+
+1. **Retrieve the Original Prompt:**
+  Read the original PR body, issue description, or the initial comment that triggered the work.
+  This ensures you do not lose crucial constraints, URLs, or instructions provided at the very beginning.
+3. **Analyze Previous Agent Execution:**
+  Load and review the previous agent session logs (using `gh run view --log` or available logging tools)
+  and examine the incorrect changes (using `gh pr diff`). Understand *what* the previous agent did wrong and *why*.
+4. **Synthesize and Revise:** Combine the original instructions with the user's new clarification.
+  Explicitly state your revised understanding in your plan to confirm you have incorporated both the initial context
+  and the course correction before making changes.
 
 **Response Detection & Routing**:
 
