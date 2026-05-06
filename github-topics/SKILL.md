@@ -35,6 +35,27 @@ Search GitHub repositories using topics and keywords to discover relevant softwa
   gh api -H "Accept: application/vnd.github.v3.raw" repos/<owner>/<repo>/readme
   ```
 
+## Featured Topics
+
+Use these popular GitHub topics to find high-quality resources and projects:
+
+- **awesome**: Curated lists of awesome things.
+- **chrome**: Projects related to the Chrome browser.
+- **code-quality**: Tools for style, quality, security, and test-coverage.
+- **compiler**: Software for translating programming languages.
+- **css**: Cascading Style Sheets projects and libraries.
+- **database**: Structured sets of data and database management systems.
+- **frontend**: User interface programming and layout.
+- **javascript**: Projects using the JavaScript programming language.
+- **nodejs**: JavaScript runtime environments and tools.
+- **npm**: Package management for JavaScript.
+- **project-management**: Tools for scope and goal execution.
+- **python**: Projects using the Python programming language.
+- **react**: JavaScript libraries for designing user interfaces.
+- **react-native**: Mobile frameworks for iOS and Android.
+- **scala**: Projects using the Scala programming language.
+- **typescript**: Typed supersets of JavaScript.
+
 ## What to Avoid
 
 - Avoid broad, unfiltered searches that return too many irrelevant results.
