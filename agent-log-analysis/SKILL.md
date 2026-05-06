@@ -122,7 +122,7 @@ pie title Tool Call Distribution
     "Write": 1
 ```
 
-Note: Include only high level tool names without actual commands.
+Note: Include only high-level tool names without actual commands.
 
 **Command Utilization Pie Chart**
 
@@ -186,15 +186,18 @@ sequenceDiagram
     participant T as Tools
     participant W as Webfetch
 
-    R->>A: Start Task
-    A->>T: Load Skills
-    T->>S: Load gh skill
-    A->>T: Search Context
-    T-->>A: Results
-    A->>D: Delegate CI/CD Plan
-    D-->>A: Proposed Plan
-    A->>T: Implement Plan
-    T->>B: Runs git pull
+    R->>A: Start Session (Trigger)
+    A->>T: Load relevant Skills
+    T->>S: Read SKILL.md files
+    S-->>A: Context Injected
+    A->>T: Context Gathering
+    T->>W: Fetch external docs
+    W-->>A: Markdown results
+    A->>D: Delegate sub-task (Task tool)
+    D-->>A: Sub-agent results
+    A->>T: Execute implementation
+    T->>B: Run git/gh commands
+    B-->>A: CLI response
 ```
 
 #### D. Agent Execution Journey (Friction & Success Map)
