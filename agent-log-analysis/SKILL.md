@@ -47,24 +47,41 @@ Do not invent new structures or deviate from these templates.
 ```markdown
 #### Brief
 
-The agent session for **github.run_id [Run ID] (attempt [Attempt Number])** was
-[successful / unsuccessful / partially successful] and [followed / deviated from]
-established protocols. Operating as the `[Agent Persona]`, the agent completed
-the task of [Brief Task Description] while maintaining strict adherence to the
-project's initialization and verification workflows.
+The agent session for **github.run_id [Run ID] (attempt [Attempt Number])** was [successful / unsuccessful / partially successful]
+and [followed / deviated from] established protocols.
+Operating as the `[Agent Persona]`, the agent completed the task of [Brief Task Description]
+while maintaining strict adherence to the project's initialization and verification workflows.
 
 #### Prompt Summary
 
-* **Trigger Source:** [e.g., GitHub issue comment, manual workflow run]
-* **Prompt Summary:** [Brief summary of the input prompt/trigger.]
+* **Prompt Summary:**
+  [Brief summary of the input prompt/trigger.]
+
+* **Trigger Source:**
+  [e.g., GitHub issue comment, manual workflow run]
 
 #### Key Actions & Decisions
 
-* **Context Gathering:** [How did the agent acquire necessary information?]
-* **Agent Interactions:** [List any sub-agents called and their purpose (e.g., Architect -> Brain Ops).]
-* **Task/Workflow Management:** [How did it track progress?]
-* **Execution / Tracing:** [What were the core actions taken?]
-* **Self-Verification:** [Did it verify the environment state?]
+* **Agent Interactions:**
+  [List any sub-agents called and their purpose (e.g., Architect -> Brain Ops)]
+
+* **Context Gathering:**
+  [How did the agent acquire necessary information?]
+
+* **Execution / Tracing:**
+  [What were the core actions taken?]
+
+* **Self-Verification:**
+  [Did it verify the environment state?]
+
+* **Task/Workflow Management:**
+  [How did it track progress?]
+
+#### Root Cause Identified (If Applicable)
+
+The agent discovered a **[brief description of the core issue]**:
+
+1. **[Step 1]**: [Description]
 
 #### Produced Artifacts
 
@@ -72,28 +89,46 @@ project's initialization and verification workflows.
 
 #### Session Summary
 
-* **Primary Task:** [What was the agent explicitly instructed to do?]
-* **Workflow Compliance:** [Did the agent load the necessary constraints, flows, and instructions?]
-* **Conclusion:** [What was the final state?]
+* **Conclusion:**
+  [What was the final state?]
+
+* **Primary Task:**
+  [What was the agent explicitly instructed to do?]
+
+* **Workflow Compliance:**
+  [Did the agent load the necessary constraints, flows, and instructions?]
 
 #### Session Telemetry
 
-* **Execution Time:** [Total time taken]
-* **Total Skills:** [Number of skills loaded] ([List of skills loaded])
-* **Steps Taken:** [Number of steps]
-* **Total Tasks:** [Total number of tasks (from todos)]
-* **Tool Calls:** [Total number of tool calls] ([Tool1]: [N], [Tool2]: [M], ...)
-* **Tokens Used:** [Optional: total tokens if available]
+* **Execution Time:**
+  [Total time taken]
 
-#### Root Cause Identified (If Applicable)
+* **Steps Taken:**
+  [Number of steps]
 
-The agent discovered a **[brief description of the core issue]**:
-1. **[Step 1]**: [Description]
+* **Total Skills:**
+  [Number of skills loaded] ([List of skills loaded])
+
+* **Total Tasks:**
+  [Total number of tasks (from todos)]
+
+* **Tool Calls:**
+  [Total number of tool calls] ([Tool1]: [N], [Tool2]: [M], ...)
+
+* **Tokens Used:**
+  [Optional: total tokens if available]
 
 #### Issues/Limitations Encountered
 
-* **[Issue / None]:** [Describe any tool failures or explicitly state "None"]
-* **[Limitation / None]:** [Describe any failures due to access or environment limitations]
+* **[Issue / None]:**
+  [Describe any tool failures or explicitly state "None"]
+  [Include any syntax errors, command hungs or other unexpected activity]
+
+* **[Limitation / None]:**
+  [Describe any failures due to access or environment limitations]
+
+* **[Performance / None]:**
+  [Describe any performance concerns such as sloweness, hungs]
 
 #### Recommendation Provided (Optional)
 
