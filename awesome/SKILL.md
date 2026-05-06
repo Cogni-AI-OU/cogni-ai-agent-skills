@@ -27,7 +27,7 @@ Scan GitHub topics for awesome lists and extract relevant information for the cu
   ```
 - Fetch the README of an awesome list to extract links:
   ```bash
-  gh api repos/<owner>/<repo>/readme --jq '.content' | base64 -d
+  gh api -H "Accept: application/vnd.github.v3.raw" repos/<owner>/<repo>/readme
   ```
 
 ## What to Avoid
