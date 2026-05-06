@@ -403,3 +403,5 @@ in GitHub Actions, refer to the **github-issue** and **github-pr** skills.
   Must be loaded when working with issues or when the runtime was triggered by an issue comment.
 - **github-pr**:
   Must be loaded when working with changes associated with a pull request or when the runtime was triggered by a PR comment.
+- **github-topics**:
+  Must be loaded when searching for relevant tools, libraries, or curated resources.

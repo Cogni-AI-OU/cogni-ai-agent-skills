@@ -79,6 +79,8 @@ and planned work into the current context.
   You must load this skill when reviewing, auditing, or verifying a GitHub Pull Request.
 - **[github-script](github-script/SKILL.md)**: Advanced use cases and examples for using actions/github-script.
   You must load this skill when using actions/github-script in workflows.
+- **[github-topics](github-topics/SKILL.md)**: Search GitHub repositories by topics and keywords.
+  You must load this skill when searching for relevant tools, libraries, or curated resources.
 - **[mermaid](mermaid/SKILL.md)**: Guide for creating and maintaining stable Mermaid.js diagrams.
   You must load this skill when creating or maintaining Mermaid.js diagrams.
 - **[mermaid-beta](mermaid-beta/SKILL.md)**: Guide for creating and maintaining experimental Mermaid.js beta diagrams.

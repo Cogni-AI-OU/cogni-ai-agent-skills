@@ -36,3 +36,5 @@ and you need to retrieve the diff or patch content for processing.
 
 - **gh-pr**:
   Must be loaded when working with `gh pr` command.
+- **github-topics**:
+  Must be loaded when searching for relevant tools, libraries, or curated resources.

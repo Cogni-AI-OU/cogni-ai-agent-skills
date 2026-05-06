@@ -59,6 +59,7 @@ Cogni AI capabilities loaded into the `.github/` directory.
 - **[github-pr-review](github-pr-review/SKILL.md)**: Comprehensive PR review workflow for verifying code quality,
   metadata accuracy, and merge readiness
 - **[github-script](github-script/SKILL.md)**: Advanced use cases and examples for using actions/github-script
+- **[github-topics](github-topics/SKILL.md)**: Search GitHub repositories by topics and keywords
 - **[mermaid](mermaid/SKILL.md)**: Guide for creating and maintaining stable Mermaid.js diagrams
 - **[mermaid-beta](mermaid-beta/SKILL.md)**: Guide for creating and maintaining experimental Mermaid.js beta diagrams
 - **[minizinc](minizinc/SKILL.md)**: Expert MiniZinc modeling for constraint satisfaction and combinatorial problems
