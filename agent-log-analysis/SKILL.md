@@ -178,18 +178,23 @@ Example showing sub-agent interaction:
 
 ```mermaid
 sequenceDiagram
-    participant W as Workflow
-    participant A as Architect
-    participant B as BrainOps
+    participant A as Agent
+    participant B as Bash Shell
+    participant D as DevOps
+    participant R as Runtime
+    participant S as Skills
     participant T as Tools
+    participant W as Webfetch
 
-    W->>A: Start Task
+    R->>A: Start Task
     A->>T: Load Skills
+    T->>S: Load gh skill
     A->>T: Search Context
     T-->>A: Results
-    A->>B: Delegate Architecture Plan
-    B-->>A: Proposed Plan
+    A->>D: Delegate CI/CD Plan
+    D-->>A: Proposed Plan
     A->>T: Implement Plan
+    T->>B: Runs git pull
 ```
 
 #### D. Agent Execution Journey (Friction & Success Map)
