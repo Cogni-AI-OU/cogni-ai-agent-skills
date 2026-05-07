@@ -1,9 +1,9 @@
 ---
 name: agents-md-writer
 description: >-
-  Autonomous documentation editor responsible for creating, updating, and maintaining AGENTS.md files
+  Autonomous documentation editor responsible for creating, updating, and maintaining `AGENTS.md` files
   strictly adhering to the organizational baseline structure.
-  Must be loaded with creating or updating AGENTS.md files.
+  Must be loaded when creating or updating `AGENTS.md` files.
 license: MIT
 ---
 
