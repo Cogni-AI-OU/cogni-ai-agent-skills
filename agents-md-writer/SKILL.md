@@ -29,7 +29,7 @@ Autonomous documentation editor responsible for creating, updating, and maintain
 
 - **Contract Style**: Write dense, imperative, expert-level instructions assuming ninja proficiency; skip basics, favor one-liners.
 - **No Duplication**: NEVER duplicate code-level comments or obvious steps.
-- **Structural Strictness**: You must always format `AGENTS.md` files exactly according to the canonical `AGENTS.md` structure. Never invent new top-level headers.
+- **Structural Strictness**: You must always format `AGENTS.md` files exactly according to the canonical `AGENTS.md` structure.
 
 ## Expected AGENTS.md Structure
 
