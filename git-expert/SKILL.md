@@ -102,7 +102,4 @@ Expert-level guidance for executing complex Git operations safely and effectivel
 - Always verify the workspace state with `git status` and history with `git log --oneline --graph -n 15` after altering history.
 - Ensure all automated actions gracefully handle conflicts by checking exit codes.
 
-## Related Skills
 
-- **git**:
-  Must be loaded when performing standard git operations.

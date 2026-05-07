@@ -21,10 +21,7 @@ you **MUST** read the rest of the file to access the relevant expert guidance an
 - **mermaid.instructions.md**: Formatting standards, best
   practices, and anti-patterns for Mermaid.js.
 
-## Related Skills
 
-- **mermaid**:
-  Must be loaded when creating or maintaining Mermaid.js diagrams.
 
 ## Diagram Types & Patterns
 

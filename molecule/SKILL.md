@@ -54,7 +54,4 @@ If you encounter problems or hangs during `molecule test`:
   Codespaces/devcontainers, Ansible may run from a pipx-managed environment, so install controller-side libraries there as
   well, for example with `pipx inject ansible -r .devcontainer/requirements-ansible.txt`.
 
-## Related Skills
 
-- **ansible**:
-  Must be loaded when working with the `ansible` command.

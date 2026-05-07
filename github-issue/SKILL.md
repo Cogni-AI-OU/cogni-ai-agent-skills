@@ -91,7 +91,4 @@ If the runtime did not involve intended modification of files:
    `git checkout -- .`.
 3. **Assert**: Ensure no PR or commit is triggered for purely informational tasks.
 
-## Related Skills
 
-- **gh**:
-  Must be loaded when working with `gh` command.

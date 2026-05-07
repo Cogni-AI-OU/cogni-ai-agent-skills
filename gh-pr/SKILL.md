@@ -276,11 +276,8 @@ If the runtime did not involve intended modification of files:
 
 ## Related Skills
 
-- **gh**:
-  Must be loaded when working with `gh` command.
 - **gh-run**:
   Must be loaded when working with `gh run` and `gh workflow` commands.
 - **git**:
   Must be loaded when performing standard git operations.
-- **github-pr**:
-  Must be loaded when working with changes associated with a pull request or when the runtime was triggered by a PR comment.
+

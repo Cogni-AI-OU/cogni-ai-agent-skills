@@ -81,11 +81,7 @@ using the `task` tool to ensure thorough coverage:
   Must be loaded when designing or suggesting new tests to cover identified gaps.
 - **code-review**:
   Must be loaded when performing deep inspection of code changes.
-- **github-pr**:
-  Must be loaded when working with changes on a GitHub Pull Request.
 - **gh-pr**:
   Must be loaded when working with `gh pr` command.
-- **github**:
-  Must be loaded when working with GitHub-specific features or web-based PR interactions.
 - **subagent-task**:
   Must be loaded when delegating specialized review tasks to other agents.

@@ -63,7 +63,4 @@ Use these popular GitHub topics to find high-quality resources and projects:
 - Avoid broad, unfiltered searches that return too many irrelevant results.
 - Avoid relying on interactive web scraping when CLI tools are available.
 
-## Related Skills
 
-- **gh**:
-  Must be loaded when working with the `gh` command and its subcommands.

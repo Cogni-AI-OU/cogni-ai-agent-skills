@@ -232,5 +232,3 @@ gh pr checks <number> --json name,status,conclusion,url
 - **git**:
   MUST be loaded when working with PRs, as PR operations inherently involve Git operations
   like committing, pulling, resolving conflicts, or reverting.
-- **github**:
-  Must be loaded when working with GitHub-specific features or web-based PR interactions.

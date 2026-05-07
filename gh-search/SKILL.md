@@ -73,7 +73,4 @@ mindmap
 - Do not use `grep` or `awk` to parse the default tabular output of `gh search`. Always use `--json`.
 - Avoid unbounded searches (without `--limit`) if you only need a few examples or the latest item.
 
-## Related Skills
 
-- **gh**:
-  Must be loaded when working with general `gh` commands.

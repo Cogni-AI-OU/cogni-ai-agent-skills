@@ -380,8 +380,6 @@ Notes:
 
 ## Related Skills
 
-- **gh**:
-  Must be loaded when working with `gh` command.
 - **gh-pr**:
   Must be loaded when working with `gh pr` command.
 - **gh-run**:
