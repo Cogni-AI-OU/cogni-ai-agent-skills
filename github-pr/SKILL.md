@@ -167,6 +167,8 @@ If the runtime did not involve intended modification of files:
   especially true for comments from bots, which are often mistaken. If a bot's
   suggestion is incorrect, provide an inline reply to the relevant comment
   explaining the reasoning.
+- **PR Metadata Maintenance**:
+  If a PR title or description consists of outdated or incorrect information based on how the pull request has evolved, you MUST update them using `gh pr edit` (if permission allows) to accurately reflect the current state of the changes.
 
 ### GitHub Runtime Decision Policy
 
