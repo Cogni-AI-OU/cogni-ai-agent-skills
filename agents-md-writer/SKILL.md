@@ -60,5 +60,3 @@ Autonomous documentation editor responsible for creating, updating, and maintain
 
 - **docs-review**:
   Must be loaded when asked to review or check consistency of documentation.
-- **skill-writer**:
-  Must be loaded when creating or updating GitHub Copilot skill files.
