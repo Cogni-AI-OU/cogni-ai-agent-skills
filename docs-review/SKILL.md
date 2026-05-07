@@ -68,5 +68,7 @@ Guidance for reviewing core architecture, documentation, and constraint files fo
 
 ## Related Skills
 
+- **agents-md-writer**:
+  Must be loaded when creating or updating AGENTS.md files.
 - **docs-writer**: Guidance for writing and maintaining documentation.
   You must load this skill when asked to write, document, or generate new documentation.

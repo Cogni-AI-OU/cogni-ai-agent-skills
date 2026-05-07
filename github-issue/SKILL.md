@@ -90,5 +90,3 @@ If the runtime did not involve intended modification of files:
 2. **Clean**: If untracked or modified files exist (e.g., temporary analysis artifacts), run `git clean -fd` and
    `git checkout -- .`.
 3. **Assert**: Ensure no PR or commit is triggered for purely informational tasks.
-
-

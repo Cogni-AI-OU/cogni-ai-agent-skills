@@ -64,4 +64,7 @@ When a subdirectory contains specific functionality, workflows, or architectural
 - Use this file to provide targeted instructions, constraints, and context for autonomous agents operating in that specific folder.
 - Ensure the local `AGENTS.md` aligns with the global repository invariants.
 
+## Related Skills
 
+- **agents-md-writer**:
+  Must be loaded when creating or updating AGENTS.md files.

@@ -51,8 +51,14 @@ Autonomous documentation editor responsible for creating, updating, and maintain
 - Verify formatting.
 - Verify that the generated file contains all the required headers.
 
-
 ## Final Assurance Gates
 
 - Inject full content into every sub-agent context.
 - Keep this file entropy-pruned and up-to-date.
+
+## Related Skills
+
+- **docs-review**:
+  Must be loaded when asked to review or check consistency of documentation.
+- **skill-writer**:
+  Must be loaded when creating or updating GitHub Copilot skill files.
