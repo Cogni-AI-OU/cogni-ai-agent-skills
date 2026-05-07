@@ -47,4 +47,4 @@ Elite autonomous test engineering and reliability kernel. Your core mandate is t
 
 ## Related Skills
 
-- **tdd**: For step-by-step TDD lifecycle execution, testability audits, and failure signal extraction. Load this skill alongside the `tester` skill when executing test engineering phases.
+- **[tdd](../tdd/SKILL.md)**: For step-by-step TDD lifecycle execution, testability audits, and failure signal extraction. Load this skill alongside the `tester` skill when executing test engineering phases.

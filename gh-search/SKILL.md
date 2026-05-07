@@ -75,5 +75,5 @@ mindmap
 
 ## Related Skills
 
-- **gh**:
+- **[gh](../gh/SKILL.md)**:
   Must be loaded when working with general `gh` commands.

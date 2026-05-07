@@ -34,6 +34,7 @@ Cogni AI capabilities loaded into the `.github/` directory.
   logs, extracting telemetry, and generating standardized visual audit reports
 - **[ansible](ansible/SKILL.md)**: How to run and manage Ansible operations safely and prevent hangs.
 - **[cat](cat/SKILL.md)**: Guidelines for safely using `cat` and avoiding shell hangs with heredocs.
+- **[code-review](code-review/SKILL.md)**: Execute expert-level code reviews, dissecting codebases and Pull Requests (PRs) with surgical precision to identify logical flaws, hygiene issues, and architectural drift.
 - **[code-tour](code-tour/SKILL.md)**: Create, update, and maintain VSCode CodeTour (.tour) JSON walkthrough files
   with full schema compliance and interactive step configuration.
 - **[context-aware-ops](context-aware-ops/SKILL.md)**: Intelligent resource management with size checking and filtering
@@ -49,6 +50,7 @@ Cogni AI capabilities loaded into the `.github/` directory.
 - **[gh-models](gh-models/SKILL.md)**: GitHub CLI models (`gh models`) operations for running and evaluating AI models
 - **[gh-pr](gh-pr/SKILL.md)**: GitHub CLI (`gh pr`) operations for pull requests, reviews, PR checks, and PR branches
 - **[gh-run](gh-run/SKILL.md)**: GitHub CLI (`gh run` and `gh workflow`) operations for workflow runs, jobs, logs, and attempts
+- **[gh-search](gh-search/SKILL.md)**: GitHub CLI (`gh search`) operations for searching code, commits, issues, pull requests, and repositories with structured JSON output
 - **[git](git/SKILL.md)**: Guide for using git with non-interactive, safe operations
 - **[git-expert](git-expert/SKILL.md)**: Advanced Git operations including interactive rebasing, reflog recovery,
   bisecting, complex conflict resolution, and history manipulation

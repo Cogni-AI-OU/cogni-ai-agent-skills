@@ -90,3 +90,8 @@ Confirm: file size decreased, page count unchanged, page dimensions preserved.
 - Running Ghostscript first — it rewrites the entire document and cannot do object-level edits
 - Using `pdfcpu` or `exiftool` alone — insufficient object-level control
 - Skipping the inspection step — always identify bloat sources before attempting reduction
+
+## Related Skills
+
+- **[robust-commands](../robust-commands/SKILL.md)**:
+  Must be loaded when executing commands requiring resilient error recovery or fallbacks.

@@ -68,3 +68,8 @@ Structure the file exactly as:
 ## Limitations
 
 - The skill writer cannot test the activation triggers of the new skill in real-time; it relies on following the description precision rule to ensure proper loading.
+
+## Related Skills
+
+- **[docs-writer](../docs-writer/SKILL.md)**:
+  Must be loaded when asked to write, document, or generate new documentation.

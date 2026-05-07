@@ -68,5 +68,5 @@ EOF
 
 ## Related Skills
 
-- **robust-commands**:
+- **[robust-commands](../robust-commands/SKILL.md)**:
   Must be loaded when executing commands requiring resilient error recovery or fallbacks.

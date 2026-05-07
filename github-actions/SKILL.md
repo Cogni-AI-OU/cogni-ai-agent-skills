@@ -155,3 +155,8 @@ When working with GitHub Actions build logs and investigating issues:
   - Fetch specific PR: `git fetch origin pull/<pr-number>/head:pr-<pr-number>`
   - Check if commit exists: `git cat-file -e <commit-sha> 2>/dev/null`
 - **Cross-reference with PR**: When user mentions a commit from a PR URL, use the PR number to fetch it first
+
+## Related Skills
+
+- **[gh-run](../gh-run/SKILL.md)**:
+  Must be loaded when working with `gh run` and `gh workflow` commands.

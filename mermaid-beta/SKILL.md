@@ -23,7 +23,7 @@ you **MUST** read the rest of the file to access the relevant expert guidance an
 
 ## Related Skills
 
-- **mermaid**:
+- **[mermaid](../mermaid/SKILL.md)**:
   Must be loaded when creating or maintaining Mermaid.js diagrams.
 
 ## Diagram Types & Patterns

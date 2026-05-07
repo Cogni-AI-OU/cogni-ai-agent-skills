@@ -748,7 +748,7 @@ mindmap
 
 ## Related Skills
 
-- **gh-api**:
+- **[gh-api](../gh-api/SKILL.md)**:
   Must be loaded when working with `gh api` command.
-- **mermaid-beta**:
+- **[mermaid-beta](../mermaid-beta/SKILL.md)**:
   Must be loaded when working with experimental Mermaid.js beta diagrams.

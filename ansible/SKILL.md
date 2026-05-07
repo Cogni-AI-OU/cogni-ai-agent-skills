@@ -33,3 +33,8 @@ This is useful for identifying slow tasks and optimizing your automation.
   [defaults]
   callbacks_enabled = ansible.posix.profile_tasks
   ```
+
+## Related Skills
+
+- **[molecule](../molecule/SKILL.md)**:
+  Must be loaded when running or managing Molecule tests for Ansible.

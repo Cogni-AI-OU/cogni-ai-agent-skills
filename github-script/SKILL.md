@@ -224,3 +224,10 @@ should run based on complex logic (e.g., event type, user roles, and message con
 2. **Require Authentication for External Repo Access**: The default `GITHUB_TOKEN` is
    scoped only to the current repository. To access other repos, configure a PAT
    and pass it to `github-token`.
+
+## Related Skills
+
+- **[gh-api](../gh-api/SKILL.md)**:
+  Must be loaded when working with `gh api` command.
+- **[gh-run](../gh-run/SKILL.md)**:
+  Must be loaded when working with `gh run` and `gh workflow` commands.

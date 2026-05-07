@@ -61,6 +61,9 @@ and planned work into the current context.
 - **[gh-run](gh-run/SKILL.md)**: GitHub CLI (`gh run`) and (`gh workflow`) operations for workflow runs, jobs,
   logs, and attempts.
   You must load this skill when working with the `gh run` and `gh workflow` commands.
+- **[gh-search](gh-search/SKILL.md)**: GitHub CLI (`gh search`) operations for searching code, commits, issues,
+  pull requests, and repositories with structured JSON output.
+  You must load this skill when working with the `gh search` command.
 - **[git](git/SKILL.md)**: Guide for using git with non-interactive, safe operations.
   You must load this skill when performing standard git operations.
 - **[git-expert](git-expert/SKILL.md)**: Advanced Git operations including interactive rebasing, reflog recovery,

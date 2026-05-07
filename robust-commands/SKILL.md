@@ -514,4 +514,9 @@ unzip file.zip || python3 -m zipfile -e file.zip .
 - **Test assumptions**: Verify command exists before using it
 - **Handle errors**: Always have a fallback plan
 
+## Related Skills
+
+- **[shell](../shell/SKILL.md)**:
+  Must be loaded when handling shell commands with performance monitoring or timeouts.
+
 Commands fail for many reasons - most are fixable!

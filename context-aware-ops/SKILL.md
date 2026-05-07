@@ -364,4 +364,9 @@ sed -n "${current},$((current + chunk_size))p" file.txt
 - **Summarize**: When in doubt, show a summary rather than everything
 - **Iterate**: You can always come back for more details if needed
 
+## Related Skills
+
+- **[shell](../shell/SKILL.md)**:
+  Must be loaded when handling shell commands with performance monitoring or timeouts.
+
 Your context window is precious - use it wisely!

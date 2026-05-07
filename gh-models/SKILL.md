@@ -126,9 +126,9 @@ Store prompts anywhere in repo (e.g. `.github/prompts/`). Structure enables:
 
 ## Related Skills
 
-- **gh**:
+- **[gh](../gh/SKILL.md)**:
   Must be loaded when working with `gh` command.
-- **gh-pr**:
+- **[gh-pr](../gh-pr/SKILL.md)**:
   Must be loaded when working with `gh pr` command.
-- **gh-run**:
+- **[gh-run](../gh-run/SKILL.md)**:
   Must be loaded when working with `gh run` and `gh workflow` commands.

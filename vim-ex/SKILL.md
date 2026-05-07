@@ -326,3 +326,8 @@ VIMEOF
 - [Vim Ex Mode Documentation](https://vimhelp.org/)
 - [Vim Q&A](https://vi.stackexchange.com/)
 - [Learning the vi Editor/Vim/Modes](https://en.wikibooks.org/wiki/Learning_the_vi_Editor/Vim/Modes#Ex-mode)
+
+## Related Skills
+
+- **[shell](../shell/SKILL.md)**:
+  Must be loaded when handling shell commands with performance monitoring or timeouts.

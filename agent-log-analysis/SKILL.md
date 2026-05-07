@@ -375,3 +375,8 @@ radar-beta
     axis Completion, Compliance, Proficiency, Verification, Depth, Efficiency
     curve Agent {1, 1, 1, 1, 1, 1}
 ```
+
+## Related Skills
+
+- **[gh-run](../gh-run/SKILL.md)**:
+  Must be loaded when working with `gh run` and `gh workflow` commands.

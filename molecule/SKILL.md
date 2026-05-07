@@ -53,3 +53,8 @@ If you encounter problems or hangs during `molecule test`:
   Python but Ansible still cannot import it, check `ansible --version` to identify the interpreter in use. In
   Codespaces/devcontainers, Ansible may run from a pipx-managed environment, so install controller-side libraries there as
   well, for example with `pipx inject ansible -r .devcontainer/requirements-ansible.txt`.
+
+## Related Skills
+
+- **[ansible](../ansible/SKILL.md)**:
+  Must be loaded when working with the `ansible` command.

@@ -380,21 +380,21 @@ in GitHub Actions, refer to the **github-issue** and **github-pr** skills.
 
 ## Related Skills
 
-- **gh-api**:
+- **[gh-api](../gh-api/SKILL.md)**:
   Must be loaded when working with `gh api` command.
-- **gh-issue**:
+- **[gh-issue](../gh-issue/SKILL.md)**:
   Must be loaded when working with `gh issue` command.
-- **gh-pr**:
+- **[gh-pr](../gh-pr/SKILL.md)**:
   Must be loaded when working with `gh pr` command.
-- **gh-run**:
+- **[gh-run](../gh-run/SKILL.md)**:
   Must be loaded when working with `gh run` and `gh workflow` commands.
-- **gh-search**:
+- **[gh-search](../gh-search/SKILL.md)**:
   Must be loaded when working with `gh search` command.
-- **gh-models**:
+- **[gh-models](../gh-models/SKILL.md)**:
   Must be loaded when working with `gh models` command.
-- **github-issue**:
+- **[github-issue](../github-issue/SKILL.md)**:
   Must be loaded when working with issues or when the runtime was triggered by an issue comment.
-- **github-pr**:
+- **[github-pr](../github-pr/SKILL.md)**:
   Must be loaded when working with changes associated with a pull request or when the runtime was triggered by a PR comment.
-- **github-topics**:
+- **[github-topics](../github-topics/SKILL.md)**:
   Must be loaded when searching for relevant tools, libraries, or curated resources.
