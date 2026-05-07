@@ -71,7 +71,5 @@ Structure the file exactly as:
 
 ## Related Skills
 
-- **agents-md-writer**:
-  Must be loaded when creating or updating AGENTS.md files.
 - **docs-writer**:
   Must be loaded when asked to write, document, or generate new documentation.
