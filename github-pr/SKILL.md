@@ -223,10 +223,10 @@ gh pr checks <number> --json name,status,conclusion,url
 
 ## Related Skills
 
-- **[gh-pr](../gh-pr/SKILL.md)**:
+- **gh-pr**:
   Must be loaded when working with `gh pr` command.
-- **[git](../git/SKILL.md)**:
+- **git**:
   MUST be loaded when working with PRs, as PR operations inherently involve Git operations
   like committing, pulling, resolving conflicts, or reverting.
-- **[github](../github/SKILL.md)**:
+- **github**:
   Must be loaded when working with GitHub-specific features or web-based PR interactions.

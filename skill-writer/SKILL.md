@@ -71,5 +71,5 @@ Structure the file exactly as:
 
 ## Related Skills
 
-- **[docs-writer](../docs-writer/SKILL.md)**:
+- **docs-writer**:
   Must be loaded when asked to write, document, or generate new documentation.

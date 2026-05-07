@@ -336,5 +336,5 @@ pre-commit run yamlfix --all-files
 
 ## Related Skills
 
-- **[tdd](../tdd/SKILL.md)**:
+- **tdd**:
   Must be loaded when executing test tasks, designing tests, doing TDD, or verifying system behavior.

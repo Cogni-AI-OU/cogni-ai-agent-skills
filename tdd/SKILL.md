@@ -13,8 +13,8 @@ description: >-
 
 ## Related Skills
 
-- **[tester](../tester/SKILL.md)**: Elite autonomous test engineering kernel for proving software correctness and behavioral contracts.
-- **[pre-commit](../pre-commit/SKILL.md)**: For integration with testing hooks and validation.
+- **tester**: Elite autonomous test engineering kernel for proving software correctness and behavioral contracts.
+- **pre-commit**: For integration with testing hooks and validation.
 
 ## 1. Pre-Execution: Code Testability Audit
 

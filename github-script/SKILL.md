@@ -227,7 +227,7 @@ should run based on complex logic (e.g., event type, user roles, and message con
 
 ## Related Skills
 
-- **[gh-api](../gh-api/SKILL.md)**:
+- **gh-api**:
   Must be loaded when working with `gh api` command.
-- **[gh-run](../gh-run/SKILL.md)**:
+- **gh-run**:
   Must be loaded when working with `gh run` and `gh workflow` commands.

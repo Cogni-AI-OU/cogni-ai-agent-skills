@@ -93,5 +93,5 @@ If the runtime did not involve intended modification of files:
 
 ## Related Skills
 
-- **[gh](../gh/SKILL.md)**:
+- **gh**:
   Must be loaded when working with `gh` command.

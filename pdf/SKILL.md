@@ -93,5 +93,5 @@ Confirm: file size decreased, page count unchanged, page dimensions preserved.
 
 ## Related Skills
 
-- **[robust-commands](../robust-commands/SKILL.md)**:
+- **robust-commands**:
   Must be loaded when executing commands requiring resilient error recovery or fallbacks.

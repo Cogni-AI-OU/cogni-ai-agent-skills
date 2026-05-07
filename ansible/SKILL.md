@@ -36,5 +36,5 @@ This is useful for identifying slow tasks and optimizing your automation.
 
 ## Related Skills
 
-- **[molecule](../molecule/SKILL.md)**:
+- **molecule**:
   Must be loaded when running or managing Molecule tests for Ansible.

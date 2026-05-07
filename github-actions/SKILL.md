@@ -158,5 +158,5 @@ When working with GitHub Actions build logs and investigating issues:
 
 ## Related Skills
 
-- **[gh-run](../gh-run/SKILL.md)**:
+- **gh-run**:
   Must be loaded when working with `gh run` and `gh workflow` commands.

@@ -124,5 +124,5 @@ When evaluating architecture or suspected vulnerabilities, systematically model 
 
 ## Related Skills
 
-- **[robust-commands](../robust-commands/SKILL.md)**:
+- **robust-commands**:
   Must be loaded when executing commands requiring resilient error recovery or fallbacks.

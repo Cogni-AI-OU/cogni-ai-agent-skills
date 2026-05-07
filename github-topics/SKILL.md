@@ -65,5 +65,5 @@ Use these popular GitHub topics to find high-quality resources and projects:
 
 ## Related Skills
 
-- **[gh](../gh/SKILL.md)**:
+- **gh**:
   Must be loaded when working with the `gh` command and its subcommands.

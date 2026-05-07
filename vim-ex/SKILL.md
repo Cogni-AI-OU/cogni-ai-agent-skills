@@ -329,5 +329,5 @@ VIMEOF
 
 ## Related Skills
 
-- **[shell](../shell/SKILL.md)**:
+- **shell**:
   Must be loaded when handling shell commands with performance monitoring or timeouts.

@@ -366,7 +366,7 @@ sed -n "${current},$((current + chunk_size))p" file.txt
 
 ## Related Skills
 
-- **[shell](../shell/SKILL.md)**:
+- **shell**:
   Must be loaded when handling shell commands with performance monitoring or timeouts.
 
 Your context window is precious - use it wisely!

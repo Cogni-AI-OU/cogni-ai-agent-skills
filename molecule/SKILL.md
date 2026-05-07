@@ -56,5 +56,5 @@ If you encounter problems or hangs during `molecule test`:
 
 ## Related Skills
 
-- **[ansible](../ansible/SKILL.md)**:
+- **ansible**:
   Must be loaded when working with the `ansible` command.

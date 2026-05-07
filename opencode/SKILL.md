@@ -41,4 +41,4 @@ curl https://opencode.ai/zen/v1/models
 
 ## Related Skills
 
-- **[gh](../gh/SKILL.md)**: OpenCode integrates with GitHub CLI for many operations.
+- **gh**: OpenCode integrates with GitHub CLI for many operations.

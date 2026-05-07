@@ -380,9 +380,9 @@ Notes:
 
 ## Related Skills
 
-- **[gh](../gh/SKILL.md)**:
+- **gh**:
   Must be loaded when working with `gh` command.
-- **[gh-pr](../gh-pr/SKILL.md)**:
+- **gh-pr**:
   Must be loaded when working with `gh pr` command.
-- **[gh-run](../gh-run/SKILL.md)**:
+- **gh-run**:
   Must be loaded when working with `gh run` and `gh workflow` commands.

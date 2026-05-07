@@ -352,5 +352,5 @@ user.
 
 ## Related Skills
 
-- **[gh-pr](../gh-pr/SKILL.md)**:
+- **gh-pr**:
   Must be loaded when working with `gh pr` command.

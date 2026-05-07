@@ -34,7 +34,7 @@ and you need to retrieve the diff or patch content for processing.
 
 ## Related Skills
 
-- **[gh-pr](../gh-pr/SKILL.md)**:
+- **gh-pr**:
   Must be loaded when working with `gh pr` command.
-- **[github-topics](../github-topics/SKILL.md)**:
+- **github-topics**:
   Must be loaded when searching for relevant tools, libraries, or curated resources.

@@ -46,5 +46,5 @@ time timeout 300s build_script.sh
 
 ## Related Skills
 
-- **[robust-commands](../robust-commands/SKILL.md)**:
+- **robust-commands**:
   Must be loaded when executing commands requiring resilient error recovery or fallbacks.

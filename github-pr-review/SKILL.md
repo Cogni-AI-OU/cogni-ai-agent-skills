@@ -77,15 +77,15 @@ using the `task` tool to ensure thorough coverage:
 
 ## Related Skills
 
-- **[tester](../tester/SKILL.md)**:
+- **tester**:
   Must be loaded when designing or suggesting new tests to cover identified gaps.
-- **[code-review](../code-review/SKILL.md)**:
+- **code-review**:
   Must be loaded when performing deep inspection of code changes.
-- **[github-pr](../github-pr/SKILL.md)**:
+- **github-pr**:
   Must be loaded when working with changes on a GitHub Pull Request.
-- **[gh-pr](../gh-pr/SKILL.md)**:
+- **gh-pr**:
   Must be loaded when working with `gh pr` command.
-- **[github](../github/SKILL.md)**:
+- **github**:
   Must be loaded when working with GitHub-specific features or web-based PR interactions.
-- **[subagent-task](../subagent-task/SKILL.md)**:
+- **subagent-task**:
   Must be loaded when delegating specialized review tasks to other agents.

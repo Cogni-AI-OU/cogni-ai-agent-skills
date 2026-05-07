@@ -104,5 +104,5 @@ Expert-level guidance for executing complex Git operations safely and effectivel
 
 ## Related Skills
 
-- **[git](../git/SKILL.md)**:
+- **git**:
   Must be loaded when performing standard git operations.

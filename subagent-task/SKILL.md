@@ -77,5 +77,5 @@ flowchart TD
 
 ## Related Skills
 
-- **[gh](../gh/SKILL.md)**:
+- **gh**:
   Must be loaded when working with the `gh` command and its subcommands.

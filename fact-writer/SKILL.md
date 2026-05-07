@@ -49,7 +49,7 @@ Guidance for structuring and maintaining verifiable project fact files. Use this
 
 ## Related Skills
 
-- **[mermaid](../mermaid/SKILL.md)**:
+- **mermaid**:
   Must be loaded when creating or maintaining Mermaid.js diagrams.
-- **[mermaid-beta](../mermaid-beta/SKILL.md)**:
+- **mermaid-beta**:
   Must be loaded when working with experimental Mermaid.js beta diagrams.

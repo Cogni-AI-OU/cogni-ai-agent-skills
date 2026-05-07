@@ -378,5 +378,5 @@ radar-beta
 
 ## Related Skills
 
-- **[gh-run](../gh-run/SKILL.md)**:
+- **gh-run**:
   Must be loaded when working with `gh run` and `gh workflow` commands.

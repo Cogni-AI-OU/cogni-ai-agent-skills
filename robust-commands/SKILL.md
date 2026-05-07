@@ -516,7 +516,7 @@ unzip file.zip || python3 -m zipfile -e file.zip .
 
 ## Related Skills
 
-- **[shell](../shell/SKILL.md)**:
+- **shell**:
   Must be loaded when handling shell commands with performance monitoring or timeouts.
 
 Commands fail for many reasons - most are fixable!

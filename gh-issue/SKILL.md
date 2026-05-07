@@ -126,9 +126,9 @@ If the runtime did not involve intended modification of files:
 
 ## Related Skills
 
-- **[gh](../gh/SKILL.md)**:
+- **gh**:
   Must be loaded when working with `gh` command.
-- **[github-issue](../github-issue/SKILL.md)**:
+- **github-issue**:
   Must be loaded when working with issues or when the runtime was triggered by an issue comment.
-- **[gh-pr](../gh-pr/SKILL.md)**:
+- **gh-pr**:
   Must be loaded when working with `gh pr` command.

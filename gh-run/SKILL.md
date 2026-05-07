@@ -186,9 +186,9 @@ mindmap
 
 ## Related Skills
 
-- **[gh](../gh/SKILL.md)**:
+- **gh**:
   Must be loaded when working with `gh` command.
-- **[gh-pr](../gh-pr/SKILL.md)**:
+- **gh-pr**:
   Must be loaded when working with `gh pr` command.
-- **[gh-models](../gh-models/SKILL.md)**:
+- **gh-models**:
   Must be loaded when working with `gh models` command.

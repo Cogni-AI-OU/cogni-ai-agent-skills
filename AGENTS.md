@@ -103,6 +103,12 @@ OpenCode (if installed) uses XDG base directories (not a single `~/.opencode` di
 - Update `.markdownlint.yaml`, `.yamllint`, or `.editorconfig` for linting rules
 - Run `pre-commit run -a` to verify changes pass all checks
 
+### Skill references
+
+- Cross-skill references in `SKILL.md` files must not use relative paths (e.g., `../path/SKILL.md`).
+- When skills are loaded, they are available to the agent via tools, and the agent does not follow relative filesystem paths between them.
+- Reference skills by their name (e.g., `gh-api`, `git`) instead of links.
+
 ## References
 
 - Main documentation: [README.md](README.md)

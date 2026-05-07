@@ -66,4 +66,4 @@ When a subdirectory contains specific functionality, workflows, or architectural
 
 ## Related Skills
 
-- **[docs-review](../docs-review/SKILL.md)**: You must load this skill when reviewing documentation.
+- **docs-review**: You must load this skill when reviewing documentation.
