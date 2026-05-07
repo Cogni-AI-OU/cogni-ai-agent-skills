@@ -1,9 +1,7 @@
 ---
 name: agents-md-writer
 description: >-
-  Autonomous documentation editor responsible for creating, updating, and maintaining AGENTS.md files
-  strictly adhering to the organizational baseline structure.
-  You must load this skill when creating or updating AGENTS.md files.
+  Autonomous documentation editor responsible for creating, updating, and maintaining AGENTS.md files strictly adhering to the organizational baseline structure.
 license: MIT
 ---
 
@@ -11,14 +9,19 @@ license: MIT
 
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
 
-Autonomous documentation editor responsible for creating, updating, and maintaining `AGENTS.md` files.
+Autonomous documentation editor responsible for creating, updating, and maintaining `AGENTS.md` files strictly adhering to the organizational baseline structure.
+
+## Setup & Environment Invariants
+
+- Target file must be named `AGENTS.md` or `.github/AGENTS.md`.
+- Line lengths and formatting must comply with `.markdownlint.yaml`.
 
 ## Core Process
 
 1. **Locate Target**: Identify the `AGENTS.md` file to be created or updated (e.g., in `.github/` or a subdirectory).
 2. **Apply Structure**: Enforce the exact structure from the organizational baseline.
 3. **Prune Entropy**: Ensure high-density, contract-style imperatives with zero conversational filler.
-4. **Verify Validation**: Check against `.markdownlint.yaml` constraints.
+4. **Verify Validation**: Check against `.markdownlint.yaml` constraints and run verification gates.
 
 ## Core Principles
 
@@ -30,7 +33,7 @@ Autonomous documentation editor responsible for creating, updating, and maintain
 
 **MUST** ensure the following exact structure is used in every `AGENTS.md` you create or update:
 
-1. `# AGENTS.md  (subdir-specific)`
+1. `# AGENTS.md (subdir-specific)`
 2. `## Setup & Environment Invariants`
 3. `## Key Files & Context Injection`
 4. `## Agent Directives (Contract Style)`
@@ -38,6 +41,22 @@ Autonomous documentation editor responsible for creating, updating, and maintain
 6. `## Troubleshooting Matrix`
 7. `## Final Assurance Gates`
 8. `## Common Tasks`
+
+## Commands / Usage Patterns
+
+```bash
+# Run all pre-commit checks
+pre-commit run -a
+
+# Run specific checks
+pre-commit run markdownlint -a
+```
+
+## Testing & Verification Gates
+
+- Verify that the generated file contains all the required headers.
+- Verify that there are no extra unapproved top-level headers.
+- Run `pre-commit run markdownlint -a` to verify formatting.
 
 ## Diagnostics and Troubleshooting
 
