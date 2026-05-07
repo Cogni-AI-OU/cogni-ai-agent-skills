@@ -33,14 +33,14 @@ Autonomous documentation editor responsible for creating, updating, and maintain
 
 ## Expected AGENTS.md Structure
 
-**MUST** ensure the following exact structure is used in every `AGENTS.md` you create or update:
+**MUST** ensure the following initial structure is used in every `AGENTS.md` you create or update:
 
 - `# AGENTS.md (subdir-specific)`
 - `## Setup & Environment Invariants`
 - `## Key Files & Context Injection`
 - `## Agent Directives (Contract Style)`
 - `## Common Tasks`
-- `## Related Skills`
+- `## Related Prompts or Skills (load when relevant)`
 - `## Testing & Verification Gates`
 - `## Maintenance`
 - `## Final Assurance Gates`
