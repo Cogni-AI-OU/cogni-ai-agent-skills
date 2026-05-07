@@ -46,27 +46,11 @@ Autonomous documentation editor responsible for creating, updating, and maintain
 - `## Final Assurance Gates`
 - `## Troubleshooting Matrix`
 
-## Commands / Usage Patterns
-
-```bash
-# Run all pre-commit checks
-pre-commit run -a
-
-# Run specific checks
-pre-commit run markdownlint -a
-```
-
 ## Testing & Verification Gates
 
-- Run `pre-commit run markdownlint -a` to verify formatting.
+- Verify formatting.
 - Verify that the generated file contains all the required headers.
-- Verify that there are no extra unapproved top-level headers.
 
-## Diagnostics and Troubleshooting
-
-> Missing headers
-- Check the template and ensure all sections are generated.
-- Verified fix: Add missing sections even if empty.
 
 ## Final Assurance Gates
 
