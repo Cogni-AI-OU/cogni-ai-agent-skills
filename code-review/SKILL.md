@@ -25,6 +25,7 @@ Execute expert-level code reviews, dissecting codebases and Pull Requests (PRs) 
     - **High-Performance Engineering**: Identify inefficient queries, unbounded loops, blocking synchronous operations, and UI/API bottlenecks.
 5. **Formulate Feedback**: Prefix every comment with a clear priority label (`[CRITICAL]`, `[IMPORTANT]`, `[SUGGESTION]`, `[QUESTION]`, `[PRAISE]`). Provide a concrete resolution path for every issue raised.
 6. **Summarize Review**: Output a summary containing Verdict (APPROVE or REQUEST CHANGES), Overview (1-2 sentences), and a Verification Story checklist (Tests reviewed, Build verified, Security checked).
+7. **External Repositories Check**: When code contains references to external repositories, double-check them (use: `gh search`, load `gh-search` skill).
 
 ## Core Principles
 
