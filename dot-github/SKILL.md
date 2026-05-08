@@ -15,7 +15,7 @@ Standardize `.github` directory structure, enforce agentic documentation pattern
 - **Configuration Validation**:
   Validate `.github/mcp-config.json` if the file exists.
 - **Disabling Workflows**:
-  To temporary disable workflows, consider moving them to `.github/workflows-disabled/`.
+  To temporarily disable workflows, consider moving them to `.github/workflows-disabled/`.
 - **Do Not Invent CODEOWNERS**:
   Never guess or invent teams in `CODEOWNERS` when they are unknown. Only use verified, existing teams.
 - **Agentic Instructions (`AGENTS.md`)**:
