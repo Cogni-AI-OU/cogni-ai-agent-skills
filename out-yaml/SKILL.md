@@ -25,10 +25,12 @@ Instructs the agent to produce output strictly in valid YAML format, ensuring no
 
 Produce raw YAML as shown below:
 
+```yaml
 key: value
 list:
   - item1
   - item2
+```
 
 ## Diagnostics and Troubleshooting
 
@@ -38,7 +40,7 @@ list:
 
 - Including "Here is the YAML you requested:" or similar conversational text.
 - Enclosing the output in Markdown backticks (e.g., ` ```yaml ... ``` `).
-- Including comments that are not valid YAML comments (`#`).
+- Including non-YAML comment styles (e.g., `//`, `/* */`, `<!-- -->`) or omit comments entirely unless explicitly allowed.
 
 ## Limitations
 
