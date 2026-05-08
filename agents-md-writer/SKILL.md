@@ -51,7 +51,7 @@ Autonomous documentation editor responsible for creating, updating, and maintain
 
 - Avoid creating human-readable markdown tables, use agentic-friendly lists which takes less space.
 - Use mermaid diagrams to describe complex concepts
-  by embeding flowchart, mind maps, requirements, user journeys, sequence diagrams or other when applicable.
+  by embeding class, flowchart, mind maps, requirements, user journeys, sequence diagrams or other when applicable.
 
 ## Testing & Verification Gates
 
