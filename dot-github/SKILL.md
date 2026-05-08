@@ -1,35 +1,77 @@
 ---
 name: dot-github
-description: Standardize `.github` directory structure, enforce agentic documentation patterns, and prevent creation of conflicting files like `.github/README.md`.
+description: >-
+  Standardize `.github` directory structure, enforce agentic documentation patterns.
+  Must load when creating or updating files in `.github/` dir.
 ---
 # Skill: dot-github
 
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 MD033 -->
 
-Standardize `.github` directory structure, enforce agentic documentation patterns, and prevent creation of conflicting files like `.github/README.md`.
+Standardize `.github` directory structure, enforce agentic documentation patterns.
 
 ## Core Principles
 
-- **Do Not Invent CODEOWNERS**: Never guess or invent teams in `CODEOWNERS` when they are unknown. Only use verified, existing teams.
-- **Workflow Documentation**: Document the list of available workflows in `.github/workflows/README.md`.
+- **Configuration Validation**:
+  Validate `.github/mcp-config.json` if the file exists.
+- **Disabling Workflows**:
+  To temporary disable workflows, consider moving them to `.github/workflows-disabled/`.
+- **Do Not Invent CODEOWNERS**:
+  Never guess or invent teams in `CODEOWNERS` when they are unknown. Only use verified, existing teams.
 - **Agentic Instructions (`AGENTS.md`)**:
   - Use `.github/AGENTS.md` to describe the structure of the `.github` directory and its contents (agents, instructions, prompts, skills).
   - Use `.github/workflows/AGENTS.md` to list workflows that can be triggered manually (crucial when the agent has actions write permissions).
   - Document available prompts in `.github/prompts/AGENTS.md` and specify when to load them.
   - Document instruction scopes in `.github/instructions/AGENTS.md`.
-- **Configuration Validation**: Validate `.github/mcp-config.json` if the file exists.
-- **Upstream Organization Fallbacks**: If an org/owner-level `.github` repository exists, follow its upstream guides instead of creating local duplicates (e.g., `CONTRIBUTING.md`, `ISSUE_TEMPLATE/`).
-- **Disabling Workflows**: Instead of deleting or commenting out workflows, consider moving disabled workflows to `.github/workflows-disabled/`.
+- **Upstream Organization Fallbacks**:
+  If an org/owner-level `.github` repository exists,
+  follow its upstream guides instead of creating local duplicates (e.g., `CONTRIBUTING.md`, `ISSUE_TEMPLATE/`).
+- **Workflow Documentation**:
+  Document the list of available workflows in `.github/workflows/README.md`.
+
+## Firewall
+
+To document encountered restrictive firewall during runtime, this can be documented in `.github/FIREWALL.md`, e.g.
+
+```markdown
+# Firewall Allowlist
+
+If your agent runs behind a restrictive firewall, allow these hosts.
+Always check the official guidance for updates.
+
+```plaintext
+agents.md
+aka.ms
+gh.io
+ghcr.io
+github.com
+img.shields.io
+pkg-containers.githubusercontent.com
+raw.githubusercontent.com
+support.github.com
+tldrlegal.com
+uploads.github.com
+user-images.githubusercontent.com
+yaml-multiline.info
+web.archive.org
+```
+
+Note: Keep the list sorted alphabetically for easier maintenance.
+
+Reference: <https://gh.io/copilot/firewall-config>
+```
 
 ## Hardened NEVER List
 
-- **NEVER create `.github/README.md`**: GitHub renders `.github/README.md` with the highest priority. Creating it will override the main `README.md` on the repository homepage and profile page. (See: https://github.com/Cogni-AI-OU/.github/blob/161f41dd87ff54d271677054a71be817669cea79/.github/AGENTS.md?plain=1#L27)
+- **NEVER create `.github/README.md`**:
+  GitHub renders `.github/README.md` with the highest priority.
+  Creating it will override the main `README.md` on the repository homepage and profile page.
 
 ## What to Avoid
 
-- Overwriting upstream organization defaults in `.github/` repo.
 - Creating undocumented workflows in `.github/workflows/`.
 - Deleting workflows instead of moving them to `.github/workflows-disabled/`.
+- Overwriting upstream organization defaults in `.github/` repo.
 
 ## Related Skills
 
