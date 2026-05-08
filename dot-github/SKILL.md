@@ -68,7 +68,7 @@ Reference: <https://gh.io/copilot/firewall-config>
   Creating it will override the main `README.md` on the repository homepage and profile page.
 - **Do not break your own workflow**:
   Refactoring like deleting necessary triggers could prevent your runtime from running it again.
-  Always be careful and double check your changes when it comes to your own runtime workflow.  
+  Always be careful and double check your changes when it comes to your own runtime workflow.
 
 ## What to Avoid
 
