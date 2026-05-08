@@ -1,0 +1,51 @@
+---
+name: out-yaml
+description: Instructs the agent to produce output strictly in valid YAML format, ensuring no conversational filler or markdown wrappers.
+---
+# Skill: out-yaml
+
+<!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
+
+Instructs the agent to produce output strictly in valid YAML format, ensuring no conversational filler, markdown wrappers (like ```yaml), or additional explanations are present.
+
+## Core Process
+
+1. **Activate**: Triggered when the goal requires YAML output.
+2. **Format**: Format the output entirely as valid YAML.
+3. **Verify**: Ensure no text exists outside the YAML structure.
+4. **Emit**: Output the YAML string directly.
+
+## Core Principles
+
+- **Strict Schema Adherence**: Output must be 100% valid YAML, parsable by standard YAML parsers.
+- **Zero Conversational Output**: Absolutely no preambles, postambles, or explanatory text.
+- **No Markdown Formatting**: Do not wrap the output in Markdown code blocks. Only emit raw YAML.
+
+## Commands / Usage Patterns
+
+Produce raw YAML as shown below:
+
+key: value
+list:
+  - item1
+  - item2
+
+## Diagnostics and Troubleshooting
+
+- If parsers fail, check for invisible characters, invalid indentation, or unescaped strings.
+
+## What to Avoid
+
+- Including "Here is the YAML you requested:" or similar conversational text.
+- Enclosing the output in Markdown backticks (e.g., ` ```yaml ... ``` `).
+- Including comments that are not valid YAML comments (`#`).
+
+## Limitations
+
+- The agent cannot validate the output against a specific schema unless one is provided.
+- Only enforces syntax, not semantic correctness.
+
+## Related Skills
+
+- **yaml**:
+  Must be loaded when working with YAML formatting and linting rules.
