@@ -49,7 +49,7 @@ Autonomous documentation editor responsible for creating, updating, and maintain
 
 ### Formatting
 
-- Avoid creating human-readable markdown tables, use agentic-friendly lists which takes less space.
+- Prefer compact, agent-friendly lists by default; use Markdown tables only when the content is inherently tabular and a table improves scanability.
 - Use mermaid diagrams to describe complex concepts
   by embeding class, flowchart, mind maps, requirements, user journeys, sequence diagrams or other when applicable.
 
