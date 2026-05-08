@@ -16,8 +16,9 @@ This skill helps with work on pull requests.
 ### Initialization Sequence
 
 Upon receiving a new objective, you should focus on the user request first.
-Identify the trigger source first to understand context and avoid ambiguity. A comment like 'fix it', or short PR comments (empty, referencing 'above' or '^^'), could refer
-to an inline thread comment, a specific line, the whole file, a previous comment, quote, or build failures.
+Identify the trigger source first to understand context and avoid ambiguity.
+A comment like 'fix it', or short PR comments (empty, referencing 'above' or '^^'), could refer to an inline thread comment,
+a specific line, the whole file, a previous comment, quote, or build failures.
 You MUST load related parent or inline comments to establish the right context.
 Ensure appropriate todos are created before starting work, so the session can be continued upon restart.
 
