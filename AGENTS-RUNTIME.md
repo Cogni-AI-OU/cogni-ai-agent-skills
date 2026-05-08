@@ -126,9 +126,11 @@ and planned work into the current context.
 - **[vim-ex](vim-ex/SKILL.md)**: Non-interactive file editing with Vim Ex mode (in favor of sed, shell or Python
   editing).
   You must load this skill when using Vim Ex mode for non-interactive file editing.
-- **[yaml](yaml/SKILL.md)**: Safely parse, edit, merge, and transform YAML files using yq, providing robust
+- **[yaml](yaml/SKILL.md)**: Generic guidelines for YAML formatting, linting, and structural rules.
+  You must load this skill when formatting or linting YAML files.
+- **[yq](yq/SKILL.md)**: Safely parse, edit, merge, and transform YAML files using yq, providing robust
   command-line examples for extraction and in-place modifications.
-  You must load this skill when updating YAML files.
+  You must load this skill when using the yq tool.
 
 Note: **Path Resolution**: For GitHub runtime within runner when triggered by `cogni-ai-agent-action`, these
 instructions may be loaded from a temporary directory (e.g., `${{ runner.temp }}/.skills/`). When reading a skill

@@ -86,7 +86,8 @@ Cogni AI capabilities loaded into the `.github/` directory.
   preventing regressions, and designing refactor-resilient behavioral tests.
 - **[vim-ex](vim-ex/SKILL.md)**: Non-interactive file editing with Vim Ex mode (in favor of sed, shell
   or Python editing)
-- **[yaml](yaml/SKILL.md)**: Safely parse, edit, merge, and transform YAML files using yq, providing robust
+- **[yaml](yaml/SKILL.md)**: Generic guidelines for YAML formatting, linting, and structural rules
+- **[yq](yq/SKILL.md)**: Safely parse, edit, merge, and transform YAML files using yq, providing robust
   command-line examples for extraction and in-place modifications
 
 ## What This Repository Provides
