@@ -35,7 +35,7 @@ Safely parse, edit, merge, and transform YAML files using yq, providing robust c
   `yq -o=json '.' config.yaml`
 - **Converting JSON to YAML**:
   `yq -P '.' config.json`
-- **Merging two YAML files (mikefarah/yq v4+)**:
+- **Merging two YAML files (mikefarah/yq)**:
   `yq eval-all 'select(fileIndex == 0) * select(fileIndex == 1)' file1.yaml file2.yaml`
 
 ## What to Avoid
