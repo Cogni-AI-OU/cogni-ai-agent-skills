@@ -29,7 +29,7 @@ Autonomous documentation editor responsible for creating, updating, and maintain
 
 - **Contract Style**: Write dense, imperative, expert-level instructions assuming ninja proficiency; skip basics, favor one-liners.
 - **No Duplication**: NEVER duplicate code-level comments or obvious steps.
-- **Structural Strictness**: You must always format `AGENTS.md` files exactly according to the canonical `AGENTS.md` structure.
+- **Structural Strictness**: You must always format `AGENTS.md` files according to the canonical `AGENTS.md` structure.
 
 ## Expected AGENTS.md Structure
 
@@ -37,6 +37,7 @@ Autonomous documentation editor responsible for creating, updating, and maintain
 
 - `# AGENTS.md (subdir-specific)`
 - `## Setup & Environment Invariants`
+- `## Requirements`
 - `## Key Files & Context Injection`
 - `## Agent Directives (Contract Style)`
 - `## Common Tasks`
@@ -45,6 +46,12 @@ Autonomous documentation editor responsible for creating, updating, and maintain
 - `## Maintenance`
 - `## Final Assurance Gates`
 - `## Troubleshooting Matrix`
+
+### Formatting
+
+- Avoid creating human-readable markdown tables, use agentic-friendly lists which takes less space.
+- Use mermaid diagrams to describe complex concepts
+  by embeding flowchart, mind maps, requirements, user journeys, sequence diagrams or other when applicable.
 
 ## Testing & Verification Gates
 
@@ -60,3 +67,5 @@ Autonomous documentation editor responsible for creating, updating, and maintain
 
 - **docs-review**:
   Must be loaded when asked to review or check consistency of documentation.
+- **mermaid**:
+  Must be loaded when creating Mermaid diagrams within markdown files.
