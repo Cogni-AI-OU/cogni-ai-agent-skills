@@ -44,8 +44,3 @@ list:
 
 - The agent cannot validate the output against a specific schema unless one is provided.
 - Only enforces syntax, not semantic correctness.
-
-## Related Skills
-
-- **yaml**:
-  Must be loaded when working with YAML formatting and linting rules.
