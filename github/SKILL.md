@@ -28,6 +28,10 @@ There are two modes for viewing Pull Requests in plain text:
 Use these formats when user sends a GitHub PR URL
 and you need to retrieve the diff or patch content for processing.
 
+## GitHub File Links
+
+- **Line Numbers (`#L<number>`)**: When a user provides a link to a file on GitHub that includes a line number reference (e.g., `#L123` or `#L10-L20`), always check the specified line(s) to determine whether it is relevant to the current context or task.
+
 ### References
 
 - [GitHub Docs: About comparing branches in pull requests](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-comparing-branches-in-pull-requests)
