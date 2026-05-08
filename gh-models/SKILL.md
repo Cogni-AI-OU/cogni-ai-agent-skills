@@ -40,6 +40,10 @@ gh extension upgrade github/gh-models
 gh models list  # verify + list available model IDs (e.g. openai/gpt-4.1, openai/gpt-4o-mini)
 ```
 
+## Model Catalog
+
+View the full list of available models and their capabilities in the [GitHub Models Catalog](https://models.github.ai/catalog/models).
+
 ## Core Commands
 
 ### `gh models run` — Inference (single-shot, REPL, or piped repo content)
@@ -107,6 +111,8 @@ Store prompts anywhere in repo (e.g. `.github/prompts/`). Structure enables:
 - **JSON everywhere for agents**: `--json` + `jq` for pass/fail, metrics extraction, automated rollback.
 - **Model selection discipline**: Use `gh models list`; prefer cheap/fast (gpt-4o-mini) for high-volume triage;
   reserve high-intelligence models for complex reasoning.
+- **Model ID Accuracy**: Always use the identifier from `gh models list`. Marketplace IDs (e.g. `azureml-xai/grok-3-mini`) may differ from CLI IDs (e.g. `xai/grok-3-mini`). Use `gh models view <model-id>` to verify.
+- **Modern Endpoint**: Prefer the modern `https://models.github.ai/inference` endpoint for broader model support.
 - **Piping + context injection**: Always pipe exact repo event payload (issue body, PR diff, commit message) —
   avoid hard-coded examples.
 - **Rate-limit & cost awareness**: Monitor via GitHub token; use `--max-tokens` + low temp for deterministic
