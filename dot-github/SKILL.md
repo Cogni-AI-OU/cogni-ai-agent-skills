@@ -33,7 +33,7 @@ Standardize `.github` directory structure, enforce agentic documentation pattern
 
 To document encountered restrictive firewall during runtime, this can be documented in `.github/FIREWALL.md`, e.g.
 
-```markdown
+````markdown
 # Firewall Allowlist
 
 If your agent runs behind a restrictive firewall, allow these hosts.
@@ -59,7 +59,7 @@ web.archive.org
 Note: Keep the list sorted alphabetically for easier maintenance.
 
 Reference: <https://gh.io/copilot/firewall-config>
-```
+````
 
 ## Hardened NEVER List
 
