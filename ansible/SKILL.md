@@ -20,6 +20,13 @@ like `apt` on Debian/Ubuntu systems:
 - Set `DEBIAN_FRONTEND=noninteractive` when running your Ansible commands or in your playbook environment.
 - Example: `DEBIAN_FRONTEND=noninteractive ansible-playbook playbook.yml`
 
+### Mocking for Workarounds
+
+As a last resort, when an actual fix is not feasible or considered, use mocking to workaround unexpected errors:
+
+- Use `mock_modules` or `mock_roles` to bypass tasks that are failing due to environment-specific issues or other "shouldn't happen" errors.
+- This should only be used when the underlying issue cannot be fixed directly and progress is blocked.
+
 ## Performance Profiling
 
 To profile the execution time of your playbooks and roles, you can enable the `profile_tasks` callback plugin.
