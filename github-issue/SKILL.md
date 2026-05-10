@@ -82,6 +82,12 @@ gh issue view <number> --json comments
 
 Before finishing your session, you MUST ensure the workspace is in a valid state.
 
+### Verification (Modifying Tasks)
+
+If the runtime involved intended modification of files:
+
+1. **Verify**: Verify changes by invoking project's tests before finish.
+
 ### Workspace Cleanliness (Non-Modifying Tasks)
 
 If the runtime did not involve intended modification of files:
