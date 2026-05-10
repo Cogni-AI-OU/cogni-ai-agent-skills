@@ -16,7 +16,7 @@ Expert-level guidance for executing git rebase operations safely, particularly d
 
 - **Objective**: Clean up local commit history before pushing.
 - **Process**:
-  - **WARNING**: Interactive modes (`-i`) are FORBIDDEN in runtime automation. Ensure `-i` is strictly scoped to local manual-only usage or fixing in the non-github runtime (like in local agent or devcontainer runtime).
+  - **WARNING**: Interactive modes (`-i`) are FORBIDDEN in runtime automation. Ensure `-i` is strictly scoped to local manual-only usage or fixing in the non-GitHub runtime (like in local agent or devcontainer runtime).
   - Start manual rebase: `git rebase -i <base-commit-or-branch>`
   - Non-interactive note: `GIT_SEQUENCE_EDITOR=true` only skips opening the editor; it does **not** rewrite the rebase todo list.
   - Scripted rewrites: For automation, set `GIT_SEQUENCE_EDITOR` to a script or command that edits the todo file, or prefer `git rebase -i --autosquash` with `fixup!` / `squash!` commits when appropriate.
