@@ -87,6 +87,8 @@ Before finishing your session, you MUST ensure the workspace is in a valid state
 If the runtime involved intended modification of files:
 
 1. **Verify**: Verify changes by invoking the project's tests before finishing.
+   E.g. Re-run the same tests that were initially failing
+   (either manually or via gh run if jobs are triggerable and wait for final confirmation).
 
 ### Workspace Cleanliness (Non-Modifying Tasks)
 
