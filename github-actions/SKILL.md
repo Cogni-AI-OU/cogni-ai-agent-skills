@@ -80,6 +80,30 @@ to gh CLI.
   ```
 - **Documentation**: For more workflow commands (e.g., environment variables, outputs, path modification), see [GitHub Actions Workflow Commands](https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-commands).
 
+## Defining Access for the GITHUB_TOKEN Scopes
+
+You can define the access that the `GITHUB_TOKEN` will permit by specifying `read`, `write`, or `none` as the value of the available permissions within the `permissions` key. See: https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax
+
+```yaml
+permissions:
+  actions: read|write|none              # Work with GitHub Actions
+  artifact-metadata: read|write|none    # Manage Actions artifact metadata
+  attestations: read|write|none         # Work with artifact attestations
+  checks: read|write|none               # Work with check runs and check suites
+  contents: read|write|none             # Work with the repository's contents
+  deployments: read|write|none          # Work with deployments
+  id-token: write|none                  # Fetch an OpenID Connect (OIDC) token
+  issues: read|write|none               # Work with issues
+  models: read|none                     # Access GitHub Models
+  discussions: read|write|none          # Work with GitHub Discussions
+  packages: read|write|none             # Work with GitHub Packages
+  pages: read|write|none                # Work with GitHub Pages
+  pull-requests: read|write|none        # Work with pull requests
+  security-events: read|write|none      # Work with GitHub Advanced Security
+  statuses: read|write|none             # Work with commit statuses
+  vulnerability-alerts: read|none       # Work with Dependabot alerts
+```
+
 ## Finding Build Issues via `gh` Command
 
 - Use `gh run list --limit 3` to list recent builds.
