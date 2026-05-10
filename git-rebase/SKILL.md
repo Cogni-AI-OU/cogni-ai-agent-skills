@@ -2,8 +2,8 @@
 name: git-rebase
 description: >-
   Advanced git rebase operations including interactive history cleanup and
-  non-interactive scripted rewrites. You must load this skill when performing
-  git rebase operations.
+  non-interactive scripted rewrites.
+  You must load this skill before performing git rebase operations.
 license: MIT
 ---
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
