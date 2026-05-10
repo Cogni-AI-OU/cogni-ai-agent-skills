@@ -102,18 +102,29 @@ mindmap
 
 - **Targeting a Specific Step and Line (e.g., `#step:8:55`)**:
   - The CLI does not natively filter `gh run view --log` by step number (and step names often render as `UNKNOWN STEP`).
-  - **Preferred (Text Known)**: If the prompt includes a snippet of the error, fetch the full job log and search for it directly with context:
+  - **Preferred (Text Known)**: If the prompt includes a snippet of the error, fetch the full job log
+    and search for it directly with context:
+
     ```bash
     gh run view --job <job_id> --log | awk -F'\t' '{print $3}' | grep -C 10 "snippet of the error"
     ```
-  - **Fallback (Zip/API)**: If the environment permits `unzip`, download the ZIP logs (see above). It contains distinct files prefixed by step number (e.g., `8_Run Ansible playbook.txt`), allowing exact line-number correlation.
-  - **Last Resort (Time-based)**: If `unzip` is blocked and no error text is provided, extract the step's exact timestamps via the API and filter the raw log. Note: this is approximate and may be off by a few lines due to overlapping boundaries.
+
+  - **Fallback (Zip/API)**: If the environment permits `unzip`, download the ZIP logs (see above).
+    It contains distinct files prefixed by step number (e.g., `8_Run Ansible playbook.txt`),
+    allowing exact line-number correlation.
+  - **Last Resort (Time-based)**: If `unzip` is blocked and no error text is provided, extract the
+    step's exact timestamps via the API and filter the raw log.
+    Note: This relies on log lines starting with an ISO timestamp (e.g., `2026-05-10T16:32:11.123Z  Log content`)
+    and is approximate due to clock skew or overlapping boundaries.
+
     ```bash
     # 1. Get start and end times for Step 8
-    gh run view --job <job_id> --json jobs --jq '.jobs[0].steps[] | select(.number==8) | {startedAt, completedAt}'
-    
-    # 2. Filter the log (pad the end time by 1 second to catch milliseconds)
-    gh run view --job <job_id> --log | awk -F'\t' '{print $3}' | awk '$1 >= "2026-05-10T16:32:11" && $1 <= "2026-05-10T16:33:17"' > step8.log
+    gh run view --job <job_id> --json steps --jq '.steps[] | select(.number==8) | {startedAt, completedAt}'
+
+    # 2. Filter the log (use /tmp/ and interpolate timestamps from Step 1)
+    START="2026-05-10T16:32:11"
+    END="2026-05-10T16:33:17"
+    gh run view --job <job_id> --log | awk -F'\t' '{print $3}' | awk -v s="$START" -v e="$END" '$1 >= s && $1 <= e' > /tmp/step8.log
     ```
 
 - **Job and Attempt Diagnostics**:
@@ -133,7 +144,8 @@ mindmap
       If that returns empty output, do not assume the summary is unavailable:
       fall back to downloading the full run logs zip via the API (see the
       `gh-api` skill) and inspect the extracted job log instead.
-      Note: Actions runners often dump the executed shell script and its evaluated environment variables into the step log preamble.
+      Note: Actions runners often dump the executed shell script and its evaluated
+      environment variables into the step log preamble.
       If a script loads the summary from an env var (e.g., `echo "$RESPONSE" >> $GITHUB_STEP_SUMMARY`),
       you can `grep` the retrieved log for that variable block.
     - Check if the action also creates **Check Run Annotations** for key messages.
