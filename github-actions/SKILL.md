@@ -104,6 +104,8 @@ permissions:
   vulnerability-alerts: read|none       # Work with Dependabot alerts
 ```
 
+You can also use `read-all` or `write-all` access for all of the available permissions or `{}` to disable all.
+
 ## Finding Build Issues via `gh` Command
 
 - Use `gh run list --limit 3` to list recent builds.
