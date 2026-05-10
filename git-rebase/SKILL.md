@@ -33,8 +33,3 @@ Expert-level guidance for executing git rebase operations safely, particularly d
 ## Limitations
 
 - Cannot autonomously perform interactive rebasing in restricted runtime environments.
-
-## Related Skills
-
-- **git-expert**:
-  Must be loaded when performing other advanced git operations or repository recovery.
