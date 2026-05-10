@@ -13,6 +13,8 @@ license: MIT
 
 Expert-level guidance for executing complex Git operations safely and effectively.
 
+Note: For specific guidance on Git rebase operations and interactive rebasing, see the **[git-rebase](git-rebase/SKILL.md)** skill.
+
 ## Reflog Recovery (`git reflog`)
 
 - **Objective**: Recover lost commits, branches, or undo a destructive operation (like a bad hard reset).
@@ -88,3 +90,8 @@ Expert-level guidance for executing complex Git operations safely and effectivel
 
 - Always verify the workspace state with `git status` and history with `git log --oneline --graph -n 15` after altering history.
 - Ensure all automated actions gracefully handle conflicts by checking exit codes.
+
+## Related Skills
+
+- **git-rebase**:
+  Must be loaded when performing Git rebase operations.
