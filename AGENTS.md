@@ -29,7 +29,6 @@ Read and merge these when operating inside corresponding sub-directories (order 
 ### Key Workflows
 
 - `check.yml`: Runs pre-commit checks and validation
-- `opencode-agent.yml`: Orchestrates autonomous agent operations
 - `cogni-ai-agent.yml`: Primary agent interaction workflow
 - `devcontainer-ci.yml`: Validates development container configuration
 
@@ -105,12 +104,17 @@ OpenCode (if installed) uses XDG base directories (not a single `~/.opencode` di
 
 ### Skill references
 
-- Cross-skill references in `SKILL.md` files must not use relative paths (e.g., `../path/SKILL.md`).
-- When skills are loaded, they are available to the agent via tools, and the agent does not follow relative filesystem paths between them.
+- Cross-skill references in `SKILL.md` files must not use relative paths
+  (e.g., `../path/SKILL.md`).
+- When skills are loaded, they are available to the agent via tools, and the agent does not follow
+  relative filesystem paths between them.
 - Reference skills by their name (e.g., `gh-api`, `git`) instead of links.
-- **Avoid cyclic references**: To prevent infinite agent loops, cross-references in `SKILL.md` files must be acyclic.
-- **No back-references**: Specialized sub-skills (e.g., `gh-pr`, `git-expert`) must not reference their parent command skill (`gh`, `git`).
-- **Uni-directional sibling references**: Sibling skills should only reference each other in a single direction (e.g., `molecule` can reference `ansible`, but `ansible` should not reference `molecule`).
+- **Avoid cyclic references**: To prevent infinite agent loops, cross-references in `SKILL.md` files
+  must be acyclic.
+- **No back-references**: Specialized sub-skills (e.g., `gh-pr`, `git-expert`) must not reference
+  their parent command skill (`gh`, `git`).
+- **Uni-directional sibling references**: Sibling skills should only reference each other in a single
+  direction (e.g., `molecule` can reference `ansible`, but `ansible` should not reference `molecule`).
 
 ## References
 
