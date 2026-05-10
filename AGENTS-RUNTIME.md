@@ -72,6 +72,9 @@ and planned work into the current context.
 - **[git-expert](git-expert/SKILL.md)**: Advanced Git operations including reflog recovery,
   bisecting, complex conflict resolution, and history manipulation.
   You must load this skill when performing advanced git operations or repository recovery.
+- **[git-filter-branch](git-filter-branch/SKILL.md)**: Extract a specific subdirectory with history using git filter-branch
+  when modern tools like filter-repo are unavailable.
+  You must load this skill when extracting a subdirectory with history.
 - **[git-rebase](git-rebase/SKILL.md)**: Advanced Git rebase operations including
   interactive history cleanup and non-interactive scripted rewrites.
   You must load this skill when performing Git rebase operations.
