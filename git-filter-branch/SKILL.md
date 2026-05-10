@@ -9,7 +9,8 @@ license: MIT
 
 # Git Filter Branch
 
-Extract a specific subdirectory from an external repository and merge it into another repository's root, permanently preserving the git commit history of those files, using `git filter-branch` as a built-in fallback.
+Extract a specific subdirectory from an external repository and merge it into another repository's root,
+permanently preserving the git commit history of those files, using `git filter-branch` as a built-in fallback.
 
 ## Core Process
 
@@ -43,8 +44,12 @@ Extract a specific subdirectory from an external repository and merge it into an
 
 ## Challenges & Solutions
 
-- **Root File Conflicts**: Files pulled from the target subdirectory may conflict with your main repository if they share generic names (e.g., `README.md`, `AGENTS.md`). Handle these deliberately (e.g., `git checkout --ours README.md`).
-- **Hook Interference**: Pre-commit hooks might trigger heavily on the newly merged files. Use `--no-verify` on the merge commit if the upstream is already trusted, followed by independent linting to avoid timeout crashes in constrained environments.
+- **Root File Conflicts**:
+  Files pulled from the target subdirectory may conflict with your main repository if they share generic names (e.g., `README.md`, `AGENTS.md`).
+  Handle these deliberately (e.g., `git checkout --ours README.md`).
+- **Hook Interference**:
+  Pre-commit hooks might trigger heavily on the newly merged files. Use `--no-verify` on the merge commit if the upstream is already trusted,
+  followed by independent linting to avoid timeout crashes in constrained environments.
 
 ## Limitations
 
