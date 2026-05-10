@@ -86,7 +86,7 @@ Before finishing your session, you MUST ensure the workspace is in a valid state
 
 If the runtime involved intended modification of files:
 
-1. **Verify**: Verify changes by invoking project's tests before finish.
+1. **Verify**: Verify changes by invoking the project's tests before finishing.
 
 ### Workspace Cleanliness (Non-Modifying Tasks)
 
