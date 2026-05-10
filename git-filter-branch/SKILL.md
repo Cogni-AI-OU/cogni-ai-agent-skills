@@ -14,14 +14,29 @@ Extract a specific subdirectory from an external repository and merge it into an
 ## Core Process
 
 1. **Clone Source**: Clone the external repository into a temporary directory:
-   `git clone --depth 50 <url> temp-repo && cd temp-repo`
+
+   ```bash
+   git clone --depth 50 <url> temp-repo && cd temp-repo
+   ```
+
 2. **Rewrite History**: Isolate the target subdirectory so it becomes the root of the temporary repository:
-   `export FILTER_BRANCH_SQUELCH_WARNING=1`
-   `git filter-branch -f --subdirectory-filter <path> HEAD`
+
+   ```bash
+   export FILTER_BRANCH_SQUELCH_WARNING=1
+   git filter-branch -f --subdirectory-filter <path> HEAD
+   ```
+
 3. **Add Remote**: Navigate back to your main repository and add the temporary clone as a new remote:
-   `cd /path/to/main && git remote add temp-repo /path/to/temp-repo`
-4. **Merge**: Fetch and merge the isolated history into your main repository:
-   `git fetch temp-repo && git merge temp-repo/main --allow-unrelated-histories`
+
+   ```bash
+   cd /path/to/main && git remote add temp-repo /path/to/temp-repo
+   ```
+
+4. **Merge**: Fetch and merge the isolated history into your main repository (replace `main` with the source repo's default branch if different):
+
+   ```bash
+   git fetch temp-repo && git merge temp-repo/main --allow-unrelated-histories
+   ```
 
 ## Challenges & Solutions
 
