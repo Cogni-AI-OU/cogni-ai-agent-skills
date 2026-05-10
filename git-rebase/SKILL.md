@@ -18,8 +18,9 @@ Expert-level guidance for executing git rebase operations safely, particularly d
 - **Process**:
   - **WARNING**: Interactive modes (`-i`) are FORBIDDEN in runtime automation. Ensure `-i` is strictly scoped to local manual-only usage or fixing in the non-github runtime (like in local agent or devcontainer runtime).
   - Start manual rebase: `git rebase -i <base-commit-or-branch>`
-  - Automated rewrites: Set `GIT_SEQUENCE_EDITOR=true` for non-interactive execution if scripted.
-  - Actions: `pick`, `reword`, `edit`, `squash` (or `s`), `fixup` (or `f`), `drop`.
+  - Non-interactive note: `GIT_SEQUENCE_EDITOR=true` only skips opening the editor; it does **not** rewrite the rebase todo list.
+  - Scripted rewrites: For automation, set `GIT_SEQUENCE_EDITOR` to a script or command that edits the todo file, or prefer `git rebase -i --autosquash` with `fixup!` / `squash!` commits when appropriate.
+  - Actions in the todo list: `pick`, `reword`, `edit`, `squash` (or `s`), `fixup` (or `f`), `drop`.
 
 ## Safety Principles
 
