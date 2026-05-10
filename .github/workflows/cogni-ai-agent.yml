@@ -9,8 +9,49 @@ on:
   pull_request_review_comment:
     types:
       - created
+  workflow_call:
+    inputs:
+      agent:
+        default: cogni-ai-architect
+        description: Agent to use.
+        required: false
+        type: string
+      model:
+        default: ${{ vars.OPENCODE_MODEL_DEFAULT || 'opencode/gemini-3-flash' }}
+        description: Model to use
+        required: false
+        type: string
+      prompt:
+        description: Prompt for the agent
+        required: true
+        type: string
+      version_agents:
+        description: Version of agents to use
+        required: false
+        type: string
+      version_instructions:
+        description: Version of instructions to use
+        required: false
+        type: string
+      version_skills:
+        description: Version of skills to use
+        required: false
+        type: string
   workflow_dispatch:
     inputs:
+      agent:
+        default: cogni-ai-architect
+        description: Agent to use.
+        options:
+          - cogni-ai-architect
+          - cogni-ai-brain-ops
+          - cogni-ai-code-reviewer
+          - cogni-ai-devops
+          - cogni-ai-manager
+          - cogni-ai-plan-reviewer
+          - default
+        required: false
+        type: choice
       model:
         default: opencode/gemini-3-flash
         description: Model to use for OpenCode
@@ -18,6 +59,7 @@ on:
           - opencode/big-pickle
           - opencode/claude-3-5-haiku
           - opencode/claude-haiku-4-5
+          - opencode/claude-opus-4-1
           - opencode/claude-opus-4-5
           - opencode/claude-opus-4-6
           - opencode/claude-sonnet-4
@@ -25,21 +67,43 @@ on:
           - opencode/claude-sonnet-4-6
           - opencode/gemini-3.1-pro
           - opencode/gemini-3-flash
+          - opencode/glm-4.6
+          - opencode/glm-4.7-free
           - opencode/glm-5
           - opencode/glm-5.1
           - opencode/gpt-5
           - opencode/gpt-5-codex
           - opencode/gpt-5-nano
+          - opencode/gpt-5.1
+          - opencode/gpt-5.1-codex
+          - opencode/gpt-5.1-codex-max
+          - opencode/gpt-5.1-codex-mini
+          - opencode/gpt-5.2
+          - opencode/gpt-5.2-codex
           - opencode/gpt-5.3-codex
           - opencode/gpt-5.3-codex-spark
           - opencode/gpt-5.4
           - opencode/gpt-5.4-mini
           - opencode/gpt-5.4-nano
+          - opencode/gpt-5.4-pro
+          - opencode/grok-code
+          - opencode/kimi-k2
+          - opencode/kimi-k2-thinking
+          - opencode/kimi-k2.5
+          - opencode/minimax-m2.1-free
           - opencode/minimax-m2.5
           - opencode/minimax-m2.5-free
           - opencode/nemotron-3-super-free
           - opencode/qwen3-coder
           - opencode/qwen3.6-plus-free
+          - opencode/qwen3.6-plus
+          - opencode/qwen3.5-plus
+          # Grok models (xAI)
+          - xai/grok-4-1-fast-non-reasoning  # Fast responses, 2M context
+          - xai/grok-4-1-fast-reasoning  # Tool-calling + reasoning, 2M context
+          - xai/grok-4.20-0309-non-reasoning  # Flagship, 2M context
+          - xai/grok-4.20-0309-reasoning  # Flagship + reasoning, 2M context
+          - xai/grok-code-fast-1  # Agentic coding + reasoning, 256K context
         required: true
         type: choice
       prompt:
@@ -50,6 +114,7 @@ jobs:
   cogni-ai-agent:
     name: Run Cogni AI agent
     if: |
+      github.event_name == 'workflow_call' ||
       github.event_name == 'workflow_dispatch' ||
       contains(github.event.comment.body, '/') ||
       contains(github.event.comment.body, '@')
@@ -82,7 +147,8 @@ jobs:
       - name: Run Cogni AI Agent
         uses: Cogni-AI-OU/cogni-ai-agent-action@main
         with:
-          model: ${{ inputs.model || 'opencode/gemini-3-flash' }}
+          agent: ${{ inputs.agent }}
+          model: ${{ inputs.model || vars.OPENCODE_MODEL_DEFAULT || 'opencode/gemini-3-flash' }}
           opencode-api-key: ${{ secrets.OPENCODE_API_KEY }}  # <https://opencode.ai/auth>
           permissions: |-
             bash:
@@ -114,6 +180,9 @@ jobs:
               true*: allow
               vim*: allow
           prompt: ${{ github.event.comment.body || inputs.prompt }}
+          version_agents: ${{ inputs.version_agents }}
+          version_instructions: ${{ inputs.version_instructions }}
+          version_skills: ${{ inputs.version_skills }}
   summary:
     name: Generate Summary (post-run)
     needs: cogni-ai-agent

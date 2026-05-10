@@ -27,7 +27,8 @@ For a human-readable overview, see [README.md](README.md).
 ### cogni-ai-agent.yml
 
 - Purpose: provides the underlying logic to run the Cogni AI Agent.
-- Triggers: `issue_comment`, `pull_request_review_comment`, `workflow_dispatch`.
+- Inputs: `agent` (default `cogni-ai-architect`).
+- Triggers: `issue_comment`, `pull_request_review_comment`, `workflow_call`, `workflow_dispatch`.
 - Details: Installs Python dependencies from `.devcontainer/requirements.txt` and calls the
   `Cogni-AI-OU/cogni-ai-agent-action` to process instructions.
 - Permissions: `contents: write`, `id-token: write`, `issues: write`, `pull-requests: write`.
@@ -50,5 +51,21 @@ For a human-readable overview, see [README.md](README.md).
 - Reusable: `uses: Cogni-AI-OU/cogni-ai-agent-skills/.github/workflows/devcontainer-ci.yml@main`.
 
 ## Notes
+
+### Model options list
+
+The `model` input options for `workflow_dispatch` must be identical in the corresponding workflow files:
+
+| File | Location |
+| ---- | -------- |
+| [cogni-ai-agent.yml](cogni-ai-agent.yml) | `workflow_dispatch` inputs |
+
+### Agent options list
+
+The `agent` input options for `workflow_dispatch` must be identical in the corresponding workflow files:
+
+| File | Location |
+| ---- | -------- |
+| [cogni-ai-agent.yml](cogni-ai-agent.yml) | `workflow_dispatch` inputs |
 
 - Keep this catalog updated when workflows are added, removed, or renamed.
