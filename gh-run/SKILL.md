@@ -100,6 +100,22 @@ mindmap
   See the `gh-api` skill for instructions on downloading the full run logs zip via the API to bypass console streaming limitations.
 - Probe one run or one job first before launching parallel diagnostics.
 
+- **Targeting a Specific Step and Line (e.g., `#step:8:55`)**:
+  - The CLI does not natively filter `gh run view --log` by step number (and step names often render as `UNKNOWN STEP`).
+  - **Preferred (Text Known)**: If the prompt includes a snippet of the error, fetch the full job log and search for it directly with context:
+    ```bash
+    gh run view --job <job_id> --log | awk -F'\t' '{print $3}' | grep -C 10 "snippet of the error"
+    ```
+  - **Fallback (Zip/API)**: If the environment permits `unzip`, download the ZIP logs (see above). It contains distinct files prefixed by step number (e.g., `8_Run Ansible playbook.txt`), allowing exact line-number correlation.
+  - **Last Resort (Time-based)**: If `unzip` is blocked and no error text is provided, extract the step's exact timestamps via the API and filter the raw log. Note: this is approximate and may be off by a few lines due to overlapping boundaries.
+    ```bash
+    # 1. Get start and end times for Step 8
+    gh run view --job <job_id> --json jobs --jq '.jobs[0].steps[] | select(.number==8) | {startedAt, completedAt}'
+    
+    # 2. Filter the log (pad the end time by 1 second to catch milliseconds)
+    gh run view --job <job_id> --log | awk -F'\t' '{print $3}' | awk '$1 >= "2026-05-10T16:32:11" && $1 <= "2026-05-10T16:33:17"' > step8.log
+    ```
+
 - **Job and Attempt Diagnostics**:
   - View summary or logs for a specific job ID (useful when you have a direct job URL):
 
