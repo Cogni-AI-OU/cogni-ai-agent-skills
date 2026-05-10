@@ -1,7 +1,7 @@
 ---
 name: git-expert
 description: >-
-  Advanced Git operations including interactive rebasing, reflog recovery,
+  Advanced Git operations including reflog recovery,
   bisecting, complex conflict resolution, and history manipulation.
   You must load this skill when performing advanced git operations or repository
   recovery.
@@ -12,19 +12,6 @@ license: MIT
 # Advanced Git Operations
 
 Expert-level guidance for executing complex Git operations safely and effectively.
-
-## Interactive Rebasing (`git rebase -i`)
-
-- **Objective**: Clean up local commit history before pushing.
-- **Process**:
-  - **WARNING**: Interactive modes (`-i`) are FORBIDDEN in runtime automation. Ensure `-i` is strictly scoped to
-    local manual-only usage or fixing in the non-github runtime (like in local agent or devcontainer runtime).
-  - Start manual rebase: `git rebase -i <base-commit-or-branch>`
-  - Automated rewrites: Set `GIT_SEQUENCE_EDITOR=true` for non-interactive execution if scripted.
-  - Actions: `pick`, `reword`, `edit`, `squash` (or `s`), `fixup` (or `f`), `drop`.
-- **Safety**: NEVER rebase commits that have already been pushed to a shared public
-  branch unless explicitly coordinating a force-push.
-- **Abort**: `git rebase --abort`
 
 ## Reflog Recovery (`git reflog`)
 
