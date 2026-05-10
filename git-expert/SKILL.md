@@ -13,7 +13,7 @@ license: MIT
 
 Expert-level guidance for executing complex Git operations safely and effectively.
 
-Note: For specific guidance on Git rebase operations and interactive rebasing, see the **[git-rebase](git-rebase/SKILL.md)** skill.
+Note: For specific guidance on Git rebase operations and interactive rebasing, see the **git-rebase** skill.
 
 ## Reflog Recovery (`git reflog`)
 

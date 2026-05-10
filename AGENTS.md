@@ -108,7 +108,8 @@ OpenCode (if installed) uses XDG base directories (not a single `~/.opencode` di
   (e.g., `../path/SKILL.md`).
 - When skills are loaded, they are available to the agent via tools, and the agent does not follow
   relative filesystem paths between them.
-- Reference skills by their name (e.g., `gh-api`, `git`) instead of links.
+- Reference skills by their name (e.g., `gh-api`, `git`) instead of file links,
+  as they are dynamically loaded by the agent via tools.
 - **Avoid cyclic references**: To prevent infinite agent loops, cross-references in `SKILL.md` files
   must be acyclic.
 - **No back-references**: Specialized sub-skills (e.g., `gh-pr`, `git-expert`) must not reference
