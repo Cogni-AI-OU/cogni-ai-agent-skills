@@ -2,7 +2,7 @@
 name: git-filter-branch
 description: >-
   Extract a specific subdirectory with history using git filter-branch when modern tools like filter-repo are unavailable.
-  You must load this skill when extracting a subdirectory with history with `git filter-branch`.
+  You must load this skill when extracting a subdirectory with history using `git filter-branch`.
 license: MIT
 ---
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
@@ -16,7 +16,8 @@ Extract a specific subdirectory from an external repository and merge it into an
 1. **Clone Source**: Clone the external repository into a temporary directory:
 
    ```bash
-   git clone --depth 50 <url> temp-repo && cd temp-repo
+   git clone <url> temp-repo
+   cd temp-repo
    ```
 
 2. **Rewrite History**: Isolate the target subdirectory so it becomes the root of the temporary repository:
@@ -29,13 +30,15 @@ Extract a specific subdirectory from an external repository and merge it into an
 3. **Add Remote**: Navigate back to your main repository and add the temporary clone as a new remote:
 
    ```bash
-   cd /path/to/main && git remote add temp-repo /path/to/temp-repo
+   cd /path/to/main
+   git remote add temp-repo /path/to/temp-repo
    ```
 
-4. **Merge**: Fetch and merge the isolated history into your main repository (replace `main` with the source repo's default branch if different):
+4. **Merge**: Fetch and merge the isolated history into your main repository (replace `<branch>` with the source repo's default branch if different):
 
    ```bash
-   git fetch temp-repo && git merge temp-repo/main --allow-unrelated-histories
+   git fetch temp-repo
+   git merge temp-repo/<branch> --allow-unrelated-histories
    ```
 
 ## Challenges & Solutions
