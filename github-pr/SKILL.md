@@ -131,7 +131,7 @@ Before finishing your session, you **MUST** pull and integrate the latest upstre
 
 **Mandatory steps**:
 
-1. Verify changes by invoking project's tests.
+1. Verify changes by invoking the project's tests.
    E.g. Re-run the same tests that were initially failing
    (either manually or via gh run if jobs are triggerable and wait for final confirmation).
 3. Stage and commit all local work (`git add` only verified files, then `git commit`).
