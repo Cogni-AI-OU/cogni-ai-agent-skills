@@ -38,7 +38,8 @@ You MUST:
   This ensures you do not lose crucial constraints, URLs, or instructions provided at the very beginning.
 2. **Analyze Previous Agent Execution:**
   Load and review the previous agent session logs (using `gh run view --log` or available logging tools)
-  and examine the incorrect changes (using `gh pr diff`). Understand *what* the previous agent did wrong and *why*.
+  and examine the incorrect changes (using `gh pr diff`).
+  Understand *what* the previous agent did wrong and *why*.
 3. **Synthesize and Revise:** Combine the original instructions with the user's new clarification.
   Explicitly state your revised understanding in your plan to confirm you have incorporated both the initial context
   and the course correction before making changes.
@@ -55,29 +56,29 @@ Check `github.event_name` and payload to identify trigger source:
   - Reply Method: `gh pr comment` (preferred) or `gh pr review` (if permitted) for batching broad feedback.
 - **Inline code review** (`pull_request_review_comment`):
   - Reply Method: Use `gh api repos/{owner}/{repo}/pulls/{pr}/comments/{comment_id}/replies -f body="..."`
-    for single-line replies. Use `gh pr review` only if permitted by the runtime allowlist.
+    for single-line replies.
+    Use `gh pr review` only if permitted by the runtime allowlist.
 
 **Routing Invariants**:
 
 - **Direct API Responses ONLY**:
   When asked to comment on a PR, you MUST use the `gh` CLI (`gh pr comment`, etc.)
-  to post the comment directly via API. NEVER write the comment text to a file in the workspace or commit such
-  files.
-  For long comments, avoid heredocs as they can cause shell hangs. Write the comment to a temporary file outside the
-  workspace (e.g., `/tmp/comment.md`), then use `--body-file`:
+  to post the comment directly via API.
+  NEVER write the comment text to a file in the workspace or commit such files.
+  For long comments, avoid heredocs as they can cause shell hangs.
+  Write the comment to a temporary file outside the workspace (e.g., `/tmp/comment.md`), then use `--body-file`:
 
   ```bash
   gh pr comment 123 --body-file /tmp/comment.md
   ```
 
 - **Symmetric Routing**:
-  ALWAYS reply via the exact originating channel. When asked to post or comment without
-  providing a code fix, you MUST communicate back via the API without modifying any files.
+  ALWAYS reply via the exact originating channel.
+  When asked to post or comment without providing a code fix, you MUST communicate back via the API without modifying any files.
 - **Workspace Cleanliness (No Commits for Non-Code-Change Tasks)**:
-  If your task is purely informational (e.g.,
-  analyzing a PR, posting a comment), you MUST ensure the workspace remains completely clean (no modified or
-  untracked files). ANY modification to the workspace after a repo event triggers an automatic commit and push
-  to the Pull Request. Delete temporary files or run `git clean -fd` before finishing.
+  If your task is purely informational (e.g., analyzing a PR, posting a comment), you MUST ensure the workspace remains completely clean (no modified or untracked files).
+  ANY modification to the workspace after a repo event triggers an automatic commit and push to the Pull Request.
+  Delete temporary files or run `git clean -fd` before finishing.
 - Parse `github.event.comment.id` and `in_reply_to_id` to maintain thread continuity.
 
 ## 2. Environment & Safety Constraints
@@ -85,12 +86,11 @@ Check `github.event_name` and payload to identify trigger source:
 ### Restricted Shell & Ephemeral Environment
 
 - **Ephemeral State**:
-  Any uncommitted modifications or tools installed outside of the project directory will be
-  immediately lost when the runner terminates. ALL intended state changes must be committed and pushed to the
-  remote branch to persist.
+  Any uncommitted modifications or tools installed outside of the project directory will be immediately lost when the runner terminates.
+  ALL intended state changes must be committed and pushed to the remote branch to persist.
 - **Restricted Command Allowlist**:
-  You are operating in a highly restricted shell environment where arbitrary
-  commands are denied by default. Only explicitly allowed tools can be invoked.
+  You are operating in a highly restricted shell environment where arbitrary commands are denied by default.
+  Only explicitly allowed tools can be invoked.
 
 ### General Safety
 
@@ -101,20 +101,19 @@ Check `github.event_name` and payload to identify trigger source:
   When CI/CD pipelines or automated checks fail, do NOT immediately patch local
   configuration files or create suppressions to hide errors.
 - **Fixing CI Build Failures**:
-  When asked to fix a failed CI build, do NOT assume the fix is correct until proven. You MUST commit and push the
-  changes, then identify the specific run (targeted by branch or workflow), for example with
-  `gh run list --branch $(git branch --show-current)`, and wait for that exact run with
-  `gh run watch <run_id>`; use `gh run view <run_id>` to verify the final conclusion is `success`.
+  When asked to fix a failed CI build, do NOT assume the fix is correct until proven.
+  You MUST commit and push the changes, then identify the specific run (targeted by branch or workflow), for example with `gh run list --branch $(git branch --show-current)`, and wait for that exact run with `gh run watch <run_id>`.
+  Use `gh run view <run_id>` to verify the final conclusion is `success`.
 
 ## 3. Code Modification & Sync Policies
 
 ### Commit & Workspace Invariants
 
 - **Verify Before Commit**:
-  Verify your expected changes with `git diff --no-color`. NEVER use blanket `git add .`
-  without verifying the exact list of staged files.
-  CRITICAL: You MUST check for unresolved merge conflict markers (e.g., `<<<<<<<`, `=======`,
-  `>>>>>>>`) in your changes. NEVER commit files containing unresolved merge conflict markers.
+  Verify your expected changes with `git diff --no-color`.
+  NEVER use blanket `git add .` without verifying the exact list of staged files.
+  CRITICAL: You MUST check for unresolved merge conflict markers (e.g., `<<<<<<<`, `=======`, `>>>>>>>`) in your changes.
+  NEVER commit files containing unresolved merge conflict markers.
 - **No Untracked Additions**:
   NEVER automatically commit untracked files or workspace artifacts.
 - **Final Status Check**:
@@ -159,13 +158,12 @@ If the runtime did not involve intended modification of files:
 ## 4. Review & Feedback Management
 
 - **Batching PR Feedback**:
-  You SHOULD use `gh pr review` (if available) to batch broad feedback, resolve
-  threads, and assert review states (`APPROVE`, `REQUEST_CHANGES`, `COMMENT`).
-  This prevents notification spam. If `gh pr review` is restricted, use `gh pr
-  comment` for general feedback and `gh api` for inline replies.
+  You SHOULD use `gh pr review` (if available) to batch broad feedback, resolve threads, and assert review states (`APPROVE`, `REQUEST_CHANGES`, `COMMENT`).
+  This prevents notification spam.
+  If `gh pr review` is restricted, use `gh pr comment` for general feedback and `gh api` for inline replies.
 - **Contextual Continuity**:
-  Maintain conversation context within the originating thread. When replying to
-  an inline comment, your response MUST appear as a reply in that same thread.
+  Maintain conversation context within the originating thread.
+  When replying to an inline comment, your response MUST appear as a reply in that same thread.
 - **Scope Focus**:
   Avoid blindly fixing all PR comments not relevant to the original prompt.
 - **Significant Refactors**:
@@ -173,10 +171,9 @@ If the runtime did not involve intended modification of files:
   without authoritative user approval, unless it is directly relevant to the
   current context.
 - **Validating Review Comments**:
-  PR review comments MUST be validated before blindly applying fixes. This is
-  especially true for comments from bots, which are often mistaken. If a bot's
-  suggestion is incorrect, provide an inline reply to the relevant comment
-  explaining the reasoning.
+  PR review comments MUST be validated before blindly applying fixes.
+  This is especially true for comments from bots, which are often mistaken.
+  If a bot's suggestion is incorrect, provide an inline reply to the relevant comment explaining the reasoning.
 - **PR Metadata Maintenance**:
   If a PR title or description consists of outdated or incorrect information
   based on how the pull request has evolved, you MUST update them using `gh pr edit`
@@ -189,7 +186,8 @@ If the runtime did not involve intended modification of files:
 - **Document Trade-offs:**
   Capture unresolved decisions, explicit options, and impacts in the PR description.
 - **Never Stall:**
-  Proceed immediately with safe defaults. Request preference feedback in the PR instead of waiting.
+  Proceed immediately with safe defaults.
+  Request preference feedback in the PR instead of waiting.
 - **Report Defensively:**
   Present recommended option first; list alternatives only if they alter scope or risk.
 
@@ -225,9 +223,7 @@ gh pr checks <number> --json name,status,conclusion,url
 
     Note: For GitHub Actions jobs, the `output.summary` field in these check runs is usually `null`.
     Job Summaries from `$GITHUB_STEP_SUMMARY` are not accessible here.
-    See the `gh-run` and `gh-api` skills for detailed workarounds to inspect
-    job results and retrieve summary information programmatically, including
-    approaches beyond log extraction.
+    See the `gh-run` and `gh-api` skills for detailed workarounds to inspect job results and retrieve summary information programmatically, including approaches beyond log extraction.
 
 2. Fetch annotations for a specific check run ID:
 
