@@ -18,7 +18,7 @@ and strict post-merge validation to prevent duplicate lines or lingering conflic
 3. **Inspect Conflicts**: If conflicts occur, resolve them explicitly file by file.
 4. **Clean File Verification**: Check every resolved file to ensure absolutely
    no Git conflict markers (`<<<<<<<`, `=======`, `>>>>>>>`) remain.
-5. **Deduplication Check**: Review the resolved sections to ensure no logical duplicates 
+5. **Deduplication Check**: Review the resolved sections to ensure no logical duplicates
    (e.g., duplicate imports, repeated variable declarations, or duplicate lines) were introduced.
 6. **Commit and Validate**: Finalize the merge commit, run local tests, and check the log.
 
