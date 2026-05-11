@@ -11,7 +11,7 @@ Execute safe and verified git merges. This skill enforces pre-merge checks, expl
 ## Core Process
 
 1. **Pre-Flight Check**: Ensure the working directory is perfectly clean (`git status`).
-2. **Execute Merge**: Perform the merge (e.g., `git merge <branch> --no-ff`).
+2. **Execute Merge**: Perform the merge (e.g., `git merge <branch> --no-ff --no-edit`).
 3. **Inspect Conflicts**: If conflicts occur, resolve them explicitly file by file.
 4. **Clean File Verification**: Check every resolved file to ensure absolutely no Git conflict markers (`<<<<<<<`, `=======`, `>>>>>>>`) remain.
 5. **Deduplication Check**: Review the resolved sections to ensure no logical duplicates (e.g., duplicate imports, repeated variable declarations, or duplicate lines) were introduced.
@@ -31,7 +31,7 @@ Execute safe and verified git merges. This skill enforces pre-merge checks, expl
 - **Review Differences Before Merge**:
   `git diff HEAD..<target-branch> --name-only`
 - **Perform Merge**:
-  `git merge <target-branch> --no-ff -m "Merge <target-branch> into HEAD"`
+  `git merge <target-branch> --no-ff --no-edit -m "Merge <target-branch> into HEAD"`
 - **Find Conflict Markers**:
   `grep -rnE "<<<<<<<|=======|>>>>>>>" .`
   (Must return no output before finalizing the merge).
@@ -42,7 +42,7 @@ Execute safe and verified git merges. This skill enforces pre-merge checks, expl
 
 ## Diagnostics and Troubleshooting
 
-- **Merge Stuck in Conflict**: Use `git status` to identify unmerged paths. Edit them, run `git add <file>`, and then `git commit`.
+- **Merge Stuck in Conflict**: Use `git status` to identify unmerged paths. Edit them, run `git add <file>`, and then `git commit --no-edit`.
 - **Accidental Bad Merge**: If the merge went wrong and you haven't pushed, use `git merge --abort` (if in progress) or `git reset --hard HEAD~1` (if already committed).
 - **Process Stuck**: If git process hangs, ensure no interactive prompt was launched. Abort and rerun non-interactively.
 
