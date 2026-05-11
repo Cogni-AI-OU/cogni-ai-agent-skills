@@ -101,8 +101,9 @@ Check `github.event_name` and payload to identify trigger source:
   When CI/CD pipelines or automated checks fail, do NOT immediately patch local
   configuration files or create suppressions to hide errors.
 - **Fixing CI Build Failures**:
-  When asked to fix a CI failed build, do NOT assume the fix is correct until proven.
-  You MUST commit and push the changes, then wait for the run to confirm it's green via `gh run list`.
+  When asked to fix a failed CI build, do NOT assume the fix is correct until proven. You MUST commit and push the
+  changes, then wait for the specific run (targeted by branch or workflow) to confirm it is green via
+  `gh run list --branch $(git branch --show-current)` or `gh run watch`.
 
 ## 3. Code Modification & Sync Policies
 
