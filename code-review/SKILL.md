@@ -17,12 +17,13 @@ Execute expert-level code reviews, dissecting codebases and Pull Requests (PRs) 
 2. **Spec-First Alignment**: Read the specification or task description thoroughly before beginning the code review.
 3. **Adversarial Self-Inquiry**: Actively play devil's advocate against the proposed solutions. Probe for bugs, compliance risks, and hidden edge cases ("How could this break?").
 4. **Evaluate Dimensions**:
-    - **Code Hygiene**: Scan for temporary/debug statements (`console.log`, `print`, `TODO`, `FIXME`, debugger breakpoints) and unintended files (`.env`, logs).
-    - **Correctness & Robustness**: Verify functional alignment, edge cases, logic integrity, and test efficacy.
+    - **Code Hygiene**: Scan for temporary/debug statements (`console.log`, `print`, `TODO`, `FIXME`, debugger breakpoints), unintended files (`.env`, logs), syntax errors, and visible inconsistencies (e.g., duplicated code, undefined variables, unused imports, dead code).
+    - **Correctness & Robustness**: Verify functional alignment (does the code actually do what it is described to do?), edge cases, logic integrity, and test efficacy.
     - **Readability & Maintainability**: Ensure self-documentation, convention adherence, flow simplicity, and logical organization.
     - **Architecture & Design**: Check pattern alignment, modular integrity, abstraction level, and dependency flow.
     - **Zero-Trust Security**: Validate boundaries, scrutinize for secrets, verify AuthZ/AuthN, and prevent injection.
     - **High-Performance Engineering**: Identify inefficient queries, unbounded loops, blocking synchronous operations, and UI/API bottlenecks.
+    - **Documentation Currency**: Verify if documentation is up-to-date. Ensure `AGENTS.md`, `README.md`, and other relevant docs accurately reflect the new changes.
 5. **Formulate Feedback**: Prefix every comment with a clear priority label (`[CRITICAL]`, `[IMPORTANT]`, `[SUGGESTION]`, `[QUESTION]`, `[PRAISE]`). Provide a concrete resolution path for every issue raised.
 6. **Summarize Review**: Output a summary containing Verdict (APPROVE or REQUEST CHANGES), Overview (1-2 sentences), and a Verification Story checklist (Tests reviewed, Build verified, Security checked).
 7. **External Repositories Check**: When code contains references to external repositories, double-check them (use: `gh search`, load `gh-search` skill).
