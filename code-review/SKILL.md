@@ -18,7 +18,7 @@ Execute expert-level code reviews, dissecting codebases and Pull Requests (PRs) 
 2. **Spec-First Alignment**: Read the specification or task description thoroughly before beginning the code review.
 3. **Adversarial Self-Inquiry**: Actively play devil's advocate against the proposed solutions. Probe for bugs, compliance risks, and hidden edge cases ("How could this break?").
 4. **Evaluate Dimensions**:
-    - **Code Hygiene**: Scan for temporary/debug statements (`console.log`, `print`, `TODO`, `FIXME`, debugger breakpoints),
+    - **Code Hygiene**: Scan for trailing whitespace, temporary/debug statements (`console.log`, `print`, `TODO`, `FIXME`, debugger breakpoints),
       unintended files (`.env`, logs), syntax errors, and visible inconsistencies (e.g., duplicated code, undefined variables, unused imports, dead code).
     - **Correctness & Robustness**: Verify functional alignment (does the code actually do what it is described to do?), edge cases, logic integrity, and test efficacy.
     - **Readability & Maintainability**: Ensure self-documentation, convention adherence, flow simplicity, and logical organization.
@@ -54,6 +54,9 @@ While the workflow is managed by `github-pr-review`, this skill focuses on analy
 
 - **Check for hygiene issues in diff**:
   ```bash
+  # Check for trailing whitespace and conflict markers
+  git diff <base>...HEAD --check
+
   # Check for debug statements and markers
   git diff <base>...HEAD | grep -E "console\.log|debugger|print\(|TODO|FIXME|<<<<<<<|>>>>>>>"
   ```

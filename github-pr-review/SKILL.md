@@ -21,6 +21,7 @@ Execute these checks systematically using `gh` and `git` tools:
 - **Deep Code Inspection**:
   - **Inspection Framework**: Apply the `code-review` skill's cognitive framework to evaluate code quality dimensions.
   - **Atomic File Analysis**: Step through the diff file-by-file or component-by-component.
+  - **Hygiene & Style**: Check for trailing whitespace, debugger statements, and other hygiene issues.
   - **Scope Control**: Ensure the PR does strictly what it claims. Flag any drive-by changes or unrelated refactoring.
   - **Integration Check**: Verify that new code correctly integrates with existing patterns and dependencies.
 - **Verification & Merge Readiness**:
@@ -51,6 +52,9 @@ Refer to the `code-review` skill for the deep inspection framework and hygiene c
 ```bash
 # List comments to ensure resolution
 gh api repos/:owner/:repo/pulls/<pr-number>/comments
+
+# Check for trailing whitespace and conflict markers in the diff
+git diff <base-branch>...HEAD --check
 ```
 
 ### 3. Agent Delegation
