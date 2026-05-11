@@ -27,7 +27,8 @@ and strict post-merge validation to prevent duplicate lines or lingering conflic
 - **Clean State**: Always begin a merge from a clean working tree. If there are uncommitted changes, stash or commit them first.
 - **No Duplicate Lines**: Merging can often result in duplicated logic if both branches added similar lines.
    You must manually verify that no duplicate imports, definitions, or statements exist post-merge.
-- **Non-Interactive**: Prefer non-interactive commands. Never use `git merge -i` or tools that require manual shell intervention.
+- **Non-Interactive**: Prefer non-interactive commands. Do not launch `git mergetool` or GUI merge tools,
+   and use `--no-edit` or `GIT_EDITOR=true` to avoid editor prompts during merge and commit steps.
 - **Zero Conflict Markers**: A merge must never be committed if standard Git conflict markers remain in the file.
 
 ## Commands / Usage Patterns
