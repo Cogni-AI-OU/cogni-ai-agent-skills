@@ -352,5 +352,9 @@ user.
 
 ## Related Skills
 
+- **gh-merge**:
+  MUST be loaded before performing `git merge` operations.
 - **gh-pr**:
   You MUST load this skill when working with the `gh pr` command.
+- **gh-run**:
+  MUST be loaded when using `gh run` or `gh workflow` commands.
