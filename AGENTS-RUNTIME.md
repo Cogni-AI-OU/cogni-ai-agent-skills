@@ -75,6 +75,8 @@ and planned work into the current context.
 - **[git-filter-branch](git-filter-branch/SKILL.md)**: Extract a specific subdirectory with history using git filter-branch
   when modern tools like filter-repo are unavailable.
   You MUST load this skill when extracting a subdirectory with history.
+- **[git-merge](git-merge/SKILL.md)**: Guide and safety rules for performing git merges, ensuring no conflict markers and no duplicate lines are present.
+  You MUST load this skill before performing a git merge.
 - **[git-rebase](git-rebase/SKILL.md)**: Advanced Git rebase operations including
   interactive history cleanup and non-interactive scripted rewrites.
   You MUST load this skill when performing Git rebase operations.
