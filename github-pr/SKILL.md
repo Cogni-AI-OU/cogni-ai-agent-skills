@@ -236,6 +236,8 @@ gh pr checks <number> --json name,status,conclusion,url
 - **git**:
   MUST be loaded when working with PRs, as PR operations inherently involve Git operations
   like committing, pulling, resolving conflicts, or reverting.
+- **gh-merge**:
+  MUST be loaded before performing `git merge` operations.
 - **gh-pr**:
   MUST be loaded when using the `gh pr` command.
 - **gh-run**:
