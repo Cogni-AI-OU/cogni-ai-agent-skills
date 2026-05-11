@@ -26,6 +26,7 @@ Execute expert-level code reviews, dissecting codebases and Pull Requests (PRs) 
 5. **Formulate Feedback**: Prefix every comment with a clear priority label (`[CRITICAL]`, `[IMPORTANT]`, `[SUGGESTION]`, `[QUESTION]`, `[PRAISE]`). Provide a concrete resolution path for every issue raised.
 6. **Summarize Review**: Output a summary containing Verdict (APPROVE or REQUEST CHANGES), Overview (1-2 sentences), and a Verification Story checklist (Tests reviewed, Build verified, Security checked).
 7. **External Repositories Check**: When code contains references to external repositories, double-check them (use: `gh search`, load `gh-search` skill).
+8. **Version Drift Validation**: Check embed version/identifier or collection/runtime version constraints to validate whether they drift from the real source of truth.
 
 ## Core Principles
 
