@@ -749,6 +749,6 @@ mindmap
 ## Related Skills
 
 - **gh-api**:
-  You MUST load this skill when working with `gh api` command.
+  You MUST load this skill when working with the `gh api` command.
 - **mermaid-beta**:
   You MUST load this skill when working with experimental Mermaid.js beta diagrams.

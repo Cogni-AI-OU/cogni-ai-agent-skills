@@ -2,7 +2,7 @@
 name: subagent-task
 description: >-
   Guidance and protocols for spawning sub-agents via the task tool to handle complex, multi-step, or parallelizable tasks.
-  You MUST load this skill when task for invoking sub-agents is available.
+  You MUST load this skill when the task tool for invoking sub-agents is available.
 ---
 
 # subagent-task

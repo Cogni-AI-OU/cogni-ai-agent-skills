@@ -127,4 +127,4 @@ If the runtime did not involve intended modification of files:
 ## Related Skills
 
 - **gh-pr**:
-  You MUST load this skill when working with `gh pr` command.
+  You MUST load this skill when working with the `gh pr` command.

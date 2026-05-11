@@ -381,17 +381,17 @@ in GitHub Actions, refer to the **github-issue** and **github-pr** skills.
 ## Related Skills
 
 - **gh-api**:
-  You MUST load this skill when working with `gh api` command.
+  You MUST load this skill when working with the `gh api` command.
 - **gh-issue**:
-  You MUST load this skill when working with `gh issue` command.
+  You MUST load this skill when working with the `gh issue` command.
 - **gh-pr**:
-  You MUST load this skill when working with `gh pr` command.
+  You MUST load this skill when working with the `gh pr` command.
 - **gh-run**:
-  You MUST load this skill when working with `gh run` and `gh workflow` commands.
+  You MUST load this skill when working with the `gh run` and the `gh workflow` commands.
 - **gh-search**:
-  You MUST load this skill when working with `gh search` command.
+  You MUST load this skill when working with the `gh search` command.
 - **gh-models**:
-  You MUST load this skill when working with `gh models` command.
+  You MUST load this skill when working with the `gh models` command.
 - **github-issue**:
   You MUST load this skill when working with issues or when the runtime was triggered by an issue comment.
 - **github-pr**:

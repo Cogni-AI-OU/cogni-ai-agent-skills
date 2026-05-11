@@ -277,6 +277,6 @@ If the runtime did not involve intended modification of files:
 ## Related Skills
 
 - **gh-run**:
-  You MUST load this skill when working with `gh run` and `gh workflow` commands.
+  You MUST load this skill when working with the `gh run` and the `gh workflow` commands.
 - **git**:
   You MUST load this skill when performing standard git operations.

@@ -92,4 +92,4 @@ While the workflow is managed by `github-pr-review`, this skill focuses on analy
 - **github-pr-review**:
   You MUST load this skill when reviewing, auditing, or verifying a GitHub Pull Request.
 - **gh-pr**:
-  You MUST load this skill when working with `gh pr` command.
+  You MUST load this skill when working with the `gh pr` command.

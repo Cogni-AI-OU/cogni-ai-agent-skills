@@ -386,4 +386,4 @@ radar-beta
 ## Related Skills
 
 - **gh-run**:
-  You MUST load this skill when working with `gh run` and `gh workflow` commands.
+  You MUST load this skill when working with the `gh run` and the `gh workflow` commands.

@@ -29,7 +29,7 @@ and planned work into the current context.
 - **[ansible](ansible/SKILL.md)**: How to run and manage Ansible operations safely and prevent hangs.
   You MUST load this skill when working with the `ansible` command.
 - **[cat](cat/SKILL.md)**: Guidelines for safely using `cat` and avoiding shell hangs with heredocs.
-  You MUST load this skill before running `cat` command (especially with `EOF`).
+  You MUST load this skill before running the `cat` command (especially with `EOF`).
 - **[code-review](code-review/SKILL.md)**: Cognitive framework for expert-level code inspection to identify logical
   flaws, hygiene issues, and architectural drift.
   You MUST load this skill when reviewing code or Pull Requests.
@@ -63,7 +63,7 @@ and planned work into the current context.
   You MUST load this skill when working with the `gh pr` command.
 - **[gh-run](gh-run/SKILL.md)**: GitHub CLI (`gh run`) and (`gh workflow`) operations for workflow runs, jobs,
   logs, and attempts.
-  You MUST load this skill when working with the `gh run` and `gh workflow` commands.
+  You MUST load this skill when working with the `gh run` and the `gh workflow` commands.
 - **[gh-search](gh-search/SKILL.md)**: GitHub CLI (`gh search`) operations for searching code, commits, issues,
   pull requests, and repositories with structured JSON output.
   You MUST load this skill when working with the `gh search` command.

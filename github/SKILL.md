@@ -39,6 +39,6 @@ and you need to retrieve the diff or patch content for processing.
 ## Related Skills
 
 - **gh-pr**:
-  You MUST load this skill when working with `gh pr` command.
+  You MUST load this skill when working with the `gh pr` command.
 - **github-topics**:
   You MUST load this skill when searching for relevant tools, libraries, or curated resources.

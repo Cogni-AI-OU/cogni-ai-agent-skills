@@ -82,6 +82,6 @@ using the `task` tool to ensure thorough coverage:
 - **code-review**:
   You MUST load this skill when performing deep inspection of code changes.
 - **gh-pr**:
-  You MUST load this skill when working with `gh pr` command.
+  You MUST load this skill when working with the `gh pr` command.
 - **subagent-task**:
   You MUST load this skill when delegating specialized review tasks to other agents.
