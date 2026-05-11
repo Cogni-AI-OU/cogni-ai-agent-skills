@@ -6,7 +6,7 @@ description: >-
   Flowchart (with v11.3+ shapes/icons/images), Gantt, GitGraph, Kanban, Mindmap,
   Pie, Quadrant, Requirement, Sequence, State, Timeline, User Journey.
   Emphasizes clarity, render-portability, and Doc-Rot prevention.
-  You must load this skill when creating or maintaining Mermaid.js diagrams.
+  You MUST load this skill when creating or maintaining Mermaid.js diagrams.
 license: MIT
 ---
 
@@ -749,6 +749,6 @@ mindmap
 ## Related Skills
 
 - **gh-api**:
-  Must be loaded when working with `gh api` command.
+  You MUST load this skill when working with `gh api` command.
 - **mermaid-beta**:
-  Must be loaded when working with experimental Mermaid.js beta diagrams.
+  You MUST load this skill when working with experimental Mermaid.js beta diagrams.

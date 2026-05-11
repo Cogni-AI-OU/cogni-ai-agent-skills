@@ -2,7 +2,7 @@
 name: github-pr-review
 description: >-
   Comprehensive PR review workflow for verifying code quality, metadata accuracy, and merge readiness.
-  You must load this skill when reviewing, auditing, or verifying a GitHub Pull Request.
+  You MUST load this skill when reviewing, auditing, or verifying a GitHub Pull Request.
 ---
 
 # GitHub PR Review
@@ -78,10 +78,10 @@ using the `task` tool to ensure thorough coverage:
 ## Related Skills
 
 - **tester**:
-  Must be loaded when designing or suggesting new tests to cover identified gaps.
+  You MUST load this skill when designing or suggesting new tests to cover identified gaps.
 - **code-review**:
-  Must be loaded when performing deep inspection of code changes.
+  You MUST load this skill when performing deep inspection of code changes.
 - **gh-pr**:
-  Must be loaded when working with `gh pr` command.
+  You MUST load this skill when working with `gh pr` command.
 - **subagent-task**:
-  Must be loaded when delegating specialized review tasks to other agents.
+  You MUST load this skill when delegating specialized review tasks to other agents.

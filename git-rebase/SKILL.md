@@ -3,7 +3,7 @@ name: git-rebase
 description: >-
   Advanced Git rebase operations including interactive history cleanup and
   non-interactive scripted rewrites.
-  You must load this skill before performing Git rebase operations.
+  You MUST load this skill before performing Git rebase operations.
 license: MIT
 ---
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
@@ -38,6 +38,6 @@ Expert-level guidance for executing Git rebase operations safely, particularly d
 ## Related Skills
 
 - **git**:
-  Must be loaded when performing standard Git operations.
+  You MUST load this skill when performing standard Git operations.
 - **git-expert**:
-  Must be loaded when performing advanced Git operations beyond rebasing.
+  You MUST load this skill when performing advanced Git operations beyond rebasing.

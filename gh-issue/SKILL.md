@@ -2,7 +2,7 @@
 name: gh-issue
 description: >-
   GitHub CLI (`gh issue`) operations for managing, viewing, and editing issues.
-  You must load this skill when working with the `gh issue` command.
+  You MUST load this skill when working with the `gh issue` command.
 license: MIT
 ---
 
@@ -127,4 +127,4 @@ If the runtime did not involve intended modification of files:
 ## Related Skills
 
 - **gh-pr**:
-  Must be loaded when working with `gh pr` command.
+  You MUST load this skill when working with `gh pr` command.

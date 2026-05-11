@@ -2,7 +2,7 @@
 name: cat
 description: >-
   Guidelines for safely using `cat` and avoiding shell hangs with heredocs.
-  You must load this skill before running `cat` command (especially with `EOF`).
+  You MUST load this skill before running `cat` command (especially with `EOF`).
 license: MIT
 ---
 
@@ -69,4 +69,4 @@ EOF
 ## Related Skills
 
 - **robust-commands**:
-  Must be loaded when executing commands requiring resilient error recovery or fallbacks.
+  You MUST load this skill when executing commands requiring resilient error recovery or fallbacks.

@@ -3,7 +3,7 @@ name: github
 description: >-
   Provides guidance on GitHub-specific features, pull requests viewing modes,
   and collaborative practices.
-  You must load this skill when working with GitHub-specific features or PR view modes.
+  You MUST load this skill when working with GitHub-specific features or PR view modes.
 license: MIT
 ---
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
@@ -39,6 +39,6 @@ and you need to retrieve the diff or patch content for processing.
 ## Related Skills
 
 - **gh-pr**:
-  Must be loaded when working with `gh pr` command.
+  You MUST load this skill when working with `gh pr` command.
 - **github-topics**:
-  Must be loaded when searching for relevant tools, libraries, or curated resources.
+  You MUST load this skill when searching for relevant tools, libraries, or curated resources.

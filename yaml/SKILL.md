@@ -2,7 +2,7 @@
 name: yaml
 description: >-
   Generic guidelines for YAML formatting, linting, and structural rules.
-  You must load this skill when updating or creating YAML files.
+  You MUST load this skill when updating or creating YAML files.
 ---
 
 # yaml

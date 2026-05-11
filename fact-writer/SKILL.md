@@ -4,7 +4,7 @@ description: >-
   Strict guidelines for creating, writing, and maintaining verifiable project
   fact files (e.g., FACTS.md or FACTS.mmd) without contradictions, ensuring
   state compression and lexical ordering.
-  You must load this skill when managing canonical project fact files.
+  You MUST load this skill when managing canonical project fact files.
 license: MIT
 ---
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
@@ -50,6 +50,6 @@ Guidance for structuring and maintaining verifiable project fact files. Use this
 ## Related Skills
 
 - **mermaid**:
-  Must be loaded when creating or maintaining Mermaid.js diagrams.
+  You MUST load this skill when creating or maintaining Mermaid.js diagrams.
 - **mermaid-beta**:
-  Must be loaded when working with experimental Mermaid.js beta diagrams.
+  You MUST load this skill when working with experimental Mermaid.js beta diagrams.

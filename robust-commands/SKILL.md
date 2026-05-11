@@ -2,7 +2,7 @@
 name: robust-commands
 description: >-
   Resilient command execution with automatic fallbacks and error recovery. You
-  must load this skill when executing commands requiring resilient error
+  You MUST load this skill when executing commands requiring resilient error
   recovery or fallbacks.
 license: MIT
 ---
@@ -517,6 +517,6 @@ unzip file.zip || python3 -m zipfile -e file.zip .
 ## Related Skills
 
 - **shell**:
-  Must be loaded when handling shell commands with performance monitoring or timeouts.
+  You MUST load this skill when handling shell commands with performance monitoring or timeouts.
 
 Commands fail for many reasons - most are fixable!

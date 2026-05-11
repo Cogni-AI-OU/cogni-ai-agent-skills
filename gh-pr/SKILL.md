@@ -3,7 +3,7 @@ name: gh-pr
 description: >-
   GitHub CLI (`gh pr`) operations for pull requests, reviews, PR checks, and PR
   branches.
-  You must load this skill when working with the `gh pr` command.
+  You MUST load this skill when working with the `gh pr` command.
 ---
 # gh-pr Skill
 
@@ -277,6 +277,6 @@ If the runtime did not involve intended modification of files:
 ## Related Skills
 
 - **gh-run**:
-  Must be loaded when working with `gh run` and `gh workflow` commands.
+  You MUST load this skill when working with `gh run` and `gh workflow` commands.
 - **git**:
-  Must be loaded when performing standard git operations.
+  You MUST load this skill when performing standard git operations.

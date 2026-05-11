@@ -3,7 +3,7 @@ name: gh-run
 description: >-
   GitHub CLI (`gh run` and `gh workflow`) operations for workflow runs, jobs,
   logs, and attempts.
-  You must load this skill when working with the `gh run` and `gh workflow` commands.
+  You MUST load this skill when working with the `gh run` and `gh workflow` commands.
 ---
 # gh-run Skill
 
@@ -220,6 +220,6 @@ mindmap
 ## Related Skills
 
 - **gh-pr**:
-  Must be loaded when working with `gh pr` command.
+  You MUST load this skill when working with `gh pr` command.
 - **gh-models**:
-  Must be loaded when working with `gh models` command.
+  You MUST load this skill when working with `gh models` command.

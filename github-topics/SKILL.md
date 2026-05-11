@@ -2,7 +2,7 @@
 name: github-topics
 description: >-
   Search GitHub repositories by topics and keywords.
-  You must load this skill when searching for relevant tools, libraries, or curated resources.
+  You MUST load this skill when searching for relevant tools, libraries, or curated resources.
 ---
 # Skill: github-topics
 

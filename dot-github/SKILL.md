@@ -2,7 +2,7 @@
 name: dot-github
 description: >-
   Standardize `.github` directory structure, enforce agentic documentation patterns.
-  Must load when creating or updating files in `.github/` dir.
+  You MUST load this skill when creating or updating files in `.github/` dir.
 ---
 # Skill: dot-github
 
@@ -78,5 +78,5 @@ Reference: <https://gh.io/copilot/firewall-config>
 
 ## Related Skills
 
-- **agents-md-writer**: Must be loaded when creating or updating `AGENTS.md` files.
-- **docs-writer**: Must be loaded when asked to write, document, or generate new documentation.
+- **agents-md-writer**: You MUST load this skill when creating or updating `AGENTS.md` files.
+- **docs-writer**: You MUST load this skill when asked to write, document, or generate new documentation.

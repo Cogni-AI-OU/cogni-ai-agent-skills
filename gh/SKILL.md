@@ -4,7 +4,7 @@ description: >-
   GitHub CLI (`gh`) operations for issues, pull requests, workflow runs,
   reviews, or API queries, especially in restricted shells where structured
   output and fallback choice matter.
-  You must load this skill when working with the `gh` command and its subcommands.
+  You MUST load this skill when working with the `gh` command and its subcommands.
 license: MIT
 ---
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
@@ -381,20 +381,20 @@ in GitHub Actions, refer to the **github-issue** and **github-pr** skills.
 ## Related Skills
 
 - **gh-api**:
-  Must be loaded when working with `gh api` command.
+  You MUST load this skill when working with `gh api` command.
 - **gh-issue**:
-  Must be loaded when working with `gh issue` command.
+  You MUST load this skill when working with `gh issue` command.
 - **gh-pr**:
-  Must be loaded when working with `gh pr` command.
+  You MUST load this skill when working with `gh pr` command.
 - **gh-run**:
-  Must be loaded when working with `gh run` and `gh workflow` commands.
+  You MUST load this skill when working with `gh run` and `gh workflow` commands.
 - **gh-search**:
-  Must be loaded when working with `gh search` command.
+  You MUST load this skill when working with `gh search` command.
 - **gh-models**:
-  Must be loaded when working with `gh models` command.
+  You MUST load this skill when working with `gh models` command.
 - **github-issue**:
-  Must be loaded when working with issues or when the runtime was triggered by an issue comment.
+  You MUST load this skill when working with issues or when the runtime was triggered by an issue comment.
 - **github-pr**:
-  Must be loaded when working with changes associated with a pull request or when the runtime was triggered by a PR comment.
+  You MUST load this skill when working with changes associated with a pull request or when the runtime was triggered by a PR comment.
 - **github-topics**:
-  Must be loaded when searching for relevant tools, libraries, or curated resources.
+  You MUST load this skill when searching for relevant tools, libraries, or curated resources.

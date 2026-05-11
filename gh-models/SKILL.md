@@ -3,7 +3,7 @@ name: gh-models
 description: >-
   GitHub CLI models (`gh models`) operations for running and evaluating AI
   models.
-  You must load this skill when working with the `gh models` command.
+  You MUST load this skill when working with the `gh models` command.
 license: MIT
 ---
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
@@ -133,6 +133,6 @@ Store prompts anywhere in repo (e.g. `.github/prompts/`). Structure enables:
 ## Related Skills
 
 - **gh-pr**:
-  Must be loaded when working with `gh pr` command.
+  You MUST load this skill when working with `gh pr` command.
 - **gh-run**:
-  Must be loaded when working with `gh run` and `gh workflow` commands.
+  You MUST load this skill when working with `gh run` and `gh workflow` commands.

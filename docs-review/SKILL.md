@@ -3,7 +3,7 @@ name: docs-review
 description: >-
   Enforce documentation quality, completeness, and mutual consistency across
   architecture files, ADRs, runbooks, READMEs, and code-level documentation.
-  You must load this skill when asked to review or check consistency of documentation (such as *.md/*.mmd files).
+  You MUST load this skill when asked to review or check consistency of documentation (such as *.md/*.mmd files).
 license: MIT
 ---
 
@@ -69,4 +69,4 @@ Guidance for reviewing core architecture, documentation, and constraint files fo
 ## Related Skills
 
 - **docs-writer**: Guidance for writing and maintaining documentation.
-  You must load this skill when asked to write, document, or generate new documentation.
+  You MUST load this skill when asked to write, document, or generate new documentation.

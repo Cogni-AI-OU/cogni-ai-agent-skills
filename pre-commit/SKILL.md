@@ -3,7 +3,7 @@ name: pre-commit
 description: >-
   Guide for using pre-commit hooks to validate code formatting, linting, and
   security checks before commits.
-  You must load this skill when using pre-commit hooks for validation.
+  You MUST load this skill when using pre-commit hooks for validation.
 license: MIT
 ---
 
@@ -337,4 +337,4 @@ pre-commit run yamlfix --all-files
 ## Related Skills
 
 - **tdd**:
-  Must be loaded when executing test tasks, designing tests, doing TDD, or verifying system behavior.
+  You MUST load this skill when executing test tasks, designing tests, doing TDD, or verifying system behavior.

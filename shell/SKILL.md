@@ -2,7 +2,7 @@
 name: shell
 description: >-
   Efficient shell command handling.
-  You must load this skill when handling shell commands with performance monitoring or timeouts.
+  You MUST load this skill when handling shell commands with performance monitoring or timeouts.
 license: MIT
 
 ---
@@ -47,4 +47,4 @@ time timeout 300s build_script.sh
 ## Related Skills
 
 - **robust-commands**:
-  Must be loaded when executing commands requiring resilient error recovery or fallbacks.
+  You MUST load this skill when executing commands requiring resilient error recovery or fallbacks.

@@ -3,7 +3,7 @@ name: pdf
 description: >-
   PDF file inspection, object-level editing, and lossless size reduction using
   qpdf, pdf-parser.py, pdfsizeopt, and Ghostscript.
-  You must load this skill when inspecting, editing, or optimizing PDF files.
+  You MUST load this skill when inspecting, editing, or optimizing PDF files.
 license: MIT
 
 ---
@@ -94,4 +94,4 @@ Confirm: file size decreased, page count unchanged, page dimensions preserved.
 ## Related Skills
 
 - **robust-commands**:
-  Must be loaded when executing commands requiring resilient error recovery or fallbacks.
+  You MUST load this skill when executing commands requiring resilient error recovery or fallbacks.

@@ -4,7 +4,7 @@ description: >-
   When the user requests to create, update, or refine a GitHub Copilot skill,
   generate or revise a complete SKILL.md file that strictly adheres to the
   official format, validation rules, and community best practices.
-  You must load this skill when creating or updating GitHub Copilot skill files.
+  You MUST load this skill when creating or updating GitHub Copilot skill files.
 license: MIT
 ---
 
@@ -72,4 +72,4 @@ Structure the file exactly as:
 ## Related Skills
 
 - **docs-writer**:
-  Must be loaded when asked to write, document, or generate new documentation.
+  You MUST load this skill when asked to write, document, or generate new documentation.

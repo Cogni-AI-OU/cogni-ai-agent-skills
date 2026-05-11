@@ -3,7 +3,7 @@ name: agents-md-writer
 description: >-
   Autonomous documentation editor responsible for creating, updating, and maintaining `AGENTS.md` files
   strictly adhering to the organizational baseline structure.
-  Must be loaded when creating or updating `AGENTS.md` files.
+  You MUST load this skill when creating or updating `AGENTS.md` files.
 license: MIT
 ---
 
@@ -66,6 +66,6 @@ Autonomous documentation editor responsible for creating, updating, and maintain
 ## Related Skills
 
 - **docs-review**:
-  Must be loaded when asked to review or check consistency of documentation.
+  You MUST load this skill when asked to review or check consistency of documentation.
 - **mermaid**:
-  Must be loaded when creating Mermaid diagrams within markdown files.
+  You MUST load this skill when creating Mermaid diagrams within markdown files.

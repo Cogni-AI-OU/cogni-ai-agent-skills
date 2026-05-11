@@ -2,7 +2,7 @@
 name: subagent-task
 description: >-
   Guidance and protocols for spawning sub-agents via the task tool to handle complex, multi-step, or parallelizable tasks.
-  Must be loaded when task for invoking sub-agents is available.
+  You MUST load this skill when task for invoking sub-agents is available.
 ---
 
 # subagent-task
@@ -78,4 +78,4 @@ flowchart TD
 ## Related Skills
 
 - **gh**:
-  Must be loaded when working with the `gh` command and its subcommands.
+  You MUST load this skill when working with the `gh` command and its subcommands.

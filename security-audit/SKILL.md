@@ -3,7 +3,7 @@ name: security-audit
 description: >-
   Commands, step-by-step procedures, and mechanical execution for performing deep security audits, vulnerability
   assessments, and threat modeling on codebases and configurations.
-  You must load this skill when performing security audits or validation.
+  You MUST load this skill when performing security audits or validation.
 ---
 
 # Security Auditing Skill
@@ -125,4 +125,4 @@ When evaluating architecture or suspected vulnerabilities, systematically model 
 ## Related Skills
 
 - **robust-commands**:
-  Must be loaded when executing commands requiring resilient error recovery or fallbacks.
+  You MUST load this skill when executing commands requiring resilient error recovery or fallbacks.

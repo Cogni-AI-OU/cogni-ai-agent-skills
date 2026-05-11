@@ -2,7 +2,7 @@
 name: gh-api
 description: >-
   Advanced GitHub CLI (`gh api`) queries and mutations via REST or GraphQL.
-  You must load this skill when working with the `gh api` command.
+  You MUST load this skill when working with the `gh api` command.
 ---
 # gh-api Skill
 
@@ -381,6 +381,6 @@ Notes:
 ## Related Skills
 
 - **gh-pr**:
-  Must be loaded when working with `gh pr` command.
+  You MUST load this skill when working with `gh pr` command.
 - **gh-run**:
-  Must be loaded when working with `gh run` and `gh workflow` commands.
+  You MUST load this skill when working with `gh run` and `gh workflow` commands.

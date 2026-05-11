@@ -34,7 +34,7 @@ Read and merge these when operating inside corresponding sub-directories (order 
 
 ## Skills
 
-You must load the skills relevant to the user prompt, inferred intent,
+You MUST load the skills relevant to the user prompt, inferred intent,
 and planned work into the current context. See [AGENTS-RUNTIME.md](AGENTS-RUNTIME.md)
 for the full skills catalog, loading instructions, and structural invariants.
 

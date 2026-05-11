@@ -2,7 +2,7 @@
 name: git
 description: >-
   Guide for using git.
-  You must load this skill when performing standard git operations.
+  You MUST load this skill when performing standard git operations.
 license: MIT
 ---
 
@@ -353,4 +353,4 @@ user.
 ## Related Skills
 
 - **gh-pr**:
-  Must be loaded when working with `gh pr` command.
+  You MUST load this skill when working with `gh pr` command.

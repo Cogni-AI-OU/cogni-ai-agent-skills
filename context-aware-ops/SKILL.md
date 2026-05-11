@@ -3,7 +3,7 @@ name: context-aware-ops
 description: >-
   Intelligent resource management with size checking and filtering to preserve
   context window.
-  You must load this skill when managing large resources or context window limits.
+  You MUST load this skill when managing large resources or context window limits.
 license: MIT
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
 ---
@@ -367,6 +367,6 @@ sed -n "${current},$((current + chunk_size))p" file.txt
 ## Related Skills
 
 - **shell**:
-  Must be loaded when handling shell commands with performance monitoring or timeouts.
+  You MUST load this skill when handling shell commands with performance monitoring or timeouts.
 
 Your context window is precious - use it wisely!

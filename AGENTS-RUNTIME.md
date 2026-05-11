@@ -4,7 +4,7 @@ Persistent single-source truth for autonomous agent behavior.
 
 ## Skills
 
-You must load the skills relevant to the user prompt, inferred intent,
+You MUST load the skills relevant to the user prompt, inferred intent,
 and planned work into the current context.
 
 **Tool Execution Invariants:**
@@ -22,121 +22,121 @@ and planned work into the current context.
 
 - **[agent-log-analysis](agent-log-analysis/SKILL.md)**: Procedures and templates for analyzing agent session
   logs, extracting telemetry, and generating standardized visual audit reports.
-  You must load this skill when auditing or analyzing autonomous agent log files.
+  You MUST load this skill when auditing or analyzing autonomous agent log files.
 - **[agents-md-writer](agents-md-writer/SKILL.md)**: Autonomous documentation editor responsible for creating,
   updating, and maintaining AGENTS.md files strictly adhering to the organizational baseline structure.
-  Must be loaded when creating or updating AGENTS.md files.
+  You MUST load this skill when creating or updating AGENTS.md files.
 - **[ansible](ansible/SKILL.md)**: How to run and manage Ansible operations safely and prevent hangs.
-  You must load this skill when working with the `ansible` command.
+  You MUST load this skill when working with the `ansible` command.
 - **[cat](cat/SKILL.md)**: Guidelines for safely using `cat` and avoiding shell hangs with heredocs.
-  You must load this skill before running `cat` command (especially with `EOF`).
+  You MUST load this skill before running `cat` command (especially with `EOF`).
 - **[code-review](code-review/SKILL.md)**: Cognitive framework for expert-level code inspection to identify logical
   flaws, hygiene issues, and architectural drift.
-  Must be loaded when reviewing code or Pull Requests.
+  You MUST load this skill when reviewing code or Pull Requests.
 - **[code-tour](code-tour/SKILL.md)**: Create, update, and maintain VSCode CodeTour (.tour) JSON walkthrough files with
   full schema compliance and interactive step configuration.
-  You must load this skill when creating or updating .tours/ files.
+  You MUST load this skill when creating or updating .tours/ files.
 - **[context-aware-ops](context-aware-ops/SKILL.md)**: Intelligent resource management with size checking and filtering
   to preserve context window.
-  You must load this skill when managing large resources or context window limits.
+  You MUST load this skill when managing large resources or context window limits.
 - **[docs-review](docs-review/SKILL.md)**:
   Enforce documentation quality, completeness, and mutual consistency across architecture, ADRs, runbooks, and code.
-  You must load this skill when asked to review or check consistency of documentation.
+  You MUST load this skill when asked to review or check consistency of documentation.
 - **[docs-writer](docs-writer/SKILL.md)**:
   Create, update, and maintain documentation including Architectural Decision Records (ADRs),
   runbooks, READMEs, and code-level documentation.
-  You must load this skill when asked to write, document, or generate new documentation.
+  You MUST load this skill when asked to write, document, or generate new documentation.
 - **[fact-writer](fact-writer/SKILL.md)**: Guidance for writing, structuring, and maintaining verifiable project
   fact files without contradictions.
-  You must load this skill when managing canonical project fact files.
+  You MUST load this skill when managing canonical project fact files.
 - **[gh](gh/SKILL.md)**: GitHub CLI (`gh`) operations for issues, pull requests, workflow runs, reviews, and API.
-  You must load this skill when working with the `gh` command and its subcommands.
+  You MUST load this skill when working with the `gh` command and its subcommands.
 - **[gh-api](gh-api/SKILL.md)**: Advanced GitHub CLI (`gh api`) queries and mutations via REST or GraphQL.
-  You must load this skill when working with the `gh api` command.
+  You MUST load this skill when working with the `gh api` command.
 - **[gh-issue](gh-issue/SKILL.md)**: GitHub CLI (`gh issue`) operations for managing, viewing, and editing issues.
-  You must load this skill when working with the `gh issue` command.
+  You MUST load this skill when working with the `gh issue` command.
 - **[gh-models](gh-models/SKILL.md)**: GitHub CLI models (`gh models`) operations for running and evaluating AI
   models.
-  You must load this skill when working with the `gh models` command.
+  You MUST load this skill when working with the `gh models` command.
 - **[gh-pr](gh-pr/SKILL.md)**: GitHub CLI (`gh pr`) operations for pull requests, reviews, PR checks, and PR
   branches.
-  You must load this skill when working with the `gh pr` command.
+  You MUST load this skill when working with the `gh pr` command.
 - **[gh-run](gh-run/SKILL.md)**: GitHub CLI (`gh run`) and (`gh workflow`) operations for workflow runs, jobs,
   logs, and attempts.
-  You must load this skill when working with the `gh run` and `gh workflow` commands.
+  You MUST load this skill when working with the `gh run` and `gh workflow` commands.
 - **[gh-search](gh-search/SKILL.md)**: GitHub CLI (`gh search`) operations for searching code, commits, issues,
   pull requests, and repositories with structured JSON output.
-  You must load this skill when working with the `gh search` command.
+  You MUST load this skill when working with the `gh search` command.
 - **[git](git/SKILL.md)**: Guide for using git with non-interactive, safe operations.
-  You must load this skill when performing standard git operations.
+  You MUST load this skill when performing standard git operations.
 - **[git-expert](git-expert/SKILL.md)**: Advanced Git operations including reflog recovery,
   bisecting, complex conflict resolution, and history manipulation.
-  You must load this skill when performing advanced git operations or repository recovery.
+  You MUST load this skill when performing advanced git operations or repository recovery.
 - **[git-filter-branch](git-filter-branch/SKILL.md)**: Extract a specific subdirectory with history using git filter-branch
   when modern tools like filter-repo are unavailable.
-  You must load this skill when extracting a subdirectory with history.
+  You MUST load this skill when extracting a subdirectory with history.
 - **[git-rebase](git-rebase/SKILL.md)**: Advanced Git rebase operations including
   interactive history cleanup and non-interactive scripted rewrites.
-  You must load this skill when performing Git rebase operations.
+  You MUST load this skill when performing Git rebase operations.
 - **[github](github/SKILL.md)**: GitHub-specific features and collaborative practices.
-  You must load this skill when working with GitHub-specific features or PR view modes.
+  You MUST load this skill when working with GitHub-specific features or PR view modes.
 - **[github-actions](github-actions/SKILL.md)**: Diagnosing and debugging failing GitHub Actions workflows.
-  You must load this skill when diagnosing or debugging GitHub Actions workflow failures.
+  You MUST load this skill when diagnosing or debugging GitHub Actions workflow failures.
 - **[github-issue](github-issue/SKILL.md)**: Skills for working with GitHub Issues.
-  You must load this skill when working with issues or when the runtime was triggered by an issue comment.
+  You MUST load this skill when working with issues or when the runtime was triggered by an issue comment.
   Load this before any gh skills.
 - **[github-pr](github-pr/SKILL.md)**: Skills for working with changes on a GitHub Pull Request.
-  You must load this skill when working with changes associated with a pull request
+  You MUST load this skill when working with changes associated with a pull request
   or when the runtime was triggered by a PR comment.
   Load this before any gh skills.
 - **[github-pr-review](github-pr-review/SKILL.md)**: Comprehensive PR review workflow for verifying code quality,
   metadata accuracy, and merge readiness.
-  You must load this skill when reviewing, auditing, or verifying a GitHub Pull Request.
+  You MUST load this skill when reviewing, auditing, or verifying a GitHub Pull Request.
 - **[github-script](github-script/SKILL.md)**: Advanced use cases and examples for using actions/github-script.
-  You must load this skill when using actions/github-script in workflows.
+  You MUST load this skill when using actions/github-script in workflows.
 - **[github-topics](github-topics/SKILL.md)**: Search GitHub repositories by topics and keywords.
-  You must load this skill when searching for relevant tools, libraries, or curated resources.
+  You MUST load this skill when searching for relevant tools, libraries, or curated resources.
 - **[mermaid](mermaid/SKILL.md)**: Guide for creating and maintaining stable Mermaid.js diagrams.
-  You must load this skill when creating or maintaining Mermaid.js diagrams.
+  You MUST load this skill when creating or maintaining Mermaid.js diagrams.
 - **[mermaid-beta](mermaid-beta/SKILL.md)**: Guide for creating and maintaining experimental Mermaid.js beta diagrams.
-  You must load this skill when working with experimental Mermaid.js beta diagrams.
+  You MUST load this skill when working with experimental Mermaid.js beta diagrams.
 - **[minizinc](minizinc/SKILL.md)**: Expert MiniZinc modeling for constraint satisfaction and combinatorial
   problems.
-  You must load this skill when addressing constraint satisfaction or combinatorial problems using MiniZinc.
+  You MUST load this skill when addressing constraint satisfaction or combinatorial problems using MiniZinc.
 - **[molecule](molecule/SKILL.md)**: Molecule testing workflows for Ansible roles.
-  You must load this skill when running or managing Molecule tests for Ansible.
+  You MUST load this skill when running or managing Molecule tests for Ansible.
 - **[opencode](opencode/SKILL.md)**: Manage OpenCode configuration, credentials, and access the OpenCode Zen API.
-  You must load this skill when working with OpenCode configuration or listing models.
+  You MUST load this skill when working with OpenCode configuration or listing models.
 - **[pdf](pdf/SKILL.md)**: PDF file inspection, object-level editing, and lossless size reduction.
-  You must load this skill when inspecting, editing, or optimizing PDF files.
+  You MUST load this skill when inspecting, editing, or optimizing PDF files.
 - **[pre-commit](pre-commit/SKILL.md)**: Using pre-commit to validate code formatting, linting, and security checks.
-  You must load this skill when using pre-commit hooks for validation.
+  You MUST load this skill when using pre-commit hooks for validation.
 - **[robust-commands](robust-commands/SKILL.md)**: Resilient command execution with automatic fallbacks and error
   recovery.
-  You must load this skill when executing commands requiring resilient error recovery or fallbacks.
+  You MUST load this skill when executing commands requiring resilient error recovery or fallbacks.
 - **[security-audit](security-audit/SKILL.md)**: Commands, step-by-step procedures, and mechanical execution for
   performing deep security audits, vulnerability assessments, and threat modeling.
-  You must load this skill when performing security audits or validation.
+  You MUST load this skill when performing security audits or validation.
 - **[shell](shell/SKILL.md)**: Efficient shell command execution with timing, timeouts, and best practices.
-  You must load this skill when handling shell commands with performance monitoring or timeouts.
+  You MUST load this skill when handling shell commands with performance monitoring or timeouts.
 - **[skill-writer](skill-writer/SKILL.md)**: Generate or update SKILL.md files for GitHub Copilot coding agents.
-  You must load this skill when creating or updating GitHub Copilot skill files.
+  You MUST load this skill when creating or updating GitHub Copilot skill files.
 - **[subagent-task](subagent-task/SKILL.md)**: Guidance and protocols for spawning sub-agents via the task tool.
-  You must load this skill when delegating complex tasks to sub-agents.
+  You MUST load this skill when delegating complex tasks to sub-agents.
 - **[tdd](tdd/SKILL.md)**: Commands, step-by-step procedures, and mechanical execution for test engineering,
   testability audits, and the TDD lifecycle.
-  You must load this skill when executing test tasks, designing tests, doing TDD, or verifying system behavior.
+  You MUST load this skill when executing test tasks, designing tests, doing TDD, or verifying system behavior.
 - **[tester](tester/SKILL.md)**: Elite autonomous test engineering kernel focused on proving software correctness,
   preventing regressions, and designing refactor-resilient behavioral tests.
-  You must load this skill when designing tests, analyzing test coverage, or acting as a test engineer.
+  You MUST load this skill when designing tests, analyzing test coverage, or acting as a test engineer.
 - **[vim-ex](vim-ex/SKILL.md)**: Non-interactive file editing with Vim Ex mode (in favor of sed, shell or Python
   editing).
-  You must load this skill when using Vim Ex mode for non-interactive file editing.
+  You MUST load this skill when using Vim Ex mode for non-interactive file editing.
 - **[yaml](yaml/SKILL.md)**: Generic guidelines for YAML formatting, linting, and structural rules.
-  You must load this skill when formatting or linting YAML files.
+  You MUST load this skill when formatting or linting YAML files.
 - **[yq](yq/SKILL.md)**: Safely parse, edit, merge, and transform YAML files using yq, providing robust
   command-line examples for extraction and in-place modifications.
-  You must load this skill when using the yq tool.
+  You MUST load this skill when using the yq tool.
 
 Note: **Path Resolution**: For GitHub runtime within runner when triggered by `cogni-ai-agent-action`, these
 instructions may be loaded from a temporary directory (e.g., `${{ runner.temp }}/.skills/`). When reading a skill

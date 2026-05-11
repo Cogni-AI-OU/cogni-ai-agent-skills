@@ -2,7 +2,7 @@
 name: ansible
 description: >-
   How to run and manage Ansible operations.
-  You must load this skill when working with the `ansible` command.
+  You MUST load this skill when working with the `ansible` command.
 license: MIT
 ---
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
@@ -44,4 +44,4 @@ This is useful for identifying slow tasks and optimizing your automation.
 ## Related Skills
 
 - **molecule**:
-  Must be loaded when running or managing Molecule tests for Ansible.
+  You MUST load this skill when running or managing Molecule tests for Ansible.

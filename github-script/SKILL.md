@@ -2,7 +2,7 @@
 name: github-script
 description: >-
   Advanced use cases and examples for using actions/github-script.
-  You must load this skill when using actions/github-script in workflows.
+  You MUST load this skill when using actions/github-script in workflows.
 license: MIT
 ---
 
@@ -228,6 +228,6 @@ should run based on complex logic (e.g., event type, user roles, and message con
 ## Related Skills
 
 - **gh-api**:
-  Must be loaded when working with `gh api` command.
+  You MUST load this skill when working with `gh api` command.
 - **gh-run**:
-  Must be loaded when working with `gh run` and `gh workflow` commands.
+  You MUST load this skill when working with `gh run` and `gh workflow` commands.

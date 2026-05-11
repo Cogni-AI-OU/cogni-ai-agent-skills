@@ -2,7 +2,7 @@
 name: tdd
 description: >-
   Commands, step-by-step procedures, and mechanical execution for test engineering, testability audits, and the TDD lifecycle.
-  You must load this skill when executing test tasks, designing tests, doing TDD, or verifying system behavior.
+  You MUST load this skill when executing test tasks, designing tests, doing TDD, or verifying system behavior.
 ---
 
 <!-- markdownlint-disable MD013 -->

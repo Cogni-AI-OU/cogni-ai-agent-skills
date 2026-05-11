@@ -3,7 +3,7 @@ name: agent-log-analysis
 description: >-
   Procedures and templates for analyzing agent session logs, extracting telemetry, and generating
   standardized visual audit reports.
-  You must load this skill when auditing or analyzing autonomous agent log files.
+  You MUST load this skill when auditing or analyzing autonomous agent log files.
 ---
 
 # Agent Log Analysis & Reporting
@@ -386,4 +386,4 @@ radar-beta
 ## Related Skills
 
 - **gh-run**:
-  Must be loaded when working with `gh run` and `gh workflow` commands.
+  You MUST load this skill when working with `gh run` and `gh workflow` commands.

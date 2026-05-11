@@ -2,7 +2,7 @@
 name: docs-writer
 description: >-
   Create, update, and maintain documentation including Architectural Decision Records (ADRs), runbooks, READMEs, and code-level documentation.
-  You must load this skill when asked to write, document, or generate new documentation.
+  You MUST load this skill when asked to write, document, or generate new documentation.
 license: MIT
 ---
 
@@ -67,4 +67,4 @@ When a subdirectory contains specific functionality, workflows, or architectural
 ## Related Skills
 
 - **agents-md-writer**:
-  Must be loaded when creating or updating AGENTS.md files.
+  You MUST load this skill when creating or updating AGENTS.md files.

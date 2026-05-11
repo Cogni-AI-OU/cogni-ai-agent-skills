@@ -2,7 +2,7 @@
 name: tester
 description: >-
   Elite autonomous test engineering kernel focused on proving software correctness, preventing regressions, and designing refactor-resilient behavioral tests.
-  You must load this skill when designing tests, analyzing test coverage, or acting as a test engineer.
+  You MUST load this skill when designing tests, analyzing test coverage, or acting as a test engineer.
 ---
 
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->

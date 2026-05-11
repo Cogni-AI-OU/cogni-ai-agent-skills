@@ -3,7 +3,7 @@ name: gh-search
 description: >-
   GitHub CLI (`gh search`) operations for searching code, commits, issues,
   pull requests, and repositories with structured JSON output.
-  You must load this skill when working with the `gh search` command.
+  You MUST load this skill when working with the `gh search` command.
 license: MIT
 ---
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
