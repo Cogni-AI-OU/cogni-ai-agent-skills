@@ -60,7 +60,7 @@ and strict post-merge validation to prevent duplicate lines or lingering conflic
 - Do not commit if `git status` shows unmerged files.
 - Do not push a merge without first verifying the application builds and tests pass locally.
 - Never blindly `git add .` without checking the contents of resolved files.
-- Never leave `<HEAD>` or `>>>>>>>` markers in the codebase.
+- Never leave `<<<<<<< HEAD` or `>>>>>>>` markers in the codebase.
 
 ## Limitations
 
