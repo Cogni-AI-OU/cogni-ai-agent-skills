@@ -25,7 +25,7 @@ Execute expert-level code reviews, dissecting codebases and Pull Requests (PRs) 
     - **Architecture & Design**: Check pattern alignment, modular integrity, abstraction level, and dependency flow.
     - **Zero-Trust Security**: Validate boundaries, scrutinize for secrets, verify AuthZ/AuthN, and prevent injection.
     - **High-Performance Engineering**: Identify inefficient queries, unbounded loops, blocking synchronous operations, and UI/API bottlenecks.
-    - **Documentation Currency**: Verify if documentation is up-to-date. Ensure `AGENTS.md`, `README.md`, and other relevant docs accurately reflect the new changes.
+    - **Documentation Currency**: Verify that the documentation is up to date. Ensure `AGENTS.md`, `README.md`, and other relevant docs accurately reflect the new changes.
 5. **Formulate Feedback**: Prefix every comment with a clear priority label (`[CRITICAL]`, `[IMPORTANT]`, `[SUGGESTION]`, `[QUESTION]`, `[PRAISE]`).
    Provide a concrete resolution path for every issue raised.
 6. **Summarize Review**: Output a summary containing Verdict (APPROVE or REQUEST CHANGES), Overview (1-2 sentences),
