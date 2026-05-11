@@ -64,4 +64,5 @@ and strict post-merge validation to prevent duplicate lines or lingering conflic
 
 ## Limitations
 
-- The agent cannot use graphical merge conflict tools (e.g., `kdiff3`, `meld`). All conflict resolution must be done via text editing tools or by fully rewriting the file content.
+- The agent cannot use graphical merge conflict tools (e.g., `kdiff3`, `meld`).
+  All conflict resolution must be done via text editing tools or by fully rewriting the file content.
