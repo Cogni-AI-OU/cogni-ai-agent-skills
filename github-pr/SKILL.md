@@ -101,8 +101,8 @@ Check `github.event_name` and payload to identify trigger source:
   When CI/CD pipelines or automated checks fail, do NOT immediately patch local
   configuration files or create suppressions to hide errors.
 - **Fixing CI Build Failures**:
-  When asked to fix a CI failed build, do NOT assume the fix is correct until proven. You MUST commit and push the
-  changes, then wait for the run to confirm it's green via `gh run list`.
+  When asked to fix a CI failed build, do NOT assume the fix is correct until proven.
+  You MUST commit and push the changes, then wait for the run to confirm it's green via `gh run list`.
 
 ## 3. Code Modification & Sync Policies
 
@@ -116,8 +116,7 @@ Check `github.event_name` and payload to identify trigger source:
 - **No Untracked Additions**:
   NEVER automatically commit untracked files or workspace artifacts.
 - **Final Status Check**:
-  ALWAYS run `git status` at the end of your work before completion to verify the final
-  workspace state.
+  ALWAYS run `git status` at the end of your work before completion to verify the final workspace state.
 
 ### Branch Sync Policy (No Rebase During Runtime)
 
