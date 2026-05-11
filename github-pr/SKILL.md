@@ -29,17 +29,17 @@ Ensure appropriate todos are created before starting work, so the session can be
 
 ### Context Recovery & Re-implementations
 
-When instructed to revert, correct, fix or re-implement a previous change (e.g., "revert everything", "you implemented this wrong"),
-you MUST NOT proceed with only the context of the latest comment.
+When instructed to revert, correct, fix or re-implement a previous change (e.g., "revert everything",
+"you implemented this wrong"), you MUST NOT proceed with only the context of the latest comment.
 You MUST:
 
 1. **Retrieve the Original Prompt:**
   Read the original PR body, issue description, or the initial comment that triggered the work.
   This ensures you do not lose crucial constraints, URLs, or instructions provided at the very beginning.
-3. **Analyze Previous Agent Execution:**
+2. **Analyze Previous Agent Execution:**
   Load and review the previous agent session logs (using `gh run view --log` or available logging tools)
   and examine the incorrect changes (using `gh pr diff`). Understand *what* the previous agent did wrong and *why*.
-4. **Synthesize and Revise:** Combine the original instructions with the user's new clarification.
+3. **Synthesize and Revise:** Combine the original instructions with the user's new clarification.
   Explicitly state your revised understanding in your plan to confirm you have incorporated both the initial context
   and the course correction before making changes.
 
@@ -100,6 +100,9 @@ Check `github.event_name` and payload to identify trigger source:
 - **CI/CD Failure Escalation**:
   When CI/CD pipelines or automated checks fail, do NOT immediately patch local
   configuration files or create suppressions to hide errors.
+- **Fixing CI Build Failures**:
+  When asked to fix a CI failed build, do NOT assume the fix is correct until proven. You MUST commit and push the
+  changes, then wait for the run to confirm it's green via `gh run list`.
 
 ## 3. Code Modification & Sync Policies
 
@@ -134,14 +137,14 @@ Before finishing your session, you **MUST** pull and integrate the latest upstre
 1. Verify changes by invoking the project's tests.
    E.g. Re-run the same tests that were initially failing
    (either manually or via gh run if jobs are triggerable and wait for final confirmation).
-3. Stage and commit all local work (`git add` only verified files, then `git commit`).
-4. Pull with merge semantics from the current head branch:
+2. Stage and commit all local work (`git add` only verified files, then `git commit`).
+3. Pull with merge semantics from the current head branch:
    `git pull --no-rebase origin $(git rev-parse --abbrev-ref HEAD)`.
-5. Resolve any merge conflicts, then commit the merge.
+4. Resolve any merge conflicts, then commit the merge.
    Always review your merge commit for any inconsistencies (e.g. conflict markers or duplicated lines).
-6. Verify the branch is up-to-date with `git status` and `git log --oneline -3`.
-7. Reply to inline thread comments that have been fixed or outdated.
-8. Mark outdated threads as resolved (e.g. via `gh api`).
+5. Verify the branch is up-to-date with `git status` and `git log --oneline -3`.
+6. Reply to inline thread comments that have been fixed or outdated.
+7. Mark outdated threads as resolved (e.g. via `gh api`).
 
 ### 3.4 Workspace Cleanliness (Non-Modifying Tasks)
 
