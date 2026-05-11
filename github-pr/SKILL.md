@@ -102,8 +102,9 @@ Check `github.event_name` and payload to identify trigger source:
   configuration files or create suppressions to hide errors.
 - **Fixing CI Build Failures**:
   When asked to fix a failed CI build, do NOT assume the fix is correct until proven. You MUST commit and push the
-  changes, then wait for the specific run (targeted by branch or workflow) to confirm it is green via
-  `gh run list --branch $(git branch --show-current)` or `gh run watch`.
+  changes, then identify the specific run (targeted by branch or workflow), for example with
+  `gh run list --branch $(git branch --show-current)`, and wait for that exact run with
+  `gh run watch <run_id>`; use `gh run view <run_id>` to verify the final conclusion is `success`.
 
 ## 3. Code Modification & Sync Policies
 
