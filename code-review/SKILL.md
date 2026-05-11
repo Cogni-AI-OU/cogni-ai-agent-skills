@@ -1,7 +1,8 @@
 ---
 name: code-review
 description: >-
-  Execute expert-level code reviews, dissecting codebases and Pull Requests (PRs) with surgical precision to identify logical flaws, architectural drift, performance bottlenecks, and security vulnerabilities before they merge.
+  Execute expert-level code reviews, dissecting codebases and Pull Requests (PRs) with surgical precision
+  to identify logical flaws, architectural drift, performance bottlenecks, and security vulnerabilities before they merge.
   Must be loaded when reviewing code or Pull Requests.
 ---
 
@@ -17,25 +18,35 @@ Execute expert-level code reviews, dissecting codebases and Pull Requests (PRs) 
 2. **Spec-First Alignment**: Read the specification or task description thoroughly before beginning the code review.
 3. **Adversarial Self-Inquiry**: Actively play devil's advocate against the proposed solutions. Probe for bugs, compliance risks, and hidden edge cases ("How could this break?").
 4. **Evaluate Dimensions**:
-    - **Code Hygiene**: Scan for temporary/debug statements (`console.log`, `print`, `TODO`, `FIXME`, debugger breakpoints), unintended files (`.env`, logs), syntax errors, and visible inconsistencies (e.g., duplicated code, undefined variables, unused imports, dead code).
+    - **Code Hygiene**: Scan for temporary/debug statements (`console.log`, `print`, `TODO`, `FIXME`, debugger breakpoints),
+      unintended files (`.env`, logs), syntax errors, and visible inconsistencies (e.g., duplicated code, undefined variables, unused imports, dead code).
     - **Correctness & Robustness**: Verify functional alignment (does the code actually do what it is described to do?), edge cases, logic integrity, and test efficacy.
     - **Readability & Maintainability**: Ensure self-documentation, convention adherence, flow simplicity, and logical organization.
     - **Architecture & Design**: Check pattern alignment, modular integrity, abstraction level, and dependency flow.
     - **Zero-Trust Security**: Validate boundaries, scrutinize for secrets, verify AuthZ/AuthN, and prevent injection.
     - **High-Performance Engineering**: Identify inefficient queries, unbounded loops, blocking synchronous operations, and UI/API bottlenecks.
     - **Documentation Currency**: Verify if documentation is up-to-date. Ensure `AGENTS.md`, `README.md`, and other relevant docs accurately reflect the new changes.
-5. **Formulate Feedback**: Prefix every comment with a clear priority label (`[CRITICAL]`, `[IMPORTANT]`, `[SUGGESTION]`, `[QUESTION]`, `[PRAISE]`). Provide a concrete resolution path for every issue raised.
-6. **Summarize Review**: Output a summary containing Verdict (APPROVE or REQUEST CHANGES), Overview (1-2 sentences), and a Verification Story checklist (Tests reviewed, Build verified, Security checked).
+5. **Formulate Feedback**: Prefix every comment with a clear priority label (`[CRITICAL]`, `[IMPORTANT]`, `[SUGGESTION]`, `[QUESTION]`, `[PRAISE]`).
+   Provide a concrete resolution path for every issue raised.
+6. **Summarize Review**: Output a summary containing Verdict (APPROVE or REQUEST CHANGES), Overview (1-2 sentences),
+   and a Verification Story checklist (Tests reviewed, Build verified, Security checked).
 7. **External Repositories Check**: When code contains references to external repositories, double-check them (use: `gh search`, load `gh-search` skill).
 8. **Version Drift Validation**: Check embed version/identifier or collection/runtime version constraints to validate whether they drift from the real source of truth.
 
 ## Core Principles
 
-- **Review-Only Enforcement**: Operate strictly in review-only mode. Do not modify files, create commits, or execute test suites/build scripts directly. Base analysis solely on reading the code and static analysis.
-- **Problem + Resolution Guidance**: For every issue raised, describe both the failure mode and a concrete resolution path (e.g., exact refactor direction, validation rule, test addition, or replacement snippet).
-- **Least Privilege Principle**: Veto any PR that unnecessarily expands the attack surface, requests excessive permissions, or uses overly broad scopes.
-- **Information Hiding**: Scrutinize whether the PR leaks internal implementation details across clear logical boundaries. Demand encapsulation.
-- **Zero-Scaffolding Tone**: Formulate review feedback in bold, declarative, and respectful technical language. Focus objectively on the code, discarding personal tone or redundant exposition.
+- **Review-Only Enforcement**:
+  Operate strictly in review-only mode. Do not modify files, create commits, or execute test suites/build scripts directly.
+  Base analysis solely on reading the code and static analysis.
+- **Problem + Resolution Guidance**:
+  For every issue raised, describe both the failure mode and a concrete resolution path
+  (e.g., exact refactor direction, validation rule, test addition, or replacement snippet).
+- **Least Privilege Principle**:
+  Veto any PR that unnecessarily expands the attack surface, requests excessive permissions, or uses overly broad scopes.
+- **Information Hiding**:
+  Scrutinize whether the PR leaks internal implementation details across clear logical boundaries. Demand encapsulation.
+- **Zero-Scaffolding Tone**:
+  Formulate review feedback in bold, declarative, and respectful technical language. Focus objectively on the code, discarding personal tone or redundant exposition.
 
 ## Commands / Usage Patterns
 
