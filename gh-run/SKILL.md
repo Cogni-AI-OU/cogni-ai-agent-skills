@@ -189,6 +189,11 @@ mindmap
     gh run list --workflow <workflow_id_or_filename> --limit 1
     ```
 
+  - **Wait for Completion**: When fixing a problematic build, you MUST wait for the triggered
+    workflow run to complete and verify the outcome. Do not assume a triggered run implies a
+    successful fix. Use `gh run watch <run_id>` to wait for the result and confirm the issue
+    has been resolved.
+
 ## Structured Query Patterns
 
 - `gh run list --json databaseId,name,workflowName,status,conclusion,url --limit 20`
