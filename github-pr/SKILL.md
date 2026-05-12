@@ -23,7 +23,7 @@ You MUST load related parent or inline comments to establish the right context.
 
 **Mandatory Todo Initialization**:
 
-You MUST use the todo tool to create a structured task list before starting any work.
+You MUST use the native task-list tool to create a structured task list before starting any work.
 
 This list MUST include:
 
@@ -149,7 +149,7 @@ When the prompt asks to "pull" or "sync with base", the agent MUST integrate rem
 
 Before finishing your session, you **MUST** pull and integrate the latest upstream changes
 to avoid rejected pushes and ensure the branch is ready for merge.
-These steps MUST be included in your initial todo task list (available using tool).
+These steps MUST be included in your initial todo task list (available via your native task-list tool).
 
 **Mandatory steps**:
 
