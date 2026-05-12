@@ -35,6 +35,8 @@ Cogni AI capabilities loaded into the `.github/` directory.
 - **[agents-md-writer](agents-md-writer/SKILL.md)**: Autonomous documentation editor responsible for creating,
   updating, and maintaining AGENTS.md files strictly adhering to the organizational baseline structure
 - **[ansible](ansible/SKILL.md)**: How to run and manage Ansible operations safely and prevent hangs.
+- **[brainstorm-github-pr](brainstorm-github-pr/SKILL.md)**: Activate PR brainstorming protocol to analyze and visualize
+  commit history, review threads, and CI pipeline checks using Mermaid diagrams.
 - **[cat](cat/SKILL.md)**: Guidelines for safely using `cat` and avoiding shell hangs with heredocs.
 - **[code-review](code-review/SKILL.md)**: Execute expert-level code reviews, dissecting codebases and Pull Requests (PRs)
   with surgical precision to identify logical flaws, hygiene issues, and architectural drift.

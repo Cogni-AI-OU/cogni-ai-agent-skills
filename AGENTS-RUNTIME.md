@@ -28,6 +28,9 @@ and planned work into the current context.
   You MUST load this skill when creating or updating AGENTS.md files.
 - **[ansible](ansible/SKILL.md)**: How to run and manage Ansible operations safely and prevent hangs.
   You MUST load this skill when working with the `ansible` command.
+- **[brainstorm-github-pr](brainstorm-github-pr/SKILL.md)**: Activate PR brainstorming protocol to analyze and visualize
+  commit history, review threads, and CI pipeline checks using Mermaid diagrams.
+  You MUST load this skill when asked to analyze or brainstorm a Pull Request.
 - **[cat](cat/SKILL.md)**: Guidelines for safely using `cat` and avoiding shell hangs with heredocs.
   You MUST load this skill before running the `cat` command (especially with `EOF`).
 - **[code-review](code-review/SKILL.md)**: Cognitive framework for expert-level code inspection to identify logical
