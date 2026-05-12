@@ -22,9 +22,9 @@ A cognitive framework and protocol for exploring options, breaking down complexi
 ## Core Principles
 
 - **Divergent Before Convergent**: Ensure a broad exploration of the problem space (divergent thinking) before narrowing down to specific recommendations (convergent thinking).
-- **Visual Clarity First**: Use diagrams early to establish a shared mental model before diving into deep technical or textual analysis.
-- **Formal Constraint Mapping**: Use MiniZinc snippets as a dry-code exercise to rigorously define problem boundaries, resources, and requirements.
 - **Fact-Based Exploration**: Anchor all generated options in empirical data retrieved from the codebase, project memory, or provided context.
+- **Formal Constraint Mapping**: Use MiniZinc snippets as a dry-code exercise to rigorously define problem boundaries, resources, and requirements.
+- **Visual Clarity First**: Use diagrams early to establish a shared mental model before diving into deep technical or textual analysis.
 
 ## Diagnostics and Usage Patterns
 
@@ -33,13 +33,15 @@ A cognitive framework and protocol for exploring options, breaking down complexi
 
 ## What to Avoid
 
-- **Premature Convergence**: Proposing a final solution without explicitly documenting the discarded alternative options.
-- **Overcomplicated Diagrams**: Creating massive, unreadable diagrams. Break them into smaller, focused visual summaries.
 - **Assumption-Driven Brainstorming**: Relying on guesses instead of factual context gathered through tools.
+- **Overcomplicated Diagrams**: Creating massive, unreadable diagrams. Break them into smaller, focused visual summaries.
+- **Premature Convergence**: Proposing a final solution without explicitly documenting the discarded alternative options.
 
 ## Related Skills
 
+- **brainstorm-agent-runs**: You MUST load this skill when identifying agentic runs in CI/CD for a Pull Request.
+- **brainstorm-github-pr**: You MUST load this skill when asked to analyze or brainstorm a Pull Request.
 - **critical-thinking**: You MUST load this skill when evaluating the options generated during brainstorming.
-- **minizinc**: You MUST load this skill when executing or deeply modeling constraint satisfaction problems.
 - **mermaid**: You MUST load this skill when constructing standard Mermaid diagrams.
 - **mermaid-beta**: You MUST load this skill when using experimental Mermaid diagrams.
+- **minizinc**: You MUST load this skill when executing or deeply modeling constraint satisfaction problems.

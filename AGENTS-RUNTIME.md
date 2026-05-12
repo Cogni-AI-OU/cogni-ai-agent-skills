@@ -28,6 +28,9 @@ and planned work into the current context.
   You MUST load this skill when creating or updating AGENTS.md files.
 - **[ansible](ansible/SKILL.md)**: How to run and manage Ansible operations safely and prevent hangs.
   You MUST load this skill when working with the `ansible` command.
+- **[brainstorm](brainstorm/SKILL.md)**: Activate brainstorming protocol to explore options, research, deconstruct
+  complexities, and summarize available data into simple diagrams and MiniZinc constraints.
+  You MUST load this skill when asked to brainstorm, explore options, or break down complex problems.
 - **[brainstorm-agent-runs](brainstorm-agent-runs/SKILL.md)**: Activate agent-run brainstorming protocol to identify and
   analyze agent runs via GitHub API for a given Pull Request.
   You MUST load this skill when identifying agentic runs in CI/CD for a Pull Request.
