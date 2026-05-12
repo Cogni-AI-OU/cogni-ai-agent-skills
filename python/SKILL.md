@@ -45,10 +45,11 @@ for name, path in files.items():
         lines = content.splitlines()
 
         for i, line in enumerate(lines):
-            if any(k in line.lower() for k in keywords):
+            lower = line.lower()
+            if any(k in lower for k in keywords):
                 print(f'{i+1}: {line}')
     except Exception as e:
-        print(f"Failed to process {name}: {e}")
+        print(f"Failed to process {name} ({path}): {e}")
     print()
 PY
 ```
