@@ -29,6 +29,7 @@ Autonomous documentation editor responsible for creating, updating, and maintain
 
 - **Contract Style**: Write dense, imperative, expert-level instructions assuming ninja proficiency; skip basics, favor one-liners.
 - **No Duplication**: NEVER duplicate code-level comments or obvious steps.
+- **Avoid Hardcoding**: Never embed specific values, file paths, repository names, user details, job IDs, or tool versions when giving examples; instead, use clear placeholders (e.g., `<repository-name>`, `<file-path>`, `<job-id>`, `<version>`).
 - **Structural Strictness**: You must always format `AGENTS.md` files according to the canonical `AGENTS.md` structure.
 
 ## Expected AGENTS.md Structure
@@ -51,7 +52,7 @@ Autonomous documentation editor responsible for creating, updating, and maintain
 
 - Prefer compact, agent-friendly lists by default; use Markdown tables only when the content is inherently tabular and a table improves scanability.
 - Use mermaid diagrams to describe complex concepts
-  by embeding class, flowchart, mind maps, requirements, user journeys, sequence diagrams or other when applicable.
+  by embedding class, flowchart, mind maps, requirements, user journeys, sequence diagrams or other when applicable.
 
 ## Testing & Verification Gates
 
