@@ -22,10 +22,14 @@ a specific line, the whole file, a previous comment, quote, or build failures.
 You MUST load related parent or inline comments to establish the right context.
 
 **Mandatory Todo Initialization**:
-You MUST use the `todowrite` tool to create a structured task list before starting any work.
+
+You MUST use the todo tool to create a structured task list before starting any work.
+
 This list MUST include:
+
 1. The primary objective(s) requested by the user.
 2. All **Mandatory steps** from the [Pre-Completion Upstream Sync](#pre-completion-upstream-sync) section.
+
 Failure to create and maintain this todo list is a violation of the agent's protocol.
 
 ### Context & Response Routing
@@ -143,8 +147,9 @@ When the prompt asks to "pull" or "sync with base", the agent MUST integrate rem
 
 ### Pre-Completion Upstream Sync
 
-Before finishing your session, you **MUST** pull and integrate the latest upstream changes to avoid rejected pushes and ensure the branch is ready for merge.
-These steps MUST be included in your initial `todowrite` task list.
+Before finishing your session, you **MUST** pull and integrate the latest upstream changes
+to avoid rejected pushes and ensure the branch is ready for merge.
+These steps MUST be included in your initial todo task list (available using tool).
 
 **Mandatory steps**:
 
@@ -158,7 +163,8 @@ These steps MUST be included in your initial `todowrite` task list.
 6. **Respond**: Reply to inline thread comments that have been fixed or are outdated.
 7. **Mark Resolved**: Mark outdated threads as resolved (e.g. via `gh api`).
 
-Failure to perform the final `git pull` often leads to rejected pushes in high-activity repositories. Ensure this step is completed and verified in your logs.
+Failure to perform the final `git pull` often leads to rejected pushes in high-activity repositories.
+Ensure this step is completed and verified in your logs.
 
 ### 3.4 Workspace Cleanliness (Non-Modifying Tasks)
 
