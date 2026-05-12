@@ -126,10 +126,10 @@ For complex architectural decisions, use a `radar-beta` diagram to score options
 ```mermaid
 %% This diagram scores options across various constraints
 radar-beta
-    title "Architectural Trade-offs"
+    title Architectural Trade-offs
     axis Performance, Security, Maintainability, Cost-Efficiency, Scalability
-    curve "Option A" {8, 7, 6, 4, 9}
-    curve "Option B" {6, 9, 8, 7, 5}
+    curve Performance {8, 7, 6, 4, 9}
+    curve Scalability {6, 9, 8, 7, 5}
 ```
 
 ## What to Avoid
