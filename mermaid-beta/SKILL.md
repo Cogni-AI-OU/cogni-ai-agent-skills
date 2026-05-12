@@ -160,7 +160,7 @@ Example representing a team skill assessment:
 
 ```mermaid
 radar-beta
-    title "Skill Assessment"
+    title Skill Assessment
     axis Communication, Technical, Teamwork, Leadership, Time_Management
     curve Alice {8, 9, 7, 6, 8}
     curve Bob {6, 8, 9, 8, 7}
