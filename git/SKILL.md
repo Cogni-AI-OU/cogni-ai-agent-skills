@@ -110,12 +110,12 @@ GitHub Actions and other CI environments often check out repositories as shallow
   - **With GitHub CLI (`gh`)**:
     `gh pr view <number> --json headRefName,baseRefName,commits`
   - For more context, load relevant skill files when working with this type of diagrams.
+- Inspect branch graph for last commits (useful when finding and identifying failing/problematic commit):
+  `git --no-pager log --oneline --decorate --graph --all --max-count=20 --simplify-by-decoration`
 - Remote tracking status: `git status -sb`
 - Signed commit verification: `git log --show-signature -1`
 - Verify identity: `git config user.name && git config user.email`
 - View commits on a branch: `git log --oneline origin/main..origin/feature/branch` (alternative to `gh pr view`)
-- Inspect branch graph for last commits (useful when finding and identifying failing/problematic commit):
-  `git --no-pager log --oneline --decorate --graph --all --max-count=20 --simplify-by-decoration`
 
 ## Resolving Merge Conflicts with Minimal Changes
 
