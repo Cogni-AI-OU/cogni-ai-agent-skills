@@ -20,7 +20,13 @@ Identify the trigger source first to understand context and avoid ambiguity.
 A comment like 'fix it', or short PR comments (empty, referencing 'above' or '^^'), could refer to an inline thread comment,
 a specific line, the whole file, a previous comment, quote, or build failures.
 You MUST load related parent or inline comments to establish the right context.
-Ensure appropriate todos are created before starting work, so the session can be continued upon restart.
+
+**Mandatory Todo Initialization**:
+You MUST use the `todowrite` tool to create a structured task list before starting any work.
+This list MUST include:
+1. The primary objective(s) requested by the user.
+2. All **Mandatory steps** from the [Pre-Completion Upstream Sync](#pre-completion-upstream-sync) section.
+Failure to create and maintain this todo list is a violation of the agent's protocol.
 
 ### Context & Response Routing
 
@@ -137,21 +143,22 @@ When the prompt asks to "pull" or "sync with base", the agent MUST integrate rem
 
 ### Pre-Completion Upstream Sync
 
-Before finishing your session, you **MUST** pull and integrate the latest upstream changes to avoid rejected pushes.
+Before finishing your session, you **MUST** pull and integrate the latest upstream changes to avoid rejected pushes and ensure the branch is ready for merge.
+These steps MUST be included in your initial `todowrite` task list.
 
 **Mandatory steps**:
 
-1. Verify changes by invoking the project's tests.
-   E.g. Re-run the same tests that were initially failing
-   (either manually or via `gh run` if jobs are triggerable and wait for final confirmation).
-2. Stage and commit all local work (`git add` only verified files, then `git commit`).
-3. Pull with merge semantics from the current head branch:
+1. **Verify**: Invoke the project's tests (e.g., re-run failing tests or standard test suite).
+2. **Commit**: Stage and commit all local work (`git add` verified files, then `git commit`).
+3. **Sync (Pull)**: Pull with merge semantics from the current head branch:
    `git pull --no-rebase origin $(git rev-parse --abbrev-ref HEAD)`.
-4. Resolve any merge conflicts, then commit the merge.
+4. **Resolve**: Resolve any merge conflicts, then commit the merge.
    Always review your merge commit for any inconsistencies (e.g. conflict markers or duplicated lines).
-5. Verify the branch is up-to-date with `git status` and `git log --oneline -3`.
-6. Reply to inline thread comments that have been fixed or outdated.
-7. Mark outdated threads as resolved (e.g. via `gh api`).
+5. **Verify Final State**: Run `git status` and `git log --oneline -3` to ensure the branch is up-to-date and clean.
+6. **Respond**: Reply to inline thread comments that have been fixed or are outdated.
+7. **Mark Resolved**: Mark outdated threads as resolved (e.g. via `gh api`).
+
+Failure to perform the final `git pull` often leads to rejected pushes in high-activity repositories. Ensure this step is completed and verified in your logs.
 
 ### 3.4 Workspace Cleanliness (Non-Modifying Tasks)
 
