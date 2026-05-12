@@ -28,8 +28,6 @@ and strict post-merge validation to prevent duplicate lines or lingering conflic
 - **Clean State**: Always begin a merge from a clean working tree. If there are uncommitted changes, stash or commit them first.
 - **Deep History**:
   Ensure the repository is not shallow. Merging in a shallow repository can lead to unexpected results or failures.
-  Check using `git rev-parse --is-shallow-repository` (should return `false`).
-  Otherwise you need to unshallow it (`git fetch origin master --unshallow || git fetch origin master`).
 - **No Duplicate Lines**: Merging can often result in duplicated logic if both branches added similar lines.
    You must manually verify that no duplicate imports, definitions, or statements exist post-merge.
 - **Non-Interactive**: Prefer non-interactive commands. Do not launch `git mergetool` or GUI merge tools,
@@ -42,7 +40,7 @@ and strict post-merge validation to prevent duplicate lines or lingering conflic
   `git status --short`
 - **Check for Shallow Repository**:
   `git rev-parse --is-shallow-repository`
-  (Must return `false` before merging to ensure full history is available).
+  (must return `false` before merging to ensure full history is available)
 - **Review Differences Before Merge**:
   `git diff HEAD..<target-branch> --name-only`
 - **Perform Merge**:
@@ -54,6 +52,8 @@ and strict post-merge validation to prevent duplicate lines or lingering conflic
   Use tools like `sort | uniq -d` on specific regions or manually inspect imports and declarations.
 - **Finalize Merge**:
   `git commit --no-edit` (if conflicts were manually resolved and added).
+- **Unshallow Repository**:
+  `git fetch origin master --unshallow || git fetch origin master`
 
 ## Diagnostics and Troubleshooting
 
