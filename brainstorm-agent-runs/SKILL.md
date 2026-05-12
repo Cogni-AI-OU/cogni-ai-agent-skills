@@ -61,10 +61,10 @@ gh api repos/<owner>/<repo>/actions/runs --paginate \
 ishikawa-beta
     Cogni AI Agent Runs
     issue_comment
-        Agent Run (#<job_id>)
+        Agent Run (#<run_id>)
             success
     workflow_dispatch
-        Agent Run (#<job_id>)
+        Agent Run (#<run_id>)
             failure
             Missing facts
 ```
