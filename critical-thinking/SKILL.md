@@ -9,7 +9,7 @@ description: >-
 
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
 
-A cognitive framework for deep analytical reasoning. This skill enforces rigorous problem deconstruction, adversarial testing, and logical verification to prevent shallow conclusions and fragile solutions.
+A cognitive framework for deep analytical reasoning.
 
 ## Core Process
 
