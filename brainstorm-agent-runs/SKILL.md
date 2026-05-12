@@ -71,6 +71,8 @@ At this step, don't check for more detailed logs yet.
 
 ## Related Skills
 
+- **brainstorm-github-pr**:
+  You MUST load this skill when asked to analyze or brainstorm a Pull Request.
 - **gh-api**:
   You MUST load this skill when executing advanced GitHub CLI API queries.
 - **mermaid**:

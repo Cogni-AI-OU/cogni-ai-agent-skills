@@ -28,6 +28,9 @@ and planned work into the current context.
   You MUST load this skill when creating or updating AGENTS.md files.
 - **[ansible](ansible/SKILL.md)**: How to run and manage Ansible operations safely and prevent hangs.
   You MUST load this skill when working with the `ansible` command.
+- **[brainstorm-agent-runs](brainstorm-agent-runs/SKILL.md)**: Activate agent-run brainstorming protocol to identify and
+  analyze Cogni AI Agent CI/CD runs via GitHub API for a given Pull Request.
+  You MUST load this skill when identifying agentic runs in CI/CD for a Pull Request.
 - **[brainstorm-github-pr](brainstorm-github-pr/SKILL.md)**: Activate PR brainstorming protocol to analyze and visualize
   commit history, review threads, and CI pipeline checks using Mermaid diagrams.
   You MUST load this skill when asked to analyze or brainstorm a Pull Request.

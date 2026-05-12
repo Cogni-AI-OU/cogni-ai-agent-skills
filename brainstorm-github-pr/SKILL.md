@@ -152,5 +152,6 @@ At this step, don't check for more detailed logs yet.
 
 ## Related Skills
 
+- **brainstorm-agent-runs**: You MUST load this skill when identifying agentic runs in CI/CD for a Pull Request.
 - **mermaid**: You MUST load this skill when constructing `gitGraph`, `kanban`, and `flowchart` diagrams.
 - **mermaid-beta**: You MUST load this skill when building `ishikawa-beta` diagrams.
