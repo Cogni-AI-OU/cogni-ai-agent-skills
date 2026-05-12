@@ -141,7 +141,7 @@ ishikawa-beta
 ```
 
 To gather a summary of failures,
-use `gh run view --job <run_id>`.
+use `gh run view <run_id>`.
 At this step, don't check for more detailed logs yet.
 
 ## What to Avoid
