@@ -3,7 +3,7 @@ name: critical-thinking
 description: >-
   Engage deep analytical reasoning, deconstruct assumptions, apply Socratic questioning, and perform adversarial red-teaming
   to solve complex problems and validate architectural plans.
-  You MUST apply this skill when facing challenges which require critical thinking.
+  You MUST load this skill when facing challenges which require critical thinking.
 ---
 # critical-thinking
 
