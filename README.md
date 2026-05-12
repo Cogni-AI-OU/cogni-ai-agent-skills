@@ -36,7 +36,7 @@ Cogni AI capabilities loaded into the `.github/` directory.
   updating, and maintaining AGENTS.md files strictly adhering to the organizational baseline structure
 - **[ansible](ansible/SKILL.md)**: How to run and manage Ansible operations safely and prevent hangs.
 - **[brainstorm-agent-runs](brainstorm-agent-runs/SKILL.md)**: Activate agent-run brainstorming protocol to identify and
-  analyze Cogni AI Agent CI/CD runs via GitHub API for a given Pull Request.
+  analyze agent runs via GitHub API for a given Pull Request.
 - **[brainstorm-github-pr](brainstorm-github-pr/SKILL.md)**: Activate PR brainstorming protocol to analyze and visualize
   commit history, review threads, and CI pipeline checks using Mermaid diagrams.
 - **[cat](cat/SKILL.md)**: Guidelines for safely using `cat` and avoiding shell hangs with heredocs.
