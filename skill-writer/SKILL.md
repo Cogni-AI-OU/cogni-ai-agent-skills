@@ -60,7 +60,7 @@ Structure the file exactly as:
 ## What to Avoid
 
 - Overly broad `description` fields that might trigger the skill when not needed.
-- Using interactive command examples (e.g., `git rebase -i`) without explicitly warning against them or providing non-interactive alternatives.
+- Using interactive command examples without explicitly warning against them or providing non-interactive alternatives.
 - Creating excessively long files with redundant examples.
 - Explaining basic concepts that a proficient developer or AI agent would already know.
 - Outputting conversational filler. ONLY output the file content.
