@@ -20,7 +20,7 @@ Analyze execution logs of agentic runs in CI/CD pipelines to extract insights ab
 
 ## Commands / Usage Patterns
 
-List all agent runs for a PR by matching both branch name and PR title:
+List all agent runs for a PR by matching either branch name or PR title:
 
 ```bash
 branch_name=$(gh pr view <pr_number> --repo <owner>/<repo> --json headRefName -q .headRefName)
