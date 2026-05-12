@@ -28,7 +28,7 @@ A cognitive framework and protocol for exploring options, breaking down complexi
 
 ## Diagnostics and Usage Patterns
 
-- **Diagramming Focus**: Default to high-level topological or structural diagrams (`mindmap`, `flowchart`, `block-beta`) to visualize options.
+- **Diagramming Focus**: Default to high-level topological or structural diagrams (`block-beta`, `flowchart`, `mindmap`) to visualize options.
 - **MiniZinc Dry-Code**: Write MiniZinc `.mzn` snippets to formally declare the parameters, decision variables, and constraints of the problem space, even if you do not execute the solver immediately.
 
 ## What to Avoid
