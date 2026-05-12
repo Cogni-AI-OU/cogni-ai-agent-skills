@@ -16,13 +16,13 @@ and strict post-merge validation to prevent duplicate lines or lingering conflic
 1. **Pre-Flight Check**: Ensure the working directory is perfectly clean (`git status`)
    and the repository is not shallowed (`git rev-parse --is-shallow-repository` should return `false`).
    Otherwise you need to unshallow it (`git fetch origin master --unshallow || git fetch origin master`).
-3. **Execute Merge**: Perform the merge (e.g., `git merge <branch> --no-edit --no-ff`).
-4. **Inspect Conflicts**: If conflicts occur, resolve them explicitly file by file.
-5. **Clean File Verification**: Check every resolved file to ensure absolutely
+2. **Execute Merge**: Perform the merge (e.g., `git merge <branch> --no-edit --no-ff`).
+3. **Inspect Conflicts**: If conflicts occur, resolve them explicitly file by file.
+4. **Clean File Verification**: Check every resolved file to ensure absolutely
    no Git conflict markers (`<<<<<<<`, `=======`, `>>>>>>>`) remain.
-6. **Deduplication Check**: Review the resolved sections to ensure no logical duplicates
+5. **Deduplication Check**: Review the resolved sections to ensure no logical duplicates
    (e.g., duplicate imports, repeated variable declarations, or duplicate lines) were introduced.
-7. **Commit and Validate**: Finalize the merge commit, run local tests, and check the log.
+6. **Commit and Validate**: Finalize the merge commit, run local tests, and check the log.
 
 ## Core Principles
 
