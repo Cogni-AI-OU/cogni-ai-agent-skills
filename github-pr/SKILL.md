@@ -23,7 +23,7 @@ You MUST load related parent or inline comments to establish the right context.
 
 **Mandatory Todo Initialization**:
 
-You MUST use the todo tool to create a structured task list before starting any work.
+You MUST use the native task-list tool to create a structured task list before starting any work.
 
 This list MUST include:
 
@@ -149,14 +149,16 @@ When the prompt asks to "pull" or "sync with base", the agent MUST integrate rem
 
 Before finishing your session, you **MUST** pull and integrate the latest upstream changes
 to avoid rejected pushes and ensure the branch is ready for merge.
-These steps MUST be included in your initial todo task list (available using tool).
+These steps MUST be included in your initial todo task list (available via the native task-list tool).
 
 **Mandatory steps**:
 
 1. **Verify**: Invoke the project's tests (e.g., re-run failing tests or standard test suite).
 2. **Commit**: Stage and commit all local work (`git add` verified files, then `git commit`).
-3. **Sync (Pull)**: Pull with merge semantics from the current head branch:
+3. **Sync (Pull)**: Pull with merge semantics from the current head branch to avoid rejected pushes:
    `git pull --no-rebase origin $(git rev-parse --abbrev-ref HEAD)`.
+   If base changes must be integrated, merge the base branch explicitly:
+   `git fetch origin <base-branch> && git merge --no-ff origin/<base-branch>`.
 4. **Resolve**: Resolve any merge conflicts, then commit the merge.
    Always review your merge commit for any inconsistencies (e.g. conflict markers or duplicated lines).
 5. **Verify Final State**: Run `git status` and `git log --oneline -3` to ensure the branch is up-to-date and clean.
