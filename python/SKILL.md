@@ -9,7 +9,7 @@ description: >-
 
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
 
-Use Python via `python - <<'PY'` heredocs when processing large log files, complex text summarization, or parsing structured data (like JSON) where standard bash utilities (awk/sed/grep) become unwieldy or fragile.
+Use Python via `python3 - <<'PY'` heredocs when processing large log files, complex text summarization, or parsing structured data (like JSON) where standard bash utilities (awk/sed/grep) become unwieldy or fragile. If `python3` is unavailable, you may fall back to `python`.
 
 ## Core Principles
 
@@ -25,7 +25,7 @@ Use Python via `python - <<'PY'` heredocs when processing large log files, compl
 Process multiple files, parse JSON structures, and filter for specific keywords or conditions dynamically.
 
 ```bash
-python - <<'PY'
+python3 - <<'PY'
 import json
 import pathlib
 
@@ -40,16 +40,15 @@ keywords = ['failed', 'fatal', 'error']
 for name, path in files.items():
     print(f'===== {name} =====')
     try:
-        # Load JSON and extract lines (adjust parsing to match actual format)
-        content = json.loads(pathlib.Path(path).read_text())['logs_content']
-        lines = content.splitlines()
-
-        for i, line in enumerate(lines):
-            lower = line.lower()
-            if any(k in lower for k in keywords):
-                print(f'{i+1}: {line}')
+        # Use streaming approach for large files to minimize memory footprint
+        with open(path, 'r', encoding='utf-8') as f:
+            for i, line in enumerate(f):
+                lower_line = line.lower()
+                if any(k in lower_line for k in keywords):
+                    # strip() removes trailing newline for cleaner output
+                    print(f'{i+1}: {line.strip()}')
     except Exception as e:
-        print(f"Failed to process {name} ({path}): {e}")
+        print(f"Failed to process {name} (path: {path}): {e}")
     print()
 PY
 ```
