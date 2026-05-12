@@ -1,0 +1,78 @@
+---
+config:
+  theme: default
+  flowchart:
+    defaultRenderer: "elk"
+    curve: basis
+---
+flowchart TD
+    %% Flow diagram for github-pr skill including Mandatory steps and dependencies
+
+    subgraph Dependencies ["Required Skills"]
+        direction LR
+        D1["git"]
+        D2["gh-merge"]
+        D3["gh-pr"]
+        D4["gh-run"]
+    end
+
+    subgraph Pre_Completion_Upstream_Sync ["Mandatory Pre-Completion Sync"]
+        direction TB
+        S1["1. Verify: Run Tests"] --> S2["2. Commit: git add & git commit"]
+        S2 --> S3["3. Sync: git pull --no-rebase origin head"]
+        S3 --> S4["4. Resolve: Merge Conflicts"]
+        S4 --> S5["5. Verify Final State: git status/log"]
+        S5 --> S6["6. Respond: Reply to inline comments"]
+        S6 --> S7["7. Mark Resolved: Outdated threads"]
+    end
+
+    subgraph Response_Detection_Routing ["Response Detection & Routing"]
+        direction TB
+        R_Detect{"Trigger Source?"}
+        R_Detect -- "Outdated/Resolved" --> R_Mark["Mark Comment Resolved via gh API"]
+        R_Detect -- "General Comment" --> R_Gen["gh pr comment / gh pr review"]
+        R_Detect -- "Inline Review" --> R_Inl["gh api .../replies"]
+    end
+
+    subgraph Workspace_Cleanliness ["Workspace Cleanliness Check"]
+        direction TB
+        C1["Verify Workspace is Clean"] --> C2["Clean if needed: git clean -fd"]
+    end
+
+    %% Main Flow Links
+    Start([Receive New Objective])
+    
+    D1 -. "Must be loaded" .-> Start
+    D2 -.-> Start
+    D3 -.-> Start
+    D4 -.-> Start
+
+    Start --> Init["Identify Trigger Source & Load Context"]
+    Init --> TodoReq["Mandatory Todo Initialization"]
+    TodoReq -- "Create task list (Objective + Sync Steps)" --> Extract["Extract Context & Base Branch"]
+
+    Extract --> IsRevert{"Is Recovery/Re-impl?"}
+    
+    IsRevert -- "Yes" --> Rec1["Retrieve Original Prompt"]
+    Rec1 --> Rec2["Analyze Previous Execution Logs"]
+    Rec2 --> Rec3["Synthesize and Revise Plan"]
+    Rec3 --> ActionType{"Task Type?"}
+    
+    IsRevert -- "No" --> ActionType
+    
+    %% Path A: Modifying Tasks
+    ActionType -- "Code Modification" --> Mod["Perform Code Changes"]
+    Mod --> ModVerify["Verify Changes (git diff)"]
+    ModVerify --> ModNoConf["Ensure NO Conflict Markers"]
+    
+    ModNoConf --> S1
+    S7 --> Finish([End Session])
+
+    %% Path B: Non-Modifying Tasks
+    ActionType -- "Informational/Routing" --> R_Detect
+    
+    R_Mark --> C1
+    R_Gen --> C1
+    R_Inl --> C1
+    
+    C2 --> Finish
