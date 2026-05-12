@@ -1,6 +1,8 @@
 ---
 name: python
-description: Execute Python inline scripts via heredocs for complex log processing, summarization, or JSON parsing. You MUST load this skill when processing large logs.
+description: >-
+  Execute Python inline scripts via heredocs for complex log processing, summarization, or JSON parsing.
+  You MUST load this skill when processing large logs.
 ---
 
 # Skill: python
