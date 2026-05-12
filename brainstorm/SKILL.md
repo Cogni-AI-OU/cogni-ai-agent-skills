@@ -28,8 +28,109 @@ A cognitive framework and protocol for exploring options, breaking down complexi
 
 ## Diagnostics and Usage Patterns
 
+- **Component Architecture Visualization**: Map high-level structural components with a Mermaid `block-beta` diagram.
+- **Context & Ecosystem Mapping**: Map out the current ecosystem, constraints, and known unknowns using a Mermaid `mindmap` before defining architectural changes.
 - **Diagramming Focus**:
-  Default to high-level topological or structural diagrams (`block-beta`, `flowchart`, `mindmap`) to visualize options.
+  Default to high-level topological or structural diagrams (`block-beta`, `flowchart`, `mindmap`, `quadrantChart`, `radar-beta`) to visualize options and establish facts.
+- **Flow & Logic Breakdown**: Detail sequential states and dependencies using a Mermaid `flowchart`.
+- **Root Cause & Priority Mapping**: Use `ishikawa-beta`, `quadrantChart`, or `radar-beta` for evaluating alternatives, prioritization, and deep-dive problem exploration.
+
+## Brainstorming - Problem Breakdown
+
+When you need to explore a complex problem, use this step-by-step visual approach to ensure all facts are gathered and complexity is reduced:
+
+### Step 1: Context & Ecosystem Mapping
+
+Before proposing any changes, gather all relevant facts and constraints. Map the existing environment using a `mindmap`.
+
+```mermaid
+%% This diagram visualizes the existing ecosystem and constraints
+mindmap
+  root((System Context))
+    Dependencies
+      External API
+      Database
+    Constraints
+      Performance
+      Security
+    Known Unknowns
+      Rate limits
+```
+
+### Step 2: Component Architecture Visualisation
+
+Break the problem into structural parts and orthogonal options using a `block-beta` diagram so the options can be compared effectively.
+
+```mermaid
+%% This block diagram shows multiple architectural options
+block-beta
+  columns 3
+  space Option1 space
+  FrontendA DatabaseA CacheA
+  space Option2 space
+  FrontendB DatabaseB CacheB
+```
+
+### Step 3: Flow & State Modeling
+
+Finally, visualize the behavior, state changes, or sequential logic required for the proposed options using a `flowchart`.
+
+```mermaid
+%% This flowchart explores a process logic option
+flowchart LR
+    Start --> CheckState{Is Valid?}
+    CheckState -->|Yes| Process[Process Data]
+    CheckState -->|No| Reject[Reject Request]
+```
+
+### Step 4: Root Cause Exploration (If Applicable)
+
+When brainstorming around a systemic issue or failure, use an `ishikawa-beta` (fishbone) diagram to aggressively deconstruct contributing factors before jumping to conclusions.
+
+```mermaid
+%% This diagram categorizes contributing factors to a problem
+ishikawa-beta
+    Core Problem or Failure
+    Infrastructure
+        Network latency
+    Codebase
+        Tech debt
+        Missing tests
+    Dependencies
+        Deprecated API
+```
+
+### Step 5: Prioritization Mapping
+
+When multiple paths, options, or tasks are generated, map them onto a `quadrantChart` to evaluate trade-offs like effort versus impact.
+
+```mermaid
+%% This diagram visualizes task or option prioritization
+quadrantChart
+    title Option Prioritization
+    x-axis Low Effort --> High Effort
+    y-axis Low Impact --> High Impact
+    quadrant-1 Quick Wins
+    quadrant-2 Strategic
+    quadrant-3 Time Sinks
+    quadrant-4 Fill-ins
+    "Option A": [0.2, 0.8]
+    "Option B": [0.8, 0.9]
+    "Option C": [0.7, 0.3]
+```
+
+### Step 6: Trade-off Analysis
+
+For complex architectural decisions, use a `radar-beta` diagram to score options across multiple competing dimensions.
+
+```mermaid
+%% This diagram scores options across various constraints
+radar-beta
+    title Architectural Trade-offs
+    axis Performance, Security, Maintainability, Cost-Efficiency, Scalability
+    curve Option A {8, 7, 6, 4, 9}
+    curve Option B {6, 9, 8, 7, 5}
+```
 
 ## What to Avoid
 

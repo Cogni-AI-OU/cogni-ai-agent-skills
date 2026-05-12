@@ -26,13 +26,15 @@ awk '/PROMPT:/,/Post job cleanup/ { $1=""; print substr($0,2) }'
 ## 2. Artifact Extraction
 
 When analyzing logs, specifically identify any external artifacts created or modified:
-- **Pull Requests**: Look for "Created PR #<number>", "Creating pull request...", or "gh pr create" success messages.
-- **Issues**: Look for "Created issue #<number>", "gh issue create" success messages, or comments.
-- **Commits/Branches**: Look for "git push", "Pushed to <branch>", or commit SHA references.
+
+- **Pull Requests**: Look for "Created PR #`number`", "Creating pull request...", or "gh pr create" success messages.
+- **Issues**: Look for "Created issue #`number`", "gh issue create" success messages, or comments.
+- **Commits/Branches**: Look for "git push", "Pushed to `branch`", or commit SHA references.
 
 ## 3. Skill Loading Analysis
 
 When analyzing logs, verify the skill loading process:
+
 - **Skill Discovery**: Identify which skills the agent attempted to load (e.g., `skill` tool calls).
 - **Loading Success**: Confirm if the skills were successfully loaded into the context.
 - **Missing Skills**: Identify if the agent failed to load a skill that was clearly relevant to the task.
@@ -122,13 +124,13 @@ The agent discovered a **[brief description of the core issue]**:
 
 * **[Issue / None]:**
   [Describe any tool failures or explicitly state "None"]
-  [Include any syntax errors, command hungs or other unexpected activity]
+  [Include any syntax errors, command hangs or other unexpected activity]
 
 * **[Limitation / None]:**
   [Describe any failures due to access or environment limitations]
 
 * **[Performance / None]:**
-  [Describe any performance concerns such as sloweness, hungs]
+  [Describe any performance concerns such as slowness, hangs]
 
 #### Recommendation Provided (Optional)
 
@@ -143,7 +145,7 @@ Note: The Text Report must be output as direct Markdown; do not wrap the resulti
 
 Generate the following Mermaid `pie` diagrams to visualize the relative frequency of tool and command calls.
 
-**Tool Utilization Pie Chart**
+##### Tool Utilization Pie Chart
 
 ```mermaid
 pie title Tool Call Distribution
@@ -161,7 +163,7 @@ pie title Tool Call Distribution
 
 Note: Include only high-level tool names without actual commands.
 
-**Command Utilization Pie Chart**
+##### Command Utilization Pie Chart
 
 ```mermaid
 pie title Command Call Distribution
@@ -177,7 +179,7 @@ Note: Include only actual bash tool commands.
 Generate a Mermaid `mindmap` visualizing the hierarchy of tools
 and their key parameters or sub-commands executed during the session.
 
-**Tool Usage Mindmap**
+##### Tool Usage Mindmap
 
 ```mermaid
 mindmap
@@ -216,7 +218,7 @@ Generate a Mermaid `sequenceDiagram` visualizing chronological actions.
 
 Example showing sub-agent interaction:
 
-**Agent Execution Flow**
+##### Agent Execution Flow
 
 ```mermaid
 sequenceDiagram
@@ -305,7 +307,7 @@ If failures or bugs hit the agent, you MUST generate:
 
 Generate a Mermaid `treeView-beta` diagram visualizing the hierarchy of files and directories accessed by the agent.
 
-**Accessed Files Tree**
+##### Accessed Files Tree
 
 ```mermaid
 treeView-beta
@@ -319,13 +321,16 @@ treeView-beta
 
 Generate a Mermaid `kanban` diagram to visualize the task board and tracking state.
 Column headers SHOULD include status metadata.
-**IMPORTANT**: Do not use special characters such as brackets `()` within task labels; they must be escaped or removed as they will break Mermaid syntax.
+
+**IMPORTANT**: Do not use special characters such as brackets `()` within task labels;
+they must be escaped or removed as they will break Mermaid syntax.
+
 This MUST be based on the actual `todos` found in the agent session logs
 (e.g., from `todowrite` tool calls or explicit task tracking), not invented tasks.
 To avoid breaking Mermaid syntax, DO NOT use structural characters like
 `{}`, `[]`, `()`, `<`, or `>` in labels.
 
-**Agent Task Board**
+##### Agent Task Board
 
 ```mermaid
 ---

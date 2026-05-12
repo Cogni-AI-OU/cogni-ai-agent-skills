@@ -21,8 +21,6 @@ you **MUST** read the rest of the file to access the relevant expert guidance an
 - **mermaid.instructions.md**: Formatting standards, best
   practices, and anti-patterns for Mermaid.js.
 
-
-
 ## Diagram Types & Patterns
 
 ### Architecture Diagrams

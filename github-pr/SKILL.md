@@ -74,10 +74,13 @@ Check `github.event_name` and payload to identify trigger source:
 
 - **Symmetric Routing**:
   ALWAYS reply via the exact originating channel.
-  When asked to post or comment without providing a code fix, you MUST communicate back via the API without modifying any files.
+  When asked to post or comment without providing a code fix, you MUST communicate back via the API without
+  modifying any files.
 - **Workspace Cleanliness (No Commits for Non-Code-Change Tasks)**:
-  If your task is purely informational (e.g., analyzing a PR, posting a comment), you MUST ensure the workspace remains completely clean (no modified or untracked files).
-  ANY modification to the workspace after a repo event triggers an automatic commit and push to the Pull Request.
+  If your task is purely informational (e.g., analyzing a PR, posting a comment), you MUST ensure the
+  workspace remains completely clean (no modified or untracked files).
+  ANY modification to the workspace after a repo event triggers an automatic commit and push to the
+  Pull Request.
   Delete temporary files or run `git clean -fd` before finishing.
 - Parse `github.event.comment.id` and `in_reply_to_id` to maintain thread continuity.
 
@@ -86,7 +89,8 @@ Check `github.event_name` and payload to identify trigger source:
 ### Restricted Shell & Ephemeral Environment
 
 - **Ephemeral State**:
-  Any uncommitted modifications or tools installed outside of the project directory will be immediately lost when the runner terminates.
+  Any uncommitted modifications or tools installed outside of the project directory will be immediately lost
+  when the runner terminates.
   ALL intended state changes must be committed and pushed to the remote branch to persist.
 - **Restricted Command Allowlist**:
   You are operating in a highly restricted shell environment where arbitrary commands are denied by default.
@@ -102,7 +106,9 @@ Check `github.event_name` and payload to identify trigger source:
   configuration files or create suppressions to hide errors.
 - **Fixing CI Build Failures**:
   When asked to fix a failed CI build, do NOT assume the fix is correct until proven.
-  You MUST commit and push the changes, then identify the specific run (targeted by branch or workflow), for example with `gh run list --branch $(git branch --show-current)`, and wait for that exact run with `gh run watch <run_id>`.
+  You MUST commit and push the changes, then identify the specific run (targeted by branch or workflow), for
+  example with `gh run list --branch $(git branch --show-current)`, and wait for that exact run with
+  `gh run watch <run_id>`.
   Use `gh run view <run_id>` to verify the final conclusion is `success`.
 
 ## 3. Code Modification & Sync Policies
@@ -112,7 +118,8 @@ Check `github.event_name` and payload to identify trigger source:
 - **Verify Before Commit**:
   Verify your expected changes with `git diff --no-color`.
   NEVER use blanket `git add .` without verifying the exact list of staged files.
-  CRITICAL: You MUST check for unresolved merge conflict markers (e.g., `<<<<<<<`, `=======`, `>>>>>>>`) in your changes.
+  CRITICAL: You MUST check for unresolved merge conflict markers (e.g., `<<<<<<<`, `=======`, `>>>>>>>`)
+  in your changes.
   NEVER commit files containing unresolved merge conflict markers.
 - **No Untracked Additions**:
   NEVER automatically commit untracked files or workspace artifacts.
@@ -136,7 +143,7 @@ Before finishing your session, you **MUST** pull and integrate the latest upstre
 
 1. Verify changes by invoking the project's tests.
    E.g. Re-run the same tests that were initially failing
-   (either manually or via gh run if jobs are triggerable and wait for final confirmation).
+   (either manually or via `gh run` if jobs are triggerable and wait for final confirmation).
 2. Stage and commit all local work (`git add` only verified files, then `git commit`).
 3. Pull with merge semantics from the current head branch:
    `git pull --no-rebase origin $(git rev-parse --abbrev-ref HEAD)`.
@@ -158,7 +165,8 @@ If the runtime did not involve intended modification of files:
 ## 4. Review & Feedback Management
 
 - **Batching PR Feedback**:
-  You SHOULD use `gh pr review` (if available) to batch broad feedback, resolve threads, and assert review states (`APPROVE`, `REQUEST_CHANGES`, `COMMENT`).
+  You SHOULD use `gh pr review` (if available) to batch broad feedback, resolve threads, and assert review
+  states (`APPROVE`, `REQUEST_CHANGES`, `COMMENT`).
   This prevents notification spam.
   If `gh pr review` is restricted, use `gh pr comment` for general feedback and `gh api` for inline replies.
 - **Contextual Continuity**:
@@ -223,7 +231,8 @@ gh pr checks <number> --json name,status,conclusion,url
 
     Note: For GitHub Actions jobs, the `output.summary` field in these check runs is usually `null`.
     Job Summaries from `$GITHUB_STEP_SUMMARY` are not accessible here.
-    See the `gh-run` and `gh-api` skills for detailed workarounds to inspect job results and retrieve summary information programmatically, including approaches beyond log extraction.
+    See the `gh-run` and `gh-api` skills for detailed workarounds to inspect job results and retrieve
+    summary information programmatically, including approaches beyond log extraction.
 
 2. Fetch annotations for a specific check run ID:
 

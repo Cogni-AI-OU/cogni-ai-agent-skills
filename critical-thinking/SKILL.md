@@ -26,10 +26,10 @@ A cognitive framework for deep analytical reasoning.
 - **Active Disconfirmation**: Do not seek evidence that confirms your theory; design experiments that would prove your favorite hypothesis wrong.
 - **Burden of Proof Calibration**: Align evidence requirements with risk. High-risk changes demand formal-level proof; low-risk changes require empirical checks.
 - **Constraint-Aware Design**: Explicitly map and adhere to project-specific constraints (architectural, performance, security).
-- **Formal Constraint Mapping**: Use MiniZinc snippets as a dry-code exercise to rigorously define problem boundaries, resources, and requirements.
 - **Fact-Based Reasoning**: Base every decision on empirically gathered facts from the codebase rather than assumptions.
-- **Internal Tension Scan**: Search for self-contradictions within the plan (e.g., claiming a system is "high-performance" while introducing O(n²) complexity in a critical path).
+- **Formal Constraint Mapping**: Use MiniZinc snippets as a dry-code exercise to rigorously define problem boundaries, resources, and requirements.
 - **Information Gain Optimization**: Prioritize actions that maximize information about the system's state over actions that merely "try to fix it."
+- **Internal Tension Scan**: Search for self-contradictions within the plan (e.g., claiming a system is "high-performance" while introducing O(n²) complexity in a critical path).
 - **Socratic Depth**: Apply a minimum "3-Why" drill-down for any anomaly. Move from the immediate symptom to the behavioral anomaly, to the foundational flaw.
 - **The Steelman Protocol**: Before critiquing a plan, articulate it in its strongest possible form. If you cannot Steelman it, you are not ready to reject it.
 

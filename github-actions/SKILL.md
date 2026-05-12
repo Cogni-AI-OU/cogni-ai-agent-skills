@@ -78,11 +78,14 @@ to gh CLI.
   echo "### Hello world! :rocket:" >> $GITHUB_STEP_SUMMARY
 
   ```
-- **Documentation**: For more workflow commands (e.g., environment variables, outputs, path modification), see [GitHub Actions Workflow Commands](https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-commands).
+- **Documentation**: For more workflow commands (e.g., environment variables, outputs, path modification), see the
+  [GitHub Actions Workflow Commands](https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-commands).
 
 ## Defining Access for the GITHUB_TOKEN Scopes
 
-You can define the access that the `GITHUB_TOKEN` will permit by specifying `read`, `write`, or `none` as the value of the available permissions within the `permissions` key. See: https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax
+You can define the access that the `GITHUB_TOKEN` will permit by specifying `read`, `write`, or `none` as the value of the available permissions within the `permissions` key. See the
+[GitHub Actions Workflow Syntax](https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax)
+for details.
 
 ```yaml
 permissions:
