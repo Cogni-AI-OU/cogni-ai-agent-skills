@@ -1,6 +1,8 @@
 ---
 name: github-pr-brainstorm
-description: Activate PR brainstorming protocol to analyze and visualize commit history, review threads, and CI pipeline checks using Mermaid diagrams.
+description: >-
+  Activate PR brainstorming protocol to analyze and visualize commit history, review threads, and CI pipeline checks using Mermaid diagrams.
+  MUST be loaded when asked to analyze or brainstorm a Pull Request.
 ---
 
 # Skill github-pr-brainstorm
