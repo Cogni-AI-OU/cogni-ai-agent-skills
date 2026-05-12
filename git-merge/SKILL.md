@@ -13,7 +13,7 @@ and strict post-merge validation to prevent duplicate lines or lingering conflic
 
 ## Core Process
 
-1. **Pre-Flight Check**: Ensure the working directory is perfectly clean (`git status`).
+1. **Pre-Flight Check**: Ensure the working directory is perfectly clean (`git status`) and the repository is not shallowed (`git rev-parse --is-shallow-repository` should return `false`).
 2. **Execute Merge**: Perform the merge (e.g., `git merge <branch> --no-edit --no-ff`).
 3. **Inspect Conflicts**: If conflicts occur, resolve them explicitly file by file.
 4. **Clean File Verification**: Check every resolved file to ensure absolutely
@@ -25,6 +25,7 @@ and strict post-merge validation to prevent duplicate lines or lingering conflic
 ## Core Principles
 
 - **Clean State**: Always begin a merge from a clean working tree. If there are uncommitted changes, stash or commit them first.
+- **Deep History**: Ensure the repository is not shallow. Merging in a shallow repository can lead to unexpected results or failures. Check using `git rev-parse --is-shallow-repository`.
 - **No Duplicate Lines**: Merging can often result in duplicated logic if both branches added similar lines.
    You must manually verify that no duplicate imports, definitions, or statements exist post-merge.
 - **Non-Interactive**: Prefer non-interactive commands. Do not launch `git mergetool` or GUI merge tools,
@@ -35,6 +36,9 @@ and strict post-merge validation to prevent duplicate lines or lingering conflic
 
 - **Check Working Directory**:
   `git status --short`
+- **Check for Shallow Repository**:
+  `git rev-parse --is-shallow-repository`
+  (Must return `false` before merging to ensure full history is available).
 - **Review Differences Before Merge**:
   `git diff HEAD..<target-branch> --name-only`
 - **Perform Merge**:
