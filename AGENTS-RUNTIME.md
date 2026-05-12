@@ -114,6 +114,9 @@ and planned work into the current context.
   You MUST load this skill when inspecting, editing, or optimizing PDF files.
 - **[pre-commit](pre-commit/SKILL.md)**: Using pre-commit to validate code formatting, linting, and security checks.
   You MUST load this skill when using pre-commit hooks for validation.
+- **[python](python/SKILL.md)**: Execute Python inline scripts via heredocs for complex log processing,
+  summarization, or JSON parsing.
+  You MUST load this skill when processing large logs.
 - **[robust-commands](robust-commands/SKILL.md)**: Resilient command execution with automatic fallbacks and error
   recovery.
   You MUST load this skill when executing commands requiring resilient error recovery or fallbacks.
