@@ -57,7 +57,7 @@ mindmap
       Rate limits
 ```
 
-### Step 2: Component Architecture Visualisation
+### Step 2: Component Architecture Visualization
 
 Break the problem into structural parts and orthogonal options using a `block-beta` diagram so the options can be compared effectively.
 
