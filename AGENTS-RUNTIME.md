@@ -45,12 +45,12 @@ and planned work into the current context.
 - **[code-tour](code-tour/SKILL.md)**: Create, update, and maintain VSCode CodeTour (.tour) JSON walkthrough files with
   full schema compliance and interactive step configuration.
   You MUST load this skill when creating or updating .tours/ files.
-- **[critical-thinking](critical-thinking/SKILL.md)**: Engage deep analytical reasoning, deconstruct assumptions,
-  apply Socratic questioning, and perform adversarial red-teaming to solve complex problems and validate architectural plans.
-  You MUST load this skill when facing challenges that require critical thinking.
 - **[context-aware-ops](context-aware-ops/SKILL.md)**: Intelligent resource management with size checking and filtering
   to preserve context window.
   You MUST load this skill when managing large resources or context window limits.
+- **[critical-thinking](critical-thinking/SKILL.md)**: Engage deep analytical reasoning, deconstruct assumptions,
+  apply Socratic questioning, and perform adversarial red-teaming to solve complex problems and validate architectural plans.
+  You MUST load this skill when facing challenges that require critical thinking.
 - **[docs-review](docs-review/SKILL.md)**:
   Enforce documentation quality, completeness, and mutual consistency across architecture, ADRs, runbooks, and code.
   You MUST load this skill when asked to review or check consistency of documentation.

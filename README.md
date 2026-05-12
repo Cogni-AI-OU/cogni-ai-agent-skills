@@ -35,6 +35,8 @@ Cogni AI capabilities loaded into the `.github/` directory.
 - **[agents-md-writer](agents-md-writer/SKILL.md)**: Autonomous documentation editor responsible for creating,
   updating, and maintaining AGENTS.md files strictly adhering to the organizational baseline structure
 - **[ansible](ansible/SKILL.md)**: How to run and manage Ansible operations safely and prevent hangs.
+- **[brainstorm](brainstorm/SKILL.md)**: Activate brainstorming protocol to explore options, research, deconstruct
+  complexities, and summarize available data into simple diagrams and MiniZinc constraints.
 - **[brainstorm-agent-runs](brainstorm-agent-runs/SKILL.md)**: Activate agent-run brainstorming protocol to identify and
   analyze agent runs via GitHub API for a given Pull Request.
 - **[brainstorm-github-pr](brainstorm-github-pr/SKILL.md)**: Activate PR brainstorming protocol to analyze and visualize
@@ -44,9 +46,9 @@ Cogni AI capabilities loaded into the `.github/` directory.
   with surgical precision to identify logical flaws, hygiene issues, and architectural drift.
 - **[code-tour](code-tour/SKILL.md)**: Create, update, and maintain VSCode CodeTour (.tour) JSON walkthrough files
   with full schema compliance and interactive step configuration.
+- **[context-aware-ops](context-aware-ops/SKILL.md)**: Intelligent resource management with size checking and filtering
 - **[critical-thinking](critical-thinking/SKILL.md)**: Engage deep analytical reasoning, deconstruct assumptions,
   apply Socratic questioning, and perform adversarial red-teaming to solve complex problems and validate architectural plans.
-- **[context-aware-ops](context-aware-ops/SKILL.md)**: Intelligent resource management with size checking and filtering
 - **[docs-review](docs-review/SKILL.md)**: Enforce documentation quality, completeness, and mutual consistency
   across architecture, ADRs, runbooks, and code
 - **[docs-writer](docs-writer/SKILL.md)**: Create, update, and maintain documentation including Architectural Decision
@@ -64,6 +66,9 @@ Cogni AI capabilities loaded into the `.github/` directory.
 - **[git](git/SKILL.md)**: Guide for using git with non-interactive, safe operations
 - **[git-expert](git-expert/SKILL.md)**: Advanced Git operations including reflog recovery,
   bisecting, complex conflict resolution, and history manipulation
+- **[git-filter-branch](git-filter-branch/SKILL.md)**: Extract a specific subdirectory with history using git filter-branch
+- **[git-merge](git-merge/SKILL.md)**: Guide and safety rules for performing git merges,
+  ensuring no conflict markers and no duplicate lines are present.
 - **[git-rebase](git-rebase/SKILL.md)**: Advanced Git rebase operations including
   interactive history cleanup and non-interactive scripted rewrites
 - **[github](github/SKILL.md)**: GitHub-specific features and collaborative practices
@@ -81,6 +86,8 @@ Cogni AI capabilities loaded into the `.github/` directory.
 - **[opencode](opencode/SKILL.md)**: Manage OpenCode configuration, credentials, and access the OpenCode Zen API
 - **[pdf](pdf/SKILL.md)**: PDF file inspection, object-level editing, and lossless size reduction
 - **[pre-commit](pre-commit/SKILL.md)**: Using pre-commit to validate code formatting, linting, and security checks
+- **[python](python/SKILL.md)**: Execute Python inline scripts via heredocs for complex log processing,
+  summarization, or JSON parsing
 - **[robust-commands](robust-commands/SKILL.md)**: Resilient command execution with automatic
   fallbacks and error recovery
 - **[security-audit](security-audit/SKILL.md)**: Commands, step-by-step procedures, and mechanical execution for
