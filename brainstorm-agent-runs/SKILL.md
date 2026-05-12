@@ -73,7 +73,9 @@ At this step, don't check for more detailed logs yet.
 
 - **brainstorm-github-pr**:
   You MUST load this skill when asked to analyze or brainstorm a Pull Request.
-- **mermaid-beta**:
-  You MUST load this skill when creating or maintaining experimental Mermaid.js beta diagrams like `ishikawa-beta`.
 - **gh-api**:
   You MUST load this skill when executing advanced GitHub CLI API queries.
+- **mermaid**:
+  You MUST load this skill when creating or maintaining stable Mermaid.js diagrams.
+- **mermaid-beta**:
+  You MUST load this skill when creating or maintaining experimental Mermaid.js beta diagrams like `ishikawa-beta`.
