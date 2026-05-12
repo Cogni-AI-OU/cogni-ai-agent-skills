@@ -38,6 +38,13 @@ You MUST load the skills relevant to the user prompt, inferred intent,
 and planned work into the current context. See [AGENTS-RUNTIME.md](AGENTS-RUNTIME.md)
 for the full skills catalog, loading instructions, and structural invariants.
 
+### Brainstorming vs. Critical Thinking
+
+- **`brainstorm`**: Use this skill for **divergent exploration**.
+  It focuses on open-ended research, generating multiple orthogonal architectural paths (Design-It-Twice), recursive decomposition, and visualizing options via high-level Mermaid diagrams.
+- **`critical-thinking`**: Use this skill for **convergent evaluation**.
+  It focuses on deep analytical reasoning, adversarial red-teaming, surfacing hidden dependencies, root cause isolation, and formal constraint mapping (e.g., MiniZinc dry-code).
+
 ### Final Assurance Gates
 
 - Keep this file entropy-pruned and up-to-date.
