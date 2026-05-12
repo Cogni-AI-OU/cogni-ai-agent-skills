@@ -72,7 +72,7 @@ kanban
       bodyText: Make sure inline comments are part of labels properly.
       assigned: reviewer-name
       id: PRRT_kw1234
-      path: gh-pr/SKILL.md
+      path: path/to/file.md
   Outdated
   Resolved
 ```
