@@ -68,5 +68,7 @@ Guidance for reviewing core architecture, documentation, and constraint files fo
 
 ## Related Skills
 
+- **critical-thinking**:
+  You MUST load this skill when deconstructing complex documentation and identifying structural contradictions.
 - **docs-writer**: Guidance for writing and maintaining documentation.
   You MUST load this skill when asked to write, document, or generate new documentation.

@@ -40,6 +40,8 @@ Cogni AI capabilities loaded into the `.github/` directory.
   with surgical precision to identify logical flaws, hygiene issues, and architectural drift.
 - **[code-tour](code-tour/SKILL.md)**: Create, update, and maintain VSCode CodeTour (.tour) JSON walkthrough files
   with full schema compliance and interactive step configuration.
+- **[critical-thinking](critical-thinking/SKILL.md)**: Engage deep analytical reasoning, deconstruct assumptions,
+  apply Socratic questioning, and perform adversarial red-teaming to solve complex problems and validate architectural plans.
 - **[context-aware-ops](context-aware-ops/SKILL.md)**: Intelligent resource management with size checking and filtering
 - **[docs-review](docs-review/SKILL.md)**: Enforce documentation quality, completeness, and mutual consistency
   across architecture, ADRs, runbooks, and code

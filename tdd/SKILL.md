@@ -13,6 +13,8 @@ description: >-
 
 ## Related Skills
 
+- **critical-thinking**:
+  You MUST load this skill when performing deep testability audits and deconstructing complex behavioral requirements.
 - **tester**: Elite autonomous test engineering kernel for proving software correctness and behavioral contracts.
 - **pre-commit**: For integration with testing hooks and validation.
 

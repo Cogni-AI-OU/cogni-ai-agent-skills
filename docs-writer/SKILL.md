@@ -66,5 +66,7 @@ When a subdirectory contains specific functionality, workflows, or architectural
 
 ## Related Skills
 
+- **critical-thinking**:
+  You MUST load this skill when deconstructing complex requirements into clear, architectural documentation.
 - **agents-md-writer**:
   You MUST load this skill when creating or updating AGENTS.md files.

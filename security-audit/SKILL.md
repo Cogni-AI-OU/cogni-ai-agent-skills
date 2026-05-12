@@ -124,5 +124,7 @@ When evaluating architecture or suspected vulnerabilities, systematically model 
 
 ## Related Skills
 
+- **critical-thinking**:
+  You MUST load this skill when applying deep analytical reasoning to complex security architectures.
 - **robust-commands**:
   You MUST load this skill when executing commands requiring resilient error recovery or fallbacks.

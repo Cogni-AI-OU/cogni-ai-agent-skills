@@ -385,5 +385,9 @@ radar-beta
 
 ## Related Skills
 
+- **critical-thinking**:
+  You MUST load this skill when applying deep analytical reasoning to complex log anomalies.
+- **github-actions**:
+  You MUST load this skill when diagnosing or debugging GitHub Actions workflow failures from logs.
 - **gh-run**:
   You MUST load this skill when working with the `gh run` and the `gh workflow` commands.

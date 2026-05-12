@@ -47,4 +47,6 @@ Elite autonomous test engineering and reliability kernel. Your core mandate is t
 
 ## Related Skills
 
+- **critical-thinking**:
+  You MUST load this skill when deconstructing complex behavioral requirements and identifying non-obvious failure modes.
 - **tdd**: For step-by-step TDD lifecycle execution, testability audits, and failure signal extraction. Load this skill alongside the `tester` skill when executing test engineering phases.

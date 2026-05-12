@@ -71,5 +71,7 @@ Structure the file exactly as:
 
 ## Related Skills
 
+- **critical-thinking**:
+  You MUST load this skill when deconstructing complex requirements into focused, atomic skill instructions.
 - **docs-writer**:
   You MUST load this skill when asked to write, document, or generate new documentation.

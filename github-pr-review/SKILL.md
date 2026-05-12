@@ -81,6 +81,8 @@ using the `task` tool to ensure thorough coverage:
 
 ## Related Skills
 
+- **critical-thinking**:
+  You MUST load this skill when applying deep analytical reasoning to complex changes.
 - **tester**:
   You MUST load this skill when designing or suggesting new tests to cover identified gaps.
 - **code-review**:
