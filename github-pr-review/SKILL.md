@@ -14,6 +14,8 @@ Elite autonomous PR review workflow for ensuring structural integrity, metadata 
 Execute these checks systematically using `gh` and `git` tools:
 
 - **Discovery & Scope Alignment**:
+  - **Intent & Purpose**: Verify the PR clearly articulates the WHY (goals/user value),
+    WHAT (scope/deliverables), and HOW (implementation strategy).
   - **Branch State**: Verify if the PR branch is up-to-date with the base branch.
   - **Comments Resolution**: Check for any existing unresolved comments or threads on the PR to ensure previous feedback
     has been integrated.
@@ -23,6 +25,8 @@ Execute these checks systematically using `gh` and `git` tools:
   - **Atomic File Analysis**: Step through the diff file-by-file or component-by-component.
   - **Hygiene & Style**: Check for trailing whitespace, debugger statements, and other hygiene issues.
   - **Scope Control**: Ensure the PR does strictly what it claims. Flag any drive-by changes or unrelated refactoring.
+  - **Overengineering Check**: Aggressively apply YAGNI. Question "nice to have" features,
+    premature optimizations, and abstractions that exceed core requirements.
   - **Integration Check**: Verify that new code correctly integrates with existing patterns and dependencies.
 - **Verification & Merge Readiness**:
   - **Build & CI Status**: Verify that all CI/CD checks (status checks) are passing.
