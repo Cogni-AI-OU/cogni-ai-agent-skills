@@ -159,7 +159,10 @@ def generate_skeleton(repo_root: str = ".", persona: str = "new-joiner") -> dict
     steps.append(
         _make_content_step(
             "Welcome",
-            f"Introduce the repo: what it does, who this {persona} tour is for, what they'll understand after finishing.",
+            (
+                f"Introduce the repo: what it does, who this {persona} tour is for, "
+                "what they'll understand after finishing."
+            ),
         )
     )
 
@@ -197,10 +200,7 @@ def generate_skeleton(repo_root: str = ".", persona: str = "new-joiner") -> dict
     if len(file_and_dir_steps) < 3:
         # add top-level directories
         for item in sorted(repo.iterdir()):
-            if (
-                item.name.startswith(".")
-                or item.name in ("node_modules", "__pycache__", ".git")
-            ):
+            if item.name.startswith(".") or item.name in ("node_modules", "__pycache__", ".git"):
                 continue
             rel = str(item.relative_to(repo))
             if rel in seen_paths:
