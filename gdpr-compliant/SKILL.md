@@ -283,3 +283,7 @@ For deep dives, read the reference files in `references/`:
 
 *Inspired by CNIL developer GDPR guidance, GDPR Articles 5, 25, 32, 33, 35,
 ENISA, OWASP, and NIST engineering best practices.*
+
+## References
+
+- <https://github.com/github/awesome-copilot/blob/main/skills/gdpr-compliant/SKILL.md>
