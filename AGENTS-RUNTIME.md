@@ -45,6 +45,8 @@ and planned work into the current context.
 - **[code-tour](code-tour/SKILL.md)**: Create, update, and maintain VSCode CodeTour (.tour) JSON walkthrough files with
   full schema compliance and interactive step configuration.
   You MUST load this skill when creating or updating .tours/ files.
+- **[codeql](codeql/SKILL.md)**: Configure and execute CodeQL code scanning analysis via GitHub Actions workflows and the CodeQL CLI.
+  You MUST load this skill when configuring CodeQL workflows or using the CodeQL CLI.
 - **[context-aware-ops](context-aware-ops/SKILL.md)**: Intelligent resource management with size checking and filtering
   to preserve context window.
   You MUST load this skill when managing large resources or context window limits.
