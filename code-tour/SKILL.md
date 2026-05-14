@@ -23,22 +23,22 @@ Two reference files are bundled:
 - **`references/codetour-schema.json`** — the authoritative JSON schema. Read it to verify any field name or type. Every field you use must conform to it.
 - **`references/examples.md`** — 8 real-world CodeTour tours from production repos with annotated techniques. Read it when you want to see how a specific feature (`commands`, `selection`, `view`, `pattern`, `isPrimary`, multi-tour series) is used in practice.
 
-### Real-world `.tour` files on GitHub
+## Real-world `.tour` files on GitHub
 
 These are confirmed production `.tour` files. Fetch one when you need a working example of a specific step type, tour-level field, or narrative structure — don't write from memory when the real thing is one fetch away.
 
-Find more with the GitHub code search: https://github.com/search?q=path%3A**%2F*.tour+&type=code
+Find more with the GitHub code search: <https://github.com/search?q=path%3A**%2F*.tour+&type=code>
 
 #### By step type / technique demonstrated
 
 | What to study | File URL |
-|---|---|
-| `directory` + `file+line` (contributor onboarding) | https://github.com/coder/code-server/blob/main/.tours/contributing.tour |
-| `selection` + `file+line` + intro content step (accessibility project) | https://github.com/a11yproject/a11yproject.com/blob/main/.tours/code-tour.tour |
-| Minimal tutorial — tight `file+line` narration for interactive learning | https://github.com/lostintangent/rock-paper-scissors/blob/master/main.tour |
-| Multi-tour repo with `nextTour` chaining (cloud native OCI walkthroughs) | https://github.com/lucasjellema/cloudnative-on-oci-2021/blob/main/.tours/introduction.tour |
-| `isPrimary: true` (marks the onboarding entry point) | https://github.com/nickvdyck/webbundlr/blob/main/.tours/getting-started.tour |
-| `pattern` instead of `line` (regex-anchored steps) | https://github.com/nickvdyck/webbundlr/blob/main/.tours/architecture.tour |
+| --- | --- |
+| `directory` + `file+line` (contributor onboarding) | <https://github.com/coder/code-server/blob/main/.tours/contributing.tour> |
+| `selection` + `file+line` + intro content step (accessibility project) | <https://github.com/a11yproject/a11yproject.com/blob/main/.tours/code-tour.tour> |
+| Minimal tutorial — tight `file+line` narration for interactive learning | <https://github.com/lostintangent/rock-paper-scissors/blob/master/main.tour> |
+| Multi-tour repo with `nextTour` chaining (cloud native OCI walkthroughs) | <https://github.com/lucasjellema/cloudnative-on-oci-2021/blob/main/.tours/oci-and-infrastructure-as-code.tour> |
+| `isPrimary: true` (marks the onboarding entry point) | <https://github.com/github/codespaces-learn-with-me/blob/main/.tours/main.tour> |
+| `pattern` instead of `line` (regex-anchored steps) | <https://github.com/github/codespaces-codeql/blob/main/.tours/codeql-tutorial.tour> |
 
 **Raw content tip:** Prefix `raw.githubusercontent.com` and drop `/blob/` for raw JSON access.
 

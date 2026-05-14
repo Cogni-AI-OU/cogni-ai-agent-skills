@@ -26,7 +26,6 @@ Examples:
 import json
 import re
 import sys
-import os
 from pathlib import Path
 
 
@@ -112,9 +111,7 @@ def validate_tour(tour_path: str, repo_root: str = ".") -> dict:
             except Exception:
                 pass
         if not found_next:
-            warnings.append(
-                f"nextTour '{next_title}' — no .tour file in .tours/ has a matching title"
-            )
+            warnings.append(f"nextTour '{next_title}' — no .tour file in .tours/ has a matching title")
 
     # ── 4. Per-step validation ───────────────────────────────────────────────
     content_only_count = 0
@@ -166,9 +163,7 @@ def validate_tour(tour_path: str, repo_root: str = ".") -> dict:
                     elif ln < 1:
                         errors.append(f"{label}: Line number must be >= 1, got {ln}")
                     elif ln > lc:
-                        errors.append(
-                            f"{label}: Line {ln} exceeds file length ({lc} lines): {raw_path!r}"
-                        )
+                        errors.append(f"{label}: Line {ln} exceeds file length ({lc} lines): {raw_path!r}")
 
                 # selection
                 if has_selection:
@@ -178,17 +173,11 @@ def validate_tour(tour_path: str, repo_root: str = ".") -> dict:
                     s_line = start.get("line", 0)
                     e_line = end.get("line", 0)
                     if s_line > lc:
-                        errors.append(
-                            f"{label}: Selection start line {s_line} exceeds file length ({lc})"
-                        )
+                        errors.append(f"{label}: Selection start line {s_line} exceeds file length ({lc})")
                     if e_line > lc:
-                        errors.append(
-                            f"{label}: Selection end line {e_line} exceeds file length ({lc})"
-                        )
+                        errors.append(f"{label}: Selection end line {e_line} exceeds file length ({lc})")
                     if s_line > e_line:
-                        errors.append(
-                            f"{label}: Selection start ({s_line}) is after end ({e_line})"
-                        )
+                        errors.append(f"{label}: Selection start ({s_line}) is after end ({e_line})")
 
                 # pattern
                 if "pattern" in step:
@@ -196,9 +185,7 @@ def validate_tour(tour_path: str, repo_root: str = ".") -> dict:
                         compiled = re.compile(step["pattern"], re.MULTILINE)
                         content = _file_content(file_path)
                         if not compiled.search(content):
-                            errors.append(
-                                f"{label}: Pattern {step['pattern']!r} matches nothing in {raw_path!r}"
-                            )
+                            errors.append(f"{label}: Pattern {step['pattern']!r} matches nothing in {raw_path!r}")
                     except re.error as e:
                         errors.append(f"{label}: Invalid regex pattern: {e}")
 
@@ -231,8 +218,7 @@ def validate_tour(tour_path: str, repo_root: str = ".") -> dict:
     # ── 5. Content-only step count ──────────────────────────────────────────
     if content_only_count > 2:
         warnings.append(
-            f"{content_only_count} content-only steps (no file/dir/uri). "
-            f"Recommended max: 2 (intro + closing)."
+            f"{content_only_count} content-only steps (no file/dir/uri). " f"Recommended max: 2 (intro + closing)."
         )
 
     # ── 6. Narrative arc checks ─────────────────────────────────────────────
@@ -243,13 +229,10 @@ def validate_tour(tour_path: str, repo_root: str = ".") -> dict:
 
     if not first_is_orient and "directory" not in first:
         info.append(
-            "First step is a file/uri step — consider starting with a content or directory "
-            "orientation step."
+            "First step is a file/uri step — consider starting with a content or directory " "orientation step."
         )
     if not last_is_closing:
-        info.append(
-            "Last step is not a content step — consider ending with a closing/summary step."
-        )
+        info.append("Last step is not a content step — consider ending with a closing/summary step.")
 
     stats = {
         "total_steps": len(steps),
