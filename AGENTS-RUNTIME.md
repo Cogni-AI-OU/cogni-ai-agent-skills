@@ -61,6 +61,9 @@ and planned work into the current context.
 - **[fact-writer](fact-writer/SKILL.md)**: Guidance for writing, structuring, and maintaining verifiable project
   fact files without contradictions.
   You MUST load this skill when managing canonical project fact files.
+- **[gdpr-compliant](gdpr-compliant/SKILL.md)**: Apply GDPR-compliant engineering practices across your codebase.
+  You MUST load this skill whenever you are designing APIs, writing data models,
+  handling user data, or reviewing pull requests for privacy compliance.
 - **[gh](gh/SKILL.md)**: GitHub CLI (`gh`) operations for issues, pull requests, workflow runs, reviews, and API.
   You MUST load this skill when working with the `gh` command and its subcommands.
 - **[gh-api](gh-api/SKILL.md)**: Advanced GitHub CLI (`gh api`) queries and mutations via REST or GraphQL.
@@ -100,7 +103,8 @@ and planned work into the current context.
   You MUST load this skill when working with GitHub-specific features or PR view modes.
 - **[github-actions](github-actions/SKILL.md)**: Diagnosing and debugging failing GitHub Actions workflows.
   You MUST load this skill when diagnosing or debugging GitHub Actions workflow failures.
-- **[github-ah](github-ah/SKILL.md)**: Safely update existing GitHub Agentic Workflows (gh-aw), distinguishing between frontmatter configuration that requires recompilation and markdown body prompt edits that do not.
+- **[github-ah](github-ah/SKILL.md)**: Safely update existing GitHub Agentic Workflows (gh-aw), distinguishing
+  between frontmatter configuration that requires recompilation and markdown body prompt edits that do not.
 - **[github-issue](github-issue/SKILL.md)**: Skills for working with GitHub Issues.
   You MUST load this skill when working with issues or when the runtime was triggered by an issue comment.
   Load this before any gh skills.
