@@ -23,9 +23,20 @@ A specialized skill for controlling and inspecting a live Chrome browser. This s
 - **Troubleshoot Objectively**: When a page fails, check both console logs (`list_console_messages`) and network requests (`list_network_requests`).
 - **Profile Methodically**: Use `performance_start_trace` and `performance_analyze_insight` to identify LCP issues or layout shifts.
 
+## When to Use
+
+Use this skill when:
+
+- **Browser Automation**: Navigating pages, clicking elements, filling forms, and handling dialogs.
+- **Visual Inspection**: Taking screenshots or text snapshots of web pages.
+- **Debugging**: Inspecting console messages, evaluating JavaScript in the page context, and analyzing network requests.
+- **Performance Analysis**: Recording and analyzing performance traces to identify bottlenecks and Core Web Vital issues.
+- **Emulation**: Resizing the viewport or emulating network/CPU conditions.
+
 ## Commands / Usage Patterns
 
 ### Navigation & Page Management
+
 - `new_page`: Open a new tab/page.
 - `navigate_page`: Go to a specific URL, reload, or navigate history.
 - `select_page`: Switch context between open pages.
@@ -34,6 +45,7 @@ A specialized skill for controlling and inspecting a live Chrome browser. This s
 - `wait_for`: Wait for specific text to appear on the page. Use reasonable timeouts.
 
 ### Input & Interaction
+
 - `click`: Click on an element (use `uid` from snapshot).
 - `fill` / `fill_form`: Type text into inputs or fill multiple fields at once.
 - `hover`: Move the mouse over an element.
@@ -43,6 +55,7 @@ A specialized skill for controlling and inspecting a live Chrome browser. This s
 - `upload_file`: Upload a file through a file input.
 
 ### Debugging & Inspection
+
 - `take_snapshot`: Get a text-based accessibility tree (best for identifying elements).
 - `take_screenshot`: Capture a visual representation of the page or a specific element.
 - `list_console_messages` / `get_console_message`: Inspect the page's console output.
@@ -50,20 +63,91 @@ A specialized skill for controlling and inspecting a live Chrome browser. This s
 - `list_network_requests` / `get_network_request`: Analyze network traffic and request details.
 
 ### Emulation & Performance
+
 - `resize_page`: Change the viewport dimensions.
 - `emulate`: Throttling CPU/Network or emulating geolocation.
 - `performance_start_trace(reload=true, autoStop=true)`: Start recording a performance profile.
 - `performance_stop_trace`: Stop recording and save the trace.
 - `performance_analyze_insight`: Get detailed analysis from recorded performance data.
+## Tool Categories
 
-## What to Avoid
+### 1. Navigation & Page Management
 
-- Avoid using `take_screenshot` for element identification; always prefer `take_snapshot` for the logical layout and `uid` extraction.
-- Do not forget to use `wait_for` after navigation to prevent interacting with elements that have not yet loaded.
+- `new_page`: Open a new tab/page.
+- `navigate_page`: Go to a specific URL, reload, or navigate history.
+- `select_page`: Switch context between open pages.
+- `list_pages`: See all open pages and their IDs.
+- `close_page`: Close a specific page.
+- `wait_for`: Wait for specific text to appear on the page.
 
-## Limitations
+### 2. Input & Interaction
 
-- `uid` values from snapshots are transient; any significant DOM mutation may invalidate them, requiring a new snapshot.
+- `click`: Click on an element (use `uid` from snapshot).
+- `fill` / `fill_form`: Type text into inputs or fill multiple fields at once.
+- `hover`: Move the mouse over an element.
+- `press_key`: Send keyboard shortcuts or special keys (e.g., "Enter", "Control+C").
+- `drag`: Drag and drop elements.
+- `handle_dialog`: Accept or dismiss browser alerts/prompts.
+- `upload_file`: Upload a file through a file input.
+
+### 3. Debugging & Inspection
+
+- `take_snapshot`: Get a text-based accessibility tree (best for identifying elements).
+- `take_screenshot`: Capture a visual representation of the page or a specific element.
+- `list_console_messages` / `get_console_message`: Inspect the page's console output.
+- `evaluate_script`: Run custom JavaScript in the page context.
+- `list_network_requests` / `get_network_request`: Analyze network traffic and request details.
+
+### 4. Emulation & Performance
+
+- `resize_page`: Change the viewport dimensions.
+- `emulate`: Throttling CPU/Network or emulating geolocation.
+- `performance_start_trace`: Start recording a performance profile.
+- `performance_stop_trace`: Stop recording and save the trace.
+- `performance_analyze_insight`: Get detailed analysis from recorded performance data.
+
+## Workflow Patterns
+
+### Pattern A: Identifying Elements (Snapshot-First)
+
+Always prefer `take_snapshot` over `take_screenshot` for finding elements. The snapshot provides `uid` values which are required by interaction tools.
+
+```markdown
+1. `take_snapshot` to get the current page structure.
+2. Find the `uid` of the target element.
+3. Use `click(uid=...)` or `fill(uid=..., value=...)`.
+```
+
+### Pattern B: Troubleshooting Errors
+
+When a page is failing, check both console logs and network requests.
+
+```markdown
+1. `list_console_messages` to check for JavaScript errors.
+2. `list_network_requests` to identify failed (4xx/5xx) resources.
+3. `evaluate_script` to check the value of specific DOM elements or global variables.
+```
+
+### Pattern C: Performance Profiling
+
+Identify why a page is slow.
+
+```markdown
+1. `performance_start_trace(reload=true, autoStop=true)`
+2. Wait for the page to load/trace to finish.
+3. `performance_analyze_insight` to find LCP issues or layout shifts.
+```
+
+## Best Practices
+
+- **Context Awareness**: Always run `list_pages` and `select_page` if you are unsure which tab is currently active.
+- **Snapshots**: Take a new snapshot after any major navigation or DOM change, as `uid` values may change.
+- **Timeouts**: Use reasonable timeouts for `wait_for` to avoid hanging on slow-loading elements.
+- **Screenshots**: Use `take_screenshot` sparingly for visual verification, but rely on `take_snapshot` for logic.
+
+## References
+
+- <https://github.com/github/awesome-copilot/blob/main/skills/chrome-devtools/SKILL.md>
 
 ## Related Skills
 
