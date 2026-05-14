@@ -68,6 +68,9 @@ and planned work into the current context.
 - **[gh-aw](gh-aw/SKILL.md)**: GitHub Agentic Workflows (`gh aw`) operations for repository automation,
   creating workflows, running coding agents, and auditing workflow runs.
   You MUST load this skill when working with the `gh aw` command.
+- **[gh-aw-debug](gh-aw-debug/SKILL.md)**: Diagnose and fix GitHub Agentic Workflows (`gh-aw`) failures
+  by analyzing logs for missing tools, permissions, or MCP configurations.
+  You MUST load this skill when diagnosing or fixing `gh aw` workflow failures.
 - **[gh-issue](gh-issue/SKILL.md)**: GitHub CLI (`gh issue`) operations for managing, viewing, and editing issues.
   You MUST load this skill when working with the `gh issue` command.
 - **[gh-models](gh-models/SKILL.md)**: GitHub CLI models (`gh models`) operations for running and evaluating AI

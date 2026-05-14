@@ -41,7 +41,7 @@ flowchart TD
 
     %% Main Flow Links
     Start([Receive New Objective])
-    
+
     D1 -.->|Must be loaded| Start
     D2 -.-> Start
     D3 -.-> Start
@@ -52,27 +52,27 @@ flowchart TD
     TodoReq -->|"Create task list (Objective + Sync Steps)"| Extract["Extract Context & Base Branch"]
 
     Extract --> IsRevert{"Is Recovery/Re-impl?"}
-    
+
     IsRevert -->|"Yes"| Rec1["Retrieve Original Prompt"]
     Rec1 --> Rec2["Analyze Previous Execution Logs"]
     Rec2 --> Rec3["Synthesize and Revise Plan"]
     Rec3 --> ActionType{"Task Type?"}
-    
+
     IsRevert -->|"No"| ActionType
-    
+
     %% Path A: Modifying Tasks
     ActionType -->|"Code Modification"| Mod["Perform Code Changes"]
     Mod --> ModVerify["Verify Changes (git diff)"]
     ModVerify --> ModNoConf["Ensure NO Conflict Markers"]
-    
+
     ModNoConf --> S1
     S7 --> Finish([End Session])
 
     %% Path B: Non-Modifying Tasks
     ActionType -->|"Informational/Routing"| R_Detect
-    
+
     R_Mark --> C1
     R_Gen --> C1
     R_Inl --> C1
-    
+
     C2 --> Finish
