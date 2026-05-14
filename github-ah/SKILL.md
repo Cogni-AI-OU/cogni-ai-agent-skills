@@ -32,7 +32,7 @@ When updating workflows, proactively suggest and implement token optimization te
 1. **DataOps (Move Compute to Steps)**: Replace agentic data fetching with bash `steps:` (e.g., using `gh` and `jq` to fetch and aggregate data into `/tmp/gh-aw/data/stats.json`). This prevents the agent from spending tokens reading large raw API responses. The prompt should direct the agent to read the compact JSON instead.
 2. **gh-proxy and cli-proxy**: Use `tools.github.mode: gh-proxy` instead of MCP servers (`mode: local`) to skip Docker initialization overhead. Use `cli-proxy: true` to mount MCPs as CLI tools, allowing the agent to filter outputs via `jq` before they enter its context.
 3. **Inline Sub-Agents**: For repetitive per-item tasks (e.g., classifying 50 issues), define a `sub-agents:` block using `model: small`. Let cheap sub-agents do the extraction, and the main agent synthesize their results.
-4. **Prompt Minimization & Caching**: 
+4. **Prompt Minimization & Caching**:
    - Apply the "Caveman Technique": Strip redundant prose, hedging, and unnecessary examples.
    - Place stable instructions (rules, schemas) *before* dynamic content (issue bodies, logs) to maximize prompt cache hits.
    - Inject only required fields (e.g., `${{ github.event.issue.number }}`) rather than full event payloads.
