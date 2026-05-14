@@ -69,6 +69,22 @@ jobs:
 - **Resource not accessible**: Verify `security-events: write` permission is granted.
 - **SARIF upload fails**: Check if SARIF file exceeds 10 MB limit; ensure `GITHUB_TOKEN` is valid.
 
+| Problem | Solution |
+|---|---|
+| Workflow not triggering | Verify `on:` triggers match event; check `paths`/`branches` filters; ensure workflow exists on target branch |
+| `Resource not accessible` error | Add `security-events: write` and `contents: read` permissions |
+| Autobuild failure | Switch to `build-mode: manual` and add explicit build commands |
+| No source code seen | Verify `--source-root`, build command, and language identifier |
+| C# compiler failure | Check for `/p:EmitCompilerGeneratedFiles=true` conflicts with `.sqlproj` or legacy projects |
+| Fewer lines scanned than expected | Switch from `none` to `autobuild`/`manual`; verify build compiles all source |
+| Kotlin in no-build mode | Disable and re-enable default setup to switch to `autobuild` |
+| Cache miss every run | Verify `dependency-caching: true` on `init` action |
+| Out of disk/memory | Use larger runners; reduce analysis scope via `paths` config; use `build-mode: none` |
+| SARIF upload fails | Ensure token has `security-events: write`; check 10 MB file size limit |
+| SARIF results exceed limits | Split across multiple uploads with different `--sarif-category`; reduce query scope |
+| Two CodeQL workflows | Disable default setup if using advanced setup, or remove old workflow file |
+| Slow analysis | Enable dependency caching; use `--threads=0`; reduce query suite scope |
+
 ## Best Practices
 
 - Use `security-extended` or `security-and-quality` for comprehensive vulnerability coverage.
