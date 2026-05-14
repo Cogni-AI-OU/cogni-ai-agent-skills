@@ -80,3 +80,7 @@ jobs:
 
 - Avoid using the standalone CodeQL CLI download; always use the CodeQL bundle which includes precompiled queries.
 - Avoid using `autobuild` for complex compiled language setups where a custom build is required.
+
+## References
+
+- <https://github.com/github/awesome-copilot/blob/main/skills/codeql/SKILL.md>
