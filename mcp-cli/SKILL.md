@@ -89,6 +89,10 @@ Exit Codes:
 
 - Server interactions are isolated to standard streams or network responses depending on the MCP server.
 
+## References
+
+- <https://github.com/github/awesome-copilot/blob/main/skills/mcp-cli/SKILL.md>
+
 ## Related Skills
 
 - **robust-commands**:
