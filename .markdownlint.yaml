@@ -16,6 +16,8 @@ MD033:
     - reasoning
     - stopping_rules
     - workflow
+    - number
+    - branch
 # MD046 code-block-style - Code block style
 MD046:
   style: consistent

@@ -126,7 +126,7 @@ Reference for GitHub Agentic Workflows frontmatter schema, engines, networking, 
     Common expressions:
 
     | Scenario | Expression |
-    |---|---|
+    | --- | --- |
     | Fan-out by input | `${{ inputs.finding_id }}` |
     | Universal uniqueness | `${{ github.run_id }}` |
     | Dispatched or scheduled fallback | `${{ inputs.organization \|\| github.run_id }}` |
@@ -231,7 +231,7 @@ Reference for GitHub Agentic Workflows frontmatter schema, engines, networking, 
     ```
 
   - Selected variant available as `${{ experiments.<name> }}` and in `{{#if experiments.<name> }}` template blocks
-  - See [A/B Testing Experiments](experiments.md) for full design guidance
+  - See [A/B Testing Experiments](https://github.com/github/gh-aw/blob/main/.github/aw/experiments.md) for full design guidance
 
 - **`imports:`** - Array of workflow specifications to import (array)
   - Format: `owner/repo/path@ref` or local paths like `shared/common.md`
@@ -549,7 +549,7 @@ Reference for GitHub Agentic Workflows frontmatter schema, engines, networking, 
       tools:
         bash: ["*"]
       ```
-  - `playwright:` - Browser automation tools for visual regression, accessibility testing, and end-to-end testing. Use `mode: cli` (recommended) — no Docker, runs `playwright-cli <command>` in bash, `localhost` reaches local servers directly. `mode: mcp` is deprecated (Docker-based; requires bridge IP detection for local server access). Pin a specific version with `version:` and restrict network access to `local` + `playwright` for security. See [`visual-regression-checker.md`](../../.github/workflows/visual-regression-checker.md) for a minimal pull-request example.
+  - `playwright:` - Browser automation tools for visual regression, accessibility testing, and end-to-end testing. Use `mode: cli` (recommended) — no Docker, runs `playwright-cli <command>` in bash, `localhost` reaches local servers directly. `mode: mcp` is deprecated (Docker-based; requires bridge IP detection for local server access). Pin a specific version with `version:` and restrict network access to `local` + `playwright` for security. See [`visual-regression-checker.md`](https://github.com/github/gh-aw/blob/main/.github/workflows/visual-regression-checker.md) for a minimal pull-request example.
 
     ```yaml
     tools:
@@ -562,8 +562,7 @@ Reference for GitHub Agentic Workflows frontmatter schema, engines, networking, 
   - `startup-timeout:` - Timeout in seconds for MCP server initialization (integer or GitHub Actions expression, default: 120). Useful in `workflow_call` reusable workflows: `startup-timeout: ${{ inputs.startup-timeout }}`
   - `cli-proxy:` - Mount each user-facing MCP server as a standalone CLI tool on `PATH` (boolean, default: `false`). When enabled, the agent can call MCP servers via shell commands (e.g. `github issue_read --method get ...`). CLI-mounted servers remain in the MCP gateway so their containers start normally.
 
-
-- **`safe-outputs:`** - Safe output processing configuration. See [safe-outputs.md](safe-outputs.md) for complete documentation of all output types: `create-issue`, `create-discussion`, `add-comment`, `create-pull-request`, `push-to-pull-request-branch`, `close-issue`, `close-discussion`, `update-issue`, `update-pull-request`, `add-labels`, `remove-labels`, `dispatch-workflow`, `call-workflow`, `create-code-scanning-alert`, `upload-asset`, `upload-artifact`, `assign-to-agent`, `assign-to-user`, and more.
+- **`safe-outputs:`** - Safe output processing configuration. See [safe-outputs.md](https://github.com/github/gh-aw/blob/main/.github/aw/safe-outputs.md) for complete documentation of all output types: `create-issue`, `create-discussion`, `add-comment`, `create-pull-request`, `push-to-pull-request-branch`, `close-issue`, `close-discussion`, `update-issue`, `update-pull-request`, `add-labels`, `remove-labels`, `dispatch-workflow`, `call-workflow`, `create-code-scanning-alert`, `upload-asset`, `upload-artifact`, `assign-to-agent`, `assign-to-user`, and more.
 
   **Key safe-outputs global fields:**
   - `github-token:` — custom token for all safe-output jobs
@@ -575,7 +574,6 @@ Reference for GitHub Agentic Workflows frontmatter schema, engines, networking, 
   - `messages:` — custom footer/notification message templates
   - `env:` — environment variables for safe-output jobs
   - `max-patch-size:` — maximum git patch size in KB (default: 1024)
-
 
 - **`mcp-scripts:`** - Define custom lightweight MCP tools as JavaScript, shell, Python, or Go scripts (object)
   - Tools mounted in MCP server with access to specified secrets
@@ -622,7 +620,6 @@ Reference for GitHub Agentic Workflows frontmatter schema, engines, networking, 
 - **`repo-memory:`** - Repository-specific memory storage (boolean)
 - **`comment-memory:`** - Managed issue/PR comment memory with file-based agent editing (boolean or object, under `tools:`)
 
-
 ### Cache Configuration
 
 The `cache:` field supports the same syntax as the GitHub Actions `actions/cache` action:
@@ -665,9 +662,7 @@ cache:
 
 Cache steps are automatically added to the workflow job and the cache configuration is removed from the final `.lock.yml` file.
 
-
-> **Memory configuration**: For detailed documentation on `cache-memory:`, `repo-memory:`, and `comment-memory:` configuration including advanced options and use cases, see [memory.md](memory.md).
-
+> **Memory configuration**: For detailed documentation on `cache-memory:`, `repo-memory:`, and `comment-memory:` configuration including advanced options and use cases, see [memory.md](https://github.com/github/gh-aw/blob/main/.github/aw/memory.md).
 
 ## Tool Configuration
 
@@ -787,7 +782,7 @@ network: {}
 Each ecosystem identifier enables network access to the domains required by that language's package manager and toolchain. When writing workflows that involve package management, builds, or tests, **always include the ecosystem identifier matching the repository's primary language** in addition to `defaults`.
 
 | Identifier | Runtimes / Languages | Package Manager / Domains |
-|---|---|---|
+| --- | --- | --- |
 | `defaults` | All (always include) | Certificates, JSON schema, Ubuntu mirrors, Microsoft sources |
 | `dotnet` | C#, F#, VB.NET | NuGet (`nuget.org`, `api.nuget.org`, `dotnetcli.blob.core.windows.net`, etc.) |
 | `python` | Python | pip, conda, PyPI (`pypi.org`, `files.pythonhosted.org`, `conda.anaconda.org`, etc.) |
