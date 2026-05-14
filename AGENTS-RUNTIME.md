@@ -68,6 +68,9 @@ and planned work into the current context.
 - **[gh-aw](gh-aw/SKILL.md)**: GitHub Agentic Workflows (`gh aw`) operations for repository automation,
   creating workflows, running coding agents, and auditing workflow runs.
   You MUST load this skill when working with the `gh aw` command.
+- **[gh-aw-firewall-debug](gh-aw-firewall-debug/SKILL.md)**: Debug the AWF firewall by inspecting Docker containers,
+  analyzing Squid access logs, checking iptables rules, and troubleshooting network issues.
+  You MUST load this skill when debugging the awf firewall.
 - **[gh-issue](gh-issue/SKILL.md)**: GitHub CLI (`gh issue`) operations for managing, viewing, and editing issues.
   You MUST load this skill when working with the `gh issue` command.
 - **[gh-models](gh-models/SKILL.md)**: GitHub CLI models (`gh models`) operations for running and evaluating AI
