@@ -115,6 +115,8 @@ and planned work into the current context.
   You MUST load this skill when using actions/github-script in workflows.
 - **[github-topics](github-topics/SKILL.md)**: Search GitHub repositories by topics and keywords.
   You MUST load this skill when searching for relevant tools, libraries, or curated resources.
+- **[mcp-cli](mcp-cli/SKILL.md)**: Interface for MCP (Model Context Protocol) servers via CLI.
+  You MUST load this skill when interacting with external tools, APIs, or data sources through MCP servers via CLI.
 - **[mermaid](mermaid/SKILL.md)**: Guide for creating and maintaining stable Mermaid.js diagrams.
   You MUST load this skill when creating or maintaining Mermaid.js diagrams.
 - **[mermaid-beta](mermaid-beta/SKILL.md)**: Guide for creating and maintaining experimental Mermaid.js beta diagrams.
