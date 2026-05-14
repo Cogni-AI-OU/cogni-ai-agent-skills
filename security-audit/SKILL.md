@@ -308,6 +308,10 @@ For detailed detection guidance, load the following reference files as needed:
 - `references/report-format.md` — Structured output template for security reports with finding cards, dependency audit, secrets scan, and patch proposal formatting
   - Search patterns: `report`, `format`, `template`, `finding`, `patch`, `summary`, `confidence`
 
+## References
+
+- <https://github.com/github/awesome-copilot/blob/main/skills/security-review/SKILL.md>
+
 ## Related Skills
 
 - **critical-thinking**:
