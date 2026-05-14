@@ -59,3 +59,7 @@ trim_trailing_whitespace = false
 
 - Outputting an `.editorconfig` without rule-by-rule explanations.
 - Overwriting existing `.editorconfig` files blindly without reading and merging current project conventions.
+
+## References
+
+- <https://github.com/github/awesome-copilot/blob/main/skills/editorconfig/SKILL.md>
