@@ -392,5 +392,5 @@ The domain is being blocked. Check:
 
 ## Related Skills
 
-- `debug-firewall` - Manual Docker debugging commands for AWF
-- `awf-debug-tools` - Python scripts for log parsing and diagnostics
+- `gh-aw-firewall` - Manual Docker debugging commands for AWF
+- `gh-aw-debug` - Python scripts for log parsing and diagnostics
