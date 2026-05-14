@@ -99,8 +99,8 @@ mindmap
 
 ## What to Avoid
 
-- Do not manually edit the generated `.lock.yml` files; they are intended to be compiled from the markdown workflows.
 - Always review the changes made by the AI agent, especially considering security and context.
+- Do not manually edit the generated `.lock.yml` files; they are intended to be compiled from the markdown workflows.
 
 ## Related Skills
 
