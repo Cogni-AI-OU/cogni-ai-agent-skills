@@ -97,7 +97,7 @@ mindmap
 
 ## Agentic Workflow Prompts
 
-When asked to create, update, debug, or upgrade GitHub Agentic Workflows, you MUST use `webfetch` to retrieve and read the appropriate instruction prompt from the official repository before proceeding:
+When asked to create, update, debug, or upgrade GitHub Agentic Workflows, use `webfetch` to retrieve and read the appropriate instruction prompt from the official repository before proceeding:
 
 - **Create New Workflow**: `https://raw.githubusercontent.com/github/gh-aw/main/.github/aw/create-agentic-workflow.md`
 - **Update Existing Workflow**: `https://raw.githubusercontent.com/github/gh-aw/main/.github/aw/update-agentic-workflow.md`
