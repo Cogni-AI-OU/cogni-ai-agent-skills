@@ -272,7 +272,8 @@ For EACH finding:
 
 ### Step 7 — Generate Security Report
 
-Output the full report in the format defined in `references/report-format.md`.
+Output the full report using the `### Output Format` template defined in
+this file.
 
 ### Step 8 — Propose Patches
 
