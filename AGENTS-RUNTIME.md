@@ -143,6 +143,8 @@ and planned work into the current context.
 - **[robust-commands](robust-commands/SKILL.md)**: Resilient command execution with automatic fallbacks and error
   recovery.
   You MUST load this skill when executing commands requiring resilient error recovery or fallbacks.
+- **[sbom](sbom/SKILL.md)**: Guidelines and commands for generating a Software Bill of Materials (SBOM) using syft.
+  You MUST load this skill when asked to create, generate, or update an SBOM.
 - **[security-audit](security-audit/SKILL.md)**: Commands, step-by-step procedures, and mechanical execution for
   performing deep security audits, vulnerability assessments, and threat modeling.
   You MUST load this skill when performing security audits or validation.

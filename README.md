@@ -96,6 +96,7 @@ Cogni AI capabilities loaded into the `.github/` directory.
   summarization, or JSON parsing
 - **[robust-commands](robust-commands/SKILL.md)**: Resilient command execution with automatic
   fallbacks and error recovery
+- **[sbom](sbom/SKILL.md)**: Guidelines and commands for generating a Software Bill of Materials (SBOM) using syft
 - **[security-audit](security-audit/SKILL.md)**: Commands, step-by-step procedures, and mechanical execution for
   performing deep security audits, vulnerability assessments, and threat modeling
 - **[shell](shell/SKILL.md)**: Efficient shell command execution with timing, timeouts, and best practices
