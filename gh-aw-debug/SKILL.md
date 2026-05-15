@@ -11,12 +11,74 @@ Diagnose, troubleshoot, and fix failing GitHub Agentic Workflows by analyzing lo
 
 ## Core Process
 
-1. **Fetch the Debug Prompt**: Use `webfetch` to retrieve `https://raw.githubusercontent.com/github/gh-aw/main/.github/aw/debug-agentic-workflow.md` and read its instructions.
+1. **Follow Debug Protocol**: Adhere to the instructions in the [Upstream Debug Protocol](#upstream-debug-protocol) section.
 2. **Analyze Logs**: Use `gh aw logs --run-id <run-id>` to identify error patterns (e.g., "missing-tool" or HTTP 403).
 3. **Identify Root Cause**: Determine if failure is due to missing `tools`, `permissions`, `mcp-scripts`, or `safe-outputs`.
 4. **Verify Configuration**: Run `gh aw mcp inspect <workflow-name>` to check active MCP server settings.
 5. **Apply Fix**: Update the workflow's YAML frontmatter.
 6. **Recompile & Test**: Run `gh aw compile <workflow-name>.md` and trigger a run to verify.
+
+## Upstream Debug Protocol
+
+### Quick Start: Debugging from a workflow run URL
+
+User: "Investigate the reason there is a missing tool call in this run: https://github.com/github/gh-aw/actions/runs/20135841934"
+
+1. Audit this run to identify the missing tool issue: `gh aw audit 20135841934 --json`
+2. Analyze the output focusing on:
+   - `missing_tools` array - lists tools the agent tried but couldn't call
+   - `safe_outputs.jsonl` - shows what safe-output calls were attempted
+   - Agent logs - reveals the agent's reasoning about tool usage
+3. Report back with specific findings and actionable fixes.
+
+### Key Commands
+
+- `gh aw compile [--strict]` → validate workflow syntax
+- `gh aw run <workflow-name>` → run a workflow (requires workflow_dispatch)
+- `gh aw logs [workflow-name] --json` → download and analyze workflow logs
+- `gh aw audit <run-id> [--json]` → investigate a specific run or diff multiple runs
+- `gh aw status` → show status of agentic workflows in the repository
+
+### Debug Flow: Workflow Run URL Analysis
+
+1. **Extract Run ID**: Parse the URL (e.g., `https://github.com/*/actions/runs/<run-id>`)
+2. **Audit the Run**: `gh aw audit <run-id> --json`
+3. **Analyze Missing Tools**:
+   - Check `missing_tools` array in audit output.
+   - Review `safe_outputs.jsonl` artifact.
+   - **Common scenarios**: Incorrect tool name (e.g., `safeoutputs-` prefix), tool not in `tools:` section, safe-output not enabled, name mismatch (underscores vs hyphens).
+4. **Review Agent Logs**: Check `logs/run-<run-id>/agent-stdio.log` for reasoning and errors.
+
+### Debug Flow: Analyze Existing Logs
+
+1. **Download Logs**: `gh aw logs <workflow-name> --json`
+2. **Token Usage Data**:
+   - Per-request detail: `firewall-audit-logs` artifact (`api-proxy-logs/token-usage.jsonl`).
+   - Aggregated summary: `agent` artifact (`agent_usage.json`).
+3. **Analyze**: Identify errors, patterns, token usage, and execution time.
+
+### Debug Flow: Run and Audit
+
+1. **Verify Trigger**: Ensure `workflow_dispatch` is present in `on:`.
+2. **Run**: `gh aw run <workflow-name>`
+3. **Poll Audit Results**: Use `gh aw audit <run-id> --json` in a loop until terminal status (`completed`, `failure`, `cancelled`).
+
+### Common Issues to Look For
+
+- **Permissions**: Missing permissions in frontmatter or token auth failures.
+- **Tool Configuration**: Missing tools, incorrect allowlists, MCP connection failures.
+- **Prompt Quality**: Vague instructions, missing context expressions, complex prompts.
+- **Timeouts**: Exceeding `timeout-minutes`.
+- **Missing Tools Patterns**:
+  - Using `safeoutputs-<name>` instead of just `<name>`.
+  - Calling tools not listed in the `tools:` section.
+  - Typos or name mismatches.
+
+### Validation Steps
+
+1. **Compile**: `gh aw compile <workflow-name>` (use `--strict` for production).
+2. **Review**: Summarize changes, reasoning, and expected improvements.
+3. **Verify**: Ask to run the workflow again to verify fixes.
 
 ## Core Principles & Safety
 
@@ -122,6 +184,7 @@ safe-outputs:
 
 ## References
 
+- [Upstream Debug Prompt](https://raw.githubusercontent.com/github/gh-aw/main/.github/aw/debug-agentic-workflow.md)
 - [gh-aw Runbook](https://github.com/github/gh-aw/blob/main/.github/aw/runbooks/workflow-health.md)
 - [Official gh-aw Repo](https://github.com/github/gh-aw)
 - <https://github.com/github/gh-aw/blob/main/debug.md>
