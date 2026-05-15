@@ -28,7 +28,7 @@ Dynamically generate a coding standards document based on the existing syntax, f
 
 - When tasked with creating coding guidelines from existing code.
 - To detect and fix formatting inconsistencies across multiple files.
-- When generating `CONTRIBUTING.md`, `STYLE.md`, or `CODE_OF_CONDUCT.md`.
+- When generating `CONTRIBUTING.md`, `STYLE.md`, or `STYLEGUIDE.md`.
 
 ## Quick Start
 
