@@ -2,8 +2,7 @@
 name: gh-aw-firewall
 description: >-
   Use the AWF (Agentic Workflow Firewall) to run commands with network isolation and domain whitelisting. Provides L7 HTTP/HTTPS egress control for AI agents.
-allowed-tools: Bash(sudo:*), Bash(awf:*), Bash(docker:*), Read
-user-invocable: false
+license: MIT
 ---
 
 # AWF (Agentic Workflow Firewall) Usage Skill
@@ -74,7 +73,7 @@ npm link
 
 ## CLI Options Reference
 
-```
+```text
 sudo awf [options] -- <command>
 
 Domain Options:
@@ -181,8 +180,8 @@ sudo awf \
 ```bash
 # Pass specific variables
 sudo awf --allow-domains github.com \
-  -e GITHUB_TOKEN="$GITHUB_TOKEN" \
-  -e NODE_ENV=production \
+  --env GITHUB_TOKEN="$GITHUB_TOKEN" \
+  --env NODE_ENV=production \
   -- npm test
 
 # Pass all host environment variables
@@ -193,7 +192,7 @@ sudo awf --allow-domains github.com --env-all -- npm test
 
 ```bash
 sudo awf --allow-domains github.com \
-  -v /path/to/data:/data:ro \
+  --mount /path/to/data:/data:ro \
   -- cat /data/config.json
 ```
 
@@ -313,7 +312,7 @@ docker exec awf-agent nc -zv 172.30.0.10 3128
 When analyzing logs, these codes indicate the traffic decision:
 
 | Code | Meaning |
-|------|---------|
+| :--- | :--- |
 | `TCP_TUNNEL:HIER_DIRECT` | ALLOWED (HTTPS tunnel) |
 | `TCP_MISS:HIER_DIRECT` | ALLOWED (HTTP request) |
 | `TCP_DENIED:HIER_NONE` | BLOCKED (domain not in allowlist) |
@@ -388,8 +387,7 @@ The domain is being blocked. Check:
 
 - <https://github.com/github/gh-aw-firewall>
 - <https://github.com/github/gh-aw-firewall/tree/main/.claude/skills/awf-skill>
-- <https://github.github.com/gh-aw-firewall/>
 
 ## Related Skills
 
-- `gh-aw-debug` - Load this skill when debugging Agentic Workflow
+- `gh-aw` - Load this skill when working with Agentic Workflows
