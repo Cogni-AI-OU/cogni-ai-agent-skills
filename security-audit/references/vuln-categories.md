@@ -141,7 +141,7 @@ app.get('/api/documents/:id', async (req, res) => {
 
 // SAFE: verify ownership
 app.get('/api/documents/:id', async (req, res) => {
-const doc = await Document.findOne({ _id: req.params.id, owner: req.user.id });
+  const doc = await Document.findOne({ _id: req.params.id, owner: req.user.id });
   if (!doc) return res.status(403).json({ error: 'Forbidden' });
   res.json(doc);
 });
