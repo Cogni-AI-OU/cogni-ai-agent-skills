@@ -66,7 +66,7 @@ Use this skill when:
 
 - `resize_page`: Change the viewport dimensions.
 - `emulate`: Throttling CPU/Network or emulating geolocation.
-- `performance_start_trace(reload=true, autoStop=true)`: Start recording a performance profile.
+- `performance_start_trace`: Start recording a performance profile.
 - `performance_stop_trace`: Stop recording and save the trace.
 - `performance_analyze_insight`: Get detailed analysis from recorded performance data.
 ## Tool Categories
