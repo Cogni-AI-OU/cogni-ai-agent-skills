@@ -297,16 +297,29 @@ Explicitly state: **"Review each patch before applying. Nothing has been changed
 
 For detailed detection guidance, load the following reference files as needed:
 
-- `references/vuln-categories.md` — Deep reference for every vulnerability category with detection signals, safe patterns, and escalation checkers
-  - Search patterns: `SQL injection`, `XSS`, `command injection`, `SSRF`, `BOLA`, `IDOR`, `JWT`, `CSRF`, `secrets`, `cryptography`, `race condition`, `path traversal`
-- `references/secret-patterns.md` — Regex patterns, entropy-based detection, and CI/CD secret risks
-  - Search patterns: `API key`, `token`, `private key`, `connection string`, `entropy`, `.env`, `GitHub Actions`, `Docker`, `Terraform`
-- `references/language-patterns.md` — Framework-specific vulnerability patterns for JavaScript, Python, Java, PHP, Go, Ruby, and Rust
-  - Search patterns: `Express`, `React`, `Next.js`, `Django`, `Flask`, `FastAPI`, `Spring Boot`, `PHP`, `Go`, `Rails`, `Rust`
-- `references/vulnerable-packages.md` — Curated CVE watchlist for npm, pip, Maven, Rubygems, Cargo, and Go modules
-  - Search patterns: `lodash`, `axios`, `jsonwebtoken`, `Pillow`, `log4j`, `nokogiri`, `CVE`
-- `references/report-format.md` — Structured output template for security reports with finding cards, dependency audit, secrets scan, and patch proposal formatting
-  - Search patterns: `report`, `format`, `template`, `finding`, `patch`, `summary`, `confidence`
+- `references/vuln-categories.md` — Deep reference for every vulnerability
+  category with detection signals, safe patterns, and escalation checkers
+  - Search patterns: `SQL injection`, `XSS`, `command injection`, `SSRF`,
+    `BOLA`, `IDOR`, `JWT`, `CSRF`, `secrets`, `cryptography`,
+    `race condition`, `path traversal`
+- `references/secret-patterns.md` — Regex patterns, entropy-based detection,
+  and CI/CD secret risks
+  - Search patterns: `API key`, `token`, `private key`,
+    `connection string`, `entropy`, `.env`, `GitHub Actions`, `Docker`,
+    `Terraform`
+- `references/language-patterns.md` — Framework-specific vulnerability
+  patterns for JavaScript, Python, Java, PHP, Go, Ruby, and Rust
+  - Search patterns: `Express`, `React`, `Next.js`, `Django`, `Flask`,
+    `FastAPI`, `Spring Boot`, `PHP`, `Go`, `Rails`, `Rust`
+- `references/vulnerable-packages.md` — Curated CVE watchlist for npm, pip,
+  Maven, Rubygems, Cargo, and Go modules
+  - Search patterns: `lodash`, `axios`, `jsonwebtoken`, `Pillow`, `log4j`,
+    `nokogiri`, `CVE`
+- `references/report-format.md` — Structured output template for security
+  reports with finding cards, dependency audit, secrets scan, and patch
+  proposal formatting
+  - Search patterns: `report`, `format`, `template`, `finding`, `patch`,
+    `summary`, `confidence`
 
 ## References
 
