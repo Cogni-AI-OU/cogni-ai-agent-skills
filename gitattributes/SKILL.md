@@ -70,9 +70,10 @@ Define attributes per path to enforce line-ending conversions, custom merge driv
 [attr]binary  -text diff
 
 # Define file attributes.
+*.bat     eol=crlf
+*.cmd     eol=crlf
 *.ex?     binary
 *.h       code diff=c
-
 CHANGELOG merge=union
 ```
 
