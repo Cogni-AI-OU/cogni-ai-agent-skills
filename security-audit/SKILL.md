@@ -25,7 +25,7 @@ Use this skill when the request involves:
 - Detecting insecure cryptography or weak randomness
 - Performing a data flow analysis to trace user input to dangerous sinks
 - Any request phrasing like "is my code secure?", "scan this file", or "check my repo for vulnerabilities"
-- Running `/security-review` or `/security-review <path>`
+- Running `/security-audit` or `/security-audit <path>`
 
 ## Role Persona & Cognitive Framework
 
