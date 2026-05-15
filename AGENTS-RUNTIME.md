@@ -71,6 +71,8 @@ and planned work into the current context.
 - **[gh-aw-compile](gh-aw-compile/SKILL.md)**: Regenerate and post-process all agentic workflows.
   You MUST load this skill when gh-aw is updated, workflow .md files change,
   or when asked to recompile/regenerate workflows.
+- **[gh-aw-new](gh-aw-new/SKILL.md)**: Create new GitHub Agentic Workflows (gh-aw) from scratch using the CLI extension and fetching official remote creation prompts.
+  You MUST load this skill when creating new agentic workflows.
 - **[gh-issue](gh-issue/SKILL.md)**: GitHub CLI (`gh issue`) operations for managing, viewing, and editing issues.
   You MUST load this skill when working with the `gh issue` command.
 - **[gh-models](gh-models/SKILL.md)**: GitHub CLI models (`gh models`) operations for running and evaluating AI
