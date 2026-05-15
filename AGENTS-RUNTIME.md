@@ -125,7 +125,7 @@ and planned work into the current context.
   You MUST load this skill when updating or modifying an existing GitHub Agentic Workflow.
 - **[github-aw-syntax](github-aw-syntax/SKILL.md)**: Complete reference for GitHub Agentic Workflows (gh-aw) frontmatter schema, engine configuration, network access, tools, and imports syntax.
   You MUST load this skill when writing or debugging Agentic Workflow files.
-- **[github-ah-debug](github-ah-debug/SKILL.md)**: Debug and refine GitHub Agentic Workflows (gh-aw) by analyzing
+- **[github-aw-debug](github-aw-debug/SKILL.md)**: Debug and refine GitHub Agentic Workflows (gh-aw) by analyzing
   execution logs, auditing runs, and resolving missing tool errors or prompt inefficiencies.
   You MUST load this skill when asked to debug, audit, or analyze a failing GitHub Agentic Workflow.
 - **[github-issue](github-issue/SKILL.md)**: Skills for working with GitHub Issues.

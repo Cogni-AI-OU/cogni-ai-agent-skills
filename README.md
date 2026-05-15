@@ -82,7 +82,7 @@ Cogni AI capabilities loaded into the `.github/` directory.
 - **[github-actions](github-actions/SKILL.md)**: Diagnosing and debugging failing GitHub Actions workflows
 - **[github-aw](github-aw/SKILL.md)**: Safely update existing GitHub Agentic Workflows (gh-aw), distinguishing between
   frontmatter configuration that requires recompilation and markdown body prompt edits that do not
-- **[github-ah-debug](github-ah-debug/SKILL.md)**: Debug and refine GitHub Agentic Workflows (gh-aw) by analyzing
+- **[github-aw-debug](github-aw-debug/SKILL.md)**: Debug and refine GitHub Agentic Workflows (gh-aw) by analyzing
   execution logs, auditing runs, and resolving missing tool errors or prompt inefficiencies
 - **[github-issue](github-issue/SKILL.md)**: Guidance for issue context routing, response routing, and workspace invariants
 - **[github-pr](github-pr/SKILL.md)**: Guidance for PR context routing, branch sync policies, and workspace invariants
