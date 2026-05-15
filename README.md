@@ -84,6 +84,7 @@ Cogni AI capabilities loaded into the `.github/` directory.
   frontmatter configuration that requires recompilation and markdown body prompt edits that do not
 - **[github-aw-debug](github-aw-debug/SKILL.md)**: Debug and refine GitHub Agentic Workflows (gh-aw) by analyzing
   execution logs, auditing runs, and resolving missing tool errors or prompt inefficiencies
+- **[github-aw-memory](github-aw-memory/SKILL.md)**: Guide for persistent memory strategies in agentic workflows
 - **[github-issue](github-issue/SKILL.md)**: Guidance for issue context routing, response routing, and workspace invariants
 - **[github-pr](github-pr/SKILL.md)**: Guidance for PR context routing, branch sync policies, and workspace invariants
 - **[github-pr-review](github-pr-review/SKILL.md)**: Comprehensive PR review workflow for verifying code quality,

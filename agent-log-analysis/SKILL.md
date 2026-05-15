@@ -10,6 +10,13 @@ description: >-
 
 This skill dictates the mechanical execution and rigid formatting requirements for auditing AI agent session logs.
 
+## When to activate
+
+- Find hidden problems before a workflow goes to production
+- Audit an existing agent for quality and reliability
+- Get a prioritized remediation plan with concrete next steps
+- Health-check a workflow after significant changes
+
 ## 1. Log Retrieval Mechanics
 
 If logs are not directly provided in the prompt, retrieve them using:
@@ -53,6 +60,9 @@ The agent session for **github.run_id [Run ID] (attempt [Attempt Number])** was 
 and [followed / deviated from] established protocols.
 Operating as the `[Agent Persona]`, the agent completed the task of [Brief Task Description]
 while maintaining strict adherence to the project's initialization and verification workflows.
+
+Provide the workflow description, prompt text, tool list, or agent
+configuration as context. The more detail you provide, the more precise the findings.
 
 #### Prompt Summary
 
@@ -132,9 +142,10 @@ The agent discovered a **[brief description of the core issue]**:
 * **[Performance / None]:**
   [Describe any performance concerns such as slowness, hangs]
 
-#### Recommendation Provided (Optional)
+#### Recommended Actions
 
-[Summarize any recommendations]
+* [Specific remediation for finding #1]
+* [Specific remediation for finding #2]
 ```
 
 Note: The Text Report must be output as direct Markdown; do not wrap the resulting report in an outer code block.
@@ -384,6 +395,69 @@ radar-beta
     axis Completion, Compliance, Proficiency, Verification, Depth, Efficiency
     curve Agent {1, 1, 1, 1, 1, 1}
 ```
+
+Generate second `radar-beta` diagram to score the agent from 1 to 5 across 5 quality dimensions:
+
+**Prompt Quality (1–5)**
+
+Evaluate:
+
+- Structure (role, context, instructions, output zones)
+- Output schema definition (explicit vs. implicit)
+- Instruction clarity (specific vs. vague)
+- Edge case handling (addressed vs. ignored)
+- Anti-patterns (wall of text, contradictions, implicit format)
+
+**Context Efficiency (1–5)**
+
+Evaluate:
+
+- Context budget allocation (planned vs. ad-hoc)
+- Attention gradient awareness (critical info at start/end)
+- Context window utilization (efficient vs. wasteful)
+- State management (explicit vs. implicit)
+- Memory strategy (appropriate for conversation length)
+
+**Tool Health (1–5)**
+
+Evaluate:
+
+- Tool count (3–7 ideal, 13+ problematic)
+- Description quality (specific vs. vague)
+- Error handling (graceful vs. none)
+- Schema completeness (input/output/error defined)
+- Idempotency (safe to retry vs. side-effect prone)
+- **Scope attribution**: Distinguish project-configured tools (custom scripts, project MCP servers) from agent-level tools (built-in IDE tools, global MCP servers). Only flag tool overhead for tools the project can actually control.
+
+**Architecture Fitness (1–5)**
+
+Evaluate:
+
+- Topology appropriateness (single vs. multi-agent justified)
+- Agent boundaries (clear vs. overlapping)
+- Handoff protocols (structured vs. ad-hoc)
+- Observability (decisions logged vs. black box)
+- Cost awareness (budgeted vs. unbounded)
+
+**Safety & Reliability (1–5)**
+
+Evaluate:
+
+- Input validation (present vs. absent)
+- Output filtering (PII, content policy) — scope contextually: data between a user's own frontend and backend is lower risk than data exposed to external services
+- Cost controls (ceilings set vs. unbounded)
+- Error recovery (fallbacks vs. crash)
+- Evaluation strategy (golden tests vs. "it seems to work")
+
+**Scoring Guide**
+
+| Score | Meaning                | Recommended Action                        |
+|-------|------------------------|-------------------------------------------|
+| 5     | Production-excellent   | No action needed                          |
+| 4     | Good with minor gaps   | Polish prompt clarity or output schema    |
+| 3     | Functional but risky   | Add error handling or reduce complexity   |
+| 2     | Significant issues     | Immediate attention — add retries/guards  |
+| 1     | Broken or missing      | Rebuild from scratch with clear structure |
 
 ## Related Skills
 
