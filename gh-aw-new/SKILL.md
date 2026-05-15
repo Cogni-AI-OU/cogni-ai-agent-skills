@@ -12,7 +12,7 @@ Create, debug, update, and manage GitHub Agentic Workflows (gh-aw) by installing
 
 1. **Install or Upgrade gh-aw**:
    - Check installation: `gh aw version`
-   - If installed: `gh extension upgrade aw`
+   - If installed: `gh extension upgrade github/gh-aw`
    - If not installed: `curl -sL https://raw.githubusercontent.com/github/gh-aw/main/install-gh-aw.sh | bash`
 2. **Fetch the Appropriate Prompt**:
    Use `webfetch` to retrieve the relevant instruction file based on the user's request, and read ALL instructions before proceeding:
