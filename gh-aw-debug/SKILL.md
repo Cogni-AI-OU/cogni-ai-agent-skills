@@ -120,6 +120,7 @@ safe-outputs:
 
 - [gh-aw Runbook](https://github.com/github/gh-aw/blob/main/.github/aw/runbooks/workflow-health.md)
 - [Official gh-aw Repo](https://github.com/github/gh-aw)
+- <https://github.com/github/gh-aw/blob/main/debug.md>
 
 ## Related Skills
 
