@@ -390,4 +390,4 @@ The domain is being blocked. Check:
 
 ## Related Skills
 
-- `gh-aw` - Load this skill when working with Agentic Workflows
+- `gh-aw-debug` - Load this skill when debugging Agentic Workflows
