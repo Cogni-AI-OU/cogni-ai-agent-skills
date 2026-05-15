@@ -72,6 +72,7 @@ Use this skill when:
 - `performance_start_trace`: Start recording a performance profile.
 - `performance_stop_trace`: Stop recording and save the trace.
 - `performance_analyze_insight`: Get detailed analysis from recorded performance data.
+
 ## Tool Categories
 
 ### 1. Navigation & Page Management
