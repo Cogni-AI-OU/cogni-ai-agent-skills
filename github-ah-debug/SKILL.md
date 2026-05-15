@@ -45,6 +45,17 @@ Debug and refine agentic workflows using `gh-aw` CLI tools or the `agentic-workf
 - **GitHub Action Cancellation**: If a maintainer cancels a run, artifacts may be missing. Check `gh run view <run-id>` and re-run instead of searching for non-existent files.
 - **Workflow Setup**: Steps using `gh aw` within workflows require `actions: read` permissions and prior installation via `github/gh-aw/actions/setup-cli`.
 
+### Required Secrets
+
+The GitHub Copilot CLI engine requires the corresponding secrets to be configured.
+
+Common causes if the secret appears to be configured:
+  - Organization secrets must have repository access granted
+  - Environment secrets require the job to specify that environment
+  - Secret names are case-sensitive - verify exact spelling
+
+Refs: <https://github.github.com/gh-aw/reference/engines/#github-copilot-default>
+
 ## What to Avoid
 
 - Looking for per-request token usage in `agent_usage.json` (it only contains aggregated totals).
