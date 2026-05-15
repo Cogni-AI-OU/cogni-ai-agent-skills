@@ -19,11 +19,14 @@ To install the GitHub Agentic Workflows extension for the GitHub CLI, run:
 gh extension install github/gh-aw
 ```
 
-If `gh extension install` is unavailable or fails, you can instead run
-the installation script from the main branch:
+If `gh extension install` is unavailable or fails (for example, in environments
+where extension installation is restricted), you can download and run the 
+installation script:
 
 ```bash
-curl -sL https://raw.githubusercontent.com/github/gh-aw/main/install-gh-aw.sh | bash
+curl -sL https://raw.githubusercontent.com/github/gh-aw/e8453fec188977e7419775804ee15e44712491c3/install-gh-aw.sh -o install-gh-aw.sh
+# Review the script before executing
+bash install-gh-aw.sh
 ```
 
 ## Mindmap of Commands
@@ -111,7 +114,7 @@ When asked to create, update, debug, or upgrade GitHub Agentic Workflows, use `w
 1. **Setup**: Use `gh aw init` to initialize a repository, followed by `gh aw new <workflow-name>` or `gh aw add-wizard`.
 2. **Development**: Workflows are markdown files compiled via `gh aw compile` into GitHub Actions YAML (`.lock.yml`).
 3. **Execution**: Use `gh aw run <workflow-name>` to execute a workflow or `gh aw trial` for simulated runs.
-4. **Analysis**: If a run fails, use `gh aw audit <run-id-or-url>` to debug the failed run. View logs with `gh aw logs <workflow-name>`.
+4. **Analysis**: If a run fails, use `gh aw audit <run-id-or-url>` to debug the failed run. View logs with `gh aw logs <workflow-name> | head -n 100`.
 5. **Updating**: Run `gh aw upgrade` to get the latest agent files and apply codemods.
 
 ## What to Avoid
