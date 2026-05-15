@@ -67,3 +67,7 @@ gh aw compile --validate
 ## Limitations
 
 - This skill relies on fetching external Markdown files from the `gh-aw` repository. Ensure `webfetch` is available.
+
+## References
+
+- <https://github.com/github/gh-aw/blob/main/create.md>
