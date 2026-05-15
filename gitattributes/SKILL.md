@@ -72,6 +72,8 @@ Define attributes per path to enforce line-ending conversions, custom merge driv
 # Define file attributes.
 *.ex?     binary
 *.h       code diff=c
+
+CHANGELOG merge=union
 ```
 
 ## What to Avoid
