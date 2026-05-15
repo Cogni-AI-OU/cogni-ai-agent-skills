@@ -108,7 +108,7 @@ For deep dives, read the reference files in `references/`:
 
 **MUST**
 - MUST NOT include personal data in URL paths or query parameters.
-  - `GET /users/{userId}`
+  - `GET /users/email/alice@example.com`
 - Authenticate all endpoints that return or accept personal data.
 - Extract the acting user's identity from the JWT — never from the request body.
 - Validate ownership on every resource: `if (resource.OwnerId != currentUserId) return 403`.
