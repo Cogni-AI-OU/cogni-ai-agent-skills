@@ -12,10 +12,10 @@ Inspired by CNIL developer guidance and GDPR Articles 5, 25, 32, 33, 35.
 
 > **Golden Rule:** Collect less. Store less. Expose less. Retain less.
 
-For deep dives, read the reference files in `references/`:
-- `references/data-rights.md` — user rights endpoints, DSR workflow, RoPA
-- `references/security.md` — encryption, hashing, secrets, anonymization
-- `references/operations.md` — cloud, CI/CD, incident response, architecture patterns
+For deep dives, use the guidance below in these areas:
+- Data rights — user rights endpoints, DSR workflow, RoPA
+- Security — encryption, hashing, secrets, anonymization
+- Operations — cloud, CI/CD, incident response, architecture patterns
 
 ---
 
