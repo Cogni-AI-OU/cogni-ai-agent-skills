@@ -55,6 +55,7 @@ gh aw logs [workflow-name]
 gh aw audit <run-id>
 
 # Upgrade workflows
+gh aw upgrade
 gh aw fix --write
 gh aw compile --validate
 ```
