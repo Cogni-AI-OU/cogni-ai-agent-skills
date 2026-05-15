@@ -83,8 +83,3 @@ Define attributes per path to enforce line-ending conversions, custom merge driv
 
 - `gitattributes` do not follow symbolic links.
 - Macro attributes can only be defined in top-level `.gitattributes` or `$GIT_DIR/info/attributes`.
-
-## Related Skills
-
-- **git**:
-  You MUST load this skill when performing standard git operations.
