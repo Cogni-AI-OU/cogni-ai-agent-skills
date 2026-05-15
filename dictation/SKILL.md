@@ -18,7 +18,7 @@ Apply dictation correction protocols to fix common speech-to-text errors, especi
 
 - **Glossary Compliance**: Strict adherence to the project technical glossary.
 - **Accurate Hyphenation**: Ensure correct hyphenation for compound modifiers (e.g., `pull-request`, `cache-memory`).
-- **Engine Capitalization**: Proper spelling and casing for AI engines (e.g., `@copilot`, `claude`, `gemini`).
+- **Engine Capitalization**: Proper spelling and casing for AI engines (e.g., GitHub Copilot, Claude, Gemini).
 - **No Code Generation**: Do not generate code examples or output step-by-step planning to the user. You may follow the Core Process internally, but the response should primarily be the corrected text.
 - **Maintain Intent**: Do not simplify technical concepts or alter the user's intended meaning.
 
@@ -31,25 +31,25 @@ Apply dictation correction protocols to fix common speech-to-text errors, especi
 
 ```markdown
 User: "The get actions work flow needs safe outputs for the cache memory"
-Agent: Corrects to "The github-actions workflow needs safe-outputs for the cache-memory"
+Agent: Corrects to "The GitHub Actions workflow needs safe-outputs for the cache-memory"
 ```
 
 ## Vocabulary & Corrections
 
 ### GitHub and Git Terms
 
-- "get hub" -> github
-- "git lab" -> gitlab
-- "get actions" -> github-actions
+- "get hub" -> GitHub
+- "git lab" -> GitLab
+- "get actions" -> GitHub Actions
 - "pull request" -> pull-request (as compound modifier)
-- "issue ops" -> issueops
-- "label ops" -> labelops
-- "chat ops" -> chatops
-- "multi repo ops" -> multirepoops
-- "project ops" -> projectops
-- "data ops" -> data-ops
-- "dispatch ops" -> dispatch-ops
-- "daily ops" -> daily-ops
+- "issue ops" -> IssueOps
+- "label ops" -> LabelOps
+- "chat ops" -> ChatOps
+- "multi repo ops" -> MultiRepoOps
+- "project ops" -> ProjectOps
+- "data ops" -> DataOps
+- "dispatch ops" -> DispatchOps
+- "daily ops" -> DailyOps
 
 ### Workflow Configuration
 
@@ -73,11 +73,11 @@ Agent: Corrects to "The github-actions workflow needs safe-outputs for the cache
 
 ### AI Engines
 
-- "co-pilot" -> @copilot
-- "code x" -> codex
-- "cloud" -> claude
-- "gem ini" -> gemini
-- "serena" -> serena
+- "co-pilot" -> GitHub Copilot
+- "code x" -> Codex
+- "cloud" -> Claude
+- "gem ini" -> Gemini
+- "serena" -> Serena
 
 ### Commands and Operations
 
