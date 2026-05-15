@@ -11,7 +11,8 @@ Diagnose, troubleshoot, and fix failing GitHub Agentic Workflows by analyzing lo
 
 ## Core Process
 
-1. **Analyze Logs**: Use `gh aw logs --run-id <run-id>` to identify error patterns (e.g., "missing-tool" or HTTP 403).
+1. **Fetch the Debug Prompt**: Use `webfetch` to retrieve `https://raw.githubusercontent.com/github/gh-aw/main/.github/aw/debug-agentic-workflow.md` and read its instructions.
+2. **Analyze Logs**: Use `gh aw logs --run-id <run-id>` to identify error patterns (e.g., "missing-tool" or HTTP 403).
 2. **Identify Root Cause**: Determine if failure is due to missing `tools`, `permissions`, `mcp-scripts`, or `safe-outputs`.
 3. **Verify Configuration**: Run `gh aw mcp inspect <workflow-name>` to check active MCP server settings.
 4. **Apply Fix**: Update the workflow's YAML frontmatter.

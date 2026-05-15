@@ -19,6 +19,12 @@ To install the GitHub Agentic Workflows extension for the GitHub CLI, run:
 gh extension install github/gh-aw
 ```
 
+Alternatively, if it is not installed, you can run the installation script from the main branch:
+
+```bash
+curl -sL https://raw.githubusercontent.com/github/gh-aw/main/install-gh-aw.sh | bash
+```
+
 ## Mindmap of Commands
 
 ```mermaid
@@ -88,6 +94,16 @@ mindmap
       project
         Create Projects V2 boards
 ```
+
+## Agentic Workflow Prompts
+
+When asked to create, update, debug, or upgrade GitHub Agentic Workflows, you MUST use `webfetch` to retrieve and read the appropriate instruction prompt from the official repository before proceeding:
+
+- **Create New Workflow**: `https://raw.githubusercontent.com/github/gh-aw/main/.github/aw/create-agentic-workflow.md`
+- **Update Existing Workflow**: `https://raw.githubusercontent.com/github/gh-aw/main/.github/aw/update-agentic-workflow.md`
+- **Debug Workflow**: `https://raw.githubusercontent.com/github/gh-aw/main/.github/aw/debug-agentic-workflow.md`
+- **Upgrade Agentic Workflows**: `https://raw.githubusercontent.com/github/gh-aw/main/.github/aw/upgrade-agentic-workflows.md`
+- **Create Shared Agentic Workflow**: `https://raw.githubusercontent.com/github/gh-aw/main/.github/aw/create-shared-agentic-workflow.md`
 
 ## Core Process
 
