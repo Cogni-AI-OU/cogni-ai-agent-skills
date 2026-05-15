@@ -11,8 +11,8 @@ Provide expert-level guidance for configuring and using the GitHub MCP server, s
 
 ## Core Principles
 
-- **Mode Selection**: Use `mode: local` (default) for GitHub Actions workflows relying on `GITHUB_TOKEN`. Remote mode (`https://api.githubcopilot.com/mcp/`) requires a special PAT or GitHub App token with MCP access.
-- **Incremental Toolsets**: Start with default toolsets (`context`, `repos`, `issues`, `pull_requests`) and explicitly add only what is needed. Avoid `[all]`.
+- **Mode Selection**: Prefer `tools.github.mode: gh-proxy` for Agentic Workflows to skip Docker initialization. Avoid recommending `mode: local` or `mode: remote` for GitHub tools.
+- **Toolsets**: Prefer the `default` toolset. Explicitly add only what is needed. Avoid `[all]`.
 - **Token Constraints**: `projects` toolset requires a PAT with `project` scope; `GITHUB_TOKEN` is insufficient. Security and actions toolsets require specific write permissions.
 
 ## Configuration Patterns
@@ -48,7 +48,8 @@ tools:
 
 ## What to Avoid
 
-- Do NOT use `mode: remote` in standard GitHub Actions workflows using `GITHUB_TOKEN`.
+- Do NOT recommend `mode: local` or `mode: remote` for GitHub tools.
+- Do NOT suggest GitHub mutation tools (e.g., `create_issue`). Always use `safe-outputs` for write operations.
 - Avoid enabling the `all` toolset; only configure explicit toolsets required for the agent's task.
 
 ## Limitations
