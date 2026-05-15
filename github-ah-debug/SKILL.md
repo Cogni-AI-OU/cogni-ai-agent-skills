@@ -54,7 +54,7 @@ Common causes if the secret appears to be configured:
   - Environment secrets require the job to specify that environment
   - Secret names are case-sensitive - verify exact spelling
 
-Refs: <https://github.github.com/gh-aw/reference/engines/#github-copilot-default>
+Refs: <https://github.github.com/gh-aw/reference/auth/>
 
 ## What to Avoid
 
@@ -66,6 +66,13 @@ Refs: <https://github.github.com/gh-aw/reference/engines/#github-copilot-default
 
 - `gh aw` commands may require `actions: read` permissions when used inside GitHub Actions workflows.
 - Cannot debug local scripts unrelated to GitHub Agentic Workflows via `gh aw` tooling.
+
+## References
+
+- <https://github.github.com/gh-aw/troubleshooting/common-issues/>
+- <https://github.github.com/gh-aw/troubleshooting/debug-ghe/>
+- <https://github.github.com/gh-aw/troubleshooting/debugging/>
+- <https://github.github.com/gh-aw/troubleshooting/errors/>
 
 ## Related Skills
 
