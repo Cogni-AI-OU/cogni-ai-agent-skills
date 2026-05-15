@@ -128,9 +128,6 @@ and planned work into the current context.
 - **[github-aw-debug](github-aw-debug/SKILL.md)**: Debug and refine GitHub Agentic Workflows (gh-aw) by analyzing
   execution logs, auditing runs, and resolving missing tool errors or prompt inefficiencies.
   You MUST load this skill when asked to debug, audit, or analyze a failing GitHub Agentic Workflow.
-- **[github-aw-mcp-server](github-aw-mcp-server/SKILL.md)**: Guide for configuring and using
-  the GitHub MCP server within Agentic Workflows.
-  You MUST load this skill when configuring the GitHub MCP server or its toolsets.
 - **[github-aw-memory](github-aw-memory/SKILL.md)**: Guide for persistent memory strategies in agentic workflows.
   You MUST load this skill when designing workflows that persist state across runs via
   cache-memory, repo-memory, or comment-memory.
@@ -140,6 +137,9 @@ and planned work into the current context.
 - **[github-issue](github-issue/SKILL.md)**: Skills for working with GitHub Issues.
   You MUST load this skill when working with issues or when the runtime was triggered by an issue comment.
   Load this before any gh skills.
+- **[github-mcp-server](github-mcp-server/SKILL.md)**: Guide for configuring and using the GitHub MCP server within
+  Agentic Workflows, including toolset selection, authentication modes, and available GitHub API tools.
+  You MUST load this skill when configuring the GitHub MCP server or its toolsets.
 - **[github-pr](github-pr/SKILL.md)**: Skills for working with changes on a GitHub Pull Request.
   You MUST load this skill when working with changes associated with a pull request
   or when the runtime was triggered by a PR comment.
