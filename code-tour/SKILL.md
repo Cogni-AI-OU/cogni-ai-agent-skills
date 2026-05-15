@@ -66,7 +66,7 @@ If the repo is sparse or empty, say so and work with what exists.
 **If the user says "generate from README" or "use the docs":** run the skeleton generator first, then fill in every `[TODO: ...]` by reading the actual files:
 
 ```bash
-python skills/code-tour/scripts/generate_from_docs.py \
+python ~/.agents/skills/code-tour/scripts/generate_from_docs.py \
   --persona new-joiner \
   --output .tours/skeleton.tour
 ```
