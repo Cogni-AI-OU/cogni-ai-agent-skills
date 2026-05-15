@@ -128,7 +128,7 @@ Step-by-step procedures for diagnosing workflow issues, resolving failure patter
 
 Use the `gh aw logs` command to download and analyze workflow logs:
 
-> **Note**: The commands below are meant to be run from a local machine or a Copilot coding agent session. If you include `gh aw logs` or `gh aw audit` as steps inside a generated workflow, you must add `actions: read` to `permissions:` and install the extension with the `setup-cli` action before calling these commands — see [Logs and Metrics](../github-agentic-workflows.md#logs-and-metrics) for details.
+> **Note**: The commands below are meant to be run from a local machine or a Copilot coding agent session. If you include `gh aw logs` or `gh aw audit` as steps inside a generated workflow, you must add `actions: read` to `permissions:` and install the extension with the `setup-cli` action before calling these commands — see [gh-aw logs](https://github.com/github/gh-aw/blob/main/.github/aw/runbooks/workflow-health.md#logs-and-metrics) for details.
 
 ```bash
 # Download logs from last 24 hours
@@ -151,7 +151,7 @@ gh aw logs --workflow <workflow-name> --start-date -7d
 
 Missing-tool errors typically appear in this format:
 
-```
+```text
 Error: Tool 'github:read_issue' not found
 Error: missing tool configuration for mcpscripts-gh
 ```
@@ -216,25 +216,25 @@ Common permission requirements:
 1. Open the workflow `.md` file
 2. Add or update the `tools:` section:
 
-```aw
----
-tools:
-  github:
-    toolsets: [default]
----
-```
+   ```aw
+   ---
+   tools:
+     github:
+       toolsets: [default]
+   ---
+   ```
 
 3. Compile the workflow:
 
-```bash
-gh aw compile <workflow-name>.md
-```
+   ```bash
+   gh aw compile <workflow-name>.md
+   ```
 
 4. Verify the configuration:
 
-```bash
-gh aw mcp inspect <workflow-name>
-```
+   ```bash
+   gh aw mcp inspect <workflow-name>
+   ```
 
 **Available toolsets**:
 - `default`: repositories, issues, pull requests, and common operations
@@ -339,28 +339,28 @@ After making changes, test the workflow:
 
 1. **Compile the workflow**:
 
-```bash
-gh aw compile <workflow-name>.md
-```
+   ```bash
+   gh aw compile <workflow-name>.md
+   ```
 
 2. **Trigger manually** (if `workflow_dispatch` is enabled):
 
-```bash
-gh workflow run <workflow-name>.lock.yml
-```
+   ```bash
+   gh workflow run <workflow-name>.lock.yml
+   ```
 
 3. **Monitor the run**:
 
-```bash
-# Get the run ID
-gh run list --workflow=<workflow-name>.lock.yml --limit 1
+   ```bash
+   # Get the run ID
+   gh run list --workflow=<workflow-name>.lock.yml --limit 1
 
-# Watch the run
-gh run watch <run-id>
+   # Watch the run
+   gh run watch <run-id>
 
-# Download logs if it fails
-gh aw logs --run-id <run-id>
-```
+   # Download logs if it fails
+   gh aw logs --run-id <run-id>
+   ```
 
 4. **Verify success**:
    - Check that no missing-tool errors occur
