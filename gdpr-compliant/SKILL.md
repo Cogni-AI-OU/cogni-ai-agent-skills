@@ -5,7 +5,7 @@ description: Apply GDPR-compliant engineering practices across your codebase. Yo
 
 # GDPR Engineering Skill
 
-<!-- markdownlint-disable MD022 MD032 MD034 MD036 MD060 -->
+<!-- markdownlint-disable MD013 MD022 MD032 MD034 MD036 MD060 -->
 
 Actionable GDPR reference for engineers, architects, DevOps, and tech leads.
 Inspired by CNIL developer guidance and GDPR Articles 5, 25, 32, 33, 35.
