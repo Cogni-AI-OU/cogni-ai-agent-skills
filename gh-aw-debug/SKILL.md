@@ -59,12 +59,15 @@ tools:
 
 ### Permission Errors (e.g., HTTP 403 or "Resource not accessible")
 
-Add required scopes to `permissions:`:
+Prefer `read` permissions combined with `safe-outputs` for mutations. Use `write` only if `safe-outputs` is not supported for the task:
 ```aw
 permissions:
-  contents: read
-  issues: write
-  pull-requests: write
+  issues: read
+
+safe-outputs:
+  jobs:
+    create-issue:
+      labels: ["bug"]
 ```
 
 ### MCP Scripts & Safe-Outputs
@@ -93,11 +96,11 @@ safe-outputs:
 
 **Problem**: Workflow failed to label issues with "Tool not found".
 **Diagnosis**: `gh aw logs` showed `github:add_labels` missing. `gh aw mcp inspect` showed no `github` tool.
-**Fix**: Added `tools.github.toolsets: [default]` and `permissions.issues: write` to frontmatter, then recompiled.
+**Fix**: Added `tools.github.toolsets: [default]`, set `permissions.issues: read`, and added a `safe-outputs.jobs` entry for labeling, then recompiled.
 
 ## What to Avoid
 
-- Blindly adding `permissions: write-all`.
+- Blindly adding `permissions: write-all` or `write` scopes when `safe-outputs` is supported.
 - Forgetting to `gh aw compile` after frontmatter edits.
 - Using `gh aw logs` inside a workflow without `actions: read` permission.
 
