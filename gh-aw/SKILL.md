@@ -19,7 +19,8 @@ To install the GitHub Agentic Workflows extension for the GitHub CLI, run:
 gh extension install github/gh-aw
 ```
 
-Alternatively, if it is not installed, you can run the installation script from the main branch:
+If `gh extension install` is unavailable or fails, you can instead run
+the installation script from the main branch:
 
 ```bash
 curl -sL https://raw.githubusercontent.com/github/gh-aw/main/install-gh-aw.sh | bash
