@@ -45,7 +45,8 @@ and planned work into the current context.
 - **[code-tour](code-tour/SKILL.md)**: Create, update, and maintain VSCode CodeTour (.tour) JSON walkthrough files with
   full schema compliance and interactive step configuration.
   You MUST load this skill when creating or updating .tours/ files.
-- **[codeql](codeql/SKILL.md)**: Configure and execute CodeQL code scanning analysis via GitHub Actions workflows and the CodeQL CLI.
+- **[codeql](codeql/SKILL.md)**: Configure and execute CodeQL code scanning analysis via GitHub Actions workflows and
+  the CodeQL CLI.
   You MUST load this skill when configuring CodeQL workflows or using the CodeQL CLI.
 - **[coding-standard-writer](coding-standard-writer/SKILL.md)**: Write a coding standards document for a project using
   the coding styles inferred from provided file(s) or folder(s).
@@ -86,7 +87,8 @@ and planned work into the current context.
 - **[gh-aw-firewall-debug](gh-aw-firewall-debug/SKILL.md)**: Debug the AWF firewall by inspecting Docker containers,
   analyzing Squid access logs, checking iptables rules, and troubleshooting network issues.
   You MUST load this skill when debugging the awf firewall.
-- **[gh-aw-new](gh-aw-new/SKILL.md)**: Create new GitHub Agentic Workflows (gh-aw) from scratch using the CLI extension and fetching official remote creation prompts.
+- **[gh-aw-new](gh-aw-new/SKILL.md)**: Create new GitHub Agentic Workflows (gh-aw) from scratch using the CLI extension
+  and fetching official remote creation prompts.
   You MUST load this skill when creating new agentic workflows.
 - **[gh-issue](gh-issue/SKILL.md)**: GitHub CLI (`gh issue`) operations for managing, viewing, and editing issues.
   You MUST load this skill when working with the `gh issue` command.
@@ -123,20 +125,21 @@ and planned work into the current context.
 - **[github-aw](github-aw/SKILL.md)**: Safely update existing GitHub Agentic Workflows (gh-aw), distinguishing between
   frontmatter configuration that requires recompilation and markdown body prompt edits that do not.
   You MUST load this skill when updating or modifying an existing GitHub Agentic Workflow.
-- **[github-aw-syntax](github-aw-syntax/SKILL.md)**: Complete reference for GitHub Agentic Workflows (gh-aw) frontmatter schema, engine configuration, network access, tools, and imports syntax.
-  You MUST load this skill when writing or debugging Agentic Workflow files.
 - **[github-aw-debug](github-aw-debug/SKILL.md)**: Debug and refine GitHub Agentic Workflows (gh-aw) by analyzing
   execution logs, auditing runs, and resolving missing tool errors or prompt inefficiencies.
   You MUST load this skill when asked to debug, audit, or analyze a failing GitHub Agentic Workflow.
+- **[github-aw-mcp-server](github-aw-mcp-server/SKILL.md)**: Guide for configuring and using
+  the GitHub MCP server within Agentic Workflows.
+  You MUST load this skill when configuring the GitHub MCP server or its toolsets.
 - **[github-aw-memory](github-aw-memory/SKILL.md)**: Guide for persistent memory strategies in agentic workflows.
   You MUST load this skill when designing workflows that persist state across runs via
   cache-memory, repo-memory, or comment-memory.
+- **[github-aw-syntax](github-aw-syntax/SKILL.md)**: Complete reference for GitHub Agentic Workflows (gh-aw) frontmatter
+  schema, engine configuration, network access, tools, and imports syntax.
+  You MUST load this skill when writing or debugging Agentic Workflow files.
 - **[github-issue](github-issue/SKILL.md)**: Skills for working with GitHub Issues.
   You MUST load this skill when working with issues or when the runtime was triggered by an issue comment.
   Load this before any gh skills.
-- **[github-mcp-server](github-mcp-server/SKILL.md)**: Guide for configuring and using
-  the GitHub MCP server within Agentic Workflows.
-  You MUST load this skill when configuring the GitHub MCP server or its toolsets.
 - **[github-pr](github-pr/SKILL.md)**: Skills for working with changes on a GitHub Pull Request.
   You MUST load this skill when working with changes associated with a pull request
   or when the runtime was triggered by a PR comment.

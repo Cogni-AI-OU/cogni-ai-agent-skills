@@ -1,9 +1,9 @@
 ---
-name: github-mcp-server
+name: github-aw-mcp-server
 description: Guide for configuring and using the GitHub MCP server within Agentic Workflows, including toolset selection, authentication modes, and available GitHub API tools. You MUST load this skill when configuring the GitHub MCP server or its toolsets.
 ---
 
-# Skill: github-mcp-server
+# Skill: github-aw-mcp-server
 
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
 

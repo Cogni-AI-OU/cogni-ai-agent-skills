@@ -35,19 +35,19 @@ to gh CLI.
 3. Preferred path: Use MCP tools (if available).
 
    **If you have RUN_ID and JOB_ID from URL:**
-   - Use `github-mcp-server-actions_get` with method `get_workflow_job` and `resource_id=JOB_ID` to get job details
-   - Use `github-mcp-server-get_job_logs` with `job_id=JOB_ID`, `return_content=true`, and `tail_lines=100` (or more) to
+   - Use `github-aw-mcp-server-actions_get` with method `get_workflow_job` and `resource_id=JOB_ID` to get job details
+   - Use `github-aw-mcp-server-get_job_logs` with `job_id=JOB_ID`, `return_content=true`, and `tail_lines=100` (or more) to
      retrieve logs
    - Parse logs for failing step, command, and error message
 
    **If you only have RUN_ID or need to find failures:**
-   - Use `github-mcp-server-actions_get` with method `get_workflow_run` and `resource_id=RUN_ID` to get run details
-   - Use `github-mcp-server-actions_list` with method `list_workflow_jobs` and `resource_id=RUN_ID` to list all jobs
+   - Use `github-aw-mcp-server-actions_get` with method `get_workflow_run` and `resource_id=RUN_ID` to get run details
+   - Use `github-aw-mcp-server-actions_list` with method `list_workflow_jobs` and `resource_id=RUN_ID` to list all jobs
    - Identify failed jobs (`conclusion: "failure"`) and note their `job_id`
-   - Use `github-mcp-server-get_job_logs` for each failed job
+   - Use `github-aw-mcp-server-get_job_logs` for each failed job
 
    **If you need to find recent runs:**
-   - Use `github-mcp-server-actions_list` with method `list_workflow_runs` and filters (current branch, PR number, or
+   - Use `github-aw-mcp-server-actions_list` with method `list_workflow_runs` and filters (current branch, PR number, or
      workflow name)
    - Identify failed runs (`conclusion: "failure"`). Note the latest `run_id`
    - Follow steps above to get job details and logs
@@ -129,19 +129,19 @@ You can also use `read-all` or `write-all` access for all of the available permi
 # Extract IDs: RUN_ID=<run_id>, JOB_ID=<job_id>
 
 # Get workflow run details
-github-mcp-server-actions_get(method="get_workflow_run", owner="<owner>", repo="<repo>", resource_id="<run_id>")
+github-aw-mcp-server-actions_get(method="get_workflow_run", owner="<owner>", repo="<repo>", resource_id="<run_id>")
 
 # Get job details
-github-mcp-server-actions_get(method="get_workflow_job", owner="<owner>", repo="<repo>", resource_id="<job_id>")
+github-aw-mcp-server-actions_get(method="get_workflow_job", owner="<owner>", repo="<repo>", resource_id="<job_id>")
 
 # Get job logs (most useful for diagnosis)
-github-mcp-server-get_job_logs(job_id=<job_id>, owner="<owner>", repo="<repo>", return_content=true, tail_lines=100)
+github-aw-mcp-server-get_job_logs(job_id=<job_id>, owner="<owner>", repo="<repo>", return_content=true, tail_lines=100)
 
 # List all jobs in a workflow run
-github-mcp-server-actions_list(method="list_workflow_jobs", owner="<owner>", repo="<repo>", resource_id="<run_id>")
+github-aw-mcp-server-actions_list(method="list_workflow_jobs", owner="<owner>", repo="<repo>", resource_id="<run_id>")
 
 # List recent workflow runs
-github-mcp-server-actions_list(method="list_workflow_runs", owner="<owner>", repo="<repo>")
+github-aw-mcp-server-actions_list(method="list_workflow_runs", owner="<owner>", repo="<repo>")
 ```
 
 **gh CLI (fallback):**
