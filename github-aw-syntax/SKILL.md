@@ -1,9 +1,9 @@
 ---
-name: github-ah-syntax
+name: github-aw-syntax
 description: Complete reference for GitHub Agentic Workflows (gh-aw) frontmatter schema, engine configuration, network access, tools, and imports syntax. You MUST load this skill when writing or debugging Agentic Workflow files.
 ---
 
-# github-ah-syntax
+# github-aw-syntax
 
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 MD033 MD041 -->
 

@@ -125,4 +125,4 @@ safe-outputs:
 ## Related Skills
 
 - **gh-aw**: Core CLI commands for repository automation.
-- **github-ah**: Guidance on incremental workflow updates and prompt engineering.
+- **github-aw**: Guidance on incremental workflow updates and prompt engineering.

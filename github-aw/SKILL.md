@@ -1,8 +1,8 @@
 ---
-name: github-ah
+name: github-aw
 description: Safely update existing GitHub Agentic Workflows (gh-aw), distinguishing between frontmatter configuration that requires recompilation and markdown body prompt edits that do not.
 ---
-# Skill github-ah
+# Skill github-aw
 
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
 
@@ -77,3 +77,4 @@ When updating workflows, proactively suggest and implement token optimization te
 ## Related Skills
 
 - **gh-aw**: You MUST load this skill when working with the general `gh aw` command for repository automation.
+- **github-aw-syntax**: Reference for GitHub Agentic Workflows frontmatter schema and syntax.

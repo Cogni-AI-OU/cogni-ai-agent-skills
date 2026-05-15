@@ -76,7 +76,7 @@ Refs: <https://github.github.com/gh-aw/reference/auth/>
 
 ## Related Skills
 
-- **github-ah**:
+- **github-aw**:
   You MUST load this skill when safely updating existing GitHub Agentic Workflows configuration.
 - **github-actions**:
   You MUST load this skill when diagnosing or debugging GitHub Actions workflow failures.

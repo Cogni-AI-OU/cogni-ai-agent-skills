@@ -120,9 +120,11 @@ and planned work into the current context.
   You MUST load this skill when working with GitHub-specific features or PR view modes.
 - **[github-actions](github-actions/SKILL.md)**: Diagnosing and debugging failing GitHub Actions workflows.
   You MUST load this skill when diagnosing or debugging GitHub Actions workflow failures.
-- **[github-ah](github-ah/SKILL.md)**: Safely update existing GitHub Agentic Workflows (gh-aw), distinguishing between
+- **[github-aw](github-aw/SKILL.md)**: Safely update existing GitHub Agentic Workflows (gh-aw), distinguishing between
   frontmatter configuration that requires recompilation and markdown body prompt edits that do not.
   You MUST load this skill when updating or modifying an existing GitHub Agentic Workflow.
+- **[github-aw-syntax](github-aw-syntax/SKILL.md)**: Complete reference for GitHub Agentic Workflows (gh-aw) frontmatter schema, engine configuration, network access, tools, and imports syntax.
+  You MUST load this skill when writing or debugging Agentic Workflow files.
 - **[github-ah-debug](github-ah-debug/SKILL.md)**: Debug and refine GitHub Agentic Workflows (gh-aw) by analyzing
   execution logs, auditing runs, and resolving missing tool errors or prompt inefficiencies.
   You MUST load this skill when asked to debug, audit, or analyze a failing GitHub Agentic Workflow.
