@@ -61,7 +61,7 @@ gh aw compile --validate
 
 ## Diagnostics and Troubleshooting
 
-- If `gh aw version` fails, verify that GitHub CLI (`gh`) is authenticated and `~/.local/share/gh/extensions` is in the `PATH`.
+- If `gh aw version` fails, verify that GitHub CLI (`gh`) is authenticated, check that the `github/gh-aw` extension is installed with `gh extension list`, and install or upgrade it as needed.
 - Check `.lock.yml` files; workflows must be compiled before running in GitHub Actions.
 
 ## Limitations
