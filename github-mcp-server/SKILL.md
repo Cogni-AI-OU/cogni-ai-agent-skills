@@ -443,6 +443,32 @@ Not all GitHub data is accessible through the GitHub MCP server or the GitHub RE
 - [Model Context Protocol Specification](https://modelcontextprotocol.io/)
 - [GitHub Actions Documentation](https://docs.github.com/actions)
 
+**Cross-Reference Toolset Source Files in github-mcp-server**:
+
+- For each toolset, identify the corresponding source file in the [github/github-mcp-server](https://github.com/github/github-mcp-server) repository
+- Use the following mapping as a starting point (verify and update based on actual repo contents):
+     - `actions` → [`pkg/github/actions.go`](https://github.com/github/github-mcp-server/blob/main/pkg/github/actions.go)
+     - `code_security` → [`pkg/github/code_scanning.go`](https://github.com/github/github-mcp-server/blob/main/pkg/github/code_scanning.go)
+     - `context` → [`pkg/github/context_tools.go`](https://github.com/github/github-mcp-server/blob/main/pkg/github/context_tools.go)
+     - `dependabot` → [`pkg/github/dependabot.go`](https://github.com/github/github-mcp-server/blob/main/pkg/github/dependabot.go)
+     - `discussions` → [`pkg/github/discussions.go`](https://github.com/github/github-mcp-server/blob/main/pkg/github/discussions.go)
+     - `experiments` → [`pkg/github/dynamic_tools.go`](https://github.com/github/github-mcp-server/blob/main/pkg/github/dynamic_tools.go)
+     - `gists` → [`pkg/github/gists.go`](https://github.com/github/github-mcp-server/blob/main/pkg/github/gists.go)
+     - `issues` → [`pkg/github/issues.go`](https://github.com/github/github-mcp-server/blob/main/pkg/github/issues.go)
+     - `labels` → [`pkg/github/labels.go`](https://github.com/github/github-mcp-server/blob/main/pkg/github/labels.go)
+     - `notifications` → [`pkg/github/notifications.go`](https://github.com/github/github-mcp-server/blob/main/pkg/github/notifications.go)
+     - `orgs` → [`pkg/github/search.go`](https://github.com/github/github-mcp-server/blob/main/pkg/github/search.go)
+       (primary: `search_orgs`; note that `list_org_repository_security_advisories`
+       also uses this toolset but is defined in [`security_advisories.go`](https://github.com/github/github-mcp-server/blob/main/pkg/github/security_advisories.go))
+     - `projects` → [`pkg/github/projects.go`](https://github.com/github/github-mcp-server/blob/main/pkg/github/projects.go)
+     - `pull_requests` → [`pkg/github/pullrequests.go`](https://github.com/github/github-mcp-server/blob/main/pkg/github/pullrequests.go)
+     - `repos` → [`pkg/github/repositories.go`](https://github.com/github/github-mcp-server/blob/main/pkg/github/repositories.go)
+     - `search` → [`pkg/github/search.go`](https://github.com/github/github-mcp-server/blob/main/pkg/github/search.go)
+     - `secret_protection` → [`pkg/github/secret_scanning.go`](https://github.com/github/github-mcp-server/blob/main/pkg/github/secret_scanning.go)
+     - `security_advisories` → [`pkg/github/security_advisories.go`](https://github.com/github/github-mcp-server/blob/main/pkg/github/security_advisories.go)
+     - `stargazers` → [`pkg/github/repositories.go`](https://github.com/github/github-mcp-server/blob/main/pkg/github/repositories.go)
+     - `users` → [`pkg/github/search.go`](https://github.com/github/github-mcp-server/blob/main/pkg/github/search.go) (for `search_users`)
+
 ## Related Skills
 
 - **gh-aw**: You MUST load this skill when working with the `gh aw` command or configuring Agentic Workflows.
