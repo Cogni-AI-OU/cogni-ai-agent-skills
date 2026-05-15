@@ -14,24 +14,28 @@ Use this skill for managing Python project dependencies through `Pipfile` and `P
    **Crucial**: Once a `Pipfile` is created, you MUST create a `README.md` in the project root detailing how to use the environment (e.g., `pipenv install`, `pipenv shell`).
 2. **Adding Dependencies**: Use `pipenv install <package>` for production or `pipenv install --dev <package>` for development dependencies.
 3. **Locking**: Run `pipenv lock` to deterministically pin dependencies into `Pipfile.lock`.
-4. **Execution**: Use `pipenv run <command>` or `pipenv shell` to execute code within the isolated virtual environment.
+4. **Testing**: Execute tests within the environment using `pipenv run <test-command>` (e.g., `pipenv run pytest`).
+5. **Execution**: Use `pipenv run <command>` or `pipenv shell` to execute code within the isolated virtual environment.
 
 ## Core Principles
 
 - **Deterministic Environments**: Rely on `Pipfile.lock` to guarantee exact versions and hashes. Never edit `Pipfile.lock` manually.
 - **Group Separation**: Strictly separate production (`[packages]`) and development (`[dev-packages]`) dependencies.
 - **TOML Compliance**: Manually editing the `Pipfile` is allowed but must adhere strictly to standard TOML syntax. Prefer CLI commands over manual edits when possible.
-- **Security Check**: Utilize `Pipfile.lock`'s stored hashes to prevent supply-chain attacks.
+- **Security-First**: Utilize `Pipfile.lock`'s stored hashes to prevent supply-chain attacks. Regularly run vulnerability scans.
+- **CI/CD Invariance**: Use `--deploy` to ensure `Pipfile.lock` is up-to-date and fails if not. Use `--system` when running in Docker containers.
 
 ## Commands / Usage Patterns
 
 - **Install new dependency**: `pipenv install <package>`
 - **Install dev dependency**: `pipenv install <package> --dev`
 - **Install specific version**: `pipenv install "<package>==<version>"`
+- **Update a dependency**: `pipenv update <package>`
 - **Generate lockfile**: `pipenv lock`
 - **Install from lockfile**: `pipenv sync` (or `pipenv install --deploy` for CI/CD environments)
 - **Uninstall a dependency**: `pipenv uninstall <package>`
 - **Check for vulnerabilities**: `pipenv check` (Note: Treat this as one layer of security, not a complete supply-chain safeguard).
+- **Generate SBOM**: `syft scan Pipfile.lock -o spdx-json > sbom.json` (Requires `syft` and `sbom` skill).
 
 ## Diagnostics and Troubleshooting
 
@@ -44,6 +48,7 @@ Use this skill for managing Python project dependencies through `Pipfile` and `P
 - **Manual Lockfile Edits**: NEVER manually edit `Pipfile.lock`. Always use `pipenv lock` to regenerate.
 - **Using requirements.txt blindly**: Migrate via `pipenv install -r requirements.txt`. If the project requires `requirements.txt` for specific deployment or legacy tooling, keep them in sync instead of abandoning it completely.
 - **Deploying without sync**: Do not use `pipenv update` or `pipenv lock` in CI/CD. Use `pipenv install --deploy` to enforce consistency.
+- **Avoid Global Installs**: Do NOT use `pip install` outside the `pipenv` environment to avoid dependency drift and contamination.
 
 ## Limitations
 
@@ -56,3 +61,11 @@ Use this skill for managing Python project dependencies through `Pipfile` and `P
   You MUST load this skill when dealing with Python code execution, debugging, or log processing.
 - **robust-commands**:
   You MUST load this skill when executing complex commands requiring resilient error recovery.
+- **security-audit**:
+  You MUST load this skill when performing dependency vulnerability audits or security hardening.
+- **sbom**:
+  You MUST load this skill when generating Software Bill of Materials for compliance or tracking.
+- **tester**:
+  You MUST load this skill when designing or running tests within the project environment.
+- **pre-commit**:
+  You MUST load this skill when configuring or running pre-commit hooks for Python projects.
