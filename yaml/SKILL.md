@@ -14,7 +14,7 @@ Generic guidelines for YAML formatting, linting, and structural rules.
 ## Core Principles
 
 - **Indentation**: Use 2 spaces for indentation. Never use tabs.
-- **Structure**: Ensure valid YAML structure, with proper use of dash-space list items (`- `) and objects.
+- **Structure**: Ensure valid YAML structure, with proper use of dash-space list items (`-`) and objects.
 - **Quoting**: Strings do not need to be quoted unless they contain special characters or might be evaluated as a different type (e.g., `true`, `false`, `yes`, `no`, numbers).
 - **Comments**: Use `#` for comments. Be descriptive but concise.
 - **yq Skill**: For programmatic parsing, editing, merging, and transforming of YAML files, load the **yq** skill instead.

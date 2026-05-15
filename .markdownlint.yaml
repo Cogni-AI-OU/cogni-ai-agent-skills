@@ -10,7 +10,9 @@ MD013:
 # MD033 no-inline-html - Inline HTML
 MD033:
   allowed_elements:
+    - branch
     - details
+    - number
     - plan_research
     - plan_style_guide
     - reasoning

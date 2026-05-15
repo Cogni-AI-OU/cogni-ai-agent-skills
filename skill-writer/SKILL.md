@@ -43,10 +43,14 @@ Structure the file exactly as:
 5. **Section Discipline**: Use standard sections in a logical progression:
    - `## Core Process` (if a step-by-step flow is needed)
    - `## Core Principles`
+   - `## When to Use`
+   - `## Quick Start`
    - `## Commands / Usage Patterns`
    - `## Diagnostics and Troubleshooting`
+   - `## Best Practices`
    - `## What to Avoid`
    - `## Limitations`
+   - `## References`
    - `## Related Skills`
 
 ## Writing Style & Philosophy

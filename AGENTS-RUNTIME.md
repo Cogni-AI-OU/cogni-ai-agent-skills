@@ -45,6 +45,11 @@ and planned work into the current context.
 - **[code-tour](code-tour/SKILL.md)**: Create, update, and maintain VSCode CodeTour (.tour) JSON walkthrough files with
   full schema compliance and interactive step configuration.
   You MUST load this skill when creating or updating .tours/ files.
+- **[codeql](codeql/SKILL.md)**: Configure and execute CodeQL code scanning analysis via GitHub Actions workflows and the CodeQL CLI.
+  You MUST load this skill when configuring CodeQL workflows or using the CodeQL CLI.
+- **[coding-standard-writer](coding-standard-writer/SKILL.md)**: Write a coding standards document for a project using
+  the coding styles inferred from provided file(s) or folder(s).
+  You MUST load this skill when creating or updating coding standards from existing files.
 - **[context-aware-ops](context-aware-ops/SKILL.md)**: Intelligent resource management with size checking and filtering
   to preserve context window.
   You MUST load this skill when managing large resources or context window limits.
@@ -61,6 +66,10 @@ and planned work into the current context.
 - **[fact-writer](fact-writer/SKILL.md)**: Guidance for writing, structuring, and maintaining verifiable project
   fact files without contradictions.
   You MUST load this skill when managing canonical project fact files.
+- **[gdpr-compliant](gdpr-compliant/SKILL.md)**: Apply GDPR-compliant engineering practices across your codebase.
+  You MUST load this skill whenever you are designing APIs, writing data models,
+  implementing logging, handling user data, or reviewing pull requests for
+  privacy compliance.
 - **[gh](gh/SKILL.md)**: GitHub CLI (`gh`) operations for issues, pull requests, workflow runs, reviews, and API.
   You MUST load this skill when working with the `gh` command and its subcommands.
 - **[gh-api](gh-api/SKILL.md)**: Advanced GitHub CLI (`gh api`) queries and mutations via REST or GraphQL.
@@ -68,6 +77,17 @@ and planned work into the current context.
 - **[gh-aw](gh-aw/SKILL.md)**: GitHub Agentic Workflows (`gh aw`) operations for repository automation,
   creating workflows, running coding agents, and auditing workflow runs.
   You MUST load this skill when working with the `gh aw` command.
+- **[gh-aw-compile](gh-aw-compile/SKILL.md)**: Regenerate and post-process all agentic workflows.
+  You MUST load this skill when gh-aw is updated, workflow .md files change,
+  or when asked to recompile/regenerate workflows.
+- **[gh-aw-debug](gh-aw-debug/SKILL.md)**: Diagnose and fix GitHub Agentic Workflows (`gh-aw`) failures
+  by analyzing logs for missing tools, permissions, or MCP configurations.
+  You MUST load this skill when diagnosing or fixing `gh aw` workflow failures.
+- **[gh-aw-firewall-debug](gh-aw-firewall-debug/SKILL.md)**: Debug the AWF firewall by inspecting Docker containers,
+  analyzing Squid access logs, checking iptables rules, and troubleshooting network issues.
+  You MUST load this skill when debugging the awf firewall.
+- **[gh-aw-new](gh-aw-new/SKILL.md)**: Create new GitHub Agentic Workflows (gh-aw) from scratch using the CLI extension and fetching official remote creation prompts.
+  You MUST load this skill when creating new agentic workflows.
 - **[gh-issue](gh-issue/SKILL.md)**: GitHub CLI (`gh issue`) operations for managing, viewing, and editing issues.
   You MUST load this skill when working with the `gh issue` command.
 - **[gh-models](gh-models/SKILL.md)**: GitHub CLI models (`gh models`) operations for running and evaluating AI
@@ -100,9 +120,17 @@ and planned work into the current context.
   You MUST load this skill when working with GitHub-specific features or PR view modes.
 - **[github-actions](github-actions/SKILL.md)**: Diagnosing and debugging failing GitHub Actions workflows.
   You MUST load this skill when diagnosing or debugging GitHub Actions workflow failures.
-- **[github-ah](github-ah/SKILL.md)**: Safely update existing GitHub Agentic Workflows (gh-aw),
-  distinguishing between frontmatter configuration that requires recompilation
-  and markdown body prompt edits that do not.
+- **[github-aw](github-aw/SKILL.md)**: Safely update existing GitHub Agentic Workflows (gh-aw), distinguishing between
+  frontmatter configuration that requires recompilation and markdown body prompt edits that do not.
+  You MUST load this skill when updating or modifying an existing GitHub Agentic Workflow.
+- **[github-aw-syntax](github-aw-syntax/SKILL.md)**: Complete reference for GitHub Agentic Workflows (gh-aw) frontmatter schema, engine configuration, network access, tools, and imports syntax.
+  You MUST load this skill when writing or debugging Agentic Workflow files.
+- **[github-aw-debug](github-aw-debug/SKILL.md)**: Debug and refine GitHub Agentic Workflows (gh-aw) by analyzing
+  execution logs, auditing runs, and resolving missing tool errors or prompt inefficiencies.
+  You MUST load this skill when asked to debug, audit, or analyze a failing GitHub Agentic Workflow.
+- **[github-aw-memory](github-aw-memory/SKILL.md)**: Guide for persistent memory strategies in agentic workflows.
+  You MUST load this skill when designing workflows that persist state across runs via
+  cache-memory, repo-memory, or comment-memory.
 - **[github-issue](github-issue/SKILL.md)**: Skills for working with GitHub Issues.
   You MUST load this skill when working with issues or when the runtime was triggered by an issue comment.
   Load this before any gh skills.
@@ -120,6 +148,8 @@ and planned work into the current context.
   You MUST load this skill when using actions/github-script in workflows.
 - **[github-topics](github-topics/SKILL.md)**: Search GitHub repositories by topics and keywords.
   You MUST load this skill when searching for relevant tools, libraries, or curated resources.
+- **[mcp-cli](mcp-cli/SKILL.md)**: Interface for MCP (Model Context Protocol) servers via CLI.
+  You MUST load this skill when interacting with external tools, APIs, or data sources through MCP servers via CLI.
 - **[mermaid](mermaid/SKILL.md)**: Guide for creating and maintaining stable Mermaid.js diagrams.
   You MUST load this skill when creating or maintaining Mermaid.js diagrams.
 - **[mermaid-beta](mermaid-beta/SKILL.md)**: Guide for creating and maintaining experimental Mermaid.js beta diagrams.
@@ -141,6 +171,8 @@ and planned work into the current context.
 - **[robust-commands](robust-commands/SKILL.md)**: Resilient command execution with automatic fallbacks and error
   recovery.
   You MUST load this skill when executing commands requiring resilient error recovery or fallbacks.
+- **[sbom](sbom/SKILL.md)**: Guidelines and commands for generating a Software Bill of Materials (SBOM) using syft.
+  You MUST load this skill when asked to create, generate, or update an SBOM.
 - **[security-audit](security-audit/SKILL.md)**: Commands, step-by-step procedures, and mechanical execution for
   performing deep security audits, vulnerability assessments, and threat modeling.
   You MUST load this skill when performing security audits or validation.
