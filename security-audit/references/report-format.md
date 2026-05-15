@@ -128,7 +128,7 @@ Confidence: HIGH / MEDIUM / LOW
 
 Only include for CRITICAL and HIGH findings:
 
-```text
+````text
 🛠️  PATCH PROPOSALS
 ══════════════════
 ⚠️  REVIEW EACH PATCH BEFORE APPLYING — Nothing has been changed yet.
@@ -154,8 +154,6 @@ db.execute(query, [req.params.id]);
 ```
 
 Apply this patch? (Review first — AI-generated patches may need adjustment)
-
-```text
 ````
 
 ---

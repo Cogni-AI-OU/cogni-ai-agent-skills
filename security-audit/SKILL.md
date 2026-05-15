@@ -140,34 +140,15 @@ When evaluating architecture or suspected vulnerabilities, systematically model 
 
 ### Output Format
 
-```markdown
-## Security Audit Report
+Output the full report in the structured format defined in `references/report-format.md`. At a minimum, the report MUST include:
 
-### Summary
+1. **Findings Summary Table**: A table showing counts of findings by severity (CRITICAL, HIGH, MEDIUM, LOW, INFO).
+2. **Detailed Findings**: Grouped by category, with file/line location, impact, and recommendation.
+3. **Dependency Audit**: Results of the supply chain scan.
+4. **Secrets Scan**: Results of the credential scan (redacted).
+5. **Patch Proposals**: Concrete code fixes for all CRITICAL and HIGH findings.
 
-| Severity | Count |
-|----------|-------|
-| 🔴 CRITICAL | [count] |
-| 🟠 HIGH | [count] |
-| 🟡 MEDIUM | [count] |
-| 🔵 LOW | [count] |
-| ⚪ INFO | [count] |
-
-### Findings
-
-#### [SEVERITY] [Finding title]
-- **Location:** [file:line]
-- **Description:** [What the vulnerability is]
-- **Impact:** [What an attacker could do]
-- **Proof of concept:** [How to exploit it]
-- **Recommendation:** [Specific fix with code example]
-
-### Positive Observations
-- [Security practices done well]
-
-### Recommendations
-- [Proactive improvements to consider]
-```
+Refer to `references/report-format.md` for the canonical markdown template and ASCII styling.
 
 ## Execution Workflow
 
@@ -198,7 +179,9 @@ Before scanning source code, audit dependencies first (fast wins):
 
 ### Step 3 — Secrets & Exposure Scan
 
-Scan ALL files (including config, env, CI/CD, Dockerfiles, IaC) for:
+Scan all files **within the chosen scope**, AND always include repository-level configuration/environment files
+(e.g., `.env`, `.github/workflows/`, `Dockerfile`, `docker-compose.yml`, IaC) even if a specific sub-path was provided,
+as secrets often reside outside source directories. Scan for:
 
 - Hardcoded API keys, tokens, passwords, private keys
 - `.env` files accidentally committed
@@ -272,8 +255,8 @@ For EACH finding:
 
 ### Step 7 — Generate Security Report
 
-Output the full report using the `### Output Format` template defined in
-this file.
+Output the full report using the canonical template defined in `references/report-format.md`.
+Ensure the findings summary table is presented first.
 
 ### Step 8 — Propose Patches
 
