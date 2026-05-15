@@ -59,13 +59,3 @@ Use this skill for managing Python project dependencies through `Pipfile` and `P
 
 - **python**:
   You MUST load this skill when dealing with Python code execution, debugging, or log processing.
-- **robust-commands**:
-  You MUST load this skill when executing complex commands requiring resilient error recovery.
-- **security-audit**:
-  You MUST load this skill when performing dependency vulnerability audits or security hardening.
-- **sbom**:
-  You MUST load this skill when generating Software Bill of Materials for compliance or tracking.
-- **tester**:
-  You MUST load this skill when designing or running tests within the project environment.
-- **pre-commit**:
-  You MUST load this skill when configuring or running pre-commit hooks for Python projects.
