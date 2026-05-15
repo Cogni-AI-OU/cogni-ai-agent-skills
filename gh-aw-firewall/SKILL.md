@@ -392,5 +392,4 @@ The domain is being blocked. Check:
 
 ## Related Skills
 
-- `gh-aw-firewall` - Manual Docker debugging commands for AWF
-- `gh-aw-debug` - Python scripts for log parsing and diagnostics
+- `gh-aw-debug` - Load this skill when debugging Agentic Workflow
