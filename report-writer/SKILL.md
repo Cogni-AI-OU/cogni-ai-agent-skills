@@ -25,43 +25,27 @@ Generates a comprehensive report of available tools or system state by self-insp
 
 ## Core Principles
 
-- **Comprehensive Execution**: The report must systemically explore all categories and document every discovered item.
-- **Accurate Comparisons**: Cross-reference the live state against both the configuration mapping and the previous run's cache.
-- **Auto-Correction**: Do not just report discrepancies; actively fix the underlying JSON mapping and open a Pull Request.
-- **Structured Reporting**: Output a markdown report containing Executive Summary, Inconsistency Detection, JSON Mapping Comparison, Changes Since Last Report, Tools by Toolset, and Recommended Defaults.
-- **Traceability**: Track added, removed, and moved tools using specific JSON output comparisons.
+- **Comprehensive Reporting**: The report must systemically explore all categories and document every discovered item.
+- **Structured Reporting**: Output a markdown report containing Summary, Inconsistency, Comparison, Changes Since Last Report, and Recommended Defaults.
 
 ## Success Criteria
 
 A successful report execution must satisfy:
-- ✅ Loads previous tools list from cache if available
-- ✅ Loads current JSON mapping from `pkg/workflow/data/github_toolsets_permissions.json` (or equivalent system mapping file)
-- ✅ Systematically explores EACH of the individual toolsets
-- ✅ Documents all tools available in the remote server or system
-- ✅ Detects and reports any inconsistencies across toolsets (duplicates, miscategorization, naming issues)
-- ✅ **Compares server tools with JSON mapping** and identifies discrepancies
-- ✅ **Updates JSON mapping file** if discrepancies are found
-- ✅ **Creates pull request** with updated JSON mapping if changes were made
-- ✅ Compares with previous run and identifies changes (new/removed/moved tools)
-- ✅ Saves current tools list to cache for next run
-- ✅ **Creates/updates documentation files** (e.g. `.github/aw/...md`) with comprehensive documentation
-- ✅ **Identifies and documents recommended default toolsets** with rationale
-- ✅ **Updates default toolsets** in relevant documentation files
-- ✅ Organizes tools by their appropriate toolset categories
+- ✅ Explores EACH of the options
+- ✅ Documents all available options
+- ✅ Detects and reports any inconsistencies across report (duplicates, miscategorization, naming issues)
+- ✅ Compares and identifies discrepancies
+- ✅ Compares with previous changes (new/removed/moved)
+- ✅ **Creates/updates documentation files** with comprehensive documentation
+- ✅ **Identifies and documents recommended default** with rationale
+- ✅ **Updates default** in relevant documentation files
+- ✅ Organizes tools by their appropriate categories
 - ✅ Provides clear descriptions and usage information
 - ✅ Is formatted as a well-structured markdown document
-- ✅ Is published as a GitHub discussion in the "audits" category for easy access and reference
+- ✅ Is published as a GitHub discussion category for easy access and reference
 - ✅ Includes change tracking and diff information when previous data exists
 - ✅ Validates toolset integrity and reports any detected issues
 
 ## What to Avoid
 
-- Reporting discrepancies without fixing the source JSON mapping.
-- Failing to systematically explore all provided categories/toolsets.
-- Omitting the comparison against the previous cache run.
 - Generating unstructured or unformatted text output instead of proper markdown tables and sections.
-
-## Related Skills
-
-- **gh-pr**:
-  You MUST load this skill when creating a pull request.
