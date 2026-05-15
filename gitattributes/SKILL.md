@@ -52,7 +52,7 @@ Define attributes per path to enforce line-ending conversions, custom merge driv
 
 ```text
 # git normalization file
-# @docs http://www.kernel.org/pub/software/scm/git/docs/gitattributes.html
+# @docs https://www.kernel.org/pub/software/scm/git/docs/gitattributes.html
 
 # Shorthand for text files.
 # - Treat them as text.
