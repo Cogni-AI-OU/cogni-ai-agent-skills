@@ -98,7 +98,7 @@ safe-outputs:
 
 ## Investigation Steps
 
-1. **Verify Version**: Ensure the `gh aw` version is not in the retired range `[0.68.4, 0.71.3]`. If so, run `gh extension upgrade aw`.
+1. **Verify Version**: Run `gh extension list | grep 'github/gh-aw'` to retrieve the installed `gh aw` version, then ensure it is not in the retired range `[0.68.4, 0.71.3]`. If it is, run `gh extension upgrade aw`.
 2. **Check Logs**: Look for `Error: Tool '...' not found` or `Error: 403`. Use `gh aw audit <run-id> --json` for detailed insights.
 3. **Inspect MCP**: Ensure `gh aw mcp inspect` shows the expected toolsets.
 4. **Validate Triggers**: Ensure `mcp-scripts` maps the correct event payload fields.
