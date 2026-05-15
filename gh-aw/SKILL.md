@@ -110,7 +110,7 @@ mindmap
 
 ## Related Skills
 
-- **gh**:
-  You MUST load this skill when working with the base `gh` command.
+- **gh-aw-compile**:
+  You MUST load this skill when recompiling Agentic Workflows.
 - **gh-run**:
   You MUST load this skill when working with GitHub Actions workflow runs.
