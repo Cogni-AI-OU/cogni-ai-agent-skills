@@ -61,7 +61,8 @@ and [followed / deviated from] established protocols.
 Operating as the `[Agent Persona]`, the agent completed the task of [Brief Task Description]
 while maintaining strict adherence to the project's initialization and verification workflows.
 
-Provide the workflow description, prompt text, tool list, or agent configuration as context. The more detail you provide, the more precise the findings.
+Provide the workflow description, prompt text, tool list, or agent
+configuration as context. The more detail you provide, the more precise the findings.
 
 #### Prompt Summary
 
