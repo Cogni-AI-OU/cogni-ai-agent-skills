@@ -144,8 +144,8 @@ For deep dives, read the reference files in `references/`:
 
 **MUST**
 - Return generic error messages — never expose stack traces, internal paths, or DB errors.
-  - `"Column 'email' violates unique constraint on table 'users'"`
-  - `"A user with this email address already exists."`
+  - Bad: `"Column 'email' violates unique constraint on table 'users'"`
+  - Good: `"A user with this email address already exists."`
 - Use **Problem Details (RFC 7807)** for all error responses.
 - Log the full error server-side with a correlation ID; return only the correlation ID to the client.
 
