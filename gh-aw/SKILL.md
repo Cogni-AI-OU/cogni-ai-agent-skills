@@ -102,6 +102,12 @@ mindmap
 - Always review the changes made by the AI agent, especially considering security and context.
 - Do not manually edit the generated `.lock.yml` files; they are intended to be compiled from the markdown workflows.
 
+## References
+
+- <https://gh.io/gh-aw>
+- <https://github.com/github/gh-aw>
+- <https://github.com/github/gh-aw/blob/main/.github/aw/runbooks/workflow-health.md>
+
 ## Related Skills
 
 - **gh**:
