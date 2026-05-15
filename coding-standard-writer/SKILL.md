@@ -14,7 +14,7 @@ Dynamically generate a coding standards document based on the existing syntax, f
 1. **Ingest Targets**: Read the contents of the target `<file-path>` or `<folder-path>`.
 2. **Analyze Syntax**: Parse indentation, variable naming (`camelCase`, `snake_case`), commenting styles, block nesting, and string quotation formats.
 3. **Identify Majority Rules**: Tally occurrences of different styles; establish the majority as the standard.
-4. **Handle Inconsistencies**: Automatically fix minority inconsistencies to match the established standard or report them to the user.
+4. **Handle Inconsistencies**: Report formatting inconsistencies and optionally fix them only when explicitly requested by the user; always verify changes using project-specific linting tools.
 5. **Format Document**: Use a "minimal" or "verbose" template structure to compose the guidelines.
 6. **Output Generation**: Write the result to a new file (e.g., `CONTRIBUTING.md`, `STYLE.md`) or inject it into the `README.md`.
 
