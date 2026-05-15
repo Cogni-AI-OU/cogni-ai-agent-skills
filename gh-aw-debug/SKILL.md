@@ -78,8 +78,9 @@ mcp-scripts:
 **Missing Safe Outputs** (fixes failures when agent tries to create resources):
 ```aw
 safe-outputs:
-  create-issue:
-    labels: ["ai-generated"]
+  jobs:
+    create-issue:
+      labels: ["ai-generated"]
 ```
 
 ## Common Workflow Failure Patterns
