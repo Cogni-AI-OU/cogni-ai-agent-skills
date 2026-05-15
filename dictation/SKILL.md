@@ -124,3 +124,7 @@ Capitalize fully: `GITHUB_TOKEN`, `GH_TOKEN`, `COPILOT_GITHUB_TOKEN`, `GH_AW_GIT
 - Generating code examples.
 - Providing step-by-step planning.
 - Simplifying technical concepts.
+
+## References
+
+- <https://github.com/github/gh-aw/blob/main/DICTATION.md>
