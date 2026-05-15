@@ -53,6 +53,8 @@ Cogni AI capabilities loaded into the `.github/` directory.
   across architecture, ADRs, runbooks, and code
 - **[docs-writer](docs-writer/SKILL.md)**: Create, update, and maintain documentation including Architectural Decision
   Records (ADRs), runbooks, READMEs, and code-level documentation
+- **[editorconfig](editorconfig/SKILL.md)**: Generates a comprehensive and best-practice-oriented .editorconfig file
+  based on project analysis and user preferences
 - **[fact-writer](fact-writer/SKILL.md)**: Guidance for writing, structuring, and maintaining verifiable project
   fact files without contradictions
 - **[gh](gh/SKILL.md)**: GitHub CLI (`gh`) operations for issues, pull requests, workflow runs, reviews, and API

@@ -2,6 +2,7 @@
 name: editorconfig
 description: Generates a comprehensive and best-practice-oriented .editorconfig file based on project analysis and user preferences.
 ---
+
 # editorconfig
 
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
