@@ -34,7 +34,7 @@ Use this skill for managing Python project dependencies through `Pipfile` and `P
 
 ## Diagnostics and Troubleshooting
 
-- **Lock File Hash Mismatch**: If `Pipfile.lock out of date` error occurs, run `pipenv lock` to sync the lockfile with recent `Pipfile` changes.
+- **Lockfile Hash Mismatch**: If `Pipfile.lock out of date` error occurs, run `pipenv lock` to sync the lockfile with recent `Pipfile` changes.
 - **Dependency Resolution Failures**: Clear cache with `pipenv lock --clear` or relax constraints inside the `Pipfile`.
 - **BackendUnavailable on Editable Installs**: When having parallel install issues, set `PIP_NO_BUILD_ISOLATION=1`.
 
