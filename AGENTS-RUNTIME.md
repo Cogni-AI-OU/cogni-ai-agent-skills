@@ -104,7 +104,8 @@ and planned work into the current context.
 - **[github-issue](github-issue/SKILL.md)**: Skills for working with GitHub Issues.
   You MUST load this skill when working with issues or when the runtime was triggered by an issue comment.
   Load this before any gh skills.
-- **[github-mcp-server](github-mcp-server/SKILL.md)**: Guide for configuring and using the GitHub MCP server within Agentic Workflows.
+- **[github-mcp-server](github-mcp-server/SKILL.md)**: Guide for configuring and using
+  the GitHub MCP server within Agentic Workflows.
   You MUST load this skill when configuring the GitHub MCP server or its toolsets.
 - **[github-pr](github-pr/SKILL.md)**: Skills for working with changes on a GitHub Pull Request.
   You MUST load this skill when working with changes associated with a pull request
