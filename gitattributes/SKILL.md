@@ -48,6 +48,32 @@ Define attributes per path to enforce line-ending conversions, custom merge driv
 - **Overlapping Rules**: Later lines in the same file override earlier lines. Closest `.gitattributes` directory takes precedence.
 - **Reversible Conversions**: If `core.safecrlf` is `true`, Git rejects irreversible end-of-line conversions.
 
+## Example
+
+```text
+# git normalization file
+# @docs http://www.kernel.org/pub/software/scm/git/docs/gitattributes.html
+
+# Shorthand for text files.
+# - Treat them as text.
+# - Ensure no CRLF line-endings, neither on checkout nor on checkin.
+# - Detect whitespace errors.
+#   - Exposed by default in `git diff --color` on the CLI.
+#   - Validate with `git diff --check`.
+#   - Deny applying with `git apply --whitespace=error-all`.
+#   - Fix automatically with `git apply --whitespace=fix`.
+[attr]code    text eol=lf whitespace=blank-at-eol,-blank-at-eof,-space-before-tab,tab-in-indent,tabwidth=2
+
+# Shorthand for binary files.
+# - Do not treat them as text.
+# - Include binary diff in patches instead of "binary files differ."
+[attr]binary  -text diff
+
+# Define file attributes.
+*.ex?     binary
+*.h       code diff=c
+```
+
 ## What to Avoid
 
 - **Negative Patterns**: Never use negative patterns (e.g., `!pattern`); they are explicitly forbidden in `.gitattributes`.
