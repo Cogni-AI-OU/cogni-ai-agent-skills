@@ -43,7 +43,7 @@ Dynamically generate a coding standards document based on the existing syntax, f
 
 ## Best Practices
 
-- Fetch external style guides as reference if standard language conventions (e.g., PEP 8 for Python, standard for JavaScript) are requested or heavily implied.
+- Fetch external style guides as supplemental reference only when explicitly requested, and do not let them override the codebase's existing majority conventions.
 - If requested, generate a companion test file to enforce the newly defined standards.
 
 ## What to Avoid
