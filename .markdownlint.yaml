@@ -10,14 +10,14 @@ MD013:
 # MD033 no-inline-html - Inline HTML
 MD033:
   allowed_elements:
+    - branch
     - details
+    - number
     - plan_research
     - plan_style_guide
     - reasoning
     - stopping_rules
     - workflow
-    - number
-    - branch
 # MD046 code-block-style - Code block style
 MD046:
   style: consistent
