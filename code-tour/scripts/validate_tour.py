@@ -224,12 +224,13 @@ def validate_tour(tour_path: str, repo_root: str = ".") -> dict:
     # ── 6. Narrative arc checks ─────────────────────────────────────────────
     first = steps[0]
     last = steps[-1]
-    first_is_orient = "file" not in first and "directory" not in first and "uri" not in first
+    first_has_anchor = "file" in first or "directory" in first
     last_is_closing = "file" not in last and "directory" not in last and "uri" not in last
 
-    if not first_is_orient and "directory" not in first:
-        info.append(
-            "First step is a file/uri step — consider starting with a content or directory " "orientation step."
+    if not first_has_anchor:
+        warnings.append(
+            "First step should be a file or directory step, not content-only, "
+            "so VS Code has an initial location to display."
         )
     if not last_is_closing:
         info.append("Last step is not a content step — consider ending with a closing/summary step.")
