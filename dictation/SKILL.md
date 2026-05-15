@@ -19,7 +19,7 @@ Apply dictation correction protocols to fix common speech-to-text errors, especi
 - **Glossary Compliance**: Strict adherence to the project technical glossary.
 - **Accurate Hyphenation**: Ensure correct hyphenation for compound modifiers (e.g., `pull-request`, `cache-memory`).
 - **Engine Capitalization**: Proper spelling and casing for AI engines (e.g., `@copilot`, `claude`, `gemini`).
-- **No Code Generation**: Do not plan steps or generate code examples. Focus entirely on text correction.
+- **No Code Generation**: Do not generate code examples or output step-by-step planning to the user. You may follow the Core Process internally, but the response should primarily be the corrected text.
 - **Maintain Intent**: Do not simplify technical concepts or alter the user's intended meaning.
 
 ## When to Use
