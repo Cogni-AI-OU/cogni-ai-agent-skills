@@ -7,7 +7,7 @@ Load this during Step 2 (Dependency Audit). Check versions in the project's lock
 ## npm / Node.js
 
 | Package | Vulnerable Versions | Issue | Safe Version |
-|---------|-------------------|-------|--------------|
+| :--- | :--- | :--- | :--- |
 | lodash | < 4.17.21 | Prototype pollution (CVE-2021-23337) | >= 4.17.21 |
 | axios | < 1.6.0 | SSRF, open redirect | >= 1.6.0 |
 | jsonwebtoken | < 9.0.0 | Algorithm confusion bypass | >= 9.0.0 |
@@ -27,7 +27,8 @@ Load this during Step 2 (Dependency Audit). Check versions in the project's lock
 | serialize-javascript | < 3.1.0 | XSS | >= 3.1.0 |
 | node-fetch | < 2.6.7 | Open redirect | >= 2.6.7 or 3.x |
 
-### Patterns to flag (regardless of version):
+### Patterns to flag (regardless of version)
+
 - `eval` or `vm.runInContext` in dependencies
 - Any package pulling in `node-gyp` native addons from unknown publishers
 - Packages with < 1000 weekly downloads but required in production code (supply chain risk)
@@ -37,7 +38,7 @@ Load this during Step 2 (Dependency Audit). Check versions in the project's lock
 ## Python / pip
 
 | Package | Vulnerable Versions | Issue | Safe Version |
-|---------|-------------------|-------|--------------|
+| :--- | :--- | :--- | :--- |
 | Pillow | < 10.0.1 | Multiple CVEs, buffer overflow | >= 10.0.1 |
 | cryptography | < 41.0.0 | OpenSSL vulnerabilities | >= 41.0.0 |
 | PyYAML | < 6.0 | Arbitrary code via yaml.load() | >= 6.0 |
@@ -56,7 +57,7 @@ Load this during Step 2 (Dependency Audit). Check versions in the project's lock
 ## Java / Maven
 
 | Package | Vulnerable Versions | Issue |
-|---------|-------------------|-------|
+| :--- | :--- | :--- |
 | log4j-core | 2.0-2.14.1 | Log4Shell RCE (CVE-2021-44228) — CRITICAL |
 | log4j-core | 2.15.0 | Incomplete fix — still vulnerable |
 | Spring Framework | < 5.3.28, < 6.0.13 | Various CVEs |
@@ -71,8 +72,8 @@ Load this during Step 2 (Dependency Audit). Check versions in the project's lock
 ## Ruby / Gems
 
 | Gem | Vulnerable Versions | Issue |
-|-----|-------------------|-------|
-| rails | < 7.1.3 | Various | 
+| :--- | :--- | :--- |
+| rails | < 7.1.3 | Various |
 | nokogiri | < 1.16.2 | XXE, various |
 | rexml | < 3.2.7 | ReDoS |
 | rack | < 3.0.9 | Various |
@@ -83,19 +84,20 @@ Load this during Step 2 (Dependency Audit). Check versions in the project's lock
 ## Rust / Cargo
 
 | Crate | Issue |
-|-------|-------|
+| :--- | :--- |
 | openssl | Check advisory db for current version |
 | hyper | Check advisory db for current version |
 
-Reference: https://rustsec.org/advisories/
+Reference: <https://rustsec.org/advisories/>
 
 ---
 
 ## Go
 
-Reference: https://pkg.go.dev/vuln/ and https://vuln.go.dev
+Reference: <https://pkg.go.dev/vuln/> and <https://vuln.go.dev>
 
 Common risky patterns:
+
 - `golang.org/x/crypto` — check if version is within 6 months of current
 - Any dependency using `syscall` package directly — review carefully
 
@@ -104,6 +106,7 @@ Common risky patterns:
 ## General Red Flags (Any Ecosystem)
 
 Flag any dependency that:
+
 1. Has not been updated in > 2 years AND has > 10 open security issues
 2. Has been deprecated by its maintainer with a security advisory
 3. Is a fork of a known package from an unknown publisher (typosquatting)

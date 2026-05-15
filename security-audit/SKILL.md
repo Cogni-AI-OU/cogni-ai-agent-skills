@@ -176,6 +176,7 @@ Follow these steps **in order** every time:
 ### Step 1 — Scope Resolution
 
 Determine what to scan:
+
 - If a path was provided (`/security-audit src/auth/`), scan only that scope
 - If no path given, scan the **entire project** starting from the root
 - Identify the language(s) and framework(s) in use (check package.json, requirements.txt,
@@ -183,7 +184,9 @@ Determine what to scan:
 - Read `references/language-patterns.md` to load language-specific vulnerability patterns
 
 ### Step 2 — Dependency Audit
+
 Before scanning source code, audit dependencies first (fast wins):
+
 - **Node.js**: Check `package.json` + `package-lock.json` for known vulnerable packages
 - **Python**: Check `requirements.txt` / `pyproject.toml` / `Pipfile`
 - **Java**: Check `pom.xml` / `build.gradle`
@@ -194,7 +197,9 @@ Before scanning source code, audit dependencies first (fast wins):
 - Read `references/vulnerable-packages.md` for a curated watchlist
 
 ### Step 3 — Secrets & Exposure Scan
+
 Scan ALL files (including config, env, CI/CD, Dockerfiles, IaC) for:
+
 - Hardcoded API keys, tokens, passwords, private keys
 - `.env` files accidentally committed
 - Secrets in comments or debug logs
@@ -203,17 +208,18 @@ Scan ALL files (including config, env, CI/CD, Dockerfiles, IaC) for:
 - Read `references/secret-patterns.md` for regex patterns and entropy heuristics to apply
 
 ### Step 4 — Vulnerability Deep Scan
+
 This is the core scan. Reason about the code — don't just pattern-match.
 Read `references/vuln-categories.md` for full details on each category.
 
-**Injection Flaws**
+#### Injection Flaws
 
 - SQL Injection: raw queries with string interpolation, ORM misuse, second-order SQLi
 - XSS: unescaped output, dangerouslySetInnerHTML, innerHTML, template injection
 - Command Injection: exec/spawn/system with user input
 - LDAP, XPath, Header, Log injection
 
-**Authentication & Access Control**
+#### Authentication & Access Control
 
 - Missing authentication on sensitive endpoints
 - Broken object-level authorization (BOLA/IDOR)
@@ -222,7 +228,7 @@ Read `references/vuln-categories.md` for full details on each category.
 - Privilege escalation paths
 - Mass assignment / parameter pollution
 
-**Data Handling**
+#### Data Handling
 
 - Sensitive data in logs, error messages, or API responses
 - Missing encryption at rest or in transit
@@ -231,14 +237,14 @@ Read `references/vuln-categories.md` for full details on each category.
 - XXE (XML External Entity) processing
 - SSRF (Server-Side Request Forgery)
 
-**Cryptography**
+#### Cryptography
 
 - Use of MD5, SHA1, DES for security purposes
 - Hardcoded IVs or salts
 - Weak random number generation (Math.random() for tokens)
 - Missing TLS certificate validation
 
-**Business Logic**
+#### Business Logic
 
 - Race conditions (TOCTOU)
 - Integer overflow in financial calculations
@@ -248,6 +254,7 @@ Read `references/vuln-categories.md` for full details on each category.
 ### Step 5 — Cross-File Data Flow Analysis
 
 After the per-file scan, perform a **holistic review**:
+
 - Trace user-controlled input from entry points (HTTP params, headers, body, file uploads)
   all the way to sinks (DB queries, exec calls, HTML output, file writes)
 - Identify vulnerabilities that only appear when looking at multiple files together
@@ -256,6 +263,7 @@ After the per-file scan, perform a **holistic review**:
 ### Step 6 — Self-Verification Pass
 
 For EACH finding:
+
 1. Re-read the relevant code with fresh eyes
 2. Ask: "Is this actually exploitable, or is there sanitization I missed?"
 3. Check if a framework or middleware already handles this upstream
@@ -269,6 +277,7 @@ Output the full report in the format defined in `references/report-format.md`.
 ### Step 8 — Propose Patches
 
 For every CRITICAL and HIGH finding, generate a concrete patch:
+
 - Show the vulnerable code (before)
 - Show the fixed code (after)
 - Explain what changed and why
@@ -280,7 +289,7 @@ Explicitly state: **"Review each patch before applying. Nothing has been changed
 ## Severity Guide
 
 | Severity | Meaning | Example |
-|----------|---------|---------|
+| :--- | :--- | :--- |
 | 🔴 CRITICAL | Immediate exploitation risk, data breach likely | SQLi, RCE, auth bypass |
 | 🟠 HIGH | Serious vulnerability, exploit path exists | XSS, IDOR, hardcoded secrets |
 | 🟡 MEDIUM | Exploitable with conditions or chaining | CSRF, open redirect, weak crypto |
@@ -294,7 +303,9 @@ Explicitly state: **"Review each patch before applying. Nothing has been changed
 - **Never** auto-apply any patch — present patches for human review only
 - **Always** include a confidence rating per finding (High / Medium / Low)
 - **Group findings** by category, not by file
-- **Be specific** — include file path and line number, plus the relevant vulnerable code context
+- **Be specific** — include file path and line number, plus the relevant vulnerable code context.
+  **CRITICAL:** For findings involving secrets (keys, tokens, etc.), you MUST redact the value in the snippet
+  (e.g., use `[REDACTED]` or show only prefix/suffix) to avoid leaking credentials in the report.
 - **Never reveal secrets verbatim** — for API keys, passwords, tokens, private keys, connection strings, or similar
   sensitive values, show only redacted/masked content (for example, a short prefix/suffix or a hash/fingerprint)
   while preserving file+line context
