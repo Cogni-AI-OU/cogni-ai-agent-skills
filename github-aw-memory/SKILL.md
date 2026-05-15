@@ -1,6 +1,7 @@
 ---
 name: github-aw-memory
 description: Guide for persistent memory strategies in agentic workflows. You MUST load this skill when designing workflows that persist state across runs via cache-memory, repo-memory, or comment-memory.
+license: MIT
 ---
 # Skill github-aw-memory
 
