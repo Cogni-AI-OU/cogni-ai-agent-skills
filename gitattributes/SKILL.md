@@ -12,7 +12,7 @@ Define attributes per path to enforce line-ending conversions, custom merge driv
 
 - **Global Consistency**: Ensure line endings (`text`, `eol`) and text normalization are explicitly controlled.
 - **Merge Conflict Mitigation**: Use built-in or custom merge drivers (e.g., `merge=ours`) for auto-generated files (like lockfiles) to prevent spurious conflicts.
-- **Diff Management**: Exclude binary files or minimized outputs from diff generation (`-diff`), or set custom diff drivers (`diff=<driver>`).
+- **Diff Management**: Exclude binary files from diff generation (`-diff`) or enable binary diffs in patches (`diff`) for small assets using custom macros.
 - **Linguist Overrides**: Control language statistics and diff suppression on GitHub using `linguist-generated=true` or `linguist-language=<lang>`.
 - **Precedence**: In-tree `.gitattributes` overrides are evaluated top-down; `$GIT_DIR/info/attributes` has the highest precedence for local uncommitted overrides.
 
@@ -64,15 +64,15 @@ Define attributes per path to enforce line-ending conversions, custom merge driv
 #   - Fix automatically with `git apply --whitespace=fix`.
 [attr]code    text eol=lf whitespace=blank-at-eol,-blank-at-eof,-space-before-tab,tab-in-indent,tabwidth=2
 
-# Shorthand for binary files.
+# Custom shorthand for binary files with diff enabled.
 # - Do not treat them as text.
 # - Include binary diff in patches instead of "binary files differ."
-[attr]binary  -text diff
+[attr]binpatch  -text diff
 
 # Define file attributes.
 *.bat     eol=crlf
 *.cmd     eol=crlf
-*.ex?     binary
+*.ex?     binpatch
 *.h       code diff=c
 CHANGELOG merge=union
 ```

@@ -129,7 +129,7 @@ The `allowed:` pattern for listing individual GitHub tools is **not recommended 
 The following toolsets are enabled by default when `toolsets:` is not specified:
 - `context` - User and environment context (strongly recommended)
 - `repos` - Repository management
-- `issues` - Issue management  
+- `issues` - Issue management
 - `pull_requests` - Pull request operations
 
 **Note**: The `users` toolset is not included by default and must be explicitly specified if needed.
