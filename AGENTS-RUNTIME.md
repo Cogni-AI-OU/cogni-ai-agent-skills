@@ -63,7 +63,8 @@ and planned work into the current context.
   You MUST load this skill when managing canonical project fact files.
 - **[gdpr-compliant](gdpr-compliant/SKILL.md)**: Apply GDPR-compliant engineering practices across your codebase.
   You MUST load this skill whenever you are designing APIs, writing data models,
-  handling user data, or reviewing pull requests for privacy compliance.
+  implementing logging, handling user data, or reviewing pull requests for
+  privacy compliance.
 - **[gh](gh/SKILL.md)**: GitHub CLI (`gh`) operations for issues, pull requests, workflow runs, reviews, and API.
   You MUST load this skill when working with the `gh` command and its subcommands.
 - **[gh-api](gh-api/SKILL.md)**: Advanced GitHub CLI (`gh api`) queries and mutations via REST or GraphQL.
