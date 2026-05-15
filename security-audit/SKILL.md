@@ -285,7 +285,7 @@ Explicitly state: **"Review each patch before applying. Nothing has been changed
 
 ## Output Rules
 
-- **Always** produce a findings summary table first (counts by severity)
+- **Always** follow the section order defined in `### Output Format`, and include a findings summary table with counts by severity in that structure
 - **Never** auto-apply any patch — present patches for human review only
 - **Always** include a confidence rating per finding (High / Medium / Low)
 - **Group findings** by category, not by file
