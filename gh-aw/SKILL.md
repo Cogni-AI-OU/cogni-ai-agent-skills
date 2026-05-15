@@ -24,7 +24,7 @@ without GitHub CLI extension support), you can download and run the
 installation script:
 
 ```bash
-curl -sL https://raw.githubusercontent.com/github/gh-aw/e8453fec188977e7419775804ee15e44712491c3/install-gh-aw.sh -o install-gh-aw.sh
+curl -sL https://raw.githubusercontent.com/github/gh-aw/main/install-gh-aw.sh -o install-gh-aw.sh
 head -n 50 install-gh-aw.sh # Review the script before executing
 bash install-gh-aw.sh
 ```
