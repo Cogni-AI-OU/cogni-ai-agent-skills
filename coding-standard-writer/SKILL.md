@@ -202,7 +202,7 @@ Dynamically generate a coding standards document based on the existing syntax, f
 - [C# Style Guide](https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/coding-style/coding-conventions)
 - [C++ Style Guide](https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines)
 - [Go Style Guide](https://github.com/golang-standards/project-layout)
-- [Java Style Guide](https://coderanch.com/wiki/718799/Style)
+- [Java Style Guide](https://google.github.io/styleguide/javaguide.html)
 - [AngularJS App Style Guide](https://github.com/mgechev/angularjs-style-guide)
 - [jQuery Style Guide](https://contribute.jquery.org/style-guide/js/)
 - [JavaScript Style Guide](https://www.w3schools.com/js/js_conventions.asp)
