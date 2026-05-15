@@ -36,7 +36,7 @@ gh aw logs --workflow <workflow-name> --start-date -1d
 # Audit a specific workflow run (detailed analysis with missing tools and errors)
 gh aw audit <run-id> --json
 
-# Diff two or more runs to detect regressions (firewall, MCP, metrics)
+# Diff two runs to detect regressions (firewall, MCP, metrics)
 gh aw audit <base-run-id> <compare-run-id> --json
 
 # Show status of all workflows
