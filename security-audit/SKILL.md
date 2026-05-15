@@ -144,10 +144,14 @@ When evaluating architecture or suspected vulnerabilities, systematically model 
 ## Security Audit Report
 
 ### Summary
-- Critical: [count]
-- High: [count]
-- Medium: [count]
-- Low: [count]
+
+| Severity | Count |
+|----------|-------|
+| 🔴 CRITICAL | [count] |
+| 🟠 HIGH | [count] |
+| 🟡 MEDIUM | [count] |
+| 🔵 LOW | [count] |
+| ⚪ INFO | [count] |
 
 ### Findings
 
@@ -172,7 +176,7 @@ Follow these steps **in order** every time:
 ### Step 1 — Scope Resolution
 
 Determine what to scan:
-- If a path was provided (`/security-review src/auth/`), scan only that scope
+- If a path was provided (`/security-audit src/auth/`), scan only that scope
 - If no path given, scan the **entire project** starting from the root
 - Identify the language(s) and framework(s) in use (check package.json, requirements.txt,
   go.mod, Cargo.toml, pom.xml, Gemfile, composer.json, etc.)
@@ -285,13 +289,17 @@ Explicitly state: **"Review each patch before applying. Nothing has been changed
 
 ## Output Rules
 
-- **Always** follow the section order defined in `### Output Format`, and include a findings summary table with counts by severity in that structure
+- **Always** follow the section order defined in `### Output Format`, and include a findings summary table
+  with counts by severity in that structure
 - **Never** auto-apply any patch — present patches for human review only
 - **Always** include a confidence rating per finding (High / Medium / Low)
 - **Group findings** by category, not by file
 - **Be specific** — include file path and line number, plus the relevant vulnerable code context
-- **Never reveal secrets verbatim** — for API keys, passwords, tokens, private keys, connection strings, or similar sensitive values, show only redacted/masked content (for example, a short prefix/suffix or a hash/fingerprint) while preserving file+line context
-- **Use exact code snippets only when safe** — if a finding involves secrets or other sensitive values, replace the sensitive portion with a redaction such as `[REDACTED]`
+- **Never reveal secrets verbatim** — for API keys, passwords, tokens, private keys, connection strings, or similar
+  sensitive values, show only redacted/masked content (for example, a short prefix/suffix or a hash/fingerprint)
+  while preserving file+line context
+- **Use exact code snippets only when safe** — if a finding involves secrets or other sensitive values, replace the
+  sensitive portion with a redaction such as `[REDACTED]`
 - **Explain the risk** in plain English — what could an attacker do with this?
 - If the codebase is clean, say so clearly: "No vulnerabilities found" with what was scanned
 
