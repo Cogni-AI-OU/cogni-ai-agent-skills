@@ -11,6 +11,7 @@ Use this skill for managing Python project dependencies through `Pipfile` and `P
 ## Core Process
 
 1. **Initialization**: Create a `Pipfile` if none exists by installing packages or using `pipenv install`.
+   **Crucial**: Once a `Pipfile` is created, you MUST create a `README.md` in the project root detailing how to use the environment (e.g., `pipenv install`, `pipenv shell`).
 2. **Adding Dependencies**: Use `pipenv install <package>` for production or `pipenv install --dev <package>` for development dependencies.
 3. **Locking**: Run `pipenv lock` to deterministically pin dependencies into `Pipfile.lock`.
 4. **Execution**: Use `pipenv run <command>` or `pipenv shell` to execute code within the isolated virtual environment.
@@ -30,7 +31,7 @@ Use this skill for managing Python project dependencies through `Pipfile` and `P
 - **Generate lockfile**: `pipenv lock`
 - **Install from lockfile**: `pipenv sync` (or `pipenv install --deploy` for CI/CD environments)
 - **Uninstall a dependency**: `pipenv uninstall <package>`
-- **Check for vulnerabilities**: `pipenv check`
+- **Check for vulnerabilities**: `pipenv check` (Note: Treat this as one layer of security, not a complete supply-chain safeguard).
 
 ## Diagnostics and Troubleshooting
 
@@ -41,7 +42,7 @@ Use this skill for managing Python project dependencies through `Pipfile` and `P
 ## What to Avoid
 
 - **Manual Lockfile Edits**: NEVER manually edit `Pipfile.lock`. Always use `pipenv lock` to regenerate.
-- **Using requirements.txt blindly**: Stop using `requirements.txt` directly; migrate via `pipenv install -r requirements.txt`.
+- **Using requirements.txt blindly**: Migrate via `pipenv install -r requirements.txt`. If the project requires `requirements.txt` for specific deployment or legacy tooling, keep them in sync instead of abandoning it completely.
 - **Deploying without sync**: Do not use `pipenv update` or `pipenv lock` in CI/CD. Use `pipenv install --deploy` to enforce consistency.
 
 ## Limitations
