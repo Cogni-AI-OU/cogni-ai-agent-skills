@@ -33,8 +33,12 @@ tools:
 
 - **`context`**: Identity and team awareness (`get_me`, `get_teams`).
 - **`repos`**: Core repository operations (read, list commits/branches, files).
-- **`issues`**: Issue management (read, comment, create).
-- **`pull_requests`**: PR operations (read, create, review, merge).
+- **`issues`**: Issue management (read, comment). In Agentic Workflows,
+  issue creation should use `safe-outputs` or another approved write path
+  rather than direct MCP mutations.
+- **`pull_requests`**: PR operations (read). In Agentic Workflows, PR
+  creation, review, and merge should use `safe-outputs` or another approved
+  write path rather than direct MCP mutations.
 - **`actions`**: Workflow introspection, triggering runs.
 - **`code_security` / `dependabot` / `secret_protection` / `security_advisories`**: Security alert management (requires `security-events` permission).
 - **`projects`**: Projects automation (requires PAT).
