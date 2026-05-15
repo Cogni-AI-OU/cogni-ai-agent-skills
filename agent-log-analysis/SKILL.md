@@ -27,9 +27,9 @@ awk '/PROMPT:/,/Post job cleanup/ { $1=""; print substr($0,2) }'
 
 When analyzing logs, specifically identify any external artifacts created or modified:
 
-- **Pull Requests**: Look for "Created PR #<number>", "Creating pull request...", or "gh pr create" success messages.
-- **Issues**: Look for "Created issue #<number>", "gh issue create" success messages, or comments.
-- **Commits/Branches**: Look for "git push", "Pushed to <branch>", or commit SHA references.
+- **Pull Requests**: Look for "Created PR #`<number>`", "Creating pull request...", or "gh pr create" success messages.
+- **Issues**: Look for "Created issue #`<number>`", "gh issue create" success messages, or comments.
+- **Commits/Branches**: Look for "git push", "Pushed to `<branch>`", or commit SHA references.
 
 ## 3. Skill Loading Analysis
 
