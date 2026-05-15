@@ -52,7 +52,7 @@ gh aw mcp list
 ```bash
 gh aw compile <workflow-name>.md
 # Validate workflow with strict security checks
-gh aw compile <workflow-name>.md --strict
+gh aw compile --strict <workflow-name>.md
 gh workflow run <workflow-name>.lock.yml
 gh run watch <run-id>
 ```
