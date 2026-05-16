@@ -748,7 +748,7 @@ network:
     - node            # Node.js/NPM ecosystem
     - containers      # Container registries
     - "api.custom.com" # Custom domain
-    - "https://secure.api.com" # Protocol-specific domain
+    - "https://secure.api.com" # Protocol-specific domain (HTTPS-only)
   blocked:
     - "tracking.com"   # Block specific domains
     - "*.ads.com"      # Block domain patterns
@@ -765,6 +765,45 @@ network:
 # Or deny all network access
 network: {}
 ```
+
+**Access Levels:**
+
+1. **Default Allow List** (`network: defaults`): Basic infrastructure only (certificates, JSON schema, Ubuntu mirrors, Microsoft sources).
+2. **Selective Access** (`network: { allowed: [...] }`): Only listed domains/ecosystems are accessible. Listed domains automatically match all subdomains.
+3. **No Access** (`network: {}`): All network access denied.
+
+**Wildcard Domain Patterns:**
+
+Use wildcard patterns (`*.example.com`) to match any subdomain. Wildcards match the base domain and all subdomains at any depth. Only a single leading wildcard is allowed (e.g., `*.*.example.com` is invalid). Both `example.com` and `*.example.com` match all subdomains; use the wildcard form to be explicit.
+
+**Protocol-Specific Domain Filtering:**
+
+Restrict domains to a specific protocol by prefixing with `https://` or `http://`. Domains without a prefix allow both. Supported by Copilot and Claude engines with AWF enabled.
+
+**Content Sanitization:**
+
+Domains not in the `allowed` list are replaced with `(redacted)` in sanitized content to prevent data exfiltration. GitHub domains are always allowed by default.
+
+**Ecosystem Identifier Validation:**
+
+Single-word entries matching the ecosystem pattern are validated against the known list at compile time. Unrecognized identifiers produce a compilation error.
+
+**Strict Mode Validation:**
+
+When `strict: true` (default), the compiler warns when individual ecosystem domains (e.g., `pypi.org`, `npmjs.org`) are used, recommending ecosystem identifiers (`python`, `node`) instead.
+
+**Implementation Details:**
+
+- **Firewall (AWF)**: The Copilot engine supports network permissions through AWF (Agent Workflow Firewall). Enable with `firewall: true`.
+- **Log Level**: Control AWF verbosity with `log-level: info` (options: `debug`, `info`, `warn`, `error`).
+- **SSL Bump**: Enable with `ssl-bump: true` to inspect HTTPS traffic and filter by URL paths using `allow-urls`.
+- **Effective Token Steering**: AWF injects budget warnings at 80%, 90%, 95%, and 99% of `max-effective-tokens`. Set to `-1` to disable enforcement.
+- **Disabling Firewall**: The firewall defaults to enabled (`sandbox.agent: awf`). If disabled, permissions still apply for sanitization but the agent has unrestricted network requests.
+
+**Troubleshooting:**
+
+- Use `gh aw logs --run-id <run-id>` to identify blocked domains.
+- Use `gh aw audit <run-id>` for detailed firewall analysis and policy attribution.
 
 **Important Notes:**
 
@@ -794,11 +833,18 @@ Each ecosystem identifier enables network access to the domains required by that
 | Identifier | Runtimes / Languages | Package Manager / Domains |
 | --- | --- | --- |
 | `defaults` | All (always include) | Certificates, JSON schema, Ubuntu mirrors, Microsoft sources |
+| `github` | Any | GitHub domains (`github.com`, `api.github.com`, `docs.github.com`, `github.blog`, `*.githubusercontent.com`, and related) |
+| `local` | Any | Loopback addresses (`localhost`, `127.0.0.1`, `::1`) |
+| `dev-tools` | Any | Popular CI/CD and developer tool services (Codecov, Shields.io, Snyk, Renovate, CircleCI, etc.) |
+| `default-safe-outputs` | Any | Compound: `defaults` + `dev-tools` + `github` + `local` — recommended baseline for `safe-outputs.allowed-domains` |
+| `containers` | Docker, OCI | Docker Hub, GitHub Container Registry, Quay (`registry.hub.docker.com`, `ghcr.io`, etc.) |
+| `linux-distros` | Any | Debian, Alpine, and other Linux package repositories (apt, yum/dnf mirrors) |
 | `dotnet` | C#, F#, VB.NET | NuGet (`nuget.org`, `api.nuget.org`, `dotnetcli.blob.core.windows.net`, etc.) |
 | `python` | Python | pip, conda, PyPI (`pypi.org`, `files.pythonhosted.org`, `conda.anaconda.org`, etc.) |
-| `node` | Node.js, JavaScript, TypeScript | npm, yarn, pnpm (`registry.npmjs.org`, `yarnpkg.com`, etc.) |
+| `node` | Node.js, JS, TS | npm, yarn, pnpm (`registry.npmjs.org`, `yarnpkg.com`, etc.) |
+| `deno` | Deno | Deno runtime (`deno.land`, `jsr.io`, `*.jsr.io`, `googleapis.deno.dev`, `fresh.deno.dev`) |
 | `go` | Go | Go modules (`proxy.golang.org`, `sum.golang.org`, `pkg.go.dev`) |
-| `java` | Java, Kotlin, Scala, Groovy | Maven, Gradle (`repo1.maven.org`, `plugins.gradle.org`, etc.) |
+| `java` | Java, Kotlin, Scala | Maven, Gradle (`repo1.maven.org`, `plugins.gradle.org`, etc.) |
 | `ruby` | Ruby | RubyGems, Bundler (`rubygems.org`, `gems.ruby-china.com`, etc.) |
 | `rust` | Rust | Cargo, crates.io (`crates.io`, `static.crates.io`) |
 | `swift` | Swift | Swift Package Manager, CocoaPods (`swiftpackageindex.com`, `cocoapods.org`) |
@@ -806,11 +852,12 @@ Each ecosystem identifier enables network access to the domains required by that
 | `dart` | Dart, Flutter | pub.dev (`pub.dev`, `storage.googleapis.com`) |
 | `haskell` | Haskell | Hackage, Stack (`hackage.haskell.org`, `s3.amazonaws.com/haskell-platform`) |
 | `perl` | Perl | CPAN (`cpan.org`, `www.cpan.org`, `metacpan.org`) |
-| `terraform` | Terraform, OpenTofu | HashiCorp registry (`registry.terraform.io`, `releases.hashicorp.com`) |
-| `containers` | Docker, OCI | Docker Hub, GHCR, Quay (`registry.hub.docker.com`, `ghcr.io`, etc.) |
-| `github` | Any | GitHub domains (`github.com`, `api.github.com`, `objects.githubusercontent.com`, etc.) |
-| `linux-distros` | Any | apt, yum/dnf (`archive.ubuntu.com`, `packages.microsoft.com`, etc.) |
+| `julia` | Julia | General registry (`pkg.julialang.org`) |
+| `latex` | LaTeX | CTAN (`ctan.org`, `mirror.ctan.org`) |
+| `lean` | Lean | Lean community (`leanprover-community.github.io`, `lake`) |
+| `terraform` | Terraform | HashiCorp registry (`registry.terraform.io`, `releases.hashicorp.com`) |
 | `playwright` | Any | Playwright browser automation (`playwright.azureedge.net`, etc.) |
+| `chrome` | Any | Headless Chrome/Puppeteer browser testing (`*.google.com`, `*.googleapis.com`, `*.gvt1.com`) |
 
 **Network Inference Rule:** When a workflow will run `dotnet restore`, `pip install`, `npm install`, `go mod download`, `mvn install`, etc., infer the ecosystem from the repository language and include it. Examples:
 
