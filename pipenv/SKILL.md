@@ -44,6 +44,7 @@ Use this skill for managing Python project environments and dependencies through
 - **Generate SBOM**: `syft scan Pipfile.lock -o spdx-json > sbom.json` (Requires `syft` and `sbom` skill).
 - **List installed packages**: `pipenv graph`
 - **Show environment info**: `pipenv --venv`
+- **Usage and examples**: `pipenv --help`
 
 ## Diagnostics and Troubleshooting
 
