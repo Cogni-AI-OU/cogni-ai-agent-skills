@@ -215,7 +215,6 @@ Reference for GitHub Agentic Workflows frontmatter schema, engines, networking, 
 - **`features:`** - Feature flags for experimental or optional features (object)
   - Each flag is a key-value pair; boolean flags (`true`/`false`) or string values are accepted
   - Known feature flags:
-    - `copilot-requests: true` - Use GitHub Actions token for Copilot authentication instead of `COPILOT_GITHUB_TOKEN` secret. Note that `secrets.GITHUB_TOKEN` may lack required permissions for some operations (e.g., `create-agent-task`, PR reviews); in such cases, a PAT configured as `COPILOT_GITHUB_TOKEN` or `GH_AW_GITHUB_TOKEN` is required.
     - `disable-xpia-prompt: true` - Disable the built-in cross-prompt injection attack (XPIA) system prompt
     - `action-tag: "v0"` - Pin compiled action references to a specific version of the `gh-aw-actions` repository. Accepts version tags (e.g., `"v0"`, `"v1"`, `"v1.0.0"`) or a full 40-character commit SHA. When set, overrides the compiler's default action mode and resolves all action references from the external `github/gh-aw-actions` repository at the specified tag.
     - `action-mode: "script"` - Control how the compiler generates action references: `"dev"` (local paths, default), `"release"` (SHA-pinned remote), `"action"` (gh-aw-actions repo), `"script"` (direct shell calls). Can also be overridden via `--action-mode` CLI flag.
@@ -448,7 +447,7 @@ Reference for GitHub Agentic Workflows frontmatter schema, engines, networking, 
 
   - **Note**: The `version`, `model`, and `max-turns` fields have sensible defaults and can typically be omitted unless you need specific customization.
   - **`gemini` engine**: Google Gemini CLI. Requires `GEMINI_API_KEY` secret. Does not support `max-turns`, `web-fetch`, or `web-search`. Supports AWF firewall and LLM gateway.
-  - **`opencode` engine** (experimental): Provider-agnostic, open-source AI coding agent (BYOK). Defaults to Copilot routing via `COPILOT_GITHUB_TOKEN` (or `${{ github.token }}` with `copilot-requests` feature). Supports 75+ models via `provider/model` format. Supports AWF firewall and LLM gateway.
+  - **`opencode` engine** (experimental): Provider-agnostic, open-source AI coding agent (BYOK). Defaults to Copilot routing via `COPILOT_GITHUB_TOKEN`. Supports 75+ models via `provider/model` format. Supports AWF firewall and LLM gateway.
 
 - **`network:`** - Network access control for AI engines (top-level field)
   - String format: `"defaults"` (curated allow-list of development domains)
