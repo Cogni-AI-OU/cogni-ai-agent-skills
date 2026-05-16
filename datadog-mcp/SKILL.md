@@ -70,4 +70,3 @@ check the full list of scopes (Datadog Role Permissions) and report to the user.
 
 - **datadog-agent**: Use when installing, configuring, or updating Datadog Agent.
 - **datadog-api**: Execute raw Datadog API requests. Fallback when MCP lacks a specific capability or for administrative actions.
-- **datadog-pulumi**: Manage Datadog monitors and resources via IaC.

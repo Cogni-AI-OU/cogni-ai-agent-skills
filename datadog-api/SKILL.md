@@ -73,10 +73,8 @@ curl -s -X GET "https://api.datadoghq.com/api/v1/monitor/<monitor_id>" \
 ## Limitations
 
 - The agent context window can be easily overwhelmed by full dashboard JSONs. Always filter the response with `jq` when possible.
-- For retrieving telemetry (logs, metrics, traces, monitors), **always prefer `datadog-mcp`** over raw API calls if the Datadog MCP server is available, as it is specifically designed to optimize data size for the agent's context window.
+- For retrieving telemetry (logs, metrics, traces, monitors), **always prefer optimized MCP-based tools** over raw API calls if available, as they are specifically designed to optimize data size for the agent's context window.
 
 ## Related Skills
 
-- **datadog-mcp**: Query observability telemetry via the Datadog MCP server. Preferred over `datadog-api` for reading standard telemetry.
 - **datadog-agent**: Configure the Datadog Agent for metric and log collection.
-- **datadog-pulumi**: Manage Datadog monitors and resources via IaC.
