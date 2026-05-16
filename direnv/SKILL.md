@@ -30,14 +30,13 @@ eval "$(direnv export bash)"
 
 ### Full Workflow Example
 
-Example usage for maintaining credentials and running commands from a subdirectory (e.g., `pulumi/datadog`):
+Example usage for maintaining credentials and running commands from a subdirectory:
 
 ```bash
 cp ../../.env.example ../../.env
 # Edit ../../.env and set real values using file editing tools
 direnv allow ../../
 eval "$(direnv export bash)"
-pulumi stack init prod-eu
 ```
 
 ## What to Avoid
