@@ -55,5 +55,5 @@ Execute, inspect, and manage Docker containers, images, and network components d
 
 - **shell**:
   You MUST load this skill when handling shell commands with performance monitoring or timeouts.
-- **cat**:
-  You MUST load this skill when reading or writing Dockerfiles inline.
+- **dockerfile**:
+  You MUST load this skill when writing, reviewing, or optimizing Dockerfiles.

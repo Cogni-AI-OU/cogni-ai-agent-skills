@@ -72,3 +72,8 @@ Create and maintain highly optimized, secure, and minimal Dockerfiles. Focus on 
 - **Avoid Shell Form**: Do not write `ENTRYPOINT npm start`. Using shell form spawns a `/bin/sh` wrapper, breaking signal propagation.
 - **Avoid Build Tools in Runtime**: Never ship `gcc`, `make`, or similar tools in the final image.
 - **Avoid Baked Secrets**: Never embed credentials using `ENV` or `COPY`. Use `--mount=type=secret` during build or inject at runtime.
+
+## Related Skills
+
+- **docker**:
+  You MUST load this skill when running, managing, or troubleshooting Docker containers and networks.
