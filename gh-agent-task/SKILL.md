@@ -66,6 +66,10 @@ Show agent session logs:
 
 - The `gh agent-task` commands are currently in preview and subject to change.
 
+## References
+
+- [gh agent-task manual](https://cli.github.com/manual/gh_agent-task)
+
 ## Related Skills
 
 - **gh**: Use for general GitHub CLI operations.
