@@ -51,7 +51,7 @@ Create and maintain highly optimized, secure, and minimal Dockerfiles. Focus on 
 - **Discovering Real-World Usage**:
   Use `gh search` to surface advanced Dockerfile patterns and community best practices directly from GitHub:
   - Find multi-stage architecture examples:
-    `gh search code "FROM * AS" --filename="Dockerfile" --limit 5 --json repository,path,url`
+    `gh search code '/FROM[[:space:]]+[^[:space:]]+[[:space:]]+AS[[:space:]]+/' --filename="Dockerfile" --limit 5 --json repository,path,url`
   - Locate top-rated repository templates and guides:
     `gh search repos "Dockerfile best practices" --limit 5 --json fullName,description,url`
 
