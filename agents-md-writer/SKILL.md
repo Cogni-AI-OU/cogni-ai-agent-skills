@@ -34,6 +34,9 @@ AGENTS.md is a simple, open format for guiding coding agents.
 - **Avoid Hardcoding**: Never embed specific values, file paths, repository names, user details, job IDs, or tool versions when giving examples; instead, use clear placeholders (e.g., `<repository-name>`, `<file-path>`, `<job-id>`, `<version>`).
 - **Structural Strictness**: You must always format `AGENTS.md` files according to the canonical `AGENTS.md` structure.
 - **Living Documentation**: Treat `AGENTS.md` as living documentation.
+- **Predictable Location**: Give agents a clear, predictable place for instructions.
+- **Concise READMEs**: Keep READMEs concise and focused on human contributors.
+- **Agent-Focused Guidance**: Provide precise, agent-focused guidance that complements existing README and docs.
 
 ## Expected AGENTS.md Structure
 
