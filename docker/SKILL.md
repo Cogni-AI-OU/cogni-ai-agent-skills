@@ -12,7 +12,7 @@ Execute, inspect, and manage Docker containers, images, and network components d
 ## Core Principles
 
 - **Non-Interactive Execution**: Never use `-it` or interactive pseudo-TTY modes when executing container commands autonomously. Always run in detached (`-d`) or batch execution modes.
-- **Resource Cleanup**: Always use `--rm` for ephemeral run commands to prevent container accumulation. Clean up unused images and volumes regularly using `docker system prune`.
+- **Resource Cleanup**: Always use `--rm` for ephemeral run commands to prevent container accumulation. Clean up unused images regularly using `docker system prune`, and prune unused volumes with `docker volume prune` or `docker system prune --volumes`.
 - **Absolute Paths for Mounts**: When binding volumes via `-v`, strictly use absolute paths (`$PWD` or full paths) rather than relative paths.
 - **JSON Formatting**: When querying for container state or image details, prefer structured output (`--format '{{json .}}'`) for robust parsing.
 
