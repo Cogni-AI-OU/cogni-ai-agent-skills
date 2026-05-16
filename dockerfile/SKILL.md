@@ -32,7 +32,7 @@ Create and maintain highly optimized, secure, and minimal Dockerfiles. Focus on 
   COPY go.mod go.sum ./
   RUN go mod download
   COPY . .
-  RUN go build -o /server .
+  RUN CGO_ENABLED=0 go build -o /server .
 
   FROM gcr.io/distroless/static-debian11
   COPY --from=builder /server /server
