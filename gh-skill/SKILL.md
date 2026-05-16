@@ -72,6 +72,11 @@ Manage GitHub Copilot agent skills directly via the `gh skill` CLI command. This
 - The `gh skill` command requires GitHub CLI version 2.90.0 or later.
 - Third-party skills are not verified by GitHub and may contain malicious content; always preview.
 
+## References
+
+- [`gh_skill` documentation](https://cli.github.com/manual/gh_skill)
+- [Manage agent skills with GitHub CLI](https://github.blog/changelog/2026-04-16-manage-agent-skills-with-github-cli/)
+
 ## Related Skills
 
 - **agentskills**:
