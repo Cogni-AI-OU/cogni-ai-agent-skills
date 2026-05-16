@@ -49,6 +49,7 @@ Cogni AI capabilities loaded into the `.github/` directory.
 - **[context-aware-ops](context-aware-ops/SKILL.md)**: Intelligent resource management with size checking and filtering
 - **[critical-thinking](critical-thinking/SKILL.md)**: Engage deep analytical reasoning, deconstruct assumptions,
   apply Socratic questioning, and perform adversarial red-teaming to solve complex problems and validate architectural plans.
+- **[datadog-pulumi](datadog-pulumi/SKILL.md)**: Use when creating or debugging Datadog monitors in Pulumi YAML, especially for schema mismatches, monitor validation errors, and provider-specific field mapping.
 - **[docs-review](docs-review/SKILL.md)**: Enforce documentation quality, completeness, and mutual consistency
   across architecture, ADRs, runbooks, and code
 - **[docs-writer](docs-writer/SKILL.md)**: Create, update, and maintain documentation including Architectural Decision

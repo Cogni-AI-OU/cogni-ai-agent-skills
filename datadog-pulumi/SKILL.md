@@ -1,5 +1,5 @@
 ---
-name: pulumi-datadog
+name: datadog-pulumi
 description: >-
   Use when creating or debugging Datadog monitors in Pulumi YAML,
   especially for schema mismatches, monitor validation errors, and provider-specific field mapping.
@@ -7,7 +7,7 @@ description: >-
 
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
 
-# Pulumi Datadog
+# Datadog Pulumi
 
 Use this skill to work with Datadog API examples using Pulumi.
 
