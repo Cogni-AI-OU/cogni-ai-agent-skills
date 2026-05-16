@@ -21,8 +21,8 @@ Create, update, and maintain robust `devcontainer.json` configurations and assoc
 - **Features over Dockerfiles**: Prefer standardized Dev Container features (e.g., `ghcr.io/devcontainers/features/python:1`) instead of custom `RUN apt-get...` in Dockerfiles for better caching and modularity.
 - **Lifecycle Script Separation**:
   - `onCreateCommand`: Background OS-level updates, `apt-get`, or `pipx` installations (runs once when container is created).
-  - `updateContentCommand`: Installing project-level dependencies like `npm install` or `pip install -r requirements.txt` (runs when workspace content is available).
-  - `postCreateCommand`: Foreground commands like `pre-commit install` or starting background services.
+  - `updateContentCommand`: Background OS-level or build-time setups that run after the workspace is mounted.
+  - `postCreateCommand`: Installing project-level dependencies like `npm install` or `pip install -r requirements.txt` and foreground commands like `pre-commit install` (ensures full workspace availability; `updateContentCommand` can sometimes execute too early).
 - **Root vs RemoteUser**: Execute system installs as `root` (e.g., using `sudo` if `remoteUser` is `vscode`) and user installs (e.g., Python packages) as the `remoteUser`.
 - **Reproducibility**: Pin feature versions and base image tags (e.g., `:jammy` instead of `:latest`).
 
@@ -32,6 +32,7 @@ Create, update, and maintain robust `devcontainer.json` configurations and assoc
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
 // README at: https://github.com/devcontainers/templates/tree/main/src/ubuntu
 {
+  "name": "Dev Container",
   // "build": {
   //   "dockerfile": "Dockerfile",
   //   // Update 'VARIANT' to pick an Ubuntu version: jammy / ubuntu-22.04, focal / ubuntu-20.04, bionic / ubuntu-18.04
@@ -53,7 +54,11 @@ Create, update, and maintain robust `devcontainer.json` configurations and assoc
         "vscodevim.vim",
         "vsls-contrib.codetour",
         "xaver.clang-format"
-      ]
+      ],
+      "settings": {
+        "editor.formatOnSave": true,
+        "python.defaultInterpreterPath": "/usr/local/bin/python"
+      }
     }
   },
   // Features to add to the dev container. More info: https://containers.dev/features.
@@ -82,12 +87,12 @@ Create, update, and maintain robust `devcontainer.json` configurations and assoc
   // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
   "image": "mcr.microsoft.com/devcontainers/base:jammy",
 
-  "postCreateCommand": "time pip install -r .devcontainer/requirements.txt && time pipx install --include-deps --force ansible && time pipx inject ansible -r .devcontainer/requirements-ansible.txt && time pre-commit install",
+  "postCreateCommand": "pip install -r requirements.txt || npm install || true",
 
   // Comment out to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
   "remoteUser": "vscode",
   // Note: Python dependencies can be added in the `requirements.txt` file.
-  "onCreateCommand": "sudo apt-get update && xargs -a .devcontainer/apt-packages.txt sudo apt-get install -y"
+  "onCreateCommand": "sudo apt-get update && if [ -f .devcontainer/apt-packages.txt ]; then xargs -a .devcontainer/apt-packages.txt sudo apt-get install -y; fi"
 }
 ```
 
@@ -104,5 +109,5 @@ Create, update, and maintain robust `devcontainer.json` configurations and assoc
 
 ## Related Skills
 
-- **json**: You MUST load this skill when formatting or linting `devcontainer.json` files.
-- **docker**: You MUST load this skill when creating or modifying custom `Dockerfile` or `docker-compose.yml` configurations for the devcontainer.
+- **yaml**: You MUST load this skill when formatting or linting YAML configurations related to devcontainers.
+- **pre-commit**: You MUST load this skill when configuring pre-commit hooks in the devcontainer.
