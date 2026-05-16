@@ -171,8 +171,7 @@ and planned work into the current context.
 - **[pipenv](pipenv/SKILL.md)**: Manage Python project dependencies, virtual environments, and security using the
   pipenv CLI.
   You MUST load this skill when using pipenv to manage environments or dependencies.
-- **[pipfile](pipfile/SKILL.md)**: Create, update, and manage Python project dependencies via Pipfile and Pipfile.lock
-  using pipenv.
+- **[pipfile](pipfile/SKILL.md)**: Create, update, and manage Python project dependencies via Pipfile and Pipfile.lock.
   You MUST load this skill when creating or updating Pipfile or Pipfile.lock.
 - **[pre-commit](pre-commit/SKILL.md)**: Using pre-commit to validate code formatting, linting, and security checks.
   You MUST load this skill when using pre-commit hooks for validation.

@@ -41,6 +41,7 @@ Use this skill for managing Python project environments and dependencies through
 - **Install from lockfile**: `pipenv sync` (or `pipenv install --deploy` for CI/CD environments)
 - **Uninstall a dependency**: `pipenv uninstall <package>`
 - **Check for vulnerabilities**: `pipenv check` (Note: Treat this as one layer of security, not a complete supply-chain safeguard).
+- **Generate SBOM**: `syft scan Pipfile.lock -o spdx-json > sbom.json` (Requires `syft` and `sbom` skill).
 - **List installed packages**: `pipenv graph`
 - **Show environment info**: `pipenv --venv`
 
