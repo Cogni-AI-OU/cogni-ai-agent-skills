@@ -26,9 +26,6 @@ and planned work into the current context.
 - **[agents-md-writer](agents-md-writer/SKILL.md)**: Autonomous documentation editor responsible for creating,
   updating, and maintaining AGENTS.md files strictly adhering to the organizational baseline structure.
   You MUST load this skill when creating or updating AGENTS.md files.
-- **[agentskills](agentskills/SKILL.md)**: Provide expert-level guidance on creating, locating, and installing
-  Agent Skills in project-specific or personal directories, and using the `gh skill` CLI for management.
-  You MUST load this skill when creating, installing, or managing Agent Skills.
 - **[ansible](ansible/SKILL.md)**: How to run and manage Ansible operations safely and prevent hangs.
   You MUST load this skill when working with the `ansible` command.
 - **[brainstorm](brainstorm/SKILL.md)**: Activate brainstorming protocol to explore options, research, deconstruct
@@ -131,9 +128,10 @@ and planned work into the current context.
 - **[gh-search](gh-search/SKILL.md)**: GitHub CLI (`gh search`) operations for searching code, commits, issues,
   pull requests, and repositories with structured JSON output.
   You MUST load this skill when working with the `gh search` command.
-- **[gh-skill](gh-skill/SKILL.md)**: GitHub CLI (`gh skill`) operations for searching, previewing, installing,
-  updating, and publishing Copilot agent skills.
-  You MUST load this skill when working with the `gh skill` command.
+- **[gh-skill](gh-skill/SKILL.md)**: Provide expert-level guidance on the Agent Skills open standard and
+  GitHub CLI (`gh skill`) operations for searching, previewing, installing, updating, and publishing
+  Copilot agent skills.
+  You MUST load this skill when creating, installing, or managing Agent Skills.
 - **[git](git/SKILL.md)**: Guide for using git with non-interactive, safe operations.
   You MUST load this skill when performing standard git operations.
 - **[git-expert](git-expert/SKILL.md)**: Advanced Git operations including reflog recovery,
