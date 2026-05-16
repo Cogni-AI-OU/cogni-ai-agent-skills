@@ -33,6 +33,7 @@ AGENTS.md is a simple, open format for guiding coding agents.
 - **No Duplication**: NEVER duplicate code-level comments or obvious steps.
 - **Avoid Hardcoding**: Never embed specific values, file paths, repository names, user details, job IDs, or tool versions when giving examples; instead, use clear placeholders (e.g., `<repository-name>`, `<file-path>`, `<job-id>`, `<version>`).
 - **Structural Strictness**: You must always format `AGENTS.md` files according to the canonical `AGENTS.md` structure.
+- **Living Documentation**: Treat `AGENTS.md` as living documentation.
 
 ## Expected AGENTS.md Structure
 
