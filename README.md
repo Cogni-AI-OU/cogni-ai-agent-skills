@@ -52,7 +52,8 @@ Cogni AI capabilities loaded into the `.github/` directory.
 - **[datadog-mcp](datadog-mcp/SKILL.md)**: Query observability data via Datadog MCP,
   selecting minimal toolsets
   to optimize context window and scope.
-- **[datadog-pulumi](datadog-pulumi/SKILL.md)**: Use when creating or debugging Datadog monitors in Pulumi YAML, especially for schema mismatches, monitor validation errors, and provider-specific field mapping.
+- **[datadog-pulumi](datadog-pulumi/SKILL.md)**: Use when creating or debugging Datadog monitors in Pulumi YAML,
+  especially for schema mismatches, monitor validation errors, and provider-specific field mapping.
 - **[docs-review](docs-review/SKILL.md)**: Enforce documentation quality, completeness, and mutual consistency
   across architecture, ADRs, runbooks, and code
 - **[docs-writer](docs-writer/SKILL.md)**: Create, update, and maintain documentation including Architectural Decision

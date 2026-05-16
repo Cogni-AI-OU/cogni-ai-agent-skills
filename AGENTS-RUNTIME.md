@@ -60,9 +60,11 @@ and planned work into the current context.
 - **[datadog-mcp](datadog-mcp/SKILL.md)**: Query observability data via Datadog MCP, selecting minimal toolsets
   to optimize context window and scope.
   You MUST load this skill when a task needs Datadog telemetry analysis through MCP tools.
-- **[datadog-pulumi](datadog-pulumi/SKILL.md)**: Use when creating or debugging Datadog monitors in Pulumi YAML, especially for schema mismatches, monitor validation errors, and provider-specific field mapping.
+- **[datadog-pulumi](datadog-pulumi/SKILL.md)**: Use when creating or debugging Datadog monitors in Pulumi YAML,
+  especially for schema mismatches, monitor validation errors, and provider-specific field mapping.
   You MUST load this skill when working with Datadog monitors in Pulumi YAML.
-- **[dictation](dictation/SKILL.md)**: Apply dictation correction protocols to fix common speech-to-text errors and improve text clarity.
+- **[dictation](dictation/SKILL.md)**: Apply dictation correction protocols to fix common speech-to-text errors and
+  improve text clarity.
   You MUST load this skill when fixing dictation or speech-to-text input.
 - **[docs-review](docs-review/SKILL.md)**:
   Enforce documentation quality, completeness, and mutual consistency across architecture, ADRs, runbooks, and code.
