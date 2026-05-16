@@ -13,11 +13,16 @@ Use this skill for managing Python project dependencies through `Pipfile` and `P
 ## Core Process
 
 1. **Initialization**: Create a `Pipfile` if none exists by installing packages or using `pipenv install`.
-   **Crucial**: Once a `Pipfile` is created, you MUST create a `README.md` in the project root detailing how to use the environment (e.g., `pipenv install`, `pipenv shell`).
+   **Crucial**: Once a `Pipfile` is created, you MUST create a `README.md` in the project root detailing how to use the environment
+   (e.g., `pipenv install`, `pipenv shell`).
 2. **Adding Dependencies**: Use `pipenv install <package>` for production or `pipenv install --dev <package>` for development dependencies.
 3. **Locking**: Run `pipenv lock` to deterministically pin dependencies into `Pipfile.lock`.
 4. **Testing**: Execute tests within the environment using `pipenv run <test-command>` (e.g., `pipenv run pytest`).
-5. **Execution**: Use `pipenv run <command>` to execute code within the isolated virtual environment. As an automated agent, you MUST NOT run `pipenv shell`. `pipenv shell` spawns an interactive subshell environment meant for humans. Since you cannot interact with a nested interactive prompt, the terminal simply stalls waiting for human input until `exit` is typed. For automated environments, it is always better to prefix the command with `pipenv run`.
+5. **Execution**:
+   Use `pipenv run <command>` to execute code within the isolated virtual environment.
+   As an automated agent, you MUST NOT run `pipenv shell`. `pipenv shell` spawns an interactive subshell environment meant for humans.
+   Since you cannot interact with a nested interactive prompt, the terminal simply stalls waiting for human input until `exit` is typed.
+   For automated environments, it is always better to prefix the command with `pipenv run`.
 
 ## Core Principles
 
