@@ -63,6 +63,7 @@ Manage GitHub Copilot agent skills directly via the `gh skill` CLI command.
 
 ## References
 
+- [gh skill - manual](https://cli.github.com/manual/gh_skill)
 - [Manage agent skills with GitHub CLI](https://github.blog/changelog/2026-04-16-manage-agent-skills-with-github-cli/)
 
 ## Related Skills
