@@ -1,19 +1,19 @@
 ---
-name: pipfile
+name: pipenv
 description: >-
-  Create, update, and manage Python project dependencies via Pipfile and Pipfile.lock using pipenv.
-  This skill MUST be loaded when creating/updating Pipfile or Pipfile.lock.
+  Manage Python project dependencies, virtual environments, and security using the pipenv CLI.
+  This skill MUST be loaded when using pipenv to manage environments or dependencies.
 ---
-# pipfile
+# pipenv
 
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
 
-Use this skill for managing Python project dependencies through `Pipfile` and `Pipfile.lock` utilizing the `pipenv` tool.
+Use this skill for managing Python project environments and dependencies through the `pipenv` CLI tool.
 
 ## Core Process
 
-1. **Initialization**: Create a `Pipfile` if none exists by installing packages or using `pipenv install`.
-   **Crucial**: Once a `Pipfile` is created, you MUST create a `README.md` in the project root detailing how to use the environment
+1. **Initialization**: Create a new environment and `Pipfile` if none exists using `pipenv install`.
+   **Crucial**: Once an environment is created, you MUST create a `README.md` in the project root detailing how to use the environment
    (e.g., `pipenv install`, `pipenv run <command>`).
 2. **Adding Dependencies**: Use `pipenv install <package>` for production or `pipenv install --dev <package>` for development dependencies.
 3. **Locking**: Run `pipenv lock` to deterministically pin dependencies into `Pipfile.lock`.
@@ -28,7 +28,6 @@ Use this skill for managing Python project dependencies through `Pipfile` and `P
 
 - **Deterministic Environments**: Rely on `Pipfile.lock` to guarantee exact versions and hashes. Never edit `Pipfile.lock` manually.
 - **Group Separation**: Strictly separate production (`[packages]`) and development (`[dev-packages]`) dependencies.
-- **TOML Compliance**: Manually editing the `Pipfile` is allowed but must adhere strictly to standard TOML syntax. Prefer CLI commands over manual edits when possible.
 - **Security-First**: Utilize `Pipfile.lock`'s stored hashes to prevent supply-chain attacks. Regularly run vulnerability scans.
 - **CI/CD Invariance**: Use `--deploy` to ensure `Pipfile.lock` is up-to-date and fails if not. Use `--system` when running in Docker containers.
 
@@ -42,7 +41,8 @@ Use this skill for managing Python project dependencies through `Pipfile` and `P
 - **Install from lockfile**: `pipenv sync` (or `pipenv install --deploy` for CI/CD environments)
 - **Uninstall a dependency**: `pipenv uninstall <package>`
 - **Check for vulnerabilities**: `pipenv check` (Note: Treat this as one layer of security, not a complete supply-chain safeguard).
-- **Generate SBOM**: `syft scan Pipfile.lock -o spdx-json > sbom.json` (Requires `syft` and `sbom` skill).
+- **List installed packages**: `pipenv graph`
+- **Show environment info**: `pipenv --venv`
 
 ## Diagnostics and Troubleshooting
 
@@ -65,5 +65,7 @@ Use this skill for managing Python project dependencies through `Pipfile` and `P
 
 ## Related Skills
 
+- **pipfile**:
+  You MUST load this skill when dealing specifically with Pipfile or Pipfile.lock content.
 - **python**:
   You MUST load this skill when dealing with Python code execution, debugging, or log processing.
