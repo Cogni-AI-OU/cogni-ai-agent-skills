@@ -21,7 +21,7 @@ Diagnose, troubleshoot, and fix failing GitHub Agentic Workflows by analyzing lo
 5. **Identify Root Cause**: Determine if the failure is due to missing `tools`, incorrect `permissions`, `mcp-scripts` mismatches, or `safe-outputs` configuration errors.
 6. **Verify Configuration**: Run `gh aw mcp inspect <workflow-name>` to check active MCP server settings and toolsets.
 7. **Apply Fix**: Update the workflow's YAML frontmatter or prompt instructions.
-8. **Recompile & Test**: Run `gh aw compile <workflow-name>.md` and trigger a run with `gh aw run <workflow-name>` to verify the fix.
+8. **Recompile & Test**: Run `gh aw compile <workflow-name>` and trigger a run with `gh aw run <workflow-name>` to verify the fix.
 
 ## Key Commands
 
