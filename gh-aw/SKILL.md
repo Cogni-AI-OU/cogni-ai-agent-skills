@@ -20,7 +20,7 @@ gh extension install github/gh-aw
 ```
 
 If `gh extension install` is unavailable or fails (e.g., in environments
-without GitHub CLI extension support), you can download and run the 
+without GitHub CLI extension support), you can download and run the
 installation script:
 
 ```bash
