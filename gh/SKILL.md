@@ -341,16 +341,6 @@ mindmap
   `gh api graphql -f query='mutation($body: String!) { ... }' -F body=@file.md`
 - For non-code-change tasks, verify workspace cleanliness after posting.
 
-## Agent Skills (gh skill)
-
-Use `gh skill` (requires GitHub CLI v2.90.0+) to discover, install, update, and publish agent skills from GitHub repositories.
-
-- **Search:** `gh skill search <topic>` to find skills across GitHub by topic.
-- **Preview:** `gh skill preview <owner>/<repo> <skill>` (always inspect contents before installing to verify safety).
-- **Install:** `gh skill install <owner>/<repo> <skill> [@<tag>|@<sha>|--pin <version>]`
-- **Update:** `gh skill update [<skill>|--all]`
-- **Awesome Copilot Skills:** To search for curated Awesome Copilot skills, run `gh skill install github/awesome-copilot` for an interactive browsing and installation flow, or view the directory at <https://awesome-copilot.github.com/skills/>. To install a specific skill directly, use `gh skill install github/awesome-copilot <skill-name>`.
-
 ## GitHub Actions Runtime
 
 For high-level routing guidance, response detection, workspace invariants, and branch sync policies
@@ -412,9 +402,3 @@ in GitHub Actions, refer to the **github-issue** and **github-pr** skills.
   You MUST load this skill when working with changes associated with a pull request or when the runtime was triggered by a PR comment.
 - **github-topics**:
   You MUST load this skill when searching for relevant tools, libraries, or curated resources.
-
-## References
-
-- <https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/add-skills>
-- <https://awesome-copilot.github.com/skills/>
-- https://awesome-copilot.github.com/skills/.

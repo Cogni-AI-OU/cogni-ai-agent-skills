@@ -46,6 +46,10 @@ Manage GitHub Copilot agent skills directly via the `gh skill` CLI command. This
   `gh skill publish` (Validates against spec and checks security settings)
   `gh skill publish --fix` (Auto-fixes metadata issues)
 
+## Awesome Copilot Skills
+
+To search for curated Awesome Copilot skills, run `gh skill install github/awesome-copilot` for an interactive browsing and installation flow, or view the directory at <https://awesome-copilot.github.com/skills/>. To install a specific skill directly, use `gh skill install github/awesome-copilot <skill-name>`.
+
 ## Supported Agent Hosts
 
 | Host | Agent Flag (`--agent`) |
@@ -76,8 +80,10 @@ Manage GitHub Copilot agent skills directly via the `gh skill` CLI command. This
 
 ## References
 
-- [`gh_skill` documentation](https://cli.github.com/manual/gh_skill)
 - [Manage agent skills with GitHub CLI](https://github.blog/changelog/2026-04-16-manage-agent-skills-with-github-cli/)
+- [Add skills to Copilot](https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/add-skills)
+- [Awesome Copilot Skills Directory](https://awesome-copilot.github.com/skills/)
+- [`gh skill` manual](https://cli.github.com/manual/gh_skill)
 
 ## Related Skills
 
