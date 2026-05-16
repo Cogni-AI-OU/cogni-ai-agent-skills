@@ -11,30 +11,44 @@ Manage GitHub Copilot agent skills directly via the `gh skill` CLI command.
 
 - **Non-Interactive Execution**: Always use specific arguments or non-interactive flags (`--all`, `--dry-run`) when running `gh skill` commands to avoid stalling the agent with interactive prompts.
 - **Pre-flight Inspection**: Always inspect third-party skills using `gh skill preview` before installing to verify content safety and avoid malicious instructions or scripts.
-- **Explicit Versioning**: Pin skills to specific versions (`@vX.Y.Z` or `--pin`) in production or shared environments to maintain deterministic behavior and prevent unexpected updates.
+- **Supply Chain Integrity**: Prefer pinning skills to specific tags or commit SHAs to ensure deterministic behavior. `gh skill` uses content-addressed change detection (git tree SHAs) to detect real content changes during updates.
+- **Portable Provenance**: When installing, `gh skill` writes tracking metadata (repository, ref, tree SHA) directly into the `SKILL.md` frontmatter, allowing agents and users to track changes even if files are moved.
 
 ## Commands / Usage Patterns
 
 - **Search Skills**:
   `gh skill search <topic>`
+- **Browse Repository Skills**:
+  `gh skill install <owner>/<repository>`
 - **Preview a Skill**:
   `gh skill preview <owner>/<repository> <skill-name>`
 - **Install a Skill**:
   `gh skill install <owner>/<repository> <skill-name>`
-- **Install a Specific Version**:
-  `gh skill install <owner>/<repository> <skill-name>@<version>`
-- **Install and Pin a Skill**:
-  `gh skill install <owner>/<repository> <skill-name> --pin <version>`
+- **Install Specific Version/SHA**:
+  `gh skill install <owner>/<repository> <skill-name>@v1.2.0`
+  `gh skill install <owner>/<repository> <skill-name>@abc123def`
+- **Install and Pin**:
+  `gh skill install <owner>/<repository> <skill-name> --pin v1.2.0`
+  `gh skill install <owner>/<repository> <skill-name> --pin abc123def`
 - **Install for Specific Agent/Scope**:
-  `gh skill install <owner>/<repository> <skill-name> --agent <agent-name> --scope <scope-name>`
-- **Update a Specific Skill**:
+  `gh skill install <owner>/<repository> <skill-name> --agent claude-code --scope user`
+- **Update Skills**:
   `gh skill update <skill-name>`
-- **Update All Skills (Non-Interactive)**:
-  `gh skill update --all`
-- **Validate Skill for Publishing (Dry Run)**:
-  `gh skill publish --dry-run`
-- **Auto-Fix Skill Metadata**:
-  `gh skill publish --fix`
+  `gh skill update --all` (Non-interactive)
+- **Publish/Validate Skills**:
+  `gh skill publish` (Validates against spec, checks security settings, and offers to enable immutable releases)
+  `gh skill publish --fix` (Auto-fixes metadata issues)
+
+## Supported Agent Hosts
+
+| Host | Agent Flag (`--agent`) |
+| :--- | :--- |
+| GitHub Copilot | `copilot` (default) |
+| Claude Code | `claude-code` |
+| Cursor | `cursor` |
+| Codex | `codex` |
+| Gemini CLI | `gemini` |
+| Antigravity | `antigravity` |
 
 ## What to Avoid
 
