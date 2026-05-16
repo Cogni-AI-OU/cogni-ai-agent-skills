@@ -62,3 +62,9 @@ Use this flow when working with new Datadog resource types:
 ## Limitations
 
 - Some complex widgets and nested variables in Datadog API might have poorly mapped Pulumi YAML unions, requiring careful extraction of schemas via `jq`.
+
+## Related Skills
+
+- **datadog-api**: Useful for fetching existing monitor JSON definitions via API to compare against Pulumi schema mapping.
+- **datadog-mcp**: Query existing observability data to help design and validate monitor thresholds.
+- **datadog-agent**: Datadog Agent configuration and custom checks.

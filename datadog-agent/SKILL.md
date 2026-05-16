@@ -95,3 +95,9 @@ class CustomOpenMetricsCheck(OpenMetricsBaseCheckV2):
 from datadog_checks.base.utils.subprocess_output import get_subprocess_output
 out, err, retcode = get_subprocess_output(["ls", "."], self.log, raise_on_empty_output=True)
 ```
+
+## Related Skills
+
+- **datadog-api**: Execute raw Datadog API requests via cURL.
+- **datadog-mcp**: Query observability telemetry via the Datadog MCP server.
+- **datadog-pulumi**: Manage Datadog monitors and resources via IaC.

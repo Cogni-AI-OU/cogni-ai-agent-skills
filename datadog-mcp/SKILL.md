@@ -60,7 +60,7 @@ check the full list of scopes (Datadog Role Permissions) and report to the user.
 ## What to Avoid
 
 - Loading the `core` toolset by default when a narrow toolset (e.g., `apm` or `alerting`) is sufficient.
-- Reverting to manual Datadog UI navigation or SSH access for log/metric retrieval.
+- Reverting to manual Datadog UI navigation, SSH access, or raw `curl` requests (`datadog-api`) for standard telemetry retrieval when the MCP server is available.
 
 ## Limitations
 
@@ -68,5 +68,6 @@ check the full list of scopes (Datadog Role Permissions) and report to the user.
 
 ## Related Skills
 
-- **datadog-agent**:
-  Use when installing, configuring, or updating Datadog Agent.
+- **datadog-agent**: Use when installing, configuring, or updating Datadog Agent.
+- **datadog-api**: Execute raw Datadog API requests. Fallback when MCP lacks a specific capability or for administrative actions.
+- **datadog-pulumi**: Manage Datadog monitors and resources via IaC.
