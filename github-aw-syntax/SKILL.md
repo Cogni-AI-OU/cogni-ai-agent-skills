@@ -1,6 +1,8 @@
 ---
 name: github-aw-syntax
-description: Complete reference for GitHub Agentic Workflows (gh-aw) frontmatter schema, engine configuration, network access, tools, and imports syntax. You MUST load this skill when writing or debugging Agentic Workflow files.
+description: >-
+  Complete reference for GitHub Agentic Workflows (gh-aw) frontmatter schema, engine configuration, network access, tools, and imports syntax.
+  You MUST load this skill when writing or debugging Agentic Workflow files.
 ---
 
 # github-aw-syntax
@@ -13,7 +15,8 @@ Reference for GitHub Agentic Workflows frontmatter schema, engines, networking, 
 
 - **No Write Permissions in Main Job**: Never use `issues: write`, `pull-requests: write`, or `contents: write`. Write operations must use `safe-outputs`.
 - **Prefer `gh-proxy`**: For GitHub API tool access, use `mode: "gh-proxy"` to leverage `gh` CLI directly for reads.
-- **Narrow Bash Allowlist**: For PR-triggered workflows, restrict `bash` tools to safe commands (e.g., `[find, cat, grep, jq]`). Use `["*"]` only for trusted internal schedules.
+- **Narrow Bash Allowlist**: For PR-triggered workflows, restrict `bash` tools to safe commands (e.g., `[find, cat, grep, jq]`).
+  Use `["*"]` only for trusted internal schedules.
 - **Explicit Ecosystems**: Always specify target language ecosystems (e.g., `node`, `python`, `go`) in `network.allowed` alongside `defaults` to prevent package manager blocks.
 
 ### Core GitHub Actions Fields
@@ -22,10 +25,14 @@ Reference for GitHub Agentic Workflows frontmatter schema, engines, networking, 
   - String: `"push"`, `"issues"`, etc.
   - Object: Complex trigger configuration
   - Special: `slash_command:` for /mention triggers
-  - **`forks:`** - Fork allowlist for `pull_request` triggers (array or string). By default, workflows block all forks and only allow same-repo PRs. Use `["*"]` to allow all forks, or specify patterns like `["org/*", "user/repo"]`
-  - **`stop-after:`** - Can be included in the `on:` object to set a deadline for workflow execution. Supports absolute timestamps ("YYYY-MM-DD HH:MM:SS") or relative time deltas (+25h, +3d, +1d12h). The minimum unit for relative deltas is hours (h). Uses precise date calculations that account for varying month lengths.
+  - **`forks:`** - Fork allowlist for `pull_request` triggers (array or string). By default, workflows block all forks and only allow same-repo PRs.
+    Use `["*"]` to allow all forks, or specify patterns like `["org/*", "user/repo"]`
+  - **`stop-after:`** - Can be included in the `on:` object to set a deadline for workflow execution.
+    Supports absolute timestamps ("YYYY-MM-DD HH:MM:SS") or relative time deltas (+25h, +3d, +1d12h). The minimum unit for relative deltas is hours (h).
+    Uses precise date calculations that account for varying month lengths.
   - **`reaction:`** - Add emoji reactions to triggering items
-  - **`status-comment:`** - Post status comments when workflow starts/completes (boolean). Defaults to `true` for `slash_command` and `label_command` triggers; defaults to `false` for all other triggers. Must be explicitly enabled for non-command triggers with `status-comment: true`.
+  - **`status-comment:`** - Post status comments when workflow starts/completes (boolean). Defaults to `true` for `slash_command` and `label_command` triggers;
+    defaults to `false` for all other triggers. Must be explicitly enabled for non-command triggers with `status-comment: true`.
   - **`manual-approval:`** - Require manual approval using environment protection rules
   - **`skip-roles:`** - Skip workflow execution for users with specific repository roles (array)
     - Available roles: `admin`, `maintainer`, `write`, `read`
@@ -170,7 +177,10 @@ Reference for GitHub Agentic Workflows frontmatter schema, engines, networking, 
   - Values limited to 1024 characters
   - Example: `metadata: { team: "platform", priority: "high" }`
 - **`github-token:`** - Default GitHub token for workflow (must use `${{ secrets.* }}` syntax).
-  - **Breaking Change (v0.24.0+)**: The default `secrets.GITHUB_TOKEN` fallback has been removed from Copilot-related operations (including `create-agent-task`, assigning Copilot to issues, and adding Copilot as PR reviewer) because it lacks required permissions, causing silent failures. Users must now configure a Personal Access Token (PAT) as either `COPILOT_GITHUB_TOKEN` or `GH_AW_GITHUB_TOKEN` secret. As of v0.26+, `GH_AW_COPILOT_TOKEN` is no longer supported; use `COPILOT_GITHUB_TOKEN` instead.
+  - **Breaking Change (v0.24.0+)**: The default `secrets.GITHUB_TOKEN` fallback has been removed from Copilot-related operations
+    (including `create-agent-task`, assigning Copilot to issues, and adding Copilot as PR reviewer) because it lacks required permissions,
+    causing silent failures. Users must now configure a Personal Access Token (PAT) as either `COPILOT_GITHUB_TOKEN` or `GH_AW_GITHUB_TOKEN` secret.
+    As of v0.26+, `GH_AW_COPILOT_TOKEN` is no longer supported; use `COPILOT_GITHUB_TOKEN` instead.
 - **`on.roles:`** - Repository access roles that can trigger workflow (array or "all")
   - Default: `[admin, maintainer, write]`
   - Available roles: `admin`, `maintainer`, `write`, `read`, `all`
