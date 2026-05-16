@@ -2,7 +2,7 @@
 name: direnv
 description: How to maintain credentials and authenticate using direnv without exposing secrets to the output.
 ---
-# direnv
+# Skill: direnv
 
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
 
