@@ -57,6 +57,8 @@ and planned work into the current context.
 - **[critical-thinking](critical-thinking/SKILL.md)**: Engage deep analytical reasoning, deconstruct assumptions,
   apply Socratic questioning, and perform adversarial red-teaming to solve complex problems and validate architectural plans.
   You MUST load this skill when facing challenges that require critical thinking.
+- **[datadog-api](datadog-api/SKILL.md)**: Execute Datadog API requests to fetch live objects, metrics, or monitor statuses using cURL and API keys.
+  You MUST load this skill when interacting with the Datadog API.
 - **[dictation](dictation/SKILL.md)**: Apply dictation correction protocols to fix common speech-to-text errors and improve text clarity.
   You MUST load this skill when fixing dictation or speech-to-text input.
 - **[docs-review](docs-review/SKILL.md)**:
