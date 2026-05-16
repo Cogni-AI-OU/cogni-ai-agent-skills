@@ -53,7 +53,7 @@ Create and maintain highly optimized, secure, and minimal Dockerfiles. Focus on 
   - Find multi-stage architecture examples:
     `gh search code '/FROM[[:space:]]+[^[:space:]]+[[:space:]]+AS[[:space:]]+/' --filename="Dockerfile" --limit 5 --json repository,path,url`
   - Locate top-rated repository templates and guides:
-    `gh search repos "Dockerfile best practices" --limit 5 --json fullName,description,url`
+    `gh search repos "Dockerfile best practices" --sort stars --order desc --limit 5 --json fullName,description,url`
 
 ## Diagnostics and Troubleshooting
 
