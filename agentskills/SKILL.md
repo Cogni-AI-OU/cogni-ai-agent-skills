@@ -52,6 +52,9 @@ Each skill must contain a `SKILL.md` file with:
 ## References
 
 - [Agent Skills Open Standard](https://github.com/agentskills/agentskills)
+- [Documentation](https://agentskills.io) — Guides and tutorials
+- [Specification](https://agentskills.io/specification) — Format details
+- [Example Skills](https://github.com/anthropics/skills) — See what's possible
 - [SKILL.md Specification](https://agents.md/)
 
 ## Related Skills
