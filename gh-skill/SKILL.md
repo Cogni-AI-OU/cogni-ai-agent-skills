@@ -81,7 +81,5 @@ Manage GitHub Copilot agent skills directly via the `gh skill` CLI command. This
 
 - **agentskills**:
   You MUST load this skill for deep understanding of the Agent Skills open standard and manual skill creation.
-- **gh**:
-  You MUST load this skill for general GitHub CLI operations.
 - **skill-writer**:
   You MUST load this skill when developing new skills to be published via `gh skill`.
