@@ -15,6 +15,10 @@ The Agent Skills open standard provides a framework for structuring and specifyi
 - **Pre-flight Inspection**: Always inspect third-party skills before installing to verify content safety and avoid malicious instructions or scripts.
 - **Supply Chain Integrity**: Prefer pinning skills to specific tags or commit SHAs to ensure deterministic behavior.
 - **Portable Provenance**: Skills should include tracking metadata (repository, ref, tree SHA) in the `SKILL.md` frontmatter to allow tracking even if files are moved.
+- **Progressive Disclosure**: Structure skills so detail is loaded only as needed:
+  1. **Metadata** (~100 tokens): `name` and `description` are loaded at startup.
+  2. **Instructions** (< 5000 tokens): `SKILL.md` body is loaded when the skill is activated.
+  3. **Resources** (as needed): Scripts, references, or assets are loaded only when required.
 
 ## Core Process (Manual Creation)
 
@@ -27,12 +31,43 @@ The Agent Skills open standard provides a framework for structuring and specifyi
    - Add any supporting scripts or resources within the same directory.
 3. **Verify Structure**: Ensure the `SKILL.md` follows the standard sections and style (imperative, dense, expert-level).
 
+## Directory Structure
+
+A standard skill directory should be organized as follows:
+
+```text
+skill-name/
+├── SKILL.md          # Required: metadata + instructions
+├── scripts/          # Optional: executable code (Python, Bash, JS)
+├── references/       # Optional: additional documentation
+├── assets/           # Optional: templates, resources, images
+└── ...               # Any additional files or directories
+```
+
 ## Skill Structure & Formatting
 
-Each skill must contain a `SKILL.md` file with:
-- **YAML frontmatter**: Containing `name` and `description`.
-- **Imperative Instructions**: Dense, expert-level guidance for the agent.
-- **Section Discipline**: Use standard headers like `## Core Process`, `## Core Principles`, `## What to Avoid`.
+### `SKILL.md` Frontmatter
+
+| Field | Required | Constraints |
+| :--- | :--- | :--- |
+| `name` | Yes | 1-64 chars, lowercase alphanumeric and hyphens only. No start/end hyphens. |
+| `description` | Yes | 1-1024 chars. Should describe what the skill does AND when to use it. |
+| `license` | No | License name or reference to a bundled license file. |
+| `compatibility` | No | Max 500 chars. System packages, network access needs, etc. |
+| `metadata` | No | Arbitrary key-value mapping (e.g., author, version). |
+| `allowed-tools` | No | (Experimental) Space-separated string of pre-approved tools. |
+
+### Body Content
+
+- Use imperative, dense, expert-level instructions.
+- Keep `SKILL.md` under 500 lines to preserve context window.
+- Recommended sections: step-by-step instructions, examples, edge cases.
+
+## File References
+
+- Use relative paths from the skill root (e.g., `[reference](references/REF.md)`).
+- Keep file references one level deep from `SKILL.md` if possible.
+- Avoid deeply nested reference chains.
 
 ## Directory Scopes
 
@@ -41,6 +76,14 @@ Each skill must contain a `SKILL.md` file with:
 | Project | `.github/skills/` | Single repository |
 | Personal | `~/.copilot/skills/` | User-wide (CLI) |
 | System | `/usr/share/agents/skills/` | System-wide |
+
+## Validation
+
+Use the `skills-ref` reference library to validate skills locally:
+
+```bash
+skills-ref validate ./my-skill
+```
 
 ## What to Avoid
 
