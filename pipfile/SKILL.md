@@ -17,7 +17,7 @@ Use this skill for managing Python project dependencies through `Pipfile` and `P
 2. **Adding Dependencies**: Use `pipenv install <package>` for production or `pipenv install --dev <package>` for development dependencies.
 3. **Locking**: Run `pipenv lock` to deterministically pin dependencies into `Pipfile.lock`.
 4. **Testing**: Execute tests within the environment using `pipenv run <test-command>` (e.g., `pipenv run pytest`).
-5. **Execution**: Use `pipenv run <command>` or `pipenv shell` to execute code within the isolated virtual environment.
+5. **Execution**: Use `pipenv run <command>` to execute code within the isolated virtual environment. As an automated agent, you MUST NOT run `pipenv shell`. `pipenv shell` spawns an interactive subshell environment meant for humans. Since you cannot interact with a nested interactive prompt, the terminal simply stalls waiting for human input until `exit` is typed. For automated environments, it is always better to prefix the command with `pipenv run`.
 
 ## Core Principles
 
@@ -47,6 +47,7 @@ Use this skill for managing Python project dependencies through `Pipfile` and `P
 
 ## What to Avoid
 
+- **Interactive Subshells**: As an automated agent, you MUST NOT run `pipenv shell`. It spawns an interactive subshell environment meant for humans. Since you cannot interact with a nested interactive prompt, the terminal stalls waiting for input. Always prefix commands with `pipenv run` instead.
 - **Manual Lockfile Edits**: NEVER manually edit `Pipfile.lock`. Always use `pipenv lock` to regenerate.
 - **Using requirements.txt blindly**: Migrate via `pipenv install -r requirements.txt`. If the project requires `requirements.txt` for specific deployment or legacy tooling, keep them in sync instead of abandoning it completely.
 - **Deploying without sync**: Do not use `pipenv update` or `pipenv lock` in CI/CD. Use `pipenv install --deploy` to enforce consistency.
