@@ -26,6 +26,9 @@ and planned work into the current context.
 - **[agents-md-writer](agents-md-writer/SKILL.md)**: Autonomous documentation editor responsible for creating,
   updating, and maintaining AGENTS.md files strictly adhering to the organizational baseline structure.
   You MUST load this skill when creating or updating AGENTS.md files.
+- **[agentskills](agentskills/SKILL.md)**: Provide expert-level guidance on creating, locating, and installing
+  Agent Skills in project-specific or personal directories, and using the `gh skill` CLI for management.
+  You MUST load this skill when creating, installing, or managing Agent Skills.
 - **[ansible](ansible/SKILL.md)**: How to run and manage Ansible operations safely and prevent hangs.
   You MUST load this skill when working with the `ansible` command.
 - **[brainstorm](brainstorm/SKILL.md)**: Activate brainstorming protocol to explore options, research, deconstruct

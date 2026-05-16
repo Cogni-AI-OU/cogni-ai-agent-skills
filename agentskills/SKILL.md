@@ -1,5 +1,5 @@
 ---
-name: agent-skills
+name: agentskills
 description: Provide expert-level guidance on creating, locating, and installing Agent Skills in project-specific or personal directories, and using the `gh skill` CLI for management.
 ---
 

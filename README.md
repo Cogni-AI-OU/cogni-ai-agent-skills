@@ -34,6 +34,8 @@ Cogni AI capabilities loaded into the `.github/` directory.
   logs, extracting telemetry, and generating standardized visual audit reports
 - **[agents-md-writer](agents-md-writer/SKILL.md)**: Autonomous documentation editor responsible for creating,
   updating, and maintaining AGENTS.md files strictly adhering to the organizational baseline structure
+- **[agentskills](agentskills/SKILL.md)**: Provide expert-level guidance on creating, locating, and installing
+  Agent Skills in project-specific or personal directories, and using the `gh skill` CLI for management
 - **[ansible](ansible/SKILL.md)**: How to run and manage Ansible operations safely and prevent hangs.
 - **[brainstorm](brainstorm/SKILL.md)**: Activate brainstorming protocol to explore options, research, deconstruct
   complexities, and summarize available data into simple diagrams and MiniZinc constraints.
