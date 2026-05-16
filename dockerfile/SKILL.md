@@ -59,7 +59,7 @@ Create and maintain highly optimized, secure, and minimal Dockerfiles. Focus on 
 
 - **Large Images**: Inspect layer bloat with `docker history <image>` or use `dive`. Watch for orphaned cache files.
 - **Cache Misses**: Ensure `COPY . .` is positioned as late as possible. A single modified source file busts the cache for all subsequent steps.
-- **Permission Denied**: If a non-root user fails to execute, verify ownership of `WORKDIR` and any required runtime directories using `chown` in the previous build stage.
+- **Permission Denied**: If a non-root user fails to execute, verify ownership of `WORKDIR`, copied artifacts, and required runtime directories in the final image layer, for example with `COPY --chown` or by creating and `chown`ing those directories before switching users.
 
 ## What to Avoid
 
