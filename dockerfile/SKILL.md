@@ -27,39 +27,44 @@ Create and maintain highly optimized, secure, and minimal Dockerfiles. Focus on 
 
 - **Minimal Multi-Stage Pattern**:
   ```dockerfile
-  FROM golang:1.24-alpine AS builder
+  # Use specific version and digest for deterministic builds
+  FROM golang:1.24.0-alpine3.21@sha256:e74d913cc537f546b946e685c84a98598ba93b4de1f762d0c353a4261a1d1052 AS builder
   WORKDIR /app
   COPY go.mod go.sum ./
   RUN go mod download
   COPY . .
-  RUN CGO_ENABLED=0 go build -o /server .
+  # Force static build by disabling CGO and stripping symbols
+  RUN CGO_ENABLED=0 go build -ldflags="-s -w" -o /server .
 
-  FROM gcr.io/distroless/static-debian11
+  # Use a digest-pinned nonroot distroless base for maximum security
+  FROM gcr.io/distroless/static-debian12:nonroot@sha256:e906328329624536768a49c9527ec3c3068e14e1a0b3554e2043697e88457e5e
   COPY --from=builder /server /server
   USER nonroot:nonroot
   EXPOSE 8080
   ENTRYPOINT ["/server"]
   ```
 
-- **Apt Cache Cleanup**:
+- **Deterministic Package Installation**:
   ```dockerfile
   RUN apt-get update && \
-      apt-get install -y --no-install-recommends curl jq && \
+      apt-get install -y --no-install-recommends \
+      curl=7.88.1-10+deb12u8 \
+      jq=1.6-2.1 && \
       rm -rf /var/lib/apt/lists/*
   ```
 
 - **Discovering Real-World Usage**:
   Use `gh search` to surface advanced Dockerfile patterns and community best practices directly from GitHub:
-  - Find multi-stage architecture examples:
-    `gh search code '/FROM[[:space:]]+[^[:space:]]+[[:space:]]+AS[[:space:]]+/' --filename="Dockerfile" --limit 5 --json repository,path,url`
-  - Locate top-rated repository templates and guides:
+  - Find multi-stage architecture examples (requires `AS` keyword):
+    `gh search code "FROM" "AS" --language dockerfile --limit 5 --json repository,path,url`
+  - Locate repository templates and guides (sorted by stars):
     `gh search repos "Dockerfile best practices" --sort stars --order desc --limit 5 --json fullName,description,url`
 
 ## Diagnostics and Troubleshooting
 
 - **Large Images**: Inspect layer bloat with `docker history <image>` or use `dive`. Watch for orphaned cache files.
 - **Cache Misses**: Ensure `COPY . .` is positioned as late as possible. A single modified source file busts the cache for all subsequent steps.
-- **Permission Denied**: If a non-root user fails to execute, verify ownership of `WORKDIR`, copied artifacts, and required runtime directories in the final image layer, for example with `COPY --chown` or by creating and `chown`ing those directories before switching users.
+- **Permission Denied**: If a non-root user fails to execute, verify ownership of `WORKDIR`, copied artifacts, and runtime directories. **Crucial**: Ownership must be fixed in the **final** image stage (e.g., using `COPY --chown` or `RUN chown` before switching to `USER`), as permissions set in builder stages do not persist for files copied to the final runtime image. Distroless images may require fixing ownership in the builder if the final image lacks shell tools, or ideally using `COPY --chown`.
 
 ## What to Avoid
 

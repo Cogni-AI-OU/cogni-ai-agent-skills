@@ -57,7 +57,8 @@ and planned work into the current context.
 - **[critical-thinking](critical-thinking/SKILL.md)**: Engage deep analytical reasoning, deconstruct assumptions,
   apply Socratic questioning, and perform adversarial red-teaming to solve complex problems and validate architectural plans.
   You MUST load this skill when facing challenges that require critical thinking.
-- **[datadog-api](datadog-api/SKILL.md)**: Execute Datadog API requests to fetch live objects, metrics, or monitor statuses using cURL and API keys.
+- **[datadog-api](datadog-api/SKILL.md)**: Execute Datadog API requests to fetch live objects, metrics, or
+  monitor statuses using cURL and API keys.
   You MUST load this skill when interacting with the Datadog API.
 - **[datadog-agent](datadog-agent/SKILL.md)**: Expert-level guidance for installing, configuring, and extending the
   Datadog Agent.
@@ -74,6 +75,9 @@ and planned work into the current context.
 - **[direnv](direnv/SKILL.md)**: How to maintain credentials and authenticate using direnv without exposing
   secrets to the output.
   You MUST load this skill when API keys are missing or when using direnv for environment variables.
+- **[dockerfile](dockerfile/SKILL.md)**: Write, review, and optimize Dockerfiles applying multi-stage
+  builds, non-root constraints, layer caching, and strict image pinning.
+  You MUST load this skill when writing, reviewing, or optimizing Dockerfiles.
 - **[docs-review](docs-review/SKILL.md)**:
   Enforce documentation quality, completeness, and mutual consistency across architecture, ADRs, runbooks, and code.
   You MUST load this skill when asked to review or check consistency of documentation.
