@@ -8,7 +8,7 @@ description: >-
 license: MIT
 ---
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
-# gh Skill
+# gh
 
 Use `gh` as a structured client first. Prefer native fields, explicit routing,
 and bounded fallbacks over brittle shell post-processing.
@@ -264,6 +264,8 @@ mindmap
       (Load gh-run skill if required)
     search
       (Load gh-search skill if required)
+    skill
+      (Load gh-skill skill if required; GitHub CLI version v2.90.0 or later)
     secret
       delete
         Delete secrets
@@ -390,6 +392,8 @@ in GitHub Actions, refer to the **github-issue** and **github-pr** skills.
   You MUST load this skill when working with the `gh run` and the `gh workflow` commands.
 - **gh-search**:
   You MUST load this skill when working with the `gh search` command.
+- **gh-skill**:
+  You MUST load this skill when working with the `gh skill` command.
 - **gh-models**:
   You MUST load this skill when working with the `gh models` command.
 - **github-issue**:

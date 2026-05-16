@@ -73,6 +73,10 @@ Structure the file exactly as:
 
 - The skill writer cannot test the activation triggers of the new skill in real-time; it relies on following the description precision rule to ensure proper loading.
 
+## References
+
+- [About agent skills](https://docs.github.com/en/copilot/concepts/agents/about-agent-skills)
+
 ## Related Skills
 
 - **critical-thinking**:
