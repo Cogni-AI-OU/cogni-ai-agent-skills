@@ -1,14 +1,15 @@
 ---
 name: pulumi-datadog
 description: >-
-  Use when creating or debugging Datadog monitors in Pulumi YAML, especially for schema mismatches, monitor validation errors, and provider-specific field mapping.
+  Use when creating or debugging Datadog monitors in Pulumi YAML,
+  especially for schema mismatches, monitor validation errors, and provider-specific field mapping.
 ---
 
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
 
 # Pulumi Datadog
 
-Use this skill for `pulumi/datadog` monitor work where Datadog API examples, Terraform examples, and Pulumi YAML types do not line up exactly.
+Use this skill to work with Datadog API examples using Pulumi.
 
 ## Core Process
 
