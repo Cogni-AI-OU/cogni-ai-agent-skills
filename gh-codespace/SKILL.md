@@ -89,8 +89,3 @@ mindmap
 ## References
 
 - [gh codespace manual](https://cli.github.com/manual/gh_codespace)
-
-## Related Skills
-
-- **gh**:
-  You MUST load this skill when working with the `gh` command and its subcommands.
