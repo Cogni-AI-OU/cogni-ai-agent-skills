@@ -32,7 +32,7 @@ Create, update, and maintain robust `devcontainer.json` configurations and assoc
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
 // README at: https://github.com/devcontainers/templates/tree/main/src/ubuntu
 {
-  "name": "Dev Container",
+  "name": "Dev Container (Python & Ansible)",
   // "build": {
   //   "dockerfile": "Dockerfile",
   //   // Update 'VARIANT' to pick an Ubuntu version: jammy / ubuntu-22.04, focal / ubuntu-20.04, bionic / ubuntu-18.04
