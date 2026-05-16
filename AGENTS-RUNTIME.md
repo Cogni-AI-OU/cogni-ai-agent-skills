@@ -168,6 +168,8 @@ and planned work into the current context.
   You MUST load this skill when working with OpenCode configuration or listing models.
 - **[pdf](pdf/SKILL.md)**: PDF file inspection, object-level editing, and lossless size reduction.
   You MUST load this skill when inspecting, editing, or optimizing PDF files.
+- **[pipfile](pipfile/SKILL.md)**: Create, update, and manage Python project dependencies via Pipfile and Pipfile.lock using pipenv.
+  You MUST load this skill when creating or updating Pipfile or Pipfile.lock.
 - **[pre-commit](pre-commit/SKILL.md)**: Using pre-commit to validate code formatting, linting, and security checks.
   You MUST load this skill when using pre-commit hooks for validation.
 - **[python](python/SKILL.md)**: Execute Python inline scripts via heredocs for complex log processing,

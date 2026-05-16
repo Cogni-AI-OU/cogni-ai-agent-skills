@@ -100,6 +100,7 @@ Cogni AI capabilities loaded into the `.github/` directory.
 - **[molecule](molecule/SKILL.md)**: Molecule testing workflows for Ansible roles
 - **[opencode](opencode/SKILL.md)**: Manage OpenCode configuration, credentials, and access the OpenCode Zen API
 - **[pdf](pdf/SKILL.md)**: PDF file inspection, object-level editing, and lossless size reduction
+- **[pipfile](pipfile/SKILL.md)**: Create, update, and manage Python project dependencies via Pipfile and Pipfile.lock using pipenv
 - **[pre-commit](pre-commit/SKILL.md)**: Using pre-commit to validate code formatting, linting, and security checks
 - **[python](python/SKILL.md)**: Execute Python inline scripts via heredocs for complex log processing,
   summarization, or JSON parsing

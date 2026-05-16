@@ -2,7 +2,7 @@
 name: pipfile
 description: >-
   Create, update, and manage Python project dependencies via Pipfile and Pipfile.lock using pipenv.
-  This skill MUST be loaded when creating/updating Pipefile or Pipefile.lock.
+  This skill MUST be loaded when creating/updating Pipfile or Pipfile.lock.
 ---
 # pipfile
 
