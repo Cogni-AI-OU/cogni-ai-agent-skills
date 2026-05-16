@@ -86,7 +86,7 @@ Create, update, and maintain robust `devcontainer.json` configurations and assoc
   // Comment out to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
   "remoteUser": "vscode",
   // Note: Python dependencies can be added in the `requirements.txt` file.
-  "onCreateCommand": "sudo apt update && xargs -a .devcontainer/apt-packages.txt sudo apt-get install -y"
+  "onCreateCommand": "sudo apt-get update && xargs -a .devcontainer/apt-packages.txt sudo apt-get install -y"
 }
 ```
 
