@@ -77,6 +77,16 @@ Define attributes per path to enforce line-ending conversions, custom merge driv
 CHANGELOG merge=union
 ```
 
+Another example which can be used in `.github/aw/imports/.gitattributes`:
+
+```
+# Mark all cached import files as generated
+* linguist-generated=true
+
+# Use 'ours' merge strategy to keep local cached versions
+* merge=ours
+```
+
 ## What to Avoid
 
 - **Negative Patterns**: Never use negative patterns (e.g., `!pattern`); they are explicitly forbidden in `.gitattributes`.
