@@ -66,6 +66,9 @@ and planned work into the current context.
 - **[datadog-mcp](datadog-mcp/SKILL.md)**: Query observability data via Datadog MCP, selecting minimal toolsets
   to optimize context window and scope.
   You MUST load this skill when a task needs Datadog telemetry analysis through MCP tools.
+- **[datadog-monitors](datadog-monitors/SKILL.md)**: Guidelines for designing, debugging, and troubleshooting
+  Datadog monitor queries, handling common false positives, and operational edge cases.
+  You MUST load this skill when designing, debugging, or troubleshooting Datadog monitors.
 - **[datadog-pulumi](datadog-pulumi/SKILL.md)**: Use when creating or debugging Datadog monitors in Pulumi YAML,
   especially for schema mismatches, monitor validation errors, and provider-specific field mapping.
   You MUST load this skill when working with Datadog monitors in Pulumi YAML.
