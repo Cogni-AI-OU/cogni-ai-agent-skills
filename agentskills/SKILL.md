@@ -99,6 +99,7 @@ skills-ref validate ./my-skill
 - [Specification](https://agentskills.io/specification) — Format details
 - [Example Skills](https://github.com/anthropics/skills) — See what's possible
 - [SKILL.md Specification](https://agents.md/)
+- [skills-ref - Reference library for Agent Skills](https://github.com/agentskills/agentskills/tree/main/skills-ref)
 
 ## Related Skills
 
