@@ -38,6 +38,8 @@ Manage GitHub Copilot agent skills directly via the `gh skill` CLI command.
 - **Publish/Validate Skills**:
   `gh skill publish` (Validates against spec, checks security settings, and offers to enable immutable releases)
   `gh skill publish --fix` (Auto-fixes metadata issues)
+- **Usage**:
+  Run `gh skill --help` to see all available commands.
 
 ## Supported Agent Hosts
 
@@ -63,10 +65,10 @@ Manage GitHub Copilot agent skills directly via the `gh skill` CLI command.
 
 ## References
 
-- [gh skill - manual](https://cli.github.com/manual/gh_skill)
+- [`gh_skill` documentation](https://cli.github.com/manual/gh_skill)
 - [Manage agent skills with GitHub CLI](https://github.blog/changelog/2026-04-16-manage-agent-skills-with-github-cli/)
 
 ## Related Skills
 
-- **gh**:
-  You MUST load this skill when working with the `gh` command and its subcommands.
+- **agentskills**
+  You MUST load this skill when working with specification and documentation for Agent Skills.
