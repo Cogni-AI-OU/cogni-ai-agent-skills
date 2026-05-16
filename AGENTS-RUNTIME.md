@@ -60,6 +60,9 @@ and planned work into the current context.
 - **[datadog-agent](datadog-agent/SKILL.md)**: Expert-level guidance for installing, configuring, and extending the
   Datadog Agent.
   You MUST load this skill when installing, configuring, or updating Datadog Agent.
+- **[datadog-mcp](datadog-mcp/SKILL.md)**: Query observability data via Datadog MCP, selecting minimal toolsets
+  to optimize context window and scope.
+  You MUST load this skill when a task needs Datadog telemetry analysis through MCP tools.
 - **[dictation](dictation/SKILL.md)**: Apply dictation correction protocols to fix common speech-to-text errors and improve text clarity.
   You MUST load this skill when fixing dictation or speech-to-text input.
 - **[docs-review](docs-review/SKILL.md)**:
