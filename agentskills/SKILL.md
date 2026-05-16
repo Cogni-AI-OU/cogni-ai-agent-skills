@@ -25,8 +25,8 @@ The Agent Skills open standard provides a framework for structuring and specifyi
 ## Core Process (Manual Creation)
 
 1. **Determine Scope**:
-   - **Project-specific**: Stored in `.github/skills/`, `.claude/skills/`, or `.agents/skills/`. Scope is limited to the repository.
-   - **Personal**: Stored in `~/.copilot/skills/` or `~/.agents/skills/`. Scope is global for the user's CLI environment.
+   - **Project-specific**: Stored in the shared standard `.agents/skills/`, or provider-specific locations like `.github/skills/` or `.claude/skills/`. Scope is limited to the repository.
+   - **Personal**: Stored in the shared standard `~/.agents/skills/`, or provider-specific locations like `~/.copilot/skills/`. Scope is global for the user's CLI environment.
 2. **Scaffold Skill**:
    - Create a directory named after the skill (lowercase-hyphenated).
    - Create a `SKILL.md` file with the required YAML frontmatter (`name`, `description`).
@@ -75,9 +75,17 @@ skill-name/
 
 | Level | Location | Scope |
 | :--- | :--- | :--- |
-| Project | `.github/skills/` | Single repository |
-| Personal | `~/.copilot/skills/` | User-wide (CLI) |
+| Project (Shared) | `.agents/skills/` | Single repository, portable across agents |
+| Project (Provider) | `.github/skills/`, `.claude/skills/` | Single repository, provider-specific |
+| Project (Runtime) | `.skills/` | Ephemeral workspace symlink (e.g., CI/CD) |
+| Personal (Shared) | `~/.agents/skills/` | User-wide (CLI), portable across agents |
+| Personal (Provider) | `~/.copilot/skills/` | User-wide (CLI), provider-specific |
 | System | `/usr/share/agents/skills/` | System-wide |
+
+## Runtime and CI/CD Caveats
+
+- **Discoverability**: In CI/CD environments (like GitHub Actions), agents may run with workspace-scoped tools. If skills are cloned outside the workspace (e.g., `${{ runner.temp }}/.skills`), they should be symlinked into the workspace (e.g., `.skills/`) to be discoverable by the agent.
+- **Trust Boundaries**: When running agent workflows on `pull_request_target` or `issue_comment` triggers, the PR branch's `.github/skills/` and `.github/instructions/` might be checked out by platform tools. Ensure base branch skills are preserved to prevent malicious forks from injecting altered skills.
 
 ## Validation
 
