@@ -169,7 +169,8 @@ Reference for GitHub Agentic Workflows frontmatter schema, engines, networking, 
   - Key names limited to 64 characters
   - Values limited to 1024 characters
   - Example: `metadata: { team: "platform", priority: "high" }`
-- **`github-token:`** - Default GitHub token for workflow (must use `${{ secrets.* }}` syntax)
+- **`github-token:`** - Default GitHub token for workflow (must use `${{ secrets.* }}` syntax).
+  - **Breaking Change (v0.24.0+)**: The default `secrets.GITHUB_TOKEN` fallback has been removed from Copilot-related operations (including `create-agent-task`, assigning Copilot to issues, and adding Copilot as PR reviewer) because it lacks required permissions, causing silent failures. Users must now configure a Personal Access Token (PAT) as either `COPILOT_GITHUB_TOKEN` or `GH_AW_GITHUB_TOKEN` secret. As of v0.26+, `GH_AW_COPILOT_TOKEN` is no longer supported; use `COPILOT_GITHUB_TOKEN` instead.
 - **`on.roles:`** - Repository access roles that can trigger workflow (array or "all")
   - Default: `[admin, maintainer, write]`
   - Available roles: `admin`, `maintainer`, `write`, `read`, `all`
@@ -204,7 +205,7 @@ Reference for GitHub Agentic Workflows frontmatter schema, engines, networking, 
 - **`features:`** - Feature flags for experimental or optional features (object)
   - Each flag is a key-value pair; boolean flags (`true`/`false`) or string values are accepted
   - Known feature flags:
-    - `copilot-requests: true` - Use GitHub Actions token for Copilot authentication instead of `COPILOT_GITHUB_TOKEN` secret
+    - `copilot-requests: true` - Use GitHub Actions token for Copilot authentication instead of `COPILOT_GITHUB_TOKEN` secret. Note that `secrets.GITHUB_TOKEN` may lack required permissions for some operations (e.g., `create-agent-task`, PR reviews); in such cases, a PAT configured as `COPILOT_GITHUB_TOKEN` or `GH_AW_GITHUB_TOKEN` is required.
     - `disable-xpia-prompt: true` - Disable the built-in cross-prompt injection attack (XPIA) system prompt
     - `action-tag: "v0"` - Pin compiled action references to a specific version of the `gh-aw-actions` repository. Accepts version tags (e.g., `"v0"`, `"v1"`, `"v1.0.0"`) or a full 40-character commit SHA. When set, overrides the compiler's default action mode and resolves all action references from the external `github/gh-aw-actions` repository at the specified tag.
     - `action-mode: "script"` - Control how the compiler generates action references: `"dev"` (local paths, default), `"release"` (SHA-pinned remote), `"action"` (gh-aw-actions repo), `"script"` (direct shell calls). Can also be overridden via `--action-mode` CLI flag.
