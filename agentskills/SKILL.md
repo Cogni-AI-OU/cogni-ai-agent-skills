@@ -1,6 +1,6 @@
 ---
 name: agentskills
-description: Expert-level guidance on the Agent Skills open standard for creating portable, non-interactive, and secure Copilot agent skills.
+description: Use this skill when designing, manually creating, or reviewing portable, non-interactive, and secure Copilot agent skills that follow the Agent Skills open standard.
 ---
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
 # Agent Skills (Standard)
