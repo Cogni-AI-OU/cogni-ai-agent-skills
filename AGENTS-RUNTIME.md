@@ -128,6 +128,9 @@ and planned work into the current context.
 - **[gh-search](gh-search/SKILL.md)**: GitHub CLI (`gh search`) operations for searching code, commits, issues,
   pull requests, and repositories with structured JSON output.
   You MUST load this skill when working with the `gh search` command.
+- **[gh-skill](gh-skill/SKILL.md)**: GitHub CLI (`gh skill`) operations for searching, previewing, installing,
+  updating, and publishing Copilot agent skills.
+  You MUST load this skill when working with the `gh skill` command.
 - **[git](git/SKILL.md)**: Guide for using git with non-interactive, safe operations.
   You MUST load this skill when performing standard git operations.
 - **[git-expert](git-expert/SKILL.md)**: Advanced Git operations including reflog recovery,

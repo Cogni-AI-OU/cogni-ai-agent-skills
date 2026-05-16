@@ -264,6 +264,8 @@ mindmap
       (Load gh-run skill if required)
     search
       (Load gh-search skill if required)
+    skill
+      (Load gh-skill skill if required)
     secret
       delete
         Delete secrets
@@ -390,6 +392,8 @@ in GitHub Actions, refer to the **github-issue** and **github-pr** skills.
   You MUST load this skill when working with the `gh run` and the `gh workflow` commands.
 - **gh-search**:
   You MUST load this skill when working with the `gh search` command.
+- **gh-skill**:
+  You MUST load this skill when working with the `gh skill` command.
 - **gh-models**:
   You MUST load this skill when working with the `gh models` command.
 - **github-issue**:
