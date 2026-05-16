@@ -822,7 +822,7 @@ Each ecosystem identifier enables network access to the domains required by that
 
 ## Imports Field
 
-Import shared components using the `imports:` field in frontmatter:
+Import shared components or Copilot custom agent files using the `imports:` field in frontmatter:
 
 ```yaml
 ---
@@ -833,8 +833,15 @@ imports:
   - shared/security-notice.md
   - shared/tool-setup.md
   - shared/mcp/tavily.md
+  - .github/agents/my-agent.md # Local Copilot custom agent file
+  - acme-org/shared-agents/.github/agents/code-reviewer.md@v1.0.0 # Remote Copilot custom agent file
 ---
 ```
+
+**Copilot Custom Agents:**
+- Markdown files stored in the `.github/agents/` directory (local or remote repository).
+- Only **one** agent file can be imported per workflow.
+- Alternatively, you can define sub-agents inline using a `## agent: \`name\`` heading inside the workflow markdown file.
 
 **Object form with inputs** — Use `path:`/`uses:` + `with:`/`inputs:` to pass values to shared workflows that define an `import-schema:`. Optional `checkout:` and `env:` fields customize the import:
 
