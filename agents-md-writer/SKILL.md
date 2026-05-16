@@ -29,14 +29,14 @@ AGENTS.md is a simple, open format for guiding coding agents.
 
 ## Core Principles
 
-- **Contract Style**: Write dense, imperative, expert-level instructions assuming ninja proficiency; skip basics, favor one-liners.
-- **No Duplication**: NEVER duplicate code-level comments or obvious steps.
-- **Avoid Hardcoding**: Never embed specific values, file paths, repository names, user details, job IDs, or tool versions when giving examples; instead, use clear placeholders (e.g., `<repository-name>`, `<file-path>`, `<job-id>`, `<version>`).
-- **Structural Strictness**: You must always format `AGENTS.md` files according to the canonical `AGENTS.md` structure.
-- **Living Documentation**: Treat `AGENTS.md` as living documentation.
-- **Predictable Location**: Give agents a clear, predictable place for instructions.
-- **Concise READMEs**: Keep READMEs concise and focused on human contributors.
 - **Agent-Focused Guidance**: Provide precise, agent-focused guidance that complements existing README and docs.
+- **Avoid Hardcoding**: Never embed specific values, file paths, repository names, user details, job IDs, or tool versions when giving examples; instead, use clear placeholders (e.g., `<repository-name>`, `<file-path>`, `<job-id>`, `<version>`).
+- **Concise READMEs**: Keep READMEs concise and focused on human contributors.
+- **Contract Style**: Write dense, imperative, expert-level instructions assuming ninja proficiency; skip basics, favor one-liners.
+- **Living Documentation**: Treat `AGENTS.md` as living documentation.
+- **No Duplication**: NEVER duplicate code-level comments or obvious steps.
+- **Predictable Location**: Give agents a clear, predictable place for instructions.
+- **Structural Strictness**: You must always format `AGENTS.md` files according to the canonical `AGENTS.md` structure.
 
 ## Expected AGENTS.md Structure
 
