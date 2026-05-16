@@ -97,6 +97,8 @@ and planned work into the current context.
   privacy compliance.
 - **[gh](gh/SKILL.md)**: GitHub CLI (`gh`) operations for issues, pull requests, workflow runs, reviews, and API.
   You MUST load this skill when working with the `gh` command and its subcommands.
+- **[gh-agent-task](gh-agent-task/SKILL.md)**: GitHub CLI (`gh agent-task`) operations for creating, listing, and viewing preview agent tasks.
+  You MUST load this skill when working with the `gh agent-task` command.
 - **[gh-api](gh-api/SKILL.md)**: Advanced GitHub CLI (`gh api`) queries and mutations via REST or GraphQL.
   You MUST load this skill when working with the `gh api` command.
 - **[gh-aw](gh-aw/SKILL.md)**: GitHub Agentic Workflows (`gh aw`) operations for repository automation,
