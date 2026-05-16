@@ -25,8 +25,8 @@ The Agent Skills open standard provides a framework for structuring and specifyi
 ## Core Process (Manual Creation)
 
 1. **Determine Scope**:
-   - **Project-specific**: Stored in the shared standard `.agents/skills/`, or provider-specific locations like `.github/skills/` or `.claude/skills/`. Scope is limited to the repository.
-   - **Personal**: Stored in the shared standard `~/.agents/skills/`, or provider-specific locations like `~/.copilot/skills/`. Scope is global for the user's CLI environment.
+   - **Project-specific**: Stored in the shared standard `.agents/skills/`, or provider-specific locations like `.opencode/skills/`, `.github/skills/`, or `.claude/skills/`. Scope is limited to the repository.
+   - **Personal**: Stored in the shared standard `~/.agents/skills/`, or provider-specific locations like `~/.config/opencode/skills/` or `~/.copilot/skills/`. Scope is global for the user's CLI environment.
 2. **Scaffold Skill**:
    - Create a directory named after the skill (lowercase-hyphenated).
    - Create a `SKILL.md` file with the required YAML frontmatter (`name`, `description`).
@@ -76,10 +76,10 @@ skill-name/
 | Level | Location | Scope |
 | :--- | :--- | :--- |
 | Project (Shared) | `.agents/skills/` | Single repository, portable across agents |
-| Project (Provider) | `.github/skills/`, `.claude/skills/` | Single repository, provider-specific |
+| Project (Provider) | `.opencode/skills/`, `.github/skills/`, `.claude/skills/` | Single repository, provider-specific |
 | Project (Runtime) | `.skills/` | Ephemeral workspace symlink (e.g., CI/CD) |
 | Personal (Shared) | `~/.agents/skills/` | User-wide (CLI), portable across agents |
-| Personal (Provider) | `~/.copilot/skills/` | User-wide (CLI), provider-specific |
+| Personal (Provider) | `~/.config/opencode/skills/`, `~/.copilot/skills/` | User-wide (CLI), provider-specific |
 | System | `/usr/share/agents/skills/` | System-wide |
 
 ## Runtime and CI/CD Caveats
@@ -105,6 +105,7 @@ skills-ref validate ./my-skill
 ## References
 
 - [Agent Skills Open Standard](https://github.com/agentskills/agentskills)
+- [OpenCode Skills](https://opencode.ai/docs/skills/) — OpenCode documentation for skills
 - [Documentation](https://agentskills.io) — Guides and tutorials
 - [Specification](https://agentskills.io/specification) — Format details
 - [Example Skills](https://github.com/anthropics/skills) — See what's possible
