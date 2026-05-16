@@ -26,41 +26,67 @@ Create, update, and maintain robust `devcontainer.json` configurations and assoc
 - **Root vs RemoteUser**: Execute system installs as `root` (e.g., using `sudo` if `remoteUser` is `vscode`) and user installs (e.g., Python packages) as the `remoteUser`.
 - **Reproducibility**: Pin feature versions and base image tags (e.g., `:jammy` instead of `:latest`).
 
-## Example: Enhanced devcontainer.json
+## Example: devcontainer.json
 
 ```jsonc
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/ubuntu
 {
-  "name": "Project Dev Container",
-  "image": "mcr.microsoft.com/devcontainers/base:jammy",
-  "remoteUser": "vscode",
-  "features": {
-    "ghcr.io/devcontainers/features/docker-in-docker:2": {},
-    "ghcr.io/devcontainers/features/python:1": {
-      "version": "latest"
-    },
-    "ghcr.io/devcontainers-contrib/features/actionlint:1": {},
-    "ghcr.io/devcontainers-extra/features/pipx-package:1": {},
-    "ghcr.io/prulloac/devcontainer-features/pre-commit:1": {}
-  },
+  // "build": {
+  //   "dockerfile": "Dockerfile",
+  //   // Update 'VARIANT' to pick an Ubuntu version: jammy / ubuntu-22.04, focal / ubuntu-20.04, bionic /ubuntu-18.04
+  //   // Use ubuntu-22.04 or ubuntu-18.04 on local arm64/Apple Silicon.
+  //   // "args": { "VARIANT": "ubuntu-22.04" }
+  // },
+
+  // Configure tool-specific properties.
+  // Note: Keep the list in alphabetical order.
   "customizations": {
     "vscode": {
-      "settings": {
-        "editor.formatOnSave": true,
-        "python.defaultInterpreterPath": "/usr/local/bin/python"
-      },
       "extensions": [
+        "bierner.markdown-mermaid",
+        "DavidAnson.vscode-markdownlint",
         "GitHub.copilot",
         "GitHub.copilot-chat",
-        "DavidAnson.vscode-markdownlint",
-        "xaver.clang-format",
+        "GitHub.vscode-github-actions",
+        "ms-vscode.vscode-chat-customizations-evaluations",
+        "vscodevim.vim",
         "vsls-contrib.codetour",
-        "bierner.markdown-mermaid"
+        "xaver.clang-format"
       ]
     }
   },
-  "onCreateCommand": "sudo apt-get update && sudo apt-get install -y --no-install-recommends jq curl && pipx install --include-deps ansible",
-  "updateContentCommand": "pip install -r .devcontainer/requirements.txt",
-  "postCreateCommand": "pre-commit install"
+  // Features to add to the dev container. More info: https://containers.dev/features.
+  "features": {
+    "ghcr.io/devcontainers-contrib/features/actionlint:1": {},
+    "ghcr.io/devcontainers-contrib/features/node-asdf:0": {},
+    "ghcr.io/devcontainers-extra/features/pipx-package:1": {},
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {},
+    "ghcr.io/devcontainers/features/python:1": {},
+    "ghcr.io/guiyomh/features/vim:0": {},
+    "ghcr.io/jungaretti/features/make:1": {},
+    "ghcr.io/jungaretti/features/ripgrep:1": {},
+    "ghcr.io/sliekens/devcontainer-features/opencode:1": {}
+  },
+
+  // Pre-create opencode directories on host before container starts (required for bind mounts)
+  "initializeCommand": "mkdir -p \"$HOME/.local/share/opencode\" \"$HOME/.config/opencode\"",
+
+  // Use 'forwardPorts' to make a list of ports inside the container available locally.
+  // "forwardPorts": [],
+
+  // Use 'postCreateCommand' to run commands after the container is created.
+  // "postCreateCommand": "uname -a",
+
+  // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+  "image": "mcr.microsoft.com/devcontainers/base:jammy",
+
+  "postCreateCommand": "time pip install -r .devcontainer/requirements.txt && time pipx install --include-deps --force ansible && time pipx inject ansible -r .devcontainer/requirements-ansible.txt && time pre-commit install",
+
+  // Comment out to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
+  "remoteUser": "vscode",
+  // Note: Python dependencies can be added in the `requirements.txt` file.
+  "onCreateCommand": "sudo apt update && xargs -a .devcontainer/apt-packages.txt sudo apt-get install -y"
 }
 ```
 
