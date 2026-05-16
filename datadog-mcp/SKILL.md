@@ -48,7 +48,7 @@ Load the appropriate toolset based on the task:
 Application Key Scopes restrict what applications can access in your Datadog data
 without granting new capabilities - they simply limit the scope of existing permissions.
 
-If you're require additional scopes to complete the task,
+If you require additional scopes to complete the task,
 check the full list of scopes (Datadog Role Permissions) and report to the user.
 
 ## Reference
