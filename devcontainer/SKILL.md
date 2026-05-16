@@ -73,6 +73,7 @@ Create, update, and maintain robust `devcontainer.json` configurations and assoc
   "initializeCommand": "mkdir -p \"$HOME/.local/share/opencode\" \"$HOME/.config/opencode\"",
 
   // Use 'forwardPorts' to make a list of ports inside the container available locally.
+  // Note: Keep examples generic and repository-agnostic; add repo-specific setup only when those files and tools are guaranteed to exist.
   // "forwardPorts": [],
 
   // Use 'postCreateCommand' to run commands after the container is created.
