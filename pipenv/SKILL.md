@@ -41,10 +41,23 @@ Use this skill for managing Python project environments and dependencies through
 - **Install from lockfile**: `pipenv sync` (or `pipenv install --deploy` for CI/CD environments)
 - **Uninstall a dependency**: `pipenv uninstall <package>`
 - **Check for vulnerabilities**: `pipenv check` (Note: Treat this as one layer of security, not a complete supply-chain safeguard).
-- **Generate SBOM**: `syft scan Pipfile.lock -o spdx-json > sbom.json` (Requires `syft` and `sbom` skill).
+- **Generate SBOM**: `syft scan Pipfile.lock -o spdx-json > sbom.json` (Requires `syft` dependency; you MUST load the `sbom` skill).
 - **List installed packages**: `pipenv graph`
 - **Show environment info**: `pipenv --venv`
 - **Usage and examples**: `pipenv --help`
+
+## Example Agent Workflow
+
+A typical non-interactive sequence for setting up and verifying an environment:
+
+```bash
+# Initialize and install dependencies
+pipenv install --dev pytest requests
+# Generate a deterministic lockfile
+pipenv lock
+# Run tests within the virtual environment
+pipenv run pytest
+```
 
 ## Diagnostics and Troubleshooting
 
@@ -69,5 +82,7 @@ Use this skill for managing Python project environments and dependencies through
 
 - **pipfile**:
   You MUST load this skill when dealing specifically with Pipfile or Pipfile.lock content.
+- **sbom**:
+  You MUST load this skill when generating or managing Software Bill of Materials (SBOM).
 - **python**:
   You MUST load this skill when dealing with Python code execution, debugging, or log processing.
