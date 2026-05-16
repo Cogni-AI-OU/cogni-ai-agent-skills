@@ -57,6 +57,9 @@ and planned work into the current context.
 - **[critical-thinking](critical-thinking/SKILL.md)**: Engage deep analytical reasoning, deconstruct assumptions,
   apply Socratic questioning, and perform adversarial red-teaming to solve complex problems and validate architectural plans.
   You MUST load this skill when facing challenges that require critical thinking.
+- **[datadog-mcp](datadog-mcp/SKILL.md)**: Query observability data via Datadog MCP, selecting minimal toolsets
+  to optimize context window and scope.
+  You MUST load this skill when a task needs Datadog telemetry analysis through MCP tools.
 - **[dictation](dictation/SKILL.md)**: Apply dictation correction protocols to fix common speech-to-text errors and improve text clarity.
   You MUST load this skill when fixing dictation or speech-to-text input.
 - **[docs-review](docs-review/SKILL.md)**:
