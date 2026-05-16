@@ -48,7 +48,9 @@ Manage GitHub Copilot agent skills directly via the `gh skill` CLI command. This
 
 ## Awesome Copilot Skills
 
-To search for curated Awesome Copilot skills, run `gh skill install github/awesome-copilot` for an interactive browsing and installation flow, or view the directory at <https://awesome-copilot.github.com/skills/>. To install a specific skill directly, use `gh skill install github/awesome-copilot <skill-name>`.
+To search for curated Awesome Copilot skills, run `gh skill install github/awesome-copilot` for an interactive browsing and installation flow,
+or view the directory at <https://awesome-copilot.github.com/skills/>.
+To install a specific skill directly, use `gh skill install github/awesome-copilot <skill-name>`.
 
 ## Supported Agent Hosts
 
