@@ -58,9 +58,9 @@ mindmap
   `gh codespace create --repo <repository-name> --branch <branch-name>`
 
 - **Copy Files**: Transfer files from a codespace to the local machine:
-  `gh codespace cp -e <codespace-name> remote:/path/to/file local/path/`
+  `gh codespace cp -c <codespace-name> remote:/path/to/file local/path/`
   Transfer files from local to codespace:
-  `gh codespace cp -e <codespace-name> local/path/ remote:/path/to/file`
+  `gh codespace cp -c <codespace-name> local/path/ remote:/path/to/file`
 
 - **Port Forwarding**: Expose a port from the codespace to your local machine:
   `gh codespace ports forward <remote-port>:<local-port> -c <codespace-name>`
