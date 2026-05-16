@@ -1,9 +1,9 @@
 ---
-name: datadog-setup
+name: datadog-agent
 description: Use when installing, configuring, or updating Datadog Agent;
 ---
 
-# Skill: datadog-setup
+# Skill: datadog-agent
 
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
 
