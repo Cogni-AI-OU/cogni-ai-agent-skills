@@ -10,7 +10,7 @@ Provides usage patterns and expert guidance for the GitHub CLI `gh agent-task` e
 
 ## Core Process
 
-1. Determine if the goal is to create a new task, list existing tasks, or view a specific task/PR's tasks.
+1. Determine if the goal is to create a new task, list existing tasks, view a specific task, or view tasks associated with a PR.
 2. Select the correct subcommand (`create`, `list`, or `view`).
 3. Apply filtering (`--jq`), formatting (`--json`, `--template`), or input options (`-F`) as required.
 
