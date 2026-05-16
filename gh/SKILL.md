@@ -8,7 +8,7 @@ description: >-
 license: MIT
 ---
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
-# gh Skill
+# gh
 
 Use `gh` as a structured client first. Prefer native fields, explicit routing,
 and bounded fallbacks over brittle shell post-processing.
@@ -265,7 +265,7 @@ mindmap
     search
       (Load gh-search skill if required)
     skill
-      (Load gh-skill skill if required)
+      (Load gh-skill skill if required; GitHub CLI version v2.90.0 or later)
     secret
       delete
         Delete secrets
