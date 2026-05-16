@@ -1,6 +1,6 @@
 ---
 name: agentskills
-description: Use this skill when designing, manually creating, or reviewing portable, non-interactive, and secure Copilot agent skills that follow the Agent Skills open standard.
+description: Guidance on the Agent Skills open standard for creating portable, non-interactive, and secure Copilot agent skills; you MUST load this skill when designing or manually creating agent skills.
 ---
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
 # Agent Skills (Standard)
@@ -98,7 +98,6 @@ skills-ref validate ./my-skill
 - [Documentation](https://agentskills.io) — Guides and tutorials
 - [Specification](https://agentskills.io/specification) — Format details
 - [Example Skills](https://github.com/anthropics/skills) — See what's possible
-- [SKILL.md Specification](https://agents.md/)
 - [skills-ref - Reference library for Agent Skills](https://github.com/agentskills/agentskills/tree/main/skills-ref)
 
 ## Related Skills
@@ -106,4 +105,4 @@ skills-ref validate ./my-skill
 - **skill-writer**:
   You MUST load this skill when creating or updating specific Copilot coding agent skills.
 - **gh-skill**:
-  You MUST load this skill when using the GitHub CLI to manage Agent Skills.
+  See this skill for using the GitHub CLI (`gh skill`) to manage and publish Agent Skills.

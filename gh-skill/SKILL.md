@@ -1,6 +1,6 @@
 ---
 name: gh-skill
-description: Expert-level guidance on GitHub CLI (`gh skill`) operations for searching, previewing, installing, updating, and publishing Copilot agent skills.
+description: Expert-level guidance on GitHub CLI (`gh skill`) operations for searching, previewing, installing, updating, and publishing Copilot agent skills; you MUST load this skill when managing agent skills via the GitHub CLI.
 ---
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
 # Agent Skills CLI (gh-skill)
@@ -16,9 +16,9 @@ Manage GitHub Copilot agent skills directly via the `gh skill` CLI command. This
 
 ## Core Process
 
-1. **Install/Discover**: Use `gh skill search` to find skills or `gh skill install` to discover and install skills from external repositories.
-2. **Inspect**: Use `gh skill preview` to review a skill's content and requirements before installation.
-3. **Manage**: Use `gh skill update` to keep skills current and `gh skill publish` to share your own skills.
+1. **Discovery & Inspection**: Use `gh skill search` to find skills and `gh skill preview` to review their content and requirements BEFORE installation.
+2. **Installation**: Use `gh skill install` to add skills from external repositories.
+3. **Management**: Use `gh skill update` to keep skills current and `gh skill publish` to share your own skills.
 
 ## Commands / Usage Patterns
 
