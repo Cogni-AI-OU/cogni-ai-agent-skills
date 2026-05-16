@@ -41,10 +41,21 @@ Load the appropriate toolset based on the task:
 - `synthetics`: Synthetics test retrieval and updates.
 - `workflows`: Workflow Automation listing, inspection, execution, and trigger updates.
 
+## Datadog MCP
+
+### Application Key Scopes
+
+Application Key Scopes restrict what applications can access in your Datadog data
+without granting new capabilities - they simply limit the scope of existing permissions.
+
+If you're require additional scopes to complete the task,
+check the full list of scopes (Datadog Role Permissions) and report to the user.
+
 ## Reference
 
 - Datadog for VSCode: [GitHub repository](https://github.com/DataDog/datadog-for-vscode)
 - Datadog MCP Server Toolsets: [Datadog docs](https://docs.datadoghq.com/bits_ai/mcp_server/#toolsets)
+- [Datadog Role Permissions](https://docs.datadoghq.com/account_management/rbac/permissions/#permissions-list)
 
 ## What to Avoid
 
