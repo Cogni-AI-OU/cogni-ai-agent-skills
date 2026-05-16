@@ -68,5 +68,5 @@ check the full list of scopes (Datadog Role Permissions) and report to the user.
 
 ## Related Skills
 
-- **critical-thinking**:
-  You MUST load this skill when correlating complex anomalies across multiple telemetry datasets.
+- **datadog-agent**:
+  Use when installing, configuring, or updating Datadog Agent.
