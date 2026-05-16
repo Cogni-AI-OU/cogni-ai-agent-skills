@@ -5,7 +5,7 @@ description: Expert-level guidance on the Agent Skills open standard for creatin
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
 # Agent Skills (Standard)
 
-The Agent Skills open standard (`github.com/agentskills/agentskills`) provides a framework for structuring and specifying skills to ensure portability across different AI systems and agent hosts.
+The Agent Skills open standard provides a framework for structuring and specifying skills to ensure portability across different AI systems and agent hosts.
 
 ## Core Principles
 
