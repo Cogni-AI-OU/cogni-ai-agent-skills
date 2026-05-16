@@ -27,7 +27,7 @@ Create and maintain highly optimized, secure, and minimal Dockerfiles. Focus on 
 
 - **Minimal Multi-Stage Pattern**:
   ```dockerfile
-  FROM golang:1.20-alpine AS builder
+  FROM golang:1.24-alpine AS builder
   WORKDIR /app
   COPY go.mod go.sum ./
   RUN go mod download
