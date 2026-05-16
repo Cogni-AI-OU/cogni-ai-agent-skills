@@ -20,8 +20,9 @@ Use this skill for managing the structure and content of `Pipfile` and `Pipfile.
 
 - **Deterministic Environments**: Rely on `Pipfile.lock` to guarantee exact versions and hashes. Never edit `Pipfile.lock` manually.
 - **Group Separation**: Strictly separate production (`[packages]`) and development (`[dev-packages]`) dependencies.
-- **TOML Compliance**: Manually editing the `Pipfile` must adhere strictly to standard TOML syntax.
-- **Security-First**: Utilize `Pipfile.lock`'s stored hashes to prevent supply-chain attacks.
+- **TOML Compliance**: Manually editing the `Pipfile` is allowed but must adhere strictly to standard TOML syntax. Prefer CLI commands over manual edits when possible.
+- **Security-First**: Utilize `Pipfile.lock`'s stored hashes to prevent supply-chain attacks. Regularly run vulnerability scans.
+- **CI/CD Invariance**: Use `--deploy` to ensure `Pipfile.lock` is up-to-date and fails if not. Use `--system` when running in Docker containers.
 
 ## What to Avoid
 
