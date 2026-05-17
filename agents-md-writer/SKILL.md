@@ -86,12 +86,16 @@ It is the cross-tool standard—one file, every agent.
 `SKILL.md` tells agents about a specific capability.
 A skill is a portable directory containing a `SKILL.md` file plus optional scripts, references, and assets.
 
-## AGENTS.md vs CLAUDE.md
+## AGENTS.md vs Tool-Specific Files (CLAUDE.md, GEMINI.md)
 
 If you use multiple coding agents, use `AGENTS.md` for shared instructions
-and `CLAUDE.md` for Claude-specific features (like `@imports`, skills, or hooks).
-If you only use Claude Code, `CLAUDE.md` alone is sufficient since it provides more features.
-Claude Code automatically reads both files when both are present.
+and tool-specific files for features unique to those platforms:
+- **CLAUDE.md**: For Claude Code features (like `@imports`, skills, or hooks).
+- **GEMINI.md**: For Google Gemini CLI context and directory traversal rules.
+
+If you only use one tool, its native file alone may be sufficient, but `AGENTS.md`
+remains the cross-tool standard. Most tools automatically read both their
+native file and `AGENTS.md` when both are present.
 
 ## Expected AGENTS.md Structure
 
