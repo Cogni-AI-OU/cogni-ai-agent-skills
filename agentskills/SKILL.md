@@ -27,7 +27,7 @@ The Agent Skills open standard provides a framework for structuring and specifyi
 1. **Determine Scope**:
    - **Project skills**: Stored in `.github/skills/`, `.claude/skills/`, or `.agents/skills/` depending on the tool. Scope is limited to the repository.
    - **Personal skills**: Stored in `~/.copilot/skills/`, `~/.claude/skills/`, or `~/.agents/skills/` depending on the tool. Scope is global for the user's CLI environment.
-    - **Installable skills**: Use `gh skill add https://docs-url` (using the `gh skill` extension) or `npx skills add https://docs-url` (Vercel's skills CLI) to install external skills.
+   - **Installable skills**: Use `gh skill add https://docs-url` (using the `gh skill` extension) or `npx skills add https://docs-url` (Vercel's skills CLI) to install external skills.
 2. **Scaffold Skill**:
    - Create a directory named after the skill (lowercase-hyphenated).
    - Create a `SKILL.md` file with the required YAML frontmatter (`name`, `description`).
@@ -118,6 +118,6 @@ skills-ref validate ./my-skill
 ## Related Skills
 
 - **skill-writer**:
-  You MUST load this skill when creating or updating specific Copilot coding agent skills.
+  You MUST load this skill when creating or updating specific coding agent skills.
 - **gh-skill**:
   See this skill for using the GitHub CLI (`gh skill`) to manage and publish Agent Skills.

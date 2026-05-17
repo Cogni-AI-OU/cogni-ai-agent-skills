@@ -207,7 +207,8 @@ and planned work into the current context.
 - **[molecule](molecule/SKILL.md)**: Molecule testing workflows for Ansible roles.
   You MUST load this skill when running or managing Molecule tests for Ansible.
 - **[mot](mot/SKILL.md)**: Evaluate and classify machine learning models based on the Model Openness Framework (MOF).
-  You MUST load this skill to find model metadata like architecture, producer, components, etc., from the Model Openness Tool.
+  You MUST load this skill to find model metadata like architecture, producer, components, etc.,
+  from the Model Openness Tool.
 - **[opencode](opencode/SKILL.md)**: Manage OpenCode configuration, credentials, and access the OpenCode Zen API.
   You MUST load this skill when working with OpenCode configuration or listing models.
 - **[pdf](pdf/SKILL.md)**: PDF file inspection, object-level editing, and lossless size reduction.
@@ -222,7 +223,8 @@ and planned work into the current context.
 - **[python](python/SKILL.md)**: Execute Python inline scripts via heredocs for complex log processing,
   summarization, or JSON parsing.
   You MUST load this skill when processing large logs.
-- **[rfc2119](rfc2119/SKILL.md)**: Enforce correct usage of RFC 2119 requirement level keywords (MUST, SHOULD, MAY, etc.) in documentation and specifications.
+- **[rfc2119](rfc2119/SKILL.md)**: Enforce correct usage of RFC 2119 requirement level keywords
+  (MUST, SHOULD, MAY, etc.) in documentation and specifications.
   You MUST load this skill when writing or reviewing standards, specifications, or when applying RFC 2119 terminology.
 - **[robust-commands](robust-commands/SKILL.md)**: Resilient command execution with automatic fallbacks and error
   recovery.
@@ -234,8 +236,8 @@ and planned work into the current context.
   You MUST load this skill when performing security audits or validation.
 - **[shell](shell/SKILL.md)**: Efficient shell command execution with timing, timeouts, and best practices.
   You MUST load this skill when handling shell commands with performance monitoring or timeouts.
-- **[skill-writer](skill-writer/SKILL.md)**: Generate or update SKILL.md files for GitHub Copilot coding agents.
-  You MUST load this skill when creating or updating GitHub Copilot skill files.
+- **[skill-writer](skill-writer/SKILL.md)**: Generate or update SKILL.md files for coding agents.
+  You MUST load this skill when creating or updating agent skill files.
 - **[subagent-task](subagent-task/SKILL.md)**: Guidance and protocols for spawning sub-agents via the task tool.
   You MUST load this skill when delegating complex tasks to sub-agents.
 - **[tdd](tdd/SKILL.md)**: Commands, step-by-step procedures, and mechanical execution for test engineering,
