@@ -114,24 +114,6 @@ graph LR
 
 The workflow triggers on GitHub's `gollum` event (wiki edits). It reads the changed wiki pages, decides whether code changes are needed (skipping pure documentation fixes like typos), then implements the changes following the project's existing conventions.
 
-### Key Features
-
-- **Feedback-loop safe**: Skips edits made by `github-actions[bot]` to prevent infinite loops with Agentic Wiki Writer
-- **Idempotent**: Tracks processed edit SHAs in repo memory to avoid duplicate work
-- **Convention-aware**: Reads existing source files before implementing to match naming, structure, and testing patterns
-- **Triage built-in**: Only opens a PR when the wiki edit genuinely requires new or changed code
-
-### What triggers a PR
-
-The workflow opens a PR when wiki edits describe:
-- New features or capabilities
-- Changed behavior for existing functionality
-- New configuration options, API endpoints, or CLI commands
-- New test scenarios that reveal missing coverage
-
-It does **not** open a PR for typo fixes, formatting changes, or clarifications of already-correct behavior.
-
-
 **Reference:** [https://github.com/githubnext/agentics/tree/main/docs/agentic-wiki-coder.md](https://github.com/githubnext/agentics/tree/main/docs/agentic-wiki-coder.md)
 
 ## 🔧 PR Fix
@@ -413,70 +395,6 @@ graph LR
 ````
 
 Each run a deterministic pre-step fetches live repo data (open issues, unlabelled issues, open PRs) and computes a **weighted probability** for each task. Three tasks are selected and printed in the workflow logs, then communicated to the agent via prompting. The weights adapt naturally: when unlabelled issues are high, labelling dominates; when there are many open issues, commenting and fixing dominate; as the backlog clears, engineering and forward-progress tasks draw more evenly.
-
-### Task 1: Issue Labelling
-
-Default weighting: dominates when the label backlog is large.
-
-Applies appropriate labels to unlabelled issues and PRs based on content analysis. Removes misapplied labels. Conservative and confident — only applies labels it is sure about.
-
-### Task 2: Issue Investigation and Comment
-
-Default weighting: scales with backlog size.
-
-Repo Assist reviews open issues and comments **only when it has something genuinely valuable to add**. It processes issues oldest-first using a memory-backed cursor, prioritising issues that have never received a Repo Assist comment. It also re-engages when new human comments appear.
-
-### Task 3: Issue Investigation and Fix
-
-Default weighting: scales with backlog size.
-
-When it finds a fixable bug or clearly actionable issue, Repo Assist implements a minimal, surgical fix, runs build and tests, and creates a draft PR. Can work on issues it has previously commented on. All PRs include a Test Status section.
-
-### Task 4: Engineering Investments
-
-Default weighting: steady baseline with issue-count bias.
-
-Dependency updates, CI improvements, tooling upgrades, SDK version bumps, and build system improvements. Bundles multiple Dependabot PRs into a single consolidated update where possible.
-
-### Task 5: Coding Improvements
-
-Default weighting: steady baseline.
-
-Studies the codebase and proposes clearly beneficial, low-risk improvements: code clarity, dead code removal, API usability, documentation gaps, duplication reduction.
-
-### Task 6: Maintain Repo Assist PRs
-
-Default weighting: only meaningful when open PRs exist.
-
-Keeps its own PRs healthy by fixing CI failures and resolving merge conflicts. Uses `push_to_pull_request_branch` to update PR branches directly.
-
-### Task 7: Stale PR Nudges
-
-Default weighting: scales with non-Repo-Assist PR count.
-
-Politely nudges PR authors when their PRs have been waiting 14+ days for a response. Maximum 3 nudges per run, never nags the same PR twice.
-
-### Task 8: Performance Improvements
-
-Default weighting: steady baseline.
-
-Identifies and implements meaningful performance improvements: algorithmic efficiency, unnecessary work, caching, memory usage, startup time.
-
-### Task 9: Testing Improvements
-
-Default weighting: steady baseline.
-
-Improves test quality and coverage: missing tests for existing functionality, flaky tests, slow tests, test infrastructure. Avoids low-value tests that just inflate coverage numbers.
-
-### Task 10: Take the Repository Forward
-
-Default weighting: steady baseline.
-
-Proactively moves the repository forward — considers the goals and aims of the repo, implements backlog features, investigates difficult bugs, drafts plans and proposals, or charts out future work. Work may span multiple runs; Repo Assist checks memory for anything in progress and continues before starting something new.
-
-### Task 11: Monthly Activity Summary
-
-Every run, Repo Assist updates a rolling monthly activity issue that gives maintainers a single place to see all activity and suggested actions.
 
 ### Guidelines Repo Assist Follows
 
@@ -779,36 +697,6 @@ graph LR
     H --> I[Save Memory]
 ```
 
-The workflow operates through seven coordinated tasks each run:
-
-### Task 1: Discover and Validate Build/Test/Benchmark Commands
-
-Analyzes the repository to discover build, test, benchmark, lint/format, and profiling commands. Cross-references against CI/config files, validates by running them, and stores successful commands in memory.
-
-### Task 2: Identify Energy Efficiency Opportunities
-
-Systematically scans for energy-related opportunities in four focus areas: code-level efficiency, data efficiency, network/I/O efficiency, and frontend/UI efficiency. Prioritizes opportunities by estimated impact and measurability.
-
-### Task 3: Implement Energy Efficiency Improvements
-
-Selects optimization goals from backlog, establishes baseline measurements, implements improvements, and measures outcomes. Creates draft PRs with before/after evidence, trade-offs, and reproducibility instructions.
-
-### Task 4: Maintain Efficiency Improver Pull Requests
-
-Keeps its own PRs healthy by fixing CI failures and resolving merge conflicts. Uses `push_to_pull_request_branch` to update PR branches directly.
-
-### Task 5: Comment on Efficiency-Related Issues
-
-Reviews open issues mentioning efficiency, performance, energy, or green software concerns. Suggests actionable investigation and measurement approaches. Maximum 3 comments per run.
-
-### Task 6: Invest in Energy Measurement Infrastructure
-
-Assesses benchmark and profiling coverage, identifies blind spots, and proposes or implements infrastructure improvements to better track and prevent efficiency regressions.
-
-### Task 7: Update Monthly Activity Summary
-
-Every run, updates a rolling monthly activity issue that gives maintainers one place to review efficiency work and suggested follow-up actions.
-
 ### Guidelines Daily Efficiency Improver Follows
 
 - **Measure everything**: No efficiency claim without data
@@ -821,7 +709,6 @@ Every run, updates a rolling monthly activity issue that gives maintainers one p
 - **Exclude generated files**: Keep benchmark artifacts out of commits unless explicitly needed
 
 For scheduled runs, the workflow is skipped if there are already 8 or more open PRs with its title prefix, to avoid overwhelming maintainers.
-
 
 **Reference:** [https://github.com/githubnext/agentics/tree/main/docs/efficiency-improver.md](https://github.com/githubnext/agentics/tree/main/docs/efficiency-improver.md)
 
@@ -1136,50 +1023,6 @@ graph LR
     H --> I[Save Memory]
 ```
 
-The workflow operates through seven coordinated tasks each run:
-
-### Task 1: Discover and Validate Build/Test/Coverage Commands
-
-Analyzes the repository to discover build commands, test commands, coverage generation commands, lint/format tools, and testing frameworks. Cross-references against CI files and validates by running them. Stores validated commands in memory for future runs.
-
-### Task 2: Identify High-Value Testing Opportunities
-
-Researches the testing landscape: current organization, frameworks, coverage reports, and open issues. Focuses on value, not just coverage numbers - prioritizes bug-prone areas, critical paths, untested edge cases, and integration points. Records maintainer priorities from comments.
-
-### Task 3: Implement Test Improvements
-
-Selects testing goals from the backlog aligned with maintainer priorities. Implements new tests, edge case coverage, regression tests, or test refactoring. Creates draft PRs with coverage impact documented.
-
-### Task 4: Maintain Test Improver Pull Requests
-
-Keeps its own PRs healthy by fixing CI failures and resolving merge conflicts. Uses `push_to_pull_request_branch` to update PR branches directly.
-
-### Task 5: Comment on Testing Issues
-
-Reviews open issues mentioning tests or coverage. Suggests testing approaches, points to related patterns, and offers to implement. Maximum 3 comments per run.
-
-### Task 6: Invest in Test Infrastructure
-
-Assesses existing test utilities, fixtures, and CI configuration. Identifies infrastructure gaps like missing helpers or slow test suites. Proposes or implements improvements like shared fixtures or coverage reporting.
-
-### Task 7: Update Monthly Activity Summary
-
-Every run, updates a rolling monthly activity issue that gives maintainers a single place to see all testing work, maintainer priorities noted, and suggested actions.
-
-### Guidelines Test Improver Follows
-
-- **Value over coverage**: A test that catches real bugs beats tests that just increase coverage numbers
-- **No breaking changes**: Never changes public APIs without explicit approval
-- **No new dependencies**: Discusses in an issue first
-- **Small, focused PRs**: One testing goal per PR for easy review
-- **Read AGENTS.md first**: Before starting work, reads project-specific conventions
-- **AI transparency**: Every output includes robot emoji disclosure
-- **Build, format, lint, and test verification**: Runs all checks before creating PRs
-- **Exclude generated files**: Coverage reports go in PR description, not commits
-
-For scheduled runs, the workflow is skipped if there are already 8 or more open PRs with its title prefix, to avoid overwhelming maintainers.
-
-
 **Reference:** [https://github.com/githubnext/agentics/tree/main/docs/test-improver.md](https://github.com/githubnext/agentics/tree/main/docs/test-improver.md)
 
 ## 🗂️ Large File Simplifier
@@ -1259,77 +1102,6 @@ graph LR
 A deterministic pre-step counts FV artifacts in the repository (Lean files, spec docs, open issues and PRs) and computes a **phase-weighted probability** for each task. Two tasks are drawn and communicated to the agent; the agent confirms them against its memory and executes them. Task Final (status update) always runs. All notes, targets, choices, and progress live in persistent **repo-memory** so each run builds on the last.
 
 The weighting scheme adapts automatically: when no FV work exists Task 1 dominates; once research is done Task 2 rises; as informal specs accumulate Task 3 gains weight; and so on up to proofs. Once implementation models exist, Task 8 becomes available and is weighted heavily when no runnable correspondence tests exist yet.
-
-### Task 1: Research & Target Identification
-
-Default weighting: dominates when no FV work exists yet.
-
-Surveys the codebase to identify 3–5 functions, data structures, or algorithms that are strong formal verification candidates. If prior FV work exists, reads the latest `formal-verification/CRITIQUE.md` to incorporate feedback — adjusting target priorities, revising approaches, and addressing high-value gaps flagged by the critique. For each target documents: expected benefit, rough specification size, proof tractability (`decide` / routine tactics / deep proof engineering), approximations needed, and recommended approach (model checking, inductive invariant, equational proof). Consults Lean 4 / Mathlib documentation and FV literature. Produces `formal-verification/RESEARCH.md` and `formal-verification/TARGETS.md` as a PR, and optionally a tracking issue inviting maintainer input on priorities.
-
-### Task 2: Informal Spec Extraction
-
-Default weighting: rises once research is done.
-
-Picks the highest-priority unstarted target and extracts a precise informal specification by reading the code and inferring the design intention — including preconditions, postconditions, invariants, edge cases, concrete examples, and inferred intent not explicit in the code. Flags genuine ambiguities for maintainer review. Produces `formal-verification/specs/<name>_informal.md` as a PR.
-
-### Task 3: Formal Spec Writing (Lean 4)
-
-Default weighting: rises once informal specs exist.
-
-Takes one target with an informal spec and writes the Lean 4 specification: type definitions mirroring the code, function stubs, and key `theorem` declarations with `sorry` as proof bodies. Imports relevant Mathlib modules. Verifies the file at least **parses cleanly** with `lake build` before opening a PR — all type errors are fixed. Focuses on the most valuable properties: correctness invariants, round-trip properties, monotonicity, idempotence.
-
-### Task 4: Implementation Extraction
-
-Default weighting: rises once Lean specs exist.
-
-Translates the relevant implementation into Lean 4 functional definitions so the propositions from Task 3 can be formally connected to actual code. For imperative or effectful code, creates a pure functional model and explicitly documents what the model abstracts away. Updates the proposition statements to reference the implementation. Verifies with `lake build`.
-
-### Task 5: Proof Assistance
-
-Default weighting: rises once Lean implementations exist.
-
-Attempts to prove the stated propositions using Lean 4 tactics (`decide`, `omega`, `simp`, `linarith`, `ring`, `induction`, etc.). When a proof obligation cannot be closed, investigates whether the spec or the implementation is wrong. If a **counterexample** is found refuting a property, files a bug issue with the failing case, the expected property, and the impact. Proved theorems have their `sorry` removed; hard ones get a comment explaining the obstacle. Produces a PR with real progress.
-
-### Task 6: Correspondence Review
-
-Default weighting: critical when implementations exist but no correspondence doc.
-
-For each Lean file containing an implementation model, reviews how faithfully the model corresponds to the actual source code. Assesses each definition's correspondence level (*exact*, *abstraction*, *approximation*, or *mismatch*), documents all known divergences with file/line references, and evaluates the impact on proof validity. Produces or updates `formal-verification/CORRESPONDENCE.md` as a PR. Flags any mismatches that invalidate proved theorems and opens issues for them.
-
-### Task 7: Proof Utility Critique
-
-Default weighting: critical when proofs exist but no critique doc.
-
-Steps back to honestly assess whether the FV work is actually useful — are the proved properties meaningful, at the right level of abstraction, and likely to catch real bugs? Evaluates each theorem's level, bug-catching potential, coverage, and strength. Identifies the highest-value gaps and recommends what to prove next. Optionally reviews the conference paper (`paper.tex`) as a critical reviewer and includes actionable feedback. Produces or updates `formal-verification/CRITIQUE.md` as a PR.
-
-### Task 8: Implementation Correspondence Validation *(Aeneas extraction or runnable tests)*
-
-Default weighting: available once implementation models exist; weighted highly when no runnable correspondence tests exist.
-
-Validates that the Lean implementation model corresponds to the source code using one of two routes. Route A uses the Charon + Aeneas toolchain to automatically generate Lean 4 code from Rust source, producing a mechanically-derived model that can be bridged to the hand-written one. Route B writes and runs executable correspondence tests that exercise the source implementation and the Lean model on the same fixtures, which may require building a small standalone harness or copied test project under `formal-verification/tests/`. The task always prefers concrete, executed evidence over hand-wavy similarity claims.
-
-### Task 9: CI Automation
-
-Default weighting: critical when Lean files exist but no CI; regular check otherwise.
-
-Sets up and maintains `.github/workflows/lean-ci.yml` and, when applicable, CI for Task 8 artifacts such as `aeneas-generate.yml` or runnable correspondence-test workflows. Audits CI health, checks for persistent failures, verifies cache effectiveness, and fixes broken workflows.
-
-### Task 10: Project Report
-
-Default weighting: important once proofs exist; available once Lean specs exist.
-
-Creates and incrementally maintains `formal-verification/REPORT.md` — a comprehensive, reader-friendly project report summarising the entire FV effort. Uses mermaid diagrams extensively to visualise proof architecture, dependency layers, modelling choices, the main proof chain, and project timeline. Includes a mandatory Findings section documenting any bugs found (with counterexamples and issue links), formulation issues caught during development, and interesting structural discoveries. The report is updated incrementally each run rather than rewritten from scratch.
-
-### Task 11: Conference Paper
-
-Default weighting: important once proofs exist; only available once proofs exist.
-
-Writes and maintains a LaTeX conference paper under `formal-verification/paper/` using a standard ACM (`acmart`) or IEEE (`IEEEtran`) template, targeting an 11-page limit. The paper covers methodology, findings, proof architecture, modelling choices, and lessons learned. Includes a Lean 4 listing style for code examples. The compiled PDF (`paper.pdf`) is committed to the repository and kept up to date. Each run updates the paper incrementally — adding new theorems, findings, and revised assessments. Requires `texlive` for compilation (installed automatically). Produces `paper.tex`, `paper.bib`, and `paper.pdf` as a PR.
-
-### Task Final: Update Lean Squad Status Issue *(always)*
-
-Maintains a single `[Lean Squad] Formal Verification Status` issue as a continuously-updated dashboard with an at-a-glance table (one row per target, showing current phase and status), summary narrative, findings section (bugs found, counterexamples), approach notes, and a prepended run history entry for every run.
-
 
 **Reference:** [https://github.com/githubnext/agentics/tree/main/docs/lean-squad.md](https://github.com/githubnext/agentics/tree/main/docs/lean-squad.md)
 
@@ -1468,7 +1240,6 @@ graph LR
 
 The workflow runs in two jobs. The first job runs Super Linter to lint all Markdown files and uploads the log as an artifact. The second job (the AI agent) downloads that log, categorizes violations by severity, and creates a prioritized GitHub issue with recommended fixes. Previous issues expire after 2 days to avoid accumulation.
 
-
 **Reference:** [https://github.com/githubnext/agentics/tree/main/docs/markdown-linter.md](https://github.com/githubnext/agentics/tree/main/docs/markdown-linter.md)
 
 ## 🗺️ Weekly Repository Map
@@ -1497,24 +1268,6 @@ Each run produces one issue containing:
 - **Largest Files** — Top 10 files by size
 - **Directory Sizes** — Top directories ranked by total size
 
-Example excerpt from an issue:
-
-```
-Repository Tree Map
-===================
-
-/ [1234 files, 45.2 MB]
-│
-├─ src/ [456 files, 28.5 MB] ██████████████████░░
-│  ├─ core/ [78 files, 5.2 MB] ████░░
-│  └─ utils/ [34 files, 3.1 MB] ███░░
-│
-├─ docs/ [234 files, 8.7 MB] ██████░░
-│
-└─ tests/ [78 files, 3.5 MB] ███░░
-```
-
-
 **Reference:** [https://github.com/githubnext/agentics/tree/main/docs/weekly-repo-map.md](https://github.com/githubnext/agentics/tree/main/docs/weekly-repo-map.md)
 
 ## 📱 Multi-Device Docs Tester
@@ -1534,8 +1287,7 @@ graph LR
     D -->|No| F[Noop: All Passed]
 ```
 
-The workflow builds your docs site using npm, starts a local preview server, and runs Playwright browser automation across mobile (390–393 px), tablet (768–834 px), and desktop (1366–1920 px) viewports. For each device it checks page load, navigation usability, content readability, image sizing, interactive element reachability, and basic accessibility.
-
+The workflow builds your docs site using npm, starts a local preview server, and runs Playwright browser automation across mobile, tablet, and desktop viewports. For each device it checks page load, navigation usability, content readability, image sizing, interactive element reachability, and basic accessibility.
 
 **Reference:** [https://github.com/githubnext/agentics/tree/main/docs/multi-device-docs-tester.md](https://github.com/githubnext/agentics/tree/main/docs/multi-device-docs-tester.md)
 
@@ -1561,3 +1313,6 @@ The workflow searches for latest trends from software industry sources, related 
 
 **Reference:** [https://github.com/githubnext/agentics/tree/main/docs/weekly-research.md](https://github.com/githubnext/agentics/tree/main/docs/weekly-research.md)
 
+## References
+
+- <https://github.com/githubnext/agentics/tree/main/docs>
