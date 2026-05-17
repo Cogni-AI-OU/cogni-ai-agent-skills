@@ -26,7 +26,8 @@ Guidance for installing the GitHub Copilot CLI on Debian/Ubuntu and using it wit
 
 ## Commands / Usage Patterns
 
-**Installation & Authentication**
+### Installation & Authentication
+
 ```bash
 # Recommended (requires Node.js 22+)
 npm install -g @github/copilot
@@ -38,7 +39,8 @@ curl -fsSL https://gh.io/copilot-install | bash
 copilot login
 ```
 
-**Security & Permissions**
+### Security & Permissions
+
 ```bash
 # Allow all tools, paths, and URLs (YOLO mode)
 copilot --yolo --prompt "Perform complex task"
@@ -69,3 +71,7 @@ copilot --agent security-auditor --prompt "Check /src/app/validator.go"
 - [Setting up GitHub Copilot CLI](https://docs.github.com/en/copilot/how-tos/copilot-cli/set-up-copilot-cli)
 - [Troubleshooting GitHub Copilot CLI authentication](https://docs.github.com/en/copilot/how-tos/copilot-cli/set-up-copilot-cli/troubleshoot-copilot-cli-auth)
 - [Using GitHub Copilot CLI](https://docs.github.com/en/copilot/how-tos/copilot-cli/use-copilot-cli/overview)
+
+## Related Skills
+
+- **gh-agent-task**: Use for managing preview agent tasks on repositories and pull requests.
