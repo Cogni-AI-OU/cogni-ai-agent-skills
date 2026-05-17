@@ -67,7 +67,7 @@ This document provides a comprehensive reference for Unicode character hex range
 | Vai | 0xA500 | 0xA63F | `[\x{A500}-\x{A63F}]` |
 | Bamum | 0xA6A0 | 0xA6FF | `[\x{A6A0}-\x{A6FF}]` |
 | Bamum Supplement | 0x16800 | 0x16A3F | `[\x{16800}-\x{16A3F}]` |
-| N'Ko | 0x07C0 | 0x07FF | `[\x{07C0}-\x{07FF}]` |
+| NKo | 0x07C0 | 0x07FF | `[\x{07C0}-\x{07FF}]` |
 | Adlam | 0x1E900 | 0x1E95F | `[\x{1E900}-\x{1E95F}]` |
 | Mende Kikakui | 0x1E800 | 0x1E8DF | `[\x{1E800}-\x{1E8DF}]` |
 | Bassa Vah | 0x16AD0 | 0x16AFF | `[\x{16AD0}-\x{16AFF}]` |
@@ -289,7 +289,8 @@ This document provides a comprehensive reference for Unicode character hex range
 | 0x2DE0    | 0x2DFF   | Cyrillic Extended-A            | European          |
 | 0x2E00    | 0x2E7F   | Supplemental Punctuation       | Symbols           |
 | 0x2E80    | 0x2EFF   | CJK Radicals Supplement        | East Asian        |
-| 0x2F00    | 0x2FFF   | Kangxi Radicals                | East Asian        |
+| 0x2F00    | 0x2FDF   | Kangxi Radicals                | East Asian        |
+| 0x2FE0    | 0x2FEF   | Unassigned                     | Unassigned        |
 | 0x2FF0    | 0x2FFF   | Ideographic Description Characters | East Asian    |
 | 0x3000    | 0x303F   | CJK Symbols and Punctuation    | East Asian        |
 | 0x3040    | 0x309F   | Hiragana                       | East Asian        |
