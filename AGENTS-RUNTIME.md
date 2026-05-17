@@ -57,7 +57,8 @@ and planned work into the current context.
 - **[context-aware-ops](context-aware-ops/SKILL.md)**: Intelligent resource management with size checking and filtering
   to preserve context window.
   You MUST load this skill when managing large resources or context window limits.
-- **[copilot-cli](copilot-cli/SKILL.md)**: Guidance for installing GitHub Copilot CLI on Debian/Ubuntu and executing commands using custom agents.
+- **[copilot-cli](copilot-cli/SKILL.md)**: Guidance for installing GitHub Copilot CLI on Debian/Ubuntu and executing
+  commands using custom agents.
   You MUST load this skill when interacting with or installing the copilot-cli command.
 - **[critical-thinking](critical-thinking/SKILL.md)**: Engage deep analytical reasoning, deconstruct assumptions,
   apply Socratic questioning, and perform adversarial red-teaming to solve complex problems and validate architectural plans.
