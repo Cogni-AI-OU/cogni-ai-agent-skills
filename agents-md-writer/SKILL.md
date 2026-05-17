@@ -93,6 +93,12 @@ and tool-specific files for features unique to those platforms:
 - **CLAUDE.md**: For Claude Code features (like `@imports`, skills, or hooks).
 - **GEMINI.md**: For Google Gemini CLI context and directory traversal rules.
 
+Use a tool-specific file (`CLAUDE.md`, `GEMINI.md`, `.cursorrules`) when:
+- You need to configure tool-specific behavior
+  (like Claude Code's permission boundaries or Cursor's glob scoping).
+- Your team standardizes on one tool.
+- You want to leverage features unique to that tool.
+
 If you only use one tool, its native file alone may be sufficient, but `AGENTS.md`
 remains the cross-tool standard. Most tools automatically read both their
 native file and `AGENTS.md` when both are present.
