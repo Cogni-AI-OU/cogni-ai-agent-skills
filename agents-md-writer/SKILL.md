@@ -38,16 +38,16 @@ The mechanism is straightforward. Without AGENTS.md, the agent spends time explo
 
 ## Core Principles
 
-- **Agent-Focused Guidance**: Provide precise, agent-focused guidance that complements existing README and docs.
+- **Agent-Focused Guidance**: AGENTS.md complements your README and docs. It contains agent-specific context that would clutter human documentation (exact test flags, architectural constraints, files to never modify). Keep your README for humans, AGENTS.md for agents.
 - **Avoid Hardcoding**: Never embed specific values, file paths, repository names, user details, job IDs, or tool versions when giving examples;
   instead, use clear placeholders (e.g., `<repository-name>`, `<file-path>`, `<job-id>`, `<version>`).
 - **Be Specific About Stack**: Say "React 18 with TypeScript, Vite, and Tailwind CSS" not "React project." Include versions and key dependencies.
 - **Code Examples Over Explanations**: One real code snippet showing your style beats three paragraphs describing it. Show what good output looks like.
 - **Commands Early**: Put relevant executable commands in an early section. Include flags and options, not just tool names. Your agent will reference these often.
-- **Concise READMEs**: Keep READMEs concise and focused on human contributors.
 - **Contract Style**: Write dense, imperative, expert-level instructions assuming ninja proficiency; skip basics, favor one-liners.
 - **Cover Six Core Areas**: Hitting these areas puts you in the top tier: commands, testing, project structure, code style, git workflow, and boundaries.
-- **Directory Hierarchy**: `AGENTS.md` files can exist at multiple directory levels. The agent reads the nearest file to the file being edited. The closest `AGENTS.md` takes precedence, so each subproject can ship tailored instructions.
+- **Directory Hierarchy**: Nested `AGENTS.md` files provide directory-specific context. The agent reads the nearest file to the code being edited. Root-level rules apply everywhere; subdirectory rules override for that subtree.
+- **Keep it Short**: Shorter files performed better in the Princeton study because agents spent less time parsing instructions and more time on the task.
 - **Living Documentation**: Treat `AGENTS.md` as living documentation.
 - **No Duplication**: NEVER duplicate code-level comments or obvious steps.
 - **Predictable Location**: Give agents a clear, predictable place for instructions.
@@ -68,6 +68,10 @@ The mechanism is straightforward. Without AGENTS.md, the agent spends time explo
 `AGENTS.md` tells agents about your project.
 `SKILL.md` tells agents about a specific capability.
 A skill is a portable directory containing a `SKILL.md` file plus optional scripts, references, and assets.
+
+## AGENTS.md vs CLAUDE.md
+
+If you use multiple coding agents, use `AGENTS.md` for shared instructions and `CLAUDE.md` for Claude-specific features (like `@imports`, skills, or hooks). If you only use Claude Code, `CLAUDE.md` alone is sufficient since it provides more features. Claude Code automatically reads both files when both are present.
 
 ## Expected AGENTS.md Structure
 
