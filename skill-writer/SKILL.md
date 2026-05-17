@@ -1,6 +1,6 @@
 ---
 name: skill-writer
-description: 'Generate or update GitHub Copilot SKILL.md files following official spec and resource bundling rules. You MUST load this skill when creating, refining, or troubleshooting agent skills.'
+description: 'Generate or update agent SKILL.md files following official spec and resource bundling rules. You MUST load this skill when creating, refining, or troubleshooting agent skills.'
 license: MIT
 ---
 
@@ -8,13 +8,13 @@ license: MIT
 
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
 
-Generate or update Agent Skills for GitHub Copilot coding agents, ensuring
+Generate or update Agent Skills for coding agents, ensuring
 precise activation, concise expert-level guidance, and full compliance with
 the portable progressive loading architecture.
 
 ## When to Use This Skill
 
-- User asks to create a new Copilot skill
+- User asks to create a new agent skill
 - User needs to update or refine an existing `SKILL.md`
 - User wants to bundle scripts, templates, or references with a skill
 - User is troubleshooting skill activation or context limits
@@ -24,7 +24,7 @@ the portable progressive loading architecture.
 1. **Infer Name & Context**: Determine a unique, descriptive `name` in lowercase-hyphenated format that will exactly match the folder name.
 2. **Draft the Description**: Write a keyword-dense `description` (10–1024 characters) wrapped in single quotes that clearly states WHAT the skill does and WHEN to use it.
 3. **Structure the File**: Follow the exact layout specified in `Skill Structure & Formatting`.
-4. **Enforce Style**: Write imperative, expert-level instructions. Focus on what Copilot doesn't know (quirks, internal conventions, gotchas). Skip standard language syntax.
+4. **Enforce Style**: Write imperative, expert-level instructions. Focus on what the agent doesn't know (quirks, internal conventions, gotchas). Skip standard language syntax.
 5. **Manage Context Budget**: Keep `SKILL.md` under 500 lines (ideally <200). Split large workflows or detailed references into a `references/` directory.
 6. **Output**: Output ONLY the complete, ready-to-commit file content without conversational wrappers. Do not explain changes unless requested.
 
