@@ -192,3 +192,4 @@ You are an expert <role> for this project.
 - [Your first custom agent](https://docs.github.com/en/copilot/tutorials/customization-library/custom-agents/your-first-custom-agent)
 - [OpenCode Agents Documentation](https://opencode.ai/docs/agents/)
 - [Claude Code Documentation](https://code.claude.com/docs/en/memory)
+- [Preparing to use custom agents in your organization](https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-organization/prepare-for-custom-agents)
