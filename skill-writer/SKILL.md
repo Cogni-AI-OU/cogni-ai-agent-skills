@@ -1,6 +1,6 @@
 ---
 name: skill-writer
-description: 'Generate or refine agent skills. You MUST load this skill when creating, updating, or structuring SKILL.md files and bundling their resources.'
+description: 'Workflow and guidelines for generating or refining agent skills. You MUST load this skill when creating or updating SKILL.md files to ensure correct tone and writing style.'
 license: MIT
 ---
 
@@ -23,7 +23,7 @@ the portable progressive loading architecture.
 
 1. **Infer Name & Context**: Determine a unique, descriptive `name` in lowercase-hyphenated format that will exactly match the folder name.
 2. **Draft the Description**: Write a keyword-dense `description` (10–1024 characters) wrapped in single quotes that clearly states WHAT the skill does and WHEN to use it.
-3. **Structure the File**: Follow the exact layout specified in `Skill Structure & Formatting`.
+3. **Structure the File**: Follow the exact layout specified in `agentskills` (load the `agentskills` skill if you need the schema and directory structure).
 4. **Enforce Style**: Write imperative, expert-level instructions. Focus on what the agent doesn't know (quirks, internal conventions, gotchas). Skip standard language syntax.
 5. **Manage Context Budget**: Keep `SKILL.md` under 500 lines (ideally <200). Split large workflows or detailed references into a `references/` directory.
 6. **Output**: Output ONLY the complete, ready-to-commit file content without conversational wrappers. Do not explain changes unless requested.
@@ -36,39 +36,6 @@ the portable progressive loading architecture.
 - **Avoid Hardcoding**: Never embed specific values, file paths, repository names, user details, or tool versions; instead, use clear placeholders (e.g., `<repository-name>`, `<file-path>`, `<version>`).
 - **Pure Markdown Body**: Use only Markdown in the body; never include extraneous files, scripts, or resources unless explicitly required for the skill.
 - **Gotchas are High Signal**: Always include a `## Gotchas` section for documenting proactive warnings about non-obvious behavior.
-
-## Skill Structure & Formatting
-
-Structure the generated file with the following sections (omit optional ones if unused):
-
-1. **YAML Frontmatter block**
-2. **Title (`# Skill Name`)**
-3. **Markdownlint overrides** (e.g., `<!-- markdownlint-disable MD013 MD023 MD031 MD032 -->`)
-4. **`## When to Use This Skill`**: Concrete scenarios reinforcing description triggers.
-5. **Section Discipline**: Use standard sections in a logical progression:
-   - `## Prerequisites` (Optional): Required tools, dependencies, or environment setup.
-   - `## Core Process` or `## Step-by-Step Workflows`: For repeatable procedures where sequence matters.
-   - `## Core Principles`
-   - `## Gotchas`: Proactive warnings (Bold the key constraint, then explain why).
-   - `## Troubleshooting`: Reactive fixes (Symptom → Solution table).
-   - `## Best Practices`
-   - `## What to Avoid`
-   - `## Limitations`
-   - `## References`: Links to bundled files or external resources.
-   - `## Related Skills`
-
-## Bundling Resources
-
-If the skill requires additional files, organize them into these specific folders and reference them via relative paths in `SKILL.md`:
-
-| Directory | Purpose | Loaded into Context? |
-| --------- | ------- | -------------------- |
-| `scripts/` | Executable automation (`.py`, `.ps1`, `.ts`, `.sh`). | Only when executed |
-| `references/` | Documentation the agent reads to inform decisions. | Yes, when referenced |
-| `assets/` | Static files used AS-IS in output (not modified by agent). | No |
-| `templates/` | Starter code/scaffolds that the agent MODIFIES. | Yes, when referenced |
-
-**Script Requirements**: Prefer cross-platform languages (Python, Node.js, PowerShell). Scripts must handle errors gracefully and avoid storing credentials.
 
 ## Writing Style & Philosophy
 

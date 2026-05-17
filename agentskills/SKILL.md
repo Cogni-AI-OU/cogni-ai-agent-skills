@@ -1,8 +1,8 @@
 ---
 name: agentskills
 description: >-
-  Guidance on the Agent Skills open standard for creating portable, non-interactive, and secure Copilot agent skills.
-  You MUST load this skill when designing or manually creating agent skills.
+  Reference for the Agent Skills open standard. Defines the schema, directory structure, formatting, and portability requirements for agent skills.
+  You MUST load this skill to understand the technical structure of an agent skill.
 ---
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
 # Agent Skills (Standard)
@@ -50,6 +50,8 @@ skill-name/
 
 **Assets vs Templates**: If the AI agent reads and builds upon the file content, place it in `templates/`. If the file is used as-is in output (e.g., logo.png, report format), place it in `assets/`.
 
+**Script Requirements**: Prefer cross-platform languages (Python, Node.js, PowerShell). Scripts must handle errors gracefully and avoid storing credentials.
+
 ## Skill Structure & Formatting
 
 ### Agent profile format (Frontmatter)
@@ -73,14 +75,19 @@ The `name` and `description` fields in `SKILL.md` frontmatter are critical. The 
 - Keep `SKILL.md` under 500 lines to preserve context window. Split into `references/` if it exceeds ~200 lines.
 - **Focus on What Copilot Doesn't Know**: Exclude standard language syntax or well-documented API behavior. Focus on internal conventions, non-obvious defaults, version-specific quirks, and domain-specific workflows.
 
-Recommended sections:
+Recommended sections (omit optional ones if unused):
 - `# Title`: Brief overview of what this skill enables.
-- `## When to Use This Skill`: List of scenarios reinforcing description triggers.
-- `## Prerequisites`: Required tools or dependencies.
-- `## Step-by-Step Workflows`: Numbered steps for repeatable procedures (build, deploy, setup). Use flexible guidelines instead of rigid steps for open-ended tasks.
+- `## When to Use This Skill`: Concrete scenarios reinforcing description triggers.
+- `## Prerequisites` (Optional): Required tools, dependencies, or environment setup.
+- `## Core Process` or `## Step-by-Step Workflows`: Numbered steps for repeatable procedures where sequence matters.
+- `## Core Principles`: Key rules and invariants.
 - `## Gotchas`: Proactive warnings about non-obvious behavior. **This is the highest-signal content**. Bold the key constraint and explain why.
 - `## Troubleshooting`: Reactive fixes for known issues (symptom → solution pairs).
+- `## Best Practices`
+- `## What to Avoid`
+- `## Limitations`
 - `## References`: Links to bundled docs (`references/`) or external resources.
+- `## Related Skills`: Other agent skills that should be loaded alongside this one.
 
 ## File References
 

@@ -1,6 +1,6 @@
 ---
 name: agent-md
-description: Syntax and structure reference for GitHub Copilot custom agent persona files and OpenCode agent definitions. Use this to understand the schema and format of agent persona definitions across platforms.
+description: Syntax and structure reference for custom agent persona files (*.agent.md, CLAUDE.md, opencode.json). Use this to understand the schema, format, and architecture of agent definitions across platforms.
 license: MIT
 ---
 
