@@ -277,7 +277,7 @@ This document provides a comprehensive reference for Unicode character hex range
 | 0x25A0    | 0x25FF   | Geometric Shapes               | Drawing           |
 | 0x2600    | 0x26FF   | Miscellaneous Symbols          | Symbols           |
 | 0x2700    | 0x27BF   | Dingbats                       | Symbols           |
-| 0x27C0    | 0x27EF   | Math Symbols-A                 | Mathematical      |
+| 0x27C0    | 0x27EF   | Miscellaneous Mathematical Symbols-A | Mathematical      |
 | 0x27F0    | 0x27FF   | Supplemental Arrows-A          | Symbols           |
 | 0x2800    | 0x28FF   | Braille Patterns               | Writing Systems   |
 | 0x2C00    | 0x2C5F   | Glagolitic                     | European          |
