@@ -31,10 +31,10 @@ This document provides a comprehensive reference for Unicode character hex range
 | Greek Extended | 0x1F00 | 0x1FFF | `[\x{1F00}-\x{1FFF}]` |
 | Greek Additional | 0x0370 | 0x0373 | `[\x{0370}-\x{0373}]` |
 | Cyrillic | 0x0400 | 0x04FF | `[\x{0400}-\x{04FF}]` |
-| Cyrillic Extended | 0x0500 | 0x052F | `[\x{0500}-\x{052F}]` |
+| Cyrillic Supplement | 0x0500 | 0x052F | `[\x{0500}-\x{052F}]` |
 | Cyrillic Extended-B | 0xA640 | 0xA69F | `[\x{A640}-\x{A69F}]` |
 | Cyrillic Extended-C | 0x1C80 | 0x1C8F | `[\x{1C80}-\x{1C8F}]` |
-| Cyrillic Supplement | 0x2DE0 | 0x2DFF | `[\x{2DE0}-\x{2DFF}]` |
+| Cyrillic Extended-A | 0x2DE0 | 0x2DFF | `[\x{2DE0}-\x{2DFF}]` |
 | Armenian | 0x0531 | 0x0587 | `[\x{0531}-\x{0587}]` |
 | Georgian | 0x10A0 | 0x10FF | `[\x{10A0}-\x{10FF}]` |
 | Georgian Extended | 0x1C90 | 0x1CBF | `[\x{1C90}-\x{1CBF}]` |
