@@ -1,6 +1,6 @@
 ---
 name: agent-md
-description: Syntax and structure reference for GitHub Copilot custom agent persona files (.github/agents/*.md) and OpenCode agent definitions. Use this to understand the schema and format of agent persona definitions across platforms.
+description: Syntax and structure reference for GitHub Copilot custom agent persona files and OpenCode agent definitions. Use this to understand the schema and format of agent persona definitions across platforms.
 license: MIT
 ---
 
@@ -16,7 +16,7 @@ Agent MD is a format for defining specialized agent personas. These files provid
 
 Agent persona files for GitHub Copilot MUST be located in:
 - `.github/agents/` directory of the repository.
-- The filename SHOULD match the agent's `name` property (e.g., `.github/agents/test-agent.md`).
+- The filename SHOULD match the agent's `name` property with `.agent.md` extension (e.g., `.github/agents/test-agent.agent.md`).
 
 ### Claude Code
 
@@ -43,6 +43,7 @@ An Agent MD file for Copilot consists of YAML frontmatter followed by a structur
 | :--- | :--- | :--- |
 | `name` | The unique identifier for the agent (e.g., `test-agent`) | Mandatory |
 | `description` | A concise one-sentence description of the agent's purpose | Mandatory |
+| `tools` | List of enabled tools (e.g., `['read', 'search', 'edit']`) | Recommended |
 
 ## OpenCode Agent Syntax
 
@@ -116,6 +117,7 @@ Regardless of the platform, a high-quality agent definition should include:
 ---
 name: <agent-name>
 description: <one-sentence description>
+tools: ['read', 'search', 'edit']
 ---
 
 You are an expert <role> for this project.
