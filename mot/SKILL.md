@@ -38,5 +38,7 @@ curl -s https://raw.githubusercontent.com/lfai/model_openness_tool/main/models/<
 
 ## References
 
+- [List of Models](https://mot.isitopen.ai/) (Name, Organization, Classification)
+- [Licenses](https://mot.isitopen.ai/licenses)
 - [Model Openness Tool Repository](https://github.com/lfai/model_openness_tool)
 - [Models Directory](https://github.com/lfai/model_openness_tool/tree/main/models)
