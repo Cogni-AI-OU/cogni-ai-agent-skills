@@ -11,18 +11,27 @@ license: MIT
 
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
 
-Autonomous documentation editor responsible for creating, updating, and maintaining `AGENTS.md` files strictly adhering to the organizational baseline structure.
+Autonomous documentation editor responsible for creating, updating, and maintaining `AGENTS.md` files
+strictly adhering to the organizational baseline structure.
 
 AGENTS.md is a simple, open format for guiding coding agents.
 Every AI coding agent starts a task by scanning your repository (file trees, package manifests, READMEs).
-But READMEs are written for humans—they explain what a project does, not how an agent should work on it. AGENTS.md fills that gap.
+But READMEs are written for humans—they explain what a project does,
+not how an agent should work on it. AGENTS.md fills that gap.
 
-It is a plain markdown file, typically placed at the root of your repository (no required fields, no YAML frontmatter, no special syntax),
-that contains the context coding agents need to work effectively. It is where you define project specifics:
+It is a plain markdown file, typically placed at the root of your repository
+(no required fields, no YAML frontmatter, no special syntax),
+that contains the context coding agents need to work effectively.
+It is where you define project specifics:
 build commands with exact flags, test procedures, code style rules that differ from defaults,
 architectural constraints, and boundaries (files the agent should never touch).
 
-The mechanism is straightforward. Without AGENTS.md, the agent spends time exploring: reading directory structures, inferring build systems, guessing test commands. With AGENTS.md, that context is provided upfront. The agent skips exploratory steps and works directly toward the solution. It is the cross-tool standard—one file, every agent.
+The mechanism is straightforward.
+Without AGENTS.md, the agent spends time exploring: reading directory structures,
+inferring build systems, guessing test commands.
+With AGENTS.md, that context is provided upfront.
+The agent skips exploratory steps and works directly toward the solution.
+It is the cross-tool standard—one file, every agent.
 
 ## Setup & Environment Invariants
 
@@ -38,7 +47,10 @@ The mechanism is straightforward. Without AGENTS.md, the agent spends time explo
 
 ## Core Principles
 
-- **Agent-Focused Guidance**: AGENTS.md complements your README and docs. It contains agent-specific context that would clutter human documentation (exact test flags, architectural constraints, files to never modify). Keep your README for humans, AGENTS.md for agents.
+- **Agent-Focused Guidance**: AGENTS.md complements your README and docs.
+  It contains agent-specific context that would clutter human documentation
+  (exact test flags, architectural constraints, files to never modify).
+  Keep your README for humans, AGENTS.md for agents.
 - **Avoid Hardcoding**: Never embed specific values, file paths, repository names, user details, job IDs, or tool versions when giving examples;
   instead, use clear placeholders (e.g., `<repository-name>`, `<file-path>`, `<job-id>`, `<version>`).
 - **Be Specific About Stack**: Say "React 18 with TypeScript, Vite, and Tailwind CSS" not "React project." Include versions and key dependencies.
@@ -46,12 +58,17 @@ The mechanism is straightforward. Without AGENTS.md, the agent spends time explo
 - **Commands Early**: Put relevant executable commands in an early section. Include flags and options, not just tool names. Your agent will reference these often.
 - **Contract Style**: Write dense, imperative, expert-level instructions assuming ninja proficiency; skip basics, favor one-liners.
 - **Cover Six Core Areas**: Hitting these areas puts you in the top tier: commands, testing, project structure, code style, git workflow, and boundaries.
-- **Directory Hierarchy**: Nested `AGENTS.md` files provide directory-specific context. The agent reads the nearest file to the code being edited. Root-level rules apply everywhere; subdirectory rules override for that subtree.
-- **Keep it Short**: Shorter files perform better because agents spent less time parsing instructions and more time on the task.
+- **Directory Hierarchy**: Nested `AGENTS.md` files provide directory-specific context.
+  The agent reads the nearest file to the code being edited.
+  Root-level rules apply everywhere; subdirectory rules override for that subtree.
+- **Keep it Short**: Shorter files perform better (referencing the Princeton study)
+  because agents spend less time parsing instructions and more time on the task.
 - **Living Documentation**: Treat `AGENTS.md` as living documentation.
 - **No Duplication**: NEVER duplicate code-level comments or obvious steps.
 - **Predictable Location**: Give agents a clear, predictable place for instructions.
-- **Set Clear Boundaries**: Tell AI what it should never touch (e.g., secrets, vendor directories, production configs, or specific folders). "Never commit secrets" is a crucial constraint.
+- **Set Clear Boundaries**: Tell AI what it should never touch
+  (e.g., secrets, vendor directories, production configs, or specific folders).
+  "Never commit secrets" is a crucial constraint.
 - **Structural Strictness**: You must always format `AGENTS.md` files according to the canonical `AGENTS.md` structure.
 
 ## What to Include in AGENTS.md
@@ -71,7 +88,10 @@ A skill is a portable directory containing a `SKILL.md` file plus optional scrip
 
 ## AGENTS.md vs CLAUDE.md
 
-If you use multiple coding agents, use `AGENTS.md` for shared instructions and `CLAUDE.md` for Claude-specific features (like `@imports`, skills, or hooks). If you only use Claude Code, `CLAUDE.md` alone is sufficient since it provides more features. Claude Code automatically reads both files when both are present.
+If you use multiple coding agents, use `AGENTS.md` for shared instructions
+and `CLAUDE.md` for Claude-specific features (like `@imports`, skills, or hooks).
+If you only use Claude Code, `CLAUDE.md` alone is sufficient since it provides more features.
+Claude Code automatically reads both files when both are present.
 
 ## Expected AGENTS.md Structure
 
@@ -91,7 +111,9 @@ If you use multiple coding agents, use `AGENTS.md` for shared instructions and `
 
 ### Formatting
 
-- Prefer compact, agent-friendly lists by default; use Markdown tables only when the content is inherently tabular and a table improves scanability.
+- Prefer compact, agent-friendly lists by default;
+  use Markdown tables only when the content is inherently tabular
+  and a table improves scanability.
 - Use mermaid diagrams to describe complex concepts
   by embedding class, flowchart, mind maps, requirements, user journeys, sequence diagrams or other when applicable.
 
