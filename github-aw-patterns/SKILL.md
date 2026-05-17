@@ -116,3 +116,27 @@ Queue Strategies:
 1. Issue Checklist as Queue
 2. Sub-Issues as Queue
 3. Cache-Memory Queue
+
+## References
+
+- [BatchOps](https://github.com/github/gh-aw/blob/main/docs/src/content/docs/patterns/batch-ops.md)
+- [CentralRepoOps](https://github.com/github/gh-aw/blob/main/docs/src/content/docs/patterns/central-repo-ops.mdx)
+- [ChatOps](https://github.com/github/gh-aw/blob/main/docs/src/content/docs/patterns/chat-ops.md)
+- [DailyOps](https://github.com/github/gh-aw/blob/main/docs/src/content/docs/patterns/daily-ops.md)
+- [DeterministicOps](https://github.com/github/gh-aw/blob/main/docs/src/content/docs/patterns/deterministic-ops.md)
+- [DispatchOps](https://github.com/github/gh-aw/blob/main/docs/src/content/docs/patterns/dispatch-ops.md)
+- [IssueOps](https://github.com/github/gh-aw/blob/main/docs/src/content/docs/patterns/issue-ops.md)
+- [LabelOps](https://github.com/github/gh-aw/blob/main/docs/src/content/docs/patterns/label-ops.md)
+- [MonitorOps](https://github.com/github/gh-aw/blob/main/docs/src/content/docs/patterns/monitor-ops.md)
+- [MultiRepoOps](https://github.com/github/gh-aw/blob/main/docs/src/content/docs/patterns/multi-repo-ops.md)
+- [Orchestration](https://github.com/github/gh-aw/blob/main/docs/src/content/docs/patterns/orchestration.md)
+- [ProjectOps](https://github.com/github/gh-aw/blob/main/docs/src/content/docs/patterns/project-ops.mdx)
+- [ResearchPlanAssignOps](https://github.com/github/gh-aw/blob/main/docs/src/content/docs/patterns/research-plan-assign-ops.md)
+- [SideRepoOps](https://github.com/github/gh-aw/blob/main/docs/src/content/docs/patterns/side-repo-ops.mdx)
+- [SpecOps](https://github.com/github/gh-aw/blob/main/docs/src/content/docs/patterns/spec-ops.md)
+- [WorkQueueOps](https://github.com/github/gh-aw/blob/main/docs/src/content/docs/patterns/workqueue-ops.md)
+
+## Related Skills
+
+- **gh-aw**: To run and manage GitHub Agentic Workflows.
+- **github-aw-syntax**: For detailed syntax reference of Agentic Workflows.
