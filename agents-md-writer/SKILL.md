@@ -42,7 +42,7 @@ The mechanism is straightforward. Without AGENTS.md, the agent spends time explo
 - **Concise READMEs**: Keep READMEs concise and focused on human contributors.
 - **Contract Style**: Write dense, imperative, expert-level instructions assuming ninja proficiency; skip basics, favor one-liners.
 - **Cover Six Core Areas**: Hitting these areas puts you in the top tier: commands, testing, project structure, code style, git workflow, and boundaries.
-- **Directory Hierarchy**: In monorepos, `AGENTS.md` files can exist at multiple directory levels. The agent reads the nearest file to the file being edited. The closest `AGENTS.md` takes precedence, so each subproject can ship tailored instructions (e.g., OpenAI's Codex repository uses 88 `AGENTS.md` files).
+- **Directory Hierarchy**: In monorepos, `AGENTS.md` files can exist at multiple directory levels. The agent reads the nearest file to the file being edited. The closest `AGENTS.md` takes precedence, so each subproject can ship tailored instructions (e.g., OpenAI's Codex repository uses 88).
 - **Living Documentation**: Treat `AGENTS.md` as living documentation.
 - **No Duplication**: NEVER duplicate code-level comments or obvious steps.
 - **Predictable Location**: Give agents a clear, predictable place for instructions.
@@ -51,12 +51,12 @@ The mechanism is straightforward. Without AGENTS.md, the agent spends time explo
 
 ## What to Include in AGENTS.md
 
-- **Build & Test Commands**: Exact commands with flags. `uv run pytest tests/unit/ -v`, not `run the tests`. Include environment setup, migration scripts, and dev server startup.
+- **Build & Test Commands**: Exact commands with flags. Name technologies with version, `uv run pytest tests/unit/ -v`, not `run the tests`. Include environment setup, migration scripts, and dev server startup.
 - **Code Style Rules**: Only rules that differ from language defaults. `Named exports only, no default exports.` `All async handlers.` Things the agent would get wrong without guidance.
-- **Project Structure**: Map directories to responsibilities. `/src/api/ contains route handlers (thin, delegate to services). /src/services/ contains business logic.` Name technologies with versions.
+- **Project Structure**: Map directories to responsibilities. The /legacy/, /src/api/ contains route handlers (thin, delegate to services). /src/services/ contains business logic.
 - **Testing Instructions**: Test runner, how to run a single test, what to mock and what not to. `No mocking the database. Use the test database. Factory Boy for test data.`
 - **Git Workflow**: Branch naming conventions, commit message format, PR requirements. `Squash merge only. Conventional commits: feat:, fix:, chore:, docs:.`
-- **Boundaries**: What the agent should never touch. `Never modify files in /generated/. Never commit .env files. The /legacy/ module uses sync code; do not convert to async.`
+- **Boundaries**: What the agent should never touch. Never modify files in /generated/. Never commit .env files.
 
 ## SKILL.md vs AGENTS.md
 
