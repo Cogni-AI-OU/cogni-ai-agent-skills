@@ -1,10 +1,6 @@
 ---
 name: skill-writer
-description: >-
-  When the user requests to create, update, or refine a GitHub Copilot skill,
-  generate or revise a complete SKILL.md file that strictly adheres to the
-  official format, validation rules, and community best practices.
-  You MUST load this skill when creating or updating GitHub Copilot skill files.
+description: 'When the user requests to create, update, or refine a GitHub Copilot skill, generate or revise a complete SKILL.md file that strictly adheres to the official format, validation rules, and progressive loading best practices. Use this when writing agent skills, defining capabilities, structuring SKILL.md, or bundling resources (scripts, templates, references).'
 license: MIT
 ---
 
@@ -12,70 +8,69 @@ license: MIT
 
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
 
-Generate or update SKILL.md files for GitHub Copilot coding agents, ensuring
+Generate or update Agent Skills for GitHub Copilot coding agents, ensuring
 precise activation, concise expert-level guidance, and full compliance with
-repository standards.
+the portable progressive loading architecture.
+
+## When to Use This Skill
+
+- User asks to create a new Copilot skill
+- User needs to update or refine an existing `SKILL.md`
+- User wants to bundle scripts, templates, or references with a skill
+- User is troubleshooting skill activation or context limits
 
 ## Core Process
 
-1. **Infer Name & Context**: Determine a unique, descriptive `name` in lowercase-hyphenated format that will exactly match the folder name.
-2. **Draft the Description**: Write a single, highly precise `description` sentence capturing exact activation triggers without overlap.
-3. **Structure the File**: Follow the exact layout specified in `Skill Structure & Formatting`.
-4. **Enforce Style**: Write dense, imperative, expert-level instructions assuming ninja proficiency; skip basics, favor one-liners.
-5. **Output**: Output ONLY the complete, ready-to-commit SKILL.md content without conversational wrappers. Do not explain the changes unless requested.
+1. **Infer Name & Context**: Determine a unique, descriptive `name` in lowercase-hyphenated format (max 64 chars).
+2. **Draft the Description**: Write a keyword-dense `description` (10–1024 characters) wrapped in single quotes that clearly states WHAT the skill does and WHEN to use it.
+3. **Structure the File**: Follow the exact layout specified in `SKILL.md Required Format`.
+4. **Enforce Style**: Write imperative, expert-level instructions. Focus on what Copilot doesn't know (quirks, internal conventions, gotchas). Skip standard language syntax.
+5. **Manage Context Budget**: Keep `SKILL.md` under 500 lines (ideally <200). Split large workflows or detailed references into a `references/` directory.
+6. **Output**: Output ONLY the complete, ready-to-commit file content without conversational wrappers. Do not explain changes unless requested.
 
-## Core Principles
+## SKILL.md Required Format
 
-- **Autonomous Execution Focus**: Write for non-interactive agent flow: self-contained loops, built-in error recovery, verification steps, and no user confirmation prompts except for safety-critical actions.
-- **YAML Frontmatter is Mandatory**: Begin every SKILL.md with required fields `name` (lowercase-hyphenated, exactly matching folder name) and `description` (one precise, activation-triggering sentence). Include `license` only if needed. YAML must pass all repository validation rules.
-- **Description Precision**: Write the `description` as a single, highly specific sentence that matches user intent patterns without overlap—poor phrasing causes missed or false activations.
-- **Avoid Hardcoding**: Never embed specific values, file paths, repository names, user details, or tool versions; instead, use clear placeholders (e.g., `<repository-name>`, `<file-path>`, `<version>`).
-- **Pure Markdown Body**: Use only Markdown in the body; never include extraneous files, scripts, or resources unless explicitly required for the skill.
+Structure the generated file with the following sections (omit optional ones if unused):
 
-## Skill Structure & Formatting
+1. **YAML Frontmatter** (Required)
+   - `name`: Lowercase-hyphenated, max 64 chars.
+   - `description`: Wrapped in single quotes. Must define WHAT, WHEN, and keywords.
+   - `license`: Reference to `LICENSE.txt` or SPDX identifier.
+2. **Title (`# Skill Name`)**: Brief overview of what the skill enables.
+3. **Markdownlint Overrides** (e.g., `<!-- markdownlint-disable MD013 -->`)
+4. **`## When to Use This Skill`**: Bullet list of concrete scenarios reinforcing description triggers.
+5. **`## Prerequisites`** (Optional): Required tools, dependencies, or environment setup with install commands.
+6. **`## Step-by-Step Workflows`** (Optional): Numbered steps strictly for repeatable procedures where sequence matters (e.g., build, deploy). Prefer flexible guidelines over rigid steps for open-ended tasks.
+7. **`## Gotchas`** (High Signal): Proactive warnings about non-obvious behavior. Bold the key constraint, then explain why.
+8. **`## Troubleshooting`** (Optional): Reactive fixes for known issues presented as a symptom → solution table.
+9. **`## References`** (Optional): Links to bundled files or external resources. Use relative paths for bundled files.
 
-Structure the file exactly as:
+## Bundling Resources
 
-1. **YAML frontmatter block**
-2. **Title (`# Skill Name`)**
-3. **Markdownlint overrides** (e.g., `<!-- markdownlint-disable MD013 MD023 MD031 MD032 -->`)
-4. **Brief Intro** (1-2 sentences)
-5. **Section Discipline**: Use standard sections in a logical progression:
-   - `## Core Process` (if a step-by-step flow is needed)
-   - `## Core Principles`
-   - `## When to Use`
-   - `## Quick Start`
-   - `## Commands / Usage Patterns`
-   - `## Diagnostics and Troubleshooting`
-   - `## Best Practices`
-   - `## What to Avoid`
-   - `## Limitations`
-   - `## References`
-   - `## Related Skills`
+If the skill requires additional files, organize them into these specific folders and reference them via relative paths in `SKILL.md`:
+
+| Directory | Purpose | Loaded into Context? |
+| --------- | ------- | -------------------- |
+| `scripts/` | Executable automation (`.py`, `.ps1`, `.ts`, `.sh`). | Only when executed |
+| `references/` | Documentation the agent reads to inform decisions. Use for long content. | Yes, when referenced |
+| `assets/` | Static files used AS-IS in output (not modified by the agent). | No |
+| `templates/` | Starter code/scaffolds that the agent MODIFIES and builds upon. | Yes, when referenced |
+
+**Script Requirements**: When bundling scripts, prefer cross-platform languages (Python, Node.js, PowerShell) or Bash for simple tasks. Scripts must handle errors gracefully and avoid storing credentials.
 
 ## Writing Style & Philosophy
 
-- Write dense, imperative, expert-level instructions assuming ninja proficiency.
-- Skip basics, favor one-liners, pack maximum depth.
-- **Example Discipline**: Use fewer, shorter examples. Include only essential examples that demonstrate key patterns. Prefer single-line examples over multi-line blocks. Quality over quantity.
-- **Command-Line Tool Examples**: When the skill involves command-line tools, derive their usage dynamically via read/glob operations to maximize skill generality. Provide concise examples of key commands—focus on complex, multi-flag, piped, or non-standard operations.
-- **Skill Length Management**: Keep skills concise and focused. If a skill approaches 300 lines, or if content becomes unfocused, split it into multiple specialized skills with narrow, non-overlapping activation descriptions.
+- Use imperative mood: "Run", "Create", "Configure" (not "You should run").
+- Be specific and actionable; include exact commands with parameters.
+- **Gotchas are your highest-signal content**. Add gotchas for non-obvious defaults, version-specific quirks, and API traps.
+- **Flexible over Rigid**: For tasks like debugging or refactoring, provide decision criteria rather than rigid numbered steps.
 
 ## What to Avoid
 
-- Overly broad `description` fields that might trigger the skill when not needed.
-- Using interactive command examples without explicitly warning against them or providing non-interactive alternatives.
-- Creating excessively long files with redundant examples.
-- Explaining basic concepts that a proficient developer or AI agent would already know.
-- Outputting conversational filler. ONLY output the file content.
-
-## Limitations
-
-- The skill writer cannot test the activation triggers of the new skill in real-time; it relies on following the description precision rule to ensure proper loading.
-
-## References
-
-- [About agent skills](https://docs.github.com/en/copilot/concepts/agents/about-agent-skills)
+- Vague `description` fields that lack specific triggers, keywords, or capabilities.
+- Explaining basic concepts that Copilot already knows from its training data.
+- Excessively long `SKILL.md` files; use `references/` for progressive loading.
+- Hardcoding file paths or repository names where placeholders are more appropriate.
 
 ## Related Skills
 
