@@ -31,6 +31,10 @@ Enforce the standardized meaning of requirement level keywords as defined in BCP
 
 - These keywords apply strictly to technical specifications and standards; do not use them for general narrative or conversational text where their formal weight is unnecessary.
 
+## References
+
+- [Key words for use in RFCs to Indicate Requirement Levels](https://www.rfc-editor.org/rfc/rfc2119)
+
 ## Related Skills
 
 - **docs-writer**:
