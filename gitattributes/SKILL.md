@@ -50,13 +50,13 @@ Define attributes per path to enforce line-ending conversions, custom merge driv
 
 ## Example
 
-```text
+```gitattributes
 # git normalization file
 # @docs https://www.kernel.org/pub/software/scm/git/docs/gitattributes.html
 
 # Shorthand for text files.
 # - Treat them as text.
-# - Ensure no CRLF line-endings, neither on checkout nor on checkin.
+# - Ensure no CRLF line-endings, neither on checkout nor on check-in.
 # - Detect whitespace errors.
 #   - Exposed by default in `git diff --color` on the CLI.
 #   - Validate with `git diff --check`.
@@ -79,7 +79,7 @@ CHANGELOG merge=union
 
 Another example which can be used in `.github/aw/imports/.gitattributes`:
 
-```
+```gitattributes
 # Mark all cached import files as generated
 * linguist-generated=true
 

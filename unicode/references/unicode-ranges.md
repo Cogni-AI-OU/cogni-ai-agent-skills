@@ -308,7 +308,7 @@ This document provides a comprehensive reference for Unicode character hex range
 | 0xA000    | 0xA48F   | Yi Syllables                   | East Asian        |
 | 0xA490    | 0xA4CF   | Yi Radicals                    | East Asian        |
 | 0xA4D0    | 0xA4FF   | Lisu                           | Southeast Asian   |
-| 0xA500    | 0xA63F   | V&zwj;ai                            | African           |
+| 0xA500    | 0xA63F   | Vai                            | African           |
 | 0xA640    | 0xA69F   | Cyrillic Extended-B            | European          |
 | 0xA6A0    | 0xA6FF   | Bamum                          | African           |
 | 0xA700    | 0xA71F   | Modifier Tone Letters          | Phonetic          |
@@ -399,7 +399,7 @@ This document provides a comprehensive reference for Unicode character hex range
 | 0x14400   | 0x1467F  | Anatolian Hieroglyphs          | Historic          |
 | 0x16800   | 0x16A3F  | Bamum Supplement               | African           |
 | 0x16A40   | 0x16A6F  | Mro                            | Southeast Asian   |
-| 0x16AD0   | 0x16AFF  | Bassa V&zwj;ah                      | African           |
+| 0x16AD0   | 0x16AFF  | Bassa Vah                      | African           |
 | 0x16B00   | 0x16B8F  | Pahawh Hmong                   | Southeast Asian   |
 | 0x16FE0   | 0x16FFF  | Ideographic Symbols            | East Asian        |
 | 0x1B000   | 0x1B0FF  | Kana Supplement                | East Asian        |
