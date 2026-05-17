@@ -42,11 +42,11 @@ copilot login
 ### Security & Permissions
 
 ```bash
-# Allow all tools, paths, and URLs (YOLO mode)
-copilot --yolo --prompt "Perform complex task"
-
-# Specific tool permissions
+# Preferred: grant only the specific permissions needed for the task
 copilot --allow-tool='shell(git)' --deny-tool='shell(rm)' --prompt "Clean repo"
+
+# Only use YOLO mode after the user has explicitly confirmed unrestricted access
+copilot --yolo --prompt "Perform complex task"
 ```
 
 **Programmatic Custom Agent Execution**
