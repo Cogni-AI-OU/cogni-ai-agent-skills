@@ -47,7 +47,7 @@ tools:
     #   private-key: ${{ secrets.APP_PRIVATE_KEY }}
 ```
 
-## Available Toolsets
+## Toolset Overview
 
 - **`context`**: Identity and team awareness (`get_me`, `get_teams`).
 - **`repos`**: Core repository operations (read, list commits/branches, files).
@@ -108,7 +108,7 @@ tools:
     toolsets: [repos, issues]
 ```
 
-## Available Toolsets List
+## Detailed Toolset Reference
 
 The GitHub MCP server organizes tools into logical toolsets. You can enable specific toolsets, use `[default]` for the recommended defaults, or use `[all]` to enable everything.
 

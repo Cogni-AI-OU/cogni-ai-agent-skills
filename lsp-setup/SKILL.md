@@ -22,7 +22,7 @@ description: 'Enable code intelligence (go-to-definition, find-references, hover
 ## Core Principles
 
 - Always use `ask_user` with `choices` when asking the user to pick a language or scope.
-- If the language is not listed in `references/lsp-servers.md`, search the web for "<language> LSP server" and guide the user through manual configuration.
+- If the language is not listed in `references/lsp-servers.md`, search the web for `"<language> LSP server"` and guide the user through manual configuration.
 - If a package manager is not available (e.g. no Homebrew on macOS), suggest alternative install methods from the reference file.
 - After installation, run `which <binary>` (or `where.exe` on Windows) to confirm the binary is accessible.
 - Show the user the final config JSON before writing it.

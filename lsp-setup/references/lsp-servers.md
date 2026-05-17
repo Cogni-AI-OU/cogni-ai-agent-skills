@@ -2,7 +2,9 @@
 
 Reference data for the `lsp-setup` skill. Each section contains install commands per OS and a ready-to-use config snippet.
 
-> **Config snippet format**: Each snippet below shows the object to insert as a value under the top-level `lspServers` key. A complete config file looks like: `{ "lspServers": { <snippet here> } }`. When adding multiple languages, merge their snippets as sibling keys under `lspServers`.
+> **Config snippet format**: Each snippet below shows the object to insert as a value under the top-level
+> `lspServers` key. A complete config file looks like: `{ "lspServers": { <snippet here> } }`. When adding
+> multiple languages, merge their snippets as sibling keys under `lspServers`.
 
 ---
 
@@ -70,7 +72,10 @@ On macOS with Homebrew, the binary is installed as `jdtls` on `$PATH`.
 }
 ```
 
-> **Note**: The `jdtls` wrapper script handles `--stdio` mode internally. If using a manual install, you may need to invoke the launcher jar directly — see the [jdtls README](https://github.com/eclipse-jdtls/eclipse.jdt.ls#running-from-command-line-with-wrapper-script) for details.
+> **Note**: The `jdtls` wrapper script handles `--stdio` mode internally. If using a manual install, you may need
+> to invoke the launcher jar directly -- see the
+> [jdtls README](https://github.com/eclipse-jdtls/eclipse.jdt.ls#running-from-command-line-with-wrapper-script)
+> for details.
 
 ---
 
@@ -85,7 +90,7 @@ On macOS with Homebrew, the binary is installed as `jdtls` on `$PATH`.
 | Any | `npm install -g pyright` |
 | Any | `pip install pyright` |
 
-### Config snippet TypeScript/JavaScript
+### Config snippet Python/pyright
 
 ```json
 {
