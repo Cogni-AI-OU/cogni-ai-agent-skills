@@ -417,7 +417,6 @@ This document provides a comprehensive reference for Unicode character hex range
 | 0x1F100   | 0x1F1FF  | Enclosed Alphanumeric Supplement | Symbols         |
 | 0x1F200   | 0x1F2FF  | Enclosed Ideographic Supplement | Symbols         |
 | 0x1F300   | 0x1F5FF  | Miscellaneous Symbols and Pictographs | Symbols     |
-| 0x1F32D   | 0x1F37F  | Food & Drink Symbols           | Emoji             |
 | 0x1F600   | 0x1F64F  | Emoticons                      | Emoji             |
 | 0x1F650   | 0x1F67F  | Ornamental Dingbats            | Symbols           |
 | 0x1F680   | 0x1F6FF  | Transport and Map Symbols      | Emoji             |
