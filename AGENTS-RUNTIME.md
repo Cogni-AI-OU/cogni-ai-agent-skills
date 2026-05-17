@@ -24,10 +24,10 @@ and planned work into the current context.
   logs, extracting telemetry, and generating standardized visual audit reports.
   You MUST load this skill when auditing or analyzing autonomous agent log files.
 - **[agent-md](agent-md/SKILL.md)**: Syntax and structure reference for GitHub Copilot custom agent persona files
-  (.github/agents/*.agent.md).
-  You MUST load this skill to understand the schema and format of agent persona definitions.
+  (.github/agents/*.agent.md), OpenCode agent definitions, and Claude Code (CLAUDE.md).
+  You MUST load this skill to understand the schema and format of agent persona definitions across platforms.
 - **[agent-md-writer](agent-md-writer/SKILL.md)**: Guidelines and best practices for writing high-performance
-  GitHub Copilot agent persona files.
+  agent persona files (*.agent.md, CLAUDE.md).
   You MUST load this skill when creating or refining a specialized agent persona.
 - **[agents-md-writer](agents-md-writer/SKILL.md)**: Autonomous documentation editor responsible for creating,
   updating, and maintaining AGENTS.md files strictly adhering to the organizational baseline structure.
@@ -106,7 +106,8 @@ and planned work into the current context.
   privacy compliance.
 - **[gh](gh/SKILL.md)**: GitHub CLI (`gh`) operations for issues, pull requests, workflow runs, reviews, and API.
   You MUST load this skill when working with the `gh` command and its subcommands.
-- **[gh-agent-task](gh-agent-task/SKILL.md)**: GitHub CLI (`gh agent-task`) operations for creating, listing, and viewing preview agent tasks.
+- **[gh-agent-task](gh-agent-task/SKILL.md)**: GitHub CLI (`gh agent-task`) operations for creating, listing,
+  and viewing preview agent tasks.
   You MUST load this skill when working with the `gh agent-task` command.
 - **[gh-api](gh-api/SKILL.md)**: Advanced GitHub CLI (`gh api`) queries and mutations via REST or GraphQL.
   You MUST load this skill when working with the `gh api` command.

@@ -129,8 +129,8 @@ native file and `AGENTS.md` when both are present.
 - `## Agent Directives (Contract Style)`
   - Begin with a role statement that defines the agent's scope and responsibilities.
   - Follow with invariant statements that capture non-negotiable assumptions, constraints, or operating rules.
-  - Include explicit `NEVER` bullets for prohibited behaviors the agent must avoid.
-  - Include explicit `MUST` bullets for required behaviors the agent must follow.
+  - **Hardened NEVER Constraints**: Include explicit `NEVER` bullets for prohibited behaviors (e.g., "NEVER commit secrets", "NEVER mutate vendor directories").
+  - **Hardened MUST Constraints**: Include explicit `MUST` bullets for required behaviors (e.g., "MUST run tests before completion", "MUST follow conventional commits").
 - `## Common Tasks`
 - `## Related Prompts or Skills (load when relevant)`
 - `## Testing & Verification Gates`

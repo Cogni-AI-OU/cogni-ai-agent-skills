@@ -1,6 +1,6 @@
 ---
 name: agent-md-writer
-description: Guidelines and best practices for writing high-performance GitHub Copilot agent persona files (.github/agents/*.agent.md). Use this when you need to create or refine a specialized agent persona.
+description: Guidelines and best practices for writing high-performance agent persona files (*.agent.md, CLAUDE.md). Use this when you need to create or refine a specialized agent persona.
 license: MIT
 ---
 
@@ -8,13 +8,13 @@ license: MIT
 
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
 
-This skill provides a structured process and set of principles for creating effective GitHub Copilot agent personas that reduce hallucination and increase task success rates.
+This skill provides a structured process and set of principles for creating effective agent personas that reduce hallucination and increase task success rates.
 
 ## Core Process
 
 1. **Identify the Persona**: Determine the exact, narrow role the agent will perform (e.g., `docs-agent`, `test-agent`). Avoid "general helper" personas.
-2. **Structure the Content**: Follow the `agent-md` syntax: YAML frontmatter, persona, project knowledge, executable commands, code examples, and boundaries.
-3. **Prune Fluff**: Use real code snippets instead of abstract descriptions.
+2. **Structure the Content**: Follow the `agent-md` syntax and include high-performance sections: Persona, Initialization, Cognitive Framework, Directives, Invariants, Tooling, Workflow, and Verification Gates.
+3. **Prune Fluff**: Use real code snippets and contract-style imperatives instead of abstract descriptions.
 4. **Output**: Output the complete markdown file without conversational wrappers.
 
 ## Core Principles
@@ -24,6 +24,26 @@ This skill provides a structured process and set of principles for creating effe
 - **Code Examples Over Explanations**: Provide concrete code snippets showing the expected style. One example is worth ten paragraphs.
 - **Tech Stack Specificity**: Explicitly name technologies and versions (e.g., "React 18 with TypeScript").
 - **Strict 3-Tier Boundaries**: Clearly categorize actions into "Always do", "Ask first", and "Never do". "Never commit secrets" is mandatory.
+
+## High-Performance Persona Sections
+
+When writing a top-tier agent persona, always include and refine these key sections:
+
+- **Role Persona**: Defines the agent's identity, core mandate, and philosophical approach (e.g., "Elite autonomous engineering kernel").
+- **Initialization Sequence**: Mandatory boot sequence instructions (e.g., "Execute Core_Initialization_Sequence defined in AGENTS.mmd").
+- **Cognitive Framework**: Detailed internal reasoning protocols (e.g., Adversarial Self-Inquiry, Design-by-Contract Enforcement, Division of Labor).
+- **Secondary Directives**: Architectural vision and long-horizon design investments (e.g., "Deep Module Architect", "Conceptual Integrity Guardian").
+- **Task Invariants**: Non-negotiable operational rules (e.g., "Broken-Window Annihilation", "Two-Hats Discipline").
+- **Tooling & Resource Management**: Strict rules for tool usage, context economy, and resource pruning.
+- **Workflow Contract**: Phase-by-phase execution roadmap (Intent -> Execution -> Verification -> Termination).
+- **Quality & Security Gates**: Non-negotiable standards for code quality, security envelopes, and testing.
+- **Hardened NEVER / MUST NOT Constraints**: Absolute prohibited actions to prevent system corruption or security leaks.
+- **Termination Invariants**: Definition of "done" (e.g., "100% of tracked #todos must be empirically verified").
+- **Communication & Output Constraints**: Strict formatting for user interaction (e.g., "Zero-Scaffolding Tone", "Commit-Message Resolution Summary").
+- **Checklists**:
+  - **Pre-Flight Discovery**: Steps to take before acting (Assumptions validated, Blast-radius assessed).
+  - **Post-Execution Assurance**: Steps to take after completion (Living docs synced, Leakage scan passed).
+  - **Verification**: Final objective truth checks (Entropy eradicated, Fidelity delta validation).
 
 ## What to Avoid
 
