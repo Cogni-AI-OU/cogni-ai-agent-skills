@@ -52,65 +52,70 @@ sed 's/old/new/' <file>
 sed 's/old/new/g' <file>
 ```
 
-### 6. Text Cleaning (Trim Spaces)
+### 5. Text Cleaning (Trim Spaces)
 
-Remove leading and trailing whitespace from each line.
+Remove leading and trailing whitespace from each line. Note: `\t` for tabs is a GNU extension; use literal tabs or `[[:blank:]]` for portability.
 
 ```bash
-# Trim leading spaces and tabs
+# Trim leading spaces and tabs (GNU)
 sed -e 's/^[ \t]*//g' <file>
 
-# Trim trailing spaces and tabs
+# Trim trailing spaces and tabs (GNU)
 sed -e 's/[ \t]*$//g' <file>
 
-# Combined trim
-sed -e 's/^[ \t]*//g' -e 's/[ \t]*$//g' <file>
+# Combined trim (Portable/POSIX)
+sed -e 's/^[[:blank:]]*//' -e 's/[[:blank:]]*$//' <file>
 ```
 
-### 7. Case Conversion
+### 6. Case Conversion
+
+Note: `\u` and `\U` are GNU `sed` extensions and are not portable (e.g., on macOS/BSD).
 
 ```bash
-# Capitalize first character of each line
+# Capitalize first character of each line (GNU)
 sed 's/./\u&/' <file>
 
-# Capitalize first character of every word
-sed 's/^./\U&/g; s/ ./\U&/g' <file>
+# Capitalize first character of every word (GNU)
+sed -E 's/\b[a-z]/\U&/g' <file>
 ```
 
-### 8. Structure and Reordering
+### 7. Structure and Reordering
 
 ```bash
 # Swap first and last characters of each line (Extended Regex)
-sed -E 's/(.)(.+)(.)/\3\2\1/' <file>
+# Handles 2+ characters; 1-character lines remain unchanged.
+sed -E 's/(.)(.*)(.)/\3\2\1/' <file>
 ```
 
-### 9. Content Extraction and Conversion
+### 8. Content Extraction and Conversion
 
 ```bash
 # Remove all XML/HTML tags
 sed -e 's/<[^>]*>//g' <file>
 
-# Convert XML/HTML tags to newlines
+# Convert XML/HTML tags to newlines (GNU: \n)
+# Portable sed requires a literal escaped newline in the replacement.
 sed -e 's/<[^>]*>/\n/g' <file>
 
 # WIF to SHA (part of a pipeline)
-# base58 -d | xxd -p -c200 | sed s/^80// | rg -oz "[A-Fa-f0-9]{64}"
+base58 -d | xxd -p -c200 | sed s/^80// | rg -oz "[A-Fa-f0-9]{64}"
 ```
 
-### 10. System and Database Fixes
+### 9. System and Database Fixes
 
 ```bash
 # Recursive directory tree visualization (simplified)
 ls -R | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/   /' -e 's/-/|/'
 
-# List 40 largest files (recursive)
-ls -1Rhs | sed -e "s/^ *//" | grep "^[0-9]" | sort -hr | head -n40
+# List 40 largest files (recursive) - more precise than ls -R
+find . -type f -exec du -h {} + | sort -hr | head -n40
 
-# Fix MySQL collation issues (utf8mb4 to utf8)
+# MySQL Collation Fix (Use with caution: may downgrade utf8mb4 to utf8)
+# Only use if the target database does not support utf8mb4.
 sed "s/utf8mb4_0900_ai_ci\|utf8mb4_unicode_ci/utf8_general_ci/g;s/\butf8mb[34]/utf8/g" <dump.sql>
 ```
 
-### 11. In-Place Edit (With Safety)
+### 10. In-Place Edit (With Safety)
 
 When modifying files directly, use `-i` (or `-i.bak` to create backups on some OS). Note: GNU `sed` supports `-i` directly, but macOS/BSD `sed` requires `-i ''`.
 
