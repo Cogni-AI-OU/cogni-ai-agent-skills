@@ -173,6 +173,8 @@ and planned work into the current context.
 - **[github-aw-memory](github-aw-memory/SKILL.md)**: Guide for persistent memory strategies in agentic workflows.
   You MUST load this skill when designing workflows that persist state across runs via
   cache-memory, repo-memory, or comment-memory.
+- **[github-aw-practices](github-aw-practices/SKILL.md)**: Organizational practices, rollout strategies, and A/B experiment specifications for maintaining repositories with gh-aw.
+  You MUST load this skill when dealing with GitHub Agentic Workflows A/B experiments, organization practices, or safe rollout strategies.
 - **[github-aw-syntax](github-aw-syntax/SKILL.md)**: Complete reference for GitHub Agentic Workflows (gh-aw) frontmatter
   schema, engine configuration, network access, tools, and imports syntax.
   You MUST load this skill when writing or debugging Agentic Workflow files.
