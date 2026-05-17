@@ -9,9 +9,59 @@ description: Guidance for installing GitHub Copilot CLI on Debian/Ubuntu and exe
 
 Guidance for installing the GitHub Copilot CLI on Debian/Ubuntu and using it with custom agents via command-line options.
 
+## Core Process
+
+1. **Install CLI**: Use `npm install -g @github/copilot` (recommended), `curl -fsSL https://gh.io/copilot-install | bash` (install script), or `snap install copilot-cli` on Debian/Ubuntu.
+2. **Authentication**: Use `copilot login` or set `COPILOT_GITHUB_TOKEN`. Fine-grained PATs require the **Copilot Requests** permission.
+3. **Discover Usage**: Run `copilot --help` for standard command usage options. Alternatively, see [Overview](references/use-copilot-cli/overview.md).
+4. **Agent Selection**: Use the `--agent` flag to target specialized `.agent.md` files. For details, see [Invoke Custom Agents](references/use-copilot-cli/invoke-custom-agents.md) and [Delegate to CCA](references/use-copilot-cli/delegate-tasks-to-cca.md).
+5. **Command Execution**: Provide the explicit instruction string via the `--prompt` or `-p` flag. Use `-s` (silent) in scripts to capture output. Manage tools via [Allowing Tools](references/use-copilot-cli/allowing-tools.md).
+6. **Task Steering**: Control outputs dynamically via [Steer Agents](references/use-copilot-cli/steer-agents.md) or [Speed Up Task Completion](references/use-copilot-cli/speed-up-task-completion.md). Remotely steer workflows via [Steer Remotely](references/use-copilot-cli/steer-remotely.md).
+7. **Session Management**: Validate and trace logic using [Chronicle](references/use-copilot-cli/chronicle.md) or [Roll Back Changes](references/use-copilot-cli/roll-back-changes.md). Configure UI capabilities via [Connecting VS Code](references/use-copilot-cli/connecting-vs-code.md).
+8. **Pull Requests**: For collaborative tasks, leverage [Manage Pull Requests](references/use-copilot-cli/manage-pull-requests.md) and [Agentic Code Review](references/use-copilot-cli/agentic-code-review.md).
+
+## Core Principles
+
+- **Programmatic Execution**: Avoid interactive slash commands (like `/agent`) in scripts. Always use explicit programmatic flags (`--agent` and `--prompt`).
+- **Context Management**: Utilize custom subagents to offload specific tasks, ensuring the main agent's context window remains uncluttered. In scripts, keep prompts narrowly scoped, pass context explicitly with `--prompt`, and start a new `copilot` invocation when you need a fresh or reduced context window.
+- **Agent Resolution**: If custom agents share a name, the resolution order is: User (`~/.copilot/agents/`) > Project (`.github/agents/`) > Organization (`.github-private/agents/`).
+- **Trusted Directories**: Copilot CLI requires confirmation to trust the working directory. Permanent trust is stored in `~/.copilot/config.json`.
+
+## Commands / Usage Patterns
+
+### Installation & Authentication
+
+```bash
+# Recommended (requires Node.js 22+)
+npm install -g @github/copilot
+
+# Install script (macOS/Linux)
+curl -fsSL https://gh.io/copilot-install | bash
+
+# Authenticate
+copilot login
+```
+
+
 ## Customization
 
 Optimize Copilot CLI by providing project-specific guidelines, automation hooks, and specialized skills.
+
+## Automate Copilot CLI
+
+Automate operations and orchestrate GitHub Copilot CLI in pipelines or custom scripts.
+
+### Quickstart
+- **Usage**: General introduction to automation paths.
+- **Reference**: See [quickstart.md](references/automate-copilot-cli/quickstart.md)
+
+### Run CLI Programmatically
+- **Usage**: Call the CLI from scripts, capturing structured JSON output silently.
+- **Reference**: See [run-cli-programmatically.md](references/automate-copilot-cli/run-cli-programmatically.md)
+
+### Automate with Actions
+- **Usage**: Inject Copilot CLI capabilities natively into GitHub Actions workflows.
+- **Reference**: See [automate-with-actions.md](references/automate-copilot-cli/automate-with-actions.md)
 
 ### Custom Instructions
 
@@ -57,35 +107,38 @@ Configure custom AI model providers via Bring Your Own Key (BYOK).
 - **Usage**: Integrate external model providers (Anthropic, Google, generic OpenAI-compatible) using local API keys.
 - **Reference**: See [use-byok-models.md](references/customize-copilot/use-byok-models.md) for environment variables and model selection flags.
 
-## Core Process
+## Use Copilot CLI
 
-1. **Install CLI**: Use `npm install -g @github/copilot` (recommended), `curl -fsSL https://gh.io/copilot-install | bash` (install script), or `snap install copilot-cli` on Debian/Ubuntu.
-2. **Authentication**: Use `copilot login` or set `COPILOT_GITHUB_TOKEN`. Fine-grained PATs require the **Copilot Requests** permission.
-3. **Discover Usage**: Run `copilot --help` for standard command usage options.
-4. **Agent Selection**: Use the `--agent` flag to target specialized `.agent.md` files (located in `.github/agents/`, `~/.copilot/agents/`, or organization-level `.github-private/agents/`).
-5. **Command Execution**: Provide the explicit instruction string via the `--prompt` or `-p` flag. Use `-s` (silent) in scripts to capture output.
+Harness the core capabilities of the Copilot CLI for code review, task delegation, and execution management.
 
-## Core Principles
+- **Overview**: Core capabilities and usage. See [overview.md](references/use-copilot-cli/overview.md).
+- **Agentic Code Review**: Automate PR and code reviews. See [agentic-code-review.md](references/use-copilot-cli/agentic-code-review.md).
+- **Allowing Tools**: Enforce tool execution boundaries. See [allowing-tools.md](references/use-copilot-cli/allowing-tools.md).
+- **Chronicle**: Track and resume historical sessions. See [chronicle.md](references/use-copilot-cli/chronicle.md).
+- **Connecting VS Code**: Sync terminal CLI with IDE context. See [connecting-vs-code.md](references/use-copilot-cli/connecting-vs-code.md).
+- **Delegate Tasks to CCA**: Route specific workloads to Custom Copilot Agents. See [delegate-tasks-to-cca.md](references/use-copilot-cli/delegate-tasks-to-cca.md).
+- **Invoke Custom Agents**: Run specialized agent personas directly. See [invoke-custom-agents.md](references/use-copilot-cli/invoke-custom-agents.md).
+- **Manage Pull Requests**: Generate and summarize PRs. See [manage-pull-requests.md](references/use-copilot-cli/manage-pull-requests.md).
+- **Roll Back Changes**: Revert codebase mutations cleanly. See [roll-back-changes.md](references/use-copilot-cli/roll-back-changes.md).
+- **Speed Up Task Completion**: Optimize workflows and reduce latency. See [speed-up-task-completion.md](references/use-copilot-cli/speed-up-task-completion.md).
+- **Steer Agents**: Mid-flight control of constraints and logic. See [steer-agents.md](references/use-copilot-cli/steer-agents.md).
+- **Steer Remotely**: Orchestrate workflows across remote boundaries. See [steer-remotely.md](references/use-copilot-cli/steer-remotely.md).
 
-- **Programmatic Execution**: Avoid interactive slash commands (like `/agent`) in scripts. Always use explicit programmatic flags (`--agent` and `--prompt`).
-- **Context Management**: Utilize custom subagents to offload specific tasks, ensuring the main agent's context window remains uncluttered. In scripts, keep prompts narrowly scoped, pass context explicitly with `--prompt`, and start a new `copilot` invocation when you need a fresh or reduced context window.
-- **Agent Resolution**: If custom agents share a name, the resolution order is: User (`~/.copilot/agents/`) > Project (`.github/agents/`) > Organization (`.github-private/agents/`).
-- **Trusted Directories**: Copilot CLI requires confirmation to trust the working directory. Permanent trust is stored in `~/.copilot/config.json`.
+## Set Up Copilot CLI
 
-## Commands / Usage Patterns
+Establish the foundation for the GitHub Copilot CLI and securely connect it to your environments.
 
-### Installation & Authentication
+- **Install Copilot CLI**: Deploy the extension natively via GitHub CLI. See [install-copilot-cli.md](references/set-up-copilot-cli/install-copilot-cli.md).
+- **Authenticate Copilot CLI**: Establish device flow or token authentication. See [authenticate-copilot-cli.md](references/set-up-copilot-cli/authenticate-copilot-cli.md).
+- **Configure Copilot CLI**: Manage internal setup, aliases, and telemetry. See [configure-copilot-cli.md](references/set-up-copilot-cli/configure-copilot-cli.md).
+- **Add LSP Servers**: Connect language intelligence for robust command context. See [add-lsp-servers.md](references/set-up-copilot-cli/add-lsp-servers.md).
+- **Troubleshoot Auth**: Diagnose and repair underlying connectivity failures. See [troubleshoot-copilot-cli-auth.md](references/set-up-copilot-cli/troubleshoot-copilot-cli-auth.md).
 
-```bash
-# Recommended (requires Node.js 22+)
-npm install -g @github/copilot
+## Best Practices
 
-# Install script (macOS/Linux)
-curl -fsSL https://gh.io/copilot-install | bash
+Adopt strict standards and guidelines to maximize Copilot CLI efficacy and security.
 
-# Authenticate
-copilot login
-```
+- **CLI Best Practices**: Optimize execution prompts, context handling, and strict permission models bounding. See [cli-best-practices.md](references/cli-best-practices.md).
 
 ### Security & Permissions
 
@@ -107,18 +160,18 @@ copilot --agent security-auditor --prompt "Check <target-file>"
 
 - [Custom Instructions Reference](references/customize-copilot/add-custom-instructions.md)
 - [Hooks Reference](references/customize-copilot/use-hooks.md)
-- [Adding LSP servers for GitHub Copilot CLI](https://docs.github.com/en/copilot/how-tos/copilot-cli/set-up-copilot-cli/add-lsp-servers)
-- [Authenticating GitHub Copilot CLI](https://docs.github.com/en/copilot/how-tos/copilot-cli/set-up-copilot-cli/authenticate-copilot-cli)
-- [Configuring GitHub Copilot CLI](https://docs.github.com/en/copilot/how-tos/copilot-cli/set-up-copilot-cli/configure-copilot-cli)
+- [Adding LSP servers for GitHub Copilot CLI](references/set-up-copilot-cli/add-lsp-servers.md)
+- [Authenticating GitHub Copilot CLI](references/set-up-copilot-cli/authenticate-copilot-cli.md)
+- [Configuring GitHub Copilot CLI](references/set-up-copilot-cli/configure-copilot-cli.md)
 - [copilot-cli docs repository](https://github.com/github/docs/tree/main/content/copilot/how-tos/copilot-cli)
 - [Create custom agents for CLI](https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/create-custom-agents-for-cli)
 - [Custom agents configuration reference](https://docs.github.com/en/copilot/reference/custom-agents-configuration)
 - [GitHub Copilot CLI command reference](https://docs.github.com/en/copilot/reference/copilot-cli-reference/cli-command-reference)
-- [Install Copilot CLI](https://docs.github.com/en/copilot/how-tos/copilot-cli/set-up-copilot-cli/install-copilot-cli)
+- [Install Copilot CLI](references/set-up-copilot-cli/install-copilot-cli.md)
 - [Overview of customizing GitHub Copilot CLI](https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/overview)
 - [Quickstart for automating with GitHub Copilot CLI](https://docs.github.com/en/copilot/how-tos/copilot-cli/automate-copilot-cli/quickstart)
 - [Setting up GitHub Copilot CLI](https://docs.github.com/en/copilot/how-tos/copilot-cli/set-up-copilot-cli)
-- [Troubleshooting GitHub Copilot CLI authentication](https://docs.github.com/en/copilot/how-tos/copilot-cli/set-up-copilot-cli/troubleshoot-copilot-cli-auth)
+- [Troubleshooting GitHub Copilot CLI authentication](references/set-up-copilot-cli/troubleshoot-copilot-cli-auth.md)
 - [Using GitHub Copilot CLI](https://docs.github.com/en/copilot/how-tos/copilot-cli/use-copilot-cli/overview)
 
 ## Related Skills
