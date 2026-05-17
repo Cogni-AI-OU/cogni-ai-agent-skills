@@ -682,11 +682,11 @@ Set `engine:` in your workflow frontmatter and configure the corresponding secre
 | :--- | :--- | :--- |
 | [GitHub Copilot CLI](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/use-copilot-cli) (default) | `copilot` | [COPILOT_GITHUB_TOKEN](https://github.github.com/gh-aw/reference/auth/#copilot_github_token) |
 | [Claude by Anthropic (Claude Code)](https://anthropic.com/claude) | `claude` | [ANTHROPIC_API_KEY](https://github.github.com/gh-aw/reference/auth/#anthropic_api_key) |
-| OpenAI Codex | `codex` | [OPENAI_API_KEY](https://github.github.com/gh-aw/reference/auth/#openai_api_key) |
+| [OpenAI Codex](https://github.com/openai/codex) | `codex` | [OPENAI_API_KEY](https://github.github.com/gh-aw/reference/auth/#openai_api_key) |
 | [Google Gemini CLI](https://github.com/google-gemini/gemini-cli) | `gemini` | [GEMINI_API_KEY](https://github.github.com/gh-aw/reference/auth/#gemini_api_key) |
 | [Crush](https://github.com/charmbracelet/crush) (experimental) | `crush` | [COPILOT_GITHUB_TOKEN](https://github.github.com/gh-aw/reference/auth/#copilot_github_token) |
 | [OpenCode](https://opencode.ai) (experimental) | `opencode` | [COPILOT_GITHUB_TOKEN](https://github.github.com/gh-aw/reference/auth/#copilot_github_token) |
-| Pi (experimental) | `pi` | [COPILOT_GITHUB_TOKEN](https://github.github.com/gh-aw/reference/auth/#copilot_github_token) (default); switches to provider-specific secret when `model:` uses `provider/model` format |
+| [Pi (experimental)](https://github.com/earendil-works/pi) | `pi` | [COPILOT_GITHUB_TOKEN](https://github.github.com/gh-aw/reference/auth/#copilot_github_token) (default); switches to provider-specific secret when `model:` uses `provider/model` format |
 
 Copilot CLI is the default — `engine:` can be omitted when using Copilot. See the linked authentication docs for secret setup instructions.
 
