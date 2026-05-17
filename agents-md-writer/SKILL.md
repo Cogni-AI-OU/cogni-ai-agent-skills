@@ -59,7 +59,7 @@ It is the cross-tool standard—one file, every agent.
 - **Directory Hierarchy**: Nested `AGENTS.md` files provide directory-specific context.
   The agent reads the nearest file to the code being edited.
   Root-level rules apply everywhere; subdirectory rules override for that subtree.
-- **Keep it Short**: Shorter files perform better (referencing the Princeton study)
+- **Keep it Short**: Shorter files perform better
   because agents spend less time parsing instructions and more time on the task.
 - **Living Documentation**: Treat `AGENTS.md` as living documentation.
 - **Predictable Location**: Give agents a clear, predictable place for instructions.
