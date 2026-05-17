@@ -64,13 +64,13 @@ This document provides a comprehensive reference for Unicode character hex range
 | Ethiopic Extended | 0x2D80 | 0x2DDF | `[\x{2D80}-\x{2DDF}]` |
 | Ethiopic Extended-A | 0xAB00 | 0xAB2F | `[\x{AB00}-\x{AB2F}]` |
 | Tifinagh | 0x2D30 | 0x2D7F | `[\x{2D30}-\x{2D7F}]` |
-| V&zwj;ai | 0xA500 | 0xA63F | `[\x{A500}-\x{A63F}]` |
-| Bamum | 0xA6A0 | 0xA6FF | `[\x{A6A0}-\x{A6FF}]` |
+| Vai | 0xA500 | 0xA63F | `[\x{A500}-\x{A63F}]` |
+| Bamum | 0xA6A0 | 0xA6FF | `[\x{A6A0}-\x{A6A0}]` |
 | Bamum Supplement | 0x16800 | 0x16A3F | `[\x{16800}-\x{16A3F}]` |
 | N'Ko | 0x07C0 | 0x07FF | `[\x{07C0}-\x{07FF}]` |
 | Adlam | 0x1E900 | 0x1E95F | `[\x{1E900}-\x{1E95F}]` |
 | Mende Kikakui | 0x1E800 | 0x1E8DF | `[\x{1E800}-\x{1E8DF}]` |
-| Bassa V&zwj;ah | 0x16AD0 | 0x16AFF | `[\x{16AD0}-\x{16AFF}]` |
+| Bassa Vah | 0x16AD0 | 0x16AFF | `[\x{16AD0}-\x{16AFF}]` |
 
 ### South Asian
 
