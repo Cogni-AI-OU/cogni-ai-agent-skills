@@ -1,6 +1,6 @@
 ---
 name: agent-md-writer
-description: Guidelines and best practices for writing high-performance GitHub Copilot agent persona files (.github/agents/*.md). Use this when you need to create or refine a specialized agent persona.
+description: Guidelines and best practices for writing high-performance GitHub Copilot agent persona files (.github/agents/*.agent.md). Use this when you need to create or refine a specialized agent persona.
 license: MIT
 ---
 
