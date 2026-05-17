@@ -224,7 +224,9 @@ and planned work into the current context.
   You MUST load this skill when creating or updating Pipfile or Pipfile.lock.
 - **[pre-commit](pre-commit/SKILL.md)**: Using pre-commit to validate code formatting, linting, and security checks.
   You MUST load this skill when using pre-commit hooks for validation.
-- **[python](python/SKILL.md)**: Execute Python inline scripts via heredocs for complex log processing,
+- **[python](python/SKILL.md)**: Expert Python language skill for writing, refactoring, and testing idiomatic Python 3 code.
+  You MUST load this skill when developing Python modules, classes, or scripts.
+- **[python-cli](python-cli/SKILL.md)**: Execute Python inline scripts via heredocs for complex log processing,
   summarization, or JSON parsing.
   You MUST load this skill when processing large logs.
 - **[rfc2119](rfc2119/SKILL.md)**: Enforce correct usage of RFC 2119 requirement level keywords

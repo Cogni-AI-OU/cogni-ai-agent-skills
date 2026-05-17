@@ -119,7 +119,8 @@ Cogni AI capabilities loaded into the `.github/` directory.
   pipenv CLI
 - **[pipfile](pipfile/SKILL.md)**: Create, update, and manage Python project dependencies via Pipfile and Pipfile.lock
 - **[pre-commit](pre-commit/SKILL.md)**: Using pre-commit to validate code formatting, linting, and security checks
-- **[python](python/SKILL.md)**: Execute Python inline scripts via heredocs for complex log processing,
+- **[python](python/SKILL.md)**: Expert Python language skill for writing, refactoring, and testing idiomatic Python 3 code
+- **[python-cli](python-cli/SKILL.md)**: Execute Python inline scripts via heredocs for complex log processing,
   summarization, or JSON parsing
 - **[robust-commands](robust-commands/SKILL.md)**: Resilient command execution with automatic
   fallbacks and error recovery

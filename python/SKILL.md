@@ -1,62 +1,60 @@
 ---
 name: python
 description: >-
-  Execute Python inline scripts via heredocs for complex log processing, summarization, or JSON parsing.
-  You MUST load this skill when processing large logs.
+  Expert Python language skill for writing, refactoring, and testing idiomatic Python 3 code.
+  You MUST load this skill when developing Python modules, classes, or scripts.
 ---
 
 # Skill: python
 
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
 
-Use Python via `python3 - <<'PY'` heredocs when processing large log files, complex text summarization, or parsing structured data (like JSON) where standard bash utilities (awk/sed/grep) become unwieldy or fragile. If `python3` is unavailable, you may fall back to `python`.
+Use this skill when developing Python code. For inline bash script Python execution, refer to the `python-cli` skill.
 
 ## Core Principles
 
-- **Avoid Fragile Bash Pipelines**: Transition to Python for multi-file processing, stateful parsing, or complex data transformations.
-- **Self-Contained Execution**: Use heredoc (`<<'PY'`) to execute inline Python without writing temporary `.py` scripts.
-- **Quote the delimiter**: Always quote the heredoc delimiter (`<<'PY'`) to prevent variable expansion by bash.
-- **Robust Parsing**: Utilize built-in `json`, `pathlib`, and `re` modules for robust text parsing.
+- **Idiomatic Python**: Follow PEP 8 guidelines for code style. Use standard Python naming conventions.
+- **Type Hinting**: Always use type hints (`typing` module) for function signatures and class attributes.
+- **Modern Features**: Utilize modern Python 3.10+ features like `match`/`case`, dataclasses, and standard library enhancements when applicable.
+- **Docstrings**: Document classes and functions using standard docstring formats (e.g., Google or Sphinx style) describing arguments, return types, and exceptions raised.
+- **Testing**: Ensure all business logic is covered by unit tests (e.g., using `pytest`).
 
 ## Usage Patterns
 
-### Generic Log Processing and Filtering
+### Dataclasses and Type Hints
 
-Process multiple files, parse JSON structures, and filter for specific keywords or conditions dynamically.
+Use dataclasses for robust data structures:
 
-```bash
-python3 - <<'PY'
-import json
-import pathlib
+```python
+from dataclasses import dataclass, field
+from typing import List, Optional
 
-# Define input sources mapping logical names to file paths
-files = {
-    'system-A': '/tmp/log-A.json',
-    'system-B': '/tmp/log-B.json'
-}
+@dataclass
+class User:
+    id: int
+    username: str
+    email: Optional[str] = None
+    roles: List[str] = field(default_factory=list)
 
-keywords = ['failed', 'fatal', 'error']
-
-for name, path in files.items():
-    print(f'===== {name} =====')
-    try:
-        # Use streaming approach for large files to minimize memory footprint
-        with open(path, 'r', encoding='utf-8') as f:
-            for i, line in enumerate(f):
-                lower_line = line.lower()
-                if any(k in lower_line for k in keywords):
-                    # strip() removes trailing newline for cleaner output
-                    print(f'{i+1}: {line.strip()}')
-    except Exception as e:
-        print(f"Failed to process {name} (path: {path}): {e}")
-    print()
-PY
+    def is_admin(self) -> bool:
+        """Check if the user has the 'admin' role."""
+        return 'admin' in self.roles
 ```
 
-### Read Specific Line Range
+### Error Handling
 
-Use this pattern when you need to extract and print a specific slice of lines from a file.
+Use explicit exception handling:
 
-```bash
-python3 -c "import sys; print(''.join(open('<file-path>').readlines()[140:160]))"
+```python
+import logging
+
+logger = logging.getLogger(__name__)
+
+def process_data(data: dict) -> None:
+    try:
+        value = data['key']
+        # Process value
+    except KeyError as e:
+        logger.error(f"Missing required key: {e}")
+        raise ValueError("Invalid data format") from e
 ```
