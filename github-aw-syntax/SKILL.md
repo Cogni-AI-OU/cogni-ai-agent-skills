@@ -674,6 +674,91 @@ Cache steps are automatically added to the workflow job and the cache configurat
 
 > **Memory configuration**: For detailed documentation on `cache-memory:`, `repo-memory:`, and `comment-memory:` configuration including advanced options and use cases, see [memory.md](https://github.com/github/gh-aw/blob/main/.github/aw/memory.md).
 
+## Available Coding Agents
+
+Set `engine:` in your workflow frontmatter and configure the corresponding secret:
+
+| Engine | `engine:` value | Required Secret |
+|--------|-----------------|-----------------|
+| [GitHub Copilot CLI](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/use-copilot-cli) (default) | `copilot` | [COPILOT_GITHUB_TOKEN](/gh-aw/reference/auth/#copilot_github_token) |
+| [Claude by Anthropic (Claude Code)](https://www.anthropic.com/index/claude) | `claude` | [ANTHROPIC_API_KEY](/gh-aw/reference/auth/#anthropic_api_key) |
+| [OpenAI Codex](https://openai.com/blog/openai-codex) | `codex` | [OPENAI_API_KEY](/gh-aw/reference/auth/#openai_api_key) |
+| [Google Gemini CLI](https://github.com/google-gemini/gemini-cli) | `gemini` | [GEMINI_API_KEY](/gh-aw/reference/auth/#gemini_api_key) |
+| [Crush](https://github.com/charmbracelet/crush) (experimental) | `crush` | [COPILOT_GITHUB_TOKEN](/gh-aw/reference/auth/#copilot_github_token) |
+| [OpenCode](https://opencode.ai) (experimental) | `opencode` | [COPILOT_GITHUB_TOKEN](/gh-aw/reference/auth/#copilot_github_token) |
+| [Pi](https://www.npmjs.com/package/@mariozechner/pi-coding-agent) (experimental) | `pi` | [COPILOT_GITHUB_TOKEN](/gh-aw/reference/auth/#copilot_github_token) (default); switches to provider-specific secret when `model:` uses `provider/model` format |
+
+Copilot CLI is the default — `engine:` can be omitted when using Copilot. See the linked authentication docs for secret setup instructions.
+
+## Engine Feature Comparison
+
+Not all features are available across all engines. The table below summarizes per-engine support for commonly used workflow options:
+
+| Feature | Copilot | Claude | Codex | Gemini | Crush | OpenCode | Pi |
+|---------|:-------:|:------:|:-----:|:------:|:-----:|:--------:|:--:|
+| `max-runs` (AWF invocation cap) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| `max-turns` | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| `max-continuations` | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| `tools.web-fetch` | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| `tools.web-search` | via MCP | via MCP | ✅ (opt-in) | via MCP | via MCP | via MCP | via MCP |
+| `engine.agent` (custom agent file) | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| `engine.api-target` (custom endpoint) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| `engine.bare` (disable context loading) | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ |
+| `engine.harness` (custom harness script) | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| Tools allowlist | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ | ✅ |
+
+**Notes:**
+- `max-runs` is a top-level frontmatter field that maps to `apiProxy.maxRuns` and is supported by all engines.
+- `max-runs` defaults to `500` and `max-effective-tokens` defaults to `25000000` when omitted.
+- `max-turns` limits the number of AI chat iterations per run (Claude only).
+- `max-continuations` enables autopilot mode with multiple consecutive runs (Copilot only).
+- `web-search` for Codex is disabled by default; add `tools: web-search:` to enable it. Other engines use a third-party MCP server — see [Using Web Search](/gh-aw/reference/web-search/).
+- `engine.agent` references a `.github/agents/` file for custom Copilot agent behavior. See [Copilot Custom Configuration](#copilot-custom-configuration).
+- `engine.bare` disables automatic context loading (memory files, custom instructions). See [Bare Mode](#bare-mode-bare) below.
+- `engine.harness` allows replacing the built-in Copilot harness script. See [Custom Harness Script](#custom-harness-script-harness) below.
+
+## Extended Coding Agent Configuration
+
+Workflows can specify extended configuration for the coding agent:
+
+```yaml wrap
+engine:
+  id: copilot
+  version: latest                       # defaults to latest
+  model: gpt-5                          # example override; omit to use engine default
+  command: /usr/local/bin/copilot       # custom executable path
+  args: ["--add-dir", "/workspace"]     # custom CLI arguments
+  agent: agent-id                       # custom agent file identifier
+  api-target: api.acme.ghe.com          # custom API endpoint hostname (GHEC/GHES)
+```
+
+### Copilot Custom Configuration
+
+Use `agent` to reference a custom agent file in `.github/agents/` (omit the `.agent.md` extension):
+
+```yaml wrap
+engine:
+  id: copilot
+  agent: technical-doc-writer  # .github/agents/technical-doc-writer.agent.md
+```
+
+See [Copilot Agent Files](/gh-aw/reference/copilot-custom-agents/) for details.
+
+### Engine Environment Variables
+
+All engines support custom environment variables through the `env` field:
+
+```yaml wrap
+engine:
+  id: copilot
+  env:
+    DEBUG_MODE: "true"
+    AWS_REGION: us-west-2
+    CUSTOM_API_ENDPOINT: https://api.example.com
+```
+
+Environment variables can also be defined at workflow, job, step, and other scopes. See [Environment Variables](/gh-aw/reference/environment-variables/) for complete documentation on precedence and all 13 env scopes.
+
 ## Tool Configuration
 
 ### General Tools
@@ -1010,3 +1095,8 @@ safe-outputs:
 - **Separation of Concerns**: Write operations are handled by dedicated jobs
 - **Permission Management**: Safe-outputs jobs automatically receive required permissions
 - **Audit Trail**: Clear separation between AI processing and GitHub API interactions
+
+## References
+
+- <https://github.com/github/gh-aw/blob/main/.github/aw/syntax.md?plain=1>
+- <https://github.com/github/gh-aw/blob/main/docs/src/content/docs/reference/engines.md?plain=1>
