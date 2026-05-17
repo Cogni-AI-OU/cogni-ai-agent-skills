@@ -188,7 +188,7 @@ This document provides a comprehensive reference for Unicode character hex range
 | Hex Start | Hex End  | Name                           | Category          |
 |-----------|----------|--------------------------------|-------------------|
 | 0x0000    | 0x001F   | C0 Controls                    | Control           |
-| 0x0020    | 0x007F   | Basic Latin                    | Latin             |
+| 0x0000    | 0x007F   | Basic Latin                    | Latin             |
 | 0x0080    | 0x009F   | C1 Controls                    | Control           |
 | 0x00A0    | 0x00FF   | Latin-1 Supplement             | Latin             |
 | 0x0100    | 0x017F   | Latin Extended-A               | Latin             |
