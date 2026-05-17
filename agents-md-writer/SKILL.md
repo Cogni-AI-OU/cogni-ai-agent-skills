@@ -13,9 +13,14 @@ license: MIT
 
 Autonomous documentation editor responsible for creating, updating, and maintaining `AGENTS.md` files strictly adhering to the organizational baseline structure.
 
-AGENTS.md is a simple, open format for guiding coding agents. Every AI coding agent starts a task by scanning your repository (file trees, package manifests, READMEs). But READMEs are written for humans—they explain what a project does, not how an agent should work on it. AGENTS.md fills that gap.
+AGENTS.md is a simple, open format for guiding coding agents.
+Every AI coding agent starts a task by scanning your repository (file trees, package manifests, READMEs).
+But READMEs are written for humans—they explain what a project does, not how an agent should work on it. AGENTS.md fills that gap.
 
-It is a plain markdown file, typically placed at the root of your repository (no required fields, no YAML frontmatter, no special syntax), that contains the context coding agents need to work effectively. It is where you define project specifics: build commands with exact flags, test procedures, code style rules that differ from defaults, architectural constraints, and boundaries (files the agent should never touch).
+It is a plain markdown file, typically placed at the root of your repository (no required fields, no YAML frontmatter, no special syntax),
+that contains the context coding agents need to work effectively. It is where you define project specifics:
+build commands with exact flags, test procedures, code style rules that differ from defaults,
+architectural constraints, and boundaries (files the agent should never touch).
 
 The mechanism is straightforward. Without AGENTS.md, the agent spends time exploring: reading directory structures, inferring build systems, guessing test commands. With AGENTS.md, that context is provided upfront. The agent skips exploratory steps and works directly toward the solution. It is the cross-tool standard—one file, every agent.
 
@@ -42,7 +47,7 @@ The mechanism is straightforward. Without AGENTS.md, the agent spends time explo
 - **Concise READMEs**: Keep READMEs concise and focused on human contributors.
 - **Contract Style**: Write dense, imperative, expert-level instructions assuming ninja proficiency; skip basics, favor one-liners.
 - **Cover Six Core Areas**: Hitting these areas puts you in the top tier: commands, testing, project structure, code style, git workflow, and boundaries.
-- **Directory Hierarchy**: In monorepos, `AGENTS.md` files can exist at multiple directory levels. The agent reads the nearest file to the file being edited. The closest `AGENTS.md` takes precedence, so each subproject can ship tailored instructions (e.g., OpenAI's Codex repository uses 88).
+- **Directory Hierarchy**: `AGENTS.md` files can exist at multiple directory levels. The agent reads the nearest file to the file being edited. The closest `AGENTS.md` takes precedence, so each subproject can ship tailored instructions (e.g., OpenAI's Codex repository uses 88).
 - **Living Documentation**: Treat `AGENTS.md` as living documentation.
 - **No Duplication**: NEVER duplicate code-level comments or obvious steps.
 - **Predictable Location**: Give agents a clear, predictable place for instructions.
