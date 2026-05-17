@@ -43,7 +43,7 @@ the portable progressive loading architecture.
 Structure the generated file with the following sections (omit optional ones if unused):
 
 1. **YAML Frontmatter block**
-2. **Title (`# Name Skill`)**
+2. **Title (`# Name`)**
 3. **Markdownlint overrides** (e.g., `<!-- markdownlint-disable MD013 MD023 MD031 MD032 -->`)
 4. **`## When to Use`**: Concrete scenarios reinforcing description triggers.
 5. **`## When Not to Use`**
