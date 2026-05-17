@@ -46,49 +46,7 @@ graph LR
     H --> I[Save Memory]
 ```
 
-The workflow operates through seven coordinated tasks each run:
-
-### Task 1: Discover and Validate Build/Test/Perf Commands
-
-Analyzes the repository to discover build commands, test commands, benchmark commands, lint/format tools, and profiling tools. Cross-references against CI files and validates by running them. Stores validated commands in memory for future runs.
-
-### Task 2: Identify Performance Opportunities
-
-Researches the performance landscape: current tooling, user-facing concerns, system bottlenecks, and development workflow issues. Prioritizes opportunities by impact (user-facing > internal), feasibility (low-risk > high-risk), and measurability.
-
-### Task 3: Implement Performance Improvements
-
-Selects optimization goals from the backlog, establishes baseline measurements, implements optimizations, and measures impact. Creates draft PRs with evidence of performance gains, trade-offs documented, and reproducibility instructions.
-
-### Task 4: Maintain Perf Improver Pull Requests
-
-Keeps its own PRs healthy by fixing CI failures and resolving merge conflicts. Uses `push_to_pull_request_branch` to update PR branches directly.
-
-### Task 5: Comment on Performance Issues
-
-Reviews open issues with `performance` label or mentioning performance. Suggests profiling approaches, measurement strategies, and offers to investigate. Maximum 3 comments per run.
-
-### Task 6: Invest in Performance Measurement Infrastructure
-
-Assesses existing benchmark suites, profiling tools, and CI performance regression detection. Discovers real-world performance priorities from user issues. Proposes or implements infrastructure improvements like new benchmarks or measurement harnesses.
-
-### Task 7: Update Monthly Activity Summary
-
-Every run, updates a rolling monthly activity issue that gives maintainers a single place to see all performance work and suggested actions.
-
-### Guidelines Perf Improver Follows
-
-- **Measure everything**: No performance claim without data
-- **No breaking changes**: Never changes public APIs without explicit approval
-- **No new dependencies**: Discusses in an issue first
-- **Small, focused PRs**: One optimization per PR for easy measurement and revert
-- **Read AGENTS.md first**: Before starting work, reads project-specific conventions
-- **AI transparency**: Every output includes robot emoji disclosure
-- **Build, format, lint, and test verification**: Runs all checks before creating PRs
-- **Exclude generated files**: Performance reports go in PR description, not commits
-
 For scheduled runs, the workflow is skipped if there are already 8 or more open PRs with its title prefix, to avoid overwhelming maintainers.
-
 
 **Reference:** [https://github.com/githubnext/agentics/tree/main/docs/perf-improver.md](https://github.com/githubnext/agentics/tree/main/docs/perf-improver.md)
 
