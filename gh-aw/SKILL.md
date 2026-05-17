@@ -124,10 +124,10 @@ mindmap
 When asked to create, update, debug, or upgrade GitHub Agentic Workflows,
 use `webfetch` to retrieve and read the appropriate instruction prompt from the official repository before proceeding:
 
-- **Create New Workflow**: `https://raw.githubusercontent.com/github/gh-aw/v0.74.3/.github/aw/create-agentic-workflow.md`
-- **Update Existing Workflow**: `https://raw.githubusercontent.com/github/gh-aw/v0.74.3/.github/aw/update-agentic-workflow.md`
-- **Upgrade Agentic Workflows**: `https://raw.githubusercontent.com/github/gh-aw/v0.74.3/.github/aw/upgrade-agentic-workflows.md`
-- **Create Shared Agentic Workflow**: `https://raw.githubusercontent.com/github/gh-aw/v0.74.3/.github/aw/create-shared-agentic-workflow.md`
+- **Create New Workflow**: [create-agentic-workflow.md](https://raw.githubusercontent.com/github/gh-aw/v0.74.3/.github/aw/create-agentic-workflow.md)
+- **Update Existing Workflow**: [update-agentic-workflow.md](https://raw.githubusercontent.com/github/gh-aw/v0.74.3/.github/aw/update-agentic-workflow.md)
+- **Upgrade Agentic Workflows**: [upgrade-agentic-workflows.md](https://raw.githubusercontent.com/github/gh-aw/v0.74.3/.github/aw/upgrade-agentic-workflows.md)
+- **Create Shared Agentic Workflow**: [create-shared-agentic-workflow.md](https://raw.githubusercontent.com/github/gh-aw/v0.74.3/.github/aw/create-shared-agentic-workflow.md)
 
 ## Related Skills
 
