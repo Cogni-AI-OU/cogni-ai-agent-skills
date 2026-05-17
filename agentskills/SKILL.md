@@ -7,7 +7,7 @@ description: >-
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
 # Agent Skills (Standard)
 
-The Agent Skills open standard provides a framework for structuring and specifying skills to ensure portability across different AI systems and agent hosts. Agent Skills are self-contained folders with instructions and bundled resources that teach AI agents specialized capabilities, unlike custom instructions which only define coding standards.
+The Agent Skills open standard provides a framework for structuring and specifying skills to ensure portability across different AI systems and agent hosts. Agent skills work with GitHub Copilot (Cloud, CLI, and VS Code), Claude Code, OpenCode, and other compliant agents. Agent Skills are self-contained folders with instructions and bundled resources that teach AI agents specialized capabilities, unlike custom instructions which only define coding standards.
 
 ## Core Principles
 
@@ -27,7 +27,7 @@ The Agent Skills open standard provides a framework for structuring and specifyi
 1. **Determine Scope**:
    - **Project skills**: Stored in `.github/skills/`, `.claude/skills/`, or `.agents/skills/` depending on the tool. Scope is limited to the repository.
    - **Personal skills**: Stored in `~/.copilot/skills/`, `~/.claude/skills/`, or `~/.agents/skills/` depending on the tool. Scope is global for the user's CLI environment.
-   - **Installable skills**: Use `gh skill add https://docs-url` (using the `gh skill` extension) or `npx skills add https://docs-url` (Vercel's skills CLI) to install external skills.
+   - **Installable skills**: Use `gh skill install OWNER/REPOSITORY` (using the `gh skill` extension) or `npx skills add https://docs-url` (Vercel's skills CLI) to install external skills.
 2. **Scaffold Skill**:
    - Create a directory named after the skill (lowercase-hyphenated).
    - Create a `SKILL.md` file with the required YAML frontmatter (`name`, `description`).
@@ -40,7 +40,7 @@ A standard skill directory should be organized as follows:
 
 ```text
 skill-name/
-├── SKILL.md          # Required: metadata + instructions
+├── SKILL.md          # MANDATORY: must be named SKILL.md (metadata + instructions)
 ├── LICENSE.txt       # Recommended: License terms (Apache 2.0 typical)
 ├── scripts/          # Optional: executable code (Python, Bash, JS). Loaded when executed.
 ├── references/       # Optional: additional documentation. Loaded when referenced.
@@ -65,7 +65,9 @@ The `name` and `description` fields in `SKILL.md` frontmatter are critical. The 
 | `license` | No | License name or reference to a bundled license file (e.g., `Complete terms in LICENSE.txt`). |
 | `compatibility` | No | Max 500 chars. System packages, network access needs, etc. |
 | `metadata` | No | Arbitrary key-value mapping (e.g., author, version). |
-| `allowed-tools` | No | (Experimental) Space-separated string of pre-approved tools. |
+| `allowed-tools` | No | Space-separated string of pre-approved tools (e.g., `shell`, `bash`). |
+
+**Security Warning**: Only pre-approve `shell` or `bash` if you fully trust the skill source. Pre-approving these tools removes the confirmation step and can allow execution of arbitrary commands.
 
 ### Body Content
 
@@ -96,9 +98,19 @@ Recommended sections:
 | Project (Provider) | `.github/skills/`, `.claude/skills/`, `.opencode/skills/` | Single repository, provider-specific |
 | Project (Runtime) | `.skills/` | Ephemeral workspace symlink (e.g., CI/CD) |
 | Personal (Shared) | `~/.agents/skills/` | User-wide (CLI), portable across agents |
-| Personal (Provider) | `~/.github/skills/`, `~/.claude/skills/`, `~/.copilot/skills/`, `~/.config/opencode/skills/` | User-wide (CLI), provider-specific |
-| Installable | `gh skill add https://docs-url`, `npx skills add https://docs-url` | Install external skills via CLI |
+| Personal (Provider) | `~/.copilot/skills/`, `~/.claude/skills/`, `~/.config/opencode/skills/` | User-wide (CLI), provider-specific |
+| Installable | `gh skill install OWNER/REPOSITORY`, `npx skills add https://docs-url` | Install external skills via CLI |
 | System | `/usr/share/agents/skills/` | System-wide |
+
+## Managing Skills with GitHub CLI
+
+The `gh skill` command in GitHub CLI (v2.90.0+) allows discovering, installing, and managing skills:
+
+- **Search**: `gh skill search <topic>`
+- **Preview**: `gh skill preview <owner>/<repository> <skill-name>`
+- **Install**: `gh skill install <owner>/<repository> <skill-name>`
+- **Update**: `gh skill update --all`
+- **Publish**: `gh skill publish`
 
 ## Runtime and CI/CD Caveats
 
