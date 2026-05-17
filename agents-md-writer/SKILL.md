@@ -127,9 +127,10 @@ native file and `AGENTS.md` when both are present.
 - `## Requirements`
 - `## Key Files & Context Injection`
 - `## Agent Directives (Contract Style)`
-  - Role, then invariants, then ...
-  - NEVER ...
-  - MUST ...
+  - Begin with a role statement that defines the agent's scope and responsibilities.
+  - Follow with invariant statements that capture non-negotiable assumptions, constraints, or operating rules.
+  - Include explicit `NEVER` bullets for prohibited behaviors the agent must avoid.
+  - Include explicit `MUST` bullets for required behaviors the agent must follow.
 - `## Common Tasks`
 - `## Related Prompts or Skills (load when relevant)`
 - `## Testing & Verification Gates`
