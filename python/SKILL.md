@@ -58,20 +58,5 @@ PY
 Use this pattern when you need to extract and print a specific slice of lines from a file.
 
 ```bash
-python3 - <<'PY'
-import sys
-
-file_path = '<file-path>'
-start_line = 140
-end_line = 160
-
-try:
-    with open(file_path, 'r', encoding='utf-8') as f:
-        # Read lines and print the specific range (0-indexed slice)
-        lines = f.readlines()
-        print(''.join(lines[start_line:end_line]))
-except Exception as e:
-    print(f"Error reading {file_path}: {e}")
-    sys.exit(1)
-PY
+python3 -c "import sys; print(''.join(open('<file-path>').readlines()[140:160]))"
 ```
