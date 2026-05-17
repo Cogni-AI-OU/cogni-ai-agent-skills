@@ -20,7 +20,7 @@ Guidance for installing the GitHub Copilot CLI on Debian/Ubuntu and using it wit
 ## Core Principles
 
 - **Programmatic Execution**: Avoid interactive slash commands (like `/agent`) in scripts. Always use explicit programmatic flags (`--agent` and `--prompt`).
-- **Context Management**: Utilize custom subagents to offload specific tasks, ensuring the main agent's context window remains uncluttered. Use `/usage`, `/context`, and `/compact` to manage session state.
+- **Context Management**: Utilize custom subagents to offload specific tasks, ensuring the main agent's context window remains uncluttered. In scripts, keep prompts narrowly scoped, pass context explicitly with `--prompt`, and start a new `copilot` invocation when you need a fresh or reduced context window.
 - **Agent Resolution**: If custom agents share a name, the resolution order is: User (`~/.copilot/agents/`) > Project (`.github/agents/`) > Organization (`.github-private/agents/`).
 - **Trusted Directories**: Copilot CLI requires confirmation to trust the working directory. Permanent trust is stored in `~/.copilot/config.json`.
 
