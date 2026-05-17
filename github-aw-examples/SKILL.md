@@ -1315,4 +1315,5 @@ The workflow searches for latest trends from software industry sources, related 
 
 ## References
 
+- [The Agentics](https://github.com/githubnext/agentics)
 - <https://github.com/githubnext/agentics/tree/main/docs>
