@@ -13,10 +13,9 @@ This skill provides a structured process and set of principles for creating effe
 ## Core Process
 
 1. **Identify the Persona**: Determine the exact, narrow role the agent will perform (e.g., `docs-agent`, `test-agent`). Avoid "general helper" personas.
-2. **Set the Target Location**: Ensure the file is placed correctly in `.github/agents/<agent-name>.md`.
-3. **Structure the Content**: Follow the `agent-md` syntax: YAML frontmatter, persona, project knowledge, executable commands, code examples, and boundaries.
-4. **Prune Fluff**: Use real code snippets instead of abstract descriptions.
-5. **Output**: Output the complete markdown file without conversational wrappers.
+2. **Structure the Content**: Follow the `agent-md` syntax: YAML frontmatter, persona, project knowledge, executable commands, code examples, and boundaries.
+3. **Prune Fluff**: Use real code snippets instead of abstract descriptions.
+4. **Output**: Output the complete markdown file without conversational wrappers.
 
 ## Core Principles
 

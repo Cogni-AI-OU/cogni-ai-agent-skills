@@ -8,7 +8,12 @@ license: MIT
 
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
 
-Agent MD is a format for defining specialized GitHub Copilot agent personas. These files live in `.github/agents/*.md` and provide context-specific instructions, project knowledge, and execution boundaries for autonomous agents.
+Agent MD is a format for defining specialized GitHub Copilot agent personas. These files provide context-specific instructions, project knowledge, and execution boundaries for autonomous agents.
+
+## Target Location
+
+Agent MD persona files MUST be located in the `.github/agents/` directory of the repository.
+The filename SHOULD match the agent's `name` property defined in the frontmatter (e.g., `.github/agents/test-agent.md`).
 
 ## Syntax Overview
 
