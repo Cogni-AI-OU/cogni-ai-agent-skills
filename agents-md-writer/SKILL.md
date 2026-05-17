@@ -51,8 +51,6 @@ It is the cross-tool standard—one file, every agent.
   It contains agent-specific context that would clutter human documentation
   (exact test flags, architectural constraints, files to never modify).
   Keep your README for humans, AGENTS.md for agents.
-- **Avoid Hardcoding**: Never embed specific values, file paths, repository names, user details, job IDs, or tool versions when giving examples;
-  instead, use clear placeholders (e.g., `<repository-name>`, `<file-path>`, `<job-id>`, `<version>`).
 - **Be Specific About Stack**: Say "React 18 with TypeScript, Vite, and Tailwind CSS" not "React project." Include versions and key dependencies.
 - **Code Examples Over Explanations**: One real code snippet showing your style beats three paragraphs describing it. Show what good output looks like.
 - **Commands Early**: Put relevant executable commands in an early section. Include flags and options, not just tool names. Your agent will reference these often.
@@ -64,7 +62,6 @@ It is the cross-tool standard—one file, every agent.
 - **Keep it Short**: Shorter files perform better (referencing the Princeton study)
   because agents spend less time parsing instructions and more time on the task.
 - **Living Documentation**: Treat `AGENTS.md` as living documentation.
-- **No Duplication**: NEVER duplicate code-level comments or obvious steps.
 - **Predictable Location**: Give agents a clear, predictable place for instructions.
 - **Set Clear Boundaries**: Tell AI what it should never touch
   (e.g., secrets, vendor directories, production configs, or specific folders).
@@ -80,18 +77,42 @@ It is the cross-tool standard—one file, every agent.
 - **Git Workflow**: Branch naming conventions, commit message format, PR requirements.
 - **Boundaries**: What the agent should never touch. Never modify files in /generated/. Never commit .env files.
 
+## What to Avoid
+
+- **Dumping Entire Style Guides**: Don't include your whole linting config.
+  Only include rules that the agent consistently gets wrong or that are unique to the project.
+- **Being Too Vague**: Avoid phrases like "Follow best practices" or "Write clean code."
+  These tell the agent nothing actionable.
+- **Forgetting to Update**: Outdated instructions are worse than no instructions.
+  If you change your build tool or test runner, update AGENTS.md immediately.
+- **Making it Tool-Specific**: Don't put tool-specific config (like `@imports`)
+  in AGENTS.md. Save those for tool-specific files (CLAUDE.md, GEMINI.md).
+- **Hardcoding**: Never embed specific values, file paths, repository names,
+  user details, job IDs, or tool versions in examples; use placeholders instead.
+- **Duplication**: NEVER duplicate code-level comments or obvious steps
+  that the agent can easily infer from the codebase.
+
 ## SKILL.md vs AGENTS.md
 
 `AGENTS.md` tells agents about your project.
 `SKILL.md` tells agents about a specific capability.
 A skill is a portable directory containing a `SKILL.md` file plus optional scripts, references, and assets.
 
-## AGENTS.md vs Tool-Specific Files (CLAUDE.md, GEMINI.md)
+## AGENTS.md vs Tool-Specific Files (CLAUDE.md, GEMINI.md, .cursorrules)
 
 If you use multiple coding agents, use `AGENTS.md` for shared instructions
-and tool-specific files for features unique to those platforms:
+and tool-specific files for features unique to those platforms.
+
+Use a tool-specific file when:
+- You need to configure tool-specific behavior (like Claude Code's permission
+  boundaries or Cursor's glob scoping).
+- Your team standardizes on one tool.
+- You want to leverage features unique to that tool.
+
+Tool-specific files include:
 - **CLAUDE.md**: For Claude Code features (like `@imports`, skills, or hooks).
 - **GEMINI.md**: For Google Gemini CLI context and directory traversal rules.
+- **.cursorrules**: For Cursor-specific rules and context.
 
 If you only use one tool, its native file alone may be sufficient, but `AGENTS.md`
 remains the cross-tool standard. Most tools automatically read both their
