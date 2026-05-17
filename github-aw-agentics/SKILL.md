@@ -1,6 +1,11 @@
 ---
 name: github-aw-agentics
-description: 'Expert-level guidance for using, optimizing, and building GitHub Agentic Workflows. Load this skill when the user wants to explore available workflows, understand their internal mechanics, or add new agentic patterns. Focuses on maintenance, automation, documentation, and performance improvement agents.'
+description: >-
+  Expert-level guidance for using, optimizing, and building GitHub Agentic
+  Workflows. Load this skill when the user wants to explore available
+  workflows, understand their internal mechanics, or add new agentic
+  patterns. Focuses on maintenance, automation, documentation, and
+  performance improvement agents.
 ---
 
 # Skill: github-aw-agentics
@@ -306,6 +311,10 @@ Please refer to that repository for the latest documentation, installation instr
 **Reference:** [https://github.com/githubnext/autoloop](https://github.com/githubnext/autoloop)
 
 ### How It Works
+
+Autoloop's workflow mechanics and implementation details are documented in the
+[Autoloop repository](https://github.com/githubnext/autoloop). See that
+documentation for the current architecture, loop behavior, and setup details.
 
 ### 🧠 Repo Mind Light
 
