@@ -13,10 +13,11 @@ license: MIT
 
 Autonomous documentation editor responsible for creating, updating, and maintaining `AGENTS.md` files strictly adhering to the organizational baseline structure.
 
-AGENTS.md is a simple, open format for guiding coding agents. It is where you define all the project specifics:
-the agent's persona, the exact tech stack it should know, the project's file structure, workflows,
-explicit commands it can run, code style examples, and clear boundaries of what not to do.
-It is the cross-tool standard. One file, every agent.
+AGENTS.md is a simple, open format for guiding coding agents. Every AI coding agent starts a task by scanning your repository (file trees, package manifests, READMEs). But READMEs are written for humans—they explain what a project does, not how an agent should work on it. AGENTS.md fills that gap.
+
+It is a plain markdown file, typically placed at the root of your repository (no required fields, no YAML frontmatter, no special syntax), that contains the context coding agents need to work effectively. It is where you define project specifics: build commands with exact flags, test procedures, code style rules that differ from defaults, architectural constraints, and boundaries (files the agent should never touch).
+
+The mechanism is straightforward. Without AGENTS.md, the agent spends time exploring: reading directory structures, inferring build systems, guessing test commands. With AGENTS.md, that context is provided upfront. The agent skips exploratory steps and works directly toward the solution. It is the cross-tool standard—one file, every agent.
 
 ## Setup & Environment Invariants
 
@@ -41,11 +42,34 @@ It is the cross-tool standard. One file, every agent.
 - **Concise READMEs**: Keep READMEs concise and focused on human contributors.
 - **Contract Style**: Write dense, imperative, expert-level instructions assuming ninja proficiency; skip basics, favor one-liners.
 - **Cover Six Core Areas**: Hitting these areas puts you in the top tier: commands, testing, project structure, code style, git workflow, and boundaries.
+- **Directory Hierarchy**: In monorepos, `AGENTS.md` files can exist at multiple directory levels. The agent reads the nearest file to the file being edited. The closest `AGENTS.md` takes precedence, so each subproject can ship tailored instructions (e.g., OpenAI's Codex repository uses 88 `AGENTS.md` files).
 - **Living Documentation**: Treat `AGENTS.md` as living documentation.
 - **No Duplication**: NEVER duplicate code-level comments or obvious steps.
 - **Predictable Location**: Give agents a clear, predictable place for instructions.
 - **Set Clear Boundaries**: Tell AI what it should never touch (e.g., secrets, vendor directories, production configs, or specific folders). "Never commit secrets" is a crucial constraint.
 - **Structural Strictness**: You must always format `AGENTS.md` files according to the canonical `AGENTS.md` structure.
+
+## What to Include in AGENTS.md
+
+- **Build & Test Commands**: Exact commands with flags. `uv run pytest tests/unit/ -v`, not `run the tests`. Include environment setup, migration scripts, and dev server startup.
+- **Code Style Rules**: Only rules that differ from language defaults. `Named exports only, no default exports.` `All async handlers.` Things the agent would get wrong without guidance.
+- **Project Structure**: Map directories to responsibilities. `/src/api/ contains route handlers (thin, delegate to services). /src/services/ contains business logic.` Name technologies with versions.
+- **Testing Instructions**: Test runner, how to run a single test, what to mock and what not to. `No mocking the database. Use the test database. Factory Boy for test data.`
+- **Git Workflow**: Branch naming conventions, commit message format, PR requirements. `Squash merge only. Conventional commits: feat:, fix:, chore:, docs:.`
+- **Boundaries**: What the agent should never touch. `Never modify files in /generated/. Never commit .env files. The /legacy/ module uses sync code; do not convert to async.`
+
+## SKILL.md vs AGENTS.md
+
+`AGENTS.md` tells agents about your project. `SKILL.md` tells agents about a specific capability. A skill is a portable directory containing a `SKILL.md` file plus optional scripts, references, and assets. Skills work across Claude Code, OpenAI Codex, GitHub Copilot, and other compatible agents.
+
+| Aspect | AGENTS.md | SKILL.md |
+| --- | --- | --- |
+| **Purpose** | Project context | Reusable task/capability |
+| **Scope** | Repository-wide | Single task or workflow |
+| **Loading** | Always loaded at session start | On-demand when task matches |
+| **Format** | Plain markdown | Markdown with YAML frontmatter |
+| **Portability** | Per-repo | Shareable across projects |
+| **Invocation** | Automatic | Automatic or manual (`/skill-name`) |
 
 ## Expected AGENTS.md Structure
 
