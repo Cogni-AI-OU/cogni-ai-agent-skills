@@ -428,20 +428,20 @@ This document provides a comprehensive reference for Unicode character hex range
 | 0x1FA00   | 0x1FA6F  | Chess Symbols                  | Games             |
 | 0x1FA70   | 0x1FAFF  | Symbols & Pictographs Extended | Symbols           |
 | 0x1FB00   | 0x1FBFF  | Symbols for Legacy Computing   | Technical         |
-| 0x1FC00   | 0x1FCFF  | Symbols for Legacy APL         | Technical         |
-| 0x1FD00   | 0x1FDFF  | Additional Ancient Symbols     | Historic          |
-| 0x1FE00   | 0x1FEFF  | Additional Musical Symbols     | Music             |
-| 0x1FF00   | 0x1FFFF  | Ancient Text Annotations       | Historic          |
+| 0x1FC00   | 0x1FCFF  | Unassigned                     | Unassigned        |
+| 0x1FD00   | 0x1FDFF  | Unassigned                     | Unassigned        |
+| 0x1FE00   | 0x1FEFF  | Unassigned                     | Unassigned        |
+| 0x1FF00   | 0x1FFFF  | Unassigned                     | Unassigned        |
 | 0x20000   | 0x2A6DF  | CJK Unified Ideographs Extension B | East Asian    |
-| 0x2A6E0   | 0x2A6FF  | CJK Extension B Supplement     | East Asian        |
+| 0x2A6E0   | 0x2A6FF  | Unassigned                     | Unassigned        |
 | 0x2A700   | 0x2B73F  | CJK Unified Ideographs Extension C | East Asian    |
 | 0x2B740   | 0x2B81F  | CJK Unified Ideographs Extension D | East Asian    |
 | 0x2B820   | 0x2CEAF  | CJK Unified Ideographs Extension E | East Asian    |
 | 0x2CEB0   | 0x2EBEF  | CJK Unified Ideographs Extension F | East Asian    |
 | 0x2F800   | 0x2FA1F  | CJK Compatibility Ideographs Supplement | East Asian |
-| 0x2FA20   | 0x2FFFF  | Reserved Range                 | Unassigned        |
-| 0x30000   | 0x3134F  | CJK Extension G                | East Asian        |
-| 0x31350   | 0x323AF  | CJK Extension H                | East Asian        |
+| 0x2FA20   | 0x2FFFF  | Unassigned                     | Unassigned        |
+| 0x30000   | 0x3134F  | CJK Unified Ideographs Extension G | East Asian    |
+| 0x31350   | 0x323AF  | CJK Unified Ideographs Extension H | East Asian    |
 | 0xE0000   | 0xE007F  | Tags                          | Special           |
 | 0xE0100   | 0xE01EF  | Variation Selectors Supplement | Special           |
 | 0xF0000   | 0xFFFFF  | Private Use Area-A            | Private Use       |
