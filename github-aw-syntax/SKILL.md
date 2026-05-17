@@ -1098,5 +1098,6 @@ safe-outputs:
 
 ## References
 
+- [AI Engines (aka Coding Agents)](https://github.github.com/gh-aw/reference/engines/)
 - <https://github.com/github/gh-aw/blob/main/.github/aw/syntax.md?plain=1>
 - <https://github.com/github/gh-aw/blob/main/docs/src/content/docs/reference/engines.md?plain=1>
