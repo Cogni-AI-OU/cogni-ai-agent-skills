@@ -80,6 +80,13 @@ It is the cross-tool standard—one file, every agent.
 - **Git Workflow**: Branch naming conventions, commit message format, PR requirements.
 - **Boundaries**: What the agent should never touch. Never modify files in /generated/. Never commit .env files.
 
+## What to Avoid in AGENTS.md
+
+- **Dumping your entire style guide in**: Only include rules that differ from defaults.
+- **Being too vague**: "Follow best practices" tells the agent nothing.
+- **Forgetting to update it**: Ensure instructions evolve with the codebase.
+- **Making it tool-specific when it shouldn't be**: Save tool-specific files for tool-specific config.
+
 ## SKILL.md vs AGENTS.md
 
 `AGENTS.md` tells agents about your project.
