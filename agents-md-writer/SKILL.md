@@ -83,9 +83,9 @@ It is the cross-tool standard—one file, every agent.
 ## What to Avoid in AGENTS.md
 
 - **Dumping your entire style guide in**: Only include rules that differ from defaults.
-- **Being too vague**: "Follow best practices" tells the agent nothing.
+- **Being too vague**: "Follow best practices" tells the agent nothing. Be specific.
 - **Forgetting to update it**: Ensure instructions evolve with the codebase.
-- **Making it tool-specific when it shouldn't be**: Save tool-specific files for tool-specific config.
+- **Making it tool-specific when it shouldn't be**: Save tool-specific files for tool-specific configuration (like `CLAUDE.md`).
 
 ## SKILL.md vs AGENTS.md
 
@@ -93,12 +93,10 @@ It is the cross-tool standard—one file, every agent.
 `SKILL.md` tells agents about a specific capability.
 A skill is a portable directory containing a `SKILL.md` file plus optional scripts, references, and assets.
 
-## AGENTS.md vs Tool-Specific Files (CLAUDE.md, GEMINI.md)
+## AGENTS.md vs Tool-Specific Files (CLAUDE.md, GEMINI.md, .cursorrules)
 
 If you use multiple coding agents, use `AGENTS.md` for shared instructions
-and tool-specific files for features unique to those platforms:
-- **CLAUDE.md**: For Claude Code features (like `@imports`, skills, or hooks).
-- **GEMINI.md**: For Google Gemini CLI context and directory traversal rules.
+and tool-specific files for features unique to those platforms.
 
 Use a tool-specific file (`CLAUDE.md`, `GEMINI.md`, `.cursorrules`) when:
 - You need to configure tool-specific behavior
@@ -106,9 +104,8 @@ Use a tool-specific file (`CLAUDE.md`, `GEMINI.md`, `.cursorrules`) when:
 - Your team standardizes on one tool.
 - You want to leverage features unique to that tool.
 
-If you only use one tool, its native file alone may be sufficient, but `AGENTS.md`
-remains the cross-tool standard. Most tools automatically read both their
-native file and `AGENTS.md` when both are present.
+Most tools automatically read both their native file and `AGENTS.md` when both are present.
+`AGENTS.md` remains the cross-tool standard for shared context.
 
 ## Expected AGENTS.md Structure
 
