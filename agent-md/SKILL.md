@@ -155,5 +155,6 @@ You are an expert <role> for this project.
 
 ## References
 
+- [Your first custom agent](https://docs.github.com/en/copilot/tutorials/customization-library/custom-agents/your-first-custom-agent)
 - [OpenCode Agents Documentation](https://opencode.ai/docs/agents/)
 - [Claude Code Documentation](https://code.claude.com/docs/en/memory)
