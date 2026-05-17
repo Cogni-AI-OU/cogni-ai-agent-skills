@@ -10,7 +10,7 @@ description: >-
 
 # Skill: github-aw-agentics
 
-<!-- markdownlint-disable MD013 MD023 MD024 MD031 MD032 -->
+<!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
 
 A collection of reusable GitHub Agentic Workflows
 from [githubnext/agentics](https://github.com/githubnext/agentics/tree/main/docs).
@@ -38,7 +38,7 @@ The Issue Triage workflow runs when issues are created or reopened to analyze co
 
 **Reference:** [https://github.com/githubnext/agentics/blob/main/docs/issue-triage.md](https://github.com/githubnext/agentics/blob/main/docs/issue-triage.md)
 
-### How It Works
+### How It Works (Issue Triage)
 
 ```mermaid
 graph LR
@@ -61,7 +61,7 @@ The Repo Assist workflow is a [GitHub Agentic Workflow](https://github.blog/ai-a
 
 **Reference:** [https://github.com/githubnext/agentics/blob/main/docs/repo-assist.md](https://github.com/githubnext/agentics/blob/main/docs/repo-assist.md)
 
-### How It Works
+### How It Works (Repo Assist)
 
 ````mermaid
 graph LR
@@ -94,7 +94,7 @@ The AI Moderator workflow helps maintain quality discussions and protect your re
 
 **Reference:** [https://github.com/githubnext/agentics/blob/main/docs/ai-moderator.md](https://github.com/githubnext/agentics/blob/main/docs/ai-moderator.md)
 
-### How It Works
+### How It Works (AI Moderator)
 
 ```mermaid
 graph LR
@@ -121,7 +121,7 @@ The CI Doctor workflow monitors your GitHub Actions workflows and automatically 
 
 **Reference:** [https://github.com/githubnext/agentics/blob/main/docs/ci-doctor.md](https://github.com/githubnext/agentics/blob/main/docs/ci-doctor.md)
 
-### How It Works
+### How It Works (CI Doctor)
 
 ```mermaid
 graph LR
@@ -145,7 +145,7 @@ The CI Coach workflow is your personal CI/CD optimization consultant. It runs re
 
 **Reference:** [https://github.com/githubnext/agentics/blob/main/docs/ci-coach.md](https://github.com/githubnext/agentics/blob/main/docs/ci-coach.md)
 
-### How It Works
+### How It Works (CI Coach)
 
 ```mermaid
 graph LR
@@ -168,7 +168,7 @@ The Cost Tracker workflow fires after your configured agent workflows complete, 
 
 **Reference:** [https://github.com/githubnext/agentics/blob/main/docs/cost-tracker.md](https://github.com/githubnext/agentics/blob/main/docs/cost-tracker.md)
 
-### How It Works
+### How It Works (Cost Tracker)
 
 ```mermaid
 graph LR
@@ -204,7 +204,7 @@ The Grumpy Reviewer workflow is an on-demand code reviewer with personality. Inv
 
 **Reference:** [https://github.com/githubnext/agentics/blob/main/docs/grumpy-reviewer.md](https://github.com/githubnext/agentics/blob/main/docs/grumpy-reviewer.md)
 
-### How It Works
+### How It Works (Grumpy Reviewer)
 
 ```mermaid
 graph LR
@@ -231,7 +231,7 @@ The PR Nitpick Reviewer workflow provides detailed, line-level feedback on pull 
 
 **Reference:** [https://github.com/githubnext/agentics/blob/main/docs/pr-nitpick-reviewer.md](https://github.com/githubnext/agentics/blob/main/docs/pr-nitpick-reviewer.md)
 
-### How It Works
+### How It Works (PR Nitpick Reviewer)
 
 ```mermaid
 graph LR
@@ -258,7 +258,7 @@ The Contribution Check workflow runs every 4 hours to review open pull requests 
 
 **Reference:** [https://github.com/githubnext/agentics/blob/main/docs/contribution-check.md](https://github.com/githubnext/agentics/blob/main/docs/contribution-check.md)
 
-### How It Works
+### How It Works (Contribution Check)
 
 ```mermaid
 graph LR
@@ -285,7 +285,7 @@ The Contribution Guidelines Checker workflow reviews incoming PRs against your C
 
 **Reference:** [https://github.com/githubnext/agentics/blob/main/docs/contribution-guidelines-checker.md](https://github.com/githubnext/agentics/blob/main/docs/contribution-guidelines-checker.md)
 
-### How It Works
+### How It Works (Contribution Guidelines Checker)
 
 ```mermaid
 graph LR
@@ -310,7 +310,7 @@ Please refer to that repository for the latest documentation, installation instr
 
 **Reference:** [https://github.com/githubnext/autoloop](https://github.com/githubnext/autoloop)
 
-### How It Works
+### How It Works (Autoloop)
 
 Autoloop's workflow mechanics and implementation details are documented in the
 [Autoloop repository](https://github.com/githubnext/autoloop). See that
@@ -332,8 +332,6 @@ See the [Repo Mind Light distribution repository](https://github.com/githubnext/
 
 **Reference:** [https://github.com/githubnext/agentics/blob/main/docs/repo-mind-light-aw.md](https://github.com/githubnext/agentics/blob/main/docs/repo-mind-light-aw.md)
 
-### How It Works
-
 ### 📚 Weekly Research
 
 Collect research updates and industry trends.
@@ -344,7 +342,7 @@ The Weekly Research workflow runs each Monday to search industry news, analyze t
 
 **Reference:** [https://github.com/githubnext/agentics/blob/main/docs/weekly-research.md](https://github.com/githubnext/agentics/blob/main/docs/weekly-research.md)
 
-### How It Works
+### How It Works (Weekly Research)
 
 ```mermaid
 graph LR
@@ -367,7 +365,7 @@ The Weekly Issue Activity workflow runs every Monday at 3 PM UTC to collect issu
 
 **Reference:** [https://github.com/githubnext/agentics/blob/main/docs/weekly-issue-activity.md](https://github.com/githubnext/agentics/blob/main/docs/weekly-issue-activity.md)
 
-### How It Works
+### How It Works (Weekly Issue Activity)
 
 ```mermaid
 graph LR
@@ -393,7 +391,7 @@ The Daily Repo Status workflow gathers activity data, analyzes PRs and issues, c
 
 **Reference:** [https://github.com/githubnext/agentics/blob/main/docs/repo-status.md](https://github.com/githubnext/agentics/blob/main/docs/repo-status.md)
 
-### How It Works
+### How It Works (Daily Repo Status)
 
 ```mermaid
 graph LR
@@ -416,7 +414,7 @@ The Daily Team Status workflow gathers recent repository activity (issues, PRs, 
 
 **Reference:** [https://github.com/githubnext/agentics/blob/main/docs/team-status.md](https://github.com/githubnext/agentics/blob/main/docs/team-status.md)
 
-### How It Works
+### How It Works (Daily Team Status)
 
 ```mermaid
 graph LR
@@ -438,7 +436,7 @@ The Daily Repository Chronicle workflow collects recent repository activity — 
 
 **Reference:** [https://github.com/githubnext/agentics/blob/main/docs/repo-chronicle.md](https://github.com/githubnext/agentics/blob/main/docs/repo-chronicle.md)
 
-### How It Works
+### How It Works (Daily Repository Chronicle)
 
 ```mermaid
 graph LR
@@ -460,7 +458,7 @@ The Daily Plan workflow reads repository contents and pull request metadata, ass
 
 **Reference:** [https://github.com/githubnext/agentics/blob/main/docs/plan.md](https://github.com/githubnext/agentics/blob/main/docs/plan.md)
 
-### How It Works
+### How It Works (Daily Plan)
 
 ```mermaid
 graph LR
@@ -481,7 +479,7 @@ The Discussion Task Miner workflow runs regularly (daily by default) to scan rec
 
 **Reference:** [https://github.com/githubnext/agentics/blob/main/docs/discussion-task-miner.md](https://github.com/githubnext/agentics/blob/main/docs/discussion-task-miner.md)
 
-### How It Works
+### How It Works (Discussion Task Miner)
 
 ```mermaid
 graph LR
@@ -506,7 +504,7 @@ The Weekly Repository Map workflow analyzes your repository's structure every we
 
 **Reference:** [https://github.com/githubnext/agentics/blob/main/docs/weekly-repo-map.md](https://github.com/githubnext/agentics/blob/main/docs/weekly-repo-map.md)
 
-### How It Works
+### How It Works (Weekly Repository Map)
 
 ````mermaid
 graph LR
@@ -528,7 +526,7 @@ Rather than producing a passive report, the workflow is biased toward action. Wh
 
 **Reference:** [https://github.com/githubnext/agentics/blob/main/docs/tech-content-editorial-board.md](https://github.com/githubnext/agentics/blob/main/docs/tech-content-editorial-board.md)
 
-### How It Works
+### How It Works (Tech Content Editorial Board)
 
 ```mermaid
 graph LR
@@ -566,7 +564,7 @@ The Dependabot PR Bundler workflow checks for Dependabot alerts, groups updates,
 
 **Reference:** [https://github.com/githubnext/agentics/blob/main/docs/dependabot-pr-bundler.md](https://github.com/githubnext/agentics/blob/main/docs/dependabot-pr-bundler.md)
 
-### How It Works
+### How It Works (Dependabot PR Bundler)
 
 ```mermaid
 graph LR
@@ -588,7 +586,7 @@ The Dependabot Issue Bundler workflow checks for Dependabot alerts and creates i
 
 **Reference:** [https://github.com/githubnext/agentics/blob/main/docs/dependabot-issue-bundler.md](https://github.com/githubnext/agentics/blob/main/docs/dependabot-issue-bundler.md)
 
-### How It Works
+### How It Works (Dependabot Issue Bundler)
 
 ```mermaid
 graph LR
@@ -610,7 +608,7 @@ The Update Documentation workflow runs on each push to main to analyze changes a
 
 **Reference:** [https://github.com/githubnext/agentics/blob/main/docs/update-docs.md](https://github.com/githubnext/agentics/blob/main/docs/update-docs.md)
 
-### How It Works
+### How It Works (Regular Documentation Update)
 
 ```mermaid
 graph LR
@@ -634,7 +632,7 @@ The Daily Documentation Updater workflow scans changes from the last 24 hours, i
 
 **Reference:** [https://github.com/githubnext/agentics/blob/main/docs/doc-updater.md](https://github.com/githubnext/agentics/blob/main/docs/doc-updater.md)
 
-### How It Works
+### How It Works (Daily Documentation Updater)
 
 ```mermaid
 graph LR
@@ -658,7 +656,7 @@ Automatically generate and maintain GitHub wiki pages from source code.
 
 The Agentic Wiki Writer workflow keeps your project's GitHub wiki synchronized with the codebase. Once a day (if any pull requests were merged to the default branch), it reads a `PAGES.md` template to understand what to document, then writes wiki pages directly from the source code. You can also trigger it manually on demand.
 
-### How It Works
+### How It Works (Agentic Wiki Writer)
 
 ```mermaid
 graph LR
@@ -693,7 +691,7 @@ The Agentic Wiki Coder workflow is the reverse of the Agentic Wiki Writer: inste
 
 **Reference:** [https://github.com/githubnext/agentics/blob/main/docs/agentic-wiki-coder.md](https://github.com/githubnext/agentics/blob/main/docs/agentic-wiki-coder.md)
 
-### How It Works
+### How It Works (Agentic Wiki Coder)
 
 ```mermaid
 graph LR
@@ -719,7 +717,7 @@ The Glossary Maintainer workflow runs on weekdays to scan recent changes, identi
 
 **Reference:** [https://github.com/githubnext/agentics/blob/main/docs/glossary-maintainer.md](https://github.com/githubnext/agentics/blob/main/docs/glossary-maintainer.md)
 
-### How It Works
+### How It Works (Glossary Maintainer)
 
 ```mermaid
 graph LR
@@ -750,7 +748,7 @@ Pairs naturally with [dictationmd](https://github.com/pelikhan/dictationmd), a t
 
 **Reference:** [https://github.com/githubnext/agentics/blob/main/docs/dictation-prompt.md](https://github.com/githubnext/agentics/blob/main/docs/dictation-prompt.md)
 
-### How It Works
+### How It Works (Dictation Prompt Generator)
 
 ```mermaid
 graph LR
@@ -776,7 +774,7 @@ The Link Checker workflow scans markdown files for HTTP(S) links, tests each one
 
 **Reference:** [https://github.com/githubnext/agentics/blob/main/docs/link-checker.md](https://github.com/githubnext/agentics/blob/main/docs/link-checker.md)
 
-### How It Works
+### How It Works (Link Checker)
 
 ```mermaid
 graph LR
@@ -803,7 +801,7 @@ The Documentation Unbloat workflow runs regularly (daily by default) to remove d
 
 **Reference:** [https://github.com/githubnext/agentics/blob/main/docs/unbloat-docs.md](https://github.com/githubnext/agentics/blob/main/docs/unbloat-docs.md)
 
-### How It Works
+### How It Works (Documentation Unbloat)
 
 ```mermaid
 graph LR
@@ -829,7 +827,7 @@ The Markdown Linter workflow runs the [Super Linter](https://github.com/super-li
 
 **Reference:** [https://github.com/githubnext/agentics/blob/main/docs/markdown-linter.md](https://github.com/githubnext/agentics/blob/main/docs/markdown-linter.md)
 
-### How It Works
+### How It Works (Markdown Linter)
 
 ```mermaid
 graph LR
@@ -851,7 +849,7 @@ The Multi-Device Docs Tester workflow builds your documentation site locally, se
 
 **Reference:** [https://github.com/githubnext/agentics/blob/main/docs/multi-device-docs-tester.md](https://github.com/githubnext/agentics/blob/main/docs/multi-device-docs-tester.md)
 
-### How It Works
+### How It Works (Multi-Device Docs Tester)
 
 ```mermaid
 graph LR
@@ -878,7 +876,7 @@ The Daily Accessibility Review workflow scans your repository, analyzes accessib
 
 **Reference:** [https://github.com/githubnext/agentics/blob/main/docs/accessibility-review.md](https://github.com/githubnext/agentics/blob/main/docs/accessibility-review.md)
 
-### How It Works
+### How It Works (Daily Accessibility Review)
 
 ```mermaid
 graph LR
@@ -899,7 +897,7 @@ The Q workflow analyzes workflow performance, identifies missing tools, detects 
 
 **Reference:** [https://github.com/githubnext/agentics/blob/main/docs/q.md](https://github.com/githubnext/agentics/blob/main/docs/q.md)
 
-### How It Works
+### How It Works (Q - Agentic Workflow Optimizer)
 
 ```mermaid
 graph LR
@@ -923,7 +921,7 @@ The Large File Simplifier workflow scans your repository for oversized source fi
 
 **Reference:** [https://github.com/githubnext/agentics/blob/main/docs/large-file-simplifier.md](https://github.com/githubnext/agentics/blob/main/docs/large-file-simplifier.md)
 
-### How It Works
+### How It Works (Large File Simplifier)
 
 ```mermaid
 graph LR
@@ -947,7 +945,7 @@ Automatically simplify recently modified code for improved clarity and maintaina
 
 The Code Simplifier workflow runs regularly (daily by default) to review code modified in the last 24 hours and apply targeted improvements that enhance clarity, reduce complexity, and follow project conventions—all while preserving functionality.
 
-### How It Works
+### How It Works (Code Simplifier)
 
 ```mermaid
 graph LR
@@ -971,7 +969,7 @@ The Duplicate Code Detector workflow runs regularly (daily by default) to analyz
 
 **Reference:** [https://github.com/githubnext/agentics/blob/main/docs/duplicate-code-detector.md](https://github.com/githubnext/agentics/blob/main/docs/duplicate-code-detector.md)
 
-### How It Works
+### How It Works (Duplicate Code Detector)
 
 ```mermaid
 graph LR
@@ -992,7 +990,7 @@ The Daily Test Improver workflow is a testing-focused repository assistant that 
 
 **Reference:** [https://github.com/githubnext/agentics/blob/main/docs/test-improver.md](https://github.com/githubnext/agentics/blob/main/docs/test-improver.md)
 
-### How It Works
+### How It Works (Daily Test Improver)
 
 ```mermaid
 graph LR
@@ -1020,7 +1018,7 @@ The Daily Efficiency Improver workflow is an energy-efficiency-focused repositor
 
 **Reference:** [https://github.com/githubnext/agentics/blob/main/docs/efficiency-improver.md](https://github.com/githubnext/agentics/blob/main/docs/efficiency-improver.md)
 
-### How It Works
+### How It Works (Daily Efficiency Improver)
 
 ```mermaid
 graph LR
@@ -1048,7 +1046,7 @@ The Daily Performance Improver workflow is a performance-focused repository assi
 
 **Reference:** [https://github.com/githubnext/agentics/blob/main/docs/perf-improver.md](https://github.com/githubnext/agentics/blob/main/docs/perf-improver.md)
 
-### How It Works
+### How It Works (Daily Performance Improver)
 
 ```mermaid
 graph LR
@@ -1078,7 +1076,7 @@ The Repository Quality Improver workflow analyzes your repository from a differe
 
 **Reference:** [https://github.com/githubnext/agentics/blob/main/docs/repository-quality-improver.md](https://github.com/githubnext/agentics/blob/main/docs/repository-quality-improver.md)
 
-### How It Works
+### How It Works (Repository Quality Improver)
 
 ````mermaid
 graph LR
@@ -1120,7 +1118,7 @@ The Archie workflow analyzes issue or pull request content and generates clear M
 
 **Reference:** [https://github.com/githubnext/agentics/blob/main/docs/archie.md](https://github.com/githubnext/agentics/blob/main/docs/archie.md)
 
-### How It Works
+### How It Works (Archie)
 
 ```mermaid
 graph LR
@@ -1144,7 +1142,7 @@ The PR Fix workflow analyzes failing CI checks, identifies root causes, implemen
 
 **Reference:** [https://github.com/githubnext/agentics/blob/main/docs/pr-fix.md](https://github.com/githubnext/agentics/blob/main/docs/pr-fix.md)
 
-### How It Works
+### How It Works (PR Fix)
 
 ```mermaid
 graph LR
@@ -1167,7 +1165,7 @@ The Repo Ask workflow provides accurate, well-researched answers to questions ab
 
 **Reference:** [https://github.com/githubnext/agentics/blob/main/docs/repo-ask.md](https://github.com/githubnext/agentics/blob/main/docs/repo-ask.md)
 
-### How It Works
+### How It Works (Repo Ask)
 
 ```mermaid
 graph LR
@@ -1190,7 +1188,7 @@ The Daily Malicious Code Scan workflow examines files changed in the past 72 hou
 
 **Reference:** [https://github.com/githubnext/agentics/blob/main/docs/malicious-code-scan.md](https://github.com/githubnext/agentics/blob/main/docs/malicious-code-scan.md)
 
-### How It Works
+### How It Works (Daily Malicious Code Scan)
 
 ```mermaid
 graph LR
@@ -1211,7 +1209,7 @@ The VEX Generator workflow captures Dependabot alert dismissal decisions as mach
 
 **Reference:** [https://github.com/githubnext/agentics/blob/main/docs/vex-generator.md](https://github.com/githubnext/agentics/blob/main/docs/vex-generator.md)
 
-### How It Works
+### How It Works (VEX Generator)
 
 ```mermaid
 graph LR
@@ -1235,7 +1233,7 @@ The Lean Squad workflow is a [GitHub Agentic Workflow](https://github.blog/ai-an
 
 **Reference:** [https://github.com/githubnext/agentics/blob/main/docs/lean-squad.md](https://github.com/githubnext/agentics/blob/main/docs/lean-squad.md)
 
-### How It Works
+### How It Works (Lean Squad)
 
 ````mermaid
 graph LR
@@ -1271,7 +1269,7 @@ The Daily Ad hoc QA workflow reads your documentation, follows instructions, tes
 
 **Reference:** [https://github.com/githubnext/agentics/blob/main/docs/adhoc-qa.md](https://github.com/githubnext/agentics/blob/main/docs/adhoc-qa.md)
 
-### How It Works
+### How It Works (Daily Ad hoc QA)
 
 ```mermaid
 graph LR
@@ -1294,7 +1292,7 @@ The Sub-Issue Closer workflow automatically closes parent issues when all of the
 
 **Reference:** [https://github.com/githubnext/agentics/blob/main/docs/sub-issue-closer.md](https://github.com/githubnext/agentics/blob/main/docs/sub-issue-closer.md)
 
-### How It Works
+### How It Works (Sub-Issue Closer)
 
 ````mermaid
 graph LR
@@ -1333,7 +1331,7 @@ The Issue Arborist workflow keeps your issue tracker tidy and navigable. Every d
 
 **Reference:** [https://github.com/githubnext/agentics/blob/main/docs/issue-arborist.md](https://github.com/githubnext/agentics/blob/main/docs/issue-arborist.md)
 
-### How It Works
+### How It Works (Issue Arborist)
 
 ```mermaid
 graph LR
