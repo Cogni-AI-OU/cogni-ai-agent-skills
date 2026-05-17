@@ -57,7 +57,7 @@ The mechanism is straightforward. Without AGENTS.md, the agent spends time explo
 ## What to Include in AGENTS.md
 
 - **Build & Test Commands**: Exact commands with flags. Include environment setup, migration scripts, and dev server startup.
-- **Code Style Rules**: Only rules that differ from language defaults. `Named exports only, no default exports.` `All async handlers.` Things the agent would get wrong without guidance.
+- **Code Style Rules**: Only rules that differ from language defaults. Things the agent would get wrong without guidance.
 - **Project Structure**: Map directories to responsibilities. E.g. route handlers vs business logic.
 - **Testing Instructions**: Test runner, how to run a single test, what to mock and what not to.
 - **Git Workflow**: Branch naming conventions, commit message format, PR requirements.
