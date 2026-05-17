@@ -220,6 +220,8 @@ and planned work into the current context.
 - **[python](python/SKILL.md)**: Execute Python inline scripts via heredocs for complex log processing,
   summarization, or JSON parsing.
   You MUST load this skill when processing large logs.
+- **[rfc2119](rfc2119/SKILL.md)**: Enforce correct usage of RFC 2119 requirement level keywords (MUST, SHOULD, MAY, etc.) in documentation and specifications.
+  You MUST load this skill when writing or reviewing standards, specifications, or when applying RFC 2119 terminology.
 - **[robust-commands](robust-commands/SKILL.md)**: Resilient command execution with automatic fallbacks and error
   recovery.
   You MUST load this skill when executing commands requiring resilient error recovery or fallbacks.
