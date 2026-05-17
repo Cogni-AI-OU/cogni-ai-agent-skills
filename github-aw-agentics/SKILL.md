@@ -1,7 +1,22 @@
-# GitHub Agentic Workflows Examples
+---
+name: github-aw-agentics
+description: 'Expert-level guidance for using, optimizing, and building GitHub Agentic Workflows. Load this skill when the user wants to explore available workflows, understand their internal mechanics, or add new agentic patterns. Focuses on maintenance, automation, documentation, and performance improvement agents.'
+---
+
+# GitHub Agentic Workflows Agentics
+
+<!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
 
 A collection of reusable GitHub Agentic Workflows
 from [githubnext/agentics](https://github.com/githubnext/agentics/tree/main/docs).
+
+## When to Use This Skill
+
+- User is looking for inspiration or ideas for new agentic workflows to implement
+- User needs to implement or optimize a new agentic workflow based on existing patterns
+- User wants to explore the catalog of available GitHub Agentic Workflows
+- User wants to reference official documentation for specific workflows
+- User wants to understand the "How It Works" logic (mermaid diagrams) for specific agents
 
 ## 📂 Available Workflows
 
