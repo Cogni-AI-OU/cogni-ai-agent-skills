@@ -10,7 +10,7 @@ description: >-
 
 # Skill: github-aw-agentics
 
-<!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
+<!-- markdownlint-disable MD013 MD023 MD031 MD032 MD036 -->
 
 A collection of reusable GitHub Agentic Workflows
 from [githubnext/agentics](https://github.com/githubnext/agentics/tree/main/docs).
@@ -22,7 +22,6 @@ from [githubnext/agentics](https://github.com/githubnext/agentics/tree/main/docs
 - User wants to explore the catalog of available GitHub Agentic Workflows
 - User wants to reference official documentation for specific workflows
 - User wants to understand the "How It Works" logic (mermaid diagrams) for specific agents
-
 
 ## Maintainer Workflows
 
@@ -675,7 +674,7 @@ graph LR
 
 On the first run (or when `regenerate-template` is enabled), the workflow generates a `PAGES.md` template describing the wiki structure it will maintain. On subsequent runs it follows the template — reading only the source files relevant to the recently merged PRs, then writing updated wiki content.
 
-### Key Features
+**Key Features**
 
 - **Incremental updates**: Uses repo memory to track content hashes and skip unchanged pages
 - **Template-driven**: A `PAGES.md` file in `.github/agentic-wiki/` controls what gets documented
@@ -1092,7 +1091,7 @@ graph LR
     H --> I[Update Cache Memory]
 ````
 
-### Focus Area Strategy
+**Focus Area Strategy**
 
 The workflow follows a deliberate diversity strategy across runs:
 
@@ -1306,11 +1305,11 @@ graph LR
     C -->|No| H[Skip - Keep Open]
 ````
 
-### Recursive Closure
+**Recursive Closure**
 
 The workflow processes issue trees bottom-up. If you have a hierarchy like:
 
-```
+```text
 Epic #1: "Launch v2.0"
   ├── Feature #2: "User auth" (all sub-issues closed)
   │     ├── #3: "Login page" [CLOSED]
@@ -1351,18 +1350,18 @@ The workflow downloads the 100 most recent open issues (excluding those already 
 
 Shared workflow fragments are reusable building blocks that can be imported into other workflows using `imports: [shared/name.md]`. They provide pre-configured tools, MCP servers, and setup steps.
 
-### MCP Servers
+**MCP Servers**
 
 - **arXiv** - Access arXiv research papers: search, get paper details, and retrieve PDFs
 - **MarkItDown** - Convert PDFs, Word documents, PowerPoints, HTML, and other formats to Markdown
 - **Microsoft Docs** - Access Microsoft's documentation via `learn.microsoft.com`
 
-### Tools & Setup
+**Tools & Setup**
 
 - **FFmpeg** - Install and use FFmpeg for video/audio processing (extract audio, frames, scene detection, etc.)
 - **sq** - Install and use `sq` for querying structured data (CSV, Excel, JSON, SQL databases) with jq-like syntax
 
-### Formatting & Reporting
+**Formatting & Reporting**
 
 - **Formatting** - Standard content structure with overview and collapsible details sections
 - **Reporting** - Guidelines for reporting workflow run information with clickable run ID links

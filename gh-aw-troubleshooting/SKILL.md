@@ -56,6 +56,7 @@ mindmap
 ## Manual Debugging with CLI Commands
 
 ### Audit a specific run
+
 - `gh aw audit RUN_ID` → human-readable summary
 - `gh aw audit RUN_ID --json` → machine-readable diagnostic output
 - `gh aw audit RUN_ID --parse` → writes detailed `log.md` and `firewall.md` reports
@@ -63,11 +64,13 @@ mindmap
 The audit report covers: **failure summary**, **tool usage**, **MCP server health**, **firewall analysis**, **token metrics**, and **missing tools**.
 
 ### Analyze logs across multiple runs
+
 - `gh aw logs my-workflow` → basic log analysis
 - `gh aw logs my-workflow --format markdown --count 10` → markdown report of last 10 runs
 - `gh aw logs --filtered-integrity` → analysis restricted to runs with DIFC-filtered events
 
 ### Compare two runs for regressions
+
 - `gh aw audit BASELINE_ID CURRENT_ID` → multi-dimensional diff of metrics, tooling, and behavior
 
 ## Iterative Debug Workflow
@@ -83,11 +86,13 @@ The audit report covers: **failure summary**, **tool usage**, **MCP server healt
 ## Common Failure Patterns & Fixes
 
 ### Authentication & Authorization
+
 - **Error**: `401 Unauthorized` or `Authentication failed`.
 - **Cause**: Missing or expired `COPILOT_TOKEN` or `OPENAI_API_KEY`.
 - **Fix**: Rotate secrets or check organization policy for Copilot access.
 
 ### Missing Tools & MCP Connectivity
+
 - **Error**: `Tool '...' not found` or `initialize: timeout`.
 - **Cause**: Tool missing from `tools:` section, server timeout, or schema mismatch.
 - **Fix**: Add the missing MCP server to `tools:`, verify config with `gh aw mcp inspect`, increase `startup-timeout`, or recompile to sync with latest MCP gateway schema.
@@ -100,11 +105,13 @@ tools:
 ```
 
 ### Network & Firewall Restrictions
+
 - **Error**: `blocked egress to domain:443`.
 - **Cause**: Domain not included in `network.allowed` list in frontmatter.
 - **Fix**: Add the blocked domain to the allowlist (refer to `firewall.md` from `--parse`).
 
 ### Safe-Outputs & Permissions
+
 - **Error**: `Write operations fail` or `safeoutputs noop` permission denied.
 - **Cause**: Missing `permissions:`, or attempting to use bash for operations that require `safe-outputs`.
 - **Fix**: Ensure `safe-outputs:` is correctly configured and permissions (e.g., `issues: read`) are granted. Prefer `read` permissions combined with `safe-outputs` for mutations.
@@ -121,6 +128,7 @@ safe-outputs:
 ```
 
 ### MCP Scripts & Payload Mapping
+
 - **Error**: "missing tool configuration for mcpscripts-gh" or resource creation failures.
 - **Cause**: `mcp-scripts` does not correctly map event payload fields.
 - **Fix**: Correct the mapping in the frontmatter.
@@ -134,6 +142,7 @@ mcp-scripts:
 ```
 
 ### Compilation & Schema
+
 - **Error**: Fields silently ignored or `Schema validation failed`.
 - **Cause**: Misspelled fields (silently discarded!) or outdated `.lock.yml`.
 - **Fix**: Use `gh aw compile --verbose` to find schema errors and regenerate the lock file.

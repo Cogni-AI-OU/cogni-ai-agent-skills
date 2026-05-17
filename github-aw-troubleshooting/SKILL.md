@@ -50,9 +50,9 @@ Debug and refine agentic workflows using `gh-aw` CLI tools or the `agentic-workf
 The GitHub Copilot CLI engine requires the corresponding secrets to be configured.
 
 Common causes if the secret appears to be configured:
-  - Organization secrets must have repository access granted
-  - Environment secrets require the job to specify that environment
-  - Secret names are case-sensitive - verify exact spelling
+- Organization secrets must have repository access granted
+- Environment secrets require the job to specify that environment
+- Secret names are case-sensitive - verify exact spelling
 
 Refs: <https://github.github.com/gh-aw/reference/auth/>
 

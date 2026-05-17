@@ -6,6 +6,8 @@ description: >-
   You MUST load this skill when auditing or analyzing autonomous agent log files.
 ---
 
+<!-- markdownlint-disable MD013 MD036 -->
+
 # Agent Log Analysis & Reporting
 
 This skill dictates the mechanical execution and rigid formatting requirements for auditing AI agent session logs.
@@ -427,7 +429,8 @@ Evaluate:
 - Error handling (graceful vs. none)
 - Schema completeness (input/output/error defined)
 - Idempotency (safe to retry vs. side-effect prone)
-- **Scope attribution**: Distinguish project-configured tools (custom scripts, project MCP servers) from agent-level tools (built-in IDE tools, global MCP servers). Only flag tool overhead for tools the project can actually control.
+- **Scope attribution**: Distinguish project-configured tools (custom scripts, project MCP servers) from agent-level tools (built-in IDE tools, global MCP servers).
+  Only flag tool overhead for tools the project can actually control.
 
 **Architecture Fitness (1–5)**
 
@@ -444,7 +447,8 @@ Evaluate:
 Evaluate:
 
 - Input validation (present vs. absent)
-- Output filtering (PII, content policy) — scope contextually: data between a user's own frontend and backend is lower risk than data exposed to external services
+- Output filtering (PII, content policy) -- scope contextually:
+  data between a user's own frontend and backend is lower risk than data exposed to external services
 - Cost controls (ceilings set vs. unbounded)
 - Error recovery (fallbacks vs. crash)
 - Evaluation strategy (golden tests vs. "it seems to work")

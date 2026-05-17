@@ -146,7 +146,7 @@ Also check `.gitignore` — if a secret file pattern is NOT in .gitignore, flag 
 ```yaml
 # Hardcoded values in env: blocks (should use ${{ secrets.NAME }})
 env:
-  API_KEY: "actual-value-here"   # VULNERABLE
+  API_KEY: "actual-value-here"   # VULNERABLE # pragma: allowlist secret
 
 # Printing secrets
 - run: echo ${{ secrets.MY_SECRET }}   # leaks to logs
@@ -156,18 +156,18 @@ env:
 
 ```dockerfile
 # Secrets in ENV (persisted in image layers)
-ENV AWS_SECRET_KEY=actual-value
+ENV AWS_SECRET_KEY=actual-value # pragma: allowlist secret
 
 # Secrets passed as build args (visible in image history)
-ARG API_KEY=actual-value
+ARG API_KEY=actual-value # pragma: allowlist secret
 ```
 
 ### Terraform — flag these
 
 ```hcl
 # Hardcoded sensitive values (should use var or data source)
-password = "hardcoded-password"
-access_key = "AKIAIOSFODNN7EXAMPLE"
+password = "hardcoded-password" # pragma: allowlist secret
+access_key = "AKIAIOSFODNN7EXAMPLE" # pragma: allowlist secret
 ```
 
 ---

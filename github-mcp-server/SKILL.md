@@ -47,7 +47,7 @@ tools:
     #   private-key: ${{ secrets.APP_PRIVATE_KEY }}
 ```
 
-## Available Toolsets
+## Toolset Overview
 
 - **`context`**: Identity and team awareness (`get_me`, `get_teams`).
 - **`repos`**: Core repository operations (read, list commits/branches, files).
@@ -63,6 +63,7 @@ tools:
 - **`search`**: Advanced search across code, repos, issues.
 - **`gists` / `labels` / `discussions`**: Management of respective GitHub features.
 - **Remote-only**: `copilot_spaces`, `github_support_docs_search`.
+
 ## Configuration
 
 ### Basic Configuration
@@ -107,7 +108,7 @@ tools:
     toolsets: [repos, issues]
 ```
 
-## Available Toolsets
+## Detailed Toolset Reference
 
 The GitHub MCP server organizes tools into logical toolsets. You can enable specific toolsets, use `[default]` for the recommended defaults, or use `[all]` to enable everything.
 
@@ -137,7 +138,7 @@ The following toolsets are enabled by default when `toolsets:` is not specified:
 ### All Available Toolsets
 
 | Toolset | Description | Common Tools |
-|---------|-------------|--------------|
+| :--- | :--- | :--- |
 | `context` | User and environment context | `get_teams`, `get_team_members` |
 | `repos` | Repository management | `get_repository`, `get_file_contents`, `search_code`, `list_commits` |
 | `issues` | Issue management | `issue_read`, `list_issues`, `create_issue`, `search_issues` |
@@ -163,10 +164,12 @@ The following toolsets are enabled by default when `toolsets:` is not specified:
 This section maps individual tools to their respective toolsets to help with migration from `allowed:` to `toolsets:`.
 
 ### Context Toolset
+
 - `get_teams` - List teams the user belongs to
 - `get_team_members` - List members of a specific team
 
 ### Repos Toolset
+
 - `get_repository` - Get repository information
 - `get_file_contents` - Read file contents from repository
 - `search_code` - Search code across repositories
@@ -176,6 +179,7 @@ This section maps individual tools to their respective toolsets to help with mig
 - `list_releases` - List all releases
 
 ### Issues Toolset
+
 - `issue_read` - Read issue details
 - `list_issues` - List issues in a repository
 - `create_issue` - Create a new issue
@@ -185,6 +189,7 @@ This section maps individual tools to their respective toolsets to help with mig
 - `create_issue_comment` - Add a comment to an issue
 
 ### Pull Requests Toolset
+
 - `pull_request_read` - Read pull request details
 - `list_pull_requests` - List pull requests in a repository
 - `get_pull_request` - Get details of a specific pull request
@@ -192,39 +197,47 @@ This section maps individual tools to their respective toolsets to help with mig
 - `search_pull_requests` - Search pull requests across repositories
 
 ### Actions Toolset
+
 - `list_workflows` - List GitHub Actions workflows
 - `list_workflow_runs` - List workflow runs
 - `get_workflow_run` - Get details of a specific workflow run
 - `download_workflow_run_artifact` - Download workflow artifacts
 
 ### Code Security Toolset
+
 - `list_code_scanning_alerts` - List code scanning alerts
 - `get_code_scanning_alert` - Get details of a specific alert
 - `create_code_scanning_alert` - Create a code scanning alert
 
 ### Discussions Toolset
+
 - `list_discussions` - List discussions in a repository
 - `create_discussion` - Create a new discussion
 
 ### Labels Toolset
+
 - `get_label` - Get label details
 - `list_labels` - List labels in a repository
 - `create_label` - Create a new label
 
 ### Users Toolset
+
 - `get_me` - Get current authenticated user information
 - `get_user` - Get user profile information
 - `list_users` - List users
 
 ### Notifications Toolset
+
 - `list_notifications` - List user notifications
 - `mark_notifications_read` - Mark notifications as read
 
 ### Organizations Toolset
+
 - `get_organization` - Get organization details
 - `list_organizations` - List organizations
 
 ### Gists Toolset
+
 - `create_gist` - Create a new gist
 - `list_gists` - List user's gists
 
@@ -314,7 +327,7 @@ tools:
 Use this table to identify which toolset contains the tools you need:
 
 | `allowed:` Tools | Migrate to `toolsets:` |
-|------------------|------------------------|
+| :--- | :--- |
 | `get_me` | `users` |
 | `get_teams`, `get_team_members` | `context` |
 | `get_repository`, `get_file_contents`, `search_code`, `list_commits` | `repos` |
@@ -447,27 +460,27 @@ Not all GitHub data is accessible through the GitHub MCP server or the GitHub RE
 
 - For each toolset, identify the corresponding source file in the [github/github-mcp-server](https://github.com/github/github-mcp-server) repository
 - Use the following mapping as a starting point (verify and update based on actual repo contents):
-     - `actions` → [`pkg/github/actions.go`](https://github.com/github/github-mcp-server/blob/main/pkg/github/actions.go)
-     - `code_security` → [`pkg/github/code_scanning.go`](https://github.com/github/github-mcp-server/blob/main/pkg/github/code_scanning.go)
-     - `context` → [`pkg/github/context_tools.go`](https://github.com/github/github-mcp-server/blob/main/pkg/github/context_tools.go)
-     - `dependabot` → [`pkg/github/dependabot.go`](https://github.com/github/github-mcp-server/blob/main/pkg/github/dependabot.go)
-     - `discussions` → [`pkg/github/discussions.go`](https://github.com/github/github-mcp-server/blob/main/pkg/github/discussions.go)
-     - `experiments` → [`pkg/github/dynamic_tools.go`](https://github.com/github/github-mcp-server/blob/main/pkg/github/dynamic_tools.go)
-     - `gists` → [`pkg/github/gists.go`](https://github.com/github/github-mcp-server/blob/main/pkg/github/gists.go)
-     - `issues` → [`pkg/github/issues.go`](https://github.com/github/github-mcp-server/blob/main/pkg/github/issues.go)
-     - `labels` → [`pkg/github/labels.go`](https://github.com/github/github-mcp-server/blob/main/pkg/github/labels.go)
-     - `notifications` → [`pkg/github/notifications.go`](https://github.com/github/github-mcp-server/blob/main/pkg/github/notifications.go)
-     - `orgs` → [`pkg/github/search.go`](https://github.com/github/github-mcp-server/blob/main/pkg/github/search.go)
-       (primary: `search_orgs`; note that `list_org_repository_security_advisories`
-       also uses this toolset but is defined in [`security_advisories.go`](https://github.com/github/github-mcp-server/blob/main/pkg/github/security_advisories.go))
-     - `projects` → [`pkg/github/projects.go`](https://github.com/github/github-mcp-server/blob/main/pkg/github/projects.go)
-     - `pull_requests` → [`pkg/github/pullrequests.go`](https://github.com/github/github-mcp-server/blob/main/pkg/github/pullrequests.go)
-     - `repos` → [`pkg/github/repositories.go`](https://github.com/github/github-mcp-server/blob/main/pkg/github/repositories.go)
-     - `search` → [`pkg/github/search.go`](https://github.com/github/github-mcp-server/blob/main/pkg/github/search.go)
-     - `secret_protection` → [`pkg/github/secret_scanning.go`](https://github.com/github/github-mcp-server/blob/main/pkg/github/secret_scanning.go)
-     - `security_advisories` → [`pkg/github/security_advisories.go`](https://github.com/github/github-mcp-server/blob/main/pkg/github/security_advisories.go)
-     - `stargazers` → [`pkg/github/repositories.go`](https://github.com/github/github-mcp-server/blob/main/pkg/github/repositories.go)
-     - `users` → [`pkg/github/search.go`](https://github.com/github/github-mcp-server/blob/main/pkg/github/search.go) (for `search_users`)
+  - `actions` → [`pkg/github/actions.go`](https://github.com/github/github-mcp-server/blob/main/pkg/github/actions.go)
+  - `code_security` → [`pkg/github/code_scanning.go`](https://github.com/github/github-mcp-server/blob/main/pkg/github/code_scanning.go)
+  - `context` → [`pkg/github/context_tools.go`](https://github.com/github/github-mcp-server/blob/main/pkg/github/context_tools.go)
+  - `dependabot` → [`pkg/github/dependabot.go`](https://github.com/github/github-mcp-server/blob/main/pkg/github/dependabot.go)
+  - `discussions` → [`pkg/github/discussions.go`](https://github.com/github/github-mcp-server/blob/main/pkg/github/discussions.go)
+  - `experiments` → [`pkg/github/dynamic_tools.go`](https://github.com/github/github-mcp-server/blob/main/pkg/github/dynamic_tools.go)
+  - `gists` → [`pkg/github/gists.go`](https://github.com/github/github-mcp-server/blob/main/pkg/github/gists.go)
+  - `issues` → [`pkg/github/issues.go`](https://github.com/github/github-mcp-server/blob/main/pkg/github/issues.go)
+  - `labels` → [`pkg/github/labels.go`](https://github.com/github/github-mcp-server/blob/main/pkg/github/labels.go)
+  - `notifications` → [`pkg/github/notifications.go`](https://github.com/github/github-mcp-server/blob/main/pkg/github/notifications.go)
+  - `orgs` → [`pkg/github/search.go`](https://github.com/github/github-mcp-server/blob/main/pkg/github/search.go)
+    (primary: `search_orgs`; note that `list_org_repository_security_advisories`
+    also uses this toolset but is defined in [`security_advisories.go`](https://github.com/github/github-mcp-server/blob/main/pkg/github/security_advisories.go))
+  - `projects` → [`pkg/github/projects.go`](https://github.com/github/github-mcp-server/blob/main/pkg/github/projects.go)
+  - `pull_requests` → [`pkg/github/pullrequests.go`](https://github.com/github/github-mcp-server/blob/main/pkg/github/pullrequests.go)
+  - `repos` → [`pkg/github/repositories.go`](https://github.com/github/github-mcp-server/blob/main/pkg/github/repositories.go)
+  - `search` → [`pkg/github/search.go`](https://github.com/github/github-mcp-server/blob/main/pkg/github/search.go)
+  - `secret_protection` → [`pkg/github/secret_scanning.go`](https://github.com/github/github-mcp-server/blob/main/pkg/github/secret_scanning.go)
+  - `security_advisories` → [`pkg/github/security_advisories.go`](https://github.com/github/github-mcp-server/blob/main/pkg/github/security_advisories.go)
+  - `stargazers` → [`pkg/github/repositories.go`](https://github.com/github/github-mcp-server/blob/main/pkg/github/repositories.go)
+  - `users` → [`pkg/github/search.go`](https://github.com/github/github-mcp-server/blob/main/pkg/github/search.go) (for `search_users`)
 
 ## Related Skills
 

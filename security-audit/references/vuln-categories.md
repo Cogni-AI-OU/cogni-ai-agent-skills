@@ -154,7 +154,7 @@ app.get('/api/documents/:id', async (req, res) => {
 **What to look for:**
 
 - `alg: "none"` accepted
-- Weak or hardcoded secrets: `secret`, `password`, `1234`
+- Weak or hardcoded secrets: `secret`, `password`, `1234` # pragma: allowlist secret
 - No expiry (`exp` claim) validation
 - Algorithm confusion (RS256 → HS256 downgrade)
 - JWT stored in `localStorage` (XSS risk; prefer httpOnly cookie)
@@ -196,11 +196,11 @@ jwt.decode(token)  // WARNING: decode does NOT verify signature
 Look for patterns like:
 
 ```text
-API_KEY = "sk-..."
-password = "hunter2"
-SECRET = "abc123"
-private_key = "-----BEGIN RSA PRIVATE KEY-----"
-aws_secret_access_key = "wJalrXUtn..."
+API_KEY = "sk-..." # pragma: allowlist secret
+password = "hunter2" # pragma: allowlist secret
+SECRET = "abc123" # pragma: allowlist secret
+private_key = "-----BEGIN RSA PRIVATE KEY-----" # pragma: allowlist secret
+aws_secret_access_key = "wJalrXUtn..." # pragma: allowlist secret
 ```
 
 Entropy heuristic: strings > 20 chars with high character variety in assignment context

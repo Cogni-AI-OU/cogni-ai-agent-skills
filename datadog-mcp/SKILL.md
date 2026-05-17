@@ -41,7 +41,7 @@ Load the appropriate toolset based on the task:
 - `synthetics`: Synthetics test retrieval and updates.
 - `workflows`: Workflow Automation listing, inspection, execution, and trigger updates.
 
-## Datadog MCP
+## Access Control
 
 ### Application Key Scopes
 
