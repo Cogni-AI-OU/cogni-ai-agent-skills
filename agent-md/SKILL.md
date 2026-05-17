@@ -10,6 +10,33 @@ license: MIT
 
 Agent MD is a format for defining specialized agent personas. These files provide context-specific instructions, project knowledge, and execution boundaries for autonomous agents in GitHub Copilot and OpenCode.
 
+## Architecture Principles: Agents vs Skills vs Instructions
+
+To prevent redundancy and context drift, always enforce a strict conceptual boundary when authoring system components:
+
+1. **Agents (`*.agent.md`) - The "Who" and "Why"**:
+   - **Focus**:
+     Persona, invariants, cognitive framework, escalation gates, and output constraints.
+   - **Rule**:
+     Do not embed explicit execution tutorials or command-by-command scripts here.
+     Instruct the agent *who* they are, *what* constraints they must obey (e.g. "Never mutate files directly"),
+     and explicitly tell them to invoke specific skills for mechanical processes.
+
+2. **Skills (`SKILL.md`) - The "How" (Execution Playbooks)**:
+   - **Focus**:
+     Tools, commands, step-by-step procedures, and mechanical execution.
+   - **Rule**:
+     Isolates the exact `bash`, `gh`, or API mechanics.
+     A skill is agnostic to *who* uses it.
+     It exists strictly to define *how* an audit, a build, or a commit sync is correctly executed.
+
+3. **Instructions (`*.instructions.md`) - The "Rules" (Domain Standards)**:
+   - **Focus**:
+     Formatting standards, coding conventions, and structural rules (e.g. JSON schema, Python dependencies).
+   - **Rule**:
+     Applied dynamically based on the file-type or project paths being modified.
+     They govern the output structure regardless of which agent or skill generated it.
+
 ## Target Locations
 
 ### GitHub Copilot
