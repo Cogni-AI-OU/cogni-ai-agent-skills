@@ -65,7 +65,7 @@ This document provides a comprehensive reference for Unicode character hex range
 | Ethiopic Extended-A | 0xAB00 | 0xAB2F | `[\x{AB00}-\x{AB2F}]` |
 | Tifinagh | 0x2D30 | 0x2D7F | `[\x{2D30}-\x{2D7F}]` |
 | Vai | 0xA500 | 0xA63F | `[\x{A500}-\x{A63F}]` |
-| Bamum | 0xA6A0 | 0xA6FF | `[\x{A6A0}-\x{A6A0}]` |
+| Bamum | 0xA6A0 | 0xA6FF | `[\x{A6A0}-\x{A6FF}]` |
 | Bamum Supplement | 0x16800 | 0x16A3F | `[\x{16800}-\x{16A3F}]` |
 | N'Ko | 0x07C0 | 0x07FF | `[\x{07C0}-\x{07FF}]` |
 | Adlam | 0x1E900 | 0x1E95F | `[\x{1E900}-\x{1E95F}]` |
