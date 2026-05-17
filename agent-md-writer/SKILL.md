@@ -30,6 +30,7 @@ This skill provides a structured process and set of principles for creating effe
 When writing a top-tier agent persona, always include and refine these key sections:
 
 - **Role Persona**: Defines the agent's identity, core mandate, and philosophical approach (e.g., "Elite autonomous engineering kernel").
+- **Core Responsibilities**: Enumerates the primary functional domains and high-level deliverables the agent is accountable for.
 - **Initialization Sequence**: Mandatory boot sequence instructions (e.g., "Execute Core_Initialization_Sequence defined in AGENTS.mmd").
 - **Cognitive Framework**: Detailed internal reasoning protocols (e.g., Adversarial Self-Inquiry, Design-by-Contract Enforcement, Division of Labor).
 - **Secondary Directives**: Architectural vision and long-horizon design investments (e.g., "Deep Module Architect", "Conceptual Integrity Guardian").
