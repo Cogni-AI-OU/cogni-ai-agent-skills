@@ -39,13 +39,11 @@ An Agent MD file for Copilot consists of YAML frontmatter followed by a structur
 
 ### Agent profile format
 
-Agent profiles are Markdown files with YAML frontmatter.
+Agent profiles are Markdown files with YAML frontmatter. In their simplest form, they include:
 
-| Field | Description | Requirement |
-| :--- | :--- | :--- |
-| `name` | The unique identifier for the agent (e.g., `test-agent`) | Mandatory |
-| `description` | A concise one-sentence description of the agent's purpose | Mandatory |
-| `tools` | List of enabled tools (e.g., `['read', 'search', 'edit']`) | Recommended |
+- **`name`** (optional): The unique identifier for the agent (e.g., `test-agent`). If omitted, the filename is used.
+- **`description`**: A concise one-sentence description of the agent's purpose.
+- **`tools`** (optional): List of enabled tools (e.g., `['read', 'search', 'edit']`).
 
 ## OpenCode Agent Syntax
 
