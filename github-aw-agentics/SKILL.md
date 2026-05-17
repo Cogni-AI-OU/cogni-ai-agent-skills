@@ -1373,18 +1373,6 @@ While The Agentics focuses on engineering workflows, agentic workflows are equal
 - **[Decision Log](https://github.com/chrizbo/agentics-beyond-code/blob/main/.github/workflows/decision-log.md)** — scans issue comments and meeting transcripts to create structured decision records
 - **[GTM Content](https://github.com/chrizbo/agentics-beyond-code/blob/main/.github/workflows/gtm-content.md)** — generate and refresh changelog drafts and public roadmap items following org voice & tone guidelines
 
-## 🔄 Updating Workflows
-
-Keep your agentic workflows up to date with the latest features and improvements:
-
-```bash
-gh extensions upgrade github/gh-aw # Update cli extension
-gh aw upgrade  # Upgrade to latest gh aw engine version
-gh aw update   # Update added workflows
-```
-
-This automatically updates agent files, applies codemods, updates actions versions, and recompiles all workflows.
-
 ## References
 
 - [GitHub Agentic Workflows](https://github.com/githubnext/agentics)
