@@ -29,7 +29,7 @@ repos:
       - id: codespell
         args:
           - -L
-          - AKS,mot,ois,vai,vah
+          - AKS,vai,vah
   - repo: https://github.com/gitleaks/gitleaks
     rev: v8.24.2
     hooks:
