@@ -15,6 +15,7 @@ Agent MD is a format for defining specialized agent personas. These files provid
 ### GitHub Copilot
 
 Agent persona files for GitHub Copilot can be defined at different levels:
+
 - **Repository level:** Create `.github/agents/` in your repository for project-specific agents.
   - The filename SHOULD match the agent's `name` property with `.agent.md` extension (e.g., `.github/agents/test-agent.agent.md`).
 - **Organization or enterprise level:** Create `/agents/` in a `.github-private` repository for broader availability.
@@ -40,7 +41,7 @@ An Agent MD file for Copilot consists of YAML frontmatter followed by a structur
 
 ### Agent profile format
 
-Agent profiles are Markdown files with YAML frontmatter.
+Agent profiles are Markdown files with YAML frontmatter. In their simplest form, they include:
 
 - **Name** (optional): A display name for the custom agent. If omitted, the agent's filename is used as its identifier and default display name.
 - **Description**: Explains the agent's purpose and capabilities.
