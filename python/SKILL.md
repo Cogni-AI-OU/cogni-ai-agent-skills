@@ -15,7 +15,7 @@ Use this skill when developing Python code. For inline bash script Python execut
 
 - **Idiomatic Python**: Follow PEP 8 guidelines for code style. Use standard Python naming conventions.
 - **Type Hinting**: Always use type hints (`typing` module) for function signatures and class attributes.
-- **Modern Features**: Utilize modern Python 3.10+ features like `match`/`case`, dataclasses, and standard library enhancements when applicable.
+- **Modern Features**: Utilize modern Python 3.11+ features like `match`/`case`, dataclasses, and standard library enhancements when applicable.
 - **Docstrings**: Document classes and functions using standard docstring formats (e.g., Google or Sphinx style) describing arguments, return types, and exceptions raised.
 - **Testing**: Ensure all business logic is covered by unit tests (e.g., using `pytest`).
 
