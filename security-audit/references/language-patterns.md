@@ -74,7 +74,7 @@ User.objects.raw(f"SELECT * FROM users WHERE name = '{name}'")  # SQLi
 DEBUG = True  # in settings.py — exposes stack traces
 
 # SECRET_KEY
-SECRET_KEY = 'django-insecure-...'  # must be changed for production
+SECRET_KEY = 'django-insecure-...'  # must be changed for production # pragma: allowlist secret
 
 # ALLOWED_HOSTS
 ALLOWED_HOSTS = ['*']  # too permissive
@@ -87,7 +87,7 @@ ALLOWED_HOSTS = ['*']  # too permissive
 app.run(debug=True)  # never in production
 
 # Secret key
-app.secret_key = 'dev'  # weak
+app.secret_key = 'dev'  # weak # pragma: allowlist secret
 
 # eval/exec with user input
 eval(request.args.get('expr'))
@@ -154,7 +154,7 @@ eval($_POST['code']);
 extract($_POST);  // overwrites any variable
 
 // Loose comparison
-if ($password == "admin") {}  // use === instead
+if ($password == "admin") {}  // use === instead # pragma: allowlist secret
 
 // Unserialize
 unserialize($_COOKIE['data']);  // remote code execution

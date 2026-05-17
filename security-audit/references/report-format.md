@@ -110,7 +110,7 @@ Confidence: HIGH / MEDIUM / LOW
 🔴 CRITICAL — Hardcoded API Key
   File: src/config/database.js, Line 12
 
-  Found: STRIPE_SECRET_KEY = "sk_live_FAKE_KEY_..."
+  Found: STRIPE_SECRET_KEY = "sk_live_FAKE_KEY_..." # pragma: allowlist secret
 
   Action Required:
   1. Rotate this key IMMEDIATELY at https://dashboard.stripe.com
