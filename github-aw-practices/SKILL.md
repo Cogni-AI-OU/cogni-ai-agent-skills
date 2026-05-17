@@ -86,12 +86,12 @@ to pull in common modules.
 
 ## References
 
-- [A/B Experiments](https://github.com/github/gh-aw/blob/main/docs/src/content/docs/practices/experiments.md)
-- [A/B Experiments Specification](https://github.com/github/gh-aw/blob/main/docs/src/content/docs/practices/experiments-specification.md)
-- [Maintaining Repos with Agentic Workflows](https://github.com/github/gh-aw/blob/main/docs/src/content/docs/practices/maintaining-repos.md)
-- [Organization Practices](https://github.com/github/gh-aw/blob/main/docs/src/content/docs/practices/organization-practices.mdx)
-- [Safe Rollout](https://github.com/github/gh-aw/blob/main/docs/src/content/docs/practices/safe-rollout.md)
-- [Sharing Workflows](https://github.com/github/gh-aw/blob/main/docs/src/content/docs/practices/sharing-workflows.md)
+- [A/B Experiments](https://github.com/github/gh-aw/blob/v0.74.3/docs/src/content/docs/practices/experiments.md)
+- [A/B Experiments Specification](https://github.com/github/gh-aw/blob/v0.74.3/docs/src/content/docs/practices/experiments-specification.md)
+- [Maintaining Repos with Agentic Workflows](https://github.com/github/gh-aw/blob/v0.74.3/docs/src/content/docs/practices/maintaining-repos.md)
+- [Organization Practices](https://github.com/github/gh-aw/blob/v0.74.3/docs/src/content/docs/practices/organization-practices.mdx)
+- [Safe Rollout](https://github.com/github/gh-aw/blob/v0.74.3/docs/src/content/docs/practices/safe-rollout.md)
+- [Sharing Workflows](https://github.com/github/gh-aw/blob/v0.74.3/docs/src/content/docs/practices/sharing-workflows.md)
 
 ## Related Skills
 
