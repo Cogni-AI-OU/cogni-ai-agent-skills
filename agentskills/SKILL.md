@@ -145,6 +145,7 @@ skills-ref validate ./my-skill
 
 ## References
 
+- [About agent skills](https://docs.github.com/en/copilot/concepts/agents/about-agent-skills)
 - [Adding agent skills for GitHub Copilot](https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/add-skills)
 - [Agent Skills Open Standard](https://github.com/agentskills/agentskills)
 - [VS Code Agent Skills Documentation](https://code.visualstudio.com/docs/copilot/customization/agent-skills)
