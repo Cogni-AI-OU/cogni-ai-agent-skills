@@ -219,7 +219,6 @@ This document provides a comprehensive reference for Unicode character hex range
 | 0x0B00    | 0x0B7F   | Oriya                          | South Asian       |
 | 0x0B80    | 0x0BFF   | Tamil                          | South Asian       |
 | 0x0C00    | 0x0C7F   | Telugu                         | South Asian       |
-| 0x0C01    | 0x0C6F   | Vedic Extensions               | South Asian       |
 | 0x0C80    | 0x0CFF   | Kannada                        | South Asian       |
 | 0x0D00    | 0x0D7F   | Malayalam                      | South Asian       |
 | 0x0D80    | 0x0DFF   | Sinhala                        | South Asian       |
