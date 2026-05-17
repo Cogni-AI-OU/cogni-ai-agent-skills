@@ -398,7 +398,7 @@ radar-beta
 
 Generate second `radar-beta` diagram to score the agent from 1 to 5 across 5 quality dimensions:
 
-**Prompt Quality (1–5)**
+#### Prompt Quality (1–5)
 
 Evaluate:
 
@@ -408,7 +408,7 @@ Evaluate:
 - Edge case handling (addressed vs. ignored)
 - Anti-patterns (wall of text, contradictions, implicit format)
 
-**Context Efficiency (1–5)**
+#### Context Efficiency (1–5)
 
 Evaluate:
 
@@ -418,7 +418,7 @@ Evaluate:
 - State management (explicit vs. implicit)
 - Memory strategy (appropriate for conversation length)
 
-**Tool Health (1–5)**
+#### Tool Health (1–5)
 
 Evaluate:
 
@@ -427,9 +427,10 @@ Evaluate:
 - Error handling (graceful vs. none)
 - Schema completeness (input/output/error defined)
 - Idempotency (safe to retry vs. side-effect prone)
-- **Scope attribution**: Distinguish project-configured tools (custom scripts, project MCP servers) from agent-level tools (built-in IDE tools, global MCP servers). Only flag tool overhead for tools the project can actually control.
+- **Scope attribution**: Distinguish project-configured tools (custom scripts, project MCP servers) from agent-level tools (built-in IDE tools, global MCP servers).
+Only flag tool overhead for tools the project can actually control.
 
-**Architecture Fitness (1–5)**
+#### Architecture Fitness (1–5)
 
 Evaluate:
 
@@ -439,17 +440,18 @@ Evaluate:
 - Observability (decisions logged vs. black box)
 - Cost awareness (budgeted vs. unbounded)
 
-**Safety & Reliability (1–5)**
+#### Safety & Reliability (1–5)
 
 Evaluate:
 
 - Input validation (present vs. absent)
-- Output filtering (PII, content policy) — scope contextually: data between a user's own frontend and backend is lower risk than data exposed to external services
+- Output filtering (PII, content policy) -- scope contextually:
+data between a user's own frontend and backend is lower risk than data exposed to external services
 - Cost controls (ceilings set vs. unbounded)
 - Error recovery (fallbacks vs. crash)
 - Evaluation strategy (golden tests vs. "it seems to work")
 
-**Scoring Guide**
+#### Scoring Guide
 
 | Score | Meaning                | Recommended Action                        |
 |-------|------------------------|-------------------------------------------|

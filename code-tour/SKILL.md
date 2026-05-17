@@ -29,7 +29,7 @@ These are confirmed production `.tour` files. Fetch one when you need a working 
 
 Find more with the GitHub code search: <https://github.com/search?q=path%3A**%2F*.tour+&type=code>
 
-#### By step type / technique demonstrated
+### By step type / technique demonstrated
 
 | What to study | File URL |
 | --- | --- |
@@ -76,7 +76,7 @@ python ~/.agents/skills/code-tour/scripts/generate_from_docs.py \
 Don't read everything — start here, then follow imports.
 
 | Stack | Entry points to read first |
-|-------|---------------------------|
+| :--- | :--- |
 | **Node.js / TS** | `index.js/ts`, `server.js`, `app.js`, `src/main.ts`, `package.json` (scripts) |
 | **Python** | `main.py`, `app.py`, `__main__.py`, `manage.py` (Django), `app/__init__.py` (Flask/FastAPI) |
 | **Go** | `main.go`, `cmd/<name>/main.go`, `internal/` |
@@ -90,7 +90,7 @@ Don't read everything — start here, then follow imports.
 The same persona asks for different things depending on what kind of repo this is:
 
 | Repo type | What to emphasize | Typical anchor files |
-|-----------|-------------------|----------------------|
+| :--- | :--- | :--- |
 | **Service / API** | Request lifecycle, auth, error contracts | router, middleware, handler, schema |
 | **Library / SDK** | Public API surface, extension points, versioning | index/exports, types, changelog |
 | **CLI tool** | Command parsing, config loading, output formatting | main, commands/, config |
@@ -122,8 +122,8 @@ depth, and focus before asking anything.
 
 ### Intent map
 
-| User says | → Persona | → Depth | → Action |
-|-----------|-----------|---------|----------|
+| User says | -> Persona | -> Depth | -> Action |
+| :--- | :--- | :--- | :--- |
 | "tour for this PR" / "PR review" / "#123" | pr-reviewer | standard | Add `uri` step for the PR; use `ref` for the branch |
 | "why did X break" / "RCA" / "incident" | rca-investigator | standard | Trace the failure causality chain |
 | "debug X" / "bug tour" / "find the bug" | bug-fixer | standard | Entry → fault points → tests |
@@ -155,7 +155,7 @@ For PR tours: set `"ref"` to the branch, open with a `uri` step for the PR, cove
 ### User-provided customization — always honor these
 
 | User says | What to do |
-|-----------|-----------|
+| :--- | :--- |
 | "cover `src/auth.ts` and `config/db.yml`" | Those files are required stops |
 | "pin to the `v2.3.0` tag" / "this commit: abc123" | Set `"ref": "v2.3.0"` |
 | "link to PR #456" / pastes a URL | Add a `uri` step at the right narrative moment |
@@ -227,7 +227,7 @@ All step types: **content** (intro/closing, max 2), **directory**, **file+line**
 ### When to use each step type
 
 | Situation | Step type |
-|-----------|-----------|
+| :--- | :--- |
 | Tour intro or closing | content |
 | "Here's what lives in this folder" | directory |
 | One line tells the whole story | file + line |
@@ -243,7 +243,7 @@ All step types: **content** (intro/closing, max 2), **directory**, **file+line**
 Match steps to depth and persona. These are targets, not hard limits.
 
 | Depth | Total steps | Core path steps | Notes |
-|-------|-------------|-----------------|-------|
+| :--- | :--- | :--- | :--- |
 | Quick | 5–8 | 3–5 | Vibecoder, fast explorer — cut ruthlessly |
 | Standard | 9–13 | 6–9 | Most personas — breadth + enough detail |
 | Deep | 14–18 | 10–13 | Architect, RCA — every tradeoff surfaced |
@@ -251,7 +251,7 @@ Match steps to depth and persona. These are targets, not hard limits.
 Scale with repo size too. A 3-file CLI doesn't get 15 steps. A 200-file monolith shouldn't be squeezed into 5.
 
 | Repo size | Recommended standard depth |
-|-----------|---------------------------|
+| :--- | :--- |
 | Tiny (< 20 files) | 5–8 steps |
 | Small (20–80 files) | 8–11 steps |
 | Medium (80–300 files) | 10–13 steps |
@@ -296,7 +296,7 @@ Don't summarize — the reader just read it. Instead, tell them what they can no
 ## The 20 personas
 
 | Persona | Goal | Must cover | Avoid |
-|---------|------|------------|-------|
+| :--- | :--- | :--- | :--- |
 | **Vibecoder** | Get the vibe fast | Entry point, request flow, main modules. Max 8 steps. | Deep dives, edge cases |
 | **New joiner** | Structured ramp-up | Directories, setup, business context, service boundaries. | Advanced internals |
 | **Bug fixer** | Root cause fast | User action → trigger → fault points. Repro hints + test locations. | Architecture tours |
@@ -330,7 +330,7 @@ Set `nextTour` in each tour to the `title` of the next one (must match exactly).
 If asked for any of these, say clearly that it's not supported — do not suggest a workaround that doesn't exist:
 
 | Request | Reality |
-|---|---|
+| :--- | :--- |
 | **Auto-advance to next step after X seconds** | Not supported. Navigation is always manual — the reader clicks Next. There is no timer, delay, or autoplay step mechanic in CodeTour. |
 | **Embed a video or GIF in a step** | Not supported. Descriptions are Markdown text only. |
 | **Run arbitrary shell commands** | Not supported. `commands` only executes VS Code commands (e.g. `workbench.action.terminal.focus`), not shell commands. |
@@ -342,7 +342,7 @@ If asked for any of these, say clearly that it's not supported — do not sugges
 ## Anti-patterns
 
 | Anti-pattern | Fix |
-|---|---|
+| :--- | :--- |
 | **File listing** — visiting files with "this file contains..." | Tell a story; each step should depend on the previous one |
 | **Generic descriptions** | Name the specific pattern/gotcha unique to *this* codebase |
 | **Line number guessing** | Never write a line number you didn't verify by reading the file |

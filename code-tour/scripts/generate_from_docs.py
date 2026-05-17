@@ -9,7 +9,7 @@ Reads README.md (and optionally CONTRIBUTING.md, docs/) to extract:
   - External links (becomes uri steps)
 
 Outputs a skeleton .tour JSON that the code-tour skill fills in with descriptions.
-The skill reads this skeleton and enriches it — it does NOT replace the skill's judgment.
+The skill reads this skeleton and enriches it -- it does NOT replace the skill's judgment.
 
 Usage:
     python generate_from_docs.py [--repo-root <path>] [--persona <persona>] [--output <file>]
@@ -27,7 +27,7 @@ from pathlib import Path
 from typing import Optional
 
 
-# ── Markdown extraction helpers ──────────────────────────────────────────────
+# -- Markdown extraction helpers ----------------------------------------------
 
 # Matches inline code that looks like a file/directory path
 _CODE_PATH = re.compile(r"`([^`]{2,80})`")
@@ -91,7 +91,7 @@ def _is_structure_section(heading: str) -> bool:
     return bool(_STRUCT_KEYWORDS.search(heading))
 
 
-# ── Step builders ─────────────────────────────────────────────────────────────
+# -- Step builders -------------------------------------------------------------
 
 
 def _make_content_step(title: str, hint: str) -> dict:
@@ -126,13 +126,13 @@ def _make_uri_step(url: str, label: str) -> dict:
     }
 
 
-# ── Core generator ────────────────────────────────────────────────────────────
+# -- Core generator ------------------------------------------------------------
 
 
 def generate_skeleton(repo_root: str = ".", persona: str = "new-joiner") -> dict:
     repo = Path(repo_root).resolve()
 
-    # ── Read documentation files ─────────────────────────────────────────
+    # -- Read documentation files -----------------------------------------
     doc_files = ["README.md", "readme.md", "Readme.md"]
     extra_docs = ["CONTRIBUTING.md", "ARCHITECTURE.md", "docs/architecture.md", "docs/README.md"]
 
@@ -151,7 +151,7 @@ def generate_skeleton(repo_root: str = ".", persona: str = "new-joiner") -> dict
 
     all_text = readme_text + "\n".join(t for _, t in extra_texts)
 
-    # ── Collect steps ─────────────────────────────────────────────────────
+    # -- Collect steps -----------------------------------------------------
     steps = []
     seen_paths: set[str] = set()
 
@@ -221,7 +221,7 @@ def generate_skeleton(repo_root: str = ".", persona: str = "new-joiner") -> dict
     steps.append(
         _make_content_step(
             "What to Explore Next",
-            "Summarize what the reader now understands. List 2–3 follow-up tours they should read next.",
+            "Summarize what the reader now understands. List 2-3 follow-up tours they should read next.",
         )
     )
 

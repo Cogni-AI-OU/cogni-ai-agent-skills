@@ -156,10 +156,10 @@ env:
 
 ```dockerfile
 # Secrets in ENV (persisted in image layers)
-ENV AWS_SECRET_KEY=actual-value
+ENV AWS_SECRET_KEY=actual-value # pragma: allowlist secret
 
 # Secrets passed as build args (visible in image history)
-ARG API_KEY=actual-value
+ARG API_KEY=actual-value # pragma: allowlist secret
 ```
 
 ### Terraform — flag these

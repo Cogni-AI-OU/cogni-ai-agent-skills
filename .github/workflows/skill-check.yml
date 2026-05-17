@@ -43,7 +43,8 @@ jobs:
         run: |
           mkdir -p .skill-validator
           curl -fsSL \
-            "https://github.com/dotnet/skills/releases/download/skill-validator-nightly/skill-validator-linux-x64.tar.gz" \
+            "https://github.com/dotnet/skills/releases/download/\
+skill-validator-nightly/skill-validator-linux-x64.tar.gz" \
             -o .skill-validator/skill-validator-linux-x64.tar.gz
           tar -xzf .skill-validator/skill-validator-linux-x64.tar.gz -C .skill-validator
           rm .skill-validator/skill-validator-linux-x64.tar.gz
@@ -59,7 +60,8 @@ jobs:
       - name: Detect changed skills and agents
         id: detect
         run: |
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ] || [ "${{ github.event_name }}" = "workflow_call" ]; then
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] || \
+             [ "${{ github.event_name }}" = "workflow_call" ]; then
             CHANGED_FILES=$(git diff --name-only origin/staged...HEAD)
           else
             CHANGED_FILES=$(git diff --name-only origin/${{ github.base_ref }}...HEAD)
@@ -76,7 +78,8 @@ jobs:
             PLUGIN_SKILL_DIRS=$(echo "$CHANGED_FILES" | grep -oP '^plugins/[^/]+/skills/[^/]+' | sort -u || true)
 
             # Extract plugin agent files
-            PLUGIN_AGENT_FILES=$(echo "$CHANGED_FILES" | grep -oP '^plugins/[^/]+/agents/[^/]+\.agent\.md$' | sort -u || true)
+            PLUGIN_AGENT_FILES=$(echo "$CHANGED_FILES" | \
+              grep -oP '^plugins/[^/]+/agents/[^/]+\.agent\.md$' | sort -u || true)
           }
 
           # Build CLI arguments for --skills

@@ -190,7 +190,8 @@ jobs:
               '</details>',
               '',
               exitCode !== '0'
-                ? '> **Note:** The validator returned a non-zero exit code. Please review the findings above before merge.'
+                ? '> **Note:** The validator returned a non-zero exit code. ' +
+                  'Please review the findings above before merge.'
                 : '',
             ].filter(Boolean).join('\n');
             // Find existing comment with our marker
