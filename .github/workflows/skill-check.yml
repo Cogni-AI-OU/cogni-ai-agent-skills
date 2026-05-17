@@ -44,7 +44,7 @@ jobs:
           mkdir -p .skill-validator
           curl -fsSL \
             "https://github.com/dotnet/skills/releases/download/\
-skill-validator-nightly/skill-validator-linux-x64.tar.gz" \
+            skill-validator-nightly/skill-validator-linux-x64.tar.gz" \
             -o .skill-validator/skill-validator-linux-x64.tar.gz
           tar -xzf .skill-validator/skill-validator-linux-x64.tar.gz -C .skill-validator
           rm .skill-validator/skill-validator-linux-x64.tar.gz
