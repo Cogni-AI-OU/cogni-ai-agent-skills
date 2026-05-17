@@ -1,19 +1,28 @@
 # Connecting VS Code
 
-**Goal**: Seamlessly bind the terminal-based Copilot CLI execution environment with the VS Code editor context.
+**Goal**: Sync terminal CLI with IDE context for shared selection, trust settings, and visual diffing.
 
 ### Invariants
-- Context synchronization must be established between the headless CLI and the IDE.
-- Extends the agent's visibility into unsaved editor buffers and active selections.
-
-### Schema / Configuration
-- Operates via IDE extension handshakes and local RPC/sockets.
+- Shares editor selection as context for CLI prompts.
+- Displays proposed file edits as side-by-side diffs in VS Code.
+- Surfaces live IDE diagnostics (errors/warnings) to the agent.
+- Requires workspace to be open in trusted mode.
 
 ### Commands / Execution
 ```bash
-# Explicitly sync or connect with active VS Code instance
-gh copilot connect vscode
+# View connection status / switch workspace
+/ide
+
+# Prompt with editor selection
+"Debug this" (with code selected in IDE)
+
+# Resume CLI session in VS Code terminal
+[Right-click session in Sessions view] -> "Resume in Terminal"
 ```
 
+### Configuration
+- `Auto-connect to matching IDE workspace`: Toggle in `/ide` menu.
+- `Open file edit diffs in IDE`: Toggle in `/ide` menu.
+
 ## References
-- [Connecting VS Code](https://github.com/github/docs/blob/main/content/copilot/how-tos/copilot-cli/use-copilot-cli/connecting-vs-code.md)
+- [Connecting GitHub Copilot CLI to Visual Studio Code](https://github.com/github/docs/blob/main/content/copilot/how-tos/copilot-cli/use-copilot-cli/connecting-vs-code.md)

@@ -1,28 +1,30 @@
 # Automate with Actions
 
-**Goal**: Automate operations using the GitHub Copilot CLI inside GitHub Actions workflows.
+**Goal**: Integrate GitHub Copilot CLI into GitHub Actions workflows for AI-powered automation.
 
 ### Invariants
-- Requires a GitHub App token or a Personal Access Token (PAT) with `copilot` access.
-- Standard `GITHUB_TOKEN` does not grant Copilot access.
-- CLI must be explicitly installed via the `gh extension install` command in the runner.
+- Install via `npm install -g @github/copilot`.
+- Requires `COPILOT_GITHUB_TOKEN` secret with "Copilot Requests" permission.
+- Use `--no-ask-user` to prevent hanging on interactive prompts.
+- Explicitly allow necessary tools (e.g., `--allow-tool='shell(git:*)'`, `--allow-tool=write`).
 
 ### Schema / Configuration
-Workflow Authentication Schema:
 ```yaml
-env:
-  GH_TOKEN: ${{ secrets.COPILOT_PAT }}
+jobs:
+  automate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+      - run: npm install -g @github/copilot
+      - run: copilot -p "PROMPT" --no-ask-user --allow-tool='shell(git:*)' --allow-tool=write
+        env:
+          COPILOT_GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
 ```
 
 ### Commands / Execution
-```yaml
-steps:
-  - name: Install Copilot CLI
-    run: gh extension install github/gh-copilot
-    
-  - name: Run Copilot CLI
-    run: gh copilot explain "echo 'Hello World'"
-```
+- **Trigger**: `workflow_dispatch`, `schedule`, or repository events.
+- **Output**: Redirect to files or `$GITHUB_STEP_SUMMARY`.
 
 ## References
-- [Automate with Actions](https://github.com/github/docs/blob/main/content/copilot/how-tos/copilot-cli/automate-copilot-cli/automate-with-actions.md)
+- [Automating tasks with Copilot CLI and GitHub Actions](https://github.com/github/docs/blob/main/content/copilot/how-tos/copilot-cli/automate-copilot-cli/automate-with-actions.md)

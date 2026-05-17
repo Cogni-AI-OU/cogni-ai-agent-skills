@@ -1,23 +1,32 @@
-# Hooks Integration
+# Use Hooks
 
-**Goal**: Bind custom shell logic to pre/post execution lifecycle events in Copilot CLI.
+**Goal**: Execute custom shell commands at specific agent lifecycle events.
 
 ### Invariants
-- Supported events: `pre-prompt`, `post-prompt`, `pre-exec`, `post-exec`.
-- Failures in `pre-*` hooks halt execution pipeline.
-- Hooks located in standard `.copilot/hooks/` directory.
+- Repository-level hooks: `.github/hooks/*.json`.
+- User-level hooks: `~/.copilot/hooks/*.json`.
+- Windows requires PowerShell 7.0+.
+- Timeout defaults apply to command execution.
 
-### Schema
-Location: `.copilot/hooks/pre-exec.sh`
-```bash
-#!/usr/bin/env bash
-# Validate command schema before shell invocation.
-set -e
+### Schema / Configuration
+```json
+{
+  "version": 1,
+  "hooks": {
+    "agentStop": [
+      {
+        "type": "command",
+        "bash": "afplay /path/to/sound.aiff",
+        "timeoutSec": 5
+      }
+    ],
+    "sessionEnd": [ ... ]
+  }
+}
 ```
 
-### Commands
-Execute: Set execution permissions `chmod +x .copilot/hooks/*`
+### Supported Events
+- `agentStart`, `agentStop`, `taskStart`, `taskStop`, `sessionStart`, `sessionEnd`.
 
 ## References
-- [Use hooks](https://github.com/github/docs/blob/main/content/copilot/how-tos/copilot-cli/customize-copilot/use-hooks.md)
-- [Hooks Reference](https://github.com/github/docs/blob/main/content/copilot/reference/hooks-reference.md)
+- [Using hooks with GitHub Copilot CLI](https://github.com/github/docs/blob/main/content/copilot/how-tos/copilot-cli/customize-copilot/use-hooks.md)

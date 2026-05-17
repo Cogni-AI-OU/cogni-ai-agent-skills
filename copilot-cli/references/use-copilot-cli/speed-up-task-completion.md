@@ -1,20 +1,27 @@
 # Speed Up Task Completion
 
-**Goal**: Optimize Copilot CLI workflows and reduce latency during complex logical generations.
+**Goal**: Accelerate multi-step implementations by parallelizing subtasks via the `/fleet` command.
 
 ### Invariants
-- Prevent redundant context loading.
-- Enable parallelized data parsing and stream-based generation where applicable.
-
-### Schema / Configuration
-- Maximize the usage of explicit scoped agents to reduce LLM bloat and latency.
-- Pass explicit, narrow file scopes instead of scanning whole directories.
+- Assigns separate parts of the work to concurrent subagents.
+- Best used after establishing an implementation plan in plan mode.
 
 ### Commands / Execution
+1.  **Plan**: Enter plan mode (`Shift+Tab`) and define implementation.
+2.  **Execute**:
+    - **Interactive**: Select "Accept plan and build on autopilot + /fleet".
+    - **Slash Command**: `/fleet implement the plan`.
+
+### Monitoring
 ```bash
-# Fast, stateless query without broad context mapping
-gh copilot suggest -t shell "Restart Nginx"
+# View background subtasks
+/tasks
+
+# Within /tasks view:
+# [Enter] - View details
+# [k] - Kill process
+# [r] - Remove task
 ```
 
 ## References
-- [Speed Up Task Completion](https://github.com/github/docs/blob/main/content/copilot/how-tos/copilot-cli/use-copilot-cli/speed-up-task-completion.md)
+- [Speeding up task completion with the /fleet command](https://github.com/github/docs/blob/main/content/copilot/how-tos/copilot-cli/use-copilot-cli/speed-up-task-completion.md)

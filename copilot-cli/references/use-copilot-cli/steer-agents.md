@@ -1,19 +1,16 @@
 # Steer Agents
 
-**Goal**: Control the execution logic, constraints, and decision loops of autonomous CLI agents.
+**Goal**: Mid-flight control of agent logic, constraints, and task scope during execution.
 
 ### Invariants
-- Feedback loops must be explicitly manageable mid-flight.
-- Context injection via instructions overrides default agent drift.
+- Steering input can be sent while the agent is "Thinking".
+- Messages are processed in order as part of the active task.
+- Steering interrupts agents heading in the wrong direction or clarifies scope.
 
-### Schema / Configuration
-- Implements prompt injection directives or mid-execution interruption.
-
-### Commands / Execution
-```bash
-# Inject explicit constraint boundary
-gh copilot --prompt "Refactor this file, but DO NOT modify imports"
-```
+### Usage Patterns
+- **Interrupt**: Send new instructions to redirect the agent.
+- **Feedback**: Provide inline feedback when rejecting tool permission requests.
+- **Refine**: Narrow or expand task boundaries partway through.
 
 ## References
-- [Steer Agents](https://github.com/github/docs/blob/main/content/copilot/how-tos/copilot-cli/use-copilot-cli/steer-agents.md)
+- [Steering agents in GitHub Copilot CLI](https://github.com/github/docs/blob/main/content/copilot/how-tos/copilot-cli/use-copilot-cli/steer-agents.md)

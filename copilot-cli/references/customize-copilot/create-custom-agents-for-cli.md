@@ -1,21 +1,36 @@
-# Custom Agents
+# Create Custom Agents for CLI
 
-**Goal**: Define specialized runtimes with bounded domains and customized system prompts.
-
-### Schema
-File: `agent.yaml`
-```yaml
-name: "SecAudit"
-model: "gpt-4o"
-system_instruction: "Perform strict security code audit."
-tools:
-  - "github-mcp"
-```
+**Goal**: Deploy specialized subagents with scoped context, tailored expertise, and restricted toolsets.
 
 ### Invariants
-- Requires `github.copilot` authentication.
-- Scoped to `gh copilot` runtime or `@agent` invocation in VS Code.
+- Defined via `.agent.md` files.
+- Location: `~/.copilot/agents/` (User) or `.github/agents/` (Project).
+- Subagents run in a separate context to avoid main agent clutter.
+- Resolution order: User > Repository > Organization.
+
+### Schema
+- Frontmatter defines metadata, description, and tools.
+
+```markdown
+---
+name: security-expert
+description: Reviews code for vulnerabilities.
+tools: ["bash", "edit", "view"]
+---
+Instructions for the agent...
+```
+
+### Commands / Execution
+```bash
+# Create agent interactively
+/agent -> "Create new agent"
+
+# Invoke specifically
+copilot --agent security-expert --prompt "Audit src/"
+
+# Use via slash command
+/agent -> [Select Agent]
+```
 
 ## References
-- [Create custom agents for CLI](https://github.com/github/docs/blob/main/content/copilot/how-tos/copilot-cli/customize-copilot/create-custom-agents-for-cli.md)
-- [Custom agents configuration](https://github.com/github/docs/blob/main/content/copilot/reference/custom-agents-configuration.md)
+- [Creating and using custom agents for GitHub Copilot CLI](https://github.com/github/docs/blob/main/content/copilot/how-tos/copilot-cli/customize-copilot/create-custom-agents-for-cli.md)

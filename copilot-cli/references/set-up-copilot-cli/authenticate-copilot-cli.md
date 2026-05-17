@@ -1,24 +1,32 @@
 # Authenticate Copilot CLI
 
-**Goal**: Establish an authenticated session with GitHub to enable Copilot CLI operations.
+**Goal**: Establish device flow or token authentication for GitHub Copilot CLI.
 
 ### Invariants
-- Requires an active GitHub Copilot entitlement.
-- Authentication can use visual device flows or direct Personal Access Tokens (PATs).
-- Fine-grained PATs must have the **Copilot Requests** permission.
+- OAuth device flow is the default for interactive use.
+- Environment variables (`COPILOT_GITHUB_TOKEN`, `GH_TOKEN`, `GITHUB_TOKEN`) are recommended for CI/CD and headless environments.
+- Fine-grained PATs MUST have "Copilot Requests" permission.
+- Classic PATs are NOT supported.
+- Stored in system keychain (service: `copilot-cli`) or `~/.copilot/config.json` if keychain is unavailable.
 
 ### Schema / Configuration
-- Web workflow outputs a one-time code for device authentication.
-- Automated environments must inject the PAT via the environment variable `GH_TOKEN` or `GITHUB_TOKEN`.
+- Token types: OAuth (`gho_`), Fine-grained PAT (`github_pat_`), GitHub App (`ghu_`).
+- Priority: `COPILOT_GITHUB_TOKEN` > `GH_TOKEN` > `GITHUB_TOKEN` > Keychain > `gh` fallback.
 
 ### Commands / Execution
 ```bash
-# Interactive web authentication
-gh copilot auth login
+# Start OAuth login flow
+copilot login
 
-# Check authentication status
-gh copilot auth status
+# Check login status
+/user
+
+# Switch accounts
+/user switch
+
+# Logout
+/logout
 ```
 
 ## References
-- [Authenticate Copilot CLI](https://github.com/github/docs/blob/main/content/copilot/how-tos/copilot-cli/set-up-copilot-cli/authenticate-copilot-cli.md)
+- [Authenticating GitHub Copilot CLI](https://github.com/github/docs/blob/main/content/copilot/how-tos/copilot-cli/set-up-copilot-cli/authenticate-copilot-cli.md)

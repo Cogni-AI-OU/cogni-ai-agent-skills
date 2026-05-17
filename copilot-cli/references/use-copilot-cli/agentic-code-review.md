@@ -1,22 +1,23 @@
 # Agentic Code Review
 
-**Goal**: Automate comprehensive code and pull request reviews using Copilot CLI agents.
+**Goal**: Automate Pull Request and code reviews directly from the terminal.
 
 ### Invariants
-- Reviews must strictly evaluate code against documented repository standards and constraints.
-- Output must highlight specific line-level issues, security vulnerabilities, and logic flaws.
-
-### Schema / Configuration
-- Operates primarily on active diffs, uncommitted changes, or specific pull requests.
+- Analyzes code changes without leaving the CLI.
+- Prioritizes actionable code changes over conversational feedback.
+- Requires confirmation before running inspection commands (diff, verify).
 
 ### Commands / Execution
 ```bash
-# Review uncommitted changes
-gh copilot code-review
+# Start code review
+/review
 
-# Review a specific pull request
-gh copilot pr-review <PR_NUMBER>
+# Narrow review scope
+/review focus on security @src/auth/
+
+# Run programmatically
+copilot -p "/review changes compared to main" -s
 ```
 
 ## References
-- [Agentic Code Review](https://github.com/github/docs/blob/main/content/copilot/how-tos/copilot-cli/use-copilot-cli/agentic-code-review.md)
+- [Requesting a code review with GitHub Copilot CLI](https://github.com/github/docs/blob/main/content/copilot/how-tos/copilot-cli/use-copilot-cli/agentic-code-review.md)

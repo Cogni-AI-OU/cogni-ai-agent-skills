@@ -1,23 +1,45 @@
 # Add LSP Servers
 
-**Goal**: Configure Language Server Protocol (LSP) servers to provide real-time code intelligence context to the Copilot CLI.
+**Goal**: Integrate language intelligence for precise code navigation and symbol renaming.
 
 ### Invariants
-- LSP servers must be installed and accessible in the system `PATH`.
-- Enhances command context with go-to-definition, find-references, and hover provider data.
+- Install the LSP server software locally first.
+- Configure servers via JSON mapping.
+- Reload via `/lsp reload` or restart session.
+- Only install LSP servers from trusted sources.
 
 ### Schema / Configuration
-- Supported out-of-the-box servers vary by language.
-- Standard mappings can be managed via the CLI configuration.
+- **Global Config**: `~/.copilot/lsp-config.json`.
+- **Project Config**: `.github/lsp.json`.
+
+```json
+{
+  "lspServers": {
+    "SERVER-NAME": {
+      "command": "COMMAND",
+      "args": ["--stdio"],
+      "fileExtensions": {
+        ".ext": "LANGUAGE-ID"
+      }
+    }
+  }
+}
+```
 
 ### Commands / Execution
 ```bash
-# Add a new LSP server
-gh copilot config --add-lsp-server <server_command>
+# Automate setup for popular languages
+/p setup lsp
 
-# Verify configured LSP servers
-gh copilot config --list-lsp-servers
+# Check server status
+/lsp show
+
+# Test specific server
+/lsp test SERVER-NAME
+
+# Reload configurations
+/lsp reload
 ```
 
 ## References
-- [Add LSP Servers](https://github.com/github/docs/blob/main/content/copilot/how-tos/copilot-cli/set-up-copilot-cli/add-lsp-servers.md)
+- [Adding LSP servers for GitHub Copilot CLI](https://github.com/github/docs/blob/main/content/copilot/how-tos/copilot-cli/set-up-copilot-cli/add-lsp-servers.md)

@@ -1,18 +1,21 @@
 # Automate Copilot CLI Quickstart
 
-**Goal**: Establish a foundational setup for automating instructions and tasks via the GitHub Copilot CLI.
+**Goal**: Build a simple automation script leveraging GitHub Copilot CLI in minutes.
 
 ### Invariants
-- Establish base environment context for automation scripts.
-- Rely on headless, non-interactive execution strategies.
-- Enforce strict JSON output routing.
-
-### Schema / Configuration
-- Ensures script predictability by decoupling interactive flows.
-- Integrates with standard CLI automation practices outlined in programmatic and actions files.
+- Pass prompts directly using the `-p` flag.
+- Leverage shell scripting to generate dynamic prompts and process results.
+- Ensure the script is executable (`chmod +x`).
 
 ### Commands / Execution
-- See programmatic execution patterns for specific command syntax usage.
+```bash
+#!/bin/bash
+# Example: Describe large files
+while IFS= read -r -d '' file; do
+    description=$(copilot -p "Describe briefly: $file" -s 2>/dev/null)
+    echo "File: $file - $description"
+done < <(find . -type f -size +10M -print0)
+```
 
 ## References
-- [Automate Copilot CLI Quickstart](https://github.com/github/docs/blob/main/content/copilot/how-tos/copilot-cli/automate-copilot-cli/quickstart.md)
+- [Quickstart for automating with GitHub Copilot CLI](https://github.com/github/docs/blob/main/content/copilot/how-tos/copilot-cli/automate-copilot-cli/quickstart.md)

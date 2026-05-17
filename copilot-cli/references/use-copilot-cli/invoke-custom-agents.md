@@ -1,19 +1,24 @@
 # Invoke Custom Agents
 
-**Goal**: Execute and interact with specialized, user-defined agent personas directly from the CLI.
+**Goal**: Extend agent capabilities via specialized personas, instructions, and toolsets.
 
 ### Invariants
-- Agent selection uses strict resolution order: User (`~`) > Project (`.github`) > Org (`.github-private`).
-- Must supply the precise agent slug excluding `.agent.md`.
-
-### Schema / Configuration
-- Resolution path targeting: `[target].agent.md`.
+- Built-in agents: Explore, Task, General-purpose, Code-review, Research, Rubber duck.
+- Custom agents defined via Markdown agent profiles.
+- Resolution order: User (`~/.copilot/agents`) > Repository (`.github/agents`) > Organization (`.github-private/agents`).
+- System-level agents override repository-level agents.
 
 ### Commands / Execution
 ```bash
-# Invoke defined agent persona
-gh copilot --agent security-auditor --prompt "Verify codebase boundaries"
+# List available agents interactively
+/agent
+
+# Invoke specific agent programmatically
+copilot --agent=refactor-agent --prompt "Refactor this code block"
+
+# Direct mention in prompt
+"Use the refactoring agent to refactor this code block"
 ```
 
 ## References
-- [Invoke Custom Agents](https://github.com/github/docs/blob/main/content/copilot/how-tos/copilot-cli/use-copilot-cli/invoke-custom-agents.md)
+- [Invoking custom agents](https://github.com/github/docs/blob/main/content/copilot/how-tos/copilot-cli/use-copilot-cli/invoke-custom-agents.md)

@@ -1,24 +1,27 @@
 # Allowing Tools
 
-**Goal**: Configure and enforce explicit execution boundaries for tool access within Copilot CLI.
+**Goal**: Manage tool execution boundaries and permissions to prevent unintended system changes.
 
 ### Invariants
-- Principle of Least Privilege applies: explicitly enable required tools; deny all others.
-- YOLO mode bypasses all restrictions and must only be used in completely trusted, disposable environments.
+- Read-only operations (searching, reading files) are allowed automatically.
+- Destructive operations (writing files, destructive shell commands, URL access) require explicit approval.
+- Deny rules ALWAYS take precedence over allow rules.
+- Permission levels: One-time approval, Session-wide approval, or Permanent (via config).
 
-### Schema / Configuration
-- `--allow-tool`: Whitelists specific tools (e.g., `shell(git,ls)`).
-- `--deny-tool`: Blacklists restricted operations (e.g., `shell(rm,chmod)`).
-- `--yolo`: Requires user opt-in, suppresses all tool execution confirmations.
+### Command-line Options
+- `--available-tools`: Restricted set of tools the model is aware of.
+- `--excluded-tools`: Specifically disable tools.
+- `--allow-tool`: Pre-approve specific tools for the session.
+- `--deny-tool`: Explicitly forbid specific tools.
+- `--allow-all` / `--yolo`: Full access to all tools, paths, and URLs.
 
-### Commands / Execution
-```bash
-# Explicitly allow specific tools for a task
-gh copilot --allow-tool="shell(git,ls)" --prompt "Check git status"
-
-# Run in unrestricted YOLO mode
-gh copilot --yolo --prompt "Automate full setup"
-```
+### Examples
+| Option | Effect |
+| ------ | ------ |
+| `--allow-tool=shell` | Allow all shell commands. |
+| `--allow-tool='shell(git commit)'` | Allow specific command. |
+| `--deny-tool=write` | Forbid all file mutations. |
+| `--allow-all-tools` | Skip approval for all available tools. |
 
 ## References
-- [Allowing Tools](https://github.com/github/docs/blob/main/content/copilot/how-tos/copilot-cli/use-copilot-cli/allowing-tools.md)
+- [Allowing and denying tool use](https://github.com/github/docs/blob/main/content/copilot/how-tos/copilot-cli/use-copilot-cli/allowing-tools.md)

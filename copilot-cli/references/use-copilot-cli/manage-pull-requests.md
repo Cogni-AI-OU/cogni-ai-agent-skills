@@ -1,20 +1,30 @@
 # Manage Pull Requests
 
-**Goal**: Automate the generation, summarization, and management of GitHub Pull Requests.
+**Goal**: Orchestrate the full Pull Request lifecycle (view, create, fix) from the terminal.
 
 ### Invariants
-- Commands must infer context strictly from existing commits, branches, and diffs.
-- Avoids manual data entry for PR body creation.
+- Requires Git repository hosted on GitHub.
+- Subcommands relate to the current branch.
+- Automated fix loops handle feedback, conflicts, and CI failures.
 
-### Schema / Configuration
-- Requires active branch divergence from `main` or `master`.
-- Relies on Git and GitHub CLI native authentication.
+### Subcommands
+| Command | Action | May Commit/Push |
+| ------- | ------ | --------------- |
+| `/pr` | Show current PR status. | No |
+| `/pr create` | Create or update PR. | Yes |
+| `/pr fix feedback` | Address review comments. | Yes |
+| `/pr fix conflicts` | Sync branch and resolve conflicts. | Yes |
+| `/pr fix ci` | Diagnose and fix CI failures. | Yes |
+| `/pr auto` | Automated loop: Create -> Fix All -> Green. | Yes |
 
 ### Commands / Execution
 ```bash
-# Generate and summarize a Pull Request
-gh copilot pr create
+# Open PR in browser
+/pr view web
+
+# Set default merge strategy in settings.json
+{ "mergeStrategy": "rebase" }
 ```
 
 ## References
-- [Manage Pull Requests](https://github.com/github/docs/blob/main/content/copilot/how-tos/copilot-cli/use-copilot-cli/manage-pull-requests.md)
+- [Managing pull requests with the /pr command](https://github.com/github/docs/blob/main/content/copilot/how-tos/copilot-cli/use-copilot-cli/manage-pull-requests.md)

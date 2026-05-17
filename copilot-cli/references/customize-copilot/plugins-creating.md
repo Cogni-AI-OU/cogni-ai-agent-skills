@@ -1,14 +1,32 @@
-# Creating Plugins
+# Plugins: Creating
 
-**Goal**: Build extensions via npm/Node.js to add sub-commands and custom workflow logic to Copilot CLI.
+**Goal**: Bundle agents, skills, hooks, and MCP servers into distributable units.
 
 ### Invariants
-- Package manager: npm.
-- Language: JavaScript/TypeScript.
-- Entrypoint: Defined in `package.json` under `bin` or Copilot spec.
+- Requires `plugin.json` manifest at root.
+- Caching: Installed plugins are cached; reinstall to apply local changes.
 
-### Commands
-Execute: `gh copilot extension create` (or package equivalent).
+### Schema / Structure
+```text
+my-plugin/
+├── plugin.json
+├── agents/ (Optional: *.agent.md)
+├── skills/ (Optional: NAME/SKILL.md)
+├── hooks.json (Optional)
+└── .mcp.json (Optional)
+```
+
+### Commands / Execution
+```bash
+# Install local plugin for testing
+copilot plugin install ./my-plugin
+
+# List installed plugins
+copilot plugin list
+
+# Uninstall plugin
+copilot plugin uninstall PLUGIN-NAME
+```
 
 ## References
-- [Creating Plugins](https://github.com/github/docs/blob/main/content/copilot/how-tos/copilot-cli/customize-copilot/plugins-creating.md)
+- [Creating a plugin for GitHub Copilot CLI](https://github.com/github/docs/blob/main/content/copilot/how-tos/copilot-cli/customize-copilot/plugins-creating.md)

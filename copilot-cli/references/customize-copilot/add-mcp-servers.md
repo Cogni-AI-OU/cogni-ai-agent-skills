@@ -1,28 +1,45 @@
-# MCP Servers
+# Add MCP Servers
 
-**Goal**: Register and manage Model Context Protocol (MCP) servers locally.
+**Goal**: Connect Model Context Protocol (MCP) servers to provide additional tools and context.
 
 ### Invariants
-- Protocols supported: `stdio`, `sse`.
-- Configuration: `gh copilot mcp add` maps tools locally.
+- GitHub MCP server is built-in and enabled by default.
+- Remote (HTTP/SSE) or Local (STDIO) transport types supported.
+- Tool filtering via allowlist or wildcard (`*`).
 
-### Schema
+### Schema / Configuration
+- Config File: `~/.copilot/mcp-config.json` (configurable via `COPILOT_HOME`).
+
 ```json
 {
   "mcpServers": {
-    "local-tools": {
-      "command": "python",
-      "args": ["-m", "my_mcp_server"]
+    "server-name": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["@org/mcp-server@latest"],
+      "env": { "API_KEY": "..." },
+      "tools": ["*"]
     }
   }
 }
 ```
 
-### Commands
-Execute:
-- `/mcp add <SERVER-NAME> <COMMAND>`
-- `/mcp list`
-- `/mcp delete <SERVER-NAME>`
+### Commands / Execution
+```bash
+# Add server interactively
+/mcp add
+
+# List servers and status
+/mcp show
+
+# Show tools for specific server
+/mcp show SERVER-NAME
+
+# Edit/Disable/Enable
+/mcp edit SERVER-NAME
+/mcp disable SERVER-NAME
+/mcp enable SERVER-NAME
+```
 
 ## References
-- [Adding MCP servers for Copilot CLI](https://github.com/github/docs/blob/main/content/copilot/how-tos/copilot-cli/customize-copilot/add-mcp-servers.md)
+- [Adding MCP servers for GitHub Copilot CLI](https://github.com/github/docs/blob/main/content/copilot/how-tos/copilot-cli/customize-copilot/add-mcp-servers.md)

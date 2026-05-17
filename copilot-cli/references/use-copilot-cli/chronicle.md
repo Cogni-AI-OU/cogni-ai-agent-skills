@@ -1,23 +1,34 @@
 # Chronicle
 
-**Goal**: Track, query, and resume historical Copilot CLI execution sessions.
+**Goal**: Leverage historical session data for insights, standup reports, and instruction optimization.
 
 ### Invariants
-- Execution state must be persisted automatically for temporal navigation.
-- Sensitive output must not be leaked when sharing session history.
-
-### Schema / Configuration
-- Sessions are tracked via unique temporal IDs.
-- Enables contextual continuity across intermittent executions.
+- Session data is stored locally.
+- Provides personalized tips based on actual usage patterns.
+- Identifies "friction signals" to improve custom instructions.
+- Full-text search across session history for recalling past work.
 
 ### Commands / Execution
 ```bash
-# View session history
-gh copilot history
+# Generate standup report (last 24h)
+/chronicle standup
 
-# Resume a previous contextual session
-gh copilot resume <SESSION_ID>
+# Get personalized usage tips
+/chronicle tips
+
+# Improve custom instructions based on friction
+/chronicle improve
+
+# Resume specific session
+copilot --resume SESSION-ID
+
+# Rename current session
+/rename "New Session Name"
+
+# Share session to Gist/File
+/share gist
+/share file [PATH]
 ```
 
 ## References
-- [Chronicle](https://github.com/github/docs/blob/main/content/copilot/how-tos/copilot-cli/use-copilot-cli/chronicle.md)
+- [Using GitHub Copilot CLI session data](https://github.com/github/docs/blob/main/content/copilot/how-tos/copilot-cli/use-copilot-cli/chronicle.md)

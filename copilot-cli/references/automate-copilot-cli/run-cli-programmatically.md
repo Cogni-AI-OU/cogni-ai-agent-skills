@@ -1,25 +1,28 @@
 # Run CLI Programmatically
 
-**Goal**: Execute GitHub Copilot CLI programmatically from scripts or automation tools.
+**Goal**: Execute Copilot CLI prompts via scripts and automation without interactive sessions.
 
 ### Invariants
-- Use structured output (JSON) for programmatic parsing.
-- Always check exit codes for command success or failure.
-- Execution must run in silent/non-interactive mode to prevent terminal hangs.
-
-### Schema / Configuration
-- Utilize the `--format json` or `-f json` flag to receive JSON responses.
-- Utilize the `--silent` or `-sc` flag to suppress interactive elements and conversational filler.
-- Check return codes: `0` (Success), non-zero (Error).
+- Use `-p` or `--prompt` for non-interactive execution.
+- Piped input is supported: `echo "Prompt" | copilot`.
+- Use `-s` (silent) to suppress metadata and capture clean text output.
+- Use `--no-ask-user` to disable clarifying questions.
+- Use `--model` for consistent behavior across environments.
 
 ### Commands / Execution
 ```bash
-# Get suggestion as JSON
-gh copilot suggest "Commit changes" -t shell --format json
+# Capture output in variable
+result=$(copilot -p 'Explain @src/app.js' -s)
 
-# Explain command as JSON
-gh copilot explain "git log" --format json
+# Conditional logic
+if copilot -p 'Has errors? Reply YES/NO' -s | grep -qi "YES"; then exit 1; fi
+
+# Share session to file
+copilot -p "Audit deps" --share='./report.md'
+
+# Share session to Gist
+copilot -p "Summarize arch" --share-gist
 ```
 
 ## References
-- [Run CLI Programmatically](https://github.com/github/docs/blob/main/content/copilot/how-tos/copilot-cli/automate-copilot-cli/run-cli-programmatically.md)
+- [Running GitHub Copilot CLI programmatically](https://github.com/github/docs/blob/main/content/copilot/how-tos/copilot-cli/automate-copilot-cli/run-cli-programmatically.md)

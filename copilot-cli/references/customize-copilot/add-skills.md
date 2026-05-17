@@ -1,15 +1,30 @@
-# Agent Skills
+# Add Agent Skills
 
-**Goal**: Extend Copilot CLI capability with predefined structural tools or domain knowledge via SKILL.md.
+**Goal**: Extend agent capabilities via specialized instructions, scripts, and resources.
 
 ### Invariants
-- Path: `skills/` or `.github/skills/`.
-- File: Must contain `SKILL.md` or `.prompt.md`.
-- Inclusion: Dynamic load using context injection.
+- Skills are folders containing a `SKILL.md` file.
+- Location: `~/.copilot/skills/` (User) or `.github/skills/` (Project).
+- Trigger: Mention skill name with `/` prefix in prompt (e.g., `/frontend-design`).
+- Comparison: Skills are lighter than agents and don't require separate subagent processes.
 
-### Commands
-Execute: Use `@workspace` to target `.github/skills/`.
+### Commands / Execution
+```bash
+# List available skills
+/skills list
+
+# Show skill info and location
+/skills info SKILL-NAME
+
+# Add a new skills directory
+/skills add /path/to/dir
+
+# Reload skills without restarting
+/skills reload
+
+# Remove a skill
+/skills remove /path/to/skill-dir
+```
 
 ## References
-- [Adding agent skills for Copilot CLI](https://github.com/github/docs/blob/main/content/copilot/how-tos/copilot-cli/customize-copilot/add-skills.md)
-- [Creating and adding a skill](https://github.com/github/docs/blob/main/data/reusables/copilot/creating-adding-skills.md)
+- [Adding agent skills for GitHub Copilot CLI](https://github.com/github/docs/blob/main/content/copilot/how-tos/copilot-cli/customize-copilot/add-skills.md)

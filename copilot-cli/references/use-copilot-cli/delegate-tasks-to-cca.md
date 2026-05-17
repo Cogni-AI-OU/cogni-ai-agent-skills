@@ -1,19 +1,26 @@
 # Delegate Tasks to CCA
 
-**Goal**: Route specific high-complexity workloads to dedicated Custom Copilot Agents (CCA).
+**Goal**: Hand off tasks to GitHub Copilot Cloud Agent (CCA) for remote, background execution.
 
 ### Invariants
-- Prevents context bloat by compartmentalizing capability sets.
-- Subagents must operate tightly within their predefined `AGENTS.md` context.
-
-### Schema / Configuration
-- Delegation logic involves recognizing task boundaries and executing the specified internal agent.
+- Runs remotely on GitHub's servers.
+- Automatically creates a branch and opens a draft Pull Request.
+- Works in the background even if local machine is shut down.
+- Requires GitHub authentication (BYOK-only mode does not support `/delegate`).
 
 ### Commands / Execution
 ```bash
-# Explicitly delegate specialized operations
-gh copilot --agent <custom-agent-id> --prompt "Execute delegated workload"
+# Delegate via slash command
+/delegate "complete the API integration tests"
+
+# Delegate via shorthand prefix
+& "fix failing edge cases"
 ```
 
+### Local Alternative: Autopilot
+- Runs locally in the current CLI session.
+- Requires full permissions.
+- Enabled via `Shift+Tab` (Interactive) or `--autopilot` (Programmatic).
+
 ## References
-- [Delegate tasks to CCA](https://github.com/github/docs/blob/main/content/copilot/how-tos/copilot-cli/use-copilot-cli/delegate-tasks-to-cca.md)
+- [Delegating tasks to GitHub Copilot](https://github.com/github/docs/blob/main/content/copilot/how-tos/copilot-cli/use-copilot-cli/delegate-tasks-to-cca.md)

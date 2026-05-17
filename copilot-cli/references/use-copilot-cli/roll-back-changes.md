@@ -1,22 +1,22 @@
 # Roll Back Changes
 
-**Goal**: Revert codebase mutations or faulty command executions executed by Copilot CLI agents.
+**Goal**: Undo session mutations and restore repository state via automated snapshots.
 
 ### Invariants
-- Copilot CLI agents execute state mutations; rollback paths must be clearly identifiable.
-- Uses native Git mechanics to ensure absolute consistency.
-
-### Schema / Configuration
-- State reversions target explicit temporal session hashes or standard Git tracking.
+- Requires Git repository with at least one commit.
+- Snapshots created automatically at each prompt.
+- Rewinding is PERMANENT; subsequent history is removed.
+- Cannot undo changes made before the current session started.
 
 ### Commands / Execution
-```bash
-# Check repository diffs after an agentic execution
-git diff
+- **Trigger**: Press `Esc` twice in quick succession or use `/undo` / `/rewind`.
+- **Review**: The rewind picker shows the 10 most recent snapshots.
 
-# Rollback uncommitted changes
-git checkout -- .
+```bash
+# Verify state after rollback
+! git status
+! git log --oneline -1
 ```
 
 ## References
-- [Roll Back Changes](https://github.com/github/docs/blob/main/content/copilot/how-tos/copilot-cli/use-copilot-cli/roll-back-changes.md)
+- [Rolling back changes made during a GitHub Copilot CLI session](https://github.com/github/docs/blob/main/content/copilot/how-tos/copilot-cli/use-copilot-cli/roll-back-changes.md)
