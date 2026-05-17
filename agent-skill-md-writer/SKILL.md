@@ -51,13 +51,14 @@ Structure the generated file with the following sections (omit optional ones if 
    - `## Prerequisites` (Optional): Required tools, dependencies, or environment setup.
    - `## Core Process` or `## Step-by-Step Workflows`: For repeatable procedures where sequence matters.
    - `## Core Principles`
-   - `## Gotchas`: Proactive warnings (Bold the key constraint, then explain why).
+   - `### Workflow`
+   - `## Common Pitfalls`: Table with Pitfall, Solution
    - `## Troubleshooting`: Reactive fixes (Symptom → Solution table).
    - `## Best Practices`
    - `## What to Avoid`
    - `## Limitations`
-   - `## References`: Links to bundled files or external resources.
-   - `## Related Skills`
+   - `## References`: Links to references/ files or external resources.
+   - `## Related Skills`: With brief description when to load (avoid circular dependencies)
 
 ## Bundling Resources
 
