@@ -167,8 +167,8 @@ and planned work into the current context.
 - **[github-aw](github-aw/SKILL.md)**: Safely update existing GitHub Agentic Workflows (gh-aw), distinguishing between
   frontmatter configuration that requires recompilation and markdown body prompt edits that do not.
   You MUST load this skill when updating or modifying an existing GitHub Agentic Workflow.
-- **[github-aw-troubleshooting](github-aw-troubleshooting/SKILL.md)**: Debug and refine GitHub Agentic Workflows (gh-aw) by analyzing
-  execution logs, auditing runs, and resolving missing tool errors or prompt inefficiencies.
+- **[github-aw-troubleshooting](github-aw-troubleshooting/SKILL.md)**: Debug and refine GitHub Agentic Workflows (gh-aw)
+  by analyzing execution logs, auditing runs, and resolving missing tool errors or prompt inefficiencies.
   You MUST load this skill when asked to debug, audit, or analyze a failing GitHub Agentic Workflow.
 - **[github-aw-memory](github-aw-memory/SKILL.md)**: Guide for persistent memory strategies in agentic workflows.
   You MUST load this skill when designing workflows that persist state across runs via
@@ -238,6 +238,8 @@ and planned work into the current context.
 - **[security-audit](security-audit/SKILL.md)**: Commands, step-by-step procedures, and mechanical execution for
   performing deep security audits, vulnerability assessments, and threat modeling.
   You MUST load this skill when performing security audits or validation.
+- **[sed](sed/SKILL.md)**: Fast, non-interactive text stream editing and precise file segment extraction.
+  You MUST load this skill when using the `sed` command for extracting or replacing text.
 - **[shell](shell/SKILL.md)**: Efficient shell command execution with timing, timeouts, and best practices.
   You MUST load this skill when handling shell commands with performance monitoring or timeouts.
 - **[agent-skill-md-writer](agent-skill-md-writer/SKILL.md)**: Generate or update SKILL.md files for coding agents.
