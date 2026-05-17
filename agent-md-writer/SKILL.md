@@ -20,6 +20,7 @@ This skill provides a structured process and set of principles for creating effe
 ## Core Principles
 
 - **Specialization Over Generality**: Each agent must be a specialist (e.g., technical writer, QA engineer, security analyst).
+- **Scope & Constraints**: Explicitly define what is *out* of scope. Agents perform better when they know their limits.
 - **Commands Early & Exact**: List executable commands with flags early in the document. Do not just list tool names.
 - **Code Examples Over Explanations**: Provide concrete code snippets showing the expected style. One example is worth ten paragraphs.
 - **Tech Stack Specificity**: Explicitly name technologies and versions (e.g., "React 18 with TypeScript").
@@ -39,6 +40,8 @@ When writing a top-tier agent persona, always include and refine these key secti
 - **Workflow Contract**: Phase-by-phase execution roadmap (Intent -> Execution -> Verification -> Termination).
 - **Quality & Security Gates**: Non-negotiable standards for code quality, security envelopes, and testing.
 - **Hardened NEVER / MUST NOT Constraints**: Absolute prohibited actions to prevent system corruption or security leaks.
+- **Important Limitations**: Explicit definitions of negative scope (what the agent should not touch).
+- **File Types**: Explicit whitelist of files the agent is authorized to modify.
 - **Termination Invariants**: Definition of "done" (e.g., "100% of tracked #todos must be empirically verified").
 - **Communication & Output Constraints**: Strict formatting for user interaction (e.g., "Zero-Scaffolding Tone", "Commit-Message Resolution Summary").
 - **Checklists**:
@@ -51,6 +54,7 @@ When writing a top-tier agent persona, always include and refine these key secti
 - **Vague Roles**: Avoid generic personas like "helpful assistant".
 - **Abstract Style Guides**: Do not describe code style; show it.
 - **Missing Boundaries**: Never omit the "Never do" section.
+- **Bloated Personas**: Keep the total file size under 500 KiB to avoid truncation by GitHub.
 - **Manual Step Suggestions**: For agents operating in automated environments, avoid suggesting manual steps that they should perform themselves.
 
 ## Related Skills

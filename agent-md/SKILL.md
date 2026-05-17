@@ -8,7 +8,7 @@ license: MIT
 
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
 
-Agent MD is a format for defining specialized agent personas. These files provide context-specific instructions, project knowledge, and execution boundaries for autonomous agents in GitHub Copilot, OpenCode, and Claude Code.
+Agent MD is a format for defining specialized agent personas. These files provide context-specific instructions, project knowledge, and execution boundaries for autonomous agents in GitHub Copilot, OpenCode, and Claude Code. Unlike broad custom instructions, custom agents are selected for specific tasks and maintain their configuration throughout the workflow.
 
 ## Architecture Principles: Agents vs Skills vs Instructions
 
@@ -76,6 +76,11 @@ Agent profiles are Markdown files with YAML frontmatter. In their simplest form,
 - **Tools** (optional): Specific tools the agent can access. By default, agents can access all available tools, including built-in tools, and MCP server tools.
 - **MCP Servers** (optional): Configurations for MCP servers using the `mcp-servers` property.
 
+### Technical Constraints (GitHub Copilot)
+
+- **Size Limit**: Keep content under 500 KiB. GitHub truncates content beyond this limit.
+- **Relative Links**: Use relative links (e.g., `docs/CONTRIBUTING.md`) instead of absolute URLs for files within the repository to ensure they work when the repository is cloned.
+
 ## OpenCode Agent Syntax
 
 OpenCode supports both JSON configuration and Markdown files for agent definitions.
@@ -138,9 +143,11 @@ Regardless of the platform, a high-quality agent definition should include:
 
 1. **Role Definition**: Explicitly state the agent's persona and specialization.
 2. **Project Knowledge**: Tech stack, versions, and relevant directory layout.
-3. **Executable Commands**: Real commands (build, test, lint) with all necessary flags.
-4. **Standards & Examples**: Idiomatic code snippets showing the expected style.
-5. **Three-Tier Boundaries**: Using `Always`, `Ask first`, and `Never` categories.
+3. **File Types**: List specific file extensions or directories the agent is authorized to work with.
+4. **Executable Commands**: Real commands (build, test, lint) with all necessary flags.
+5. **Standards & Examples**: Idiomatic code snippets showing the expected style.
+6. **Important Limitations**: Explicit "Negative Scope" (what the agent MUST NOT do).
+7. **Three-Tier Boundaries**: Using `Always`, `Ask first`, and `Never` categories.
 
 ## Reference Structure (GitHub Copilot)
 
@@ -157,6 +164,10 @@ You are an expert <role> for this project.
 - You specialize in <specialty>
 - Your task: <specific task>
 
+## File types you work with
+- `<extension/pattern>` (primary focus)
+- `<other file type>`
+
 ## Project knowledge
 - **Tech Stack:** <technologies with versions>
 - **File Structure:**
@@ -170,6 +181,10 @@ You are an expert <role> for this project.
 
 ## Standards
 <Code style examples>
+
+## Important Limitations
+- Do NOT <prohibited action related to scope>
+- Do NOT <another scope boundary>
 
 ## Boundaries
 - ✅ **Always:** <mandatory actions>
