@@ -21,7 +21,7 @@ jobs:
       - run: npm install -g @github/copilot
       - run: copilot -p "PROMPT" --no-ask-user --allow-tool='shell(git:*)' --allow-tool=write
         env:
-          COPILOT_GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          COPILOT_GITHUB_TOKEN: ${{ secrets.COPILOT_GITHUB_TOKEN }}
 ```
 
 ## Commands / Execution (if applicable)

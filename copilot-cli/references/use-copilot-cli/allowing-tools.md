@@ -26,7 +26,7 @@
 | `--allow-tool=shell` | Allow all shell commands. |
 | `--allow-tool='shell(git commit)'` | Allow specific command. |
 | `--deny-tool=write` | Forbid all file mutations. |
-| `--allow-all-tools` | Skip approval for all available tools. |
+| `--allow-all` | Skip approval for all available tools. |
 
 ## References
 
