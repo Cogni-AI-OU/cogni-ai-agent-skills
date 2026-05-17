@@ -5,7 +5,7 @@ on:
   workflow_call:
   pull_request:
     branches:
-      - staged
+      - main
     types:
       - opened
       - synchronize
@@ -61,7 +61,7 @@ jobs:
         run: |
           if [ "${{ github.event_name }}" = "workflow_dispatch" ] || \
              [ "${{ github.event_name }}" = "workflow_call" ]; then
-            CHANGED_FILES=$(git diff --name-only origin/staged...HEAD)
+            CHANGED_FILES=$(git diff --name-only origin/main...HEAD)
           else
             CHANGED_FILES=$(git diff --name-only origin/${{ github.base_ref }}...HEAD)
           fi
