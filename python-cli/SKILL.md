@@ -60,3 +60,19 @@ Use this pattern when you need to extract and print a specific slice of lines fr
 ```bash
 python3 -c "import sys; print(''.join(open('<file-path>').readlines()[140:160]))"
 ```
+
+### URL Encoding and Decoding
+
+Perform quick URL encoding or decoding using Python's `urllib.parse`.
+
+**URL Encode:**
+
+```bash
+echo "text to encode" | python3 -c "import urllib.parse; print(urllib.parse.quote(input()))"
+```
+
+**URL Decode:**
+
+```bash
+echo "text%20to%20decode" | python3 -c "import urllib.parse; print(urllib.parse.unquote(input()))"
+```
