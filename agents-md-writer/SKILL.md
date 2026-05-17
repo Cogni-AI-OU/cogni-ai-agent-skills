@@ -65,16 +65,9 @@ The mechanism is straightforward. Without AGENTS.md, the agent spends time explo
 
 ## SKILL.md vs AGENTS.md
 
-`AGENTS.md` tells agents about your project. `SKILL.md` tells agents about a specific capability. A skill is a portable directory containing a `SKILL.md` file plus optional scripts, references, and assets. Skills work across Claude Code, OpenAI Codex, GitHub Copilot, and other compatible agents.
-
-| Aspect | AGENTS.md | SKILL.md |
-| --- | --- | --- |
-| **Purpose** | Project context | Reusable task/capability |
-| **Scope** | Repository-wide | Single task or workflow |
-| **Loading** | Always loaded at session start | On-demand when task matches |
-| **Format** | Plain markdown | Markdown with YAML frontmatter |
-| **Portability** | Per-repo | Shareable across projects |
-| **Invocation** | Automatic | Automatic or manual (`/skill-name`) |
+`AGENTS.md` tells agents about your project.
+`SKILL.md` tells agents about a specific capability.
+A skill is a portable directory containing a `SKILL.md` file plus optional scripts, references, and assets.
 
 ## Expected AGENTS.md Structure
 
