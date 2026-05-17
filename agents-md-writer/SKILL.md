@@ -47,7 +47,7 @@ The mechanism is straightforward. Without AGENTS.md, the agent spends time explo
 - **Concise READMEs**: Keep READMEs concise and focused on human contributors.
 - **Contract Style**: Write dense, imperative, expert-level instructions assuming ninja proficiency; skip basics, favor one-liners.
 - **Cover Six Core Areas**: Hitting these areas puts you in the top tier: commands, testing, project structure, code style, git workflow, and boundaries.
-- **Directory Hierarchy**: `AGENTS.md` files can exist at multiple directory levels. The agent reads the nearest file to the file being edited. The closest `AGENTS.md` takes precedence, so each subproject can ship tailored instructions (e.g., OpenAI's Codex repository uses 88).
+- **Directory Hierarchy**: `AGENTS.md` files can exist at multiple directory levels. The agent reads the nearest file to the file being edited. The closest `AGENTS.md` takes precedence, so each subproject can ship tailored instructions.
 - **Living Documentation**: Treat `AGENTS.md` as living documentation.
 - **No Duplication**: NEVER duplicate code-level comments or obvious steps.
 - **Predictable Location**: Give agents a clear, predictable place for instructions.
