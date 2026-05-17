@@ -11,31 +11,40 @@ Guidance for installing the GitHub Copilot CLI on Debian/Ubuntu and using it wit
 
 ## Core Process
 
-1. **Install CLI**: Use `npm install -g @github/copilot` (recommended) or `snap install copilot-cli` on Debian/Ubuntu systems.
-2. **Discover Usage**: Run `copilot --help` for standard command usage options.
-3. **Agent Selection**: Use the `--agent` flag to target specialized `.agent.md` files (located in `.github/agents/` or `~/.copilot/agents/`).
-4. **Command Execution**: Provide the explicit instruction string via the `--prompt` flag.
+1. **Install CLI**: Use `npm install -g @github/copilot` (recommended), `curl -fsSL https://gh.io/copilot-install | bash` (install script), or `snap install copilot-cli` on Debian/Ubuntu.
+2. **Authentication**: Use `copilot login` or set `COPILOT_GITHUB_TOKEN`. Fine-grained PATs require the **Copilot Requests** permission.
+3. **Discover Usage**: Run `copilot --help` for standard command usage options.
+4. **Agent Selection**: Use the `--agent` flag to target specialized `.agent.md` files (located in `.github/agents/`, `~/.copilot/agents/`, or organization-level `.github-private/agents/`).
+5. **Command Execution**: Provide the explicit instruction string via the `--prompt` or `-p` flag. Use `-s` (silent) in scripts to capture output.
 
 ## Core Principles
 
 - **Programmatic Execution**: Avoid interactive slash commands (like `/agent`) in scripts. Always use explicit programmatic flags (`--agent` and `--prompt`).
-- **Context Management**: Utilize custom subagents to offload specific tasks, ensuring the main agent's context window remains uncluttered for higher-level planning.
-- **Agent Resolution**: If custom agents share a name, the one in the user's home directory (`~/.copilot/agents/`) takes precedence over the project repository (`.github/agents/`).
+- **Context Management**: Utilize custom subagents to offload specific tasks, ensuring the main agent's context window remains uncluttered. Use `/usage`, `/context`, and `/compact` to manage session state.
+- **Agent Resolution**: If custom agents share a name, the resolution order is: User (`~/.copilot/agents/`) > Project (`.github/agents/`) > Organization (`.github-private/agents/`).
+- **Trusted Directories**: Copilot CLI requires confirmation to trust the working directory. Permanent trust is stored in `~/.copilot/config.json`.
 
 ## Commands / Usage Patterns
 
-**Installation**
+**Installation & Authentication**
 ```bash
-# Recommended (requires Node.js and npm)
+# Recommended (requires Node.js 22+)
 npm install -g @github/copilot
 
-# Alternative for Debian/Ubuntu
-snap install copilot-cli
+# Install script (macOS/Linux)
+curl -fsSL https://gh.io/copilot-install | bash
+
+# Authenticate
+copilot login
 ```
 
-**Discover Usage options**
+**Security & Permissions**
 ```bash
-copilot --help
+# Allow all tools, paths, and URLs (YOLO mode)
+copilot --yolo --prompt "Perform complex task"
+
+# Specific tool permissions
+copilot --allow-tool='shell(git)' --deny-tool='shell(rm)' --prompt "Clean repo"
 ```
 
 **Programmatic Custom Agent Execution**
@@ -46,16 +55,17 @@ copilot --agent security-auditor --prompt "Check /src/app/validator.go"
 
 ## References
 
-- [Install Copilot CLI](https://docs.github.com/en/copilot/how-tos/copilot-cli/set-up-copilot-cli/install-copilot-cli)
-- [Create custom agents for CLI](https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/create-custom-agents-for-cli)
-- [copilot-cli docs](https://github.com/github/docs/tree/main/content/copilot/how-tos/copilot-cli)
-- [Setting up GitHub Copilot CLI](https://docs.github.com/en/copilot/how-tos/copilot-cli/set-up-copilot-cli)
-- [Installing GitHub Copilot CLI](https://docs.github.com/en/copilot/how-tos/copilot-cli/set-up-copilot-cli/install-copilot-cli)
+- [Adding custom instructions for GitHub Copilot CLI](https://docs.github.com/en/copilot/how-tos/copilot-cli/add-custom-instructions)
+- [Adding LSP servers for GitHub Copilot CLI](https://docs.github.com/en/copilot/how-tos/copilot-cli/set-up-copilot-cli/add-lsp-servers)
 - [Authenticating GitHub Copilot CLI](https://docs.github.com/en/copilot/how-tos/copilot-cli/set-up-copilot-cli/authenticate-copilot-cli)
 - [Configuring GitHub Copilot CLI](https://docs.github.com/en/copilot/how-tos/copilot-cli/set-up-copilot-cli/configure-copilot-cli)
-- [Adding LSP servers for GitHub Copilot CLI](https://docs.github.com/en/copilot/how-tos/copilot-cli/set-up-copilot-cli/add-lsp-servers)
-- [Troubleshooting GitHub Copilot CLI authentication](https://docs.github.com/en/copilot/how-tos/copilot-cli/set-up-copilot-cli/troubleshoot-copilot-cli-auth)
-- [Installing GitHub Copilot CLI](https://docs.github.com/en/copilot/how-tos/copilot-cli/set-up-copilot-cli/install-copilot-cli)
-- [Using GitHub Copilot CLI](https://docs.github.com/en/copilot/how-tos/copilot-cli/use-copilot-cli/overview)
-- [Quickstart for automating with GitHub Copilot CLI](https://docs.github.com/en/copilot/how-tos/copilot-cli/automate-copilot-cli/quickstart)
+- [copilot-cli docs repository](https://github.com/github/docs/tree/main/content/copilot/how-tos/copilot-cli)
+- [Create custom agents for CLI](https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/create-custom-agents-for-cli)
+- [Custom agents configuration reference](https://docs.github.com/en/copilot/reference/custom-agents-configuration)
+- [GitHub Copilot CLI command reference](https://docs.github.com/en/copilot/reference/copilot-cli-reference/cli-command-reference)
+- [Install Copilot CLI](https://docs.github.com/en/copilot/how-tos/copilot-cli/set-up-copilot-cli/install-copilot-cli)
 - [Overview of customizing GitHub Copilot CLI](https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/overview)
+- [Quickstart for automating with GitHub Copilot CLI](https://docs.github.com/en/copilot/how-tos/copilot-cli/automate-copilot-cli/quickstart)
+- [Setting up GitHub Copilot CLI](https://docs.github.com/en/copilot/how-tos/copilot-cli/set-up-copilot-cli)
+- [Troubleshooting GitHub Copilot CLI authentication](https://docs.github.com/en/copilot/how-tos/copilot-cli/set-up-copilot-cli/troubleshoot-copilot-cli-auth)
+- [Using GitHub Copilot CLI](https://docs.github.com/en/copilot/how-tos/copilot-cli/use-copilot-cli/overview)
