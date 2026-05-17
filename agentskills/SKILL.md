@@ -7,7 +7,7 @@ description: >-
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
 # Agent Skills (Standard)
 
-The Agent Skills open standard provides a framework for structuring and specifying skills to ensure portability across different AI systems and agent hosts.
+The Agent Skills open standard provides a framework for structuring and specifying skills to ensure portability across different AI systems and agent hosts. Agent Skills are self-contained folders with instructions and bundled resources that teach AI agents specialized capabilities, unlike custom instructions which only define coding standards.
 
 ## Core Principles
 
@@ -17,17 +17,17 @@ The Agent Skills open standard provides a framework for structuring and specifyi
 - **Pre-flight Inspection**: Always inspect third-party skills before installing to verify content safety and avoid malicious instructions or scripts.
 - **Supply Chain Integrity**: Prefer pinning skills to specific tags or commit SHAs to ensure deterministic behavior.
 - **Portable Provenance**: Skills should include tracking metadata (repository, ref, tree SHA) in the `SKILL.md` frontmatter to allow tracking even if files are moved.
-- **Progressive Disclosure**: Structure skills so detail is loaded only as needed:
-  1. **Metadata** (~100 tokens): `name` and `description` are loaded at startup.
-  2. **Instructions** (< 5000 tokens): `SKILL.md` body is loaded when the skill is activated.
-  3. **Resources** (as needed): Scripts, references, or assets are loaded only when required.
+- **Progressive Loading Architecture**: Structure skills so detail is loaded only as needed:
+  1. **Discovery** (~100 tokens): `name` and `description` are loaded at startup.
+  2. **Instructions** (< 5000 tokens): `SKILL.md` body is loaded when the request matches the description.
+  3. **Resources** (as needed): Scripts, examples, and docs are loaded only when explicitly referenced.
 
 ## Core Process (Manual Creation)
 
 1. **Determine Scope**:
    - **Project skills**: Stored in `.github/skills/`, `.claude/skills/`, or `.agents/skills/` depending on the tool. Scope is limited to the repository.
-   - **Personal skills**: Stored in `~/.copilot/skills/`, `~/.claude/skills/`, or `~/.agents/skills/` depending on the tool. Scope is global for the user's CLI environment.
-    - **Installable skills**: Use `gh skill add https://docs-url` (using the `gh skill` extension) or `npx skills add https://docs-url` (Vercel's skills CLI) to install external skills.
+   - **Personal skills**: Stored in `~/.github/skills/`, `~/.claude/skills/`, or `~/.agents/skills/` depending on the tool. Scope is global for the user's CLI environment.
+   - **Installable skills**: Use `gh skill add https://docs-url` (using the `gh skill` extension) or `npx skills add https://docs-url` to install external skills.
 2. **Scaffold Skill**:
    - Create a directory named after the skill (lowercase-hyphenated).
    - Create a `SKILL.md` file with the required YAML frontmatter (`name`, `description`).
@@ -41,11 +41,14 @@ A standard skill directory should be organized as follows:
 ```text
 skill-name/
 ├── SKILL.md          # Required: metadata + instructions
-├── scripts/          # Optional: executable code (Python, Bash, JS)
-├── references/       # Optional: additional documentation
-├── assets/           # Optional: templates, resources, images
-└── ...               # Any additional files or directories
+├── LICENSE.txt       # Recommended: License terms (Apache 2.0 typical)
+├── scripts/          # Optional: executable code (Python, Bash, JS). Loaded when executed.
+├── references/       # Optional: additional documentation. Loaded when referenced.
+├── assets/           # Optional: static files used AS-IS in output (not modified by agent).
+└── templates/        # Optional: starter code/scaffolds that the AI agent MODIFIES.
 ```
+
+**Assets vs Templates**: If the AI agent reads and builds upon the file content, place it in `templates/`. If the file is used as-is in output (e.g., logo.png, report format), place it in `assets/`.
 
 ## Skill Structure & Formatting
 
@@ -53,24 +56,35 @@ skill-name/
 
 The `name` and `description` fields in `SKILL.md` frontmatter are critical. The agent decides whether to load a skill based on the description alone. A vague description means the skill never activates. Write descriptions that specify both when the skill applies and when it does not.
 
+**CRITICAL**: Keep descriptions concise and keyword-dense to respect the context budget. Describe **WHAT** the skill does, **WHEN** to use it, and include relevant **KEYWORDS**.
+
 | Field | Required | Constraints |
 | :--- | :--- | :--- |
 | `name` | Yes | 1-64 chars, lowercase alphanumeric and hyphens only. No start/end hyphens. |
-| `description` | Yes | 1-1024 chars. Should describe what the skill does AND when to use it. |
-| `license` | No | License name or reference to a bundled license file. |
+| `description` | Yes | 10-1024 chars. Should describe capabilities AND use cases. Wrapped in single quotes. |
+| `license` | No | License name or reference to a bundled license file (e.g., `Complete terms in LICENSE.txt`). |
 | `compatibility` | No | Max 500 chars. System packages, network access needs, etc. |
 | `metadata` | No | Arbitrary key-value mapping (e.g., author, version). |
 | `allowed-tools` | No | (Experimental) Space-separated string of pre-approved tools. |
 
 ### Body Content
 
-- Use imperative, dense, expert-level instructions.
-- Keep `SKILL.md` under 500 lines to preserve context window.
-- Recommended sections: step-by-step instructions, examples, edge cases.
+- Use imperative mood ("Run", "Create", "Configure"), dense, expert-level instructions.
+- Keep `SKILL.md` under 500 lines to preserve context window. Split into `references/` if it exceeds ~200 lines.
+- **Focus on What Copilot Doesn't Know**: Exclude standard language syntax or well-documented API behavior. Focus on internal conventions, non-obvious defaults, version-specific quirks, and domain-specific workflows.
+
+Recommended sections:
+- `# Title`: Brief overview of what this skill enables.
+- `## When to Use This Skill`: List of scenarios reinforcing description triggers.
+- `## Prerequisites`: Required tools or dependencies.
+- `## Step-by-Step Workflows`: Numbered steps for repeatable procedures (build, deploy, setup). Use flexible guidelines instead of rigid steps for open-ended tasks.
+- `## Gotchas`: Proactive warnings about non-obvious behavior. **This is the highest-signal content**. Bold the key constraint and explain why.
+- `## Troubleshooting`: Reactive fixes for known issues (symptom → solution pairs).
+- `## References`: Links to bundled docs (`references/`) or external resources.
 
 ## File References
 
-- Use relative paths from the skill root (e.g., `[reference](references/REF.md)`).
+- Use relative paths from the skill root (e.g., `[reference](./references/REF.md)`).
 - Keep file references one level deep from `SKILL.md` if possible.
 - Avoid deeply nested reference chains.
 
@@ -79,11 +93,11 @@ The `name` and `description` fields in `SKILL.md` frontmatter are critical. The 
 | Level | Location | Scope |
 | :--- | :--- | :--- |
 | Project (Shared) | `.agents/skills/` | Single repository, portable across agents |
-| Project (Provider) | `.opencode/skills/`, `.github/skills/`, `.claude/skills/` | Single repository, provider-specific |
+| Project (Provider) | `.github/skills/`, `.claude/skills/`, `.opencode/skills/` | Single repository, provider-specific |
 | Project (Runtime) | `.skills/` | Ephemeral workspace symlink (e.g., CI/CD) |
 | Personal (Shared) | `~/.agents/skills/` | User-wide (CLI), portable across agents |
-| Personal (Provider) | `~/.config/opencode/skills/`, `~/.copilot/skills/`, `~/.claude/skills/` | User-wide (CLI), provider-specific |
-| Installable | `gh skill add https://docs-url`, `npx skills add https://docs-url` | Install external skills via GitHub CLI or Vercel's skills CLI |
+| Personal (Provider) | `~/.github/skills/`, `~/.claude/skills/`, `~/.copilot/skills/`, `~/.config/opencode/skills/` | User-wide (CLI), provider-specific |
+| Installable | `gh skill add https://docs-url`, `npx skills add https://docs-url` | Install external skills via CLI |
 | System | `/usr/share/agents/skills/` | System-wide |
 
 ## Runtime and CI/CD Caveats
@@ -91,10 +105,20 @@ The `name` and `description` fields in `SKILL.md` frontmatter are critical. The 
 - **Discoverability**: In CI/CD environments (like GitHub Actions), agents may run with workspace-scoped tools. If skills are cloned outside the workspace (e.g., `${{ runner.temp }}/.skills`), they should be symlinked into the workspace (e.g., `.skills/`) to be discoverable by the agent.
 - **Trust Boundaries**: When running agent workflows on `pull_request_target` or `issue_comment` triggers, the PR branch's `.github/skills/` and `.github/instructions/` might be checked out by platform tools. Ensure base branch skills are preserved to prevent malicious forks from injecting altered skills.
 
-## Validation
+## Validation Checklist
 
-Use the `skills-ref` reference library to validate skills locally:
+Before publishing a skill, verify:
+- [ ] `SKILL.md` has valid frontmatter with `name` and `description`
+- [ ] `name` is lowercase with hyphens, ≤64 characters
+- [ ] `description` clearly states **WHAT** it does, **WHEN** to use it, and relevant **KEYWORDS**
+- [ ] Body focuses on information Copilot wouldn't know from training data
+- [ ] `## Gotchas` section present if skill involves non-obvious behavior, API quirks, or common traps
+- [ ] SKILL.md body under 500 lines (consider splitting into `references/` at ~200 lines)
+- [ ] Large workflows (>5 steps) split into `references/` folder with clear links
+- [ ] Scripts include help documentation and error handling
+- [ ] Relative paths used for all resource references
 
+Locally validate skills using the `skills-ref` reference library:
 ```bash
 skills-ref validate ./my-skill
 ```
@@ -105,14 +129,17 @@ skills-ref validate ./my-skill
 - Referencing external absolute paths in scripts inside a skill folder.
 - Hardcoding environment-specific values that break portability.
 - Including interactive scripts that require user input.
+- Including information the agent already knows from its training data.
 
 ## References
 
 - [Agent Skills Open Standard](https://github.com/agentskills/agentskills)
+- [VS Code Agent Skills Documentation](https://code.visualstudio.com/docs/copilot/customization/agent-skills)
 - [OpenCode Skills](https://opencode.ai/docs/skills/) — OpenCode documentation for skills
 - [Documentation](https://agentskills.io) — Guides and tutorials
 - [Specification](https://agentskills.io/specification) — Format details
 - [Example Skills](https://github.com/anthropics/skills) — See what's possible
+- [Awesome Copilot Skills](https://github.com/github/awesome-copilot/blob/main/docs/README.skills.md)
 - [skills-ref - Reference library for Agent Skills](https://github.com/agentskills/agentskills/tree/main/skills-ref)
 
 ## Related Skills
