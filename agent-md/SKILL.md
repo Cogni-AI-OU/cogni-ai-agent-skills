@@ -37,7 +37,9 @@ OpenCode agents can be defined globally or per-project:
 
 An Agent MD file for Copilot consists of YAML frontmatter followed by a structured Markdown body.
 
-### YAML Frontmatter
+### Agent profile format
+
+Agent profiles are Markdown files with YAML frontmatter.
 
 | Field | Description | Requirement |
 | :--- | :--- | :--- |
