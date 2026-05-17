@@ -679,14 +679,14 @@ Cache steps are automatically added to the workflow job and the cache configurat
 Set `engine:` in your workflow frontmatter and configure the corresponding secret:
 
 | Engine | `engine:` value | Required Secret |
-|--------|-----------------|-----------------|
+| :--- | :--- | :--- |
 | [GitHub Copilot CLI](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/use-copilot-cli) (default) | `copilot` | [COPILOT_GITHUB_TOKEN](https://github.github.com/gh-aw/reference/auth/#copilot_github_token) |
 | [Claude by Anthropic (Claude Code)](https://anthropic.com/claude) | `claude` | [ANTHROPIC_API_KEY](https://github.github.com/gh-aw/reference/auth/#anthropic_api_key) |
-| [OpenAI Codex](https://openai.com/index/openai-codex/) | `codex` | [OPENAI_API_KEY](https://github.github.com/gh-aw/reference/auth/#openai_api_key) |
+| OpenAI Codex | `codex` | [OPENAI_API_KEY](https://github.github.com/gh-aw/reference/auth/#openai_api_key) |
 | [Google Gemini CLI](https://github.com/google-gemini/gemini-cli) | `gemini` | [GEMINI_API_KEY](https://github.github.com/gh-aw/reference/auth/#gemini_api_key) |
 | [Crush](https://github.com/charmbracelet/crush) (experimental) | `crush` | [COPILOT_GITHUB_TOKEN](https://github.github.com/gh-aw/reference/auth/#copilot_github_token) |
 | [OpenCode](https://opencode.ai) (experimental) | `opencode` | [COPILOT_GITHUB_TOKEN](https://github.github.com/gh-aw/reference/auth/#copilot_github_token) |
-| [Pi](https://www.npmjs.com/package/@earendil-works/pi-coding-agent) (experimental) | `pi` | [COPILOT_GITHUB_TOKEN](https://github.github.com/gh-aw/reference/auth/#copilot_github_token) (default); switches to provider-specific secret when `model:` uses `provider/model` format |
+| Pi (experimental) | `pi` | [COPILOT_GITHUB_TOKEN](https://github.github.com/gh-aw/reference/auth/#copilot_github_token) (default); switches to provider-specific secret when `model:` uses `provider/model` format |
 
 Copilot CLI is the default — `engine:` can be omitted when using Copilot. See the linked authentication docs for secret setup instructions.
 
@@ -695,7 +695,7 @@ Copilot CLI is the default — `engine:` can be omitted when using Copilot. See 
 Not all features are available across all engines. The table below summarizes per-engine support for commonly used workflow options:
 
 | Feature | Copilot | Claude | Codex | Gemini | Crush | OpenCode | Pi |
-|---------|:-------:|:------:|:-----:|:------:|:-----:|:--------:|:--:|
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | `max-runs` (AWF invocation cap) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | `max-turns` | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
 | `max-continuations` | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
@@ -714,8 +714,8 @@ Not all features are available across all engines. The table below summarizes pe
 - `max-continuations` enables autopilot mode with multiple consecutive runs (Copilot only).
 - `web-search` for Codex is disabled by default; add `tools: web-search:` to enable it. Other engines use a third-party MCP server — see [Using Web Search](https://github.com/github/gh-aw/blob/main/docs/src/content/docs/reference/web-search.md).
 - `engine.agent` references a `.github/agents/` file for custom Copilot agent behavior. See [Copilot Custom Configuration](#copilot-custom-configuration).
-- `engine.bare` disables automatic context loading (memory files, custom instructions). See [Bare Mode](#bare) below.
-- `engine.harness` allows replacing the built-in Copilot harness script. See [Custom Harness Script](#harness) below.
+- `engine.bare` disables automatic context loading (memory files, custom instructions). See [Bare Mode](https://github.com/github/gh-aw/blob/main/docs/src/content/docs/reference/engines.md#bare-mode-bare).
+- `engine.harness` allows replacing the built-in Copilot harness script. See [Custom Harness Script](https://github.com/github/gh-aw/blob/main/docs/src/content/docs/reference/engines.md#custom-harness-script-harness).
 
 ## Extended Coding Agent Configuration
 
