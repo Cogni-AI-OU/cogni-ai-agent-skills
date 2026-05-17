@@ -37,6 +37,13 @@ To prevent redundancy and context drift, always enforce a strict conceptual boun
      Applied dynamically based on the file-type or project paths being modified.
      They govern the output structure regardless of which agent or skill generated it.
 
+### When to Use What (Copilot Context)
+
+- **Prompts**: Direct questions or commands in chat for one-off requests and quick clarifications (single conversation).
+- **Instructions**: Global or workspace-level rules applied to all Copilot interactions (setting coding standards, preferences).
+- **Chat Modes**: Pre-configured conversation contexts like `/explain` or `/fix` (single conversation session).
+- **Custom Agents**: Specialized AI assistants with specific roles, capabilities, and deep context for complex workflows (activated per conversation).
+
 ## Target Locations
 
 ### GitHub Copilot
@@ -72,8 +79,10 @@ Agent profiles are Markdown files with YAML frontmatter. In their simplest form,
 
 - **Name** (optional): A display name for the custom agent. If omitted, the agent's filename is used as its identifier and default display name.
 - **Description**: Explains the agent's purpose and capabilities.
+- **Version** (optional): Semantic versioning for tracking agent changes.
+- **ApplyTo** (optional): File patterns (e.g., `['**/*.js']`) or scopes (e.g., `fileTypes`, `directories`) where the agent is most relevant.
 - **Prompt**: Custom instructions that define the agent's behavior and expertise (the Markdown body).
-- **Tools** (optional): Specific tools the agent can access. By default, agents can access all available tools, including built-in tools, and MCP server tools.
+- **Tools** (optional): Specific tools the agent can access. Common built-in tools include `read_file`, `write_file`, `search_files`, `list_directory`, and `run_terminal`. By default, agents can access all available tools, including built-in tools, and MCP server tools. Be cautious when granting `write_file` and `run_terminal` together.
 - **MCP Servers** (optional): Configurations for MCP servers using the `mcp-servers` property.
 
 ### Technical Constraints (GitHub Copilot)
@@ -155,7 +164,14 @@ Regardless of the platform, a high-quality agent definition should include:
 ---
 name: <agent-name>
 description: <one-sentence description>
-tools: ['read', 'search', 'edit']
+version: 1.0.0
+applyTo: 
+  - '**/*.js'
+  - '**/*.ts'
+tools: 
+  - read_file
+  - search_files
+  - list_directory
 ---
 
 You are an expert <role> for this project.
