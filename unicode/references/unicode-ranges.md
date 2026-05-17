@@ -122,7 +122,7 @@ This document provides a comprehensive reference for Unicode character hex range
 | CJK Compatibility Ideographs | 0xF900 | 0xFAFF | `[\x{F900}-\x{FAFF}]` |
 | CJK Compatibility Ideographs Supplement | 0x2F800 | 0x2FA1F | `[\x{2F800}-\x{2FA1F}]` |
 | CJK Strokes | 0x31C0 | 0x31EF | `[\x{31C0}-\x{31EF}]` |
-| CJK Radicals | 0x2E80 | 0x2EFF | `[\x{2E80}-\x{2EFF}]` |
+| CJK Radicals Supplement | 0x2E80 | 0x2EFF | `[\x{2E80}-\x{2EFF}]` |
 | Kangxi Radicals | 0x2F00 | 0x2FFF | `[\x{2F00}-\x{2FFF}]` |
 
 ### Southeast Asian
@@ -199,9 +199,9 @@ This document provides a comprehensive reference for Unicode character hex range
 | 0x0370    | 0x0373   | Greek Additional               | European          |
 | 0x0374    | 0x03FF   | Greek                          | European          |
 | 0x0400    | 0x04FF   | Cyrillic                       | European          |
-| 0x0500    | 0x052F   | Cyrillic Extended              | European          |
+| 0x0500    | 0x052F   | Cyrillic Supplement            | European          |
 | 0x0531    | 0x0587   | Armenian                       | European          |
-| 0x0590    | 0x05FE   | Hebrew                         | Middle Eastern    |
+| 0x0590    | 0x05FF   | Hebrew                         | Middle Eastern    |
 | 0x0600    | 0x06FF   | Arabic                         | Middle Eastern    |
 | 0x0700    | 0x074F   | Syriac                         | Middle Eastern    |
 | 0x0750    | 0x077F   | Arabic Supplement              | Middle Eastern    |
@@ -286,10 +286,10 @@ This document provides a comprehensive reference for Unicode character hex range
 | 0x2D00    | 0x2D2F   | Georgian Supplement            | European          |
 | 0x2D30    | 0x2D7F   | Tifinagh                       | African           |
 | 0x2D80    | 0x2DDF   | Ethiopic Extended              | African           |
-| 0x2DE0    | 0x2DFF   | Cyrillic Supplement            | European          |
+| 0x2DE0    | 0x2DFF   | Cyrillic Extended-A            | European          |
 | 0x2E00    | 0x2E7F   | Supplemental Punctuation       | Symbols           |
-| 0x2E80    | 0x2EFF   | CJK Radicals                   | East Asian        |
-| 0x2F00    | 0x2FDF   | Kangxi Radicals                | East Asian        |
+| 0x2E80    | 0x2EFF   | CJK Radicals Supplement        | East Asian        |
+| 0x2F00    | 0x2FFF   | Kangxi Radicals                | East Asian        |
 | 0x2FF0    | 0x2FFF   | Ideographic Description Characters | East Asian    |
 | 0x3000    | 0x303F   | CJK Symbols and Punctuation    | East Asian        |
 | 0x3040    | 0x309F   | Hiragana                       | East Asian        |
@@ -391,7 +391,7 @@ This document provides a comprehensive reference for Unicode character hex range
 | 0x11100   | 0x1114F  | Chakma                         | Historic          |
 | 0x11150   | 0x1117F  | Mahajani                       | Historic          |
 | 0x11180   | 0x111DF  | Sharada                        | Historic          |
-| 0x11660   | 0x1167F  | Mongolian Extension            | Asian             |
+| 0x11660   | 0x1167F  | Mongolian Supplement           | Asian             |
 | 0x11680   | 0x116CF  | Takri                          | Historic          |
 | 0x12000   | 0x123FF  | Cuneiform                      | Historic          |
 | 0x12400   | 0x1247F  | Cuneiform Numbers and Punctuation | Historic      |
