@@ -52,7 +52,7 @@ skill-name/
 
 ## Skill Structure & Formatting
 
-### `SKILL.md` Frontmatter
+### Agent profile format (Frontmatter)
 
 The `name` and `description` fields in `SKILL.md` frontmatter are critical. The agent decides whether to load a skill based on the description alone. A vague description means the skill never activates. Write descriptions that specify both when the skill applies and when it does not.
 
