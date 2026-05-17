@@ -1,6 +1,6 @@
 ---
 name: skill-writer
-description: 'When the user requests to create, update, or refine a GitHub Copilot skill, generate or revise a complete SKILL.md file that strictly adheres to the official format, validation rules, and progressive loading best practices. Use this when writing agent skills, defining capabilities, structuring SKILL.md, or bundling resources (scripts, templates, references).'
+description: 'Generate or update GitHub Copilot SKILL.md files following official spec and resource bundling rules. You MUST load this skill when creating, refining, or troubleshooting agent skills.'
 license: MIT
 ---
 
