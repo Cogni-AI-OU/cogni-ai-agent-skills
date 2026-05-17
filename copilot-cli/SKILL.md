@@ -11,7 +11,7 @@ Guidance for installing the GitHub Copilot CLI on Debian/Ubuntu and using it wit
 
 ## Core Process
 
-1. **Install CLI**: Use `snap install copilot-cli` on Debian/Ubuntu systems.
+1. **Install CLI**: Use `npm install -g @github/copilot` (recommended) or `snap install copilot-cli` on Debian/Ubuntu systems.
 2. **Discover Usage**: Run `copilot --help` for standard command usage options.
 3. **Agent Selection**: Use the `--agent` flag to target specialized `.agent.md` files (located in `.github/agents/` or `~/.copilot/agents/`).
 4. **Command Execution**: Provide the explicit instruction string via the `--prompt` flag.
@@ -24,8 +24,12 @@ Guidance for installing the GitHub Copilot CLI on Debian/Ubuntu and using it wit
 
 ## Commands / Usage Patterns
 
-**Installation (Debian/Ubuntu)**
+**Installation**
 ```bash
+# Recommended (requires Node.js and npm)
+npm install -g @github/copilot
+
+# Alternative for Debian/Ubuntu
 snap install copilot-cli
 ```
 
@@ -42,4 +46,5 @@ copilot --agent security-auditor --prompt "Check /src/app/validator.go"
 
 ## References
 
+- [Install Copilot CLI](https://docs.github.com/en/copilot/how-tos/copilot-cli/set-up-copilot-cli/install-copilot-cli)
 - [Create custom agents for CLI](https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/create-custom-agents-for-cli)
