@@ -1,6 +1,8 @@
 ---
 name: skill-writer
-description: 'Generate or update agent SKILL.md files following official spec and resource bundling rules. You MUST load this skill when creating, refining, or troubleshooting agent skills.'
+description: >-
+  Generate or update agent SKILL.md files following official spec and resource bundling rules.
+  You MUST load this skill when creating, refining, or troubleshooting agent skills.
 license: MIT
 ---
 
