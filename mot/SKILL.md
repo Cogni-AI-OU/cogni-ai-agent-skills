@@ -7,7 +7,7 @@ description: Evaluate and classify machine learning models based on the Model Op
 
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
 
-Evaluate and classify machine learning models based on the Model Openness Framework (MOF). Extract model metadata including architecture, origin, producer, type, date of release, framework, and components.
+MOT provides a list of all the models currently registered and how they rank against the MOF classes.
 
 ## Core Process
 
