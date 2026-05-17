@@ -100,3 +100,5 @@ If the skill requires additional files, organize them into these specific folder
   You MUST load this skill when deconstructing complex requirements into focused, atomic skill instructions.
 - **docs-writer**:
   You MUST load this skill when asked to write, document, or generate new documentation.
+- **agentskills**:
+  You MUST load this skill when designing or manually creating agent skills.
