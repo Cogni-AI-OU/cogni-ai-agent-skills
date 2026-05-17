@@ -2,11 +2,17 @@
 
 **Goal**: Extend functionality via community or team-created plugins from marketplaces.
 
-### Invariants
+## Invariants
+
 - Marketplaces are registered registries of plugins.
 - Default marketplaces: `copilot-plugins`, `awesome-copilot`.
 
-### Commands / Execution
+## Schema (if applicable)
+
+- N/A
+
+## Commands / Execution (if applicable)
+
 ```bash
 # List registered marketplaces
 copilot plugin marketplace list
@@ -27,4 +33,5 @@ copilot plugin marketplace add OWNER/REPO
 ```
 
 ## References
+
 - [Finding and installing plugins for GitHub Copilot CLI](https://github.com/github/docs/blob/main/content/copilot/how-tos/copilot-cli/customize-copilot/plugins-finding-installing.md)

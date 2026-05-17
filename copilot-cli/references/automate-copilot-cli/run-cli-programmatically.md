@@ -2,14 +2,20 @@
 
 **Goal**: Execute Copilot CLI prompts via scripts and automation without interactive sessions.
 
-### Invariants
+## Invariants
+
 - Use `-p` or `--prompt` for non-interactive execution.
 - Piped input is supported: `echo "Prompt" | copilot`.
 - Use `-s` (silent) to suppress metadata and capture clean text output.
 - Use `--no-ask-user` to disable clarifying questions.
 - Use `--model` for consistent behavior across environments.
 
-### Commands / Execution
+## Schema (if applicable)
+
+- N/A
+
+## Commands / Execution (if applicable)
+
 ```bash
 # Capture output in variable
 result=$(copilot -p 'Explain @src/app.js' -s)
@@ -25,4 +31,5 @@ copilot -p "Summarize arch" --share-gist
 ```
 
 ## References
+
 - [Running GitHub Copilot CLI programmatically](https://github.com/github/docs/blob/main/content/copilot/how-tos/copilot-cli/automate-copilot-cli/run-cli-programmatically.md)

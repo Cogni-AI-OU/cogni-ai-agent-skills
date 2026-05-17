@@ -2,13 +2,19 @@
 
 **Goal**: Leverage historical session data for insights, standup reports, and instruction optimization.
 
-### Invariants
+## Invariants
+
 - Session data is stored locally.
 - Provides personalized tips based on actual usage patterns.
 - Identifies "friction signals" to improve custom instructions.
 - Full-text search across session history for recalling past work.
 
-### Commands / Execution
+## Schema (if applicable)
+
+- N/A
+
+## Commands / Execution (if applicable)
+
 ```bash
 # Generate standup report (last 24h)
 /chronicle standup
@@ -31,4 +37,5 @@ copilot --resume SESSION-ID
 ```
 
 ## References
+
 - [Using GitHub Copilot CLI session data](https://github.com/github/docs/blob/main/content/copilot/how-tos/copilot-cli/use-copilot-cli/chronicle.md)

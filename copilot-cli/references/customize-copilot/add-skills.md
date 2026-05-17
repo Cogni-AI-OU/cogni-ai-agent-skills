@@ -2,13 +2,19 @@
 
 **Goal**: Extend agent capabilities via specialized instructions, scripts, and resources.
 
-### Invariants
+## Invariants
+
 - Skills are folders containing a `SKILL.md` file.
 - Location: `~/.copilot/skills/` (User) or `.github/skills/` (Project).
 - Trigger: Mention skill name with `/` prefix in prompt (e.g., `/frontend-design`).
 - Comparison: Skills are lighter than agents and don't require separate subagent processes.
 
-### Commands / Execution
+## Schema (if applicable)
+
+- N/A
+
+## Commands / Execution (if applicable)
+
 ```bash
 # List available skills
 /skills list
@@ -27,4 +33,5 @@
 ```
 
 ## References
+
 - [Adding agent skills for GitHub Copilot CLI](https://github.com/github/docs/blob/main/content/copilot/how-tos/copilot-cli/customize-copilot/add-skills.md)

@@ -18,7 +18,19 @@
   - **GPT-5.2 Codex**: Excellent for code generation and review.
 - **Context Management**: Use `@` to mention specific files. Avoid pasting content manually.
 
-## Commands / Execution
+## Schema (if applicable)
+
+- **Custom Instructions Supported Locations**:
+  - `~/.copilot/copilot-instructions.md` (Global)
+  - `.github/copilot-instructions.md` (Repository)
+  - `AGENTS.md` (Project Directives)
+- **Valid Models**:
+  - `auto` (Default)
+  - `claude-opus-4-5`
+  - `claude-sonnet-4-5`
+  - `codex-5-2`
+
+## Commands / Execution (if applicable)
 
 ```bash
 # Preconfigure allowed tools via flags
@@ -29,6 +41,9 @@ copilot --allow-tool='shell(git:*)' --deny-tool='shell(git push)'
 
 # Visualize context usage
 /context
+
+# Switch model mid-session
+/model
 ```
 
 ## References
