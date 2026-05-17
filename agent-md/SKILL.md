@@ -14,9 +14,10 @@ Agent MD is a format for defining specialized agent personas. These files provid
 
 ### GitHub Copilot
 
-Agent persona files for GitHub Copilot MUST be located in:
-- `.github/agents/` directory of the repository.
-- The filename SHOULD match the agent's `name` property with `.agent.md` extension (e.g., `.github/agents/test-agent.agent.md`).
+Agent persona files for GitHub Copilot can be defined at different levels:
+
+- **Repository level:** Create `.github/agents/` directory in your repository. The filename SHOULD match the agent's `name` property with `.agent.md` extension (e.g., `.github/agents/test-agent.agent.md`).
+- **Organization or enterprise level:** Create an `/agents/` directory in a `.github-private` repository for broader availability.
 
 ### Claude Code
 
