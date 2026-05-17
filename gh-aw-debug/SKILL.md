@@ -116,7 +116,7 @@ safe-outputs:
 - [Upstream Debug Prompt](https://raw.githubusercontent.com/github/gh-aw/main/.github/aw/debug-agentic-workflow.md)
 - [gh-aw Runbook](https://github.com/github/gh-aw/blob/main/.github/aw/runbooks/workflow-health.md)
 - [Official gh-aw Repo](https://github.com/github/gh-aw)
-- <https://github.com/github/gh-aw/blob/main/debug.md>
+- [Debugging Agentic Workflows](https://github.com/github/gh-aw/blob/main/debug.md)
 
 ## Related Skills
 

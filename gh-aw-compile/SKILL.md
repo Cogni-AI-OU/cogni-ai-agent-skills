@@ -62,4 +62,4 @@ After both steps, run `git diff --stat` to review all changed files. Expect chan
 
 ## References
 
-- <https://github.com/github/gh-aw-firewall/blob/main/.claude/skills/recompile-workflows/SKILL.md>
+- [Recompile Skill Reference](https://github.com/github/gh-aw-firewall/blob/main/.claude/skills/recompile-workflows/SKILL.md)

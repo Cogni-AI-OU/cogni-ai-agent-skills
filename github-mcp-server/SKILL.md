@@ -438,7 +438,7 @@ Not all GitHub data is accessible through the GitHub MCP server or the GitHub RE
 
 ## References
 
-- <https://github.com/github/gh-aw/blob/main/.github/skills/github-mcp-server/SKILL.md> - for up-to-date MCP Tool list
+- [github-mcp-server Skill](https://github.com/github/gh-aw/blob/main/.github/skills/github-mcp-server/SKILL.md) - for up-to-date MCP Tool list
 - [GitHub MCP Server Repository](https://github.com/github/github-mcp-server)
 - [Model Context Protocol Specification](https://modelcontextprotocol.io/)
 - [GitHub Actions Documentation](https://docs.github.com/actions)

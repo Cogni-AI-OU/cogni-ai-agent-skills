@@ -66,4 +66,4 @@ gh aw compile <workflow-name>
 
 ## References
 
-- <https://github.com/github/gh-aw/blob/main/create.md>
+- [Creating Agentic Workflows](https://github.com/github/gh-aw/blob/main/create.md)

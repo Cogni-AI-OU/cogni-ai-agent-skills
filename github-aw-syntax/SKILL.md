@@ -559,7 +559,7 @@ Reference for GitHub Agentic Workflows frontmatter schema, engines, networking, 
       tools:
         bash: ["*"]
       ```
-  - `playwright:` - Browser automation tools for visual regression, accessibility testing, and end-to-end testing. Use `mode: cli` (recommended) — no Docker, runs `playwright-cli <command>` in bash, `localhost` reaches local servers directly. `mode: mcp` is deprecated (Docker-based; requires bridge IP detection for local server access). Pin a specific version with `version:` and restrict network access to `local` + `playwright` for security. See [`visual-regression-checker.md`](https://github.com/github/gh-aw/blob/main/.github/workflows/visual-regression-checker.md) for a minimal pull-request example.
+  - `playwright:` - Browser automation tools for visual regression, accessibility testing, and end-to-end testing. Use `mode: cli` (recommended) — no Docker, runs `playwright-cli <command>` in bash, `localhost` reaches local servers directly. `mode: mcp` is deprecated (Docker-based; requires bridge IP detection for local server access). Pin a specific version with `version:` and restrict network access to `local` + `playwright` for security. See [`visual-regression-checker.md`](https://github.github.com/gh-aw/reference/playwright/) for a minimal pull-request example.
 
     ```yaml
     tools:
@@ -680,13 +680,13 @@ Set `engine:` in your workflow frontmatter and configure the corresponding secre
 
 | Engine | `engine:` value | Required Secret |
 |--------|-----------------|-----------------|
-| [GitHub Copilot CLI](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/use-copilot-cli) (default) | `copilot` | [COPILOT_GITHUB_TOKEN](/gh-aw/reference/auth/#copilot_github_token) |
-| [Claude by Anthropic (Claude Code)](https://www.anthropic.com/index/claude) | `claude` | [ANTHROPIC_API_KEY](/gh-aw/reference/auth/#anthropic_api_key) |
-| [OpenAI Codex](https://openai.com/blog/openai-codex) | `codex` | [OPENAI_API_KEY](/gh-aw/reference/auth/#openai_api_key) |
-| [Google Gemini CLI](https://github.com/google-gemini/gemini-cli) | `gemini` | [GEMINI_API_KEY](/gh-aw/reference/auth/#gemini_api_key) |
-| [Crush](https://github.com/charmbracelet/crush) (experimental) | `crush` | [COPILOT_GITHUB_TOKEN](/gh-aw/reference/auth/#copilot_github_token) |
-| [OpenCode](https://opencode.ai) (experimental) | `opencode` | [COPILOT_GITHUB_TOKEN](/gh-aw/reference/auth/#copilot_github_token) |
-| [Pi](https://www.npmjs.com/package/@mariozechner/pi-coding-agent) (experimental) | `pi` | [COPILOT_GITHUB_TOKEN](/gh-aw/reference/auth/#copilot_github_token) (default); switches to provider-specific secret when `model:` uses `provider/model` format |
+| [GitHub Copilot CLI](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/use-copilot-cli) (default) | `copilot` | [COPILOT_GITHUB_TOKEN](https://github.github.com/gh-aw/reference/auth/#copilot_github_token) |
+| [Claude by Anthropic (Claude Code)](https://anthropic.com/claude) | `claude` | [ANTHROPIC_API_KEY](https://github.github.com/gh-aw/reference/auth/#anthropic_api_key) |
+| [OpenAI Codex](https://openai.com/index/openai-codex/) | `codex` | [OPENAI_API_KEY](https://github.github.com/gh-aw/reference/auth/#openai_api_key) |
+| [Google Gemini CLI](https://github.com/google-gemini/gemini-cli) | `gemini` | [GEMINI_API_KEY](https://github.github.com/gh-aw/reference/auth/#gemini_api_key) |
+| [Crush](https://github.com/charmbracelet/crush) (experimental) | `crush` | [COPILOT_GITHUB_TOKEN](https://github.github.com/gh-aw/reference/auth/#copilot_github_token) |
+| [OpenCode](https://opencode.ai) (experimental) | `opencode` | [COPILOT_GITHUB_TOKEN](https://github.github.com/gh-aw/reference/auth/#copilot_github_token) |
+| [Pi](https://www.npmjs.com/package/@earendil-works/pi-coding-agent) (experimental) | `pi` | [COPILOT_GITHUB_TOKEN](https://github.github.com/gh-aw/reference/auth/#copilot_github_token) (default); switches to provider-specific secret when `model:` uses `provider/model` format |
 
 Copilot CLI is the default — `engine:` can be omitted when using Copilot. See the linked authentication docs for secret setup instructions.
 
@@ -712,10 +712,10 @@ Not all features are available across all engines. The table below summarizes pe
 - `max-runs` defaults to `500` and `max-effective-tokens` defaults to `25000000` when omitted.
 - `max-turns` limits the number of AI chat iterations per run (Claude only).
 - `max-continuations` enables autopilot mode with multiple consecutive runs (Copilot only).
-- `web-search` for Codex is disabled by default; add `tools: web-search:` to enable it. Other engines use a third-party MCP server — see [Using Web Search](/gh-aw/reference/web-search/).
+- `web-search` for Codex is disabled by default; add `tools: web-search:` to enable it. Other engines use a third-party MCP server — see [Using Web Search](https://github.com/github/gh-aw/blob/main/docs/src/content/docs/reference/web-search.md).
 - `engine.agent` references a `.github/agents/` file for custom Copilot agent behavior. See [Copilot Custom Configuration](#copilot-custom-configuration).
-- `engine.bare` disables automatic context loading (memory files, custom instructions). See [Bare Mode](#bare-mode-bare) below.
-- `engine.harness` allows replacing the built-in Copilot harness script. See [Custom Harness Script](#custom-harness-script-harness) below.
+- `engine.bare` disables automatic context loading (memory files, custom instructions). See [Bare Mode](#bare) below.
+- `engine.harness` allows replacing the built-in Copilot harness script. See [Custom Harness Script](#harness) below.
 
 ## Extended Coding Agent Configuration
 
@@ -742,7 +742,7 @@ engine:
   agent: technical-doc-writer  # .github/agents/technical-doc-writer.agent.md
 ```
 
-See [Copilot Agent Files](/gh-aw/reference/copilot-custom-agents/) for details.
+See [Copilot Agent Files](https://github.com/github/gh-aw/blob/main/docs/src/content/docs/reference/copilot-custom-agents.md) for details.
 
 ### Engine Environment Variables
 
@@ -757,7 +757,7 @@ engine:
     CUSTOM_API_ENDPOINT: https://api.example.com
 ```
 
-Environment variables can also be defined at workflow, job, step, and other scopes. See [Environment Variables](/gh-aw/reference/environment-variables/) for complete documentation on precedence and all 13 env scopes.
+Environment variables can also be defined at workflow, job, step, and other scopes. See [Environment Variables](https://github.com/github/gh-aw/blob/main/docs/src/content/docs/reference/environment-variables.md) for complete documentation on precedence and all 13 env scopes.
 
 ## Tool Configuration
 
@@ -1098,6 +1098,6 @@ safe-outputs:
 
 ## References
 
-- [AI Engines (aka Coding Agents)](https://github.github.com/gh-aw/reference/engines/)
-- <https://github.com/github/gh-aw/blob/main/.github/aw/syntax.md?plain=1>
-- <https://github.com/github/gh-aw/blob/main/docs/src/content/docs/reference/engines.md?plain=1>
+- [AI Engines (aka Coding Agents)](https://github.com/github/gh-aw/blob/main/docs/src/content/docs/reference/engines.md)
+- [gh-aw Syntax Reference](https://github.com/github/gh-aw/blob/main/.github/aw/syntax.md)
+- [gh-aw Engines Reference](https://github.com/github/gh-aw/blob/main/docs/src/content/docs/reference/engines.md)

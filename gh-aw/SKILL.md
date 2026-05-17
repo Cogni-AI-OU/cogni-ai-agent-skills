@@ -124,9 +124,9 @@ When asked to create, update, debug, or upgrade GitHub Agentic Workflows, use `w
 
 ## References
 
-- <https://gh.io/gh-aw>
-- <https://github.com/github/gh-aw>
-- <https://github.com/github/gh-aw/blob/main/.github/aw/runbooks/workflow-health.md>
+- [gh-aw Documentation](https://github.com/github/gh-aw/)
+- [Official gh-aw Repo](https://github.com/github/gh-aw)
+- [gh-aw Runbook](https://github.com/github/gh-aw/blob/main/.github/aw/runbooks/workflow-health.md)
 
 ## Related Skills
 

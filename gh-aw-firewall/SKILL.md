@@ -385,8 +385,8 @@ The domain is being blocked. Check:
 
 ## References
 
-- <https://github.com/github/gh-aw-firewall>
-- <https://github.com/github/gh-aw-firewall/tree/main/.claude/skills/awf-skill>
+- [Official AWF Repo](https://github.com/github/gh-aw-firewall)
+- [AWF Skill Reference](https://github.com/github/gh-aw-firewall/tree/main/.claude/skills/awf-skill)
 
 ## Related Skills
 

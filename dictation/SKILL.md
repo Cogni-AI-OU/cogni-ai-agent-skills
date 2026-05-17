@@ -127,4 +127,4 @@ Capitalize fully: `GITHUB_TOKEN`, `GH_TOKEN`, `COPILOT_GITHUB_TOKEN`, `GH_AW_GIT
 
 ## References
 
-- <https://github.com/github/gh-aw/blob/main/DICTATION.md>
+- [Official DICTATION.md](https://github.com/github/gh-aw/blob/main/DICTATION.md)
