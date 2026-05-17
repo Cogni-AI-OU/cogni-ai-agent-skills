@@ -54,7 +54,7 @@ This document provides a comprehensive reference for Unicode character hex range
 | Arabic Extended-B | 0x0870 | 0x089F | `[\x{0870}-\x{089F}]` |
 | Arabic Presentation Forms-A | 0xFB50 | 0xFDFF | `[\x{FB50}-\x{FDFF}]` |
 | Arabic Presentation Forms-B | 0xFE70 | 0xFEFF | `[\x{FE70}-\x{FEFF}]` |
-| Hebrew | 0x0590 | 0x05FE | `[\x{0590}-\x{05FE}]` |
+| Hebrew | 0x0590 | 0x05FF | `[\x{0590}-\x{05FF}]` |
 | Syriac | 0x0700 | 0x074F | `[\x{0700}-\x{074F}]` |
 | Syriac Supplement | 0x0860 | 0x086F | `[\x{0860}-\x{086F}]` |
 | Samaritan | 0x0800 | 0x083F | `[\x{0800}-\x{083F}]` |
