@@ -6,6 +6,8 @@ description: >-
   You MUST load this skill when auditing or analyzing autonomous agent log files.
 ---
 
+<!-- markdownlint-disable MD013 MD036 -->
+
 # Agent Log Analysis & Reporting
 
 This skill dictates the mechanical execution and rigid formatting requirements for auditing AI agent session logs.
@@ -398,7 +400,7 @@ radar-beta
 
 Generate second `radar-beta` diagram to score the agent from 1 to 5 across 5 quality dimensions:
 
-#### Prompt Quality (1–5)
+**Prompt Quality (1–5)**
 
 Evaluate:
 
@@ -408,7 +410,7 @@ Evaluate:
 - Edge case handling (addressed vs. ignored)
 - Anti-patterns (wall of text, contradictions, implicit format)
 
-#### Context Efficiency (1–5)
+**Context Efficiency (1–5)**
 
 Evaluate:
 
@@ -418,7 +420,7 @@ Evaluate:
 - State management (explicit vs. implicit)
 - Memory strategy (appropriate for conversation length)
 
-#### Tool Health (1–5)
+**Tool Health (1–5)**
 
 Evaluate:
 
@@ -430,7 +432,7 @@ Evaluate:
 - **Scope attribution**: Distinguish project-configured tools (custom scripts, project MCP servers) from agent-level tools (built-in IDE tools, global MCP servers).
 Only flag tool overhead for tools the project can actually control.
 
-#### Architecture Fitness (1–5)
+**Architecture Fitness (1–5)**
 
 Evaluate:
 
@@ -440,7 +442,7 @@ Evaluate:
 - Observability (decisions logged vs. black box)
 - Cost awareness (budgeted vs. unbounded)
 
-#### Safety & Reliability (1–5)
+**Safety & Reliability (1–5)**
 
 Evaluate:
 
@@ -451,7 +453,7 @@ data between a user's own frontend and backend is lower risk than data exposed t
 - Error recovery (fallbacks vs. crash)
 - Evaluation strategy (golden tests vs. "it seems to work")
 
-#### Scoring Guide
+**Scoring Guide**
 
 | Score | Meaning                | Recommended Action                        |
 |-------|------------------------|-------------------------------------------|
