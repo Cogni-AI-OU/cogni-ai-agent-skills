@@ -14,9 +14,17 @@ Agent MD is a format for defining specialized agent personas. These files provid
 
 ### GitHub Copilot
 
-Custom agents for GitHub Copilot for specific Copilot agents MUST be located in:
+Agent persona files for GitHub Copilot MUST be located in:
 - `.github/agents/` directory of the repository.
 - The filename SHOULD match the agent's `name` property (e.g., `.github/agents/test-agent.md`).
+
+### Claude Code
+
+Claude Code uses `CLAUDE.md` for project-level instructions:
+- **Project-level:** `CLAUDE.md` at the repository root.
+- **Subdirectory-level:** `CLAUDE.md` within a specific directory (applies to that subtree).
+- **Global:** `~/.claude/CLAUDE.md` for machine-wide preferences.
+- **Local overrides:** `CLAUDE.local.md` (typically gitignored).
 
 ### OpenCode
 
@@ -73,7 +81,26 @@ Markdown files in the OpenCode agent directories use more extensive frontmatter:
 | `prompt` | Path to a custom system prompt file. |
 | `hidden` | `true` to hide from `@` autocomplete (subagents only). |
 
-## Mandatory Markdown Sections
+## Claude Code Syntax (`CLAUDE.md`)
+
+Claude Code uses a simple Markdown-based format. It does not require YAML frontmatter.
+
+### Common Sections
+
+| Section | Description |
+| :--- | :--- |
+| **Build Commands** | Exact strings to build the project. |
+| **Test Commands** | Exact strings to run tests (e.g., `npm test`). |
+| **Lint Commands** | Commands to check/fix code style. |
+| **Code Style** | Specific preferences (e.g., "Use named exports"). |
+| **Architecture** | High-level map of the codebase. |
+
+### Advanced Syntax
+
+- **`@imports`**: Use `@path/to/file` to include other files (e.g., `@AGENTS.md`).
+- **`Read when:`**: Conditional trigger for loading detailed documentation (e.g., `Read when: Modifying database schema`).
+
+## Core Markdown Sections
 
 Regardless of the platform, a high-quality agent definition should include:
 
@@ -129,3 +156,4 @@ You are an expert <role> for this project.
 ## References
 
 - [OpenCode Agents Documentation](https://opencode.ai/docs/agents/)
+- [Claude Code Documentation](https://code.claude.com/docs/en/memory)
