@@ -3,9 +3,9 @@ name: github-aw-agentics
 description: 'Expert-level guidance for using, optimizing, and building GitHub Agentic Workflows. Load this skill when the user wants to explore available workflows, understand their internal mechanics, or add new agentic patterns. Focuses on maintenance, automation, documentation, and performance improvement agents.'
 ---
 
-# GitHub Agentic Workflows Agentics
+# Skill: github-aw-agentics
 
-<!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
+<!-- markdownlint-disable MD013 MD023 MD024 MD031 MD032 -->
 
 A collection of reusable GitHub Agentic Workflows
 from [githubnext/agentics](https://github.com/githubnext/agentics/tree/main/docs).
@@ -61,7 +61,7 @@ The Repo Assist workflow is a [GitHub Agentic Workflow](https://github.blog/ai-a
 ````mermaid
 graph LR
     P[Fetch repo data] --> W[Compute task weights]
-    W --> S[Select 2 tasks]
+    W --> S[Select 3 tasks]
     S --> A[Read Memory]
     A --> T1[Task 1: Issue Labelling]
     A --> T2[Task 2: Issue Investigation + Comment]
