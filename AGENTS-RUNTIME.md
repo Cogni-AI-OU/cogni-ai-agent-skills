@@ -206,6 +206,8 @@ and planned work into the current context.
   You MUST load this skill when addressing constraint satisfaction or combinatorial problems using MiniZinc.
 - **[molecule](molecule/SKILL.md)**: Molecule testing workflows for Ansible roles.
   You MUST load this skill when running or managing Molecule tests for Ansible.
+- **[mot](mot/SKILL.md)**: Evaluate and classify machine learning models based on the Model Openness Framework (MOF).
+  You MUST load this skill to find model metadata like architecture, producer, components, etc., from the Model Openness Tool.
 - **[opencode](opencode/SKILL.md)**: Manage OpenCode configuration, credentials, and access the OpenCode Zen API.
   You MUST load this skill when working with OpenCode configuration or listing models.
 - **[pdf](pdf/SKILL.md)**: PDF file inspection, object-level editing, and lossless size reduction.
