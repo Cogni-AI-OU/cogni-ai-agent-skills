@@ -47,7 +47,7 @@ The mechanism is straightforward. Without AGENTS.md, the agent spends time explo
 - **Contract Style**: Write dense, imperative, expert-level instructions assuming ninja proficiency; skip basics, favor one-liners.
 - **Cover Six Core Areas**: Hitting these areas puts you in the top tier: commands, testing, project structure, code style, git workflow, and boundaries.
 - **Directory Hierarchy**: Nested `AGENTS.md` files provide directory-specific context. The agent reads the nearest file to the code being edited. Root-level rules apply everywhere; subdirectory rules override for that subtree.
-- **Keep it Short**: Shorter files performed better in the Princeton study because agents spent less time parsing instructions and more time on the task.
+- **Keep it Short**: Shorter files perform better because agents spent less time parsing instructions and more time on the task.
 - **Living Documentation**: Treat `AGENTS.md` as living documentation.
 - **No Duplication**: NEVER duplicate code-level comments or obvious steps.
 - **Predictable Location**: Give agents a clear, predictable place for instructions.
