@@ -2,7 +2,7 @@
 name: python-cli
 description: >-
   Execute Python inline scripts via heredocs for complex log processing, summarization, or JSON parsing.
-  You MUST load this skill when processing large logs.
+  You MUST load this skill when processing large logs or stream.
 ---
 
 # Skill: python-cli
