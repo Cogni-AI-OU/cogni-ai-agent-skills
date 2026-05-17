@@ -96,8 +96,8 @@ Cogni AI capabilities loaded into the `.github/` directory.
 - **[github-actions](github-actions/SKILL.md)**: Diagnosing and debugging failing GitHub Actions workflows
 - **[github-aw](github-aw/SKILL.md)**: Safely update existing GitHub Agentic Workflows (gh-aw), distinguishing between
   frontmatter configuration that requires recompilation and markdown body prompt edits that do not
-- **[github-aw-troubleshooting](github-aw-troubleshooting/SKILL.md)**: Debug and refine GitHub Agentic Workflows (gh-aw) by analyzing
-  execution logs, auditing runs, and resolving missing tool errors or prompt inefficiencies
+- **[github-aw-troubleshooting](github-aw-troubleshooting/SKILL.md)**: Debug and refine GitHub Agentic Workflows
+  (gh-aw) by analyzing execution logs, auditing runs, and resolving missing tool errors or prompt inefficiencies
 - **[github-aw-memory](github-aw-memory/SKILL.md)**: Guide for persistent memory strategies in agentic workflows
 - **[github-issue](github-issue/SKILL.md)**: Guidance for issue context routing, response routing, and workspace invariants
 - **[github-mcp-server](github-mcp-server/SKILL.md)**: Guide for configuring and using the GitHub MCP server within
@@ -121,7 +121,7 @@ Cogni AI capabilities loaded into the `.github/` directory.
 - **[pre-commit](pre-commit/SKILL.md)**: Using pre-commit to validate code formatting, linting, and security checks
 - **[python](python/SKILL.md)**: Expert Python language skill for writing, refactoring, and testing idiomatic Python 3 code
 - **[python-cli](python-cli/SKILL.md)**: Execute Python inline scripts via heredocs for complex log processing,
-  summarization, or JSON parsing
+  data transformation, or CLI utilities like URL encoding/decoding
 - **[robust-commands](robust-commands/SKILL.md)**: Resilient command execution with automatic
   fallbacks and error recovery
 - **[sbom](sbom/SKILL.md)**: Guidelines and commands for generating a Software Bill of Materials (SBOM) using syft

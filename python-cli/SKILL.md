@@ -1,15 +1,19 @@
 ---
 name: python-cli
 description: >-
-  Execute Python inline scripts via heredocs for complex log processing, summarization, or JSON parsing.
-  You MUST load this skill when processing large logs or stream.
+  Execute Python inline scripts via heredocs for complex log processing, data transformation,
+  or CLI utilities like URL encoding/decoding.
+  You MUST load this skill when processing large logs or performing one-liner data operations.
 ---
 
 # Skill: python-cli
 
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
 
-Use Python via `python3 - <<'PY'` heredocs when processing large log files, complex text summarization, or parsing structured data (like JSON) where standard bash utilities (awk/sed/grep) become unwieldy or fragile. If `python3` is unavailable, you may fall back to `python`.
+Use Python via `python3 - <<'PY'` heredocs or one-liners when processing large log files,
+performing data transformations (like URL encoding/decoding), or parsing structured data (like JSON)
+where standard bash utilities (awk/sed/grep) become unwieldy or fragile. If `python3` is
+unavailable, you may fall back to `python`.
 
 ## Core Principles
 

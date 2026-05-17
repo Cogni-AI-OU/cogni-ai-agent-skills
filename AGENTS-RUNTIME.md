@@ -167,8 +167,8 @@ and planned work into the current context.
 - **[github-aw](github-aw/SKILL.md)**: Safely update existing GitHub Agentic Workflows (gh-aw), distinguishing between
   frontmatter configuration that requires recompilation and markdown body prompt edits that do not.
   You MUST load this skill when updating or modifying an existing GitHub Agentic Workflow.
-- **[github-aw-troubleshooting](github-aw-troubleshooting/SKILL.md)**: Debug and refine GitHub Agentic Workflows (gh-aw) by analyzing
-  execution logs, auditing runs, and resolving missing tool errors or prompt inefficiencies.
+- **[github-aw-troubleshooting](github-aw-troubleshooting/SKILL.md)**: Debug and refine GitHub Agentic Workflows
+  (gh-aw) by analyzing execution logs, auditing runs, and resolving missing tool errors or prompt inefficiencies.
   You MUST load this skill when asked to debug, audit, or analyze a failing GitHub Agentic Workflow.
 - **[github-aw-memory](github-aw-memory/SKILL.md)**: Guide for persistent memory strategies in agentic workflows.
   You MUST load this skill when designing workflows that persist state across runs via
@@ -227,8 +227,8 @@ and planned work into the current context.
 - **[python](python/SKILL.md)**: Expert Python language skill for writing, refactoring, and testing idiomatic Python 3 code.
   You MUST load this skill when developing Python modules, classes, or scripts.
 - **[python-cli](python-cli/SKILL.md)**: Execute Python inline scripts via heredocs for complex log processing,
-  summarization, or JSON parsing.
-  You MUST load this skill when processing large logs.
+  data transformation, or CLI utilities like URL encoding/decoding.
+  You MUST load this skill when processing large logs or performing one-liner data operations.
 - **[rfc2119](rfc2119/SKILL.md)**: Enforce correct usage of RFC 2119 requirement level keywords
   (MUST, SHOULD, MAY, etc.) in documentation and specifications.
   You MUST load this skill when writing or reviewing standards, specifications, or when applying RFC 2119 terminology.
