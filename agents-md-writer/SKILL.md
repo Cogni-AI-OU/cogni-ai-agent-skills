@@ -43,7 +43,8 @@ It is the cross-tool standard—one file, every agent.
 1. **Locate Target**: Identify the `AGENTS.md` file to be created or updated (e.g., in `.github/` or a subdirectory).
 2. **Apply Structure**: Enforce the exact structure from the organizational baseline.
 3. **Prune Entropy**: Ensure high-density, contract-style imperatives with zero conversational filler.
-4. **Verify Validation**: Check against formatting and constraints and run verification gates.
+4. **Preserve Quality**: When updating, always choose the better, clearer sections. If previous changes are better, leave them intact. Always pick the best format.
+5. **Verify Validation**: Check against formatting and constraints and run verification gates.
 
 ## Core Principles
 

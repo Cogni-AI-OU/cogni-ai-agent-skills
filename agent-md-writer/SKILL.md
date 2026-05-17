@@ -15,7 +15,8 @@ This skill provides a structured process and set of principles for creating effe
 1. **Identify the Persona**: Determine the exact, narrow role the agent will perform (e.g., `docs-agent`, `test-agent`). Avoid "general helper" personas.
 2. **Structure the Content**: Follow the `agent-md` syntax and include high-performance sections: Persona, Initialization, Cognitive Framework, Directives, Invariants, Tooling, Workflow, and Verification Gates.
 3. **Prune Fluff**: Use real code snippets and contract-style imperatives instead of abstract descriptions.
-4. **Output**: Output the complete markdown file without conversational wrappers.
+4. **Preserve Quality**: When updating, always choose the better, clearer sections. If previous changes are better, leave them intact. Always pick the best format.
+5. **Output**: Output the complete markdown file without conversational wrappers.
 
 ## Core Principles
 
