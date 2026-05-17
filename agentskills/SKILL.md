@@ -25,8 +25,9 @@ The Agent Skills open standard provides a framework for structuring and specifyi
 ## Core Process (Manual Creation)
 
 1. **Determine Scope**:
-   - **Project-specific**: Stored in the shared standard `.agents/skills/`, or provider-specific locations like `.opencode/skills/`, `.github/skills/`, or `.claude/skills/`. Scope is limited to the repository.
-   - **Personal**: Stored in the shared standard `~/.agents/skills/`, or provider-specific locations like `~/.config/opencode/skills/` or `~/.copilot/skills/`. Scope is global for the user's CLI environment.
+   - **Project skills**: Stored in `.github/skills/`, `.claude/skills/`, or `.agents/skills/` depending on the tool. Scope is limited to the repository.
+   - **Personal skills**: Stored in `~/.copilot/skills/`, `~/.claude/skills/`, or `~/.agents/skills/` depending on the tool. Scope is global for the user's CLI environment.
+   - **Installable skills**: Use `npx skills add https://docs-url` (Vercel's skills CLI) to install external skills.
 2. **Scaffold Skill**:
    - Create a directory named after the skill (lowercase-hyphenated).
    - Create a `SKILL.md` file with the required YAML frontmatter (`name`, `description`).
@@ -49,6 +50,8 @@ skill-name/
 ## Skill Structure & Formatting
 
 ### `SKILL.md` Frontmatter
+
+The `name` and `description` fields in `SKILL.md` frontmatter are critical. The agent decides whether to load a skill based on the description alone. A vague description means the skill never activates. Write descriptions that specify both when the skill applies and when it does not.
 
 | Field | Required | Constraints |
 | :--- | :--- | :--- |
@@ -79,7 +82,8 @@ skill-name/
 | Project (Provider) | `.opencode/skills/`, `.github/skills/`, `.claude/skills/` | Single repository, provider-specific |
 | Project (Runtime) | `.skills/` | Ephemeral workspace symlink (e.g., CI/CD) |
 | Personal (Shared) | `~/.agents/skills/` | User-wide (CLI), portable across agents |
-| Personal (Provider) | `~/.config/opencode/skills/`, `~/.copilot/skills/` | User-wide (CLI), provider-specific |
+| Personal (Provider) | `~/.config/opencode/skills/`, `~/.copilot/skills/`, `~/.claude/skills/` | User-wide (CLI), provider-specific |
+| Installable | `npx skills add https://docs-url` | Vercel's skills CLI for fetching external skills |
 | System | `/usr/share/agents/skills/` | System-wide |
 
 ## Runtime and CI/CD Caveats
