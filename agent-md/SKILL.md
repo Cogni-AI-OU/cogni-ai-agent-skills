@@ -214,7 +214,7 @@ You are an expert <role> for this project.
   Load this skill when you need guidance on *how* to write and optimize high-performance agent personas.
 - **agents-md-writer**:
   Load this skill for general `AGENTS.md` project context files.
-- **skill-writer**:
+- **agent-skill-md-writer**:
   Load this skill when writing `SKILL.md` files for Copilot skills.
 
 ## References

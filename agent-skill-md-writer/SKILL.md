@@ -1,10 +1,10 @@
 ---
-name: skill-writer
+name: agent-skill-md-writer
 description: 'Workflow and guidelines for generating or refining agent skills. You MUST load this skill when creating or updating SKILL.md files to ensure correct tone and writing style.'
 license: MIT
 ---
 
-# Skill Writer
+# Agent Skill MD Writer
 
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
 

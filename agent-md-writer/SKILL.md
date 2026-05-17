@@ -61,7 +61,7 @@ When writing a top-tier agent persona, always include and refine these key secti
 
 - **agent-md**:
   Load this skill for the technical syntax reference and schema of Agent MD files.
-- **skill-writer**:
+- **agent-skill-md-writer**:
   Load this skill when writing `SKILL.md` files for Copilot skills.
 - **agents-md-writer**:
   Load this skill for general `AGENTS.md` project context files.

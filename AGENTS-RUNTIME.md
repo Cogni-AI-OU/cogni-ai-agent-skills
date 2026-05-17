@@ -236,7 +236,7 @@ and planned work into the current context.
   You MUST load this skill when performing security audits or validation.
 - **[shell](shell/SKILL.md)**: Efficient shell command execution with timing, timeouts, and best practices.
   You MUST load this skill when handling shell commands with performance monitoring or timeouts.
-- **[skill-writer](skill-writer/SKILL.md)**: Generate or update SKILL.md files for coding agents.
+- **[agent-skill-md-writer](agent-skill-md-writer/SKILL.md)**: Generate or update SKILL.md files for coding agents.
   You MUST load this skill when creating or updating agent skill files.
 - **[subagent-task](subagent-task/SKILL.md)**: Guidance and protocols for spawning sub-agents via the task tool.
   You MUST load this skill when delegating complex tasks to sub-agents.

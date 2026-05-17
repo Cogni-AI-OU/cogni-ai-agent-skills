@@ -91,5 +91,5 @@ To install a specific skill directly, use `gh skill install github/awesome-copil
 
 - **agentskills**:
   You MUST load this skill for deep understanding of the Agent Skills open standard and manual skill creation.
-- **skill-writer**:
+- **agent-skill-md-writer**:
   You MUST load this skill when developing new skills to be published via `gh skill`.

@@ -144,7 +144,7 @@ skills-ref validate ./my-skill
 
 ## Related Skills
 
-- **skill-writer**:
+- **agent-skill-md-writer**:
   You MUST load this skill when creating or updating specific coding agent skills.
 - **gh-skill**:
   See this skill for using the GitHub CLI (`gh skill`) to manage and publish Agent Skills.

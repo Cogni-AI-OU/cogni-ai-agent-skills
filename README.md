@@ -127,7 +127,7 @@ Cogni AI capabilities loaded into the `.github/` directory.
 - **[security-audit](security-audit/SKILL.md)**: Commands, step-by-step procedures, and mechanical execution for
   performing deep security audits, vulnerability assessments, and threat modeling
 - **[shell](shell/SKILL.md)**: Efficient shell command execution with timing, timeouts, and best practices
-- **[skill-writer](skill-writer/SKILL.md)**: Generate or update SKILL.md files for coding agents
+- **[agent-skill-md-writer](agent-skill-md-writer/SKILL.md)**: Generate or update SKILL.md files for coding agents
 - **[subagent-task](subagent-task/SKILL.md)**: Guidance and protocols for spawning sub-agents via the task tool.
 - **[tdd](tdd/SKILL.md)**: Commands, step-by-step procedures, and mechanical execution for test engineering,
   testability audits, and the TDD lifecycle.
