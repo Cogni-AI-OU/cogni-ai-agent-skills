@@ -7,7 +7,7 @@ description: >-
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
 # Agent Skills (Standard)
 
-The Agent Skills open standard provides a framework for structuring and specifying skills to ensure portability across different AI systems and agent hosts. Agent skills work with GitHub Copilot (Cloud, CLI, and VS Code), Claude Code, OpenCode, and other compliant agents. Agent Skills are self-contained folders with instructions and bundled resources that teach AI agents specialized capabilities, unlike custom instructions which only define coding standards.
+The Agent Skills open standard provides a framework for structuring and specifying skills to ensure portability across different AI systems and agent hosts. Agent Skills work with GitHub Copilot (Cloud, CLI, and VS Code), Claude Code, OpenCode, and other compliant agents. Agent Skills are self-contained folders with instructions and bundled resources that teach AI agents specialized capabilities, unlike custom instructions which only define coding standards.
 
 ## Core Principles
 
@@ -27,7 +27,7 @@ The Agent Skills open standard provides a framework for structuring and specifyi
 1. **Determine Scope**:
    - **Project skills**: Stored in `.github/skills/`, `.claude/skills/`, or `.agents/skills/` depending on the tool. Scope is limited to the repository.
    - **Personal skills**: Stored in `~/.copilot/skills/`, `~/.claude/skills/`, or `~/.agents/skills/` depending on the tool. Scope is global for the user's CLI environment.
-   - **Installable skills**: Use `gh skill install OWNER/REPOSITORY` (using the `gh skill` extension) or `npx skills add https://docs-url` (Vercel's skills CLI) to install external skills.
+   - **Installable skills**: Use `gh skill install OWNER/REPOSITORY` to browse skills interactively, `gh skill install OWNER/REPOSITORY SKILL-NAME` for a non-interactive install, or `npx skills add https://docs-url` (Vercel's skills CLI) to install external skills.
 2. **Scaffold Skill**:
    - Create a directory named after the skill (lowercase-hyphenated).
    - Create a `SKILL.md` file with the required YAML frontmatter (`name`, `description`).
