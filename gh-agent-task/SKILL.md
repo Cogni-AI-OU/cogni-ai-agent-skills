@@ -7,6 +7,8 @@ description: GitHub CLI (`gh agent-task`) operations for creating, listing, and 
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
 
 Provides usage patterns and expert guidance for the GitHub CLI `gh agent-task` extension, which manages preview agent tasks on repositories and pull requests.
+The agent-task command set is only available in v2.80.0 or later of the GitHub CLI.
+This command set is a public preview and is subject to change.
 
 ## Core Process
 
@@ -69,6 +71,8 @@ Show agent session logs:
 ## References
 
 - [gh agent-task manual](https://cli.github.com/manual/gh_agent-task)
+- [Starting GitHub Copilot sessions](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/cloud-agent/start-copilot-sessions)
+- [Tracking GitHub Copilot's sessions](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/cloud-agent/track-copilot-sessions)
 
 ## Related Skills
 
