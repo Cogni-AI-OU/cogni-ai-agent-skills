@@ -123,7 +123,7 @@ This document provides a comprehensive reference for Unicode character hex range
 | CJK Compatibility Ideographs Supplement | 0x2F800 | 0x2FA1F | `[\x{2F800}-\x{2FA1F}]` |
 | CJK Strokes | 0x31C0 | 0x31EF | `[\x{31C0}-\x{31EF}]` |
 | CJK Radicals Supplement | 0x2E80 | 0x2EFF | `[\x{2E80}-\x{2EFF}]` |
-| Kangxi Radicals | 0x2F00 | 0x2FFF | `[\x{2F00}-\x{2FFF}]` |
+| Kangxi Radicals | 0x2F00 | 0x2FDF | `[\x{2F00}-\x{2FDF}]` |
 
 ### Southeast Asian
 
