@@ -35,7 +35,7 @@ Cogni AI capabilities loaded into the `.github/` directory.
 - **[agents-md-writer](agents-md-writer/SKILL.md)**: Autonomous documentation editor responsible for creating,
   updating, and maintaining AGENTS.md files strictly adhering to the organizational baseline structure
 - **[agentskills](agentskills/SKILL.md)**: Guidance on the Agent Skills open standard for creating
-  portable, non-interactive, and secure Copilot agent skills.
+  portable, non-interactive, and secure agent skills.
   You MUST load this skill when designing or manually creating agent skills.
 - **[ansible](ansible/SKILL.md)**: How to run and manage Ansible operations safely and prevent hangs.
 - **[brainstorm](brainstorm/SKILL.md)**: Activate brainstorming protocol to explore options, research, deconstruct
@@ -82,7 +82,7 @@ Cogni AI capabilities loaded into the `.github/` directory.
 - **[gh-search](gh-search/SKILL.md)**: GitHub CLI (`gh search`) operations for searching code, commits, issues,
   pull requests, and repositories with structured JSON output
 - **[gh-skill](gh-skill/SKILL.md)**: Expert-level guidance on GitHub CLI (`gh skill`) operations for
-  searching, previewing, installing, updating, and publishing Copilot agent skills.
+  searching, previewing, installing, updating, and publishing agent skills.
   You MUST load this skill when managing agent skills via the GitHub CLI.
 - **[git](git/SKILL.md)**: Guide for using git with non-interactive, safe operations
 - **[git-expert](git-expert/SKILL.md)**: Advanced Git operations including reflog recovery,
@@ -127,7 +127,7 @@ Cogni AI capabilities loaded into the `.github/` directory.
 - **[security-audit](security-audit/SKILL.md)**: Commands, step-by-step procedures, and mechanical execution for
   performing deep security audits, vulnerability assessments, and threat modeling
 - **[shell](shell/SKILL.md)**: Efficient shell command execution with timing, timeouts, and best practices
-- **[skill-writer](skill-writer/SKILL.md)**: Generate or update SKILL.md files for GitHub Copilot coding agents
+- **[skill-writer](skill-writer/SKILL.md)**: Generate or update SKILL.md files for coding agents
 - **[subagent-task](subagent-task/SKILL.md)**: Guidance and protocols for spawning sub-agents via the task tool.
 - **[tdd](tdd/SKILL.md)**: Commands, step-by-step procedures, and mechanical execution for test engineering,
   testability audits, and the TDD lifecycle.
@@ -227,8 +227,8 @@ See also:
 
 ### Agent Skills
 
-Agent Skills are folders of instructions, scripts, and resources that GitHub
-Copilot can load when relevant to improve its performance in specialized tasks.
+Agent Skills are folders of instructions, scripts, and resources that autonomous
+agents can load when relevant to improve their performance in specialized tasks.
 
 Agent Skills work with:
 
@@ -253,11 +253,11 @@ YAML frontmatter:
 ```markdown
 ---
 name: my-skill-name
-description: Brief description of when Copilot should use this skill
+description: Brief description of when the agent should use this skill
 license: MIT
 ---
 
-Instructions for Copilot to follow when this skill is activated.
+Instructions for the agent to follow when this skill is activated.
 ```
 
 ##### SKILL.md frontmatter

@@ -165,10 +165,10 @@ Regardless of the platform, a high-quality agent definition should include:
 name: <agent-name>
 description: <one-sentence description>
 version: 1.0.0
-applyTo: 
+applyTo:
   - '**/*.js'
   - '**/*.ts'
-tools: 
+tools:
   - read_file
   - search_files
   - list_directory
