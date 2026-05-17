@@ -42,24 +42,26 @@ curl -fsSL https://gh.io/copilot-install | bash
 copilot login
 ```
 
-
 ## Customization
 
-Optimize Copilot CLI by providing project-specific guidelines, automation hooks, and specialized skills.
+Optimize Copilot CLI by providing project-specific guidelines, automation hooks, and specialized skills. See [Customize Copilot](references/customize-copilot.md).
 
 ## Automate Copilot CLI
 
-Automate operations and orchestrate GitHub Copilot CLI in pipelines or custom scripts.
+Automate operations and orchestrate GitHub Copilot CLI in pipelines or custom scripts. See [Automate Copilot CLI](references/automate-copilot-cli.md).
 
 ### Quickstart
+
 - **Usage**: General introduction to automation paths.
 - **Reference**: See [quickstart.md](references/automate-copilot-cli/quickstart.md)
 
 ### Run CLI Programmatically
+
 - **Usage**: Call the CLI from scripts, capturing structured JSON output silently.
 - **Reference**: See [run-cli-programmatically.md](references/automate-copilot-cli/run-cli-programmatically.md)
 
 ### Automate with Actions
+
 - **Usage**: Inject Copilot CLI capabilities natively into GitHub Actions workflows.
 - **Reference**: See [automate-with-actions.md](references/automate-copilot-cli/automate-with-actions.md)
 
@@ -109,7 +111,7 @@ Configure custom AI model providers via Bring Your Own Key (BYOK).
 
 ## Use Copilot CLI
 
-Harness the core capabilities of the Copilot CLI for code review, task delegation, and execution management.
+Harness the core capabilities of the Copilot CLI for code review, task delegation, and execution management. See [Use Copilot CLI](references/use-copilot-cli.md).
 
 - **Overview**: Core capabilities and usage. See [overview.md](references/use-copilot-cli/overview.md).
 - **Agentic Code Review**: Automate PR and code reviews. See [agentic-code-review.md](references/use-copilot-cli/agentic-code-review.md).
@@ -126,7 +128,7 @@ Harness the core capabilities of the Copilot CLI for code review, task delegatio
 
 ## Set Up Copilot CLI
 
-Establish the foundation for the GitHub Copilot CLI and securely connect it to your environments.
+Establish the foundation for the GitHub Copilot CLI and securely connect it to your environments. See [Set Up Copilot CLI](references/set-up-copilot-cli.md).
 
 - **Install Copilot CLI**: Deploy the extension natively via GitHub CLI. See [install-copilot-cli.md](references/set-up-copilot-cli/install-copilot-cli.md).
 - **Authenticate Copilot CLI**: Establish device flow or token authentication. See [authenticate-copilot-cli.md](references/set-up-copilot-cli/authenticate-copilot-cli.md).
@@ -158,21 +160,13 @@ copilot --agent security-auditor --prompt "Check <target-file>"
 
 ## References
 
-- [Custom Instructions Reference](references/customize-copilot/add-custom-instructions.md)
-- [Hooks Reference](references/customize-copilot/use-hooks.md)
-- [Adding LSP servers for GitHub Copilot CLI](references/set-up-copilot-cli/add-lsp-servers.md)
-- [Authenticating GitHub Copilot CLI](references/set-up-copilot-cli/authenticate-copilot-cli.md)
-- [Configuring GitHub Copilot CLI](references/set-up-copilot-cli/configure-copilot-cli.md)
+- [Customize Copilot](references/customize-copilot.md)
+- [Automate Copilot CLI](references/automate-copilot-cli.md)
+- [Use Copilot CLI](references/use-copilot-cli.md)
+- [Set Up Copilot CLI](references/set-up-copilot-cli.md)
 - [copilot-cli docs repository](https://github.com/github/docs/tree/main/content/copilot/how-tos/copilot-cli)
-- [Create custom agents for CLI](https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/create-custom-agents-for-cli)
 - [Custom agents configuration reference](https://docs.github.com/en/copilot/reference/custom-agents-configuration)
 - [GitHub Copilot CLI command reference](https://docs.github.com/en/copilot/reference/copilot-cli-reference/cli-command-reference)
-- [Install Copilot CLI](references/set-up-copilot-cli/install-copilot-cli.md)
-- [Overview of customizing GitHub Copilot CLI](https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/overview)
-- [Quickstart for automating with GitHub Copilot CLI](https://docs.github.com/en/copilot/how-tos/copilot-cli/automate-copilot-cli/quickstart)
-- [Setting up GitHub Copilot CLI](https://docs.github.com/en/copilot/how-tos/copilot-cli/set-up-copilot-cli)
-- [Troubleshooting GitHub Copilot CLI authentication](references/set-up-copilot-cli/troubleshoot-copilot-cli-auth.md)
-- [Using GitHub Copilot CLI](https://docs.github.com/en/copilot/how-tos/copilot-cli/use-copilot-cli/overview)
 
 ## Related Skills
 
