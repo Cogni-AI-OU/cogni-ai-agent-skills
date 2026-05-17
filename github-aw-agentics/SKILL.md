@@ -15,7 +15,7 @@ Triage labelling of issues and pull requests and not much more
 
 **Automatically triage issues when they are created or reopened**
 
-The [Issue Triage workflow](../workflows/issue-triage.md?plain=1) runs when issues are created or reopened to analyze content, check related items, set issue type, add labels, detect duplicates, and post structured triage reports.
+The Issue Triage workflow runs when issues are created or reopened to analyze content, check related items, set issue type, add labels, detect duplicates, and post structured triage reports.
 
 ### How It Works
 
@@ -38,7 +38,7 @@ The workflow may search for relevant documentation, error messages, or similar i
 ### 🌈 Repo Assist
 A regular, pervasive all-tools repository assistant that triages issues, investigates issues, replies with comments, fixes bugs, proposes engineering improvements, and maintains activity summaries
 
-The [Repo Assist workflow](../workflows/repo-assist.md?plain=1) is a [GitHub Agentic Workflow](https://github.blog/ai-and-ml/automate-repository-tasks-with-github-agentic-workflows/) for a friendly repository assistant that runs regularly to support contributors and maintainers. It can also be triggered on-demand via `/repo-assist <instructions>` to perform specific tasks. Each run it selects three tasks via a weighted random draw based - favouring issue labelling, investigation and fixing when the backlog is large, then shifting to engineering, testing, and forward progress as the backlog clears. It maintains a monthly activity summary for maintainer visibility.
+The Repo Assist workflow is a [GitHub Agentic Workflow](https://github.blog/ai-and-ml/automate-repository-tasks-with-github-agentic-workflows/) for a friendly repository assistant that runs regularly to support contributors and maintainers. It can also be triggered on-demand via `/repo-assist <instructions>` to perform specific tasks. Each run it selects three tasks via a weighted random draw based - favouring issue labelling, investigation and fixing when the backlog is large, then shifting to engineering, testing, and forward progress as the backlog clears. It maintains a monthly activity summary for maintainer visibility.
 
 [Read more in this blog](https://dsyme.net/2026/02/25/repo-assist-a-repository-assistant/).
 
@@ -91,7 +91,7 @@ Automatically detect and moderate spam, link spam, and AI-generated content
 
 **Automatically detect spam, link spam, and AI-generated content in GitHub issues, comments, and pull requests**
 
-The [AI Moderator workflow](../workflows/ai-moderator.md?plain=1) helps maintain quality discussions and protect your repository from malicious or low-quality contributions by automatically moderating incoming content.
+The AI Moderator workflow helps maintain quality discussions and protect your repository from malicious or low-quality contributions by automatically moderating incoming content.
 
 ### How It Works
 
@@ -121,7 +121,7 @@ Monitor CI workflows and investigate failures automatically
 
 **Automated CI failure investigator that analyzes root causes and provides actionable recommendations**
 
-The [CI Doctor workflow](../workflows/ci-doctor.md?plain=1) monitors your GitHub Actions workflows and automatically investigates CI failures. When a monitored workflow fails, it conducts deep analysis to identify root causes, patterns, and provides recommendations for fixing issues.
+The CI Doctor workflow monitors your GitHub Actions workflows and automatically investigates CI failures. When a monitored workflow fails, it conducts deep analysis to identify root causes, patterns, and provides recommendations for fixing issues.
 
 ### How It Works
 
@@ -147,7 +147,7 @@ Optimize CI workflows for speed and cost efficiency
 
 **Automated CI/CD optimization expert that analyzes your GitHub Actions workflows and proposes efficiency improvements**
 
-The [CI Coach workflow](../workflows/ci-coach.md?plain=1) is your personal CI/CD optimization consultant. It runs regularly (daily by default) to analyze workflows, collect performance metrics, identify optimization opportunities, and propose concrete improvements through pull requests.
+The CI Coach workflow is your personal CI/CD optimization consultant. It runs regularly (daily by default) to analyze workflows, collect performance metrics, identify optimization opportunities, and propose concrete improvements through pull requests.
 
 ### How It Works
 
@@ -183,7 +183,7 @@ Post per-run agent spend summaries on pull requests using token-usage.jsonl from
 
 **Automated agent cost reporter that posts a spend summary after every agent workflow run**
 
-The [Cost Tracker workflow](../workflows/cost-tracker.md?plain=1) fires after your configured agent workflows complete, downloads the `token-usage.jsonl` data written by gh-aw's firewall, calculates per-model spend, and posts a cost breakdown on the associated pull request or creates a cost report issue.
+The Cost Tracker workflow fires after your configured agent workflows complete, downloads the `token-usage.jsonl` data written by gh-aw's firewall, calculates per-model spend, and posts a cost breakdown on the associated pull request or creates a cost report issue.
 
 ### How It Works
 
@@ -222,7 +222,7 @@ On-demand opinionated code review by a grumpy but thorough senior developer
 
 **On-demand code review by a grumpy but thorough senior developer**
 
-The [Grumpy Reviewer workflow](../workflows/grumpy-reviewer.md?plain=1) is an on-demand code reviewer with personality. Invoke it on any pull request to get an opinionated, thorough review focused on real problems: security risks, performance issues, bad naming, and missing error handling.
+The Grumpy Reviewer workflow is an on-demand code reviewer with personality. Invoke it on any pull request to get an opinionated, thorough review focused on real problems: security risks, performance issues, bad naming, and missing error handling.
 
 ### How It Works
 
@@ -251,7 +251,7 @@ On-demand fine-grained code review focusing on style, conventions, and subtle im
 
 **On-demand fine-grained code review focusing on style, conventions, and subtle improvements**
 
-The [PR Nitpick Reviewer workflow](../workflows/pr-nitpick-reviewer.md?plain=1) provides detailed, line-level feedback on pull requests, catching the subtle issues that automated linters miss: inconsistent naming, unclear variable names, missing context in comments, overly complex nesting, and other code quality concerns. It complements the [Grumpy Reviewer](grumpy-reviewer.md) — where Grumpy focuses on deep opinionated analysis of real problems, the Nitpick Reviewer zooms in on the small improvements that accumulate into a high-quality codebase.
+The PR Nitpick Reviewer workflow provides detailed, line-level feedback on pull requests, catching the subtle issues that automated linters miss: inconsistent naming, unclear variable names, missing context in comments, overly complex nesting, and other code quality concerns. It complements the [Grumpy Reviewer](grumpy-reviewer.md) — where Grumpy focuses on deep opinionated analysis of real problems, the Nitpick Reviewer zooms in on the small improvements that accumulate into a high-quality codebase.
 
 ### How It Works
 
@@ -280,7 +280,7 @@ Regularly review batches of open PRs against contribution guidelines and create 
 
 **Batch review of open pull requests against repository contribution guidelines**
 
-The [Contribution Check workflow](../workflows/contribution-check.md?plain=1) runs every 4 hours to review open pull requests against your CONTRIBUTING.md. It helps maintainers efficiently prioritize community contributions by categorizing PRs as ready to review, needing work, or outside contribution guidelines.
+The Contribution Check workflow runs every 4 hours to review open pull requests against your CONTRIBUTING.md. It helps maintainers efficiently prioritize community contributions by categorizing PRs as ready to review, needing work, or outside contribution guidelines.
 
 ### How It Works
 
@@ -309,7 +309,7 @@ Review pull requests for compliance with contribution guidelines
 
 **Verify incoming pull requests comply with repository contribution guidelines**
 
-The [Contribution Guidelines Checker workflow](../workflows/contribution-guidelines-checker.md?plain=1) reviews incoming PRs against your CONTRIBUTING.md and similar documentation, then either labels the PR as ready or provides constructive feedback on what needs improvement.
+The Contribution Guidelines Checker workflow reviews incoming PRs against your CONTRIBUTING.md and similar documentation, then either labels the PR as ready or provides constructive feedback on what needs improvement.
 
 ### How It Works
 
@@ -373,7 +373,7 @@ Collect research updates and industry trends
 
 **Collect research updates and post them to a new issue each Monday morning**
 
-The [Weekly Research workflow](../workflows/weekly-research.md?plain=1) runs each Monday to search industry news, analyze trends, gather team updates, and generate a comprehensive research report issue.
+The Weekly Research workflow runs each Monday to search industry news, analyze trends, gather team updates, and generate a comprehensive research report issue.
 
 ### How It Works
 
@@ -398,7 +398,7 @@ Weekly issue activity report with trend charts and recommendations
 
 **Generate comprehensive weekly reports on issue activity with trend charts and recommendations**
 
-The [Weekly Issue Activity workflow](../workflows/weekly-issue-activity.md?plain=1) runs every Monday at 3 PM UTC to collect issue data, generate trend charts, and create a detailed discussion with statistics and actionable recommendations.
+The Weekly Issue Activity workflow runs every Monday at 3 PM UTC to collect issue data, generate trend charts, and create a detailed discussion with statistics and actionable recommendations.
 
 ### How It Works
 
@@ -426,7 +426,7 @@ Assess repository activity and create status reports
 
 **Assess repository activity and create status report issues**
 
-The [Daily Repo Status workflow](../workflows/repo-status.md?plain=1) gathers activity data, analyzes PRs and issues, checks workflow results, and creates status report issues. Previous reports are automatically closed when new ones are created.
+The Daily Repo Status workflow gathers activity data, analyzes PRs and issues, checks workflow results, and creates status report issues. Previous reports are automatically closed when new ones are created.
 
 ### How It Works
 
@@ -451,7 +451,7 @@ Create upbeat team activity summaries with productivity insights
 
 **Create daily team status reports with upbeat activity summaries**
 
-The [Daily Team Status workflow](../workflows/team-status.md?plain=1) gathers recent repository activity (issues, PRs, discussions, releases, code changes) and generates engaging status issues with productivity insights, community highlights, and project recommendations.
+The Daily Team Status workflow gathers recent repository activity (issues, PRs, discussions, releases, code changes) and generates engaging status issues with productivity insights, community highlights, and project recommendations.
 
 ### How It Works
 
@@ -475,7 +475,7 @@ Transform repository activity into an engaging newspaper-style narrative with tr
 
 **Transform daily repository activity into an engaging newspaper-style narrative**
 
-The [Daily Repository Chronicle workflow](../workflows/repo-chronicle.md?plain=1) collects recent repository activity — commits, pull requests, issues, and discussions — and narrates it like a newspaper editor, producing a vivid, human-centered account of the day's development story. Two trend charts visualize the last 30 days of activity.
+The Daily Repository Chronicle workflow collects recent repository activity — commits, pull requests, issues, and discussions — and narrates it like a newspaper editor, producing a vivid, human-centered account of the day's development story. Two trend charts visualize the last 30 days of activity.
 
 ### How It Works
 
@@ -499,7 +499,7 @@ Break down issues into actionable sub-tasks with /plan command
 
 **Run daily to update a planning issue for the team with current priorities**
 
-The [Daily Plan workflow](../workflows/plan.md?plain=1) reads repository contents and pull request metadata, assesses priorities, and creates or updates planning issues that other workflows can reference for team priorities.
+The Daily Plan workflow reads repository contents and pull request metadata, assesses priorities, and creates or updates planning issues that other workflows can reference for team priorities.
 
 ### How It Works
 
@@ -522,7 +522,7 @@ Extract actionable improvement tasks from GitHub Discussions and create tracked 
 
 **Automatically extract actionable tasks from GitHub Discussions and create trackable issues**
 
-The [Discussion Task Miner workflow](../workflows/discussion-task-miner.md?plain=1) runs regularly (daily by default) to scan recent GitHub Discussions for actionable improvement opportunities. It identifies concrete, well-scoped tasks and converts them into GitHub issues (up to 5 per run), bridging the gap between discussion insights and tracked work items.
+The Discussion Task Miner workflow runs regularly (daily by default) to scan recent GitHub Discussions for actionable improvement opportunities. It identifies concrete, well-scoped tasks and converts them into GitHub issues (up to 5 per run), bridging the gap between discussion insights and tracked work items.
 
 ### How It Works
 
@@ -549,7 +549,7 @@ Visualize repository file structure and size distribution with a weekly ASCII tr
 
 **Visualize your repository's file structure and size distribution with a weekly ASCII tree map**
 
-The [Weekly Repository Map workflow](../workflows/weekly-repo-map.md?plain=1) analyzes your repository's structure every week using standard bash tools, then creates a GitHub issue containing an ASCII tree map visualization showing directory hierarchy, file sizes, and key statistics.
+The Weekly Repository Map workflow analyzes your repository's structure every week using standard bash tools, then creates a GitHub issue containing an ASCII tree map visualization showing directory hierarchy, file sizes, and key statistics.
 
 ### How It Works
 
@@ -580,7 +580,7 @@ Daily tech content editorial-board review of technical rigor, wording, structure
 
 **Daily editorial-board review of the repository's technical rigor, wording, structure, and editorial quality**
 
-The [Tech Content Editorial Board workflow](../workflows/tech-content-editorial-board.md?plain=1) is a [GitHub Agentic Workflow](https://github.blog/ai-and-ml/automate-repository-tasks-with-github-agentic-workflows/) for reviewing a technical content repository as if it were being examined by a demanding editorial board of principal engineers, technical writers, and domain specialists. It focuses on content quality first: clarity, rigor, structure, examples, caveats, flow, and reader trust.
+The Tech Content Editorial Board workflow is a [GitHub Agentic Workflow](https://github.blog/ai-and-ml/automate-repository-tasks-with-github-agentic-workflows/) for reviewing a technical content repository as if it were being examined by a demanding editorial board of principal engineers, technical writers, and domain specialists. It focuses on content quality first: clarity, rigor, structure, examples, caveats, flow, and reader trust.
 
 Rather than producing a passive report, the workflow is biased toward action. When it finds a safe, focused content improvement, it prefers to ship one small content pull request in the same run. It can also create a single tracking issue for materially new editorial backlog that is not already covered by an open issue or pull request.
 
@@ -623,7 +623,7 @@ Create pull requests to bundle together as many dependabot updates as possible
 
 **Bundle Dependabot alerts into grouped pull requests with full dependency updates**
 
-The [Dependabot PR Bundler workflow](../workflows/dependabot-pr-bundler.md?plain=1) checks for Dependabot alerts, groups updates, updates dependencies to latest versions, tests compatibility, and creates bundled pull requests.
+The Dependabot PR Bundler workflow checks for Dependabot alerts, groups updates, updates dependencies to latest versions, tests compatibility, and creates bundled pull requests.
 
 ### How It Works
 
@@ -647,7 +647,7 @@ Create issues that group together dependabot updates related to the same ecosyst
 
 **Check for Dependabot alerts and manage issues that group updates by runtime/ecosystem**
 
-The [Dependabot Issue Bundler workflow](../workflows/dependabot-issue-bundler.md?plain=1) checks for Dependabot alerts and creates issues grouping updates by ecosystem (Go, Java, etc.).
+The Dependabot Issue Bundler workflow checks for Dependabot alerts and creates issues grouping updates by ecosystem (Go, Java, etc.).
 
 ### How It Works
 
@@ -672,7 +672,7 @@ Update documentation automatically on every push to main
 
 **Automatically update documentation on each push to main**
 
-The [Update Documentation workflow](../workflows/update-docs.md?plain=1) runs on each push to main to analyze changes and create pull requests with documentation updates. It defaults to using Astro Starlight for documentation generation.
+The Update Documentation workflow runs on each push to main to analyze changes and create pull requests with documentation updates. It defaults to using Astro Starlight for documentation generation.
 
 ### How It Works
 
@@ -698,7 +698,7 @@ Automatically update documentation based on recent code changes and merged PRs
 
 **Automatically review and update documentation based on recent code changes and merged pull requests**
 
-The [Daily Documentation Updater workflow](../workflows/doc-updater.md?plain=1) scans changes from the last 24 hours, identifies documentation gaps, and creates pull requests with updates to reflect new features, modifications, or deprecations.
+The Daily Documentation Updater workflow scans changes from the last 24 hours, identifies documentation gaps, and creates pull requests with updates to reflect new features, modifications, or deprecations.
 
 ### How It Works
 
@@ -726,7 +726,7 @@ Automatically generate and maintain GitHub wiki pages from source code
 
 **Automatically generates and maintains GitHub wiki pages from your source code**
 
-The [Agentic Wiki Writer workflow](../workflows/agentic-wiki-writer.md?plain=1) keeps your project's GitHub wiki synchronized with the codebase. Once a day (if any pull requests were merged to the default branch), it reads a `PAGES.md` template to understand what to document, then writes wiki pages directly from the source code. You can also trigger it manually on demand.
+The Agentic Wiki Writer workflow keeps your project's GitHub wiki synchronized with the codebase. Once a day (if any pull requests were merged to the default branch), it reads a `PAGES.md` template to understand what to document, then writes wiki pages directly from the source code. You can also trigger it manually on demand.
 
 ### How It Works
 
@@ -763,7 +763,7 @@ Implement code changes described in GitHub wiki edits
 
 **Turns wiki edits into code — automatically implements changes described in your GitHub wiki**
 
-The [Agentic Wiki Coder workflow](../workflows/agentic-wiki-coder.md?plain=1) is the reverse of the [Agentic Wiki Writer](agentic-wiki-writer.md): instead of writing wiki pages from code, it reads wiki edits and implements the described changes in the codebase. When a collaborator edits a wiki page to describe new behavior or updated functionality, this workflow detects the change and opens a pull request with the corresponding code implementation.
+The Agentic Wiki Coder workflow is the reverse of the [Agentic Wiki Writer](agentic-wiki-writer.md): instead of writing wiki pages from code, it reads wiki edits and implements the described changes in the codebase. When a collaborator edits a wiki page to describe new behavior or updated functionality, this workflow detects the change and opens a pull request with the corresponding code implementation.
 
 ### How It Works
 
@@ -790,7 +790,7 @@ Automatically maintain project glossary based on codebase changes
 
 **Automatically maintain project glossary by scanning code changes and keeping technical terms up-to-date**
 
-The [Glossary Maintainer workflow](../workflows/glossary-maintainer.md?plain=1) runs on weekdays to scan recent changes, identify new technical terminology, and create pull requests with glossary updates.
+The Glossary Maintainer workflow runs on weekdays to scan recent changes, identify new technical terminology, and create pull requests with glossary updates.
 
 ### How It Works
 
@@ -821,7 +821,7 @@ Generate and maintain a project-specific `DICTATION.md` file with speech-to-text
 
 **Generate and maintain a project-specific dictation instruction file for speech-to-text workflows**
 
-The [Dictation Prompt Generator workflow](../workflows/dictation-prompt.md?plain=1) runs weekly on Sundays. It scans your documentation for technical vocabulary, builds an NLP word-frequency histogram, and creates or updates `DICTATION.md` — a concise dictation instruction file that teaches your speech-to-text engine your project's terminology.
+The Dictation Prompt Generator workflow runs weekly on Sundays. It scans your documentation for technical vocabulary, builds an NLP word-frequency histogram, and creates or updates `DICTATION.md` — a concise dictation instruction file that teaches your speech-to-text engine your project's terminology.
 
 Pairs naturally with [dictationmd](https://github.com/pelikhan/dictationmd), a tool that reads `DICTATION.md` and configures speech recognition profiles accordingly.
 
@@ -851,7 +851,7 @@ Daily automated link checker that finds and fixes broken links in documentation
 
 **Scan documentation for broken links, find replacements, and create PRs with fixes**
 
-The [Link Checker workflow](../workflows/link-checker.md?plain=1) scans markdown files for HTTP(S) links, tests each one, finds replacements for broken links, and creates pull requests with fixes. Uses cache memory to avoid repeated attempts on unfixable links.
+The Link Checker workflow scans markdown files for HTTP(S) links, tests each one, finds replacements for broken links, and creates pull requests with fixes. Uses cache memory to avoid repeated attempts on unfixable links.
 
 ### How It Works
 
@@ -880,7 +880,7 @@ Automatically simplify documentation by reducing verbosity while maintaining cla
 
 **Review and simplify documentation by removing verbosity while maintaining clarity**
 
-The [Documentation Unbloat workflow](../workflows/unbloat-docs.md?plain=1) runs regularly (daily by default) to remove duplicate content, excessive bullet points, redundant examples, and verbose descriptions - while preserving all essential information, links, and technical details.
+The Documentation Unbloat workflow runs regularly (daily by default) to remove duplicate content, excessive bullet points, redundant examples, and verbose descriptions - while preserving all essential information, links, and technical details.
 
 ### How It Works
 
@@ -908,7 +908,7 @@ Run Markdown quality checks on all documentation files and get a prioritized iss
 
 **Run Markdown quality checks across all documentation files and get a prioritized issue report of violations**
 
-The [Markdown Linter workflow](../workflows/markdown-linter.md?plain=1) runs the [Super Linter](https://github.com/super-linter/super-linter) tool on every Markdown file in your repository, then uses an AI agent to analyze the results and create a detailed GitHub issue listing each violation with suggested fixes. Only Markdown files are checked — other file types are unaffected.
+The Markdown Linter workflow runs the [Super Linter](https://github.com/super-linter/super-linter) tool on every Markdown file in your repository, then uses an AI agent to analyze the results and create a detailed GitHub issue listing each violation with suggested fixes. Only Markdown files are checked — other file types are unaffected.
 
 ### How It Works
 
@@ -932,7 +932,7 @@ The workflow runs in two jobs. The first job runs Super Linter to lint all Markd
 
 **Build and test your documentation site across mobile, tablet, and desktop devices to catch responsive design issues before they reach users**
 
-The [Multi-Device Docs Tester workflow](../workflows/multi-device-docs-tester.md?plain=1) builds your documentation site locally, serves it, and runs Playwright-powered tests across a range of device viewports. It checks for layout problems, inaccessible navigation, overflowing content, and broken interactive elements — then creates a GitHub issue with a detailed report when problems are found.
+The Multi-Device Docs Tester workflow builds your documentation site locally, serves it, and runs Playwright-powered tests across a range of device viewports. It checks for layout problems, inaccessible navigation, overflowing content, and broken interactive elements — then creates a GitHub issue with a detailed report when problems are found.
 
 ### How It Works
 
@@ -961,7 +961,7 @@ Review application accessibility by automatically running and using the applicat
 
 **Perform accessibility reviews checking for WCAG 2.2 compliance and documenting problems found**
 
-The [Daily Accessibility Review workflow](../workflows/accessibility-review.md?plain=1) scans your repository, analyzes accessibility against WCAG 2.2 guidelines, and creates issues documenting any accessibility problems found.
+The Daily Accessibility Review workflow scans your repository, analyzes accessibility against WCAG 2.2 guidelines, and creates issues documenting any accessibility problems found.
 
 ### How It Works
 
@@ -985,7 +985,7 @@ Expert system that analyzes and optimizes agentic workflows
 
 **Expert system for optimizing and fixing agentic workflows**
 
-The [Q workflow](../workflows/q.md?plain=1) analyzes workflow performance, identifies missing tools, detects inefficiencies, and creates pull requests with optimized configurations.
+The Q workflow analyzes workflow performance, identifies missing tools, detects inefficiencies, and creates pull requests with optimized configurations.
 
 ### How It Works
 
@@ -1011,7 +1011,7 @@ Identify the largest source file and create a detailed refactoring plan as an is
 
 **Analyze source files to identify the largest and create an actionable refactoring issue with a detailed split plan**
 
-The [Large File Simplifier workflow](../workflows/large-file-simplifier.md?plain=1) scans your repository for oversized source files and, when one exceeds a healthy size threshold, creates a detailed issue with a concrete plan for splitting it into smaller, focused modules.
+The Large File Simplifier workflow scans your repository for oversized source files and, when one exceeds a healthy size threshold, creates a detailed issue with a concrete plan for splitting it into smaller, focused modules.
 
 ### How It Works
 
@@ -1040,7 +1040,7 @@ Automatically simplify recently modified code for improved clarity and maintaina
 
 **Automatically analyze recently modified code and create pull requests with simplifications that improve clarity and maintainability**
 
-The [Code Simplifier workflow](../workflows/code-simplifier.md?plain=1) runs regularly (daily by default) to review code modified in the last 24 hours and apply targeted improvements that enhance clarity, reduce complexity, and follow project conventions—all while preserving functionality.
+The Code Simplifier workflow runs regularly (daily by default) to review code modified in the last 24 hours and apply targeted improvements that enhance clarity, reduce complexity, and follow project conventions—all while preserving functionality.
 
 ### How It Works
 
@@ -1066,7 +1066,7 @@ Identify duplicate code patterns and suggest refactoring opportunities
 
 **Automatically identify duplicate code patterns and suggest refactoring opportunities**
 
-The [Duplicate Code Detector workflow](../workflows/duplicate-code-detector.md?plain=1) runs regularly (daily by default) to analyze recent code changes and detect duplicate patterns. It creates focused issues (max 3 per run) for significant duplication patterns, automatically assigned to @copilot for potential remediation.
+The Duplicate Code Detector workflow runs regularly (daily by default) to analyze recent code changes and detect duplicate patterns. It creates focused issues (max 3 per run) for significant duplication patterns, automatically assigned to @copilot for potential remediation.
 
 ### How It Works
 
@@ -1089,7 +1089,7 @@ The workflow reports identical or nearly identical functions, repeated code bloc
 ### 🧪 Daily Test Improver
 Improve test coverage by adding meaningful tests to under-tested areas
 
-The [Daily Test Improver workflow](../workflows/test-improver.md?plain=1) is a testing-focused repository assistant that runs regularly (daily by default) to improve test quality and coverage. It can also be triggered on-demand via `/test-assist <instructions>` to perform specific tasks. It discovers build/test/coverage commands, identifies high-value testing opportunities, implements test improvements with measured impact, maintains its own PRs, comments on testing issues, invests in test infrastructure, and maintains a monthly activity summary for maintainer visibility.
+The Daily Test Improver workflow is a testing-focused repository assistant that runs regularly (daily by default) to improve test quality and coverage. It can also be triggered on-demand via `/test-assist <instructions>` to perform specific tasks. It discovers build/test/coverage commands, identifies high-value testing opportunities, implements test improvements with measured impact, maintains its own PRs, comments on testing issues, invests in test infrastructure, and maintains a monthly activity summary for maintainer visibility.
 
 ### How It Works
 
@@ -1118,7 +1118,7 @@ graph LR
 ### 🌱 Daily Efficiency Improver
 Improve energy efficiency and computational footprint across code, data, network, and UI
 
-The [Daily Efficiency Improver workflow](../workflows/efficiency-improver.md?plain=1) is an energy-efficiency-focused repository assistant that runs regularly (daily by default) to identify and implement improvements that reduce computational footprint. It discovers build/test/benchmark commands, identifies opportunities across code, data, network/I/O, and frontend behavior, implements measurable changes, maintains its own PRs, comments on relevant issues, invests in measurement infrastructure, and maintains a monthly activity summary for maintainer visibility.
+The Daily Efficiency Improver workflow is an energy-efficiency-focused repository assistant that runs regularly (daily by default) to identify and implement improvements that reduce computational footprint. It discovers build/test/benchmark commands, identifies opportunities across code, data, network/I/O, and frontend behavior, implements measurable changes, maintains its own PRs, comments on relevant issues, invests in measurement infrastructure, and maintains a monthly activity summary for maintainer visibility.
 
 ### How It Works
 
@@ -1160,7 +1160,7 @@ For scheduled runs, the workflow is skipped if there are already 8 or more open 
 ### ⚡ Daily Performance Improver
 Analyze and improve code performance through benchmarking and optimization
 
-The [Daily Performance Improver workflow](../workflows/perf-improver.md?plain=1) is a performance-focused repository assistant that runs regularly (daily by default) to identify and implement performance improvements. It can also be triggered on-demand via `/perf-assist <instructions>` to perform specific tasks. It discovers build/benchmark commands, identifies optimization opportunities, implements improvements with measured impact, maintains its own PRs, comments on performance issues, invests in measurement infrastructure, and maintains a monthly activity summary for maintainer visibility.
+The Daily Performance Improver workflow is a performance-focused repository assistant that runs regularly (daily by default) to identify and implement performance improvements. It can also be triggered on-demand via `/perf-assist <instructions>` to perform specific tasks. It discovers build/benchmark commands, identifies optimization opportunities, implements improvements with measured impact, maintains its own PRs, comments on performance issues, invests in measurement infrastructure, and maintains a monthly activity summary for maintainer visibility.
 
 ### How It Works
 
@@ -1189,7 +1189,7 @@ For scheduled runs, the workflow is skipped if there are already 8 or more open 
 ### 📊 Repository Quality Improver
 Daily rotating analysis of repository quality across code, documentation, testing, security, and custom dimensions
 
-The [Repository Quality Improver workflow](../workflows/repository-quality-improver.md?plain=1) analyzes your repository from a different quality angle every weekday, producing an issue with findings and actionable improvement tasks.
+The Repository Quality Improver workflow analyzes your repository from a different quality angle every weekday, producing an issue with findings and actionable improvement tasks.
 
 ### How It Works
 
@@ -1245,7 +1245,7 @@ Generate Mermaid diagrams to visualize issue and pull request relationships with
 
 **On-demand Mermaid diagram generation for issues and pull requests**
 
-The [Archie workflow](../workflows/archie.md?plain=1) analyzes issue or pull request content and generates clear Mermaid diagrams that visualize the key concepts, relationships, and flows described within. Invoke it with `/archie` to instantly get a visual representation of any complex issue or PR.
+The Archie workflow analyzes issue or pull request content and generates clear Mermaid diagrams that visualize the key concepts, relationships, and flows described within. Invoke it with `/archie` to instantly get a visual representation of any complex issue or PR.
 
 ### How It Works
 
@@ -1271,7 +1271,7 @@ Analyze failing CI checks and implement fixes for pull requests
 
 **Analyze and fix failing CI checks in pull requests**
 
-The [PR Fix workflow](../workflows/pr-fix.md?plain=1) analyzes failing CI checks, identifies root causes, implements fixes, and pushes them to the PR branch.
+The PR Fix workflow analyzes failing CI checks, identifies root causes, implements fixes, and pushes them to the PR branch.
 
 ### How It Works
 
@@ -1296,7 +1296,7 @@ Intelligent research assistant for repository questions and analysis
 
 **Intelligent research assistant for your repository**
 
-The [Repo Ask workflow](../workflows/repo-ask.md?plain=1) provides accurate, well-researched answers to questions about your codebase, features, documentation, or any repository-related topics by leveraging web search, repository analysis, and bash commands.
+The Repo Ask workflow provides accurate, well-researched answers to questions about your codebase, features, documentation, or any repository-related topics by leveraging web search, repository analysis, and bash commands.
 
 ### How It Works
 
@@ -1322,7 +1322,7 @@ The workflow searches for relevant documentation online, looks up technical info
 ### 🔍 Daily Malicious Code Scan
 Scan recent code changes for suspicious patterns indicating malicious activity or supply chain attacks
 
-The [Daily Malicious Code Scan workflow](../workflows/malicious-code-scan.md?plain=1) examines files changed in the past 72 hours, searching for secret exfiltration, out-of-context code, suspicious network activity, system access patterns, obfuscation, and supply chain indicators. Findings appear as GitHub code-scanning alerts with threat scores and remediation recommendations.
+The Daily Malicious Code Scan workflow examines files changed in the past 72 hours, searching for secret exfiltration, out-of-context code, suspicious network activity, system access patterns, obfuscation, and supply chain indicators. Findings appear as GitHub code-scanning alerts with threat scores and remediation recommendations.
 
 ### How It Works
 
@@ -1345,7 +1345,7 @@ Auto-generate OpenVEX statements for dismissed Dependabot alerts, capturing secu
 
 **Auto-generate OpenVEX statements for dismissed Dependabot alerts**
 
-The [VEX Generator workflow](../workflows/vex-generator.md?plain=1) captures Dependabot alert dismissal decisions as machine-readable [OpenVEX v0.2.0](https://openvex.dev/) statements, making them consumable by downstream vulnerability scanners and SBOM tools.
+The VEX Generator workflow captures Dependabot alert dismissal decisions as machine-readable [OpenVEX v0.2.0](https://openvex.dev/) statements, making them consumable by downstream vulnerability scanners and SBOM tools.
 
 ### How It Works
 
@@ -1372,7 +1372,7 @@ graph LR
 ### 🔬 Lean Squad
 Progressively apply Lean 4 formal verification to your codebase: research targets, extract specs, write Lean propositions, translate implementations, and attempt proofs — finding bugs or issuing stamps of confidence
 
-The [Lean Squad workflow](../workflows/lean-squad.md?plain=1) is a [GitHub Agentic Workflow](https://github.blog/ai-and-ml/automate-repository-tasks-with-github-agentic-workflows/) that applies Lean 4 formal verification to your codebase progressively and optimistically — without requiring any prior FV expertise. Each run it selects tasks weighted to the current phase of FV progress, from initial research all the way through to completed proofs, correspondence reviews, project reports, and even a LaTeX conference paper. Maybe it finds a bug; maybe it proves something; either way, it makes forward progress.
+The Lean Squad workflow is a [GitHub Agentic Workflow](https://github.blog/ai-and-ml/automate-repository-tasks-with-github-agentic-workflows/) that applies Lean 4 formal verification to your codebase progressively and optimistically — without requiring any prior FV expertise. Each run it selects tasks weighted to the current phase of FV progress, from initial research all the way through to completed proofs, correspondence reviews, project reports, and even a LaTeX conference paper. Maybe it finds a bug; maybe it proves something; either way, it makes forward progress.
 
 ### How It Works
 
@@ -1411,7 +1411,7 @@ The weighting scheme adapts automatically: when no FV work exists Task 1 dominat
 
 **Perform ad hoc quality assurance by following README instructions, tutorials, and walkthroughs**
 
-The [Daily Ad hoc QA workflow](../workflows/adhoc-qa.md?plain=1) reads your documentation, follows instructions, tests build and run processes, and creates issues for problems found.
+The Daily Ad hoc QA workflow reads your documentation, follows instructions, tests build and run processes, and creates issues for problems found.
 
 ### How It Works
 
@@ -1437,7 +1437,7 @@ For scheduled runs, the workflow is skipped if there are already 8 or more open 
 ### 🔒 Sub-Issue Closer
 Automatically close parent issues when all their sub-issues are complete
 
-The [Sub-Issue Closer workflow](../workflows/sub-issue-closer.md?plain=1) automatically closes parent issues when all of their sub-issues have been completed, keeping your issue tracker clean and organized.
+The Sub-Issue Closer workflow automatically closes parent issues when all of their sub-issues have been completed, keeping your issue tracker clean and organized.
 
 ### How It Works
 
@@ -1478,7 +1478,7 @@ Automatically organize issues by linking related issues as parent-child sub-issu
 
 **Daily automated workflow that organizes your issue tracker by linking related issues as parent-child relationships**
 
-The [Issue Arborist workflow](../workflows/issue-arborist.md?plain=1) keeps your issue tracker tidy and navigable. Every day it analyzes your open issues, detects natural parent-child relationships (epics with tasks, bugs with root causes, related feature clusters), and links them as GitHub sub-issues. When it finds five or more related issues with no common parent, it creates one.
+The Issue Arborist workflow keeps your issue tracker tidy and navigable. Every day it analyzes your open issues, detects natural parent-child relationships (epics with tasks, bugs with root causes, related feature clusters), and links them as GitHub sub-issues. When it finds five or more related issues with no common parent, it creates one.
 
 ### How It Works
 
