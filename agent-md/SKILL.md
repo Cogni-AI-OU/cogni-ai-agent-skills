@@ -1,54 +1,53 @@
 ---
 name: agent-md
-description: Generate or update GitHub Copilot custom agent files (e.g., .github/agents/*.md) specifying clear personas, executable commands, strict boundaries, and code examples. You MUST load this skill when creating or updating custom Copilot agent personas.
+description: Syntax and structure reference for GitHub Copilot custom agent persona files (.github/agents/*.md). Use this to understand the schema and format of agent persona definitions.
 license: MIT
 ---
 
-# Agent MD Writer
+# Agent MD Syntax
 
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
 
-Generate or update custom GitHub Copilot agent persona files (e.g., `.github/agents/test-agent.md`), ensuring they define a highly specific role, explicit commands, clear boundaries, and concrete code examples according to best practices from analyzing 2,500+ repositories.
+Agent MD is a format for defining specialized GitHub Copilot agent personas. These files live in `.github/agents/*.md` and provide context-specific instructions, project knowledge, and execution boundaries for autonomous agents.
 
-## Core Process
+## Syntax Overview
 
-1. **Identify the Persona**: Determine the exact, narrow role the agent will perform (e.g., `docs-agent`, `test-agent`, `lint-agent`). Avoid "general helper" personas.
-2. **Set the Target Location**: Ensure the file is placed correctly, usually in `.github/agents/<agent-name>.md`.
-3. **Structure the Content**: Use YAML frontmatter for name and description, followed by persona definition, project knowledge, executable commands, code standards/examples, and strict boundaries.
-4. **Prune Fluff**: Use real code snippets instead of abstract descriptions.
-5. **Output**: Output the complete, ready-to-commit markdown file without conversational wrappers.
+An Agent MD file consists of YAML frontmatter followed by a structured Markdown body.
 
-## Core Principles
+### YAML Frontmatter
 
-- **Specialized Personas Only**: Do not create general assistants. Each file must represent a specialist (e.g., technical writer, QA engineer, security analyst).
-- **YAML Frontmatter**: Always include `name` and `description` in the YAML frontmatter.
-- **Commands Early**: List executable commands (e.g., `npm test`, `pytest -v`, `npx markdownlint docs/`) early in the document. Include flags and options.
-- **Code Examples Over Explanations**: Provide real code snippets showing the expected style. Show what good output looks like.
-- **Be Specific About Stack**: Explicitly name the technologies and versions (e.g., "React 18 with TypeScript, Vite, and Tailwind CSS") and key file structures.
-- **Three-Tier Boundaries**: Define boundaries using "Always do", "Ask first", and "Never do". "Never commit secrets" is a mandatory constraint.
+| Field | Description | Requirement |
+| :--- | :--- | :--- |
+| `name` | The unique identifier for the agent (e.g., `test-agent`) | Mandatory |
+| `description` | A concise one-sentence description of the agent's purpose | Mandatory |
 
-## Expected Agent File Structure
+### Mandatory Markdown Sections
 
-**MUST** ensure the following structure is used in every custom agent `.md` file you create or update:
+1. **Role Definition**: Explicitly state the agent's persona and specialization.
+2. **Project Knowledge**: Tech stack, versions, and relevant directory layout.
+3. **Executable Commands**: Real commands (build, test, lint) with all necessary flags.
+4. **Standards & Examples**: Idiomatic code snippets showing the expected style.
+5. **Three-Tier Boundaries**: Using `Always`, `Ask first`, and `Never` categories.
+
+## Reference Structure
 
 ```markdown
 ---
 name: <agent-name>
-description: <one-sentence description of what this agent does>
+description: <one-sentence description>
 ---
 
 You are an expert <role> for this project.
 
 ## Your role
 - You specialize in <specialty>
-- You understand <context> and translate that into <output>
 - Your task: <specific task>
 
 ## Project knowledge
 - **Tech Stack:** <technologies with versions>
 - **File Structure:**
-  - `src/` - <what's here>
-  - `tests/` - <what's here>
+  - `src/` - <purpose>
+  - `tests/` - <purpose>
 
 ## Commands you can use
 - **Build:** `<command>`
@@ -56,24 +55,19 @@ You are an expert <role> for this project.
 - **Lint:** `<command>`
 
 ## Standards
-<Provide naming conventions and real code style examples here>
+<Code style examples>
 
 ## Boundaries
-- ✅ **Always:** <what to always do>
-- ⚠️ **Ask first:** <when to ask for permission>
-- 🚫 **Never:** <what to never do, e.g., commit secrets>
+- ✅ **Always:** <mandatory actions>
+- ⚠️ **Ask first:** <guarded actions>
+- 🚫 **Never:** <prohibited actions, e.g., commit secrets>
 ```
-
-## What to Avoid
-
-- **Vague Roles**: Avoid "You are a helpful coding assistant".
-- **Abstract Instructions**: Do not write three paragraphs describing code style; use one real code snippet instead.
-- **Missing Boundaries**: Never omit the "Never do" section.
-- **Missing Commands**: Do not just list tool names; include exact executable commands with flags.
 
 ## Related Skills
 
+- **agent-md-writer**:
+  Load this skill when you need guidance on *how* to write and optimize high-performance agent personas.
 - **agents-md-writer**:
-  You MUST load this skill when creating or updating the general `AGENTS.md` project context file, rather than a specific agent persona.
+  Load this skill for general `AGENTS.md` project context files.
 - **skill-writer**:
-  You MUST load this skill when writing `SKILL.md` files for Copilot skills.
+  Load this skill when writing `SKILL.md` files for Copilot skills.

@@ -23,6 +23,12 @@ and planned work into the current context.
 - **[agent-log-analysis](agent-log-analysis/SKILL.md)**: Procedures and templates for analyzing agent session
   logs, extracting telemetry, and generating standardized visual audit reports.
   You MUST load this skill when auditing or analyzing autonomous agent log files.
+- **[agent-md](agent-md/SKILL.md)**: Syntax and structure reference for GitHub Copilot custom agent persona files
+  (.github/agents/*.md).
+  You MUST load this skill to understand the schema and format of agent persona definitions.
+- **[agent-md-writer](agent-md-writer/SKILL.md)**: Guidelines and best practices for writing high-performance
+  GitHub Copilot agent persona files.
+  You MUST load this skill when creating or refining a specialized agent persona.
 - **[agents-md-writer](agents-md-writer/SKILL.md)**: Autonomous documentation editor responsible for creating,
   updating, and maintaining AGENTS.md files strictly adhering to the organizational baseline structure.
   You MUST load this skill when creating or updating AGENTS.md files.
