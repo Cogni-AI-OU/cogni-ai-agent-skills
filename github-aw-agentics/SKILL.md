@@ -9,9 +9,9 @@ from [githubnext/agentics](https://github.com/githubnext/agentics/tree/main/docs
 
 Make software maintenance enjoyable! From basic issue triage to Repo Assist - a powerful triage multi-task backlog burner, issue labeller, bug fixer and general repository assistant. Other workflows help gate your repository.
 
-
 ### 🏷️ Issue Triage
-Triage labelling of issues and pull requests and not much more
+
+Triage labelling of issues and pull requests and not much more.
 
 **Automatically triage issues when they are created or reopened**
 
@@ -30,13 +30,11 @@ graph LR
 
 The workflow may search for relevant documentation, error messages, or similar issues online to assist with triage.
 
-
 **Reference:** [https://github.com/githubnext/agentics/tree/main/docs/issue-triage.md](https://github.com/githubnext/agentics/tree/main/docs/issue-triage.md)
 
-
-
 ### 🌈 Repo Assist
-A regular, pervasive all-tools repository assistant that triages issues, investigates issues, replies with comments, fixes bugs, proposes engineering improvements, and maintains activity summaries
+
+A regular, pervasive all-tools repository assistant that triages issues, investigates issues, replies with comments, fixes bugs, proposes engineering improvements, and maintains activity summaries.
 
 The Repo Assist workflow is a [GitHub Agentic Workflow](https://github.blog/ai-and-ml/automate-repository-tasks-with-github-agentic-workflows/) for a friendly repository assistant that runs regularly to support contributors and maintainers. It can also be triggered on-demand via `/repo-assist <instructions>` to perform specific tasks. Each run it selects three tasks via a weighted random draw based - favouring issue labelling, investigation and fixing when the backlog is large, then shifting to engineering, testing, and forward progress as the backlog clears. It maintains a monthly activity summary for maintainer visibility.
 
@@ -81,13 +79,11 @@ Each run a deterministic pre-step fetches live repo data (open issues, unlabelle
 
 For scheduled runs, the workflow is skipped if there are already 8 or more open PRs with its title prefix, to avoid overwhelming maintainers.
 
-
 **Reference:** [https://github.com/githubnext/agentics/tree/main/docs/repo-assist.md](https://github.com/githubnext/agentics/tree/main/docs/repo-assist.md)
 
-
-
 ### 🛡️ AI Moderator
-Automatically detect and moderate spam, link spam, and AI-generated content
+
+Automatically detect and moderate spam, link spam, and AI-generated content.
 
 **Automatically detect spam, link spam, and AI-generated content in GitHub issues, comments, and pull requests**
 
@@ -106,18 +102,15 @@ graph LR
 
 The workflow reads new issues, comments, and pull request diffs, then applies appropriate labels (`spam`, `link-spam`, `ai-generated`, or `ai-inspected`). It can hide comments detected as spam. Requires `issues: write` and `pull-requests: write` permissions for full functionality.
 
-
 **Reference:** [https://github.com/githubnext/agentics/tree/main/docs/ai-moderator.md](https://github.com/githubnext/agentics/tree/main/docs/ai-moderator.md)
-
-
 
 ### Fault Analysis Workflows
 
 Investigate faults proactively and improve CI.
 
-
 ### 🏥 CI Doctor
-Monitor CI workflows and investigate failures automatically
+
+Monitor CI workflows and investigate failures automatically.
 
 **Automated CI failure investigator that analyzes root causes and provides actionable recommendations**
 
@@ -137,13 +130,11 @@ graph LR
 
 The workflow collects failed workflow logs, analyzes root causes, searches for patterns in historical issues, and creates detailed investigation issues with recommendations.
 
-
 **Reference:** [https://github.com/githubnext/agentics/tree/main/docs/ci-doctor.md](https://github.com/githubnext/agentics/tree/main/docs/ci-doctor.md)
 
-
-
 ### 🚀 CI Coach
-Optimize CI workflows for speed and cost efficiency
+
+Optimize CI workflows for speed and cost efficiency.
 
 **Automated CI/CD optimization expert that analyzes your GitHub Actions workflows and proposes efficiency improvements**
 
@@ -163,7 +154,8 @@ graph LR
 The workflow analyzes job parallelization, caching strategy, test distribution, resource allocation, artifact management, and conditional execution. All suggestions are backed by actual workflow run data and performance metrics.
 
 ### Quality Standards
-Expert system that analyzes and optimizes agentic workflows
+
+Expert system that analyzes and optimizes agentic workflows.
 
 - ✅ Minimal, focused changes
 - ✅ Low-risk optimizations prioritized
@@ -173,13 +165,11 @@ Expert system that analyzes and optimizes agentic workflows
 
 For scheduled runs, the workflow is skipped if there are already 8 or more open PRs with its title prefix, to avoid overwhelming maintainers.
 
-
 **Reference:** [https://github.com/githubnext/agentics/tree/main/docs/ci-coach.md](https://github.com/githubnext/agentics/tree/main/docs/ci-coach.md)
 
-
-
 ### 💰 Cost Tracker
-Post per-run agent spend summaries on pull requests using token-usage.jsonl from gh-aw's firewall
+
+Post per-run agent spend summaries on pull requests using token-usage.jsonl from gh-aw's firewall.
 
 **Automated agent cost reporter that posts a spend summary after every agent workflow run**
 
@@ -209,16 +199,13 @@ agent run, or a new issue when there is no PR.
 Runs that do not produce an `agent-artifacts` artifact (non-agent CI workflows) are
 skipped silently.
 
-
 **Reference:** [https://github.com/githubnext/agentics/tree/main/docs/cost-tracker.md](https://github.com/githubnext/agentics/tree/main/docs/cost-tracker.md)
-
-
 
 ### Code Review Workflows
 
-
 ### 😤 Grumpy Reviewer
-On-demand opinionated code review by a grumpy but thorough senior developer
+
+On-demand opinionated code review by a grumpy but thorough senior developer.
 
 **On-demand code review by a grumpy but thorough senior developer**
 
@@ -241,13 +228,11 @@ graph LR
 
 The reviewer hunts for code smells, security concerns, performance issues, and best practices violations. Posts up to 5 specific, actionable inline comments and submits a verdict (approve, request changes, or comment).
 
-
 **Reference:** [https://github.com/githubnext/agentics/tree/main/docs/grumpy-reviewer.md](https://github.com/githubnext/agentics/tree/main/docs/grumpy-reviewer.md)
 
-
-
 ### 🔍 PR Nitpick Reviewer
-On-demand fine-grained code review focusing on style, conventions, and subtle improvements
+
+On-demand fine-grained code review focusing on style, conventions, and subtle improvements.
 
 **On-demand fine-grained code review focusing on style, conventions, and subtle improvements**
 
@@ -270,13 +255,11 @@ graph LR
 
 The reviewer analyzes changed files for subtle issues linters miss — inconsistent naming, magic numbers, misleading comments, unnecessary complexity — and posts up to 10 specific inline comments with explanations. It then submits an overall review body summarizing the key themes and any positive highlights. Cache memory keeps standards consistent across multiple reviews of the same repository.
 
-
 **Reference:** [https://github.com/githubnext/agentics/tree/main/docs/pr-nitpick-reviewer.md](https://github.com/githubnext/agentics/tree/main/docs/pr-nitpick-reviewer.md)
 
-
-
 ### 🔍 Contribution Check
-Regularly review batches of open PRs against contribution guidelines and create prioritized reports
+
+Regularly review batches of open PRs against contribution guidelines and create prioritized reports.
 
 **Batch review of open pull requests against repository contribution guidelines**
 
@@ -299,13 +282,11 @@ graph LR
 
 The workflow creates report issues with PRs grouped by readiness level (🟢 Ready, 🟡 Needs work, 🔴 Off-guidelines), adds comments with constructive feedback, and applies labels based on quality signals.
 
-
 **Reference:** [https://github.com/githubnext/agentics/tree/main/docs/contribution-check.md](https://github.com/githubnext/agentics/tree/main/docs/contribution-check.md)
 
-
-
 ### ✅ Contribution Guidelines Checker
-Review pull requests for compliance with contribution guidelines
+
+Review pull requests for compliance with contribution guidelines.
 
 **Verify incoming pull requests comply with repository contribution guidelines**
 
@@ -324,16 +305,13 @@ graph LR
 
 The workflow automatically runs on pull requests.
 
-
 **Reference:** [https://github.com/githubnext/agentics/tree/main/docs/contribution-guidelines-checker.md](https://github.com/githubnext/agentics/tree/main/docs/contribution-guidelines-checker.md)
-
-
 
 ### Research, Status & Planning Workflows
 
-
 ### Autoloop
-Loop anything in your repo to continuously research, develop and maintain
+
+Loop anything in your repo to continuously research, develop and maintain.
 
 Autoloop has moved to its own repository: **<https://github.com/githubnext/autoloop>**
 
@@ -341,14 +319,11 @@ Please refer to that repository for the latest documentation, installation instr
 
 ### How It Works
 
-
-
 **Reference:** [https://github.com/githubnext/agentics/tree/main/docs/autoloop.md](https://github.com/githubnext/agentics/tree/main/docs/autoloop.md)
 
-
-
 ### Repo Mind Light
-External shared workflow that gives gh-aw agents holistic repository context
+
+External shared workflow that gives gh-aw agents holistic repository context.
 
 Repo Mind Light gives GitHub Agentic Workflows a way to query holistic repository context before they act.
 
@@ -362,14 +337,11 @@ See the [Repo Mind Light distribution repository](https://github.com/githubnext/
 
 ### How It Works
 
-
-
 **Reference:** [https://github.com/githubnext/agentics/tree/main/docs/repo-mind-light-aw.md](https://github.com/githubnext/agentics/tree/main/docs/repo-mind-light-aw.md)
 
-
-
 ### 📚 Weekly Research
-Collect research updates and industry trends
+
+Collect research updates and industry trends.
 
 **Collect research updates and post them to a new issue each Monday morning**
 
@@ -388,13 +360,11 @@ graph LR
 
 The workflow searches for latest trends from software industry sources, related products, research papers, and market opportunities.
 
-
 **Reference:** [https://github.com/githubnext/agentics/tree/main/docs/weekly-research.md](https://github.com/githubnext/agentics/tree/main/docs/weekly-research.md)
 
-
-
 ### 📊 Weekly Issue Activity
-Weekly issue activity report with trend charts and recommendations
+
+Weekly issue activity report with trend charts and recommendations.
 
 **Generate comprehensive weekly reports on issue activity with trend charts and recommendations**
 
@@ -416,13 +386,11 @@ The workflow produces two charts:
 
 Older `[Weekly Summary]` discussions are automatically closed when new ones are created.
 
-
 **Reference:** [https://github.com/githubnext/agentics/tree/main/docs/weekly-issue-activity.md](https://github.com/githubnext/agentics/tree/main/docs/weekly-issue-activity.md)
 
-
-
 ### 👥 Daily Repo Status
-Assess repository activity and create status reports
+
+Assess repository activity and create status reports.
 
 **Assess repository activity and create status report issues**
 
@@ -441,13 +409,11 @@ graph LR
 
 Reports are created with the `[team-status]` prefix.
 
-
 **Reference:** [https://github.com/githubnext/agentics/tree/main/docs/repo-status.md](https://github.com/githubnext/agentics/tree/main/docs/repo-status.md)
 
-
-
 ### 👥 Daily Team Status
-Create upbeat team activity summaries with productivity insights
+
+Create upbeat team activity summaries with productivity insights.
 
 **Create daily team status reports with upbeat activity summaries**
 
@@ -465,13 +431,11 @@ graph LR
 
 Issues are created with the `[team-status]` prefix using a positive, encouraging tone.
 
-
 **Reference:** [https://github.com/githubnext/agentics/tree/main/docs/team-status.md](https://github.com/githubnext/agentics/tree/main/docs/team-status.md)
 
-
-
 ### 📰 Daily Repository Chronicle
-Transform repository activity into an engaging newspaper-style narrative with trend charts
+
+Transform repository activity into an engaging newspaper-style narrative with trend charts.
 
 **Transform daily repository activity into an engaging newspaper-style narrative**
 
@@ -489,13 +453,11 @@ graph LR
 
 A new discussion is posted each weekday with the `📰` prefix. Older chronicles are automatically closed when a new one is created.
 
-
 **Reference:** [https://github.com/githubnext/agentics/tree/main/docs/repo-chronicle.md](https://github.com/githubnext/agentics/tree/main/docs/repo-chronicle.md)
 
-
-
 ### 📋 Daily Plan
-Break down issues into actionable sub-tasks with /plan command
+
+Break down issues into actionable sub-tasks with /plan command.
 
 **Run daily to update a planning issue for the team with current priorities**
 
@@ -512,13 +474,11 @@ graph LR
     D -->|Yes| F[Update Planning Issue]
 ```
 
-
 **Reference:** [https://github.com/githubnext/agentics/tree/main/docs/plan.md](https://github.com/githubnext/agentics/tree/main/docs/plan.md)
 
-
-
 ### 🔍 Discussion Task Miner
-Extract actionable improvement tasks from GitHub Discussions and create tracked issues
+
+Extract actionable improvement tasks from GitHub Discussions and create tracked issues.
 
 **Automatically extract actionable tasks from GitHub Discussions and create trackable issues**
 
@@ -539,13 +499,11 @@ graph LR
 
 The workflow reads discussions from the last 7 days, analyzes their content for recommendations, action items, and improvement suggestions, then converts the top findings into focused, actionable GitHub issues. It uses repo-memory to avoid re-processing the same discussions across runs.
 
-
 **Reference:** [https://github.com/githubnext/agentics/tree/main/docs/discussion-task-miner.md](https://github.com/githubnext/agentics/tree/main/docs/discussion-task-miner.md)
 
-
-
 ### 🗺️ Weekly Repository Map
-Visualize repository file structure and size distribution with a weekly ASCII tree map
+
+Visualize repository file structure and size distribution with a weekly ASCII tree map.
 
 **Visualize your repository's file structure and size distribution with a weekly ASCII tree map**
 
@@ -573,10 +531,9 @@ Each run produces one issue containing:
 
 **Reference:** [https://github.com/githubnext/agentics/tree/main/docs/weekly-repo-map.md](https://github.com/githubnext/agentics/tree/main/docs/weekly-repo-map.md)
 
-
-
 ### 📰 Tech Content Editorial Board
-Daily tech content editorial-board review of technical rigor, wording, structure, and editorial quality
+
+Daily tech content editorial-board review of technical rigor, wording, structure, and editorial quality.
 
 **Daily editorial-board review of the repository's technical rigor, wording, structure, and editorial quality**
 
@@ -610,16 +567,13 @@ When a low-risk, article-level improvement is available, the workflow should pre
 
 For scheduled runs, the workflow is skipped if there are already 8 or more open PRs with its title prefix, to avoid overwhelming maintainers.
 
-
 **Reference:** [https://github.com/githubnext/agentics/tree/main/docs/tech-content-editorial-board.md](https://github.com/githubnext/agentics/tree/main/docs/tech-content-editorial-board.md)
-
-
 
 ### Dependency Management Workflows
 
-
 ### 📦 Dependabot PR Bundler
-Create pull requests to bundle together as many dependabot updates as possible
+
+Create pull requests to bundle together as many dependabot updates as possible.
 
 **Bundle Dependabot alerts into grouped pull requests with full dependency updates**
 
@@ -637,13 +591,11 @@ graph LR
     E -->|No| G[Report Issues]
 ```
 
-
 **Reference:** [https://github.com/githubnext/agentics/tree/main/docs/dependabot-pr-bundler.md](https://github.com/githubnext/agentics/tree/main/docs/dependabot-pr-bundler.md)
 
-
-
 ### 📦 Dependabot Issue Bundler
-Create issues that group together dependabot updates related to the same ecosystem
+
+Create issues that group together dependabot updates related to the same ecosystem.
 
 **Check for Dependabot alerts and manage issues that group updates by runtime/ecosystem**
 
@@ -659,16 +611,13 @@ graph LR
     C -->|No| E[Report: All Clear]
 ```
 
-
 **Reference:** [https://github.com/githubnext/agentics/tree/main/docs/dependabot-issue-bundler.md](https://github.com/githubnext/agentics/tree/main/docs/dependabot-issue-bundler.md)
-
-
 
 ### Documentation Workflows
 
-
 ### 📖 Regular Documentation Update
-Update documentation automatically on every push to main
+
+Update documentation automatically on every push to main.
 
 **Automatically update documentation on each push to main**
 
@@ -688,13 +637,11 @@ graph LR
 
 The workflow may search for best practices, examples, or technical references online to improve documentation.
 
-
 **Reference:** [https://github.com/githubnext/agentics/tree/main/docs/update-docs.md](https://github.com/githubnext/agentics/tree/main/docs/update-docs.md)
 
-
-
 ### 📖 Daily Documentation Updater
-Automatically update documentation based on recent code changes and merged PRs
+
+Automatically update documentation based on recent code changes and merged PRs.
 
 **Automatically review and update documentation based on recent code changes and merged pull requests**
 
@@ -716,13 +663,11 @@ The workflow follows your repository's existing documentation structure and styl
 
 For scheduled runs, the workflow is skipped if there are already 8 or more open PRs with its title prefix, to avoid overwhelming maintainers.
 
-
 **Reference:** [https://github.com/githubnext/agentics/tree/main/docs/doc-updater.md](https://github.com/githubnext/agentics/tree/main/docs/doc-updater.md)
 
-
-
 ### 📖 Agentic Wiki Writer
-Automatically generate and maintain GitHub wiki pages from source code
+
+Automatically generate and maintain GitHub wiki pages from source code.
 
 **Automatically generates and maintains GitHub wiki pages from your source code**
 
@@ -753,13 +698,11 @@ On the first run (or when `regenerate-template` is enabled), the workflow genera
 - **Template-driven**: A `PAGES.md` file in `.github/agentic-wiki/` controls what gets documented
 - **Paired with Agentic Wiki Coder**: Together they form a bidirectional sync between wiki and source code
 
-
 **Reference:** [https://github.com/githubnext/agentics/tree/main/docs/agentic-wiki-writer.md](https://github.com/githubnext/agentics/tree/main/docs/agentic-wiki-writer.md)
 
-
-
 ### 🔧 Agentic Wiki Coder
-Implement code changes described in GitHub wiki edits
+
+Implement code changes described in GitHub wiki edits.
 
 **Turns wiki edits into code — automatically implements changes described in your GitHub wiki**
 
@@ -783,10 +726,9 @@ The workflow triggers on GitHub's `gollum` event (wiki edits). It reads the chan
 
 **Reference:** [https://github.com/githubnext/agentics/tree/main/docs/agentic-wiki-coder.md](https://github.com/githubnext/agentics/tree/main/docs/agentic-wiki-coder.md)
 
-
-
 ### 📖 Glossary Maintainer
-Automatically maintain project glossary based on codebase changes
+
+Automatically maintain project glossary based on codebase changes.
 
 **Automatically maintain project glossary by scanning code changes and keeping technical terms up-to-date**
 
@@ -811,13 +753,11 @@ The workflow locates your glossary file automatically (common paths: `docs/gloss
 
 For scheduled runs, the workflow is skipped if there are already 8 or more open PRs with its title prefix, to avoid overwhelming maintainers.
 
-
 **Reference:** [https://github.com/githubnext/agentics/tree/main/docs/glossary-maintainer.md](https://github.com/githubnext/agentics/tree/main/docs/glossary-maintainer.md)
 
-
-
 ### 🎙️ Dictation Prompt Generator
-Generate and maintain a project-specific `DICTATION.md` file with speech-to-text vocabulary and error-correction guidance
+
+Generate and maintain a project-specific `DICTATION.md` file with speech-to-text vocabulary and error-correction guidance.
 
 **Generate and maintain a project-specific dictation instruction file for speech-to-text workflows**
 
@@ -841,13 +781,11 @@ graph LR
    - Speech-to-text error correction guidance (ambiguous terms, spacing, hyphenation)
    - Text "agentification" rules: removing filler words and improving clarity
 
-
 **Reference:** [https://github.com/githubnext/agentics/tree/main/docs/dictation-prompt.md](https://github.com/githubnext/agentics/tree/main/docs/dictation-prompt.md)
 
-
-
 ### 🔗 Link Checker
-Daily automated link checker that finds and fixes broken links in documentation
+
+Daily automated link checker that finds and fixes broken links in documentation.
 
 **Scan documentation for broken links, find replacements, and create PRs with fixes**
 
@@ -870,13 +808,11 @@ graph LR
 
 A bash script pre-processes links before the AI agent runs. The agent investigates broken links, tries common variations (www, http vs https), and uses web-fetch to find where content moved.
 
-
 **Reference:** [https://github.com/githubnext/agentics/tree/main/docs/link-checker.md](https://github.com/githubnext/agentics/tree/main/docs/link-checker.md)
 
-
-
 ### 🗜️ Documentation Unbloat
-Automatically simplify documentation by reducing verbosity while maintaining clarity
+
+Automatically simplify documentation by reducing verbosity while maintaining clarity.
 
 **Review and simplify documentation by removing verbosity while maintaining clarity**
 
@@ -898,13 +834,11 @@ The workflow improves exactly **one file per run** for easy review. Files with `
 
 For scheduled runs, the workflow is skipped if there are already 8 or more open PRs with its title prefix, to avoid overwhelming maintainers.
 
-
 **Reference:** [https://github.com/githubnext/agentics/tree/main/docs/unbloat-docs.md](https://github.com/githubnext/agentics/tree/main/docs/unbloat-docs.md)
 
-
-
 ### 📝 Markdown Linter
-Run Markdown quality checks on all documentation files and get a prioritized issue report of violations
+
+Run Markdown quality checks on all documentation files and get a prioritized issue report of violations.
 
 **Run Markdown quality checks across all documentation files and get a prioritized issue report of violations**
 
@@ -925,8 +859,6 @@ graph LR
 The workflow runs in two jobs. The first job runs Super Linter to lint all Markdown files and uploads the log as an artifact. The second job (the AI agent) downloads that log, categorizes violations by severity, and creates a prioritized GitHub issue with recommended fixes. Previous issues expire after 2 days to avoid accumulation.
 
 **Reference:** [https://github.com/githubnext/agentics/tree/main/docs/markdown-linter.md](https://github.com/githubnext/agentics/tree/main/docs/markdown-linter.md)
-
-
 
 ### 📱 Multi-Device Docs Tester
 
@@ -949,15 +881,13 @@ The workflow builds your docs site using npm, starts a local preview server, and
 
 **Reference:** [https://github.com/githubnext/agentics/tree/main/docs/multi-device-docs-tester.md](https://github.com/githubnext/agentics/tree/main/docs/multi-device-docs-tester.md)
 
-
-
 ### Code Improvement Workflows (by analysis, producing report)
 
 These workflows analyze the repository, code, and activity to produce reports, insights, and recommendations for improvements. They do not make any changes to the codebase directly but can be used as input for maintainers to take action.
 
-
 ### 🔍 Daily Accessibility Review
-Review application accessibility by automatically running and using the application
+
+Review application accessibility by automatically running and using the application.
 
 **Perform accessibility reviews checking for WCAG 2.2 compliance and documenting problems found**
 
@@ -974,14 +904,11 @@ graph LR
     D -->|No| F[Report: All Accessible]
 ```
 
-
 **Reference:** [https://github.com/githubnext/agentics/tree/main/docs/accessibility-review.md](https://github.com/githubnext/agentics/tree/main/docs/accessibility-review.md)
 
-
-
-
 ### 🔧 Q - Agentic Workflow Optimizer
-Expert system that analyzes and optimizes agentic workflows
+
+Expert system that analyzes and optimizes agentic workflows.
 
 **Expert system for optimizing and fixing agentic workflows**
 
@@ -1001,13 +928,11 @@ graph LR
 
 The workflow downloads recent workflow logs and audit information, examines workflow files, researches best practices, and validates changes using the compile tool.
 
-
 **Reference:** [https://github.com/githubnext/agentics/tree/main/docs/q.md](https://github.com/githubnext/agentics/tree/main/docs/q.md)
 
-
-
 ### 🗂️ Large File Simplifier
-Identify the largest source file and create a detailed refactoring plan as an issue
+
+Identify the largest source file and create a detailed refactoring plan as an issue.
 
 **Analyze source files to identify the largest and create an actionable refactoring issue with a detailed split plan**
 
@@ -1027,16 +952,13 @@ graph LR
 
 The workflow identifies logical boundaries within the file — distinct responsibilities, related function clusters, utility code — and produces a concrete refactoring plan with proposed file names, contents, and acceptance criteria.
 
-
 **Reference:** [https://github.com/githubnext/agentics/tree/main/docs/large-file-simplifier.md](https://github.com/githubnext/agentics/tree/main/docs/large-file-simplifier.md)
-
-
 
 ### Code Improvement Workflows (by making changes, producing pull requests)
 
-
 ### 🧹 Code Simplifier
-Automatically simplify recently modified code for improved clarity and maintainability
+
+Automatically simplify recently modified code for improved clarity and maintainability.
 
 **Automatically analyze recently modified code and create pull requests with simplifications that improve clarity and maintainability**
 
@@ -1056,13 +978,11 @@ graph LR
 
 Common improvements include reducing nested conditionals, extracting repeated logic, improving naming, consolidating error handling, and applying idiomatic language features.
 
-
 **Reference:** [https://github.com/githubnext/agentics/tree/main/docs/code-simplifier.md](https://github.com/githubnext/agentics/tree/main/docs/code-simplifier.md)
 
-
-
 ### 🔍 Duplicate Code Detector
-Identify duplicate code patterns and suggest refactoring opportunities
+
+Identify duplicate code patterns and suggest refactoring opportunities.
 
 **Automatically identify duplicate code patterns and suggest refactoring opportunities**
 
@@ -1081,13 +1001,11 @@ graph LR
 
 The workflow reports identical or nearly identical functions, repeated code blocks, similar classes with overlapping functionality, and copy-pasted code. It excludes standard boilerplate, test setup code, config files, and small snippets (<5 lines).
 
-
 **Reference:** [https://github.com/githubnext/agentics/tree/main/docs/duplicate-code-detector.md](https://github.com/githubnext/agentics/tree/main/docs/duplicate-code-detector.md)
 
-
-
 ### 🧪 Daily Test Improver
-Improve test coverage by adding meaningful tests to under-tested areas
+
+Improve test coverage by adding meaningful tests to under-tested areas.
 
 The Daily Test Improver workflow is a testing-focused repository assistant that runs regularly (daily by default) to improve test quality and coverage. It can also be triggered on-demand via `/test-assist <instructions>` to perform specific tasks. It discovers build/test/coverage commands, identifies high-value testing opportunities, implements test improvements with measured impact, maintains its own PRs, comments on testing issues, invests in test infrastructure, and maintains a monthly activity summary for maintainer visibility.
 
@@ -1113,10 +1031,9 @@ graph LR
 
 **Reference:** [https://github.com/githubnext/agentics/tree/main/docs/test-improver.md](https://github.com/githubnext/agentics/tree/main/docs/test-improver.md)
 
-
-
 ### 🌱 Daily Efficiency Improver
-Improve energy efficiency and computational footprint across code, data, network, and UI
+
+Improve energy efficiency and computational footprint across code, data, network, and UI.
 
 The Daily Efficiency Improver workflow is an energy-efficiency-focused repository assistant that runs regularly (daily by default) to identify and implement improvements that reduce computational footprint. It discovers build/test/benchmark commands, identifies opportunities across code, data, network/I/O, and frontend behavior, implements measurable changes, maintains its own PRs, comments on relevant issues, invests in measurement infrastructure, and maintains a monthly activity summary for maintainer visibility.
 
@@ -1155,10 +1072,9 @@ For scheduled runs, the workflow is skipped if there are already 8 or more open 
 
 **Reference:** [https://github.com/githubnext/agentics/tree/main/docs/efficiency-improver.md](https://github.com/githubnext/agentics/tree/main/docs/efficiency-improver.md)
 
-
-
 ### ⚡ Daily Performance Improver
-Analyze and improve code performance through benchmarking and optimization
+
+Analyze and improve code performance through benchmarking and optimization.
 
 The Daily Performance Improver workflow is a performance-focused repository assistant that runs regularly (daily by default) to identify and implement performance improvements. It can also be triggered on-demand via `/perf-assist <instructions>` to perform specific tasks. It discovers build/benchmark commands, identifies optimization opportunities, implements improvements with measured impact, maintains its own PRs, comments on performance issues, invests in measurement infrastructure, and maintains a monthly activity summary for maintainer visibility.
 
@@ -1187,7 +1103,8 @@ For scheduled runs, the workflow is skipped if there are already 8 or more open 
 **Reference:** [https://github.com/githubnext/agentics/tree/main/docs/perf-improver.md](https://github.com/githubnext/agentics/tree/main/docs/perf-improver.md)
 
 ### 📊 Repository Quality Improver
-Daily rotating analysis of repository quality across code, documentation, testing, security, and custom dimensions
+
+Daily rotating analysis of repository quality across code, documentation, testing, security, and custom dimensions.
 
 The Repository Quality Improver workflow analyzes your repository from a different quality angle every weekday, producing an issue with findings and actionable improvement tasks.
 
@@ -1228,10 +1145,7 @@ Each run produces one issue containing:
 
 You can comment on the issue to request follow-up actions or add it to a project board for tracking.
 
-
 **Reference:** [https://github.com/githubnext/agentics/tree/main/docs/repository-quality-improver.md](https://github.com/githubnext/agentics/tree/main/docs/repository-quality-improver.md)
-
-
 
 ### Command-Triggered Agentic Workflows
 
@@ -1239,9 +1153,9 @@ These workflows are triggered by specific "/" commands in issue or pull request 
 
 You can use the "/plan" agent to turn the reports into actionable issues which can then be assigned to the appropriate team members or agents.
 
-
 ### 📊 Archie - Mermaid Diagram Generator
-Generate Mermaid diagrams to visualize issue and pull request relationships with /archie command
+
+Generate Mermaid diagrams to visualize issue and pull request relationships with /archie command.
 
 **On-demand Mermaid diagram generation for issues and pull requests**
 
@@ -1261,13 +1175,11 @@ graph LR
 
 Archie fetches the full content of the triggering issue or PR, identifies key entities and relationships, picks the most appropriate Mermaid diagram type (flowchart, sequence, class diagram, gantt, etc.), and posts a well-formatted comment with between 1 and 3 diagrams.
 
-
 **Reference:** [https://github.com/githubnext/agentics/tree/main/docs/archie.md](https://github.com/githubnext/agentics/tree/main/docs/archie.md)
 
-
-
 ### 🔧 PR Fix
-Analyze failing CI checks and implement fixes for pull requests
+
+Analyze failing CI checks and implement fixes for pull requests.
 
 **Analyze and fix failing CI checks in pull requests**
 
@@ -1286,13 +1198,11 @@ graph LR
 
 The workflow searches for error message documentation and solutions online, and can create issues for complex problems requiring human intervention.
 
-
 **Reference:** [https://github.com/githubnext/agentics/tree/main/docs/pr-fix.md](https://github.com/githubnext/agentics/tree/main/docs/pr-fix.md)
 
-
-
 ### 🔍 Repo Ask
-Intelligent research assistant for repository questions and analysis
+
+Intelligent research assistant for repository questions and analysis.
 
 **Intelligent research assistant for your repository**
 
@@ -1311,16 +1221,13 @@ graph LR
 
 The workflow searches for relevant documentation online, looks up technical information, and runs repository analysis commands to answer questions.
 
-
 **Reference:** [https://github.com/githubnext/agentics/tree/main/docs/repo-ask.md](https://github.com/githubnext/agentics/tree/main/docs/repo-ask.md)
-
-
 
 ## Security Workflows
 
-
 ### 🔍 Daily Malicious Code Scan
-Scan recent code changes for suspicious patterns indicating malicious activity or supply chain attacks
+
+Scan recent code changes for suspicious patterns indicating malicious activity or supply chain attacks.
 
 The Daily Malicious Code Scan workflow examines files changed in the past 72 hours, searching for secret exfiltration, out-of-context code, suspicious network activity, system access patterns, obfuscation, and supply chain indicators. Findings appear as GitHub code-scanning alerts with threat scores and remediation recommendations.
 
@@ -1335,13 +1242,11 @@ graph LR
     D -->|No| F[Report: All Clear]
 ```
 
-
 **Reference:** [https://github.com/githubnext/agentics/tree/main/docs/malicious-code-scan.md](https://github.com/githubnext/agentics/tree/main/docs/malicious-code-scan.md)
 
-
-
 ### 🔒 VEX Generator
-Auto-generate OpenVEX statements for dismissed Dependabot alerts, capturing security assessments in a machine-readable format
+
+Auto-generate OpenVEX statements for dismissed Dependabot alerts, capturing security assessments in a machine-readable format.
 
 **Auto-generate OpenVEX statements for dismissed Dependabot alerts**
 
@@ -1361,16 +1266,13 @@ graph LR
     H --> I[Open Pull Request]
 ```
 
-
 **Reference:** [https://github.com/githubnext/agentics/tree/main/docs/vex-generator.md](https://github.com/githubnext/agentics/tree/main/docs/vex-generator.md)
-
-
 
 ## Formal Verification Workflows
 
-
 ### 🔬 Lean Squad
-Progressively apply Lean 4 formal verification to your codebase: research targets, extract specs, write Lean propositions, translate implementations, and attempt proofs — finding bugs or issuing stamps of confidence
+
+Progressively apply Lean 4 formal verification to your codebase: research targets, extract specs, write Lean propositions, translate implementations, and attempt proofs — finding bugs or issuing stamps of confidence.
 
 The Lean Squad workflow is a [GitHub Agentic Workflow](https://github.blog/ai-and-ml/automate-repository-tasks-with-github-agentic-workflows/) that applies Lean 4 formal verification to your codebase progressively and optimistically — without requiring any prior FV expertise. Each run it selects tasks weighted to the current phase of FV progress, from initial research all the way through to completed proofs, correspondence reviews, project reports, and even a LaTeX conference paper. Maybe it finds a bug; maybe it proves something; either way, it makes forward progress.
 
@@ -1402,10 +1304,7 @@ The weighting scheme adapts automatically: when no FV work exists Task 1 dominat
 
 **Reference:** [https://github.com/githubnext/agentics/tree/main/docs/lean-squad.md](https://github.com/githubnext/agentics/tree/main/docs/lean-squad.md)
 
-
-
 ## Meta-Workflows
-
 
 ### 🔍 Daily Ad hoc QA
 
@@ -1426,16 +1325,13 @@ graph LR
 
 For scheduled runs, the workflow is skipped if there are already 8 or more open PRs with its title prefix, to avoid overwhelming maintainers.
 
-
 **Reference:** [https://github.com/githubnext/agentics/tree/main/docs/adhoc-qa.md](https://github.com/githubnext/agentics/tree/main/docs/adhoc-qa.md)
-
-
 
 ### Issue Farming Workflows
 
-
 ### 🔒 Sub-Issue Closer
-Automatically close parent issues when all their sub-issues are complete
+
+Automatically close parent issues when all their sub-issues are complete.
 
 The Sub-Issue Closer workflow automatically closes parent issues when all of their sub-issues have been completed, keeping your issue tracker clean and organized.
 
@@ -1468,13 +1364,11 @@ Epic #1: "Launch v2.0"
 
 The workflow would close Feature #2 (all sub-issues done), then check if Epic #1 can be closed too (it cannot, because Feature #5 is still open).
 
-
 **Reference:** [https://github.com/githubnext/agentics/tree/main/docs/sub-issue-closer.md](https://github.com/githubnext/agentics/tree/main/docs/sub-issue-closer.md)
 
-
-
 ### 🌳 Issue Arborist
-Automatically organize issues by linking related issues as parent-child sub-issues
+
+Automatically organize issues by linking related issues as parent-child sub-issues.
 
 **Daily automated workflow that organizes your issue tracker by linking related issues as parent-child relationships**
 
@@ -1511,10 +1405,7 @@ The workflow downloads the 100 most recent open issues (excluding those already 
 - Create parent issues for fewer than 5 related orphan issues
 - Re-process issues that already have a parent
 
-
 **Reference:** [https://github.com/githubnext/agentics/tree/main/docs/issue-arborist.md](https://github.com/githubnext/agentics/tree/main/docs/issue-arborist.md)
-
-
 
 ## 🧩 Shared Workflow Fragments
 
