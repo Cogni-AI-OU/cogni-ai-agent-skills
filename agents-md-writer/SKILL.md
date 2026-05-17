@@ -127,12 +127,21 @@ native file and `AGENTS.md` when both are present.
 - `## Requirements`
 - `## Key Files & Context Injection`
 - `## Agent Directives (Contract Style)`
+  - Role, then invariants, then ...
+  - NEVER ...
+  - MUST ...
 - `## Common Tasks`
 - `## Related Prompts or Skills (load when relevant)`
 - `## Testing & Verification Gates`
 - `## Maintenance`
 - `## Final Assurance Gates`
+  - Keep this file entropy-pruned and up-to-date.
+  - Inject full content into every sub-agent context.
 - `## Troubleshooting Matrix`
+  > signature error / smell
+  - root-cause vector
+  - isolation steps
+  - verified fix + prevention
 
 ### Formatting
 
