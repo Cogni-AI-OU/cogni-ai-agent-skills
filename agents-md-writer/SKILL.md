@@ -103,9 +103,9 @@ A skill is a portable directory containing a `SKILL.md` file plus optional scrip
 If you use multiple coding agents, use `AGENTS.md` for shared instructions
 and tool-specific files for features unique to those platforms.
 
-Use a tool-specific file when:
-- You need to configure tool-specific behavior (like Claude Code's permission
-  boundaries or Cursor's glob scoping).
+Use a tool-specific file (`CLAUDE.md`, `GEMINI.md`, `.cursorrules`) when:
+- You need to configure tool-specific behavior
+  (like Claude Code's permission boundaries or Cursor's glob scoping).
 - Your team standardizes on one tool.
 - You want to leverage features unique to that tool.
 
