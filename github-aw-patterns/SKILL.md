@@ -1,6 +1,6 @@
 ---
 name: github-aw-patterns
-description: 'Reference and guidelines for designing GitHub Agentic Workflows using established operational patterns like BatchOps, CentralRepoOps, ChatOps, correction-ops, and others.'
+description: 'Reference and guidelines for designing GitHub Agentic Workflows using established operational patterns like BatchOps, CentralRepoOps, ChatOps, CorrectionOps, and others.'
 ---
 
 # Skill: github-aw-patterns
@@ -69,21 +69,15 @@ Scheduled execution usually runs on weekday schedules (avoiding weekends) with `
 
 ### DeterministicOps
 
-Use when you need deterministic data collection steps followed by agentic analysis and reporting (DataOps).
+Use when you need deterministic data collection steps followed by agentic analysis and reporting.
 
-Combines deterministic computation with AI reasoning, enabling data preprocessing, custom trigger filtering, and post-processing patterns. Includes the **DataOps** sub-pattern where shell commands in steps reliably collect and prepare data, then the AI agent reads the results and generates insights. Use this for data aggregation, report generation, trend analysis, auditing, and any hybrid pipeline.
+Combines deterministic computation with AI reasoning, enabling data preprocessing, custom trigger filtering, and post-processing patterns. Shell commands in steps reliably collect and prepare data, then the AI agent reads the results and generates insights. Use this for data aggregation, report generation, trend analysis, auditing, and any hybrid pipeline.
 
 ### DispatchOps
 
 Use when you need manual trigger flows (`workflow_dispatch`) with custom inputs for testing or controlled runs.
 
 Enables manual workflow execution via the GitHub Actions UI or CLI using `workflow_dispatch`. Perfect for on-demand tasks, testing workflows during development, debugging production issues, or tasks that don't fit a schedule or event trigger.
-
-### ExpertOps
-
-Use when you need scheduled domain-expert agents that file recommendations and monitor impact over time.
-
-ExpertOps deploys specialized agents focused on specific domains (security, performance, accessibility). These agents run on a schedule, analyze the repository, file issues or PRs with recommendations, and track the resolution of those items over time to measure impact.
 
 ### IssueOps
 
@@ -113,7 +107,7 @@ Enables workflows to persist state across runs using `cache-memory` and `repo-me
 
 ### MonitorOps
 
-Use when you need repository-wide workflow observability, trend reporting, and escalation for recurring failures or token waste (AgenticOps).
+Use when you need repository-wide workflow observability, trend reporting, and escalation for recurring failures or token waste.
 
 Use this pattern when you want a scheduled workflow to inspect other agentic workflows, summarize what happened, and escalate unusual cost or failure patterns. Creates a durable operational record and can open or update issues when the same problem crosses a threshold.
 
@@ -159,12 +153,6 @@ Use when you need to maintain formal specifications and propagate spec updates t
 
 A pattern for maintaining formal specifications using agentic workflows. Leverages the w3c-specification-writer agent to create W3C-style specifications with RFC 2119 keywords and automatically propagates changes to consuming implementations across repositories.
 
-### TaskOps Strategy
-
-Use when you need a staged model of research, planning, and code execution with developer control.
-
-TaskOps Strategy provides a structured approach to complex tasks by breaking them into distinct stages: research, planning, and execution. Each stage can be reviewed by a developer, providing high levels of control and safety for complex code modifications.
-
 ### TrialOps
 
 Use when you need isolated trial repositories to validate workflows before production rollout.
@@ -186,24 +174,22 @@ Queue Strategies:
 - [BatchOps](https://github.com/github/gh-aw/blob/v0.74.0/docs/src/content/docs/patterns/batch-ops.md)
 - [CentralRepoOps](https://github.com/github/gh-aw/blob/v0.74.0/docs/src/content/docs/patterns/central-repo-ops.mdx)
 - [ChatOps](https://github.com/github/gh-aw/blob/v0.74.0/docs/src/content/docs/patterns/chat-ops.md)
-- [CorrectionOps](https://github.com/github/gh-aw/blob/v0.74.0/docs/src/content/docs/patterns/correction-ops.md)
+- [CorrectionOps](https://github.com/github/gh-aw/blob/main/docs/src/content/docs/experimental/correction-ops.md)
 - [DailyOps](https://github.com/github/gh-aw/blob/v0.74.0/docs/src/content/docs/patterns/daily-ops.md)
-- [DeterministicOps](https://github.com/github/gh-aw/blob/v0.74.0/docs/src/content/docs/patterns/data-ops.md)
+- [DeterministicOps](https://github.com/github/gh-aw/blob/main/docs/src/content/docs/patterns/deterministic-ops.md)
 - [DispatchOps](https://github.com/github/gh-aw/blob/v0.74.0/docs/src/content/docs/patterns/dispatch-ops.md)
-- [ExpertOps](https://github.com/github/gh-aw/blob/v0.74.0/docs/src/content/docs/patterns/expert-ops.md)
 - [IssueOps](https://github.com/github/gh-aw/blob/v0.74.0/docs/src/content/docs/patterns/issue-ops.md)
 - [LabelOps](https://github.com/github/gh-aw/blob/v0.74.0/docs/src/content/docs/patterns/label-ops.md)
 - [MemoryOps](https://github.com/github/gh-aw/blob/v0.74.0/docs/src/content/docs/guides/memoryops.md)
-- [Monitoring with Projects](https://github.com/github/gh-aw/blob/v0.74.0/docs/src/content/docs/patterns/monitoring.md)
-- [MonitorOps](https://github.com/github/gh-aw/blob/v0.74.0/docs/src/content/docs/patterns/agentic-ops.md)
+- [Monitoring with Projects](https://github.com/github/gh-aw/blob/main/docs/src/content/docs/experimental/monitoring-with-projects.md)
+- [MonitorOps](https://github.com/github/gh-aw/blob/main/docs/src/content/docs/patterns/monitor-ops.md)
 - [MultiRepoOps](https://github.com/github/gh-aw/blob/v0.74.0/docs/src/content/docs/patterns/multi-repo-ops.md)
 - [Orchestration](https://github.com/github/gh-aw/blob/v0.74.0/docs/src/content/docs/patterns/orchestration.md)
 - [ProjectOps](https://github.com/github/gh-aw/blob/v0.74.0/docs/src/content/docs/patterns/project-ops.mdx)
 - [ResearchPlanAssignOps](https://github.com/github/gh-aw/blob/v0.74.0/docs/src/content/docs/patterns/research-plan-assign-ops.md)
 - [SideRepoOps](https://github.com/github/gh-aw/blob/v0.74.0/docs/src/content/docs/patterns/side-repo-ops.mdx)
 - [SpecOps](https://github.com/github/gh-aw/blob/v0.74.0/docs/src/content/docs/patterns/spec-ops.md)
-- [TaskOps Strategy](https://github.com/github/gh-aw/blob/v0.74.0/docs/src/content/docs/patterns/task-ops.md)
-- [TrialOps](https://github.com/github/gh-aw/blob/v0.74.0/docs/src/content/docs/patterns/trial-ops.md)
+- [TrialOps](https://github.com/github/gh-aw/blob/main/docs/src/content/docs/experimental/trial-ops.md)
 - [WorkQueueOps](https://github.com/github/gh-aw/blob/v0.74.0/docs/src/content/docs/patterns/workqueue-ops.md)
 
 ## Related Skills
