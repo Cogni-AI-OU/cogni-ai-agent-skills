@@ -99,15 +99,6 @@ mindmap
         Create Projects V2 boards
 ```
 
-## Agentic Workflow Prompts
-
-When asked to create, update, debug, or upgrade GitHub Agentic Workflows, use `webfetch` to retrieve and read the appropriate instruction prompt from the official repository before proceeding:
-
-- **Create New Workflow**: `https://raw.githubusercontent.com/github/gh-aw/v0.74.3/.github/aw/create-agentic-workflow.md`
-- **Update Existing Workflow**: `https://raw.githubusercontent.com/github/gh-aw/v0.74.3/.github/aw/update-agentic-workflow.md`
-- **Upgrade Agentic Workflows**: `https://raw.githubusercontent.com/github/gh-aw/v0.74.3/.github/aw/upgrade-agentic-workflows.md`
-- **Create Shared Agentic Workflow**: `https://raw.githubusercontent.com/github/gh-aw/v0.74.3/.github/aw/create-shared-agentic-workflow.md`
-
 ## Core Process
 
 1. **Setup**: Use `gh aw init` to initialize a repository, followed by `gh aw new <workflow-name>` or `gh aw add-wizard`.
@@ -127,6 +118,16 @@ When asked to create, update, debug, or upgrade GitHub Agentic Workflows, use `w
 - [Official gh-aw Repo](https://github.com/github/gh-aw)
 - [gh-aw Runbook](https://github.com/github/gh-aw/blob/v0.74.3/.github/aw/runbooks/workflow-health.md)
 - [Maintaining Repositories](https://github.com/github/gh-aw/blob/v0.74.3/docs/src/content/docs/practices/maintaining-repos.md)
+
+### Agentic Workflow Prompts
+
+When asked to create, update, debug, or upgrade GitHub Agentic Workflows,
+use `webfetch` to retrieve and read the appropriate instruction prompt from the official repository before proceeding:
+
+- **Create New Workflow**: `https://raw.githubusercontent.com/github/gh-aw/v0.74.3/.github/aw/create-agentic-workflow.md`
+- **Update Existing Workflow**: `https://raw.githubusercontent.com/github/gh-aw/v0.74.3/.github/aw/update-agentic-workflow.md`
+- **Upgrade Agentic Workflows**: `https://raw.githubusercontent.com/github/gh-aw/v0.74.3/.github/aw/upgrade-agentic-workflows.md`
+- **Create Shared Agentic Workflow**: `https://raw.githubusercontent.com/github/gh-aw/v0.74.3/.github/aw/create-shared-agentic-workflow.md`
 
 ## Related Skills
 
