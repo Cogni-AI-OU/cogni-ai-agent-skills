@@ -1,6 +1,6 @@
 ---
 name: agent-md
-description: Syntax and structure reference for GitHub Copilot custom agent persona files (.github/agents/*.md). Use this to understand the schema and format of agent persona definitions.
+description: Syntax and structure reference for GitHub Copilot custom agent persona files (.github/agents/*.md) and OpenCode agent definitions. Use this to understand the schema and format of agent persona definitions across platforms.
 license: MIT
 ---
 
@@ -8,16 +8,26 @@ license: MIT
 
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
 
-Agent MD is a format for defining specialized GitHub Copilot agent personas. These files provide context-specific instructions, project knowledge, and execution boundaries for autonomous agents.
+Agent MD is a format for defining specialized agent personas. These files provide context-specific instructions, project knowledge, and execution boundaries for autonomous agents in GitHub Copilot and OpenCode.
 
-## Target Location
+## Target Locations
 
-Agent MD persona files MUST be located in the `.github/agents/` directory of the repository.
-The filename SHOULD match the agent's `name` property defined in the frontmatter (e.g., `.github/agents/test-agent.md`).
+### GitHub Copilot
 
-## Syntax Overview
+Custom agents for GitHub Copilot for specific Copilot agents MUST be located in:
+- `.github/agents/` directory of the repository.
+- The filename SHOULD match the agent's `name` property (e.g., `.github/agents/test-agent.md`).
 
-An Agent MD file consists of YAML frontmatter followed by a structured Markdown body.
+### OpenCode
+
+OpenCode agents can be defined globally or per-project:
+- **Global:** `~/.config/opencode/agents/`
+- **Per-project:** `.opencode/agents/`
+- **Configuration:** Configure agents in your `opencode.json` config file under the `agent` key.
+
+## GitHub Copilot Agent Syntax
+
+An Agent MD file for Copilot consists of YAML frontmatter followed by a structured Markdown body.
 
 ### YAML Frontmatter
 
@@ -26,7 +36,46 @@ An Agent MD file consists of YAML frontmatter followed by a structured Markdown 
 | `name` | The unique identifier for the agent (e.g., `test-agent`) | Mandatory |
 | `description` | A concise one-sentence description of the agent's purpose | Mandatory |
 
-### Mandatory Markdown Sections
+## OpenCode Agent Syntax
+
+OpenCode supports both JSON configuration and Markdown files for agent definitions.
+
+### JSON Configuration (`opencode.json`)
+
+```json
+{
+  "agent": {
+    "my-agent": {
+      "mode": "subagent",
+      "model": "anthropic/claude-sonnet-4-20250514",
+      "prompt": "{file:./prompts/my-agent.txt}",
+      "permission": {
+        "edit": "allow",
+        "bash": "allow"
+      }
+    }
+  }
+}
+```
+
+### Markdown Agent Frontmatter
+
+Markdown files in the OpenCode agent directories use more extensive frontmatter:
+
+| Field | Description |
+| :--- | :--- |
+| `description` | Concise description of the agent's purpose (Required). |
+| `mode` | `primary`, `subagent`, or `all` (Defaults to `all`). |
+| `model` | Override the model for this agent (e.g., `openai/gpt-5`). |
+| `temperature` | Control randomness (0.0 to 1.0). |
+| `permission` | Fine-grained tool permissions (`allow`, `ask`, `deny`). |
+| `steps` | Max agentic iterations before forcing a response. |
+| `prompt` | Path to a custom system prompt file. |
+| `hidden` | `true` to hide from `@` autocomplete (subagents only). |
+
+## Mandatory Markdown Sections
+
+Regardless of the platform, a high-quality agent definition should include:
 
 1. **Role Definition**: Explicitly state the agent's persona and specialization.
 2. **Project Knowledge**: Tech stack, versions, and relevant directory layout.
@@ -34,7 +83,7 @@ An Agent MD file consists of YAML frontmatter followed by a structured Markdown 
 4. **Standards & Examples**: Idiomatic code snippets showing the expected style.
 5. **Three-Tier Boundaries**: Using `Always`, `Ask first`, and `Never` categories.
 
-## Reference Structure
+## Reference Structure (GitHub Copilot)
 
 ```markdown
 ---
@@ -76,3 +125,7 @@ You are an expert <role> for this project.
   Load this skill for general `AGENTS.md` project context files.
 - **skill-writer**:
   Load this skill when writing `SKILL.md` files for Copilot skills.
+
+## References
+
+- [OpenCode Agents Documentation](https://opencode.ai/docs/agents/)
