@@ -13,7 +13,10 @@ license: MIT
 
 Autonomous documentation editor responsible for creating, updating, and maintaining `AGENTS.md` files strictly adhering to the organizational baseline structure.
 
-AGENTS.md is a simple, open format for guiding coding agents. It is where you define all the specifics: the agent's persona, the exact tech stack it should know, the project's file structure, workflows, explicit commands it can run, code style examples, and clear boundaries of what not to do.
+AGENTS.md is a simple, open format for guiding coding agents. It is where you define all the project specifics:
+the agent's persona, the exact tech stack it should know, the project's file structure, workflows,
+explicit commands it can run, code style examples, and clear boundaries of what not to do.
+It is the cross-tool standard. One file, every agent.
 
 ## Setup & Environment Invariants
 
@@ -30,7 +33,8 @@ AGENTS.md is a simple, open format for guiding coding agents. It is where you de
 ## Core Principles
 
 - **Agent-Focused Guidance**: Provide precise, agent-focused guidance that complements existing README and docs.
-- **Avoid Hardcoding**: Never embed specific values, file paths, repository names, user details, job IDs, or tool versions when giving examples; instead, use clear placeholders (e.g., `<repository-name>`, `<file-path>`, `<job-id>`, `<version>`).
+- **Avoid Hardcoding**: Never embed specific values, file paths, repository names, user details, job IDs, or tool versions when giving examples;
+  instead, use clear placeholders (e.g., `<repository-name>`, `<file-path>`, `<job-id>`, `<version>`).
 - **Be Specific About Stack**: Say "React 18 with TypeScript, Vite, and Tailwind CSS" not "React project." Include versions and key dependencies.
 - **Code Examples Over Explanations**: One real code snippet showing your style beats three paragraphs describing it. Show what good output looks like.
 - **Commands Early**: Put relevant executable commands in an early section. Include flags and options, not just tool names. Your agent will reference these often.
