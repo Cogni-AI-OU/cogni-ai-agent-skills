@@ -1370,3 +1370,8 @@ gh aw update   # Update added workflows
 ```
 
 This automatically updates agent files, applies codemods, updates actions versions, and recompiles all workflows.
+
+## References
+
+- [GitHub Agentic Workflows](https://github.com/githubnext/agentics)
+  On changes to the Agentics repository, this skill should be updated to reflect the latest workflows and capabilities.
