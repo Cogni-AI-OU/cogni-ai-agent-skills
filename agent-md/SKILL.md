@@ -189,6 +189,7 @@ You are an expert <role> for this project.
 ## References
 
 - [About custom agents](https://docs.github.com/en/copilot/concepts/agents/cloud-agent/about-custom-agents)
+- [Creating and using custom agents for GitHub Copilot CLI](https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/create-custom-agents-for-cli)
 - [Your first custom agent](https://docs.github.com/en/copilot/tutorials/customization-library/custom-agents/your-first-custom-agent)
 - [OpenCode Agents Documentation](https://opencode.ai/docs/agents/)
 - [Claude Code Documentation](https://code.claude.com/docs/en/memory)
