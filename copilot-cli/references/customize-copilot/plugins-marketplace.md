@@ -2,11 +2,13 @@
 
 **Goal**: Create and share plugin registries for easy discovery and installation.
 
-### Invariants
+## Invariants
+
 - Requires `marketplace.json` in `.github/plugin/` directory.
 - `marketplace.json` is the only mandatory component.
 
-### Schema
+## Schema (if applicable)
+
 ```json
 {
   "name": "My Marketplace",
@@ -19,7 +21,8 @@
 }
 ```
 
-### Commands / Execution
+## Commands / Execution (if applicable)
+
 ```bash
 # Register a marketplace from GitHub
 copilot plugin marketplace add octo-org/octo-repo
@@ -29,4 +32,5 @@ copilot plugin marketplace add /path/to/dir
 ```
 
 ## References
+
 - [Creating a plugin marketplace for GitHub Copilot CLI](https://github.com/github/docs/blob/main/content/copilot/how-tos/copilot-cli/customize-copilot/plugins-marketplace.md)

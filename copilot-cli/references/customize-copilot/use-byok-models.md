@@ -2,20 +2,23 @@
 
 **Goal**: Configure external LLM providers (OpenAI, Anthropic, Azure) via Bring Your Own Key (BYOK).
 
-### Invariants
+## Invariants
+
 - Models MUST support **tool calling** and **streaming**.
 - Context window of at least 128k tokens is recommended.
 - GitHub authentication is NOT required if using ONLY BYOK.
 - Features like `/delegate` and GitHub MCP still require GitHub authentication.
 
-### Configuration (Environment Variables)
+## Schema (if applicable)
+
 - `COPILOT_PROVIDER_BASE_URL`: API endpoint URL.
 - `COPILOT_PROVIDER_TYPE`: `openai` (default), `azure`, or `anthropic`.
 - `COPILOT_PROVIDER_API_KEY`: Provider API key.
 - `COPILOT_MODEL`: Model identifier.
 - `COPILOT_OFFLINE`: Set to `true` for air-gapped/isolated use.
 
-### Commands / Execution
+## Commands / Execution (if applicable)
+
 ```bash
 # Example: Local Ollama
 export COPILOT_PROVIDER_BASE_URL=http://localhost:11434
@@ -31,4 +34,5 @@ copilot
 ```
 
 ## References
+
 - [Using your own LLM models in GitHub Copilot CLI](https://github.com/github/docs/blob/main/content/copilot/how-tos/copilot-cli/customize-copilot/use-byok-models.md)

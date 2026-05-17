@@ -2,17 +2,20 @@
 
 **Goal**: Manage trusted directories, tool access, path permissions, and URL boundaries.
 
-### Invariants
+## Invariants
+
 - Default access: current working directory, subdirectories, and system temp directory.
 - Trusted directories prevent unauthorized file access.
 - Tool permissions can be session-based or permanent.
 - URL boundary checks apply to `web_fetch` and common shell commands (`curl`, `wget`).
 
-### Schema / Configuration
+## Schema (if applicable)
+
 - Config File: `~/.copilot/config.json` (configurable via `COPILOT_HOME`).
 - `trustedFolders`: Array of directory paths in `config.json`.
 
-### Commands / Execution
+## Commands / Execution (if applicable)
+
 ```bash
 # Allow all tools, paths, and URLs (YOLO mode)
 copilot --yolo --prompt "Perform task"
@@ -31,4 +34,5 @@ copilot --disallow-temp-dir
 ```
 
 ## References
+
 - [Configuring GitHub Copilot CLI](https://github.com/github/docs/blob/main/content/copilot/how-tos/copilot-cli/set-up-copilot-cli/configure-copilot-cli.md)

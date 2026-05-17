@@ -2,12 +2,14 @@
 
 **Goal**: Connect Model Context Protocol (MCP) servers to provide additional tools and context.
 
-### Invariants
+## Invariants
+
 - GitHub MCP server is built-in and enabled by default.
 - Remote (HTTP/SSE) or Local (STDIO) transport types supported.
 - Tool filtering via allowlist or wildcard (`*`).
 
-### Schema / Configuration
+## Schema (if applicable)
+
 - Config File: `~/.copilot/mcp-config.json` (configurable via `COPILOT_HOME`).
 
 ```json
@@ -24,7 +26,8 @@
 }
 ```
 
-### Commands / Execution
+## Commands / Execution (if applicable)
+
 ```bash
 # Add server interactively
 /mcp add
@@ -42,4 +45,5 @@
 ```
 
 ## References
+
 - [Adding MCP servers for GitHub Copilot CLI](https://github.com/github/docs/blob/main/content/copilot/how-tos/copilot-cli/customize-copilot/add-mcp-servers.md)
