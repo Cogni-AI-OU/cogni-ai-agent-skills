@@ -56,11 +56,11 @@ The mechanism is straightforward. Without AGENTS.md, the agent spends time explo
 
 ## What to Include in AGENTS.md
 
-- **Build & Test Commands**: Exact commands with flags. Name technologies with version, `uv run pytest tests/unit/ -v`, not `run the tests`. Include environment setup, migration scripts, and dev server startup.
+- **Build & Test Commands**: Exact commands with flags. Include environment setup, migration scripts, and dev server startup.
 - **Code Style Rules**: Only rules that differ from language defaults. `Named exports only, no default exports.` `All async handlers.` Things the agent would get wrong without guidance.
-- **Project Structure**: Map directories to responsibilities. The /legacy/, /src/api/ contains route handlers (thin, delegate to services). /src/services/ contains business logic.
-- **Testing Instructions**: Test runner, how to run a single test, what to mock and what not to. `No mocking the database. Use the test database. Factory Boy for test data.`
-- **Git Workflow**: Branch naming conventions, commit message format, PR requirements. `Squash merge only. Conventional commits: feat:, fix:, chore:, docs:.`
+- **Project Structure**: Map directories to responsibilities. E.g. route handlers vs business logic.
+- **Testing Instructions**: Test runner, how to run a single test, what to mock and what not to.
+- **Git Workflow**: Branch naming conventions, commit message format, PR requirements.
 - **Boundaries**: What the agent should never touch. Never modify files in /generated/. Never commit .env files.
 
 ## SKILL.md vs AGENTS.md
