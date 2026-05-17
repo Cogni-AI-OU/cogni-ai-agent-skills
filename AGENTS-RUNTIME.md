@@ -24,7 +24,7 @@ and planned work into the current context.
   logs, extracting telemetry, and generating standardized visual audit reports.
   You MUST load this skill when auditing or analyzing autonomous agent log files.
 - **[agent-md](agent-md/SKILL.md)**: Syntax and structure reference for GitHub Copilot custom agent persona files
-  (.github/agents/*.md).
+  (.github/agents/*.agent.md).
   You MUST load this skill to understand the schema and format of agent persona definitions.
 - **[agent-md-writer](agent-md-writer/SKILL.md)**: Guidelines and best practices for writing high-performance
   GitHub Copilot agent persona files.
