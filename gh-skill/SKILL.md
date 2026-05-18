@@ -1,6 +1,8 @@
 ---
 name: gh-skill
-description: 'Expert-level guidance on GitHub CLI (`gh skill`) operations for searching, previewing, installing, updating, and publishing agent skills. You MUST load this skill when managing agent skills via the GitHub CLI.'
+description: >-
+  Expert-level guidance on GitHub CLI (`gh skill`) operations for searching, previewing, installing, updating, and publishing agent skills.
+  You MUST load this skill when managing agent skills via the GitHub CLI.
 license: MIT
 ---
 

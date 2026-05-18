@@ -1,6 +1,6 @@
 ---
 name: gh-aw-firewall-debug
-description: 'Debug the AWF firewall by inspecting Docker containers, analyzing Squid access logs, checking iptables rules, and troubleshooting network issues.'
+description: Debug the AWF firewall by inspecting Docker containers, analyzing Squid access logs, checking iptables rules, and troubleshooting network issues.
 license: MIT
 ---
 

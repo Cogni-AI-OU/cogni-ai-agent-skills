@@ -1,6 +1,8 @@
 ---
 name: docs-writer
-description: 'Create, update, and maintain documentation including Architectural Decision Records (ADRs), runbooks, READMEs, and code-level documentation. You MUST load this skill when asked to write, document, or generate new documentation.'
+description: >-
+  Create, update, and maintain documentation including Architectural Decision Records (ADRs), runbooks, READMEs, and code-level documentation.
+  You MUST load this skill when asked to write, document, or generate new documentation.
 license: MIT
 ---
 

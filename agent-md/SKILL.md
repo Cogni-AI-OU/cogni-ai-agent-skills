@@ -1,6 +1,6 @@
 ---
 name: agent-md
-description: 'Syntax and structure reference for custom agent persona files (*.agent.md, CLAUDE.md, opencode.json). Use this to understand the schema, format, and architecture of agent definitions across platforms.'
+description: Syntax and structure reference for custom agent persona files (*.agent.md, CLAUDE.md, opencode.json). Use this to understand the schema, format, and architecture of agent definitions across platforms.
 license: MIT
 ---
 

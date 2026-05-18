@@ -1,6 +1,10 @@
 ---
 name: mermaid-beta
-description: 'Guide for creating and maintaining experimental Mermaid.js beta diagrams (Architecture, Block, Ishikawa, Packet, Radar, Sankey, Treemap, TreeView, Venn, XY Chart, ZenUML). You MUST load this skill when working with experimental Mermaid.js beta diagrams.'
+description: >-
+  Guide for creating and maintaining experimental Mermaid.js beta diagrams
+  (Architecture, Block, Ishikawa, Packet, Radar, Sankey, Treemap, TreeView,
+  Venn, XY Chart, ZenUML).
+  You MUST load this skill when working with experimental Mermaid.js beta diagrams.
 license: MIT
 ---
 # Mermaid Beta Skill

@@ -1,6 +1,8 @@
 ---
 name: molecule
-description: 'How to run and manage Molecule tests for Ansible roles and playbooks. You MUST load this skill when running or managing Molecule tests for Ansible.'
+description: >-
+  How to run and manage Molecule tests for Ansible roles and playbooks.
+  You MUST load this skill when running or managing Molecule tests for Ansible.
 license: MIT
 ---
 

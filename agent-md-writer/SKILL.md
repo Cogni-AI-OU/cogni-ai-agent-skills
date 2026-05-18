@@ -1,6 +1,6 @@
 ---
 name: agent-md-writer
-description: 'Guidelines and best practices for writing high-performance agent persona files (*.agent.md, CLAUDE.md). Use this when you need to create or refine a specialized agent persona.'
+description: Guidelines and best practices for writing high-performance agent persona files (*.agent.md, CLAUDE.md). Use this when you need to create or refine a specialized agent persona.
 license: MIT
 ---
 

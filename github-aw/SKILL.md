@@ -1,6 +1,6 @@
 ---
 name: github-aw
-description: 'Safely update existing GitHub Agentic Workflows (gh-aw), distinguishing between frontmatter configuration that requires recompilation and markdown body prompt edits that do not.'
+description: Safely update existing GitHub Agentic Workflows (gh-aw), distinguishing between frontmatter configuration that requires recompilation and markdown body prompt edits that do not.
 license: MIT
 ---
 # Skill github-aw

@@ -1,6 +1,9 @@
 ---
 name: docs-review
-description: 'Enforce documentation quality, completeness, and mutual consistency across architecture files, ADRs, runbooks, READMEs, and code-level documentation. You MUST load this skill when asked to review or check consistency of documentation (such as *.md/*.mmd files).'
+description: >-
+  Enforce documentation quality, completeness, and mutual consistency across
+  architecture files, ADRs, runbooks, READMEs, and code-level documentation.
+  You MUST load this skill when asked to review or check consistency of documentation (such as *.md/*.mmd files).
 license: MIT
 ---
 

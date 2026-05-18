@@ -1,6 +1,9 @@
 ---
 name: robust-commands
-description: 'Resilient command execution with automatic fallbacks and error recovery. You MUST load this skill when executing commands requiring resilient error recovery or fallbacks.'
+description: >-
+  Resilient command execution with automatic fallbacks and error recovery.
+  You MUST load this skill when executing commands requiring resilient error
+  recovery or fallbacks.
 license: MIT
 ---
 

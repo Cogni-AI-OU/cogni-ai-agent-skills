@@ -1,6 +1,9 @@
 ---
 name: gh-models
-description: 'GitHub CLI models (`gh models`) operations for running and evaluating AI models. You MUST load this skill when working with the `gh models` command.'
+description: >-
+  GitHub CLI models (`gh models`) operations for running and evaluating AI
+  models.
+  You MUST load this skill when working with the `gh models` command.
 license: MIT
 ---
 

@@ -1,6 +1,9 @@
 ---
 name: context-aware-ops
-description: 'Intelligent resource management with size checking and filtering to preserve context window. You MUST load this skill when managing large resources or context window limits.'
+description: >-
+  Intelligent resource management with size checking and filtering to preserve
+  context window.
+  You MUST load this skill when managing large resources or context window limits.
 license: MIT
 ---
 # Context-Aware Operations Skill

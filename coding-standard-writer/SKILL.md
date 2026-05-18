@@ -1,6 +1,6 @@
 ---
 name: coding-standard-writer
-description: 'Write a coding standards document for a project using the coding styles inferred from provided file(s) or folder(s).'
+description: Write a coding standards document for a project using the coding styles inferred from provided file(s) or folder(s).
 license: MIT
 ---
 

@@ -1,6 +1,6 @@
 ---
 name: docker
-description: 'How to run, manage, and troubleshoot Docker containers, images, and networks safely via the command line.'
+description: How to run, manage, and troubleshoot Docker containers, images, and networks safely via the command line.
 license: MIT
 ---
 

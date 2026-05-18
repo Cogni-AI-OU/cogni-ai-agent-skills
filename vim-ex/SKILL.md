@@ -1,6 +1,9 @@
 ---
 name: vim-ex
-description: 'How to use Ex mode in Vim for non-interactive file editing (e.g., complex text substitution, deleting lines, file parsing, wrapping text, sorting lines). You MUST load this skill when using Vim Ex mode for non-interactive file editing.'
+description: >-
+  How to use Ex mode in Vim for non-interactive file editing (e.g., complex text
+  substitution, deleting lines, file parsing, wrapping text, sorting lines).
+  You MUST load this skill when using Vim Ex mode for non-interactive file editing.
 license: MIT
 ---
 # File Editing with Ex Mode

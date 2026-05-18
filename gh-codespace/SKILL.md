@@ -1,6 +1,9 @@
 ---
 name: gh-codespace
-description: 'GitHub CLI (`gh codespace` or `gh cs`) operations for connecting to, managing, creating, or editing GitHub Codespaces. You MUST load this skill when working with the `gh codespace` command.'
+description: >-
+  GitHub CLI (`gh codespace` or `gh cs`) operations for connecting to, managing,
+  creating, or editing GitHub Codespaces.
+  You MUST load this skill when working with the `gh codespace` command.
 license: MIT
 ---
 

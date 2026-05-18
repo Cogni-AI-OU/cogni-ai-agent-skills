@@ -1,6 +1,9 @@
 ---
 name: gh-aw
-description: 'GitHub Agentic Workflows (`gh aw`) operations for repository automation, creating workflows, running coding agents, and auditing workflow runs. You MUST load this skill when working with the `gh aw` command.'
+description: >-
+  GitHub Agentic Workflows (`gh aw`) operations for repository automation,
+  creating workflows, running coding agents, and auditing workflow runs.
+  You MUST load this skill when working with the `gh aw` command.
 license: MIT
 ---
 

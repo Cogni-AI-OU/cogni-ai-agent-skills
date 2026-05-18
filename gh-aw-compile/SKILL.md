@@ -1,6 +1,9 @@
 ---
 name: gh-aw-compile
-description: 'Regenerate and post-process all agentic workflows. You MUST load this skill when gh-aw is updated, workflow .md files change, or when asked to recompile/regenerate workflows.'
+description: >-
+  Regenerate and post-process all agentic workflows.
+  You MUST load this skill when gh-aw is updated, workflow .md files change,
+  or when asked to recompile/regenerate workflows.
 license: MIT
 ---
 

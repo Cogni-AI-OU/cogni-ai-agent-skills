@@ -1,6 +1,9 @@
 ---
 name: git-rebase
-description: 'Advanced Git rebase operations including interactive history cleanup and non-interactive scripted rewrites. You MUST load this skill before performing Git rebase operations.'
+description: >-
+  Advanced Git rebase operations including interactive history cleanup and
+  non-interactive scripted rewrites.
+  You MUST load this skill before performing Git rebase operations.
 license: MIT
 ---
 

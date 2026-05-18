@@ -1,6 +1,8 @@
 ---
 name: ansible
-description: 'How to run and manage Ansible operations. You MUST load this skill when working with the `ansible` command.'
+description: >-
+  How to run and manage Ansible operations.
+  You MUST load this skill when working with the `ansible` command.
 license: MIT
 ---
 

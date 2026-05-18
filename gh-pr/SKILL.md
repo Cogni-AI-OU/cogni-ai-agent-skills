@@ -1,6 +1,9 @@
 ---
 name: gh-pr
-description: 'GitHub CLI (`gh pr`) operations for pull requests, reviews, PR checks, and PR branches. You MUST load this skill when working with the `gh pr` command.'
+description: >-
+  GitHub CLI (`gh pr`) operations for pull requests, reviews, PR checks, and PR
+  branches.
+  You MUST load this skill when working with the `gh pr` command.
 license: MIT
 ---
 # gh-pr Skill

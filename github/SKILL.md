@@ -1,6 +1,9 @@
 ---
 name: github
-description: 'Provides guidance on GitHub-specific features, pull requests viewing modes, and collaborative practices. You MUST load this skill when working with GitHub-specific features or PR view modes.'
+description: >-
+  Provides guidance on GitHub-specific features, pull requests viewing modes,
+  and collaborative practices.
+  You MUST load this skill when working with GitHub-specific features or PR view modes.
 license: MIT
 ---
 

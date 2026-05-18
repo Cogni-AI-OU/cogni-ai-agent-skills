@@ -1,6 +1,8 @@
 ---
 name: git-filter-branch
-description: 'Extract a specific subdirectory with history using git filter-branch when modern tools like filter-repo are unavailable. You MUST load this skill when extracting a subdirectory with history using `git filter-branch`.'
+description: >-
+  Extract a specific subdirectory with history using git filter-branch when modern tools like filter-repo are unavailable.
+  You MUST load this skill when extracting a subdirectory with history using `git filter-branch`.
 license: MIT
 ---
 

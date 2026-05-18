@@ -1,6 +1,6 @@
 ---
 name: datadog-monitors
-description: 'Guidelines for designing, debugging, and troubleshooting Datadog monitor queries, handling common false positives, and operational edge cases.'
+description: Guidelines for designing, debugging, and troubleshooting Datadog monitor queries, handling common false positives, and operational edge cases.
 license: MIT
 ---
 

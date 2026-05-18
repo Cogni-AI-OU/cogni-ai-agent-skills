@@ -1,6 +1,6 @@
 ---
 name: datadog-agent
-description: 'Use when installing, configuring, or updating Datadog Agent;'
+description: Use when installing, configuring, or updating Datadog Agent;
 license: MIT
 ---
 

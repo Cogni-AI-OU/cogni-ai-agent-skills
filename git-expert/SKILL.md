@@ -1,6 +1,10 @@
 ---
 name: git-expert
-description: 'Advanced Git operations including reflog recovery, bisecting, complex conflict resolution, and history manipulation. You MUST load this skill when performing advanced git operations or repository recovery.'
+description: >-
+  Advanced Git operations including reflog recovery,
+  bisecting, complex conflict resolution, and history manipulation.
+  You MUST load this skill when performing advanced git operations or repository
+  recovery.
 license: MIT
 ---
 

@@ -1,6 +1,10 @@
 ---
 name: gh
-description: 'GitHub CLI (`gh`) operations for issues, pull requests, workflow runs, reviews, or API queries, especially in restricted shells where structured output and fallback choice matter. You MUST load this skill when working with the `gh` command and its subcommands.'
+description: >-
+  GitHub CLI (`gh`) operations for issues, pull requests, workflow runs,
+  reviews, or API queries, especially in restricted shells where structured
+  output and fallback choice matter.
+  You MUST load this skill when working with the `gh` command and its subcommands.
 license: MIT
 ---
 

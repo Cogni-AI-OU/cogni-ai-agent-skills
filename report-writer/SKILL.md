@@ -1,6 +1,6 @@
 ---
 name: report-writer
-description: 'Generate comprehensive audit reports, compare current state with baseline definitions, document discrepancies, update documentation files, and track changes via pull requests. You MUST load this skill when asked to generate a comprehensive system audit report.'
+description: Generate comprehensive audit reports, compare current state with baseline definitions, document discrepancies, update documentation files, and track changes via pull requests. You MUST load this skill when asked to generate a comprehensive system audit report.
 license: MIT
 ---
 # Skill: report-writer

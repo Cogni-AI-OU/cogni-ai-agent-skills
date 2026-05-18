@@ -1,6 +1,7 @@
 ---
 name: gh-aw-firewall
-description: 'Use the AWF (Agentic Workflow Firewall) to run commands with network isolation and domain whitelisting. Provides L7 HTTP/HTTPS egress control for AI agents.'
+description: >-
+  Use the AWF (Agentic Workflow Firewall) to run commands with network isolation and domain whitelisting. Provides L7 HTTP/HTTPS egress control for AI agents.
 license: MIT
 ---
 

@@ -1,6 +1,10 @@
 ---
 name: fact-writer
-description: 'Strict guidelines for creating, writing, and maintaining verifiable project fact files (e.g., FACTS.md or FACTS.mmd) without contradictions, ensuring state compression and lexical ordering. You MUST load this skill when managing canonical project fact files.'
+description: >-
+  Strict guidelines for creating, writing, and maintaining verifiable project
+  fact files (e.g., FACTS.md or FACTS.mmd) without contradictions, ensuring
+  state compression and lexical ordering.
+  You MUST load this skill when managing canonical project fact files.
 license: MIT
 ---
 

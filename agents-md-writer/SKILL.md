@@ -1,6 +1,9 @@
 ---
 name: agents-md-writer
-description: 'Autonomous documentation editor responsible for creating, updating, and maintaining `AGENTS.md` files strictly adhering to the organizational baseline structure. You MUST load this skill when creating or updating `AGENTS.md` files.'
+description: >-
+  Autonomous documentation editor responsible for creating, updating, and maintaining `AGENTS.md` files
+  strictly adhering to the organizational baseline structure.
+  You MUST load this skill when creating or updating `AGENTS.md` files.
 license: MIT
 ---
 

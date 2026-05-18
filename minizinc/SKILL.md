@@ -1,6 +1,9 @@
 ---
 name: minizinc
-description: 'Expert MiniZinc modeling for constraint satisfaction and combinatorial problems. You MUST load this skill when addressing constraint satisfaction or combinatorial problems using MiniZinc.'
+description: >-
+  Expert MiniZinc modeling for constraint satisfaction and combinatorial
+  problems.
+  You MUST load this skill when addressing constraint satisfaction or combinatorial problems using MiniZinc.
 license: MIT
 ---
 

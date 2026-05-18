@@ -1,6 +1,6 @@
 ---
 name: direnv
-description: 'How to maintain credentials and authenticate using direnv without exposing secrets to the output.'
+description: How to maintain credentials and authenticate using direnv without exposing secrets to the output.
 license: MIT
 ---
 # Skill: direnv

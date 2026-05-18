@@ -1,6 +1,6 @@
 ---
 name: datadog-api
-description: 'Execute Datadog API requests to fetch live objects, metrics, or monitor statuses using cURL and API keys. You MUST load this skill when interacting with the Datadog API.'
+description: Execute Datadog API requests to fetch live objects, metrics, or monitor statuses using cURL and API keys. You MUST load this skill when interacting with the Datadog API.
 license: MIT
 ---
 # Skill: datadog-api

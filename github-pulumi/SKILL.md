@@ -1,6 +1,6 @@
 ---
 name: github-pulumi
-description: 'Activate when managing GitHub resources with Pulumi CLI to import, preview, update, and repair state.'
+description: Activate when managing GitHub resources with Pulumi CLI to import, preview, update, and repair state.
 license: MIT
 ---
 

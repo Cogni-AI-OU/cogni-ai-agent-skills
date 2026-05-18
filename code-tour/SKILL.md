@@ -1,6 +1,8 @@
 ---
 name: code-tour
-description: 'Use this skill to create CodeTour .tour files — persona-targeted, step-by-step walkthroughs that link to real files and line numbers. You MUST load this skill when creating or updating .tours/ files. Trigger for: "create a tour", "make a code tour", "generate a tour", "onboarding tour", "architecture tour", etc.'
+description: >-
+  Use this skill to create CodeTour .tour files — persona-targeted, step-by-step walkthroughs that link to real files and line numbers.
+  You MUST load this skill when creating or updating .tours/ files. Trigger for: "create a tour", "make a code tour", "generate a tour", "onboarding tour", "architecture tour", etc.
 license: MIT
 ---
 

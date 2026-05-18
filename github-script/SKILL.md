@@ -1,6 +1,8 @@
 ---
 name: github-script
-description: 'Advanced use cases and examples for using actions/github-script. You MUST load this skill when using actions/github-script in workflows.'
+description: >-
+  Advanced use cases and examples for using actions/github-script.
+  You MUST load this skill when using actions/github-script in workflows.
 license: MIT
 ---
 

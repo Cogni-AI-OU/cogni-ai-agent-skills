@@ -1,6 +1,6 @@
 ---
 name: github-aw-troubleshooting
-description: 'Debug and refine GitHub Agentic Workflows (gh-aw) by analyzing execution logs, auditing runs, and resolving missing tool errors or prompt inefficiencies. You MUST load this skill when asked to debug, audit, or analyze a failing GitHub Agentic Workflow.'
+description: Debug and refine GitHub Agentic Workflows (gh-aw) by analyzing execution logs, auditing runs, and resolving missing tool errors or prompt inefficiencies. You MUST load this skill when asked to debug, audit, or analyze a failing GitHub Agentic Workflow.
 license: MIT
 ---
 

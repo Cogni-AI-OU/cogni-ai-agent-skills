@@ -1,6 +1,8 @@
 ---
 name: cat
-description: 'Guidelines for safely using `cat` and avoiding shell hangs with heredocs. You MUST load this skill before running the `cat` command (especially with `EOF`).'
+description: >-
+  Guidelines for safely using `cat` and avoiding shell hangs with heredocs.
+  You MUST load this skill before running the `cat` command (especially with `EOF`).
 license: MIT
 ---
 

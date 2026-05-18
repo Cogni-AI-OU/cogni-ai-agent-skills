@@ -1,6 +1,9 @@
 ---
 name: yq
-description: 'Safely parse, edit, merge, and transform YAML files using yq, providing robust command-line examples for extraction and in-place modifications. You MUST load this skill when using the yq tool.'
+description: >-
+  Safely parse, edit, merge, and transform YAML files using yq,
+  providing robust command-line examples for extraction and in-place modifications.
+  You MUST load this skill when using the yq tool.
 license: MIT
 ---
 

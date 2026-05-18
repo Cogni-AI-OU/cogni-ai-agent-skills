@@ -1,6 +1,8 @@
 ---
 name: gh-issue
-description: 'GitHub CLI (`gh issue`) operations for managing, viewing, and editing issues. You MUST load this skill when working with the `gh issue` command.'
+description: >-
+  GitHub CLI (`gh issue`) operations for managing, viewing, and editing issues.
+  You MUST load this skill when working with the `gh issue` command.
 license: MIT
 ---
 

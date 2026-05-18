@@ -1,6 +1,8 @@
 ---
 name: git
-description: 'Guide for using git. You MUST load this skill when performing standard git operations.'
+description: >-
+  Guide for using git.
+  You MUST load this skill when performing standard git operations.
 license: MIT
 ---
 

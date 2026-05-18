@@ -1,6 +1,8 @@
 ---
 name: gh-aw-new
-description: 'Create new GitHub Agentic Workflows (gh-aw) from scratch using the CLI extension. You MUST load this skill when creating new Agentic Workflow files.'
+description: >-
+  Create new GitHub Agentic Workflows (gh-aw) from scratch using the CLI extension.
+  You MUST load this skill when creating new Agentic Workflow files.
 license: MIT
 ---
 # Skill: gh-aw-new

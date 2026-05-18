@@ -1,6 +1,8 @@
 ---
 name: agentskills
-description: 'Reference for the Agent Skills open standard. Defines the schema, directory structure, formatting, and portability requirements for agent skills. You MUST load this skill to understand the technical structure of an agent skill.'
+description: >-
+  Reference for the Agent Skills open standard. Defines the schema, directory structure, formatting, and portability requirements for agent skills.
+  You MUST load this skill to understand the technical structure of an agent skill.
 license: MIT
 ---
 

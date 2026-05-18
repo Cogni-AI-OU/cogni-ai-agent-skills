@@ -1,6 +1,8 @@
 ---
 name: datadog-pulumi
-description: 'Use when creating or debugging Datadog monitors in Pulumi YAML, especially for schema mismatches, monitor validation errors, and provider-specific field mapping.'
+description: >-
+  Use when creating or debugging Datadog monitors in Pulumi YAML,
+  especially for schema mismatches, monitor validation errors, and provider-specific field mapping.
 license: MIT
 ---
 
