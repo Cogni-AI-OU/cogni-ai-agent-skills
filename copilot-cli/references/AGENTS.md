@@ -12,29 +12,13 @@
 
 1. **Fetch**: Target the authoritative raw `.md` source.
 2. **Prune**: Annihilate all conversational prose, pleasantries, and introductory filler.
-3. **Structure**: Force the extracted data into the standardized Agentic Schema (below).
-4. **Link**: Append the canonical GitHub Docs URL natively under `## References`.
+3. **Refine**: Ensure content is concise, high-density, and agentic-oriented.
+4. **Automate**: Skip interactive UI steps, setup wizards, or manual procedures.
+5. **Link**: Append the canonical GitHub Docs URL natively under `## References`.
 
-## Required Output Schema
+## Style & Structure Guidelines
 
-```markdown
-# [Topic Title]
-
-**Goal**: [One-sentence declarative objective]
-
-## Invariants
-
-- [Strict constraints, limitations, and operational rules]
-
-## Schema (if applicable)
-
-- [JSON/YAML layouts, file paths, frontmatter fields, valid values]
-
-## Commands / Execution (if applicable)
-
-- [Exact CLI commands, environmental setups, and operational flags]
-
-## References
-
-- [Canonical GitHub Docs URL]
-```
+- **Conciseness**: Prune all conversational prose and introductory filler.
+- **Agentic Oriented**: Focus on technical details, invariants, and actionable commands that an autonomous agent can utilize.
+- **Automated Focus**: Skip interactive UI steps, setup wizards, or manual browser-based procedures.
+- **References**: Always include a `## References` section with the canonical GitHub Docs URL.
