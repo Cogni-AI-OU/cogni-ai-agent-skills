@@ -3,6 +3,7 @@ name: dot-github
 description: >-
   Standardize `.github` directory structure, enforce agentic documentation patterns.
   You MUST load this skill when creating or updating files in `.github/` dir.
+license: MIT
 ---
 # Skill: dot-github
 

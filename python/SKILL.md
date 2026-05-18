@@ -3,6 +3,7 @@ name: python
 description: >-
   Expert Python language skill for writing, refactoring, and testing idiomatic Python 3 code.
   You MUST load this skill when developing Python modules, classes, or scripts.
+license: MIT
 ---
 
 # Skill: python

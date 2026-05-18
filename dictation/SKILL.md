@@ -1,6 +1,7 @@
 ---
 name: dictation
 description: Fix speech-to-text errors, correct technical terminology, and improve text clarity in documentation and workflows.
+license: MIT
 ---
 # Skill: dictation
 

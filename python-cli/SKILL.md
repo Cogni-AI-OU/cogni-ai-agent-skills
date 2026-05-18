@@ -4,6 +4,7 @@ description: >-
   Execute Python inline scripts via heredocs for complex log processing, data transformation,
   or CLI utilities like URL encoding/decoding.
   You MUST load this skill when processing large logs or performing one-liner data operations.
+license: MIT
 ---
 
 # Skill: python-cli

@@ -5,6 +5,7 @@ description: >-
   You MUST load this skill when working with issues
   or when the runtime was triggered by an issue comment.
   Load this before any gh skills.
+license: MIT
 ---
 
 # github-issue Skill

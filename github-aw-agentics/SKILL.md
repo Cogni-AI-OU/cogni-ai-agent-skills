@@ -6,6 +6,7 @@ description: >-
   workflows, understand their internal mechanics, or add new agentic
   patterns. Focuses on maintenance, automation, documentation, and
   performance improvement agents.
+license: MIT
 ---
 
 # Skill: github-aw-agentics

@@ -4,6 +4,7 @@ description: >-
   GitHub CLI (`gh run` and `gh workflow`) operations for workflow runs, jobs,
   logs, and attempts.
   You MUST load this skill when working with the `gh run` and the `gh workflow` commands.
+license: MIT
 ---
 # gh-run Skill
 

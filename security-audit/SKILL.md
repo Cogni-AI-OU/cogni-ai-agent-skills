@@ -4,6 +4,7 @@ description: >-
   Commands, step-by-step procedures, and mechanical execution for performing deep security audits,
   vulnerability assessments, and threat modeling on codebases and configurations.
   You MUST load this skill when performing security audits or validation.
+license: MIT
 ---
 
 # Security Auditing Skill

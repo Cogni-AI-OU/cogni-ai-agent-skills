@@ -1,6 +1,7 @@
 ---
 name: github-aw-patterns
 description: 'Reference and guidelines for designing GitHub Agentic Workflows using established operational patterns like BatchOps, CentralRepoOps, ChatOps, CorrectionOps, and others.'
+license: MIT
 ---
 
 # Skill: github-aw-patterns

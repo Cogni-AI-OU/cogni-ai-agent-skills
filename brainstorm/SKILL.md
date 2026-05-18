@@ -3,6 +3,7 @@ name: brainstorm
 description: >-
   Activate brainstorming protocol to explore options, research, deconstruct complexities, and summarize available data into simple diagrams.
   You MUST load this skill when asked to brainstorm, explore options, or break down complex problems.
+license: MIT
 ---
 
 # Skill brainstorm

@@ -3,6 +3,7 @@ name: github-topics
 description: >-
   Search GitHub repositories by topics and keywords.
   You MUST load this skill when searching for relevant tools, libraries, or curated resources.
+license: MIT
 ---
 # Skill: github-topics
 

@@ -1,6 +1,7 @@
 ---
 name: mot
 description: Evaluate and classify machine learning models based on the Model Openness Framework (MOF), and extract model metadata such as architecture, origin, producer, and components.
+license: MIT
 ---
 
 # Skill: Model Openness Tool (MOT)

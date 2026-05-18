@@ -3,6 +3,7 @@ name: sbom
 description: >-
   Commands and guidelines for generating a Software Bill of Materials (SBOM) locally in SPDX and CycloneDX formats using syft.
   You MUST load this skill when asked to create, generate, or update an SBOM.
+license: MIT
 ---
 
 # Skill: sbom

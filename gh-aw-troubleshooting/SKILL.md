@@ -1,6 +1,7 @@
 ---
 name: gh-aw-troubleshooting
 description: Diagnose and fix GitHub Agentic Workflows (gh-aw) failures by analyzing logs for missing tools, permissions, or MCP server configurations.
+license: MIT
 ---
 
 # gh-aw-troubleshooting

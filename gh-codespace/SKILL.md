@@ -4,6 +4,7 @@ description: >-
   GitHub CLI (`gh codespace` or `gh cs`) operations for connecting to, managing,
   creating, or editing GitHub Codespaces.
   You MUST load this skill when working with the `gh codespace` command.
+license: MIT
 ---
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
 # gh-codespace

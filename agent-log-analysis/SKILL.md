@@ -4,6 +4,7 @@ description: >-
   Procedures and templates for analyzing agent session logs, extracting telemetry, and generating
   standardized visual audit reports.
   You MUST load this skill when auditing or analyzing autonomous agent log files.
+license: MIT
 ---
 
 <!-- markdownlint-disable MD013 MD036 -->

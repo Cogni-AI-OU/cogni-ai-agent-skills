@@ -3,6 +3,7 @@ name: opencode
 description: >-
   Manage OpenCode configuration, credentials, and OpenCode Zen API access to list available models and navigate XDG-compliant directory structures.
   You MUST load this skill when working with OpenCode configuration or listing models.
+license: MIT
 ---
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
 # opencode Skill

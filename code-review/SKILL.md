@@ -4,6 +4,7 @@ description: >-
   Execute expert-level code reviews, dissecting codebases and Pull Requests (PRs) with surgical precision
   to identify logical flaws, architectural drift, performance bottlenecks, and security vulnerabilities before they merge.
   You MUST load this skill when reviewing code or Pull Requests.
+license: MIT
 ---
 
 # Skill: code-review

@@ -1,6 +1,7 @@
 ---
 name: gdpr-compliant
 description: Apply GDPR-compliant engineering practices across your codebase. You MUST load this skill whenever you are designing APIs, writing data models, handling user data, implementing logging, or reviewing pull requests for privacy compliance.
+license: MIT
 ---
 
 # GDPR Engineering Skill
