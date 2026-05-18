@@ -81,6 +81,14 @@ If the skill requires additional files, organize them into these specific folder
 - **Command-Line Tool Examples**: Derive usage dynamically via read/glob operations. Provide concise examples of key commands—focus on complex, multi-flag, piped, or non-standard operations.
 - **Skill Length Management**: Keep `SKILL.md` under 500 lines (ideally <200). Use `references/` for progressive loading of long content.
 
+## Common Pitfalls to Avoid
+
+- **Too Vague**: "Make the code better" → Specify exactly what "better" means.
+- **Too Restrictive**: Over-constraining can prevent useful optimizations.
+- **Missing Context**: Include relevant domain knowledge and terminology.
+- **No Examples**: Concrete examples guide LLM better than abstract descriptions.
+- **Ignoring Artifacts**: Don't refine prompts based on error feedback.
+
 ## What to Avoid
 
 - Vague `description` fields that lack specific triggers, keywords, or capabilities.

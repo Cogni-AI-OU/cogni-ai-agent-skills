@@ -44,9 +44,16 @@ Design, review, and optimize secure AI prompts using advanced prompt engineering
 - Establish A/B testing and automated evaluation for continuous prompt refinement.
 - Document prompt purpose, scope, assumptions, and limitations.
 
+## Common Pitfalls to Avoid
+
+- **Too Vague**: "Make the code better" → Specify exactly what "better" means.
+- **Too Restrictive**: Over-constraining can prevent useful optimizations.
+- **Missing Context**: Include relevant domain knowledge and terminology.
+- **No Examples**: Concrete examples guide LLM better than abstract descriptions.
+- **Ignoring Artifacts**: Don't refine prompts based on error feedback.
+
 ## What to Avoid
 
-- **Vague Directives**: Broad requests (e.g., "Fix this code") lacking context.
 - **Unbounded Inputs**: Permitting raw user input to override system instructions.
 - **Overfitting**: Hardcoding constraints tied to specific training data examples.
 - **Echoing Secrets**: Designing prompts that inadvertently reflect sensitive inputs.

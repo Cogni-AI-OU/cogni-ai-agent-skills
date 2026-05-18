@@ -78,12 +78,18 @@ It is the cross-tool standard—one file, every agent.
 - **Git Workflow**: Branch naming conventions, commit message format, PR requirements.
 - **Boundaries**: What the agent should never touch. Never modify files in /generated/. Never commit .env files.
 
+## Common Pitfalls to Avoid
+
+- **Too Vague**: "Make the code better" → Specify exactly what "better" means.
+- **Too Restrictive**: Over-constraining can prevent useful optimizations.
+- **Missing Context**: Include relevant domain knowledge and terminology.
+- **No Examples**: Concrete examples guide LLM better than abstract descriptions.
+- **Ignoring Artifacts**: Don't refine prompts based on error feedback.
+
 ## What to Avoid
 
 - **Dumping Entire Style Guides**: Don't include your whole linting config.
   Only include rules that the agent consistently gets wrong or that are unique to the project.
-- **Being Too Vague**: Avoid phrases like "Follow best practices" or "Write clean code."
-  These tell the agent nothing actionable.
 - **Forgetting to Update**: Outdated instructions are worse than no instructions.
   If you change your build tool or test runner, update AGENTS.md immediately.
 - **Making it Tool-Specific**: Don't put tool-specific config (like `@imports`)
@@ -92,6 +98,7 @@ It is the cross-tool standard—one file, every agent.
   user details, job IDs, or tool versions in examples; use placeholders instead.
 - **Duplication**: NEVER duplicate code-level comments or obvious steps
   that the agent can easily infer from the codebase.
+
 
 ## SKILL.md vs AGENTS.md
 
