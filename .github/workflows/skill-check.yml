@@ -121,9 +121,23 @@ jobs:
 
           # Capture output; don't fail the workflow (warn-only mode)
           set +e
-          OUTPUT=$($CMD 2>&1)
+          # Strip ANSI colors for reliable regex matching
+          OUTPUT=$($CMD 2>&1 | sed 's/\x1b\[[0-9;]*m//g')
           EXIT_CODE=$?
           set -e
+
+          # Downgrade "2 directories deep" findings to warnings (project policy allows up to 2 levels)
+          if echo "$OUTPUT" | grep -q "is 2 directories deep — maximum is 1 level from SKILL.md"; then
+            echo "Downgrading 2-level depth findings to warnings per project policy."
+            # Replace ❌ with ⚠ and add a note
+            OUTPUT=$(echo "$OUTPUT" | sed 's/❌ \(.* is 2 directories deep — maximum is 1 level from SKILL.md\)/⚠ \1 (Allowed by project policy)/g')
+            
+            # If no other errors remain, treat the run as successful
+            if ! echo "$OUTPUT" | grep -q "❌"; then
+              EXIT_CODE=0
+            fi
+          fi
+
           echo "exit_code=$EXIT_CODE" >> "$GITHUB_OUTPUT"
 
           # Save output to file (multi-line safe)
