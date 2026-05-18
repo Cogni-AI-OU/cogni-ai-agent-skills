@@ -1,11 +1,11 @@
 ---
 name: github-issue
+license: MIT
 description: >-
   Skills for working with GitHub Issues.
   You MUST load this skill when working with issues
   or when the runtime was triggered by an issue comment.
   Load this before any gh skills.
-license: MIT
 ---
 
 # github-issue Skill

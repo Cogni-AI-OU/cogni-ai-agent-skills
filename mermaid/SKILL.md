@@ -52,13 +52,11 @@ you **MUST** read the rest of the file to access the relevant expert guidance an
 ## General Usage & Configuration
 
 ```mermaid
----
 config:
   theme: default
   flowchart:
     defaultRenderer: "elk"  # or "dagre"
     curve: basis
----
 flowchart TD
     A --> B
 ```

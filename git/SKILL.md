@@ -116,7 +116,9 @@ GitHub Actions and other CI environments often check out repositories as shallow
 - **Conflict Marker Prevention**: Before running `git commit`, verify that there are no unresolved merge conflict markers. Use `git diff --cached` to ensure no markers (e.g., `<<<<<<<`, `=======`, `>>>>>>>`) are being committed. NEVER commit a file containing unresolved merge conflicts.
 - **Reverting Commits**:
   - For simple reverts, use `git revert <commit-sha> --no-edit`.
-  - If a revert results in conflicts, it will pause. DO NOT blindly commit. You MUST resolve the conflicts in the files, ensuring all `<<<<<<<`, `=======`, and `>>>>>>>` markers are removed.
+  - If a revert results in conflicts, it will pause. DO NOT blindly commit.
+
+You MUST resolve the conflicts in the files, ensuring all `<<<<<<<`, `=======`, and `>>>>>>>` markers are removed.
   - Once resolved, stage the files and use `GIT_EDITOR=true git revert --continue`.
 
 ## Useful Diagnostic Commands

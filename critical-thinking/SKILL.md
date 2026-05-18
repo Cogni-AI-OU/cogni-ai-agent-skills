@@ -1,10 +1,10 @@
 ---
 name: critical-thinking
+license: MIT
 description: >-
   Engage deep analytical reasoning, deconstruct assumptions, apply Socratic questioning, and perform adversarial red-teaming
   to solve complex problems and validate architectural plans.
   You MUST load this skill when facing challenges that require critical thinking.
-license: MIT
 ---
 # critical-thinking
 

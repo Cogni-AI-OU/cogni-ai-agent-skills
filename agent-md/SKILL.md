@@ -181,7 +181,6 @@ Regardless of the platform, a high-quality agent definition should include:
 ## Reference Structure (GitHub Copilot)
 
 ```markdown
----
 name: <agent-name>
 description: <one-sentence description>
 version: 1.0.0
@@ -192,7 +191,6 @@ tools:
   - read_file
   - search_files
   - list_directory
----
 
 You are an expert <role> for this project.
 

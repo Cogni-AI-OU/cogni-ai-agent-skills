@@ -1,11 +1,11 @@
 ---
 name: github-pr
+license: MIT
 description: >-
   Skills for working with changes on a GitHub Pull Request.
   You MUST load this skill when working with changes associated with a pull request
   or when the runtime was triggered by a PR comment.
   Load this before any gh skills.
-license: MIT
 ---
 
 # github-pr Skill

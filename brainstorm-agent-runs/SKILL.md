@@ -1,9 +1,9 @@
 ---
 name: brainstorm-agent-runs
+license: MIT
 description: >-
   Activate agent-run brainstorming protocol to identify and analyze Agent CI/CD runs via GitHub API for a given Pull Request.
   You MUST activate this skill when analyzing or brainstorming agent runs.
-license: MIT
 ---
 
 # Skill: brainstorm-agent-runs

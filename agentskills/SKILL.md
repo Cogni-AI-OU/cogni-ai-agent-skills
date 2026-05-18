@@ -1,14 +1,16 @@
 ---
 name: agentskills
+license: MIT
 description: >-
   Reference for the Agent Skills open standard. Defines the schema, directory structure, formatting, and portability requirements for agent skills.
   You MUST load this skill to understand the technical structure of an agent skill.
-license: MIT
 ---
 
 # Agent Skills (Standard)
 
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
+
+The Agent Skills open standard provides a framework for structuring and specifying skills to ensure portability across different AI systems and agent hosts. Agent Skills work with GitHub Copilot (Cloud, CLI, and VS Code), Claude Code, OpenCode, and other compliant agents. Agent Skills are self-contained folders with instructions and bundled resources that teach AI agents specialized capabilities, unlike custom instructions which only define coding standards.
 
 ## When to Use
 
@@ -30,8 +32,6 @@ license: MIT
 - **CI/CD Discoverability**: In GitHub Actions, skills cloned outside the workspace (e.g., `${{ runner.temp }}/.skills`) must be symlinked into the workspace (`.skills/`) for the agent to discover them.
 - **Trust Boundaries on PR Triggers**: When workflows run on `pull_request_target` or `issue_comment` triggers, malicious forks can inject altered skill files into `.github/skills/`. Always verify base branch skills are preserved.
 - **Description is the Sole Activation Key**: The `description` field is what an agent uses to decide if a skill matches the current task. A vague or generic description means the skill never activates, regardless of content quality.
-
-The Agent Skills open standard provides a framework for structuring and specifying skills to ensure portability across different AI systems and agent hosts. Agent Skills work with GitHub Copilot (Cloud, CLI, and VS Code), Claude Code, OpenCode, and other compliant agents. Agent Skills are self-contained folders with instructions and bundled resources that teach AI agents specialized capabilities, unlike custom instructions which only define coding standards.
 
 ## Core Principles
 

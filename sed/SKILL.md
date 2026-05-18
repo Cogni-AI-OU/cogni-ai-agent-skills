@@ -1,7 +1,7 @@
 ---
 name: sed
-description: 'Fast, non-interactive text stream editing and precise file segment extraction using sed.'
 license: MIT
+description: 'Fast, non-interactive text stream editing and precise file segment extraction using sed.'
 ---
 
 # Skill: sed

@@ -1,9 +1,9 @@
 ---
 name: git-merge
+license: MIT
 description: >-
   Guide and safety rules for performing git merges, ensuring no conflict markers and no duplicate lines are present.
   You MUST load this skill before performing a git merge.
-license: MIT
 ---
 # Skill: git-merge
 

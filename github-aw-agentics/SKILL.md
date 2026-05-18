@@ -1,12 +1,12 @@
 ---
 name: github-aw-agentics
+license: MIT
 description: >-
   Expert-level guidance for using, optimizing, and building GitHub Agentic
   Workflows. Load this skill when the user wants to explore available
   workflows, understand their internal mechanics, or add new agentic
   patterns. Focuses on maintenance, automation, documentation, and
   performance improvement agents.
-license: MIT
 ---
 
 # Skill: github-aw-agentics
