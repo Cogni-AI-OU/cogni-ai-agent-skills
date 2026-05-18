@@ -10,6 +10,26 @@ license: MIT
 
 This skill provides a structured process and set of principles for creating effective agent personas that reduce hallucination and increase task success rates.
 
+## When to Use
+
+- **Specialized Persona Creation**: Designing high-performance agent personas (`*.agent.md`, `CLAUDE.md`) with a narrow, domain-specific mandate.
+- **Cognitive Architecture Design**: Defining internal reasoning protocols like Socratic Depth, Adversarial Red-Teaming, and Design-by-Contract.
+- **Strict Boundary Enforcement**: Establishing explicit `Always`, `Ask first`, and `Never` operational guardrails to ensure safety and alignment.
+- **Workflow Standardization**: Authoring consistent boot sequences, task boards, and verification gates for autonomous agents.
+- **Pruning & Optimization**: Refining existing personas to remove fluff, reduce token usage, and eliminate activation drift.
+
+## When Not to Use
+
+- **Platform Syntax Reference**: Learning the technical syntax or frontmatter schema of Agent MD files — use the `agent-md` skill instead.
+- **Mechanical Playbook Authoring**: Writing command-level execution steps for specific tools — use `SKILL.md` (via `agent-skill-md-writer`) instead.
+- **Global Rule Definition**: Setting workspace-wide coding standards or formatting rules — use `*.instructions.md` instead.
+
+## Common Pitfalls
+
+- **Role Dilution**: Creating "general helper" personas that lack the specific invariants and cognitive depth needed for complex tasks.
+- **Imperative Bloat**: Describing actions in abstract prose instead of providing contract-style imperatives and concrete code examples.
+- **Missing Termination Logic**: Failing to define a clear "Definition of Done" and empirical verification steps for the agent to follow.
+
 ## Core Process
 
 1. **Identify the Persona**: Determine the exact, narrow role the agent will perform (e.g., `docs-agent`, `test-agent`). Avoid "general helper" personas.

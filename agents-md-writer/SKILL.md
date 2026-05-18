@@ -11,8 +11,27 @@ license: MIT
 
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
 
-Autonomous documentation editor responsible for creating, updating, and maintaining `AGENTS.md` files
-strictly adhering to the organizational baseline structure.
+Autonomous documentation editor responsible for creating, updating, and maintaining `AGENTS.md` files strictly adhering to the organizational baseline structure.
+
+## When to Use
+
+- **Repository Onboarding**: Creating the initial `AGENTS.md` file to provide immediate context for any autonomous agent entering the codebase.
+- **Constraint Enforcement**: Defining project-specific boundaries, forbidden files, and "Never" rules (e.g., "Never mutate vendor folders").
+- **Command Automation**: Documenting exact build, test, and lint flags to prevent agents from wasting time on exploratory execution.
+- **Directory-Specific Guidance**: Authoring nested `AGENTS.md` files to provide tailored instructions for sub-trees (e.g., frontend vs. backend).
+- **Baseline Synchronization**: Updating `AGENTS.md` files to align with the organizational baseline structure and entropy-minimized standards.
+
+## When Not to Use
+
+- **User-Facing Documentation**: Writing general READMEs or tutorials for humans — `AGENTS.md` is strictly for agentic consumption.
+- **Persona Specification**: Designing a specialized agent role or reasoning protocol — use `agent-md-writer` instead.
+- **Tool-Specific Configuration**: Setting up features unique to a single platform (e.g., Claude Code `@imports`) — use `CLAUDE.md` or similar.
+
+## Common Pitfalls
+
+- **Informational Bloat**: Including abstract descriptions or basics the agent can easily infer; favor dense, contract-style imperatives.
+- **Stale Command Sets**: Failing to update build or test flags when the underlying tools change, leading to agent execution failures.
+- **Vague Boundaries**: Providing non-actionable constraints like "make it better" instead of explicit, empirical verification gates.
 
 AGENTS.md is a simple, open format for guiding coding agents.
 Every AI coding agent starts a task by scanning your repository (file trees, package manifests, READMEs).

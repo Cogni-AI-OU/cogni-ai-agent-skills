@@ -10,28 +10,23 @@ license: MIT
 
 ## When to Use
 
-- **Capture Agent Insights**: When the agent struggles with a recurring task, encounters repeated failures, or discovers an effective new solution/workaround not already documented, update the relevant existing skill (or create a new one) to incorporate the insight, ensuring future activations handle the case more efficiently.
-- **User Intent**: User explicitly asks to create or update a skill for a specific issue, topic, or task.
-- **New Guidance**: User provides new rules, examples, or feedback intended to guide skill authoring.
-- **Refinement**: User requests to update, improve, or refactor an existing SKILL.md.
-- Creating a new agent skill directory with a `SKILL.md` and optional bundled resources (scripts, templates, references).
-- Updating or refining an existing `SKILL.md` to improve description precision, add missing sections, or fix activation triggers.
-- Bundling scripts, templates, or references alongside a skill following the progressive loading architecture.
-- Troubleshooting skill activation failures or context budget issues in an existing skill.
-- Refactoring an overlong skill by splitting detailed content into a `references/` directory.
+- **Capability Documentation**: Formalizing a specific agent capability into a portable `SKILL.md` playbook with verifiable, imperative steps.
+- **Mechanical Workflow Design**: Authoring precise `bash`, `gh`, or API execution sequences that any agent can invoke regardless of their persona.
+- **Activation Trigger Optimization**: Refining skill descriptions in YAML frontmatter to ensure reliable discovery and prevent false positives.
+- **Resource Bundling**: Organizing scripts, templates, and reference docs into a structured directory for progressive context loading.
+- **Skill Refactoring**: Decomposing bloated skills into atomic units or offloading detailed content to the `references/` directory to save context.
 
 ## When Not to Use
 
-- Writing agent persona files (`.agent.md`, `CLAUDE.md`) — use `agent-md-writer` instead.
-- Writing project-level `AGENTS.md` files — use `agents-md-writer` instead.
-- General documentation writing that does not involve agent skill structure or the `SKILL.md` format.
+- **Persona Specification**: Defining a persistent agent identity, mandate, or internal reasoning protocol — use `agent-md-writer` instead.
+- **General Project Context**: Setting repo-wide build/test commands or architectural constraints — use `agents-md-writer` (AGENTS.md) instead.
+- **Formatting Standard Definition**: Authoring pure coding conventions, linting rules, or schema definitions — use `*.instructions.md` instead.
 
 ## Common Pitfalls
 
-- **Description Precision is Critical**: The `description` field in frontmatter is the sole trigger an agent uses to determine skill activation. A vague or overly broad description causes missed activations or false positives. Append "You MUST load this skill when <condition>" only for unambiguous CLI-based triggers.
-- **Circular Dependencies**: Never create circular `## Related Skills` references between skill files (e.g., parent references child and child references parent). This can cause infinite loading loops or context corruption.
-- **File Length Constraints**: Keep `SKILL.md` under 500 lines (ideally <200). If exceeded, split detailed workflows into `references/` files and link them explicitly from the main skill.
-- **No Real-Time Activation Testing**: The skill writer cannot test activation triggers in real-time. Rely on the description precision rule and manual validation to ensure correct loading behavior.
+- **Vague Activation Triggers**: Using broad descriptions that lack specific CLI keywords, causing the skill to remain dormant or activate incorrectly.
+- **Circular Loading Loops**: Creating `## Related Skills` references that point back to a parent or create cycles, leading to context corruption.
+- **Interactive Hangs**: Including command examples that wait for human input (e.g., `gh pr merge` without flags) in autonomous agent workflows.
 
 Generate or update Agent Skills for coding agents, ensuring
 precise activation, concise expert-level guidance, and full compliance with

@@ -10,6 +10,26 @@ license: MIT
 
 Agent MD is a format for defining specialized agent personas. These files provide context-specific instructions, project knowledge, and execution boundaries for autonomous agents in GitHub Copilot, OpenCode, and Claude Code. Unlike broad custom instructions, custom agents are selected for specific tasks and maintain their configuration throughout the workflow.
 
+## When to Use
+
+- **Platform Syntax Reference**: Defining and validating the exact YAML frontmatter and Markdown structure for `.agent.md`, `CLAUDE.md`, and `opencode.json`.
+- **Architectural Alignment**: Correctly partitioning logic between Agents ("Who"), Skills ("How"), and Instructions ("Rules") to minimize context window bloat.
+- **Scoped Persona Definition**: Creating specialized agents with tailored roles, tech stacks, and execution boundaries for repository or organizational use.
+- **Tool & Permission Guardrails**: Mapping autonomous capabilities to specific tools (built-in or MCP) and defining safety boundaries via `Never`/`Ask first` rules.
+- **Multi-Platform Configuration**: Standardizing agent behavior across GitHub Copilot, OpenCode, and Claude Code environments within a single codebase.
+
+## When Not to Use
+
+- **Domain Formatting Rules**: Setting pure coding conventions or style guides — these belong in `*.instructions.md`.
+- **Mechanical Execution**: Defining step-by-step terminal commands or API workflows — these belong in `SKILL.md`.
+- **One-off Interaction**: Simple chat prompts or quick clarifications that don't require a persistent persona or complex tool mapping.
+
+## Common Pitfalls
+
+- **The 500 KiB Wall**: GitHub truncates agent files beyond this limit; avoid embedding large documentation files directly—use relative links instead.
+- **Absolute Path Breakage**: Using absolute URLs or paths within a repository; always use relative links to ensure portability across clones.
+- **Role Overlap**: Creating multiple agents with ambiguous or overlapping scopes, which causes model confusion and activation drift.
+
 ## Architecture Principles: Agents vs Skills vs Instructions
 
 To prevent redundancy and context drift, always enforce a strict conceptual boundary when authoring system components:
