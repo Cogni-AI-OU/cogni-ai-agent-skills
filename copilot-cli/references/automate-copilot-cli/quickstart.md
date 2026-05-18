@@ -1,27 +1,57 @@
 # Automate Copilot CLI Quickstart
 
-**Goal**: Build a simple automation script leveraging GitHub Copilot CLI in minutes.
+**Goal**: Build a simple automation script using GitHub Copilot CLI programmatic mode.
 
 ## Invariants
 
-- Pass prompts directly using the `-p` flag.
-- Leverage shell scripting to generate dynamic prompts and process results.
-- Ensure the script is executable (`chmod +x`).
+- Use `-p` flag to pass prompts non-interactively: `copilot -p "prompt"`.
+- Any interactive prompt works with `-p`.
+- Scripts can generate dynamic prompts, capture output, and chain logic.
 
-## Schema (if applicable)
+## Commands
 
-- N/A
+### Direct prompt from command line
 
-## Commands / Execution (if applicable)
+```bash
+copilot -p "Summarize what this file does: ./README.md"
+```
+
+### Script: find large files and describe them
 
 ```bash
 #!/bin/bash
-# Example: Describe large files
+# Find files over 10 MB, use Copilot CLI to describe them, and email a summary
+
+EMAIL_TO="user@example.com"
+SUBJECT="Large file found"
+BODY=""
+
 while IFS= read -r -d '' file; do
-    description=$(copilot -p "Describe briefly: $file" -s 2>/dev/null)
-    echo "File: $file - $description"
+    size=$(du -h "$file" | cut -f1)
+    description=$(copilot -p "Describe this file briefly: $file" -s 2>/dev/null)
+    BODY+="File: $file"$'\n'"Size: $size"$'\n'"Description: $description"$'\n\n'
 done < <(find . -type f -size +10M -print0)
+
+if [ -z "$BODY" ]; then
+    echo "No files over 10MB found."
+    exit 0
+fi
+
+echo -e "To: $EMAIL_TO\nSubject: $SUBJECT\n\n$BODY" | sendmail "$EMAIL_TO"
+echo "Email sent to $EMAIL_TO with large file details."
 ```
+
+### Execute
+
+```bash
+chmod +x find_large_files.sh
+./find_large_files.sh
+```
+
+## Automation Triggers
+
+- Cron jobs or CI/CD pipelines for scheduled execution.
+- File system watchers for event-driven execution.
 
 ## References
 

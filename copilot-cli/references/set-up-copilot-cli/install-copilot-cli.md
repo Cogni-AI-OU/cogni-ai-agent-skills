@@ -1,33 +1,86 @@
 # Install Copilot CLI
 
-**Goal**: Deploy the GitHub Copilot CLI securely onto the host environment.
+**Source**: `github/docs` — Installing GitHub Copilot CLI.
 
-## Invariants
+## Prerequisites
 
-- Requires Node.js 22+ for npm installation.
-- Support for WinGet, Homebrew, npm, and direct install scripts.
-- Fine-grained PATs require "Copilot Requests" permission.
-- Authenticate via OAuth device flow or PAT.
+- Active Copilot subscription.
+- (Windows) PowerShell v6+.
+- Org/enterprise policy must not disable Copilot CLI.
 
-## Schema (if applicable)
+## Install Methods
 
-- Binary name: `copilot`.
-- Home directory: `~/.copilot/` (configurable via `COPILOT_HOME`).
-- Trusted directories stored in `~/.copilot/config.json`.
+### npm (all platforms)
 
-## Commands / Execution (if applicable)
+Prerequisite: Node.js version per `@github/copilot` package requirements.
 
 ```bash
-# Install via npm (Recommended)
 npm install -g @github/copilot
 
-# Install via script (macOS/Linux)
-curl -fsSL https://gh.io/copilot-install | bash
+# Prerelease version
+npm install -g @github/copilot@prerelease
+```
 
-# Authenticate
+Note: If `~/.npmrc` has `ignore-scripts=true`, use:
+
+```bash
+npm_config_ignore_scripts=false npm install -g @github/copilot
+```
+
+### WinGet (Windows)
+
+```powershell
+winget install GitHub.Copilot
+
+# Prerelease
+winget install GitHub.Copilot.Prerelease
+```
+
+### Homebrew (macOS, Linux)
+
+```bash
+brew install copilot-cli
+
+# Prerelease
+brew install copilot-cli@prerelease
+```
+
+### Install Script (macOS, Linux)
+
+```bash
+curl -fsSL https://gh.io/copilot-install | bash
+# or
+wget -qO- https://gh.io/copilot-install | bash
+
+# Install to /usr/local/bin (root)
+curl -fsSL https://gh.io/copilot-install | sudo bash
+
+# Custom directory + specific version
+curl -fsSL https://gh.io/copilot-install | VERSION="v0.0.369" PREFIX="$HOME/custom" bash
+```
+
+Environment variables for install script:
+- `PREFIX`: install prefix (default: `/usr/local` as root, `$HOME/.local` as non-root).
+- `VERSION`: specific version to install (default: latest).
+
+### Direct Download
+
+Releases: <https://github.com/github/copilot-cli/releases/>
+
+## Post-Install
+
+On first launch, authenticate:
+
+```bash
 copilot login
+```
+
+Or set env var with fine-grained PAT (requires **Copilot Requests** permission):
+
+```bash
+export COPILOT_GITHUB_TOKEN="github_pat_..."
 ```
 
 ## References
 
-- [Installing GitHub Copilot CLI](https://github.com/github/docs/blob/main/content/copilot/how-tos/copilot-cli/set-up-copilot-cli/install-copilot-cli.md)
+- <https://github.com/github/docs/blob/main/content/copilot/how-tos/copilot-cli/set-up-copilot-cli/install-copilot-cli.md>

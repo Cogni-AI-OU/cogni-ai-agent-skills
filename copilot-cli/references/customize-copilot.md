@@ -1,21 +1,18 @@
-# Customize Copilot
+# Customize Copilot CLI
 
-**Goal**: Extend and tailor the GitHub Copilot CLI to specific project needs, coding standards, and workflows.
+**Goal**: Tailor GitHub Copilot CLI to specific project needs, coding standards, and workflows.
 
-## Invariants
+## Customization Paths
 
-- Customizations are shared via repository-level configuration or distributed as plugins.
-- Requires directory trust for local agents and instructions.
-
-## Customization Vectors
-
+- **[Overview](customize-copilot/overview.md)**: Introduction to customization vectors.
 - **[Custom Instructions](customize-copilot/add-custom-instructions.md)**: Inject project standards and context.
 - **[Hooks](customize-copilot/use-hooks.md)**: Automate shell commands at lifecycle events.
-- **[Skills](customize-copilot/add-skills.md)**: Extend agent reasoning with instruction sets.
+- **[Skills](customize-copilot/add-skills.md)**: Extend reasoning with specialized knowledge.
 - **[Custom Agents](customize-copilot/create-custom-agents-for-cli.md)**: Deploy specialized subagents.
 - **[MCP Servers](customize-copilot/add-mcp-servers.md)**: Connect external data and tools.
+- **[BYOK Models](customize-copilot/use-byok-models.md)**: Use your own model provider.
 - **[Plugins](customize-copilot/plugins-marketplace.md)**: Bundle and distribute customizations.
 
 ## References
 
-- [Customizing GitHub Copilot CLI](https://github.com/github/docs/blob/main/content/copilot/how-tos/copilot-cli/customize-copilot/overview.md)
+- [Customize GitHub Copilot CLI](https://github.com/github/docs/blob/main/content/copilot/how-tos/copilot-cli/customize-copilot/index.md)

@@ -1,36 +1,72 @@
 # Authenticate Copilot CLI
 
-**Goal**: Establish device flow or token authentication for GitHub Copilot CLI.
+**Source**: `github/docs` — Authenticating GitHub Copilot CLI.
 
 ## Invariants
 
-- OAuth device flow is the default for interactive use.
-- Environment variables (`COPILOT_GITHUB_TOKEN`, `GH_TOKEN`, `GITHUB_TOKEN`) are recommended for CI/CD and headless environments.
-- Fine-grained PATs MUST have "Copilot Requests" permission.
-- Classic PATs are NOT supported.
-- Stored in system keychain (service: `copilot-cli`) or `~/.copilot/config.json` if keychain is unavailable.
+- BYOK (bring-your-own-LLM-provider) mode: GitHub authentication is NOT required.
+- Without GitHub auth: `/delegate`, GitHub MCP server, and GitHub Code Search are unavailable.
+- Offline mode (`COPILOT_OFFLINE=true`): no GitHub auth attempted, telemetry disabled, only BYOK network requests.
+- Token priority order: `COPILOT_GITHUB_TOKEN` > `GH_TOKEN` > `GITHUB_TOKEN` > system keychain > `gh auth token` fallback.
+- Environment variables silently override stored OAuth tokens.
+- BYOK provider env vars (`COPILOT_PROVIDER_BASE_URL`, `COPILOT_PROVIDER_API_KEY`) are used regardless of GitHub auth status.
 
-## Schema (if applicable)
+## Supported Token Types
 
-- Token types: OAuth (`gho_`), Fine-grained PAT (`github_pat_`), GitHub App (`ghu_`).
-- Priority: `COPILOT_GITHUB_TOKEN` > `GH_TOKEN` > `GITHUB_TOKEN` > Keychain > `gh` fallback.
+| Type | Prefix | Supported | Notes |
+|---|---|---|---|
+| OAuth token (device flow) | `gho_` | Yes | Default via `copilot login`. |
+| Fine-grained PAT | `github_pat_` | Yes | Must be owned by personal account (not org) with **Copilot Requests** account permission. |
+| GitHub App user-to-server | `ghu_` | Yes | Via env variable. |
+| Classic PAT | `ghp_` | **No** | Not supported. |
 
-## Commands / Execution (if applicable)
+## Credential Storage
+
+Default: system keychain under service name `copilot-cli`.
+
+| Platform | Keychain |
+|---|---|
+| macOS | Keychain Access |
+| Windows | Credential Manager |
+| Linux | libsecret (GNOME Keyring, KWallet) |
+
+If keychain unavailable (e.g. headless Linux without libsecret), CLI prompts for plaintext storage in `~/.copilot/config.json`.
+
+## Authentication Commands
 
 ```bash
-# Start OAuth login flow
+# OAuth device flow (interactive)
 copilot login
+# or from CLI session: /login
 
-# Check login status
+# GHEC with data residency
+copilot login --host HOSTNAME
+
+# Check authenticated user (CLI session)
 /user
-
-# Switch accounts
+# List available accounts
+/user list
+# Switch account (CLI session)
 /user switch
 
-# Logout
+# Sign out (removes local token, does not revoke)
 /logout
+
+# Check gh auth status (fallback method)
+gh auth status
+gh auth status --hostname HOSTNAME
+```
+
+## Environment Variable Auth (non-interactive)
+
+```bash
+export COPILOT_GITHUB_TOKEN="github_pat_..."
+# or
+export GH_TOKEN="github_pat_..."
+# or
+export GITHUB_TOKEN="github_pat_..."
 ```
 
 ## References
 
-- [Authenticating GitHub Copilot CLI](https://github.com/github/docs/blob/main/content/copilot/how-tos/copilot-cli/set-up-copilot-cli/authenticate-copilot-cli.md)
+- <https://github.com/github/docs/blob/main/content/copilot/how-tos/copilot-cli/set-up-copilot-cli/authenticate-copilot-cli.md>

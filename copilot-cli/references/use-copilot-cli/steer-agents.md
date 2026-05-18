@@ -4,25 +4,17 @@
 
 ## Invariants
 
-- Steering input can be sent while the agent is "Thinking".
-- Messages are processed in order as part of the active task.
-- Steering interrupts agents heading in the wrong direction or clarifies scope.
+- Steering input can be sent while the agent is in "Thinking" state.
+- Messages are processed in order as part of the active task (no separate instruction queue).
+- Interrupts agents heading in the wrong direction, provides inline feedback, or refines scope.
+- No specific CLI flags for steering; purely interactive input.
 
-## Schema (if applicable)
+## Steering Patterns
 
-- N/A
-
-## Commands / Execution (if applicable)
-
-- Steering is performed by entering prompts while the agent is in the "Thinking" state.
-- No specific CLI flags; interactive input only.
-
-## Usage Patterns
-
-- **Interrupt**: Send new instructions to redirect the agent.
-- **Feedback**: Provide inline feedback when rejecting tool permission requests.
-- **Refine**: Narrow or expand task boundaries partway through.
+- **Interrupt**: Send new instructions when agent is "Thinking" to redirect task execution.
+- **Inline feedback**: When rejecting a tool permission request (Esc), provide feedback so the agent adapts without stopping entirely.
+- **Refine**: Narrow or expand task boundaries partway through execution.
 
 ## References
 
-- [Steering agents in GitHub Copilot CLI](https://github.com/github/docs/blob/main/content/copilot/how-tos/copilot-cli/use-copilot-cli/steer-agents.md)
+- [Steering agents in GitHub Copilot CLI - github/docs](https://github.com/github/docs/blob/main/content/copilot/how-tos/copilot-cli/use-copilot-cli/steer-agents.md)
