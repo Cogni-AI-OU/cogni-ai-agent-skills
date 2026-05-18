@@ -99,7 +99,6 @@ It is the cross-tool standard—one file, every agent.
 - **Duplication**: NEVER duplicate code-level comments or obvious steps
   that the agent can easily infer from the codebase.
 
-
 ## SKILL.md vs AGENTS.md
 
 `AGENTS.md` tells agents about your project.
