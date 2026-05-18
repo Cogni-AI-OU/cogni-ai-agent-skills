@@ -4,11 +4,11 @@
 
 ## Pages
 
-- **[Installation](set-up-copilot-cli/install-copilot-cli.md)**: Prerequisites, install via npm/WinGet/Homebrew/script.
-- **[Authentication](set-up-copilot-cli/authenticate-copilot-cli.md)**: OAuth device flow, env vars, `gh` fallback, BYOK.
-- **[Configuration](set-up-copilot-cli/configure-copilot-cli.md)**: Trusted dirs, tool permissions, path/URL boundaries.
-- **[LSP Servers](set-up-copilot-cli/add-lsp-servers.md)**: Language server integration and config schema.
-- **[Troubleshooting](set-up-copilot-cli/troubleshoot-copilot-cli-auth.md)**: Auth errors, token issues, keychain failures.
+- **[Installation](install-copilot-cli.md)**: Prerequisites, install via npm/WinGet/Homebrew/script.
+- **[Authentication](authenticate-copilot-cli.md)**: OAuth device flow, env vars, `gh` fallback, BYOK.
+- **[Configuration](configure-copilot-cli.md)**: Trusted dirs, tool permissions, path/URL boundaries.
+- **[LSP Servers](add-lsp-servers.md)**: Language server integration and config schema.
+- **[Troubleshooting](troubleshoot-copilot-cli-auth.md)**: Auth errors, token issues, keychain failures.
 
 ## References
 

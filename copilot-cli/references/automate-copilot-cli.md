@@ -4,9 +4,9 @@
 
 ## Automation Paths
 
-- **[Quickstart](automate-copilot-cli/quickstart.md)**: Build a simple automation script using `-p` flag and shell scripting.
-- **[Programmatic Execution](automate-copilot-cli/run-cli-programmatically.md)**: Pass prompts via `-p`/`--prompt`, pipe input, silence metadata with `-s`, restrict tools with `--allow-tool`.
-- **[GitHub Actions](automate-copilot-cli/automate-with-actions.md)**: Install `@github/copilot`, authenticate with `COPILOT_GITHUB_TOKEN`, run in CI/CD.
+- **[Quickstart](quickstart.md)**: Build a simple automation script using `-p` flag and shell scripting.
+- **[Programmatic Execution](run-cli-programmatically.md)**: Pass prompts via `-p`/`--prompt`, pipe input, silence metadata with `-s`, restrict tools with `--allow-tool`.
+- **[GitHub Actions](automate-with-actions.md)**: Install `@github/copilot`, authenticate with `COPILOT_GITHUB_TOKEN`, run in CI/CD.
 
 ## Invariants
 

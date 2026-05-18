@@ -36,18 +36,6 @@ Note: For specific guidance on Git rebase operations and interactive rebasing, s
 - **Detached HEAD Confusion**: Committing work in a detached HEAD state and then checking out another branch, instantly losing track of the new commits.
 - **Corrupting the Index**: Manually deleting files inside the `.git/` directory to "fix" an error instead of using proper commands like `git fsck` or `git reset`.
 
-## When Not to Use
-
-- For standard, day-to-day operations like simple commits, pulls, or merges (use the base `git` skill).
-- When a graphical Git client or GitHub's web UI provides a safer, more transparent way to resolve a simple conflict.
-- If you lack a fundamental understanding of Git's object model (attempting expert commands without knowledge often destroys history).
-
-## Common Pitfalls
-
-- **Panic Force-Pushing**: Running `git push --force` immediately after a bad rebase instead of calmly using `git reflog` to restore the previous state.
-- **Detached HEAD Confusion**: Committing work in a detached HEAD state and then checking out another branch, instantly losing track of the new commits.
-- **Corrupting the Index**: Manually deleting files inside the `.git/` directory to "fix" an error instead of using proper commands like `git fsck` or `git reset`.
-
 ## Reflog Recovery (`git reflog`)
 
 - **Objective**: Recover lost commits, branches, or undo a destructive operation (like a bad hard reset).

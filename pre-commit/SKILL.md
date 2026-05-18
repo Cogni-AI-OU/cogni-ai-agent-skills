@@ -42,18 +42,6 @@ diagnostics, and fix workflows.
 - **Auto-Fix Loops**: Forgetting to `git add` the files that pre-commit auto-formatted (like trailing whitespace fixes), causing the hook to fail repeatedly.
 - **Mismatched Python Versions**: Running a local Python hook that requires `>=3.11` on a system with an older default Python, causing the hook script to crash.
 
-## When Not to Use
-
-- When writing complex, multi-file integration tests that require a full environment boot (pre-commit is for fast, isolated, file-level checks).
-- If the repository has explicitly opted out of pre-commit in favor of a different localized linting orchestration tool (like `npm run lint`).
-- For enforcing subjective architectural patterns that cannot be statically analyzed.
-
-## Common Pitfalls
-
-- **Bypassing the Cache**: Running `pre-commit run` on unstaged files and wondering why the linter didn't catch the errors (it only checks the git index by default).
-- **Auto-Fix Loops**: Forgetting to `git add` the files that pre-commit auto-formatted (like trailing whitespace fixes), causing the hook to fail repeatedly.
-- **Mismatched Python Versions**: Running a local Python hook that requires `>=3.11` on a system with an older default Python, causing the hook script to crash.
-
 ## Testing Commands
 
 **Run all hooks on all files** (recommended before committing):
