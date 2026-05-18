@@ -66,8 +66,8 @@ Structure the generated file with the following sections (omit optional ones if 
    Omit this phrase for general-purpose skills.
 3. **Title (`# Skill Name`)**
 4. **Markdownlint overrides** (e.g., `<!-- markdownlint-disable MD013 MD023 MD031 MD032 -->`)
-5. **`## When to Use`**: Concrete scenarios reinforcing description triggers.
-6. **`## When Not to Use`**: Explicit non-triggers to prevent false activation.
+5. **`## When to Use`**: Concrete scenarios reinforcing description triggers. Keep the list relevant and consise.
+6. **`## When Not to Use`**: Explicit non-triggers to prevent false activation. Keep the list relevant and consise.
 7. **Section Discipline**: Use standard sections in a logical progression:
    - `## Prerequisites` (Optional):
      Required tools, dependencies, or environment setup.
