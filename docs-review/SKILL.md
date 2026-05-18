@@ -13,7 +13,7 @@ license: MIT
 
 Guidance for reviewing core architecture, documentation, and constraint files for mutual consistency and accuracy. Use this skill when checking repository documentation.
 
-## When to Activate
+## When to Use
 
 - Checking core architecture files (`*.mmd`, `*.mzn`) for consistency.
 - Reviewing documentation (`**/AGENTS.md`, `**/README.md`) for outdated references.

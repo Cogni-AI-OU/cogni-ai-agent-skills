@@ -12,7 +12,7 @@ license: MIT
 
 Guidance for writing core architecture, documentation, and constraint files. Use this skill when creating or updating repository documentation.
 
-## When to Activate
+## When to Use
 
 - Writing or generating Architectural Decision Records (ADRs).
 - Documenting non-obvious code or complex algorithms.

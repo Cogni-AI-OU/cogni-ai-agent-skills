@@ -12,7 +12,7 @@ description: >-
 
 This skill dictates the mechanical execution and rigid formatting requirements for auditing AI agent session logs.
 
-## When to activate
+## When to Use
 
 - Find hidden problems before a workflow goes to production
 - Audit an existing agent for quality and reliability
