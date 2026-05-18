@@ -11,6 +11,7 @@ For a human-readable overview, see [README.md](README.md).
 - **[cogni-ai-agent.yml](cogni-ai-agent.yml)**: Logic for the Cogni AI Agent.
 - **[copilot-setup-steps.yml](copilot-setup-steps.yml)**: Environment setup utility.
 - **[devcontainer-ci.yml](devcontainer-ci.yml)**: Build/test devcontainer and required tools/packages.
+- **[skill-validate.yml](skill-validate.yml)**: Validate skills using `gh skill publish --dry-run`.
 
 ## Details
 
@@ -49,6 +50,12 @@ For a human-readable overview, see [README.md](README.md).
   `workflow_call`.
 - Permissions: callers must grant `packages: write` when pushing images to GHCR.
 - Reusable: `uses: Cogni-AI-OU/cogni-ai-agent-skills/.github/workflows/devcontainer-ci.yml@main`.
+
+### skill-validate.yml
+
+- Purpose: run `gh skill publish --dry-run` to validate skills.
+- Triggers: `pull_request`, `push`, `workflow_dispatch`.
+- Permissions: `contents: read`.
 
 ## Notes
 
