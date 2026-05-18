@@ -2,6 +2,7 @@
 name: editorconfig
 license: MIT
 description: Generates a comprehensive and best-practice-oriented .editorconfig file based on project analysis and user preferences.
+license: MIT
 ---
 
 # editorconfig

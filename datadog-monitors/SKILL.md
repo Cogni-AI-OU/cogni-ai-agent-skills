@@ -2,6 +2,7 @@
 name: datadog-monitors
 license: MIT
 description: Guidelines for designing, debugging, and troubleshooting Datadog monitor queries, handling common false positives, and operational edge cases.
+license: MIT
 ---
 
 # Datadog Monitors

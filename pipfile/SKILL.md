@@ -4,6 +4,7 @@ license: MIT
 description: >-
   Create, update, and manage Python project dependencies via Pipfile and Pipfile.lock.
   This skill MUST be loaded when creating or updating Pipfile or Pipfile.lock content.
+license: MIT
 ---
 # pipfile
 

@@ -4,6 +4,7 @@ license: MIT
 description: >-
   Manage OpenCode configuration, credentials, and OpenCode Zen API access to list available models and navigate XDG-compliant directory structures.
   You MUST load this skill when working with OpenCode configuration or listing models.
+license: MIT
 ---
 # opencode Skill
 

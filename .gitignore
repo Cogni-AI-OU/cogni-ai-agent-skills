@@ -224,4 +224,6 @@ actionlint
 *.org
 *.orig
 *.swp
+*.py
+!**/scripts/**/*.py
 test*.md

@@ -4,6 +4,7 @@ license: MIT
 description: >-
   Advanced GitHub CLI (`gh api`) queries and mutations via REST or GraphQL.
   You MUST load this skill when working with the `gh api` command.
+license: MIT
 ---
 
 # gh-api Skill

@@ -2,6 +2,7 @@
 name: ai-prompt-writer
 license: MIT
 description: Design, review, and optimize secure AI prompts using advanced prompt engineering patterns, safety frameworks, and injection mitigation strategies.
+license: MIT
 ---
 
 # Skill: AI Prompt Writer

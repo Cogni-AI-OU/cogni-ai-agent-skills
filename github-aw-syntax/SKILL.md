@@ -4,6 +4,7 @@ license: MIT
 description: >-
   Complete reference for GitHub Agentic Workflows (gh-aw) frontmatter schema, engine configuration, network access, tools, and imports syntax.
   You MUST load this skill when writing or debugging Agentic Workflow files.
+license: MIT
 ---
 
 # github-aw-syntax

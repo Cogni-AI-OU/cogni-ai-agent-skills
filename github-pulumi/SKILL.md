@@ -2,6 +2,7 @@
 name: github-pulumi
 license: MIT
 description: Activate when managing GitHub resources with Pulumi CLI to import, preview, update, and repair state.
+license: MIT
 ---
 
 # GitHub Pulumi

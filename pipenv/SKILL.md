@@ -4,6 +4,7 @@ license: MIT
 description: >-
   Manage Python project dependencies, virtual environments, and security using the pipenv CLI.
   This skill MUST be loaded when using pipenv to manage environments or dependencies.
+license: MIT
 ---
 # pipenv
 
