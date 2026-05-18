@@ -63,18 +63,18 @@ Structure the generated file with the following sections (omit optional ones if 
 1. **YAML Frontmatter block**
    Must include `name`, `description`, and `license` (MIT).
    For the `description`, append `"You MUST load this skill when <condition>"` ONLY for exact, unambiguous triggers (e.g., a specific CLI command).
-   Omit this phrase for general-purpose skills.
-3. **Title (`# Skill Name`)**
-4. **Markdownlint overrides** (e.g., `<!-- markdownlint-disable MD013 MD023 MD031 MD032 -->`)
-5. **`## When to Use`**:
+   Omit this phrase for general-purpose skills. Split long sentences into multiple lines.
+2. **Title (`# Skill Name`)**
+3. **Markdownlint overrides** (e.g., `<!-- markdownlint-disable MD013 MD023 MD031 MD032 -->`)
+4. **`## When to Use`**:
    Concrete scenarios reinforcing description triggers.
    **Bullet points** (concise and strictly relevant).
    Use to clarify exactly when the agent should apply this skill.
-6. **`## When Not to Use`**:
+5. **`## When Not to Use`**:
    Explicit non-triggers to prevent false activation.
    **Bullet points** (concise and strictly relevant).
    Use to set clear boundaries for out-of-scope tasks.
-7. **Section Discipline**: Use standard sections in a logical progression:
+6. **Section Discipline**: Use standard sections in a logical progression:
    - `## Prerequisites` (Optional):
      Required tools, dependencies, or environment setup.
      **Requirement → Why it's needed**.
