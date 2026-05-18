@@ -52,8 +52,15 @@ Structure the generated file with the following sections (omit optional ones if 
    - `## Core Process` or `## Step-by-Step Workflows`: For repeatable procedures where sequence matters.
    - `## Core Principles`
    - `### Workflow` (Optional, under `## Core Process` or `## Step-by-Step Workflows`): Use for named sub-flows when a process section contains multiple distinct procedures.
-   - `## Common Pitfalls`: Table with Pitfall → Solution columns.
-   - `## Troubleshooting`: Reactive fixes (Symptom → Solution table).
+   - `## Common Pitfalls`:
+     Proactive prevention.
+     **Pitfall → Prevention/Solution**.
+     Use this section to stop avoidable errors before they happen.
+   - `## Troubleshooting`:
+     Reactive recovery.
+     **Symptom → Diagnosis/Fix**.
+     Use this section to help the agent identify, isolate, and recover from problems.
+     Covers symptoms or failures that have already happened.
    - `## Best Practices`
    - `## What to Avoid`
    - `## Limitations`
