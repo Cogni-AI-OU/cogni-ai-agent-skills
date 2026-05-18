@@ -83,7 +83,7 @@ It is the cross-tool standard—one file, every agent.
 - **Too Vague**: "Make the code better" → Specify exactly what "better" means.
 - **Too Restrictive**: Over-constraining can prevent useful optimizations.
 - **Missing Context**: Include relevant domain knowledge and terminology.
-- **No Examples**: Concrete examples guide LLM better than abstract descriptions.
+- **No Examples**: Concrete examples guide an LLM better than abstract descriptions.
 - **Ignoring Artifacts**: Don't refine prompts based on error feedback.
 
 ## What to Avoid
