@@ -46,26 +46,52 @@ Structure the generated file with the following sections (omit optional ones if 
 2. **Title (`# Skill Name`)**
 3. **Markdownlint overrides** (e.g., `<!-- markdownlint-disable MD013 MD023 MD031 MD032 -->`)
 4. **`## When to Use`**: Concrete scenarios reinforcing description triggers.
-5. **`## When Not to Use`**
+5. **`## When Not to Use`**: Explicit non-triggers to prevent false activation.
 6. **Section Discipline**: Use standard sections in a logical progression:
-   - `## Prerequisites` (Optional): Required tools, dependencies, or environment setup.
-   - `## Core Process` or `## Step-by-Step Workflows`: For repeatable procedures where sequence matters.
-   - `## Core Principles`
-   - `### Workflow` (Optional, under `## Core Process` or `## Step-by-Step Workflows`): Use for named sub-flows when a process section contains multiple distinct procedures.
+   - `## Prerequisites` (Optional):
+     Required tools, dependencies, or environment setup.
+     **Requirement → Why it's needed**.
+     Use when the skill cannot function without specific external setup.
+   - `## Core Process` or `## Step-by-Step Workflows`:
+     Sequential, repeatable procedure(s).
+     **Numbered steps**, each imperative and verifiable.
+     Use `## Core Process` for a single canonical flow; use `## Step-by-Step Workflows` when the skill covers several related tasks (e.g., "Create", "Update", "Migrate").
+     - `### Workflow` (Optional):
+       Named sub-flow within a process section.
+       **Workflow Name → ordered steps**.
+       Use when a single process branches into multiple distinct named variants.
+   - `## Core Principles`:
+     Non-negotiable rules that shape every decision.
+     **Principle → Rationale** (short).
+     Use for invariants the agent must always uphold, regardless of task.
+   - `## Best Practices`:
+     Recommended (but not mandatory) techniques.
+     **Practice → Why it helps**.
+     Use for guidance that improves quality but isn't strictly required.
+   - `## What to Avoid`:
+     Anti-patterns and forbidden behaviors.
+     **Anti-pattern → Why it's harmful**.
+     Use for explicit "do NOT do this" guidance distinct from preventable mistakes (Common Pitfalls).
+   - `## Limitations`:
+     Known boundaries of what this skill can accomplish.
+     **Limitation → Workaround (if any)**.
+     Use to set realistic expectations and prevent the agent from attempting impossible tasks.
    - `## Common Pitfalls`:
      Proactive prevention.
      **Pitfall → Prevention/Solution**.
-     Use this section to stop avoidable errors before they happen.
+     Use to stop avoidable errors before they happen.
    - `## Troubleshooting`:
      Reactive recovery.
      **Symptom → Diagnosis/Fix**.
-     Use this section to help the agent identify, isolate, and recover from problems.
-     Covers symptoms or failures that have already happened.
-   - `## Best Practices`
-   - `## What to Avoid`
-   - `## Limitations`
-   - `## References`: Links to references/ files or external resources.
-   - `## Related Skills`: With brief description when to load (avoid circular dependencies).
+     Use to help the agent identify, isolate, and recover from problems that already occurred.
+   - `## References`:
+     Links to `references/` files or external resources.
+     **Title → URL or relative path**.
+     Use to enable progressive loading of long-form content without bloating `SKILL.md`.
+   - `## Related Skills`:
+     Other skills that complement this one.
+     **Skill name → When to load it**.
+     Use to suggest companion skills while avoiding circular dependencies.
 
 ## Bundling Resources
 
