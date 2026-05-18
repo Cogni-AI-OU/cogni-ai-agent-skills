@@ -1,6 +1,7 @@
 ---
 name: dictation
-description: Fix speech-to-text errors, correct technical terminology, and improve text clarity in documentation and workflows.
+description: 'Fix speech-to-text errors, correct technical terminology, and improve text clarity in documentation and workflows.'
+license: MIT
 ---
 # Skill: dictation
 
@@ -23,9 +24,22 @@ Apply dictation correction protocols to fix common speech-to-text errors, especi
 - **Maintain Intent**: Do not simplify technical concepts or alter the user's intended meaning.
 
 ## When to Use
+- Processing raw dictation or speech-to-text input with common misrecognitions
+- Refining draft documentation or workflow descriptions containing filler words or inaccuracies
+- Standardizing technical terminology (GitHub product names, AI engine names, compound modifiers) across documents
+- Correcting hyphenation and capitalization in project-specific glossary terms
+- Cleaning up transcribed meeting notes or voice-to-text output for publication
 
-- When processing raw dictation or speech-to-text input.
-- When refining draft documentation or workflow descriptions that contain filler words or inaccuracies.
+## When Not to Use
+- Generating code examples or writing new source code — this skill corrects text, not code
+- Providing step-by-step planning or execution instructions — output should primarily be the corrected text
+- Simplifying technical concepts or altering the user's intended meaning — preserve original intent and technical accuracy
+
+## Gotchas
+- Compound modifiers (e.g., `pull-request`, `cache-memory`) require hyphenation only when used as adjectives before a noun, not as standalone nouns
+- Engine names must be properly capitalized: `GitHub Copilot` (not `copilot`), `Claude` (not `cloud`), `Gemini` (not `gem ini`)
+- The vocabulary correction list is opinionated and project-specific — do not apply it blindly to text from unrelated domains
+- Removing filler words (`you know`, `basically`, `like`) can change the tone of quoted speech — preserve direct quotes verbatim
 
 ## Quick Start
 
@@ -118,12 +132,6 @@ Capitalize fully: `GITHUB_TOKEN`, `GH_TOKEN`, `COPILOT_GITHUB_TOKEN`, `GH_AW_GIT
 
 - **Remove Filler Words**: humm, um, uh, uhh, umm, you know, like, basically, actually, literally, kind of, sort of, I mean, I think, right?, okay?, so yeah, well.
 - **Improve Clarity**: Remove redundant phrases ("in order to" -> "to", "at this point in time" -> "now"), make text more concise, and maintain technical accuracy.
-
-## What to Avoid
-
-- Generating code examples.
-- Providing step-by-step planning.
-- Simplifying technical concepts.
 
 ## References
 

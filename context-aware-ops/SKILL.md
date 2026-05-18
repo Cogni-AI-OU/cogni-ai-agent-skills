@@ -1,14 +1,29 @@
 ---
 name: context-aware-ops
-description: >-
-  Intelligent resource management with size checking and filtering to preserve
-  context window.
-  You MUST load this skill when managing large resources or context window limits.
+description: 'Intelligent resource management with size checking and filtering to preserve context window. You MUST load this skill when managing large resources or context window limits.'
 license: MIT
 ---
 # Context-Aware Operations Skill
 
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
+
+## When to Use
+- Reading or processing files that may exceed the agent context window limit
+- Analyzing large log files where full content would exhaust available tokens
+- Querying command outputs that produce hundreds or thousands of lines
+- Managing context budget during multi-step investigations across many files
+- Filtering relevant information from noisy or verbose command output
+
+## When Not to Use
+- Reading small files under 100 lines where full content is safe — the overhead of filtering is unnecessary
+- Situations where the complete output is required for correctness (e.g., exact error messages for debugging)
+- Replacing proper log aggregation and observability tools with ad-hoc shell filtering for production debugging
+
+## Gotchas
+- `grep -C 5` context lines can multiply quickly — always chain with `head` or `tail` to limit output
+- Piped commands like `command | head` may cause the upstream process to receive a SIGPIPE, which some tools treat as an error
+- Using `shuf -n` for random sampling may miss critical rare events — prefer stratified sampling for error analysis
+- The `tee` pattern (`command | tee >(wc -l >&2)`) only works in bash and may not be available in all shell environments
 
 This skill provides patterns and techniques for managing large files and command outputs
 efficiently, preventing context window exhaustion while maintaining effective problem-solving

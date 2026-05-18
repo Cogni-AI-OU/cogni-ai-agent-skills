@@ -1,11 +1,30 @@
 ---
 name: datadog-agent
-description: Use when installing, configuring, or updating Datadog Agent;
+description: 'Use when installing, configuring, or updating Datadog Agent;'
+license: MIT
 ---
 
 # Skill: datadog-agent
 
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
+
+## When to Use
+- Installing or upgrading the Datadog Agent on Linux/Windows/macOS hosts
+- Configuring log collection, integrations, or custom checks via Ansible or manual configuration
+- Writing custom Python checks (AgentCheck or OpenMetricsBaseCheckV2) for bespoke metrics
+- Diagnosing Agent connectivity issues, check failures, or status anomalies
+- Managing Agent configuration as immutable infrastructure through Ansible roles
+
+## When Not to Use
+- Querying or analyzing telemetry data already collected — use `datadog-api` or `datadog-mcp` instead
+- Creating Datadog dashboards, monitors, or SLOs — those are separate configuration domains
+- Setting up Datadog in serverless environments (Lambda extensions) — the Agent runs on hosts/containers
+
+## Gotchas
+- Custom check script names must exactly match their configuration file names (e.g., `my_check.py` requires `my_check.yaml`) or the check will not load
+- Never use Python's native `subprocess` module in checks; always use `get_subprocess_output()` from `datadog_checks.base.utils.subprocess_output` to avoid Go-runtime threading issues
+- Prefix custom checks with `custom_` to avoid naming conflicts with built-in integrations
+- The Ansible logs configuration must be nested under a `logs:` key within the check dictionary — a flat array at the root level is a common mistake
 
 Expert-level guidance for installing, configuring, and extending the Datadog Agent, including Ansible orchestration and custom OpenMetrics checks.
 

@@ -1,14 +1,34 @@
 ---
 name: python-cli
-description: >-
-  Execute Python inline scripts via heredocs for complex log processing, data transformation,
-  or CLI utilities like URL encoding/decoding.
-  You MUST load this skill when processing large logs or performing one-liner data operations.
+description: 'Execute Python inline scripts via heredocs for complex log processing, data transformation, or CLI utilities like URL encoding/decoding. You MUST load this skill when processing large logs or performing one-liner data operations.'
+license: MIT
 ---
 
 # Skill: python-cli
 
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
+
+## When to Use
+- When processing large log files where `awk`/`sed`/`grep` pipelines become unwieldy or fragile.
+- When performing complex data transformations like URL encoding/decoding, JSON parsing, or multi-file aggregation.
+- When you need Python's standard library (`json`, `pathlib`, `re`, `urllib.parse`) for robust text processing without writing a permanent `.py` script.
+- When extracting specific line ranges from files using Python's file reading capabilities.
+- When piping or chaining data transformations that require stateful parsing across multiple files.
+- When a quick inline script is needed for ad-hoc analysis without creating a new module or project file.
+
+## When Not to Use
+- When writing production Python code, modules, or classes that need to be maintained — use the **python** skill for proper module development.
+- When a simple `grep`, `awk`, or `jq` one-liner suffices — Python inline scripts add overhead for trivial operations.
+- When the script exceeds ~50 lines or requires external dependencies — create a proper `.py` file with dependency management instead.
+- When the Python code needs to be imported or reused across multiple contexts — inline heredocs are single-use by nature.
+- When debugging requires persistent state or step-through execution — write a file-based script for interactive debugging.
+
+## Gotchas
+- The heredoc delimiter MUST be quoted (`<<'PY'`), NOT unquoted (`<<PY`) — unquoted delimiters cause bash to expand variables, potentially corrupting Python code containing `$` or backticks.
+- If `python3` is unavailable, fall back to `python` — but verify it points to Python 3, not Python 2, which may be the default on older systems.
+- Inline scripts do not persist on disk — any output must be captured via stdout or written to a file explicitly; errors during execution lose all in-memory state.
+- For large files, always use streaming (`for line in f:`) rather than `f.read()` to avoid exhausting memory.
+- Standard input via `input()` in a `-c` one-liner reads only one line — for multi-line input, use heredoc-based scripts (`<<'PY'`) with `sys.stdin.read()`.
 
 Use Python via `python3 - <<'PY'` heredocs or one-liners when processing large log files,
 performing data transformations (like URL encoding/decoding), or parsing structured data (like JSON)

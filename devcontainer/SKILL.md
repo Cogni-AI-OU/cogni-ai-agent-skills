@@ -1,10 +1,29 @@
 ---
 name: devcontainer
-description: Create, update, and maintain robust devcontainer.json configurations and lifecycle scripts for reproducible development environments.
+description: 'Create, update, and maintain robust devcontainer.json configurations and lifecycle scripts for reproducible development environments.'
+license: MIT
 ---
 # Devcontainer
 
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
+
+## When to Use
+- Creating a new devcontainer configuration for a project from scratch
+- Adding Dev Container Features (`ghcr.io/devcontainers/features/*`) for modular tool installation
+- Configuring lifecycle scripts (`onCreateCommand`, `updateContentCommand`, `postCreateCommand`) for reproducible setup
+- Customizing VS Code extensions and settings for a consistent team IDE experience
+- Migrating from custom Dockerfiles to standardized Dev Container Features for better caching
+
+## When Not to Use
+- Writing production Dockerfiles or container images for deployment — devcontainers are for development environments only
+- Managing CI/CD pipeline configurations — use GitHub Actions workflows instead
+- Solving runtime dependency issues unrelated to the development environment setup
+
+## Gotchas
+- `postCreateCommand` runs as `remoteUser` while system installs need `sudo` — forgetting this causes silent permission failures
+- Feature versions and base image tags MUST be pinned (e.g., `:jammy` not `:latest`) to ensure reproducibility across team members
+- Long-running synchronous `postCreateCommand` tasks block the container from appearing ready — move OS updates to `onCreateCommand` or `updateContentCommand`
+- The `initializeCommand` runs on the HOST before the container exists — use it for host-level setup like creating directories for bind mounts
 
 Create, update, and maintain robust `devcontainer.json` configurations and associated lifecycle scripts (e.g., `onCreateCommand`, `updateContentCommand`, `postCreateCommand`) to ensure reproducible, feature-rich, and secure development environments.
 

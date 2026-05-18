@@ -1,6 +1,7 @@
 ---
 name: sed
 description: 'Fast, non-interactive text stream editing and precise file segment extraction using sed.'
+license: MIT
 ---
 
 # Skill: sed
@@ -15,6 +16,13 @@ Fast, non-interactive text stream editing and precise file segment extraction us
 - You need to perform non-interactive, programmatic find-and-replace across files.
 - You are writing shell scripts or processing streams of data in pipelines.
 - You want to extract snippets of log files or codebase for context extraction.
+
+## When Not to Use
+
+- Editing structured data formats (JSON, YAML, XML, TOML) where schema-aware tools like `jq`, `yq`, or language-specific parsers preserve structure and handle edge cases correctly.
+- Performing refactoring or AST transformations on source code—use language-specific tools (e.g., `autopep8`, `prettier`, `gofmt`) instead.
+- Multi-file, context-dependent cross-referencing operations where `sed`'s line-by-line stream model cannot track state across files.
+- Collaborative environments where file permissions or in-place editing safety (backup file creation) matter—consider using version-controlled diff-based approaches.
 
 ## Core Process
 

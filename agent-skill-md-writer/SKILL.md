@@ -8,16 +8,30 @@ license: MIT
 
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
 
+## When to Use
+
+- Creating a new agent skill directory with a `SKILL.md` and optional bundled resources (scripts, templates, references).
+- Updating or refining an existing `SKILL.md` to improve description precision, add missing sections, or fix activation triggers.
+- Bundling scripts, templates, or references alongside a skill following the progressive loading architecture.
+- Troubleshooting skill activation failures or context budget issues in an existing skill.
+- Refactoring an overlong skill by splitting detailed content into a `references/` directory.
+
+## When Not to Use
+
+- Writing agent persona files (`.agent.md`, `CLAUDE.md`) — use `agent-md-writer` instead.
+- Writing project-level `AGENTS.md` files — use `agents-md-writer` instead.
+- General documentation writing that does not involve agent skill structure or the `SKILL.md` format.
+
+## Gotchas
+
+- **Description Precision is Critical**: The `description` field in frontmatter is the sole trigger an agent uses to determine skill activation. A vague or overly broad description causes missed activations or false positives. Append "You MUST load this skill when <condition>" only for unambiguous CLI-based triggers.
+- **Circular Dependencies**: Never create circular `## Related Skills` references between skill files (e.g., parent references child and child references parent). This can cause infinite loading loops or context corruption.
+- **File Length Constraints**: Keep `SKILL.md` under 500 lines (ideally <200). If exceeded, split detailed workflows into `references/` files and link them explicitly from the main skill.
+- **No Real-Time Activation Testing**: The skill writer cannot test activation triggers in real-time. Rely on the description precision rule and manual validation to ensure correct loading behavior.
+
 Generate or update Agent Skills for coding agents, ensuring
 precise activation, concise expert-level guidance, and full compliance with
 the portable progressive loading architecture.
-
-## When to Use This Skill
-
-- User asks to create a new agent skill
-- User needs to update or refine an existing `SKILL.md`
-- User wants to bundle scripts, templates, or references with a skill
-- User is troubleshooting skill activation or context limits
 
 ## Core Process
 

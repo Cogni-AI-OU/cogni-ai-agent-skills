@@ -1,11 +1,31 @@
 ---
 name: lsp-setup
 description: 'Enable code intelligence (go-to-definition, find-references, hover, type info) for any programming language by installing and configuring an LSP server for Copilot CLI.'
+license: MIT
 ---
 
 # LSP Setup for GitHub Copilot CLI
 
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
+
+## When to Use
+- When enabling code intelligence features (go-to-definition, find-references, hover, type info) for a programming language in GitHub Copilot CLI.
+- When setting up a new LSP server for a language not yet configured in `~/.copilot/lsp-config.json`.
+- When a developer asks for step-by-step guidance on installing and registering a language server.
+- When troubleshooting missing or broken code intelligence in Copilot CLI sessions.
+- When migrating or merging LSP configurations across user-level and repo-level config files.
+
+## When Not to Use
+- When configuring LSP servers for IDEs (VS Code, IntelliJ, etc.) — this skill is exclusively for Copilot CLI.
+- When the language already has working code intelligence — only add new servers when needed.
+- When the setup requires interactive GUI tools or package managers not available on the target OS.
+
+## Gotchas
+- Copilot CLI requires a full restart (`/exit`, then re-launch) before new LSP configuration takes effect — merely reloading is insufficient.
+- Repo-level config (`lsp.json` or `.github/lsp.json`) takes precedence over user-level (`~/.copilot/lsp-config.json`), which can cause confusion when both exist with conflicting entries.
+- Some LSP servers (e.g., `pyright`, `typescript-language-server`) require runtime dependencies (Node.js, Python) that must be verified separately.
+- The `args` array almost always requires `"--stdio"` — omitting this is the most common configuration mistake.
+- Merging configs must never overwrite existing server entries; always read the current file first and only add or update the target language key.
 
 **UTILITY SKILL** — installs and configures Language Server Protocol servers for Copilot CLI.
 

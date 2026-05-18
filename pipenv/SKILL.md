@@ -1,12 +1,34 @@
 ---
 name: pipenv
-description: >-
-  Manage Python project dependencies, virtual environments, and security using the pipenv CLI.
-  This skill MUST be loaded when using pipenv to manage environments or dependencies.
+description: 'Manage Python project dependencies, virtual environments, and security using the pipenv CLI. This skill MUST be loaded when using pipenv to manage environments or dependencies.'
+license: MIT
 ---
 # pipenv
 
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
+
+## When to Use
+- When managing Python project dependencies with `Pipfile` and `Pipfile.lock` for deterministic, hash-verified environments.
+- When creating isolated virtual environments for Python projects with automatic virtualenv management.
+- When installing production or development dependencies with clear separation between `[packages]` and `[dev-packages]`.
+- When generating a lockfile (`pipenv lock`) to pin exact versions and hashes for reproducible builds.
+- When running tests or scripts within a pipenv-managed virtual environment using `pipenv run`.
+- When checking for known vulnerabilities in project dependencies via `pipenv check`.
+- When deploying to CI/CD with `--deploy` to ensure lockfile consistency.
+
+## When Not to Use
+- When a simple `requirements.txt` with `venv` suffices for a small, single-file script — pipenv adds overhead for trivial projects.
+- When the Python project uses Poetry or Conda for dependency management — mixing tools causes lockfile conflicts and environment corruption.
+- When running inside a Docker container where `--system` flag semantics are needed — use `pipenv install --system` instead of default virtualenv behavior.
+- When the project already has a mature `requirements.txt` workflow and migration overhead is not justified — only migrate if deterministic locking is needed.
+- When the agent would need to run `pipenv shell` — this is interactive and MUST be avoided in automated contexts.
+
+## Gotchas
+- NEVER run `pipenv shell` as an automated agent — it spawns an interactive subshell that stalls indefinitely waiting for human input; always use `pipenv run <command>` instead.
+- `Pipfile.lock` MUST NOT be edited manually — always regenerate with `pipenv lock` to maintain hash integrity.
+- Editable installs ( `-e` ) with parallel builds can cause `BackendUnavailable` race conditions — set `PIP_NO_BUILD_ISOLATION=1` if this occurs.
+- The `pipenv check` command is only one layer of security — it checks known vulnerabilities but does not replace a full SBOM audit with tools like `syft`.
+- In CI/CD, use `pipenv install --deploy` not `pipenv lock` or `pipenv update` — deploy fails if the lockfile is out of sync, preventing inconsistent environments.
 
 Use this skill for managing Python project environments and dependencies through the `pipenv` CLI tool.
 

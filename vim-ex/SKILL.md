@@ -1,15 +1,36 @@
 ---
 name: vim-ex
-description: >-
-  How to use Ex mode in Vim for non-interactive file editing (e.g., complex text
-  substitution, deleting lines, file parsing, wrapping text, sorting lines).
-  You MUST load this skill when using Vim Ex mode for non-interactive file editing.
+description: 'How to use Ex mode in Vim for non-interactive file editing (e.g., complex text substitution, deleting lines, file parsing, wrapping text, sorting lines). You MUST load this skill when using Vim Ex mode for non-interactive file editing.'
 license: MIT
 ---
-<!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
 # File Editing with Ex Mode
 
-`ex` is the line-editor mode of Vim, which is useful for non-interactive file editing in shell scripts
+<!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
+
+## When to Use
+
+- Performing complex multi-line text transformations across files where `sed`'s stream model is too limited.
+- Editing files in-place without the portability issues of `sed -i` (GNU vs. BSD incompatibilities).
+- Applying structural edits using Vim's text objects (paragraphs, brackets, tags) across multiple files.
+- Automating bulk file edits in CI/CD pipelines or agent workflows with precise non-interactive control.
+- Running complex macro-based transformations (e.g., extracting URLs from Markdown, wrapping text, sorting ranges).
+
+## When Not to Use
+
+- Simple single-line substitutions where `sed` would be more efficient and readable.
+- Editing structured data formats (JSON, YAML) where dedicated tools like `jq` or `yq` preserve schema integrity.
+- Environments where Vim/Ex is not installed and cannot be installed.
+- Collaborative editing scenarios where line-based patch files (`diff`/`patch`) are the standard interchange format.
+- When the edits require only basic stream processing (e.g., grepping lines, counting)—simpler tools suffice.
+
+## Gotchas
+
+- Forgetting the `-s` (silent) flag causes `ex` to drop into interactive mode, which hangs automated scripts—always include `-s` for batch editing.
+- `ex` substitution syntax uses `\r` for newlines in replacement (not `\n`), which is a common source of confusion for those coming from `sed`.
+- Piping data AND using heredocs simultaneously causes `ex` to hang—use process substitution (`ex -s <(command) << EOF`) instead.
+- Range addresses with patterns can fail if the second address is evaluated relative to line 1 instead of the cursor position—split pattern searches and relative offsets into separate commands.
+
+\`ex\` is the line-editor mode of Vim, which is useful for non-interactive file editing in shell scripts
 or agent-executed terminal commands.
 
 Unlike tools such as `sed` or `awk` which are *stream editors* designed to process data sequentially line-by-line—`ex`

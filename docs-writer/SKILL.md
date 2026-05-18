@@ -1,14 +1,35 @@
 ---
 name: docs-writer
-description: >-
-  Create, update, and maintain documentation including Architectural Decision Records (ADRs), runbooks, READMEs, and code-level documentation.
-  You MUST load this skill when asked to write, document, or generate new documentation.
+description: 'Create, update, and maintain documentation including Architectural Decision Records (ADRs), runbooks, READMEs, and code-level documentation. You MUST load this skill when asked to write, document, or generate new documentation.'
 license: MIT
 ---
 
+# Docs Writer
+
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
 
-# Docs Writer
+## When to Use
+
+- Writing or generating Architectural Decision Records (ADRs) to capture rationale for significant technical decisions.
+- Documenting non-obvious code or complex algorithms with "why" comments.
+- Creating or updating runbooks for production processes, incident response, or operational tasks.
+- Updating README files to reflect the current state, setup instructions, or architecture.
+- Creating local `AGENTS.md` files for subdirectories with specific functionality or workflows.
+- Writing project documentation after a significant architectural change or new feature addition.
+
+## When Not to Use
+
+- Reviewing existing documentation for correctness or consistency — use the `docs-review` skill instead.
+- Making trivial formatting or spelling fixes that do not add new documentation content.
+- Generating API reference documentation that should be auto-generated from code comments or OpenAPI specs.
+- Writing documentation for unstable or experimental features that are likely to change before release.
+
+## Gotchas
+
+- ADRs explain WHY, not WHAT — the code already explains what it does. A good ADR captures the context, alternatives considered, and consequences, not the implementation details.
+- Code comments should document the WHY, not the WHAT — comments like `// Retry the request` add noise; `// Using exponential backoff — payment API limits to 3 req/sec` adds value.
+- Runbooks must be verifiable: each step should be precise enough that someone with on-call access can execute it without asking for clarification.
+- READMEs rot faster than code — always verify setup instructions by mentally walking through them on a hypothetical fresh machine, and update architecture diagrams after significant changes.
 
 Guidance for writing core architecture, documentation, and constraint files. Use this skill when creating or updating repository documentation.
 

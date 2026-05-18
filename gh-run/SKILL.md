@@ -1,11 +1,32 @@
 ---
 name: gh-run
-description: >-
-  GitHub CLI (`gh run` and `gh workflow`) operations for workflow runs, jobs,
-  logs, and attempts.
-  You MUST load this skill when working with the `gh run` and the `gh workflow` commands.
+description: 'GitHub CLI (`gh run` and `gh workflow`) operations for workflow runs, jobs, logs, and attempts. You MUST load this skill when working with the `gh run` and the `gh workflow` commands.'
+license: MIT
 ---
 # gh-run Skill
+
+<!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
+
+## When to Use
+- You need to list, view, cancel, rerun, or delete GitHub Actions workflow runs.
+- You need to download workflow run artifacts or logs for debugging or audit purposes.
+- You need to trigger a workflow via `workflow_dispatch` with specific input parameters and branch reference.
+- You need to watch a workflow run in real-time and wait for its completion to verify a fix.
+- You need to inspect job-level details, steps, annotations, and attempt history for a specific run.
+- You need to correlate workflow runs with PR commits, especially for agentic or manually-triggered workflows.
+
+## When Not to Use
+- You need to debug a failing GitHub Agentic Workflow (gh-aw) — use **gh-aw-troubleshooting** for MCP, audit, and frontmatter diagnostics.
+- You need to inspect third-party CI checks or status contexts that are not GitHub Actions runs — use **gh-pr** checks.
+- You need to modify workflow files or workflow configuration (`.github/workflows/*.yml`) — use **github-actions** or the **github-aw** skill for agentic workflows.
+- You need to search across all workflow runs in an organization with complex filters — use **gh-api** with `/actions/runs` query parameters.
+
+## Gotchas
+- `gh run view --log` only fetches logs for the **latest completed** attempt and often returns empty for in-progress runs or expired attempts — use the ZIP log endpoint (`gh api /repos/*/actions/runs/<run_id>/attempts/<attempt_num>/logs`) for reliable access.
+- Jobs can conclude `success` while still containing pathological agent behavior — never assume a green checkmark means the run is clean; inspect step-level logs and annotations.
+- `gh workflow run` does not return the run ID; you must poll `gh run list --workflow <id> --limit 1` to find the triggered run, then use `gh run watch` to await completion.
+- Job summaries (Markdown written to `$GITHUB_STEP_SUMMARY`) are NOT available via the REST API or `gh run view --json` — they must be parsed from logs or retrieved via alternative channels (comments, check annotations).
+- The `gh run view` command warns and ignores the run ID if both run ID and job ID are passed — fix your arguments before continuing if you see this warning.
 
 Use `gh run` and `gh workflow` to interact with GitHub Actions workflows. Prefer structured output and explicit
 routing over brittle shell post-processing.

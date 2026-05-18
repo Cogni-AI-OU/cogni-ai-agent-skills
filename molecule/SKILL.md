@@ -1,12 +1,30 @@
 ---
 name: molecule
-description: >-
-  How to run and manage Molecule tests for Ansible roles and playbooks.
-  You MUST load this skill when running or managing Molecule tests for Ansible.
+description: 'How to run and manage Molecule tests for Ansible roles and playbooks. You MUST load this skill when running or managing Molecule tests for Ansible.'
 license: MIT
 ---
-<!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
+
 # Molecule Testing
+
+<!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
+
+## When to Use
+- When running Molecule tests to validate Ansible roles and playbooks across multiple scenarios.
+- When debugging a failing `molecule test` by breaking it into individual steps (`create`, `converge`, `destroy`).
+- When setting up Molecule testing inside a devcontainer or GitHub Codespace for local Ansible development.
+- When verifying idempotency of Ansible roles through Molecule's built-in test sequences.
+- When troubleshooting Ansible environment issues like missing Python modules or interpreter mismatches inside test containers.
+
+## When Not to Use
+- When testing can be done via lightweight syntax checks (`ansible-playbook --syntax-check`) without full container provisioning — Molecule is heavy and should be reserved for integration tests.
+- When running outside a controlled environment without Docker or Podman — Molecule requires a container runtime for most drivers.
+- When the Ansible role is not idempotent by design — Molecule tests will highlight this, but the role should be fixed first.
+
+## Gotchas
+- `molecule test` runs the entire lifecycle and may hang indefinitely on slow operations — always use `timeout 600s` when automating Molecule commands.
+- Ansible may use a different Python interpreter (e.g., pipx-managed) than the one where Python modules are installed — check `ansible --version` and install libraries in the correct environment.
+- Broken conditional handling in upstream plugins may require `ANSIBLE_ALLOW_BROKEN_CONDITIONALS=1` to proceed — only use as a temporary workaround.
+- When running inside a devcontainer, do NOT create separate Python virtual environments — use the container's existing Python environment and update `.devcontainer/requirements.txt` instead.
 
 ## Commands
 

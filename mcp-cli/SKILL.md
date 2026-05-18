@@ -1,11 +1,32 @@
 ---
 name: mcp-cli
-description: Interface for MCP (Model Context Protocol) servers via CLI. Use when you need to interact with external tools, APIs, or data sources through MCP servers, list available MCP servers/tools, or call MCP tools from command line.
+description: 'Interface for MCP (Model Context Protocol) servers via CLI. Use when you need to interact with external tools, APIs, or data sources through MCP servers, list available MCP servers/tools, or call MCP tools from command line.'
+license: MIT
 ---
 
 # mcp-cli
 
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
+
+## When to Use
+- When you need to interact with external tools, APIs, or data sources through MCP (Model Context Protocol) servers.
+- When listing available MCP servers and their tools to understand what integrations are available.
+- When inspecting the JSON input schema for a specific MCP tool before calling it.
+- When executing MCP tool calls from the command line with structured JSON arguments.
+- When searching for MCP tools by name pattern across all registered servers.
+- When scripting or automating MCP interactions with `--json` output for piping into `jq` or other processors.
+
+## When Not to Use
+- When the MCP server is not installed or registered — check availability with `mcp-cli` first.
+- When the required MCP server uses non-standard transports (e.g., WebSocket SSE) that the CLI cannot reach — prefer MCP-compatible SDKs instead.
+- When the interaction requires persistent state across calls — each `mcp-cli` invocation is stateless.
+- When dealing with extremely large payloads — prefer streaming approaches or tool-specific SDKs.
+
+## Gotchas
+- The JSON argument string must be properly escaped; use heredocs (`<<EOF`) or file piping for complex payloads with nested quotes, not inline strings.
+- Server errors (exit code 2) and network errors (exit code 3) are distinct — always check exit codes when scripting.
+- The `grep` subcommand searches tool names, not descriptions or parameters; use `-d` flag to include descriptions in output before filtering.
+- Adding `-d` significantly increases output verbosity — omit it when you only need tool names and parameter hints.
 
 Access MCP servers through the command line. MCP enables interaction with external systems like GitHub, filesystems, databases, and APIs.
 

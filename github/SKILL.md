@@ -1,13 +1,32 @@
 ---
 name: github
-description: >-
-  Provides guidance on GitHub-specific features, pull requests viewing modes,
-  and collaborative practices.
-  You MUST load this skill when working with GitHub-specific features or PR view modes.
+description: 'Provides guidance on GitHub-specific features, pull requests viewing modes, and collaborative practices. You MUST load this skill when working with GitHub-specific features or PR view modes.'
 license: MIT
 ---
-<!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
+
 # GitHub Skill
+
+<!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
+
+## When to Use
+- A user has shared a GitHub PR URL and you need to retrieve the diff or patch content for analysis.
+- You need to view a pull request or commit in plain text format (`.diff` or `.patch`) for programmatic processing or ingestion by AI tools.
+- A user has shared a GitHub file link with line number annotations (`#L123` or `#L10-L20`) and you need to inspect the specific lines referenced.
+- You need to understand how GitHub's diff/patch URL extensions work for scripting and automation.
+- You need to explain GitHub-specific collaborative features, PR view modes, or review workflows to users.
+
+## When Not to Use
+- You need to create, merge, comment on, or manage PRs — use the **gh-pr** skill for CLI-based PR operations.
+- You need to search for repositories, code, issues, or commits — use the **gh-search** skill for CLI-based search.
+- You need to interact with the GitHub API programmatically for complex queries — use the **gh-api** skill.
+- You need to manage issues — use the **gh-issue** skill.
+- You are troubleshooting GitHub Actions workflow failures — use the **github-actions** or **gh-run** skills.
+
+## Gotchas
+- The `.diff` and `.patch` URL formats return **raw text** — they are not interactive and do not include comments, review status, or CI check information; they contain only the code changes (`.diff`) or changes plus commit metadata (`.patch`).
+- `.patch` output is formatted for `git am` consumption — it includes author, date, and commit message metadata that `.diff` omits; choose the format that matches your use case.
+- GitHub file links with line numbers (e.g., `#L10-L20`) reference the **current version** of the file on the default branch — if the file has changed since the link was shared, the line numbers may no longer correspond to the relevant code.
+- Rate limiting applies to `.diff`/`.patch` URL fetches just like any other GitHub API endpoint — if you are fetching many PRs in sequence, you may encounter HTTP 429 responses.
 
 Guidance on interacting with GitHub features, specifically around Pull Requests and diff viewing.
 

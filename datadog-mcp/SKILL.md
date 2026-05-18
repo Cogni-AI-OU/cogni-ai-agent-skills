@@ -1,11 +1,29 @@
 ---
 name: datadog-mcp
-description: Query observability data via Datadog MCP, selecting minimal toolsets to optimize context window and scope.
+description: 'Query observability data via Datadog MCP, selecting minimal toolsets to optimize context window and scope.'
+license: MIT
 ---
 
 # Datadog MCP
 
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
+
+## When to Use
+- Querying Datadog telemetry (logs, metrics, traces, monitors, incidents, services) within an active agent session
+- Investigating performance issues using APM trace analysis and Watchdog insights
+- Validating monitor status, alerting rules, or incident response workflows
+- Retrieving Synthetics test results, security findings, or CI Visibility data
+- Any Datadog data retrieval where MCP tools are available and context preservation matters
+
+## When Not to Use
+- Administrative actions not exposed through MCP toolsets (e.g., creating API keys, modifying account settings) — use `datadog-api` instead
+- SSH access to hosts or requesting UI navigation — MCP exclusively uses the Datadog API layer
+- Bulk data exports or large-scale data processing — the MCP server is optimized for interactive query, not ETL
+
+## Gotchas
+- Loading the `core` toolset by default consumes more context tokens than needed — always prefer the narrowest toolset (`apm`, `alerting`, etc.) for the task
+- Application Key scopes restrict what MCP tools can access; missing scopes result in silent failures or empty results
+- Query depth is constrained by the active Datadog role permissions — the MCP server cannot bypass RBAC
 
 Query Datadog telemetry (logs, metrics, traces, monitors, incidents, services, notebooks) directly via MCP to preserve agent context window and avoid context switching.
 

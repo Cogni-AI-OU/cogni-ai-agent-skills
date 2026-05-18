@@ -1,6 +1,7 @@
 ---
 name: coding-standard-writer
-description: Write a coding standards document for a project using the coding styles inferred from provided file(s) or folder(s).
+description: 'Write a coding standards document for a project using the coding styles inferred from provided file(s) or folder(s).'
+license: MIT
 ---
 
 # Skill Name: coding-standard-writer
@@ -8,6 +9,24 @@ description: Write a coding standards document for a project using the coding st
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
 
 Dynamically generate a coding standards document based on the existing syntax, formatting, and conventions found in provided file(s) or folder(s).
+
+## When to Use
+- Generating coding standards documents (`CONTRIBUTING.md`, `STYLE.md`, `STYLEGUIDE.md`) from existing codebase conventions
+- Detecting and documenting formatting inconsistencies across a project's code files
+- Onboarding new team members with a formalized style guide derived from the team's actual coding patterns
+- Creating minimal or verbose style guides based on empirical analysis of source files
+- Auditing a codebase for style uniformity before opening it to external contributors
+
+## When Not to Use
+- Overwriting existing documented standards without user confirmation — always preserve previously agreed conventions
+- Injecting subjective preferences or external style guides that contradict the codebase's established majority style
+- Replacing mandatory linting tools (ESLint, Prettier, ruff) — generated standards complement, not replace, automated enforcement
+- Generating standards from a single file that may be unrepresentative of the broader codebase
+
+## Gotchas
+- The analysis may produce conflicting results if the codebase uses multiple styles equally — prompt the user to choose a baseline reference file before generating
+- External style guides should only be used as supplemental reference when explicitly requested and must not override the codebase's existing majority conventions
+- The generated document reflects the current state of analyzed files and will become outdated as the codebase evolves — recommend periodic regeneration
 
 ## Core Process
 
@@ -24,12 +43,6 @@ Dynamically generate a coding standards document based on the existing syntax, f
 - **Template Adaptation**: Use "verbose" for comprehensive style guides and "minimal" for concise rule summaries.
 - **Contextual Insertion**: When appending to `README.md`, locate the most logical insertion point (e.g., at the end or under a "Contributing" heading).
 
-## When to Use
-
-- When tasked with creating coding guidelines from existing code.
-- To detect and fix formatting inconsistencies across multiple files.
-- When generating `CONTRIBUTING.md`, `STYLE.md`, or `STYLEGUIDE.md`.
-
 ## Quick Start
 
 1. Identify the reference file or folder.
@@ -45,11 +58,6 @@ Dynamically generate a coding standards document based on the existing syntax, f
 
 - Fetch external style guides as supplemental reference only when explicitly requested, and do not let them override the codebase's existing majority conventions.
 - If requested, generate a companion test file to enforce the newly defined standards.
-
-## What to Avoid
-
-- Overwriting existing documented standards without confirmation.
-- Injecting subjective preferences that contradict the codebase's existing majority style.
 
 ## Coding Standards Templates
 

@@ -1,13 +1,34 @@
 ---
 name: tdd
-description: >-
-  Commands, step-by-step procedures, and mechanical execution for test engineering, testability audits, and the TDD lifecycle.
-  You MUST load this skill when executing test tasks, designing tests, doing TDD, or verifying system behavior.
+description: 'Commands, step-by-step procedures, and mechanical execution for test engineering, testability audits, and the TDD lifecycle. You MUST load this skill when executing test tasks, designing tests, doing TDD, or verifying system behavior.'
+license: MIT
 ---
 
-<!-- markdownlint-disable MD013 -->
-
 # Test-Driven Development (TDD) & Test Engineering Execution
+
+<!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
+
+## When to Use
+
+- Writing unit, integration, or end-to-end tests with strict Red-Green-Refactor discipline.
+- Performing testability audits on existing code before introducing test coverage.
+- Reproducing and fixing bugs by first writing a failing test that demonstrates the defect.
+- Evaluating whether a codebase or pull request has adequate test coverage and quality.
+- Establishing behavioral contracts for new features through test-first specifications.
+
+## When Not to Use
+
+- Exploratory coding or prototyping where the API surface is too unstable to commit to test contracts.
+- One-off scripts, utilities, or throwaway code that will not be maintained or reused.
+- When the project has no test infrastructure (runner, assertions, mocks) and setting it up exceeds the value of the tests themselves.
+- Codebases where the existing architecture makes testing effectively impossible without prior refactoring (though TDD can help guide that refactoring).
+
+## Gotchas
+
+- The Red-Green-Refactor cycle must be followed strictly—writing tests after implementation violates the TDD contract and produces implementation-biased rather than behavior-specified tests.
+- "Test names as behavioral specifications" is easy to neglect; vague names like `test_login()` obscure what is actually being verified.
+- The anti-rationalization invariants ("I'll add tests later", "This is too simple to test") must be actively enforced by the agent—they represent the most common TDD failure modes in autonomous development.
+- Intermittent/flaky tests must be treated as hard failures, not dismissed as environmental noise; the root cause (race condition, timing dependency, shared mutable state) must be identified and fixed.
 
 **Skill Focus**: Commands, step-by-step procedures, and mechanical execution for test engineering, testability audits, and the TDD lifecycle.
 

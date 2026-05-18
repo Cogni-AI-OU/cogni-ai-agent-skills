@@ -1,12 +1,33 @@
 ---
 name: cat
-description: >-
-  Guidelines for safely using `cat` and avoiding shell hangs with heredocs.
-  You MUST load this skill before running the `cat` command (especially with `EOF`).
+description: 'Guidelines for safely using `cat` and avoiding shell hangs with heredocs. You MUST load this skill before running the `cat` command (especially with `EOF`).'
 license: MIT
 ---
 
 # cat Skill
+
+<!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
+
+## When to Use
+
+- Reading the content of small text files during automated or agentic workflow execution.
+- Concatenating multiple short files for combined inspection or display output.
+- Displaying short file contents in CI/CD log output for quick debugging.
+- Creating small temporary files via heredocs (`<<EOF`) when absolutely necessary and the content is short.
+
+## When Not to Use
+
+- Creating files with long or programmatically generated content — use the Write tool or `--body-file` flags instead to avoid heredoc truncation hangs.
+- Reading or processing binary files — `cat` can corrupt binary output in terminal. Use `xxd`, `od`, or dedicated binary tools.
+- Operating on files larger than a few hundred lines — use `grep`, the Read tool, or `head` for targeted extraction.
+- Any operation where the file content can be provided as a tool argument (e.g., `--file`, `--body-file`) — prefer native file flags over stdin piping.
+
+## Gotchas
+
+- **Heredoc Truncation Hangs**: If output is truncated before the `EOF` delimiter is printed, `cat` hangs forever waiting for input. This is the #1 cause of shell hangs in agentic workflows. Never use heredocs for long or generated content.
+- **Timeout Enforcement**: When you must execute `cat` reading from stdin or a heredoc, always wrap it in `timeout 10s cat <<'EOF'...EOF` so a hang fails fast instead of locking the workflow.
+- **Cleanup Required**: Temporary files created via `mktemp` or heredoc redirection must be explicitly removed after use (`rm "$FILE"`) to avoid leaking files across workflow steps.
+- **Shell Injection via Unquoted EOF**: If the heredoc body contains unescaped shell variables or command substitutions (`$var`, `` `cmd` ``), they will be expanded. Use `'EOF'` (single-quoted delimiter) to prevent expansion.
 
 Use caution when running `cat` or heredocs (`<<EOF`) in automated environments or agentic runtimes, as missing or
 truncated EOF delimiters can cause persistent shell hangs.

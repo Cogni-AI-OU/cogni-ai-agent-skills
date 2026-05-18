@@ -1,15 +1,36 @@
 ---
 name: chrome-devtools
-description: >-
-  Expert-level browser automation, debugging, and performance analysis using
-  Chrome DevTools MCP. Use for interacting with web pages, capturing
-  screenshots, analyzing network traffic, and profiling performance.
+description: 'Expert-level browser automation, debugging, and performance analysis using Chrome DevTools MCP. Use for interacting with web pages, capturing screenshots, analyzing network traffic, and profiling performance.'
 license: MIT
 ---
 
 # Chrome DevTools
 
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
+
+## When to Use
+
+- **Browser Automation**: Navigating pages, clicking elements, filling forms, and handling dialogs in a live browser.
+- **Visual Inspection**: Taking screenshots or text accessibility snapshots of web pages for visual verification.
+- **Debugging**: Inspecting console messages, evaluating JavaScript in the page context, and analyzing network request failures.
+- **Performance Analysis**: Recording and analyzing performance traces to identify LCP bottlenecks, layout shifts, and Core Web Vital issues.
+- **Emulation**: Resizing the viewport or throttling CPU/network conditions for responsive design and performance testing.
+
+## When Not to Use
+
+- Static HTML parsing or content scraping without browser interaction — use HTTP clients (curl, wget) or headless scripts instead.
+- API testing or endpoint validation — use dedicated tools like `curl`, Postman, or REST API clients.
+- Network-level packet analysis or deep protocol inspection — use Wireshark or `tcpdump` instead.
+- Server-side rendering or screenshot generation in production CI/CD pipelines — use `puppeteer` or `playwright` directly instead.
+- Automated accessibility auditing at scale — use dedicated tools like `axe-core` or Lighthouse CLI.
+
+## Gotchas
+
+- **Stale `uid` Values**: Snapshot `uid` values change after any DOM mutation or page navigation. Always call `take_snapshot` again after clicking, filling forms, or navigating to get current `uid` values.
+- **Snapshot Over Screenshot**: Use `take_snapshot` (text-based accessibility tree) for element identification, not `take_screenshot`. Screenshots do not provide the `uid` values required by interaction tools.
+- **Page Context Tracking**: Always run `list_pages` and `select_page` to confirm which browser tab is active before interacting. Operations on the wrong tab cause confusing failures and wasted time.
+- **Console Message Buffering**: `list_console_messages` may return stale or buffered messages from earlier page activity. Clear page state or open a new page before starting a fresh debugging session.
+- **Performance Trace Overhead**: Starting a performance trace (`performance_start_trace`) increases page load time and memory usage. Use targeted, short-duration traces rather than long continuous recordings.
 
 A specialized skill for controlling and inspecting a live Chrome browser. This skill leverages the `chrome-devtools` MCP server to perform a wide range of browser-related tasks, from simple navigation to complex performance profiling.
 
@@ -25,16 +46,6 @@ A specialized skill for controlling and inspecting a live Chrome browser. This s
 - **Snapshot-First Identification**: Always prefer `take_snapshot` over `take_screenshot` for finding elements. The snapshot provides `uid` values required by interaction tools.
 - **Troubleshoot Objectively**: When a page fails, check both console logs (`list_console_messages`) and network requests (`list_network_requests`).
 - **Profile Methodically**: Use `performance_start_trace` and `performance_analyze_insight` to identify LCP issues or layout shifts.
-
-## When to Use
-
-Use this skill when:
-
-- **Browser Automation**: Navigating pages, clicking elements, filling forms, and handling dialogs.
-- **Visual Inspection**: Taking screenshots or text snapshots of web pages.
-- **Debugging**: Inspecting console messages, evaluating JavaScript in the page context, and analyzing network requests.
-- **Performance Analysis**: Recording and analyzing performance traces to identify bottlenecks and Core Web Vital issues.
-- **Emulation**: Resizing the viewport or emulating network/CPU conditions.
 
 ## Commands / Usage Patterns
 

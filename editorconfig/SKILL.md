@@ -1,11 +1,31 @@
 ---
 name: editorconfig
-description: Generates a comprehensive and best-practice-oriented .editorconfig file based on project analysis and user preferences.
+description: 'Generates a comprehensive and best-practice-oriented .editorconfig file based on project analysis and user preferences.'
+license: MIT
 ---
 
 # editorconfig
 
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
+
+## When to Use
+
+- When requested to generate, update, or configure an `.editorconfig` file.
+- When standardizing coding styles or formatting hooks for a workspace.
+
+## When Not to Use
+
+- Enforcing coding style at the linter level — EditorConfig handles editor defaults only, not rules like "no unused variables" or "prefer const over let".
+- Configuring language-specific formatters (Prettier, Black, rustfmt) — those tools have their own config files and EditorConfig only sets basic editor behavior.
+- Overriding individual developer preferences in their personal forks or local overrides — EditorConfig sets baseline defaults, not hard enforcement.
+- Replacing project-wide linting configuration (`eslintrc`, `.rubocop.yml`, `pyproject.toml`) — EditorConfig complements but does not substitute for linters.
+
+## Gotchas
+
+- Markdown files need `trim_trailing_whitespace = false` because trailing spaces create hard line breaks in Markdown — globally trimming whitespace corrupts Markdown formatting.
+- `root = true` must be at the top of the file or EditorConfig will continue searching parent directories, potentially inheriting conflicting settings.
+- EditorConfig only affects editors that have the plugin installed — developers without EditorConfig support will not see any enforcement.
+- Glob patterns are case-sensitive on Linux — `[*.py]` matches `.py` files but `[*.PY]` will not; always use lowercase extensions.
 
 Generate a robust, comprehensive, and best-practice-oriented `.editorconfig` file to ensure consistent coding styles across different editors and IDEs.
 

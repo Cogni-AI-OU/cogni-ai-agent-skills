@@ -1,13 +1,31 @@
 ---
 name: datadog-pulumi
-description: >-
-  Use when creating or debugging Datadog monitors in Pulumi YAML,
-  especially for schema mismatches, monitor validation errors, and provider-specific field mapping.
+description: 'Use when creating or debugging Datadog monitors in Pulumi YAML, especially for schema mismatches, monitor validation errors, and provider-specific field mapping.'
+license: MIT
 ---
+
+# Datadog Pulumi
 
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
 
-# Datadog Pulumi
+## When to Use
+- Creating or updating Datadog monitors via Pulumi YAML infrastructure-as-code
+- Debugging schema mismatches between Datadog API JSON and Pulumi provider type definitions
+- Converting Terraform or API monitor examples into Pulumi YAML field names
+- Running `pulumi preview` to validate monitor definitions before deployment
+- Investigating provider panics, validation errors, or `400 Bad Request` responses from Datadog
+
+## When Not to Use
+- Managing non-Datadog Pulumi resources (AWS, Azure, GCP) — this skill is scoped to the Datadog provider
+- Creating Datadog monitors through the API directly — use `datadog-api` for raw REST calls
+- Designing monitor queries or alert logic — use `datadog-monitors` for evaluation semantics, then map to Pulumi
+
+## Gotchas
+- Datadog API JSON keys do NOT map 1:1 to Pulumi YAML field names — always run `pulumi package get-schema datadog@<version>` to discover exact types
+- Some fields use intentionally awkward names in the Pulumi provider (e.g., `groupBies` instead of `groupBy`) — do not "fix" them to match API JSON
+- Threshold math must be consistent with the query comparator: a query `> 0` requires `monitorThresholds.critical: 0`, not `1`
+- Empty search strings in formula/event-query monitors can crash the provider during `pulumi up` — always use `search.query: '*'` instead
+- Renaming existing Pulumi resource keys causes replacements; preserve IDs when only monitor content changes
 
 Use this skill to work with Datadog API examples using Pulumi.
 

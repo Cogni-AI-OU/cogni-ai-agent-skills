@@ -1,14 +1,32 @@
 ---
 name: git-rebase
-description: >-
-  Advanced Git rebase operations including interactive history cleanup and
-  non-interactive scripted rewrites.
-  You MUST load this skill before performing Git rebase operations.
+description: 'Advanced Git rebase operations including interactive history cleanup and non-interactive scripted rewrites. You MUST load this skill before performing Git rebase operations.'
 license: MIT
 ---
-<!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
 
 # Git Rebase
+
+<!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
+
+## When to Use
+- You need to rebase a feature branch onto a target branch to maintain a linear, clean commit history.
+- You need to clean up local commit history before pushing (squashing fixups, reordering commits, dropping WIP commits).
+- You need to automate rebase operations with scripted `GIT_SEQUENCE_EDITOR` for non-interactive todo list manipulation.
+- You need to use `git rebase --autosquash` with pre-created `fixup!` / `squash!` commits to automate history cleanup.
+- You need to recover from a rebase that has gone wrong using `git rebase --abort`.
+
+## When Not to Use
+- You need to perform a standard merge (with merge commit) to preserve branch topology — use the **git-merge** skill instead.
+- You need to integrate changes from a target branch into your feature branch while avoiding history rewrites — use the **git** skill's merge workflow or cherry-pick approach.
+- You have already pushed commits to a shared/public branch — rebasing shared commits rewrites history and causes divergence for all collaborators.
+- You are operating in a GitHub Actions runtime where the auto-PR/push logic requires compatible remote branch history — rebasing will change commit SHAs and break post-run push workflows.
+
+## Gotchas
+- `GIT_SEQUENCE_EDITOR=true` only skips opening the editor during `git rebase -i`; it does **not** rewrite the todo list — you need a script or command as the editor value to perform automated todo manipulation.
+- Interactive mode (`git rebase -i`) is **FORBIDDEN** in automated runtime environments — it will hang waiting for user input with no fallback.
+- Rebasing commits that have already been pushed requires `--force-with-lease` to push the rewritten history, which is destructive to any collaborator's work based on the original commits.
+- After a rebase, an automation tool that automatically syncs with the remote tracking branch will attempt a `git rebase` as part of its workflow — if your branch has diverged due to history rewriting, this secondary rebase will crash. Use a new branch name to prevent this.
+- Always run `git rebase --abort` at the first sign of unresolvable conflicts or unexpected behavior during a rebase — continuing with conflicts unresolved will leave the repository in a broken state.
 
 Expert-level guidance for executing Git rebase operations safely, particularly distinguishing between interactive manual usage and automated environments.
 

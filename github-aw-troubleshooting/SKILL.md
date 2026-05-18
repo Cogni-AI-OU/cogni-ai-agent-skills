@@ -1,11 +1,34 @@
 ---
 name: github-aw-troubleshooting
-description: Debug and refine GitHub Agentic Workflows (gh-aw) by analyzing execution logs, auditing runs, and resolving missing tool errors or prompt inefficiencies. You MUST load this skill when asked to debug, audit, or analyze a failing GitHub Agentic Workflow.
+description: 'Debug and refine GitHub Agentic Workflows (gh-aw) by analyzing execution logs, auditing runs, and resolving missing tool errors or prompt inefficiencies. You MUST load this skill when asked to debug, audit, or analyze a failing GitHub Agentic Workflow.'
+license: MIT
 ---
 
 # GitHub Agentic Workflow Troubleshooting
 
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
+
+## When to Use
+- A GitHub Agentic Workflow run failed, timed out, or produced unexpected results.
+- The user provides a run URL and asks "why did this fail?" or "debug this workflow."
+- You need to audit a workflow run to find missing tools, network blocks, or permission errors.
+- Analyzing token usage patterns and cost across multiple workflow runs.
+- Diagnosing compilation errors, frontmatter validation failures, or engine-specific issues.
+- Investigating differences between two workflow runs (regression analysis via `gh aw audit` diff).
+
+## When Not to Use
+- The user wants to update, modify, or optimize a working workflow's prompt or configuration (load `github-aw` instead).
+- The problem is a standard (non-agentic) GitHub Actions workflow failure (load `github-actions` instead).
+- The user is designing a new workflow pattern or architecture (load `github-aw-patterns`).
+- The issue is specifically with the AWF firewall network configuration or blocked domains (load `gh-aw-firewall-debug`).
+- The user needs syntax reference for frontmatter fields (load `github-aw-syntax`).
+
+## Gotchas
+- `gh aw audit` returns `"status": "in_progress"` for running workflows — you MUST poll every ~45 seconds until a terminal status (`completed`, `failure`, `cancelled`) before the audit data is complete.
+- Per-request token details live in `firewall-audit-logs/token-usage.jsonl`, NOT in `agent_usage.json` — the latter contains aggregated totals only. Looking in the wrong file wastes time.
+- If a maintainer cancels a workflow run, artifacts may be missing entirely — check `gh run view <run-id>` first and consider re-running instead of searching for non-existent files.
+- Frontmatter typos are silently ignored by the compiler (it does NOT warn about unknown fields) — a misspelled `tool:` instead of `tools:` is a common root cause of "tool not found" errors.
+- Debugging GHEC data-residency environments requires setting `GH_HOST=<yourorg>.ghe.com` for BOTH `gh auth` and `gh aw compile` — omitting this produces authentication failures against the wrong instance.
 
 Debug and refine agentic workflows using `gh-aw` CLI tools or the `agentic-workflows` tool to analyze logs, audit runs, and improve workflow performance.
 

@@ -1,12 +1,31 @@
 ---
 name: git-merge
-description: >-
-  Guide and safety rules for performing git merges, ensuring no conflict markers and no duplicate lines are present.
-  You MUST load this skill before performing a git merge.
+description: 'Guide and safety rules for performing git merges, ensuring no conflict markers and no duplicate lines are present. You MUST load this skill before performing a git merge.'
+license: MIT
 ---
 # Skill: git-merge
 
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
+
+## When to Use
+- You need to merge one branch into another and must ensure a clean, validated result with no conflict markers.
+- You are integrating changes from a long-lived feature branch into a mainline branch and need strict post-merge verification.
+- You need to merge with a specific strategy (e.g., `--no-ff` to preserve branch topology, or `--squash` to collapse commits).
+- You are operating in an automated environment where merge conflicts must be resolved programmatically (no GUI tools).
+- You need to merge repositories with unrelated histories using `--allow-unrelated-histories`.
+
+## When Not to Use
+- You need to integrate changes from a target branch while keeping a linear history and avoiding merge commits — use **git-rebase** or the cherry-pick workflow from the **git** skill instead.
+- You are performing a simple fast-forward merge on a personal branch with no risk of conflicts — use the **git** skill's basic merge patterns.
+- You need to merge multiple PRs or branches in bulk with automated conflict resolution — use **gh-pr** with merge queue strategies.
+- You suspect the repository is shallow — unshallow it first with `git fetch --unshallow` before merging, as shallow repos can produce unexpected merge results.
+
+## Gotchas
+- Merging in a **shallow repository** can lead to unexpected results or silent failures — always verify with `git rev-parse --is-shallow-repository` before starting a merge.
+- After resolving conflicts, you must check for **logical duplicates** (duplicate imports, repeated declarations, duplicate lines) — merges often introduce redundant code that passes compilation but is logically wrong.
+- Never commit while `git status` shows unmerged files — always run `git status` after conflict resolution to ensure all files are staged before finalizing.
+- The agent cannot use graphical merge tools (`meld`, `kdiff3`) — all conflict resolution must be done via text editing tools or by rewriting the entire file content.
+- `git merge --abort` is your safety net if a merge goes wrong and hasn't been committed; after committing, use `git reset --hard HEAD~1` to undo the merge commit.
 
 Execute safe and verified git merges. This skill enforces pre-merge checks, explicit conflict resolution,
 and strict post-merge validation to prevent duplicate lines or lingering conflict markers.

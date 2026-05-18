@@ -1,14 +1,32 @@
 ---
 name: gh-models
-description: >-
-  GitHub CLI models (`gh models`) operations for running and evaluating AI
-  models.
-  You MUST load this skill when working with the `gh models` command.
+description: 'GitHub CLI models (`gh models`) operations for running and evaluating AI models. You MUST load this skill when working with the `gh models` command.'
 license: MIT
 ---
-<!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
 
 # gh-models Skill
+
+<!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
+
+## When to Use
+- You need to run AI model inference from the command line, piping in repository content (issue bodies, PR diffs, commit messages) as context.
+- You need to evaluate prompt quality with structured test cases and scorers via `gh models eval`.
+- You need to auto-generate robust test suites for a prompt using PromptPex methodology via `gh models generate`.
+- You are managing `.prompt.yml` files as version-controlled assets and need to validate them before committing.
+- You need to list available models, inspect model details, or compare capabilities across providers.
+- You are building agentic workflows that require LLM inference and need a CLI-native, eval-gated pipeline.
+
+## When Not to Use
+- You need to deploy a model to production or manage model endpoints — `gh models` is for experimentation and evaluation, not serving.
+- You need fine-grained control over inference parameters not exposed by the CLI (e.g., logprobs, streaming callbacks) — use the provider's SDK or API directly.
+- You are building a prompt that will be used in a non-GitHub context where `.prompt.yml` format is not supported — consider a standalone prompt management approach.
+- You need to train or fine-tune a model — `gh models` only supports inference on existing models, not training.
+
+## Gotchas
+- Marketplace model IDs (e.g., `azureml-xai/grok-3-mini`) may differ from CLI model IDs (e.g., `xai/grok-3-mini`); always use `gh models list` to get the exact identifier rather than guessing from marketplace names.
+- `gh models generate --effort high` can be token-expensive — monitor usage and start with `--effort low` or `--effort medium` for iterative prompt development before committing to full coverage.
+- Never use a `.prompt.yml` without running `gh models eval --json` first — the eval gate catches 80%+ of failure modes including hallucinations, edge cases, and security risks.
+- Prompts piped from repository events (issue bodies, PR diffs) contain real user data — ensure you have appropriate data handling policies in place, especially for private repositories.
 
 **CLI extension for GitHub Models service** — `gh extension install github/gh-models` (requires authenticated `gh` CLI).
 

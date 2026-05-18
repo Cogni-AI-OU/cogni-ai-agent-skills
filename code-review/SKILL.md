@@ -1,14 +1,36 @@
 ---
 name: code-review
-description: >-
-  Execute expert-level code reviews, dissecting codebases and Pull Requests (PRs) with surgical precision
-  to identify logical flaws, architectural drift, performance bottlenecks, and security vulnerabilities before they merge.
-  You MUST load this skill when reviewing code or Pull Requests.
+description: 'Execute expert-level code reviews, dissecting codebases and Pull Requests (PRs) with surgical precision to identify logical flaws, architectural drift, performance bottlenecks, and security vulnerabilities before they merge. You MUST load this skill when reviewing code or Pull Requests.'
+license: MIT
 ---
 
 # Skill: code-review
 
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
+
+## When to Use
+
+- Reviewing a Pull Request diff to identify logical flaws, security vulnerabilities, architectural drift, and performance bottlenecks before merge.
+- Auditing code quality and hygiene across a codebase for technical debt assessment or pre-release validation.
+- Validating that tests adequately cover the implementation, edge cases, and error paths.
+- Performing security-focused code reviews with adversarial self-inquiry and zero-trust mindset.
+- Reviewing documentation currency to ensure `AGENTS.md`, `README.md`, and other relevant docs accurately reflect code changes.
+
+## When Not to Use
+
+- Running test suites, build scripts, or executing code — this skill operates in review-only mode and does not execute code or verify runtime behavior.
+- Making direct edits to files or creating commits — use specialized implementation or writing skills instead.
+- Analyzing non-code artifacts such as architecture diagrams, ADRs, or design specifications — load `docs-review` instead.
+- Performing dynamic analysis, runtime debugging, or penetration testing — this skill relies solely on static analysis and code reading.
+- Brainstorming architectural options or exploring multiple design paths — load `brainstorm` instead.
+
+## Gotchas
+
+- **Static Analysis Limitation**: This skill does not execute code to verify runtime behavior. Dynamic issues (race conditions, memory leaks, timing bugs, concurrency problems) may not be detectable through static analysis alone.
+- **Strict Review-Only Mode**: Do not modify files, create commits, or execute test suites directly. Operate strictly in review-only mode, reading the code and providing structured feedback.
+- **Priority Label Rigor**: Every comment MUST be prefixed with a clear priority label (`[CRITICAL]`, `[IMPORTANT]`, `[SUGGESTION]`, `[QUESTION]`, `[PRAISE]`). Labels enforce ordering, signal urgency, and guide the author's attention.
+- **Problem + Solution Required**: Never point out a `[CRITICAL]` or `[IMPORTANT]` flaw without proposing a concrete, high-fidelity resolution path — refactor direction, test addition, or replacement snippet.
+- **Avoid Over-Reviewing Unchanged Code**: Quote only the segments requiring attention. Avoid pasting massive unchanged blocks in feedback — this wastes reviewer attention and consumes context budget.
 
 Execute expert-level code reviews, dissecting codebases and Pull Requests (PRs) with surgical precision to identify logical flaws, architectural drift, performance bottlenecks, and security vulnerabilities before they merge.
 

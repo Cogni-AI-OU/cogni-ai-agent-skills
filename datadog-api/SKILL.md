@@ -1,10 +1,29 @@
 ---
 name: datadog-api
-description: Execute Datadog API requests to fetch live objects, metrics, or monitor statuses using cURL and API keys. You MUST load this skill when interacting with the Datadog API.
+description: 'Execute Datadog API requests to fetch live objects, metrics, or monitor statuses using cURL and API keys. You MUST load this skill when interacting with the Datadog API.'
+license: MIT
 ---
 # Skill: datadog-api
 
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
+
+## When to Use
+- Fetching specific dashboard, monitor, or SLO definitions by ID via the Datadog REST API
+- Querying timeseries metrics with specific time ranges and aggregation functions
+- Searching monitors by tag, name, or status for inventory and audit purposes
+- Administrative API actions not available through MCP toolsets (e.g., key management, account settings)
+- Automating Datadog configuration workflows where Pulumi or Terraform is not in use
+
+## When Not to Use
+- Routine telemetry queries (logs, metrics, traces, monitor status) when MCP tools are available — prefer `datadog-mcp` for context-optimized responses
+- Creating or modifying Datadog monitors via raw API JSON — use `datadog-pulumi` or Terraform for infrastructure-as-code
+- Streaming or tailing live data — the REST API is designed for point-in-time queries, not real-time observation
+
+## Gotchas
+- API keys must be passed via headers, never in the URL path — and must NEVER be logged or echoed in terminal output
+- Large dashboard JSON payloads can overwhelm the agent context window — always pipe through `jq` to filter relevant fields
+- The Datadog site (`datadoghq.com` vs `datadoghq.eu` vs `us3.datadoghq.com`) must match the API keys or requests silently return 403/empty results
+- The REST API has rate limits; hitting `429 Too Many Requests` requires exponential backoff — plan pagination accordingly
 
 Execute Datadog API requests to fetch live objects, metrics, or monitor statuses.
 

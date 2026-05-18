@@ -1,14 +1,34 @@
 ---
 name: yq
-description: >-
-  Safely parse, edit, merge, and transform YAML files using yq,
-  providing robust command-line examples for extraction and in-place modifications.
-  You MUST load this skill when using the yq tool.
+description: 'Safely parse, edit, merge, and transform YAML files using yq, providing robust command-line examples for extraction and in-place modifications. You MUST load this skill when using the yq tool.'
+license: MIT
 ---
 
 # yq
 
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
+
+## When to Use
+
+- Programmatically reading, modifying, or extracting values from YAML configuration files.
+- Converting between YAML and JSON formats without custom scripting.
+- Merging multiple YAML files (e.g., default config + environment overrides) in CI/CD pipelines.
+- Filtering and querying YAML arrays of objects (e.g., finding a specific item by property value).
+- Automating YAML edits across many files in a repository with precise key-based selectors.
+
+## When Not to Use
+
+- Manual one-off edits where a text editor with YAML syntax highlighting is faster than constructing a yq expression.
+- Editing YAML files that rely heavily on anchors, aliases, or merge keys—yq (mikefarah/yq) support for these has evolved over versions and may not handle edge cases.
+- When the file size is very large and streaming approaches (e.g., iterative parsing) are preferable to loading the entire document into memory.
+- Environments where only the Python yq (kislyuk/yq) is available—its CLI syntax differs significantly from the Go version.
+
+## Gotchas
+
+- The Go version (`mikefarah/yq`) and Python version (`kislyuk/yq`) have completely different CLI syntax and expression languages—always verify which is installed.
+- `yq eval-all` merges documents using a merge semantics that may not match your expectations for deeply nested structures; test merge behavior with representative data first.
+- The `-i` (in-place) flag modifies the file atomically, but comment preservation depends on the yq version—some operations may strip comments.
+- `yq` uses its own expression language (similar to jq but not identical); jq expressions for JSON cannot be directly copied for YAML queries.
 
 Safely parse, edit, merge, and transform YAML files using yq, providing robust command-line examples for extraction and in-place modifications.
 

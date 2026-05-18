@@ -1,11 +1,33 @@
 ---
 name: rfc2119
-description: Enforce correct usage of RFC 2119 requirement level keywords (MUST, SHOULD, MAY, etc.) in documentation and specifications. You MUST load this skill when writing or reviewing standards, specifications, or when applying RFC 2119 terminology.
+description: 'Enforce correct usage of RFC 2119 requirement level keywords (MUST, SHOULD, MAY, etc.) in documentation and specifications. You MUST load this skill when writing or reviewing standards, specifications, or when applying RFC 2119 terminology.'
+license: MIT
 ---
 
 # Skill: rfc2119
 
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
+
+## When to Use
+
+- Writing or reviewing technical specifications, RFCs, standards documents, or formal API documentation that needs precise requirement-level semantics.
+- Defining compliance or conformance criteria where MUST/SHOULD/MAY distinctions carry legal or contractual weight.
+- Auditing existing documentation for correct and consistent use of RFC 2119 keyword capitalization and semantics.
+- Establishing interoperability requirements between system components where ambiguous language could cause integration failures.
+- Creating security or safety-critical documentation where the consequences of ignoring a directive must be explicitly elaborated.
+
+## When Not to Use
+
+- General narrative, blog posts, or conversational documentation where formal requirement keywords add unnecessary weight and reduce readability.
+- Internal notes, brainstorming documents, or personal drafts where the audience does not need normative language.
+- User-facing UI text, error messages, or tooltips—RFC 2119 keywords belong in specifications, not in the interface.
+
+## Gotchas
+
+- Capitalization is semantic: lowercase "must" or "should" does NOT carry RFC 2119 weight and can cause ambiguity if mixed with capitalized forms.
+- Overuse of MUST/SHOULD/MAY dilutes their impact—reserve them for true interoperability or safety requirements only.
+- SHOULD/SHOULD NOT require explanation of when valid reasons to deviate exist; omitting the rationale is a common violation of RFC 2119.
+- The keywords apply to the implementation of the specification, not to the actions of end users—using MUST to describe user behavior is incorrect.
 
 Enforce the standardized meaning of requirement level keywords as defined in BCP 14 (RFC 2119).
 

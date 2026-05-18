@@ -1,11 +1,31 @@
 ---
 name: docker
-description: How to run, manage, and troubleshoot Docker containers, images, and networks safely via the command line.
+description: 'How to run, manage, and troubleshoot Docker containers, images, and networks safely via the command line.'
+license: MIT
 ---
 
 # Skill: docker
 
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
+
+## When to Use
+- Running ephemeral containers for build, test, or data processing tasks with `--rm` flags
+- Inspecting container state, logs, or health status using structured JSON output
+- Building and tagging Docker images with optimized caching strategies
+- Managing container networks and troubleshooting connectivity between services
+- Cleaning up unused resources (containers, images, volumes) to reclaim disk space
+
+## When Not to Use
+- Interactive terminal sessions (`docker run -it` or `docker exec -it`) — these will hang automated agents
+- Managing Docker Swarm or Kubernetes orchestration at scale — use dedicated orchestration tools
+- Building images for production deployment without also considering Dockerfile best practices — use `dockerfile` skill
+- Parsing tabular CLI output with `grep`/`awk` when `--format '{{json .}}'` structured output is available
+
+## Gotchas
+- Interactive flags (`-it`) in automated scripts will cause containers to hang indefinitely waiting for input that never comes
+- Relative paths in volume mounts (`-v ./data:/data`) resolve relative to the Docker daemon's filesystem, not the current terminal directory — always use absolute paths or `$PWD`
+- Non-privileged containers may get `permission denied` errors on mounted host volumes due to user ID mismatches — check UID/GID or apply `:z`/`:Z` SELinux labels
+- Using `-e PASSWORD=xyz` in CLI commands leaks credentials into process lists and shell history — use Docker secrets or mounted credential files instead
 
 Execute, inspect, and manage Docker containers, images, and network components directly via the CLI, adhering to safe operational boundaries.
 

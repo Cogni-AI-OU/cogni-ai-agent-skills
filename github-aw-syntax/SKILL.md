@@ -1,13 +1,34 @@
 ---
 name: github-aw-syntax
-description: >-
-  Complete reference for GitHub Agentic Workflows (gh-aw) frontmatter schema, engine configuration, network access, tools, and imports syntax.
-  You MUST load this skill when writing or debugging Agentic Workflow files.
+description: 'Complete reference for GitHub Agentic Workflows (gh-aw) frontmatter schema, engine configuration, network access, tools, and imports syntax. You MUST load this skill when writing or debugging Agentic Workflow files.'
+license: MIT
 ---
 
 # github-aw-syntax
 
-<!-- markdownlint-disable MD013 MD023 MD031 MD032 MD033 MD041 -->
+<!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
+
+## When to Use
+- Writing or debugging the YAML frontmatter of a GitHub Agentic Workflow (`.md` file in `.github/workflows/`).
+- Understanding the schema and available fields for `on:`, `engine:`, `network:`, `tools:`, `safe-outputs:`, and `imports:`.
+- Selecting the correct coding agent engine (`copilot`, `claude`, `codex`, `gemini`, `opencode`) and its configuration options.
+- Configuring network access controls including ecosystem identifiers, domain allow/block lists, and AWF firewall settings.
+- Setting up safe-outputs for write operations, cache configuration, MCP servers, or permission patterns.
+- When compiling a workflow and need to understand strict mode validation rules or avoid common frontmatter errors.
+
+## When Not to Use
+- Designing the architectural pattern for a workflow (load `github-aw-patterns` for BatchOps, ChatOps, etc.).
+- Debugging a workflow execution failure or analyzing audit logs (load `github-aw-troubleshooting`).
+- Choosing between memory strategies (`cache-memory`, `repo-memory`, `comment-memory`) — load `github-aw-memory`.
+- Organizational rollout strategies, A/B experiment design, or safe-deployment practices — load `github-aw-practices`.
+- The user needs to update an existing workflow's prompt without changing frontmatter — load `github-aw` instead.
+
+## Gotchas
+- The compiler does NOT warn about unknown or misspelled frontmatter fields — a typo like `agent:` (use `engine:`) or `mcp-servers:` (use `mcp-servers` under `tools:`) silently produces no effect.
+- Write permissions (`issues: write`, `pull-requests: write`, `contents: write`) in the main job are FORBIDDEN and cause compilation errors — all writes go through `safe-outputs` with dedicated separate jobs.
+- Network wildcards only allow a SINGLE leading `*` (e.g., `*.example.com`) — patterns like `*.*.example.com` are invalid and will be rejected.
+- `copilot-setup-steps.yml` imports only extract the `steps` array from the `copilot-setup-steps` job — job metadata like `runs-on` and `permissions` are silently ignored.
+- `inlined-imports: true` CANNOT be combined with agent file imports (`.github/agents/`) — attempting both produces a compilation error.
 
 Reference for GitHub Agentic Workflows frontmatter schema, engines, networking, tools, and safe-outputs.
 

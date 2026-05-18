@@ -1,15 +1,35 @@
 ---
 name: docs-review
-description: >-
-  Enforce documentation quality, completeness, and mutual consistency across
-  architecture files, ADRs, runbooks, READMEs, and code-level documentation.
-  You MUST load this skill when asked to review or check consistency of documentation (such as *.md/*.mmd files).
+description: 'Enforce documentation quality, completeness, and mutual consistency across architecture files, ADRs, runbooks, READMEs, and code-level documentation. You MUST load this skill when asked to review or check consistency of documentation (such as *.md/*.mmd files).'
 license: MIT
 ---
 
+# Docs Review
+
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
 
-# Docs Review
+## When to Use
+
+- Checking core architecture files (`*.mmd`, `*.mzn`) for mutual consistency and accuracy.
+- Reviewing documentation (`**/AGENTS.md`, `**/README.md`) for outdated references or contradictions.
+- After any significant architectural decision to verify documentation is created and remains accurate.
+- When encountering complex code to ensure it has proper "why" comments and non-obvious logic is documented.
+- When verifying an operational procedure or tradeoff decision is accurately reflected in runbooks.
+- Auditing the full documentation surface before a release or major refactor.
+
+## When Not to Use
+
+- Writing new documentation from scratch — use the `docs-writer` skill for authoring.
+- Fixing minor typos or formatting issues — these are simple edits, not reviews.
+- Reviewing documentation that is explicitly marked as work-in-progress or draft status.
+- Making subjective style changes without identifying actual inconsistencies or factual errors.
+
+## Gotchas
+
+- The critical instruction is to ONLY apply changes when actual inconsistencies are found — do not edit files that are mutually consistent, even if they could be improved stylistically.
+- ADR verification is often missed: every significant decision needs an ADR, but "significant" is subjective. When in doubt, document the tradeoff.
+- Code-level comments that state the obvious (`// increment i`) add noise — focus verification on whether the WHY is documented, not the WHAT.
+- Runbooks for alerts are frequently out of sync with actual operational procedures — verify by mentally walking through the steps, not just checking for existence.
 
 Guidance for reviewing core architecture, documentation, and constraint files for mutual consistency and accuracy. Use this skill when checking repository documentation.
 

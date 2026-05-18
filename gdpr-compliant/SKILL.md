@@ -1,11 +1,36 @@
 ---
 name: gdpr-compliant
-description: Apply GDPR-compliant engineering practices across your codebase. You MUST load this skill whenever you are designing APIs, writing data models, handling user data, implementing logging, or reviewing pull requests for privacy compliance.
+description: 'Apply GDPR-compliant engineering practices across your codebase. You MUST load this skill whenever you are designing APIs, writing data models, handling user data, implementing logging, or reviewing pull requests for privacy compliance.'
+license: MIT
 ---
 
 # GDPR Engineering Skill
 
-<!-- markdownlint-disable MD013 MD022 MD032 MD034 MD036 MD060 -->
+<!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
+
+## When to Use
+
+- Designing or reviewing APIs that accept, process, or return personal data.
+- Writing data models and database schemas that include personally identifiable information (PII).
+- Implementing logging, telemetry, or analytics systems that could capture user data.
+- Reviewing pull requests for privacy compliance — especially when new data collection or processing is introduced.
+- Setting up data retention, erasure, or anonymization pipelines for production systems.
+- Conducting a Data Protection Impact Assessment (DPIA) or updating a Record of Processing Activities (RoPA).
+
+## When Not to Use
+
+- General security audit tasks unrelated to data privacy — use `security-audit` skill instead for broader security concerns.
+- Performance optimization or scalability reviews that do not involve personal data.
+- Infrastructure provisioning or cloud resource configuration that does not handle PII.
+- Code review focused purely on business logic correctness without data privacy implications.
+
+## Gotchas
+
+- Logging full request/response bodies is an extremely common GDPR violation — default to logging structured event metadata only (e.g., `"User {UserId} updated email"` not `"Email changed from a@b.com to c@d.com"`).
+- "Anonymized" data that can still be re-identified through linkage attacks is NOT anonymized under GDPR — verify k-anonymity and test linkage resistance before claiming data is anonymized.
+- Enabling analytics or tracking by default (opt-out model) violates Privacy by Default — all optional data collection must be opt-in only.
+- Cookies and tracking require explicit consent before setting, not just a cookie banner notice.
+- Sequential integer IDs in public URLs expose enumeration risks and data boundaries — always use UUIDs or opaque identifiers for resources holding personal data.
 
 Actionable GDPR reference for engineers, architects, DevOps, and tech leads.
 Inspired by CNIL developer guidance and GDPR Articles 5, 25, 32, 33, 35.

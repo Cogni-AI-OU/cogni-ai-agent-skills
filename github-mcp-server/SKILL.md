@@ -1,11 +1,33 @@
 ---
 name: github-mcp-server
-description: Guide for configuring and using the GitHub MCP server within Agentic Workflows, including toolset selection, authentication modes, and available GitHub API tools. You MUST load this skill when configuring the GitHub MCP server or its toolsets.
+description: 'Guide for configuring and using the GitHub MCP server within Agentic Workflows, including toolset selection, authentication modes, and available GitHub API tools. You MUST load this skill when configuring the GitHub MCP server or its toolsets.'
+license: MIT
 ---
 
 # Skill: github-mcp-server
 
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
+
+## When to Use
+- Configuring the GitHub MCP server (`tools.github`) in a GitHub Agentic Workflow frontmatter.
+- Selecting which toolsets (`default`, `actions`, `issues`, `pull_requests`, etc.) to enable for a workflow.
+- Migrating from the deprecated `allowed:` pattern to the recommended `toolsets:` pattern.
+- Understanding authentication modes (`gh-proxy`, `local`, `remote`) and when to use each.
+- Troubleshooting missing tool errors, token permission issues, or MCP server availability problems.
+- The user needs to understand what GitHub API operations are available through MCP toolsets.
+
+## When Not to Use
+- The user is working outside a GitHub Agentic Workflow context (plain GitHub Actions workflow) — MCP server configuration only applies to agentic workflows.
+- The user needs to perform specific GitHub API operations via `gh api` or octokit outside MCP — load `gh-api` or `github-script` instead.
+- The user is asking about non-GitHub MCP servers (custom tools, third-party APIs) — those follow different configuration patterns.
+- Designing workflow architecture patterns or safe-outputs configurations (load `github-aw-patterns` or `github-aw-syntax`).
+
+## Gotchas
+- The `users` toolset currently has NO registered tools — use `search_users` in the `search` toolset instead. Enabling `users` silently provides nothing.
+- The `projects` toolset requires a PAT with the `project` scope — the default `GITHUB_TOKEN` is insufficient and will fail silently.
+- `mode: gh-proxy` is PREFERRED over `mode: local` and `mode: remote` for GitHub tools — `local` starts a Docker container (slow), and `remote` doesn't work with the GitHub Actions token.
+- Individual MCP tool names may change between GitHub MCP server versions — always use `toolsets:` (a stable API) instead of `allowed:` (which enumerates fragile tool names).
+- Detailed per-run billing/cost data is NOT accessible through the standard GitHub API with `actions:read` permissions — workflows attempting this will silently fail or return empty results.
 
 Provide expert-level guidance for configuring and using the GitHub MCP server, specifically within Agentic Workflows, covering authentication, toolsets, and best practices.
 
