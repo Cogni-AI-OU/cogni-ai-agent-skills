@@ -131,9 +131,10 @@ jobs:
           if grep -q "is 2 directories deep — maximum is 1 level from SKILL.md" <<< "$OUTPUT"; then
             echo "Downgrading 2-level depth findings to warnings per project policy."
             # Replace ❌ with ⚠ and add a note
+            P="is 2 directories deep — maximum is 1 level from SKILL.md"
             # shellcheck disable=SC2001
-            OUTPUT=$(sed 's/❌ \(.* is 2 directories deep — maximum is 1 level from SKILL.md\)/⚠ \1 (Allowed by project policy)/g' <<< "$OUTPUT")
-            
+            OUTPUT=$(sed "s/❌ \(.* $P\)/⚠ \1 (Allowed by project policy)/g" <<< "$OUTPUT")
+
             # If no other errors remain, treat the run as successful
             if ! grep -q "❌" <<< "$OUTPUT"; then
               EXIT_CODE=0
