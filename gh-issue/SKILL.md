@@ -12,6 +12,12 @@ Use `gh issue` to natively interact with GitHub Issues.
 Prefer native fields and explicit routing over brittle shell
 post-processing.
 
+## When to Use
+
+- User asks to manage, view, list, or inspect an issue using the GitHub CLI (`gh issue`).
+- Task involves querying issue metadata, comments, labels, or assignees.
+- Extracting issue context, reviewing issue body, or commenting on specific issues.
+
 ## Mindmap of Commands
 
 ```mermaid

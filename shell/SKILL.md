@@ -10,6 +10,12 @@ license: MIT
 
 Execute shell commands with performance monitoring and timeout protection.
 
+## When to Use
+
+- Commands that might hang indefinitely
+- Long-running commands (builds, tests, deployments)
+- Performance optimization and debugging
+
 ## Core Patterns
 
 ### Measure Execution Time

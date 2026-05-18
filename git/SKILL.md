@@ -13,6 +13,13 @@ license: MIT
 Expert in advanced git usage for repository agents. Prioritize non-interactive, safe, reproducible operations that
 maintain clean history and respect repository conventions.
 
+## When to Use
+
+- A user wants to understand repository git hooks related to their commits.
+- The agent needs to perform safe, non-interactive Git lifecycle tasks.
+- User asks for help to execute Git operations natively (committing, moving files, merging).
+- User encounters issues when amending or reverting code changes in history.
+
 ## Core Principles
 
 - **Anti-Panic Mutation Ban (Desperation Guardrail)**: NEVER chain rapid-fire state-mutating Git commands

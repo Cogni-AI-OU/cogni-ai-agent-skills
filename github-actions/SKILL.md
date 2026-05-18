@@ -14,6 +14,14 @@ license: MIT
 This skill enables autonomous diagnosis of GitHub Actions failures, preferring MCP tools for summaries and falling back
 to gh CLI.
 
+## When to Use
+
+- Agent needs to identify or fix a workflow failure
+- Error output references Actions job steps
+- Pull request shows failed Actions checks
+- User provides a GitHub Actions URL (e.g., `https://github.com/owner/repo/actions/runs/RUN_ID/job/JOB_ID`)
+- User reports a failing GitHub Actions workflow, CI failure, or red status check
+
 ## Step-by-Step Process
 
 1. Extract IDs from GitHub Actions URL if provided.

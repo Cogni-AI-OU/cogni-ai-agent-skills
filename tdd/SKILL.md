@@ -12,6 +12,13 @@ license: MIT
 
 **Skill Focus**: Commands, step-by-step procedures, and mechanical execution for test engineering, testability audits, and the TDD lifecycle.
 
+## When to Use
+
+- When executing test tasks, designing tests, or verifying system behavior.
+- When requested to write tests or practice Test-Driven Development (TDD).
+- When conducting testability audits on existing or new codebases.
+- When addressing bugs that require regression test coverage.
+
 ## Related Skills
 
 - **critical-thinking**:

@@ -13,6 +13,12 @@ license: MIT
 Guidance for structuring and maintaining verifiable project fact files. Use this skill when managing `FACTS.md`,
 `FACTS.mmd`, or similar canonical stores.
 
+## When to Use
+
+- Creating or updating canonical fact stores (e.g., `FACTS.md`, `FACTS.mmd`).
+- Documenting verifiable ecosystem properties, constraints, or architectural decisions.
+- Resolving state conflicts or contradictions within documentation limits.
+
 ## Core Process
 
 1. **Verify State**:

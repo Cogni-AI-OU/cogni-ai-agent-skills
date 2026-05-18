@@ -11,6 +11,11 @@ license: MIT
 
 Guidance on interacting with GitHub features, specifically around Pull Requests and diff viewing.
 
+## When to Use
+
+- When working with GitHub Pull Requests, comparing branches, or needing to view diffs/patches.
+- When needing to extract plain text diffs from GitHub PRs.
+
 ## Pull Request Plain Text View Modes
 
 GitHub allows viewing pull requests and commits in plain text formats by simply appending an extension to the URL.

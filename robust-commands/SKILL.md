@@ -13,6 +13,14 @@ This skill provides patterns for executing commands with automatic error
 recovery, fallback mechanisms, and installation of missing dependencies.
 Never give up when a command fails - try alternatives!
 
+## When to Use
+
+- When a command might not be installed
+- When debugging command failures
+- When tool availability is uncertain
+- When working in different environments (containers, CI, local)
+- When you need to ensure commands succeed
+
 ## Core Principle
 
 **If a command doesn't work, don't just report failure - fix it!**

@@ -10,6 +10,11 @@ license: MIT
 
 Elite autonomous PR review workflow for ensuring structural integrity, metadata accuracy, and zero-defect deployments.
 
+## When to Use
+
+- Triggered when asked to review, audit, or verify a GitHub Pull Request.
+- Loaded automatically during the final verification phase of a PR lifecycle.
+
 ## Core Review Checkpoints
 
 Execute these checks systematically using `gh` and `git` tools:

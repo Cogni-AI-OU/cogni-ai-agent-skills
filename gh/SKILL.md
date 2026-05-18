@@ -13,6 +13,12 @@ license: MIT
 Use `gh` as a structured client first. Prefer native fields, explicit routing,
 and bounded fallbacks over brittle shell post-processing.
 
+## When to Use
+
+- User asks to use `gh`, GitHub CLI, or to query GitHub from shell.
+- Task involves issues, PRs, reviews, workflow runs, jobs, discussions, or GitHub REST endpoints.
+- Execution is inside CI, Codespaces, or another restricted shell.
+
 ## Mindmap of Commands
 
 ```mermaid

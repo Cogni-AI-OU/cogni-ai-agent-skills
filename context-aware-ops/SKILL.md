@@ -14,6 +14,14 @@ This skill provides patterns and techniques for managing large files and command
 efficiently, preventing context window exhaustion while maintaining effective problem-solving
 capabilities.
 
+## When to Use
+
+- Before executing commands that might produce large output
+- Before reading any file in the codebase
+- When debugging issues that might involve large resources
+- When searching through codebases
+- When working with logs, build outputs, or data files
+
 ## Core Principle
 
 **Always check before you dump!**

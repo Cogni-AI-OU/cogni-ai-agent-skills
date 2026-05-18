@@ -11,6 +11,12 @@ license: MIT
 Use caution when running `cat` or heredocs (`<<EOF`) in automated environments or agentic runtimes, as missing or
 truncated EOF delimiters can cause persistent shell hangs.
 
+## When to Use
+
+- Using `cat` to write files.
+- Using heredoc (`<<EOF`) to pass multiline strings.
+- Reading or streaming file contents.
+
 ## Avoid Heredocs for Long Strings
 
 Never use heredocs (`cat <<EOF > file.md` or `command --body "$(cat <<EOF)"`) for long strings or generated code. If the

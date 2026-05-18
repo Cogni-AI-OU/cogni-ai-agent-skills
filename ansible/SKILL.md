@@ -9,6 +9,12 @@ license: MIT
 
 # Ansible Operations
 
+## When to Use
+
+- Agent needs to execute Ansible playbooks or commands.
+- User needs to run Ansible automation scripts.
+- Troubleshooting hanging issues during Ansible execution.
+
 ## Troubleshooting
 
 ### Ansible Environment issues
