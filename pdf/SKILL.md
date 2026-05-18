@@ -9,6 +9,28 @@ license: MIT
 ---
 # PDF Skill
 
+<!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
+
+## When to Use
+- When inspecting PDF file structure to identify bloat sources (large streams, duplicate fonts, embedded metadata).
+- When reducing PDF file size through lossless or lossy compression methods.
+- When performing object-level editing on PDF files using QDF (qpdf human-readable format).
+- When extracting forensic information from PDFs (object statistics, stream dumps) using `pdf-parser.py`.
+- When batch-optimizing PDFs for web distribution or archival storage.
+- When verifying page count, dimensions, and metadata are preserved after optimization.
+
+## When Not to Use
+- When the PDF is digitally signed or contains legal certifications — object-level editing may break signatures or validation.
+- When simple text extraction suffices — use `pdftotext` or other poppler-utils instead of full object inspection.
+- When the user only needs to merge or split PDF pages — use `qpdf --empty --pages ... -- output.pdf` or `pdfunite` rather than this skill's full workflow.
+- When the PDF should remain fully uncompressed for debugging — object-level editing with QDF is the right approach, but skip lossy reduction steps.
+
+## Common Pitfalls
+- Running Ghostscript (`gs`) first is destructive — it rewrites the entire document and prevents object-level editing; always inspect with `qpdf --json` first.
+- The `--recompress-flate` flag in qpdf may produce larger files on already-well-compressed content — always verify size reduction with `ls -lh`.
+- Lossy reduction with Ghostscript presets (`/screen`, `/ebook`) can degrade image quality significantly — use `/printer` or `/prepress` for document preservation.
+- Always verify page count and dimensions after reduction — `diff <(pdfinfo input.pdf | grep -E 'Pages|Page size') <(pdfinfo optimized.pdf | grep -E 'Pages|Page size')` catches unintended alterations.
+
 Analyze, edit, and shrink PDF files at the object level without losing content.
 
 ## Tool Selection

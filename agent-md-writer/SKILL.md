@@ -8,6 +8,26 @@ license: MIT
 
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
 
+## When to Use
+
+- Creating a new specialized agent persona from scratch (e.g., `docs-agent`, `test-agent`, `security-auditor`).
+- Refining or optimizing an existing agent persona to improve task success rates, reduce hallucination, or tighten scope.
+- Ensuring an agent definition includes all high-performance sections: role persona, invariants, cognitive framework, tooling rules, and verification gates.
+- Applying strict three-tier boundaries (Always / Ask first / Never) to any agent definition.
+
+## When Not to Use
+
+- Learning the technical syntax, frontmatter schema, or platform-specific rules of Agent MD files — load the `agent-md` skill instead.
+- Writing project-level `AGENTS.md` context files — load the `agents-md-writer` skill instead.
+- Writing mechanical step-by-step execution playbooks for a specific tool — those belong in a `SKILL.md` (load `agent-skill-md-writer`).
+
+## Common Pitfalls
+
+- **Description Overlap Causes Wrong Activation**: If two agent personas have similar or overlapping `description` fields, the wrong agent may be selected. Ensure each description is unique and narrowly scoped to a specific role.
+- **Fluff Wastes Context Budget**: Abstract descriptions like "helpful assistant" consume tokens without guiding behavior. Use contract-style imperatives and real code snippets instead.
+- **Tool Permission Balance**: Granting both `write_file` and `run_terminal` together is a security risk. Review each tool permission with a security mindset and apply least-privilege.
+- **Keep Under 500 KiB**: GitHub truncates agent files beyond this limit. When updating, prune fluff rather than appending more text. Quality over quantity.
+
 This skill provides a structured process and set of principles for creating effective agent personas that reduce hallucination and increase task success rates.
 
 ## Core Process

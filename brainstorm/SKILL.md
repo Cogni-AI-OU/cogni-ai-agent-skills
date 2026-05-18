@@ -1,5 +1,6 @@
 ---
 name: brainstorm
+license: MIT
 description: >-
   Activate brainstorming protocol to explore options, research, deconstruct complexities, and summarize available data into simple diagrams.
   You MUST load this skill when asked to brainstorm, explore options, or break down complex problems.
@@ -9,6 +10,31 @@ license: MIT
 # Skill brainstorm
 
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
+
+## When to Use
+
+- Exploring multiple architectural paths or design options before committing to a single solution (Design-It-Twice protocol).
+- Breaking down a complex, ambiguous problem into atomic, manageable components for structured analysis.
+- Gathering facts, constraints, and empirical data from the codebase before formulating any conclusions.
+- Visualizing trade-offs across competing options using Mermaid diagrams (mindmaps, quadrant charts, radar charts, block diagrams).
+- Performing root cause analysis of systemic failures using fishbone (Ishikawa) diagrams.
+- Prioritizing tasks, options, or initiatives by mapping effort vs. impact on a quadrant chart.
+
+## When Not to Use
+
+- Executing a known, well-defined procedure with a single correct approach — use a task-specific skill instead.
+- Performing deep analytical reasoning, validation, or adversarial testing of a single option — load the `critical-thinking` skill instead.
+- Making direct edits or committing changes to the codebase — brainstorming is for exploration only, not execution.
+- Analyzing agent runs in CI/CD pipelines — load `brainstorm-agent-runs` instead.
+- Analyzing Pull Request commit history, reviews, and CI checks — load `brainstorm-github-pr` instead.
+
+## Common Pitfalls
+
+- **Premature Convergence**: The most common failure is settling on the first viable solution. Always generate at least two distinct architectural paths (Design-It-Twice) before recommending a preferred option.
+- **Diagram Overload**: Large, complex Mermaid diagrams with too many nodes become unreadable. Break them into focused, single-concept visualizations — one mindmap, one quadrant chart, etc.
+- **Assumption Drift**: Brainstorming without factual grounding produces speculative results. Always gather empirical data from the codebase, project memory, or provided context before diverging into options.
+- **False Dichotomies**: Avoid framing problems as binary choices (Option A vs. Option B). Explore the full orthogonal axes of the design space before narrowing down.
+- **No Premature Convergent Thinking**: Explicitly document and present the discarded alternatives. If only one option is shown, the reader cannot evaluate whether the best path was chosen.
 
 A cognitive framework and protocol for exploring options, breaking down complexities, and summarizing information.
 

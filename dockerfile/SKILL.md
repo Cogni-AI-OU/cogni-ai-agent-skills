@@ -1,5 +1,6 @@
 ---
 name: dockerfile
+license: MIT
 description: Write, review, and optimize Dockerfiles applying multi-stage builds, non-root constraints, layer caching, and strict image pinning.
 license: MIT
 ---
@@ -7,6 +8,28 @@ license: MIT
 # Skill: dockerfile
 
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
+
+## When to Use
+
+- Writing a new Dockerfile from scratch for a production service or application.
+- Reviewing an existing Dockerfile for security, performance, or best-practice compliance.
+- Optimizing image size by applying multi-stage builds, layer consolidation, or base image minimization.
+- Configuring deterministic and reproducible container builds with pinned base image digests.
+- Setting up a CI/CD pipeline step that builds and publishes container images.
+
+## When Not to Use
+
+- Debugging runtime container behavior or network issues — use the `docker` skill instead for container troubleshooting.
+- Managing container orchestration (Kubernetes, Docker Compose, Docker Swarm) — this skill focuses on Dockerfile syntax only.
+- Writing quick ad-hoc Dockerfiles for local development where reproducibility is not a concern.
+- Diagnosing application-level runtime errors inside a running container.
+
+## Common Pitfalls
+
+- Position of `COPY . .` matters critically: placing it early in the Dockerfile invalidates the build cache for ALL subsequent steps, dramatically slowing every rebuild.
+- Permissions must be set in the final stage: `COPY --chown` or `RUN chown` must occur BEFORE the `USER` directive. Builder-stage ownership changes do NOT persist when copying artifacts to the final image. Distroless images may lack shell tools to fix permissions at runtime.
+- Shell-form `ENTRYPOINT` (e.g., `ENTRYPOINT npm start`) spawns a `/bin/sh -c` wrapper that breaks signal propagation — always use the JSON exec array form `["executable", "arg"]` for clean SIGTERM handling.
+- Pinning to the `latest` tag creates non-deterministic builds; always use SHA256 digests or precise version tags to prevent build drift.
 
 Create and maintain highly optimized, secure, and minimal Dockerfiles. Focus on strict deterministic builds, security compliance, and caching efficiency.
 

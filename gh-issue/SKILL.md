@@ -8,6 +8,27 @@ license: MIT
 
 # gh-issue Skill
 
+<!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
+
+## When to Use
+- You need to create, view, edit, close, or reopen GitHub Issues from the command line or automation.
+- You need to list and filter issues by state, label, assignee, or milestone for triage or reporting.
+- You need to add comments to an existing issue thread in response to events or user requests.
+- You are operating in a GitHub Actions runtime triggered by an `issue_comment` event and need to reply symmetrically.
+- You need to bulk-modify issue metadata (labels, assignees, title, body) as part of a workflow.
+
+## When Not to Use
+- You need to modify issue templates or issue forms (`.github/ISSUE_TEMPLATE/`) — those are YAML/markdown files, not `gh issue` operations.
+- You need to query issues with complex GraphQL joins (e.g., cross-repo searches, deep comment threading) — use **gh-api** for raw GraphQL access.
+- You are working with GitHub Discussions — those require `gh api` GraphQL mutations, not `gh issue`.
+- You need to perform operations that `gh issue` does not expose as subcommands (e.g., issue transfers, issue pinning) — fall back to **gh-api**.
+
+## Common Pitfalls
+- `gh issue create` without `--body-file` or `--body` opens an interactive editor — always provide content explicitly in non-interactive environments.
+- When using `--body-file`, write the comment body to a temp file first using your file-writing tools; heredocs in the command can cause shell hangs if truncated.
+- Response routing is critical in GitHub Actions: always check `github.event.issue.pull_request` to determine whether to reply via `gh issue comment` or `gh pr comment` — never cross-thread.
+- The `--json` flag outputs selected fields only; if a field you need is missing from `gh issue view --json <field>`, you must use `gh api` with a custom GraphQL query instead.
+
 Use `gh issue` to natively interact with GitHub Issues.
 Prefer native fields and explicit routing over brittle shell
 post-processing.

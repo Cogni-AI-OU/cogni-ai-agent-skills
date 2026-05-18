@@ -6,8 +6,33 @@ description: >-
   You MUST load this skill when working with the `gh aw` command.
 license: MIT
 ---
-<!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
+
 # gh-aw Skill
+
+<!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
+
+## When to Use
+
+- Orchestrating GitHub Agentic Workflows for repository automation (create, run, audit, lint).
+- Initializing a repository for agentic workflows with `gh aw init` or setting up secrets.
+- Compiling markdown workflow definitions into GitHub Actions YAML lock files.
+- Running, auditing, or troubleshooting agentic workflow executions on GitHub Actions.
+- Listing workflow health, status, or checking CI state classification.
+
+## When Not to Use
+
+- Creating standard (non-agentic) GitHub Actions workflows — use standard `.github/workflows/*.yml` patterns instead.
+- Debugging native GitHub Actions runner issues — use `github-actions` or `gh-run` skills.
+- Executing `gh` CLI operations unrelated to agentic workflows — use `gh` or its specialized sub-skills.
+- Managing GitHub Copilot preview agent tasks — use `gh-agent-task` skill instead.
+- Performing operations on repositories that do not have gh-aw initialized — run `gh aw init` first.
+
+## Common Pitfalls
+
+- `.lock.yml` files are auto-generated from markdown workflow sources — never manually edit `.lock.yml` files, as changes will be overwritten on the next compile.
+- Always review AI-agent-generated changes for security and correctness before committing — agentic workflows execute with repository permissions and can make significant changes.
+- Running `gh aw upgrade` applies codemods that may modify existing workflow `.md` files — always run `pre-commit run --all-files` after any compile or upgrade to catch regressions.
+- If `gh extension install` fails in restricted environments, use the installation script fallback but always review it first before executing.
 
 Use `gh aw` to orchestrate GitHub Agentic Workflows for repository automation.
 

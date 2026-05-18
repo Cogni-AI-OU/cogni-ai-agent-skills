@@ -1,5 +1,6 @@
 ---
 name: security-audit
+license: MIT
 description: >-
   Commands, step-by-step procedures, and mechanical execution for performing deep security audits,
   vulnerability assessments, and threat modeling on codebases and configurations.
@@ -8,6 +9,8 @@ license: MIT
 ---
 
 # Security Auditing Skill
+
+<!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
 
 This skill outlines the mechanical steps, mindset, and procedures required to conduct a thorough security
 audit on a target codebase, pull request, or architectural component. It integrates dependency analysis,
@@ -26,7 +29,21 @@ Use this skill when the request involves:
 - Detecting insecure cryptography or weak randomness
 - Performing a data flow analysis to trace user input to dangerous sinks
 - Any request phrasing like "is my code secure?", "scan this file", or "check my repo for vulnerabilities"
-- Running `/security-audit` or `/security-audit <path>`
+- Running \`/security-audit\` or \`/security-audit <path>\`
+
+## When Not to Use
+
+- Quick code style or formatting reviews where no security-sensitive logic is involved.
+- High-level architecture discussions that do not involve code-level security analysis.
+- When the user explicitly requests a performance review, functional correctness review, or code style review rather than a security audit.
+- Projects or components that have been verified as non-production, throwaway, or sandbox code where formal security analysis would be disproportionate.
+
+## Common Pitfalls
+
+- The skill uses static analysis only—it cannot detect runtime vulnerabilities like race conditions, memory corruption under load, or environment-specific misconfigurations.
+- False positives are possible, especially with heuristic secret detection (e.g., variables named "password" may not be actual credentials).
+- The audit results depend on the depth of code reading by the agent; deeply nested or obfuscated logic may conceal vulnerabilities that a manual reviewer with domain context would spot.
+- Patching proposals are illustrative and must be human-reviewed before application—automatically applying security patches can introduce new vulnerabilities if the surrounding context is not fully understood.
 
 ## Role Persona & Cognitive Framework
 

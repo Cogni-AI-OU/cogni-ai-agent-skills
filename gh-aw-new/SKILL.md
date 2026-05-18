@@ -1,5 +1,6 @@
 ---
 name: gh-aw-new
+license: MIT
 description: >-
   Create new GitHub Agentic Workflows (gh-aw) from scratch using the CLI extension.
   You MUST load this skill when creating new Agentic Workflow files.
@@ -8,6 +9,29 @@ license: MIT
 # Skill: gh-aw-new
 
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
+
+## When to Use
+
+- Creating a new GitHub Agentic Workflow from scratch that does not exist yet in the repository.
+- Adding automation to a repository that has gh-aw initialized and needs a new workflow definition.
+- Designing a shared agentic workflow that can be reused across multiple repositories in an organization.
+- Scaffolding a new workflow that follows gh-aw conventions and best practices.
+- Setting up the initial workflow structure before customizing the prompt logic.
+
+## When Not to Use
+
+- Editing or updating an existing workflow — use `github-aw` skill for modifying existing workflows.
+- Debugging a failing workflow execution — use `gh-aw-troubleshooting` or `github-aw-troubleshooting` skills.
+- Recompiling workflows after source changes — use `gh-aw-compile` skill for regeneration.
+- Running or executing an existing workflow — use `gh-aw` skill with `gh aw run` instead.
+- Working in a repository that has not been initialized with gh-aw — run `gh aw init` first.
+
+## Common Pitfalls
+
+- Never guess the workflow structure — always fetch and read the appropriate `create-*.md` prompt from the official gh-aw repository before proceeding, as the schema and requirements change between versions.
+- Workflow creation produces multiple artifacts (`.md`, `.lock.yml`, agent files, action pins) — verify ALL expected files exist with `git status` before committing.
+- The `.lock.yml` file is auto-generated and must NOT be edited manually — all behavioral changes go in the `.md` source file.
+- After creation, always run `pre-commit run --all-files` to validate the new workflow meets quality and security standards before committing.
 
 Create new GitHub Agentic Workflows (gh-aw) by installing the CLI extension and fetching official step-by-step creation instructions.
 

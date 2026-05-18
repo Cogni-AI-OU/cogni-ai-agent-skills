@@ -8,6 +8,26 @@ license: MIT
 
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
 
+## When to Use
+
+- Learning the syntax and structure of Agent MD persona files (`.agent.md`, `CLAUDE.md`, `opencode.json`) across GitHub Copilot, Claude Code, and OpenCode platforms.
+- Distinguishing between Agents (the "Who"), Skills (the "How"), and Instructions (the "Rules") to avoid content overlap and context drift.
+- Creating or editing agent persona files at the repository, organization, or global level for any supported platform.
+- Understanding where to place agent files for each platform (`.github/agents/`, `.opencode/agents/`, `CLAUDE.md`).
+
+## When Not to Use
+
+- Writing the mechanical step-by-step procedures of a specific tool or command — that belongs in a `SKILL.md` file (load `agent-skill-md-writer`).
+- Defining domain formatting standards or coding conventions — those belong in `*.instructions.md` files.
+- Asking one-off questions or quick clarifications — use direct prompts or chat modes instead.
+
+## Common Pitfalls
+
+- **File Size Limit**: GitHub Copilot truncates custom agent files beyond 500 KiB. Keep content concise and reference external documentation rather than embedding it wholesale.
+- **Relative Links Required**: Always use relative links (e.g., `docs/CONTRIBUTING.md`) for intra-repository references instead of absolute URLs. Absolute links break when the repository is cloned.
+- **Platform Schema Divergence**: GitHub Copilot, Claude Code, and OpenCode all use different frontmatter schemas, directory conventions, and file extensions. Do not assume syntax from one platform works on another.
+- **Description is the Activation Key**: The `description` field in frontmatter is what agents use to determine persona selection. A vague or generic description means the persona is never activated.
+
 Agent MD is a format for defining specialized agent personas. These files provide context-specific instructions, project knowledge, and execution boundaries for autonomous agents in GitHub Copilot, OpenCode, and Claude Code. Unlike broad custom instructions, custom agents are selected for specific tasks and maintain their configuration throughout the workflow.
 
 ## Architecture Principles: Agents vs Skills vs Instructions
@@ -161,7 +181,6 @@ Regardless of the platform, a high-quality agent definition should include:
 ## Reference Structure (GitHub Copilot)
 
 ```markdown
----
 name: <agent-name>
 description: <one-sentence description>
 version: 1.0.0
@@ -172,7 +191,6 @@ tools:
   - read_file
   - search_files
   - list_directory
----
 
 You are an expert <role> for this project.
 

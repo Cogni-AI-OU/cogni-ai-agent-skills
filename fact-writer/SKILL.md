@@ -7,8 +7,32 @@ description: >-
   You MUST load this skill when managing canonical project fact files.
 license: MIT
 ---
-<!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
+
 # Fact Writer
+
+<!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
+
+## When to Use
+
+- Creating or updating a canonical fact file (`FACTS.md`, `FACTS.mmd`) that captures immutable project knowledge.
+- Adding a new verifiable fact about project architecture, context, or ecosystem after a confirmed codebase change.
+- Pruning outdated or superseded facts to maintain high-density state compression.
+- Reconciling contradictions between existing fact entries and current repository state.
+- Preparing a fact file for agent context injection to reduce hallucination and improve decision consistency.
+
+## When Not to Use
+
+- Recording subjective opinions, plans, or speculative future states — facts must be objectively verifiable from the repository.
+- Keeping historical changelogs or version histories — Git handles history; fact files hold only the current canonical state.
+- Writing narrative documentation, tutorials, or explanations — use `docs-writer` instead for prose documentation.
+- Adding facts that duplicate existing entries — always check for existing facts before insertion.
+
+## Common Pitfalls
+
+- Insertion order is strict lexical sorting (case-insensitive, natural number sorting) — inserting out of order breaks the structure and wastes reviewer time.
+- Contradictions must be surfaced immediately: when a proposed fact conflicts with an existing `A ≠ ¬A` state, reject the silent overwrite and flag the conflict rather than accepting either value blindly.
+- Facts MUST be objectively verifiable — if the repository state does not support a claim (no code, no config, no documentation), reject ingestion entirely. Never hallucinate project details.
+- Offload all history and rollback to Git — never include changelogs, sequence IDs, or obsolete states in the fact file itself. Replace, do not append.
 
 Guidance for structuring and maintaining verifiable project fact files. Use this skill when managing `FACTS.md`,
 `FACTS.mmd`, or similar canonical stores.

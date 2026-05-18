@@ -1,5 +1,6 @@
 ---
 name: gh-aw-firewall-debug
+license: MIT
 description: Debug the AWF firewall by inspecting Docker containers, analyzing Squid access logs, checking iptables rules, and troubleshooting network issues.
 license: MIT
 ---
@@ -8,7 +9,27 @@ license: MIT
 
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
 
-Use this skill when you need to debug the awf firewall, inspect container state, analyze traffic, or troubleshoot network issues.
+## When to Use
+
+- Debugging unexpected network blocks or access failures in AWF-protected commands.
+- Inspecting Squid proxy logs to determine which domains are being allowed or blocked.
+- Checking iptables rules to verify firewall enforcement in the Docker network.
+- Troubleshooting DNS resolution failures within the AWF container environment.
+- Analyzing AWF container state (running, exited, network config) after a failed execution.
+
+## When Not to Use
+
+- Setting up or configuring the AWF firewall for the first time — use `gh-aw-firewall` skill for initial setup and basic usage.
+- Debugging application-level code issues unrelated to network connectivity.
+- Diagnosing issues in non-AWF environments — this skill is specific to the AWF Docker-based firewall.
+- Performance profiling or load testing — this skill focuses on connectivity debugging, not throughput analysis.
+
+## Common Pitfalls
+
+- Logs inside normal AWF executions are moved after cleanup — always access archived logs via `/tmp/squid-logs-*/access.log` instead of relying on container inspection, which may find empty directories.
+- Leaving debug containers running (`--keep-containers`) without cleanup leaves iptables rules and Docker networks active — always run manual cleanup (`docker rm -f awf-squid awf-agent && docker network rm awf-net`) after inspection.
+- The `TCP_DENIED` status in Squid logs shows the Host header (3rd column), which may differ from the original requested domain — a subdomain may need explicit allowlisting even if the parent domain is allowed.
+- iptables changes made outside the `FW_WRAPPER` lifecycle are not automatically cleaned up — avoid making persistent iptables modifications manually.
 
 ## Core Principles
 

@@ -9,6 +9,29 @@ license: MIT
 
 # Robust Command Execution Skill
 
+<!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
+
+## When to Use
+
+- Executing commands in automated scripts or agent workflows where manual intervention is not possible.
+- Writing CI/CD pipeline steps that must gracefully handle missing tools, permission issues, or transient failures.
+- Building resilient deployment, data-processing, or ETL pipelines that need fallback strategies.
+- Creating portable scripts that need to work across different Linux distributions with varying tool availability.
+- Implementing retry logic with backoff for network-dependent operations.
+
+## When Not to Use
+
+- Interactive development sessions where you can manually install missing tools or debug failures as they arise.
+- Security-sensitive operations where automatic fallback to an alternative tool could bypass intended security controls or audit trails.
+- When the correct command behavior depends on exact tool semantics—silently falling back to a different tool may produce subtly different results.
+
+## Common Pitfalls
+
+- Automatic installation commands (e.g., `apt-get install`) require root/sudo privileges and may fail in restricted containers or CI runners; always check for install capability first.
+- Fallback commands may produce different output formats or behavior (e.g., `curl` vs. `wget` exit codes and output defaults differ)—validate fallback results, don't assume equivalence.
+- `command -v` only checks for existence, not functionality—a tool may be installed but broken, version-incompatible, or missing required dependencies.
+- Retry loops with aggressive backoff can mask genuine failures and waste compute time—always set a maximum retry limit and report the original error when all retries are exhausted.
+
 This skill provides patterns for executing commands with automatic error
 recovery, fallback mechanisms, and installation of missing dependencies.
 Never give up when a command fails - try alternatives!

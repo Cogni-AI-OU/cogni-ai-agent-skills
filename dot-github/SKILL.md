@@ -1,5 +1,6 @@
 ---
 name: dot-github
+license: MIT
 description: >-
   Standardize `.github` directory structure, enforce agentic documentation patterns.
   You MUST load this skill when creating or updating files in `.github/` dir.
@@ -7,7 +8,29 @@ license: MIT
 ---
 # Skill: dot-github
 
-<!-- markdownlint-disable MD013 MD023 MD031 MD032 MD033 -->
+<!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
+
+## When to Use
+
+- Creating or updating the `.github` directory structure for a new or existing repository.
+- Adding or modifying AGENTS.md files within `.github/` subdirectories (workflows, prompts, instructions).
+- Configuring CODEOWNERS, workflow files, issue templates, or other `.github` governance files.
+- Setting up firewall documentation in `.github/FIREWALL.md` for agentic workflows.
+- Standardizing agentic documentation patterns across a repository or organization.
+
+## When Not to Use
+
+- Editing the main repository README or project-level documentation outside `.github/` — use `docs-writer` instead.
+- Modifying CI/CD workflow logic — use `github-actions` or `gh-aw` skills for workflow content changes.
+- Writing agent skill files (`SKILL.md`) or instructions (`*.instructions.md`) — those belong in the repo root, not `.github/`.
+- Creating `.github/README.md` — this overrides the main repository README on the GitHub homepage.
+
+## Common Pitfalls
+
+- Creating `.github/README.md` is a hard NEVER — GitHub renders it with the highest priority, completely overriding the main project README.md on the repository homepage.
+- Refactoring workflow triggers (e.g., removing required pull_request events) can silently break your own runtime workflow — always double-check that your CI/CD pipeline remains triggerable.
+- Never guess or invent team names in CODEOWNERS — only reference verified existing teams to avoid broken ownership rules.
+- Moving workflows to `.github/workflows-disabled/` is preferred over deleting them, as it preserves history and allows easy re-enablement.
 
 Standardize `.github` directory structure, enforce agentic documentation patterns.
 

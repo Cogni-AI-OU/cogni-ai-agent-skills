@@ -1,10 +1,35 @@
 ---
 name: github-aw-practices
+license: MIT
 description: 'Organizational practices, rollout strategies, and A/B experiment specifications for maintaining repositories with GitHub Agentic Workflows (gh-aw).'
 license: MIT
 ---
 
 # Skill: github-aw-practices
+
+<!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
+
+## When to Use
+- Planning a phased rollout of agentic workflows across an organization or team.
+- Designing A/B experiments to test prompt variants, model configurations, or workflow behaviors.
+- Determining safe-outputs and integrity-filtering strategies for open-source or untrusted-contributor repositories.
+- Establishing centralized workflow governance, versioning, and sharing patterns across multiple repositories.
+- Moving a workflow from report-only mode through staged behavior to full production writes (the rollout ladder).
+- Auditing run costs and measuring the impact of workflow changes via the experiments system.
+
+## When Not to Use
+- Debugging a specific workflow execution failure (load `github-aw-troubleshooting`).
+- Designing the architectural pattern for a single workflow (load `github-aw-patterns`).
+- Configuring YAML frontmatter syntax or schema details (load `github-aw-syntax`).
+- The organization has a single repository with no need for cross-repo governance or staged rollout.
+- Token optimization or prompt minimization for an existing workflow (load `github-aw`).
+
+## Common Pitfalls
+- Safe-outputs and integrity filtering form a defense-in-depth model — disabling either one creates a security gap. Integrity filtering prevents the agent from SEEING untrusted content, while safe-outputs prevent it from ACTING on it.
+- The A/B experiments system uses round-robin balanced selection, NOT random assignment — runs with the same experiment configuration receive variants in deterministic rotation, which can confound results if run counts are uneven.
+- Staged mode (preview writes) and shadow evaluation (real writes to a safe target) serve different purposes and are NOT interchangeable — staged mode answers "what would the workflow do," shadow evaluation answers "does the real write path work correctly."
+- Secrets declared in workflow frontmatter must use `${{ secrets.* }}` expressions — plaintext secrets cause compilation errors in strict mode and security warnings otherwise.
+- Sharing workflows across repos requires the `source:` field and proper `imports:` configuration — a missing or incorrect `source:` field prevents `gh aw update` from finding newer versions.
 
 This skill provides organizational practices, rollout strategies, and A/B experiment specifications for maintaining
 repositories with GitHub Agentic Workflows (gh-aw).

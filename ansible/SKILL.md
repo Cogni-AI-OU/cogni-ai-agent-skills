@@ -5,9 +5,31 @@ description: >-
   You MUST load this skill when working with the `ansible` command.
 license: MIT
 ---
-<!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
 
 # Ansible Operations
+
+<!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
+
+## When to Use
+
+- Running Ansible playbooks or ad-hoc commands in automated CI/CD or agentic environments.
+- Debugging Ansible execution hangs or failures, especially when interacting with package managers on Debian/Ubuntu hosts.
+- Profiling playbook execution performance to identify slow-running tasks and optimize automation.
+- Setting up Ansible environment variables (`DEBIAN_FRONTEND`, callback plugins) for non-interactive execution.
+
+## When Not to Use
+
+- Managing infrastructure that uses a different configuration management tool (e.g., Terraform, Pulumi, Chef, CloudFormation).
+- Writing Ansible roles or collections from scratch — role scaffolding and best practices are beyond this skill's scope.
+- Debugging network connectivity, DNS resolution, or SSH issues unrelated to Ansible's execution environment.
+- Running or managing Molecule tests for Ansible roles — load the `molecule` skill instead.
+
+## Common Pitfalls
+
+- **Package Manager Hangs**: Ansible's `apt` module can hang indefinitely waiting for interactive prompts on Debian/Ubuntu systems. Always set `DEBIAN_FRONTEND=noninteractive` in your playbook environment or as an environment variable.
+- **Mocking is Prohibited**: Never use `mock_modules` or `mock_roles` to bypass tasks that are failing due to environment-specific issues. Masking failures with mocks hides root causes and can lead to production incidents. Fix the underlying issue directly.
+- **Profile Tasks for Optimization**: The `profile_tasks` callback plugin (`ansible.posix.profile_tasks`) is essential for identifying slow tasks. Enable it via `ANSIBLE_CALLBACKS_ENABLED=profile_tasks` or in `ansible.cfg` before troubleshooting performance.
+- **Idempotency Verification**: Always verify that playbooks are idempotent by running them twice and checking that the second run produces zero changes.
 
 ## Troubleshooting
 

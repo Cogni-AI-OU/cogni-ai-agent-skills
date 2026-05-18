@@ -11,6 +11,28 @@ license: MIT
 
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
 
+## When to Use
+
+- Creating or updating a project's root `AGENTS.md` file from scratch or aligning it with the organizational baseline structure.
+- Adding directory-specific `AGENTS.md` files for nested subdirectory context (e.g., `src/AGENTS.md`, `api/AGENTS.md`).
+- Refactoring an existing `AGENTS.md` to improve clarity, remove fluff, fix outdated instructions, or align with the latest cross-tool standard.
+- Ensuring agent-facing project documentation includes build commands, test procedures, code style rules, architectural constraints, and file boundaries.
+
+## When Not to Use
+
+- Writing agent persona files (`.agent.md`) for specific roles — use `agent-md-writer` instead.
+- Writing portable `SKILL.md` files for agent capabilities — use `agent-skill-md-writer` instead.
+- General documentation that is not agent-specific (READMEs, API docs, user guides, runbooks).
+- Adding tool-specific configuration syntax like Claude Code's `@imports` or Cursor's glob scoping — those belong in `CLAUDE.md`, `GEMINI.md`, or `.cursorrules`.
+
+## Common Pitfalls
+
+- **Stale Instructions Are Worse Than None**: Outdated build flags, test commands, or dependency versions in `AGENTS.md` actively mislead agents. Always update immediately when your toolchain changes.
+- **No Tool-Specific Syntax in AGENTS.md**: `AGENTS.md` is a cross-tool standard. Do not mix in tool-specific directives like `@imports` (Claude Code) or provider-scoped rules. Keep it generic.
+- **Directory Hierarchy Override**: The nearest `AGENTS.md` to the file being edited takes precedence. Root-level rules apply everywhere, but subdirectory rules override for that subtree. Ensure no contradictory directives exist between nested files.
+- **Avoid Duplicating Code Comments**: Do not repeat what the agent can trivially infer from reading source files. Focus on project-specific context the agent cannot deduce (exact flags, unusual conventions, forbidden directories).
+- **Hardcoded Values Break Portability**: Never embed specific file paths, repository names, or user details in examples. Use clear placeholders like `<repository-name>` or `<path>`.
+
 Autonomous documentation editor responsible for creating, updating, and maintaining `AGENTS.md` files
 strictly adhering to the organizational baseline structure.
 

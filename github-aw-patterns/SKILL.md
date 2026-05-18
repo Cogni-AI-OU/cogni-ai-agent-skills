@@ -1,5 +1,6 @@
 ---
 name: github-aw-patterns
+license: MIT
 description: 'Reference and guidelines for designing GitHub Agentic Workflows using established operational patterns like BatchOps, CentralRepoOps, ChatOps, CorrectionOps, and others.'
 license: MIT
 ---
@@ -14,6 +15,19 @@ license: MIT
 - When determining the best architectural pattern for automation (e.g., choosing between sequential vs. batch processing).
 - When implementing specific Agentic Workflow patterns such as BatchOps, CentralRepoOps, ChatOps, DailyOps, etc.
 - When organizing multi-repository or cross-repository workflow operations.
+
+## When Not to Use This Skill
+- The user needs detailed YAML frontmatter syntax or schema reference (load `github-aw-syntax` instead).
+- The user needs to debug a failing workflow execution (load `github-aw-troubleshooting`).
+- The user needs organizational rollout strategies, safe-deployment ladders, or A/B experiment design (load `github-aw-practices`).
+- You already have a clear, simple, and working workflow — pattern over-engineering adds unnecessary complexity.
+- The user is asking about token optimization, prompt minimization, or cost reduction techniques (load `github-aw`).
+
+## Common Pitfalls
+- Pattern selection is not one-size-fits-all: BatchOps is wrong for dependent items (use WorkQueueOps), and ChatOps requires `slash_command` trigger setup that not all repos support.
+- DeterministicOps pattern combines shell commands with AI reasoning — the bash steps run OUTSIDE the firewall sandbox and must never execute untrusted content or agentic compute.
+- MultiRepoOps and CentralRepoOps require careful token configuration (PAT or GitHub App with cross-repo access) — the default `GITHUB_TOKEN` is scoped to the current repository.
+- CorrectionOps, WorkQueueOps, and other stateful patterns depend on `cache-memory` or `repo-memory` — if memory is misconfigured or expired, the pattern silently degrades.
 
 ## Core Principles
 

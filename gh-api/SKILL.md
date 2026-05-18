@@ -1,11 +1,37 @@
 ---
 name: gh-api
+license: MIT
 description: >-
   Advanced GitHub CLI (`gh api`) queries and mutations via REST or GraphQL.
   You MUST load this skill when working with the `gh api` command.
 license: MIT
 ---
+
 # gh-api Skill
+
+<!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
+
+## When to Use
+
+- Fetching GitHub API data that native `gh` subcommands do not expose (e.g., check run annotations, workflow logs, discussion threads).
+- Executing GraphQL queries and mutations for complex data shapes not available via REST.
+- Downloading workflow run logs when `gh run view --log` fails (e.g., canceled matrix jobs or cached runs).
+- Performing paginated queries across large result sets using `--paginate`.
+- Creating discussions, managing review threads, or accessing undocumented API endpoints.
+
+## When Not to Use
+
+- Performing standard GitHub operations that have dedicated native `gh` subcommands — prefer `gh issue`, `gh pr`, `gh run` etc. over raw API calls.
+- Simple metadata lookups (issue title, PR status, commit SHA) — these are faster and more reliable with native `gh` commands.
+- General web API interactions outside of GitHub — this skill is specific to `gh api` for the GitHub API.
+- Operations where `GH_TOKEN` or `GITHUB_TOKEN` does not have the required scopes — check auth first before building complex queries.
+
+## Common Pitfalls
+
+- Using `-f` (`--raw-field`) when intending to expand a file with `@` silently passes the literal string — always use `-F` (`--field`) for file expansion. The `query` parameter in GraphQL is a common exception where `-f` is correct.
+- Process substitution `@<(...)` is brittle across shells and may fail silently in restricted environments — write to a temp file first, then use `-F body=@tempfile`.
+- Using `-f` with REST API parameters implicitly changes the HTTP method to POST — always specify `-X GET` explicitly when you need a GET request with parameters.
+- Job summaries (`$GITHUB_STEP_SUMMARY`) are NOT accessible via the REST API `check-runs` or `jobs` endpoints; they are only visible in the web UI or via an undocumented web endpoint.
 
 Use `gh api` and `gh api graphql` when standard `gh` subcommands do not expose the required functionality or metadata.
 

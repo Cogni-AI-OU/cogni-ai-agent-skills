@@ -1,5 +1,6 @@
 ---
 name: subagent-task
+license: MIT
 description: >-
   Guidance and protocols for spawning sub-agents via the task tool to handle complex, multi-step, or parallelizable tasks.
   You MUST load this skill when the task tool for invoking sub-agents is available.
@@ -10,7 +11,28 @@ license: MIT
 
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
 
-Provides policies and examples for using the `task` tool to spawn sub-agents for specialized, parallel, or complex tasks.
+## When to Use
+
+- Breaking down a complex, multi-step task into independent parallel sub-tasks (e.g., fact-gathering, log analysis, and plan validation).
+- Leveraging specialized agent personas (e.g., security auditor, Python developer, code reviewer) for domain-specific work.
+- Preventing context-window overload by delegating large file analysis or broad codebase searches to sub-agents.
+- Running multiple independent research or analysis tasks concurrently to reduce overall execution time.
+
+## When Not to Use
+
+- Simple, single-step tasks that can be completed directly without delegation overhead.
+- Tasks requiring tight coordination or shared state between sub-steps—the sub-agent model handles isolation better than collaboration.
+- When the task scope is too small to justify the latency overhead of spawning and synthesizing sub-agent results.
+- Tasks that involve modifying shared files or state that could cause conflicts between concurrent sub-agents.
+
+## Common Pitfalls
+
+- Sub-agents start with a completely fresh context—they have no memory of the current conversation or prior decisions unless explicitly included in the prompt.
+- The primary agent must synthesize all sub-agent results; if sub-agents return conflicting information, the primary agent needs logic to reconcile.
+- Spawning too many sub-agents in parallel can hit rate limits or resource caps in the runtime environment; batch strategically.
+- Not all runtime environments support all agent types—always verify available subagent types dynamically rather than hardcoding assumptions.
+
+Provides policies and examples for using the \`task\` tool to spawn sub-agents for specialized, parallel, or complex tasks.
 
 ## Core Principles
 

@@ -1,11 +1,35 @@
 ---
 name: gh-agent-task
+license: MIT
 description: GitHub CLI (`gh agent-task`) operations for creating, listing, and viewing preview agent tasks. You MUST load this skill when working with the `gh agent-task` command.
 license: MIT
 ---
 # Skill: gh-agent-task
 
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
+
+## When to Use
+
+- Creating a new agent task to run on a repository or pull request.
+- Listing existing agent tasks to track progress or find a specific session.
+- Viewing a specific agent task session by ID or associated pull request number.
+- Following agent task execution logs in real-time during long-running automation.
+- Using a custom agent from `.github/agents/` to execute a task with specialized instructions.
+
+## When Not to Use
+
+- Running ad-hoc GitHub CLI queries not related to agent tasks — use `gh` or `gh-api` skills.
+- Managing GitHub Actions workflow runs — use `gh-run` skill for workflow execution and monitoring.
+- Creating or managing GitHub Agentic Workflows — use `gh-aw` skill for `gh aw` subcommands.
+- Interacting with pull request or issue content unrelated to task automation.
+- Tasks requiring GitHub CLI versions older than v2.80.0 (agent-task is unavailable).
+
+## Common Pitfalls
+
+- The `gh agent-task` commands are in public preview and subject to breaking changes — behavior may differ between CLI versions without notice.
+- Using `-f body=...` instead of `-F body=@file` for multi-line descriptions does not expand `@` — always use `-F` with a file for complex task descriptions, or pipe via stdin.
+- Custom agent files must exist in `.github/agents/` before task creation — tasks silently fail or use the default agent if the custom agent path is wrong.
+- Task creation may fail silently if repository permissions are insufficient — always verify with `gh auth status` and confirm write access before debugging task failures.
 
 Provides usage patterns and expert guidance for the GitHub CLI `gh agent-task` extension, which manages preview agent tasks on repositories and pull requests.
 The agent-task command set is only available in v2.80.0 or later of the GitHub CLI.

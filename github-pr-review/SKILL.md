@@ -1,5 +1,6 @@
 ---
 name: github-pr-review
+license: MIT
 description: >-
   Comprehensive PR review workflow for verifying code quality, metadata accuracy, and merge readiness.
   You MUST load this skill when reviewing, auditing, or verifying a GitHub Pull Request.
@@ -7,6 +8,29 @@ license: MIT
 ---
 
 # GitHub PR Review
+
+<!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
+
+## When to Use
+- A user explicitly asks you to review, audit, or verify a GitHub Pull Request.
+- Performing a pre-merge quality gate to ensure the PR meets code quality, testing, and metadata standards.
+- Reviewing a complex PR that benefits from delegated reviews (architectural, security, testing).
+- Ensuring PR title follows Conventional Commits and description accurately reflects all changes.
+- Checking build/CI status and mergeability before approving or requesting changes.
+- The PR review is part of a CI/CD pipeline gate before merging is permitted.
+
+## When Not to Use
+- The user simply needs to comment on or reply to a PR thread without a full review — load `github-pr` for lightweight PR interactions.
+- The task involves making code changes to the PR branch — this skill is for review/audit only, not implementation.
+- The user needs general GitHub Actions troubleshooting (load `github-actions`) or workflow run analysis (load `gh-run`).
+- The changes are trivial (typo fix, dependency bump) that don't warrant deep architectural or security review.
+
+## Common Pitfalls
+- Never approve a PR without verifying EVERY checkpoint — blanket approvals bypass critical quality gates and erode trust in the review process.
+- Always read the PR description AND linked issues before reviewing code — reviewing in isolation misses context, design decisions, and trade-offs documented elsewhere.
+- Delegated reviews via `task` tool run asynchronously; you MUST synthesize results from all sub-agents into a single coherent review summary — don't post multiple disjointed reviews.
+- CI/CD checks may be pending or in-progress — wait for them to complete (using `gh run watch` if needed) rather than approving before verification.
+- The `code-review` skill provides the deep inspection framework — this skill orchestrates the full review workflow, but the actual code-level analysis uses the cognitive framework from `code-review`.
 
 Elite autonomous PR review workflow for ensuring structural integrity, metadata accuracy, and zero-defect deployments.
 

@@ -1,5 +1,6 @@
 ---
 name: gh-pr
+license: MIT
 description: >-
   GitHub CLI (`gh pr`) operations for pull requests, reviews, PR checks, and PR
   branches.
@@ -7,6 +8,29 @@ description: >-
 license: MIT
 ---
 # gh-pr Skill
+
+<!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
+
+## When to Use
+- You need to create, view, edit, close, merge, or reopen GitHub Pull Requests from the command line or automation.
+- You need to inspect PR checks, CI status, and diff content to diagnose failures or review changes.
+- You need to add reviews (approve, request changes, or comment) or reply to PR thread comments.
+- You are operating in a GitHub Actions runtime triggered by a `pull_request` or `issue_comment` event and need to reply symmetrically.
+- You need to list PRs by author, label, state, or branch, and retrieve structured metadata via `--json`.
+- You need to manage PR merge strategy (`--merge`, `--squash`, `--rebase`) explicitly with merge queue compatibility.
+
+## When Not to Use
+- You need raw commit data, review thread diffs, or cross-repo PR data not exposed by `gh pr` subcommands — use **gh-api** with custom GraphQL or REST queries.
+- You need to perform branch syncing or complex git operations associated with a PR (rebasing, force-push) — use **git** and **git-rebase** skills.
+- You are only viewing PR content for informational purposes without interacting — use the **github** skill for `.diff`/`.patch` URL retrieval.
+- You need to analyze agentic workflow runs triggered by PR events — use **gh-run** and **gh-aw-troubleshooting** skills instead.
+
+## Common Pitfalls
+- `gh pr checks` only evaluates the HEAD commit; manually triggered (`workflow_dispatch`) or comment-triggered (`issue_comment`) agent runs on the same branch will be missed — use `gh run list` or `gh api` to find those.
+- `gh pr review` is often restricted in automated environments (e.g., OpenCode); prefer `gh pr comment` for adding feedback when review approval is not required.
+- Draft PRs cannot be merged — always call `gh pr ready <number>` first before attempting to merge a draft.
+- When using `gh pr create`, if a PR already exists for the branch, the command fails; always use `gh pr list --head <branch>` to check for existing PRs before creating.
+- Response routing is critical: inline code review replies require `gh api` with the `/pulls/<pr>/comments/<comment_id>/replies` endpoint, not `gh pr comment`.
 
 Use `gh pr` to natively interact with GitHub Pull Requests. Prefer native
 fields and explicit routing over brittle shell post-processing.

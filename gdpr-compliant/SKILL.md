@@ -1,12 +1,37 @@
 ---
 name: gdpr-compliant
+license: MIT
 description: Apply GDPR-compliant engineering practices across your codebase. You MUST load this skill whenever you are designing APIs, writing data models, handling user data, implementing logging, or reviewing pull requests for privacy compliance.
 license: MIT
 ---
 
 # GDPR Engineering Skill
 
-<!-- markdownlint-disable MD013 MD022 MD032 MD034 MD036 MD060 -->
+<!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
+
+## When to Use
+
+- Designing or reviewing APIs that accept, process, or return personal data.
+- Writing data models and database schemas that include personally identifiable information (PII).
+- Implementing logging, telemetry, or analytics systems that could capture user data.
+- Reviewing pull requests for privacy compliance — especially when new data collection or processing is introduced.
+- Setting up data retention, erasure, or anonymization pipelines for production systems.
+- Conducting a Data Protection Impact Assessment (DPIA) or updating a Record of Processing Activities (RoPA).
+
+## When Not to Use
+
+- General security audit tasks unrelated to data privacy — use `security-audit` skill instead for broader security concerns.
+- Performance optimization or scalability reviews that do not involve personal data.
+- Infrastructure provisioning or cloud resource configuration that does not handle PII.
+- Code review focused purely on business logic correctness without data privacy implications.
+
+## Common Pitfalls
+
+- Logging full request/response bodies is an extremely common GDPR violation — default to logging structured event metadata only (e.g., `"User {UserId} updated email"` not `"Email changed from a@b.com to c@d.com"`).
+- "Anonymized" data that can still be re-identified through linkage attacks is NOT anonymized under GDPR — verify k-anonymity and test linkage resistance before claiming data is anonymized.
+- Enabling analytics or tracking by default (opt-out model) violates Privacy by Default — all optional data collection must be opt-in only.
+- Cookies and tracking require explicit consent before setting, not just a cookie banner notice.
+- Sequential integer IDs in public URLs expose enumeration risks and data boundaries — always use UUIDs or opaque identifiers for resources holding personal data.
 
 Actionable GDPR reference for engineers, architects, DevOps, and tech leads.
 Inspired by CNIL developer guidance and GDPR Articles 5, 25, 32, 33, 35.
@@ -18,7 +43,6 @@ For deep dives, use the guidance below in these areas:
 - Security — encryption, hashing, secrets, anonymization
 - Operations — cloud, CI/CD, incident response, architecture patterns
 
----
 
 ## 1. Core GDPR Principles (Article 5)
 
@@ -32,7 +56,6 @@ For deep dives, use the guidance below in these areas:
 | Integrity & confidentiality | Encrypt at rest and in transit; restrict and audit access |
 | Accountability | Maintain evidence of compliance; RoPA ready for DPA inspection at any time |
 
----
 
 ## 2. Privacy by Design & by Default
 
@@ -48,7 +71,6 @@ For deep dives, use the guidance below in these areas:
 - Enable analytics, tracking, or telemetry by default without explicit consent.
 - Store personal data in a system not listed in the RoPA.
 
----
 
 ## 3. Data Minimization
 
@@ -64,7 +86,6 @@ For deep dives, use the guidance below in these areas:
 - Include personal data in URL path segments or query parameters (CDN logs, browser history).
 - Collect `dateOfBirth`, national ID, or health data without an explicit legal basis.
 
----
 
 ## 4. Purpose Limitation
 
@@ -76,7 +97,6 @@ For deep dives, use the guidance below in these areas:
 - Share personal data collected for service delivery with advertising networks without explicit consent.
 - Use support ticket content to train ML models without a separate legal basis and user notice.
 
----
 
 ## 5. Storage Limitation & Retention
 
@@ -103,7 +123,6 @@ For deep dives, use the guidance below in these areas:
 **MUST NOT**
 - Retain personal data indefinitely "in case it becomes useful later."
 
----
 
 ## 6. API Design Rules
 
@@ -123,7 +142,6 @@ For deep dives, use the guidance below in these areas:
 - Return stack traces, internal paths, or database errors in API responses.
 - Use `Access-Control-Allow-Origin: *` on authenticated APIs.
 
----
 
 ## 7. Logging Rules
 
@@ -139,7 +157,6 @@ For deep dives, use the guidance below in these areas:
 - Use structured logging (JSON) with `userId` as an internal identifier, not the email address.
 - Separate audit logs (sensitive access, admin actions) from application logs — different retention and ACLs.
 
----
 
 ## 8. Error Handling
 
@@ -154,7 +171,6 @@ For deep dives, use the guidance below in these areas:
 - Include file paths, class names, or line numbers in error responses.
 - Include personal data in error messages (e.g., "User john@example.com not found").
 
----
 
 ## 9. Encryption (summary — see `references/security.md` for full detail)
 
@@ -167,7 +183,6 @@ For deep dives, use the guidance below in these areas:
 
 **MUST NOT** allow TLS 1.0/1.1, null cipher suites, or hardcoded encryption keys.
 
----
 
 ## 10. Password Hashing
 
@@ -178,7 +193,6 @@ For deep dives, use the guidance below in these areas:
 **MUST NOT**
 - Log passwords in any form. Transmit passwords in URLs. Store reset tokens in plaintext.
 
----
 
 ## 11. Secrets Management
 
@@ -192,7 +206,6 @@ For deep dives, use the guidance below in these areas:
 **MUST NOT**
 - Commit secrets to source code. Store secrets as plain-text environment variable defaults.
 
----
 
 ## 12. Anonymization & Pseudonymization (summary — see `references/security.md`)
 
@@ -203,7 +216,6 @@ For deep dives, use the guidance below in these areas:
 
 **MUST NOT** call data "anonymized" if re-identification is possible through linkage attacks.
 
----
 
 ## 13. Testing with Fake Data
 
@@ -213,7 +225,6 @@ For deep dives, use the guidance below in these areas:
 - Use synthetic data generators: `Bogus` (.NET), `Faker` (JS/Python/Ruby).
 - Use `@example.com` for all test email addresses.
 
----
 
 ## 14. Anti-Patterns
 
@@ -232,7 +243,6 @@ For deep dives, use the guidance below in these areas:
 | "Anonymized" data with quasi-identifiers | Apply k-anonymity, test linkage resistance |
 | Mixing backup regions outside EEA | Explicit region lockdown on backup jobs |
 
----
 
 ## 15. PR Review Checklist
 
@@ -273,14 +283,12 @@ For deep dives, use the guidance below in these areas:
 - New sub-processors have a signed DPA and a RoPA entry.
 - DPIA triggered if the change involves high-risk processing.
 
----
 
 > **Golden Rule:** Collect less. Store less. Expose less. Retain less.
 >
 > Every byte of personal data you do not collect is a byte you cannot lose,
 > cannot breach, and cannot be held liable for.
 
----
 
 *Inspired by CNIL developer GDPR guidance, GDPR Articles 5, 25, 32, 33, 35,
 ENISA, OWASP, and NIST engineering best practices.*

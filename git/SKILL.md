@@ -8,7 +8,29 @@ license: MIT
 
 # Git
 
-<!-- markdownlint-disable MD013 -->
+<!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
+
+## When to Use
+- You need to perform standard git operations: commit, push, pull, branch, merge, rebase, stash, cherry-pick, or revert.
+- You need to manage commit history with fixups, amends, and conventional commit messages.
+- You need to integrate changes from a target branch into a feature branch while keeping history clean and reviewable.
+- You need to diagnose repository state: check for shallow clones, unresolved conflicts, unpushed commits, or tracking branch status.
+- You need to safely rename, move, or delete files while preserving git history.
+- You are operating in an automated/CI environment and need non-interactive git patterns that avoid editor prompts and interactive modes.
+
+## When Not to Use
+- You need to perform advanced recovery operations (reflog recovery, corrupted repository repair, bisecting) — use the **git-expert** skill.
+- You need to execute complex rebase workflows with interactive todo list manipulation — use the **git-rebase** skill.
+- You need to perform a merge with strict conflict marker and deduplication checks — use the **git-merge** skill.
+- You need to extract a subdirectory with full history from one repo into another — use the **git-filter-branch** skill.
+- You need GitHub CLI operations for PRs, issues, or workflow runs — use **gh-pr**, **gh-issue**, or **gh-run** skills instead.
+
+## Common Pitfalls
+- Interactive modes (`-i`, `--interactive`) will hang automation tools — always use non-interactive alternatives like `git commit -m`, `GIT_EDITOR=true`, or `--no-edit` flags.
+- Automation tools like `report_progress` automatically attempt to rebase your branch against the remote tracking branch, which crashes if you've rewritten history — use a new branch name after history rewrites to prevent this.
+- `git pull` in scripts is ambiguous — prefer explicit `git fetch` + `git rebase` (or `git merge --no-edit`) to control the integration strategy precisely.
+- Always inspect pending commits with `git status` and `git diff` before any push — never use blanket `git add .` without reviewing what will be staged.
+- Conflict markers (`<<<<<<<`, `=======`, `>>>>>>>`) must NEVER be committed — always verify with `grep -rnE '<<<<<<<|=======|>>>>>>>'` before completing a merge or rebase.
 
 Expert in advanced git usage for repository agents. Prioritize non-interactive, safe, reproducible operations that
 maintain clean history and respect repository conventions.
@@ -94,7 +116,9 @@ GitHub Actions and other CI environments often check out repositories as shallow
 - **Conflict Marker Prevention**: Before running `git commit`, verify that there are no unresolved merge conflict markers. Use `git diff --cached` to ensure no markers (e.g., `<<<<<<<`, `=======`, `>>>>>>>`) are being committed. NEVER commit a file containing unresolved merge conflicts.
 - **Reverting Commits**:
   - For simple reverts, use `git revert <commit-sha> --no-edit`.
-  - If a revert results in conflicts, it will pause. DO NOT blindly commit. You MUST resolve the conflicts in the files, ensuring all `<<<<<<<`, `=======`, and `>>>>>>>` markers are removed.
+  - If a revert results in conflicts, it will pause. DO NOT blindly commit.
+
+You MUST resolve the conflicts in the files, ensuring all `<<<<<<<`, `=======`, and `>>>>>>>` markers are removed.
   - Once resolved, stage the files and use `GIT_EDITOR=true git revert --continue`.
 
 ## Useful Diagnostic Commands

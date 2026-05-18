@@ -1,5 +1,6 @@
 ---
 name: sed
+license: MIT
 description: 'Fast, non-interactive text stream editing and precise file segment extraction using sed.'
 license: MIT
 ---
@@ -16,6 +17,13 @@ Fast, non-interactive text stream editing and precise file segment extraction us
 - You need to perform non-interactive, programmatic find-and-replace across files.
 - You are writing shell scripts or processing streams of data in pipelines.
 - You want to extract snippets of log files or codebase for context extraction.
+
+## When Not to Use
+
+- Editing structured data formats (JSON, YAML, XML, TOML) where schema-aware tools like `jq`, `yq`, or language-specific parsers preserve structure and handle edge cases correctly.
+- Performing refactoring or AST transformations on source code—use language-specific tools (e.g., `autopep8`, `prettier`, `gofmt`) instead.
+- Multi-file, context-dependent cross-referencing operations where `sed`'s line-by-line stream model cannot track state across files.
+- Collaborative environments where file permissions or in-place editing safety (backup file creation) matter—consider using version-controlled diff-based approaches.
 
 ## Core Process
 
@@ -131,7 +139,7 @@ sed -i 's/old/new/g' <file>
 - **Quote Safely**: Use single quotes `'...'` for sed commands to avoid shell expansion issues, unless you intentionally need variable expansion (in which case use double quotes `"..."` carefully).
 - **Non-Interactive First**: Never assume human intervention is possible.
 
-## Gotchas
+## Common Pitfalls
 
 - **macOS/BSD vs. GNU `sed`**: macOS `sed -i` requires an extension argument (like `sed -i '' 's/old/new/g' file`), whereas Linux (GNU) `sed` allows `-i` without an extension. Since the agent primarily runs on Linux, `sed -i` is usually safe, but be cautious of cross-platform scripts.
 - **Regex Dialects**: By default, `sed` uses Basic Regular Expressions (BRE). You must escape `+`, `?`, `|`, `(`, `)`, `{`, `}`. To use Extended Regular Expressions (ERE), pass the `-E` flag (e.g., `sed -E 's/(foo|bar)/baz/g'`).

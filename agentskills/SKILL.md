@@ -1,14 +1,38 @@
 ---
 name: agentskills
+license: MIT
 description: >-
   Reference for the Agent Skills open standard. Defines the schema, directory structure, formatting, and portability requirements for agent skills.
   You MUST load this skill to understand the technical structure of an agent skill.
 license: MIT
 ---
-<!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
+
 # Agent Skills (Standard)
 
+<!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
+
 The Agent Skills open standard provides a framework for structuring and specifying skills to ensure portability across different AI systems and agent hosts. Agent Skills work with GitHub Copilot (Cloud, CLI, and VS Code), Claude Code, OpenCode, and other compliant agents. Agent Skills are self-contained folders with instructions and bundled resources that teach AI agents specialized capabilities, unlike custom instructions which only define coding standards.
+
+## When to Use
+
+- Understanding the Agent Skills open standard schema, directory structure, and portability requirements before creating a new skill.
+- Creating a new portable skill directory following the standard convention (`SKILL.md` + optional `scripts/`, `references/`, `templates/`, `assets/`).
+- Validating an existing skill against the standard checklist before publishing or distributing.
+- Auditing third-party skills for safety, supply chain integrity, and trustworthiness before installation.
+- Distinguishing between skill scope levels: project, personal, installable, and system.
+
+## When Not to Use
+
+- Writing or editing the specific content of a `SKILL.md` file — use `agent-skill-md-writer` instead.
+- Executing `gh skill` CLI commands for searching, installing, or publishing skills — load the `gh-skill` skill instead.
+- Designing agent persona definitions (`*.agent.md`, `CLAUDE.md`) — those follow a different schema covered by the `agent-md` skill.
+
+## Common Pitfalls
+
+- **Supply Chain Risk**: Skills can execute arbitrary commands if `shell` or `bash` tools are pre-approved in the frontmatter. Always inspect third-party skills before installing, and pin to specific tags or commit SHAs for deterministic behavior.
+- **CI/CD Discoverability**: In GitHub Actions, skills cloned outside the workspace (e.g., `${{ runner.temp }}/.skills`) must be symlinked into the workspace (`.skills/`) for the agent to discover them.
+- **Trust Boundaries on PR Triggers**: When workflows run on `pull_request_target` or `issue_comment` triggers, malicious forks can inject altered skill files into `.github/skills/`. Always verify base branch skills are preserved.
+- **Description is the Sole Activation Key**: The `description` field is what an agent uses to decide if a skill matches the current task. A vague or generic description means the skill never activates, regardless of content quality.
 
 ## Core Principles
 
@@ -81,7 +105,7 @@ Recommended sections:
 - `## When to Use This Skill`: List of scenarios reinforcing description triggers.
 - `## Prerequisites`: Required tools or dependencies.
 - `## Step-by-Step Workflows`: Numbered steps for repeatable procedures (build, deploy, setup). Use flexible guidelines instead of rigid steps for open-ended tasks.
-- `## Gotchas`: Proactive warnings about non-obvious behavior. **This is the highest-signal content**. Bold the key constraint and explain why.
+- `## Common Pitfalls`: Proactive warnings about non-obvious behavior. **This is the highest-signal content**. Bold the key constraint and explain why.
 - `## Troubleshooting`: Reactive fixes for known issues (symptom → solution pairs).
 - `## References`: Links to bundled docs (`references/`) or external resources.
 
@@ -125,7 +149,7 @@ Before publishing a skill, verify:
 - [ ] `name` is lowercase with hyphens, ≤64 characters
 - [ ] `description` clearly states **WHAT** it does, **WHEN** to use it, and relevant **KEYWORDS**
 - [ ] Body focuses on information Copilot wouldn't know from training data
-- [ ] `## Gotchas` section present if skill involves non-obvious behavior, API quirks, or common traps
+- [ ] `## Common Pitfalls` section present if skill involves non-obvious behavior, API quirks, or common traps
 - [ ] SKILL.md body under 500 lines (consider splitting into `references/` at ~200 lines)
 - [ ] Large workflows (>5 steps) split into `references/` folder with clear links
 - [ ] Scripts include help documentation and error handling

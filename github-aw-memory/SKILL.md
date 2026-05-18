@@ -7,6 +7,25 @@ license: MIT
 
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
 
+## When to Use
+- Designing a workflow that needs to remember state across runs (deduplication, incremental processing, metric baselines).
+- Choosing between `cache-memory`, `repo-memory`, and `comment-memory` for a specific use case.
+- Implementing a watermark or progress tracker so a workflow can resume after interruption.
+- Storing long-lived knowledge (security baselines, project conventions) that must survive cache expiry.
+- Persisting workflow notes inline on the triggering issue or PR using comment-memory.
+
+## When Not to Use
+- The workflow runs once and has no cross-run state requirements — memory adds complexity without benefit.
+- You need AI-powered semantic memory or vector search — these memory types are simple key-value stores, not knowledge bases.
+- You are writing a traditional GitHub Actions workflow (not an agentic workflow) — memory MCP servers are only available in gh-aw agentic workflows.
+- Storing credentials, secrets, or sensitive data — memory files are not encrypted and are accessible via artifacts.
+
+## Common Pitfalls
+- `cache-memory` filenames MUST NOT contain colons (`:`) — they break Windows-hosted runner artifact upload. Use `YYYY-MM-DD-HH-MM-SS` format instead of ISO 8601 timestamps.
+- `repo-memory` is NOT supported with the Copilot engine — it requires Claude or a custom engine. Using it with Copilot will silently fail.
+- `cache-memory` expires by default after 7 days. Do not store anything that must persist beyond a week in cache-memory; use `repo-memory` instead.
+- Storing full issue/PR payloads in memory is wasteful — always canonical identifiers (SHA, `updated_at` timestamps, issue numbers) instead.
+
 Persistent memory strategy for GitHub Agentic Workflows (`cache-memory`, `repo-memory`, `comment-memory`).
 
 ## Core Principles

@@ -1,18 +1,26 @@
 ---
 name: unicode
+license: MIT
 description: 'Reference for Unicode character hex ranges and regex blocks for searching, matching, or filtering text across international scripts and symbols.'
 license: MIT
 ---
 
 # Unicode Regex Ranges
 
-<!-- markdownlint-disable MD013 MD023 MD031 MD032 MD033 -->
+<!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
 
 ## When to Use This Skill
 
 - You need to search, match, or filter text containing specific Unicode ranges (e.g., CJK, Cyrillic, Emoji).
 - You are writing regex to validate or extract international characters, symbols, or specific scripts.
 - You need a reference for exact hexadecimal ranges for various languages or symbols.
+
+## When Not to Use
+
+- Simple ASCII-only text processing where standard regex character classes (`\w`, `\d`, `\s`) are sufficient.
+- Using high-level language-specific Unicode libraries (e.g., Python's `unicodedata`, ICU) that provide named character lookups and avoid hex-range maintenance.
+- Scenarios where locale-specific collation or normalization (NFC, NFD) is required rather than simple range matching.
+- Text matching in environments or regex engines that do not support `\x{XXXX}` Unicode escape syntax.
 
 ## Core Process
 
@@ -31,7 +39,7 @@ When tasked with matching specific languages or symbols:
 
 For a comprehensive list of Unicode character hex ranges and regex blocks categorized by script, language, and symbol type, see the [Unicode Range Reference](references/unicode-ranges.md).
 
-## Gotchas
+## Common Pitfalls
 
 - **Surrogate Pairs in JS/Python**: If using standard JavaScript or Python (`re` module, not `regex`), you cannot use `\x{10000}`. You must either use the `\uXXXX` equivalent, `\U00010000`, or the ES6 `\u{10000}` syntax with the `/u` flag in JS.
 - **Combined Ranges**: Take care not to overlap or create invalid ranges when combining (e.g., `[\x{2500}-\x{257F}\x{2580}-\x{259F}]` can safely be written as `[\x{2500}-\x{259F}]`).

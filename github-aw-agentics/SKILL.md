@@ -1,5 +1,6 @@
 ---
 name: github-aw-agentics
+license: MIT
 description: >-
   Expert-level guidance for using, optimizing, and building GitHub Agentic
   Workflows. Load this skill when the user wants to explore available
@@ -11,7 +12,7 @@ license: MIT
 
 # Skill: github-aw-agentics
 
-<!-- markdownlint-disable MD013 MD023 MD031 MD032 MD036 -->
+<!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
 
 A collection of reusable GitHub Agentic Workflows
 from [githubnext/agentics](https://github.com/githubnext/agentics/tree/main/docs).
@@ -23,6 +24,19 @@ from [githubnext/agentics](https://github.com/githubnext/agentics/tree/main/docs
 - User wants to explore the catalog of available GitHub Agentic Workflows
 - User wants to reference official documentation for specific workflows
 - User wants to understand the "How It Works" logic (mermaid diagrams) for specific agents
+
+## When Not to Use This Skill
+- The user needs to debug a failing agentic workflow execution (load `github-aw-troubleshooting` instead).
+- The user wants to create a workflow from scratch without referencing existing patterns (load `gh-aw-new`).
+- The user is asking about frontmatter schema, engine configuration, or syntax details (load `github-aw-syntax`).
+- The user needs organizational rollout strategies or safe-deployment practices (load `github-aw-practices`).
+- The user needs guidance on persistent memory strategies (load `github-aw-memory`).
+
+## Common Pitfalls
+- The agentics catalog references live repositories (`githubnext/agentics`) — workflow implementations may change upstream; always verify the actual workflow files for current behavior.
+- Workflows listed here are templates/references — they must be adapted to your repository's specific permissions, secrets, and network configuration before deployment.
+- The "How It Works" Mermaid diagrams are simplified overviews; the actual workflow logic may include deterministic pre-steps (bash scripts) not shown in the diagram.
+- Many scheduled workflows have built-in throttling (skip if 8+ open PRs exist) to avoid overwhelming maintainers — factor this into expectations for first-run behavior.
 
 ## Maintainer Workflows
 

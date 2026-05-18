@@ -8,7 +8,28 @@ license: MIT
 
 # GitHub Script
 
-<!-- markdownlint-disable MD013 -->
+<!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
+
+## When to Use
+- Writing a GitHub Actions step that needs to interact with the GitHub API using JavaScript/Octokit.
+- Automating issue/PR operations (commenting, labeling, closing, creating) within a workflow.
+- Implementing complex conditional logic that is too verbose for GitHub Actions expression syntax.
+- Polling repositories, creating/updating file contents, or performing batch API operations.
+- Welcoming first-time contributors, checking user roles, or dynamically controlling workflow execution flow.
+- Cross-platform command execution within a script step using `@actions/exec`.
+
+## When Not to Use
+- Simple static operations that can be done with `gh` CLI commands directly — `gh` is more readable and maintainable for one-liners.
+- The user needs to interact with the GitHub API outside of a GitHub Actions workflow context — load `gh-api` or the `gh` skill instead.
+- The task involves long-running or complex external API integrations that would be better served by a dedicated action or MCP server.
+- Infrastructure-as-code operations (use `github-pulumi` for Pulumi-based GitHub resource management).
+
+## Common Pitfalls
+- NEVER evaluate GitHub Actions expressions directly inside the `script:` string — this creates script injection vulnerabilities. Always pass values via `env:` and read them with `process.env.VAR_NAME`.
+- The default `GITHUB_TOKEN` is scoped ONLY to the current repository — accessing other repos requires a PAT passed via `github-token:` input.
+- The `context` object structure varies by event type — always verify `context.eventName` and `context.payload` shape before accessing nested properties to avoid undefined errors.
+- `github.paginate()` is essential for endpoints that return >100 results — forgetting to paginate silently truncates results and may produce incomplete analysis.
+- `actions/github-script@v7` and `@v9` have different features — always check the correct version for the Octokit methods and `@actions/*` packages you need.
 
 Expert guide for using actions/github-script in GitHub Actions workflows. Focuses on advanced API interactions,
 cross-platform execution, and secure script implementation.

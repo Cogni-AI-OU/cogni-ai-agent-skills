@@ -1,5 +1,6 @@
 ---
 name: ai-prompt-writer
+license: MIT
 description: Design, review, and optimize secure AI prompts using advanced prompt engineering patterns, safety frameworks, and injection mitigation strategies.
 license: MIT
 ---
@@ -9,6 +10,29 @@ license: MIT
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
 
 Design, review, and optimize secure AI prompts using advanced prompt engineering patterns, safety frameworks, and injection mitigation strategies.
+
+## When to Use
+
+- Engineering system prompts, LLM templates, or Copilot instructions for production-grade AI applications.
+- Auditing existing prompts for injection vulnerabilities, data leakage risks, or biased outputs.
+- Defining automated prompt evaluation metrics, red-teaming checklists, or safety guardrails.
+- Applying structured prompt patterns (Zero-Shot, Few-Shot, Chain-of-Thought, Role Prompting) to complex reasoning tasks.
+- Designing prompts with explicit output schema definitions and strict format constraints.
+
+## When Not to Use
+
+- Writing general-purpose documentation, READMEs, or user-facing content that does not involve LLM prompt design.
+- Configuring infrastructure, CI/CD pipelines, or deployment tooling unrelated to prompt engineering.
+- Performing code review on application logic that does not involve prompt templates or LLM interaction patterns.
+- Writing agent persona definitions (`.agent.md`) — those follow a different format covered by `agent-md-writer`.
+
+## Common Pitfalls
+
+- **Injection via Raw Interpolation**: Never directly interpolate untrusted user input into a prompt string. Use parameterization, clear delimiters (`"""`, `###`, `<tag>`), or server-side sanitization to isolate dynamic content.
+- **Data Leakage via Echo**: Prompts that repeat user input verbatim in their output may inadvertently expose sensitive data. Apply data minimization and output filtering strategies.
+- **Overfitting to Examples**: Hardcoding constraints based on specific training data examples makes prompts brittle. Design for generalization with structured output schemas and validated format enforcement.
+- **Context Window Budgeting**: Long prompts leave less room for useful output. Keep system prompts concise and store reference material externally for retrieval-augmented generation.
+- **Neutrality Enforcement**: Prompts with demographic or contextual assumptions produce biased outputs. Use inclusive language and eliminate embedded assumptions.
 
 ## Core Process
 

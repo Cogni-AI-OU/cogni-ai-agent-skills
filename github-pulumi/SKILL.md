@@ -1,5 +1,6 @@
 ---
 name: github-pulumi
+license: MIT
 description: Activate when managing GitHub resources with Pulumi CLI to import, preview, update, and repair state.
 license: MIT
 ---
@@ -7,6 +8,28 @@ license: MIT
 # GitHub Pulumi
 
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
+
+## When to Use
+- Managing GitHub resources (repositories, branches, teams, webhooks) via Pulumi Infrastructure as Code.
+- Importing an existing GitHub repository into Pulumi state management.
+- Previewing infrastructure changes before applying them (`pulumi preview`).
+- Fixing Pulumi state drift, deleting orphaned state entries, or repairing broken stacks.
+- Moving resources between Pulumi stacks.
+- Refreshing Pulumi state after out-of-band GitHub changes.
+
+## When Not to Use
+- The user needs to create or modify GitHub resources directly via the API, not through IaC (load `gh-api` or `github-script` instead).
+- Managing non-GitHub cloud infrastructure (AWS, Azure, GCP) — this skill is specific to the `github` Pulumi provider.
+- The user asks about GitHub Actions, CI/CD, or workflow configuration — Pulumi is for infrastructure, not pipeline logic.
+- Simple one-off GitHub resource changes that don't benefit from state management — Pulumi adds unnecessary overhead for ad-hoc operations.
+- The user is using Terraform instead of Pulumi for GitHub management — this skill covers Pulumi-specific commands and patterns.
+
+## Common Pitfalls
+- `pulumi state delete` only removes the resource from Pulumi state — it does NOT delete the actual GitHub resource. Use `pulumi destroy` (or manual GitHub deletion) for actual resource removal.
+- Always run Pulumi commands with `--non-interactive` and `--yes` in automated environments — interactive prompts will hang CI/CD pipelines indefinitely.
+- Never commit state files (`.pulumi/stacks/`) or secrets to the repository — use `pulumi config set --secret` and rely on stack export/import for backup.
+- After changing tokens, you must re-run `pulumi config set --secret github:token <pat>` — the old token remains cached in config and stale tokens cause silent authentication failures.
+- Use `github_branch_default` instead of setting `default_branch` directly on the repository resource — the latter triggers deprecation warnings and may cause unexpected behavior.
 
 Use Pulumi CLI to manage GitHub resources (repos, branches, teams) with fast imports, previews, and state fixes.
 

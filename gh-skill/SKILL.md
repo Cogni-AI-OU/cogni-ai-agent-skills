@@ -1,12 +1,35 @@
 ---
 name: gh-skill
+license: MIT
 description: >-
   Expert-level guidance on GitHub CLI (`gh skill`) operations for searching, previewing, installing, updating, and publishing agent skills.
   You MUST load this skill when managing agent skills via the GitHub CLI.
 license: MIT
 ---
-<!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
+
 # Agent Skills CLI (gh-skill)
+
+<!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
+
+## When to Use
+- You need to discover, preview, install, update, or publish Copilot agent skills from the CLI.
+- You need to pin a skill to a specific version or commit SHA to ensure deterministic behavior across environments.
+- You need to validate a skill's metadata and security settings before publishing via `gh skill publish`.
+- You need to install skills for a specific agent host (Copilot, Claude Code, Cursor, Codex, Gemini CLI, Antigravity).
+- You need to update all installed skills non-interactively with `gh skill update --all`.
+- You need to browse the Awesome Copilot Skills directory and install curated skills.
+
+## When Not to Use
+- You are designing or creating a new skill from scratch — use the **agent-skill-md-writer** skill for the skill file structure and the **agentskills** skill for the open standard reference.
+- You need to manually edit SKILL.md files that were installed by `gh skill` — the tool manages metadata automatically; manual edits may be overwritten on update.
+- You are troubleshooting why a skill is not loading in a specific host — check agent-specific documentation rather than the CLI tool.
+- You need to search for skills by capability rather than by name — use `gh skill search <topic>` with broader keywords or browse the Awesome Copilot Skills directory.
+
+## Common Pitfalls
+- `gh skill install` and `gh skill update` without arguments launch interactive prompts that will **hang** in non-interactive/agent environments — always provide explicit arguments or use `--all` / `--dry-run`.
+- `--pin` and `@VERSION` syntax are mutually exclusive — use one or the other, not both simultaneously.
+- Third-party skills are not verified by GitHub and may contain malicious content — always run `gh skill preview` before installing any skill from an untrusted source.
+- Tracking metadata (repository, ref, tree SHA) is automatically written into the SKILL.md frontmatter during installation — do not manually edit this metadata or subsequent updates may break.
 
 Manage agent skills directly via the `gh skill` CLI command. This tool automates the installation, discovery, and management of skills adhering to the Agent Skills open standard.
 

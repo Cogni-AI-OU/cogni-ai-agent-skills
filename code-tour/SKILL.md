@@ -1,5 +1,6 @@
 ---
 name: code-tour
+license: MIT
 description: >-
   Use this skill to create CodeTour .tour files — persona-targeted, step-by-step walkthroughs that link to real files and line numbers.
   You MUST load this skill when creating or updating .tours/ files. Trigger for: "create a tour", "make a code tour", "generate a tour", "onboarding tour", "architecture tour", etc.
@@ -9,6 +10,27 @@ license: MIT
 # Code Tour Skill
 
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
+
+## When to Use
+- Creating or updating `.tour` files for persona-targeted codebase walkthroughs
+- Onboarding new team members with structured, step-by-step code navigation tours
+- Documenting architecture decisions, bug root causes, or feature implementations for later reference
+- Generating PR review tours that map the change story and highlight risk areas
+- Building multi-tour series that chain related walkthroughs via `nextTour`
+- Responding to trigger phrases: "create a tour", "make a code tour", "generate a tour", "onboarding tour", "architecture tour"
+
+## When Not to Use
+- Scaffolding or modifying any source code files — this skill exclusively creates `.tour` JSON files
+- Creating long-form standalone documentation — use `docs-writer` instead
+- Replacing interactive debugging or pair programming sessions with static tours
+- Writing tours for codebases the agent cannot read and verify file paths against
+
+## Common Pitfalls
+- The first step of any tour MUST have a `file` or `directory` anchor; a content-only first step renders as a blank page in VS Code CodeTour
+- Line numbers MUST be verified by reading the actual file — guessing line numbers produces tours that navigate to wrong locations
+- File and directory paths must be relative to the repo root with no leading `./` or `/`
+- `nextTour` must exactly match the `title` of another `.tour` file or the chain will break silently
+- The `commands` step type only supports VS Code commands, not arbitrary shell commands
 
 You are creating a **CodeTour** — a persona-targeted, step-by-step walkthrough of a codebase
 that links directly to files and line numbers. CodeTour files live in `.tours/` and work with
@@ -49,7 +71,6 @@ that the right person would wish existed when they first opened this repo.
 
 **CRITICAL: Only create `.tour` JSON files. Never create, modify, or scaffold any other files.**
 
----
 
 ## Step 1: Discover the repo
 
@@ -114,7 +135,6 @@ For repos with 100+ files: don't try to read everything.
 
 A focused 10-step tour of the right files beats a scattered 25-step tour of everything.
 
----
 
 ## Step 2: Read the intent — infer everything you can, ask only what you can't
 
@@ -165,7 +185,6 @@ For PR tours: set `"ref"` to the branch, open with a `uri` step for the PR, cove
 | "open a terminal at this step" | Add `"commands": ["workbench.action.terminal.focus"]` |
 | "deep" / "thorough" / "5 steps" / "quick" | Override depth accordingly |
 
----
 
 ## Step 3: Read the actual files — no exceptions
 
@@ -179,7 +198,6 @@ For every planned step:
 
 If a user-requested file doesn't exist, say so — don't silently substitute another.
 
----
 
 ## Step 4: Write the tour
 
@@ -215,7 +233,6 @@ looks for `// <stepMarker>` comments in files and uses them as step positions in
 shift constantly. Example: set `"stepMarker": "CT"` and put `// CT` in the source file.
 Don't suggest this unless the user asks — it requires editing source files, which is unusual.
 
----
 
 ### Step types — full reference
 
@@ -223,7 +240,6 @@ All step types: **content** (intro/closing, max 2), **directory**, **file+line**
 
 > **Path rule:** `"file"` and `"directory"` must be relative to repo root. No absolute paths, no leading `./`.
 
----
 
 ### When to use each step type
 
@@ -237,7 +253,6 @@ All step types: **content** (intro/closing, max 2), **directory**, **file+line**
 | PR / issue / doc gives the "why" | uri |
 | Reader should open terminal or explorer | view or commands |
 
----
 
 ### Step count calibration
 
@@ -258,7 +273,6 @@ Scale with repo size too. A 3-file CLI doesn't get 15 steps. A 200-file monolith
 | Medium (80–300 files) | 10–13 steps |
 | Large (300+ files) | 12–15 steps (scoped to relevant subsystem) |
 
----
 
 ### Writing excellent descriptions — the SMIG formula
 
@@ -271,7 +285,6 @@ Every description should answer four questions in order. You don't need four par
 
 Descriptions should tell the reader something they couldn't learn by reading the file themselves. Name the pattern, explain the design decision, flag failure modes, and cross-reference related context.
 
----
 
 ## Narrative arc — every tour, every persona
 
@@ -292,7 +305,6 @@ Descriptions should tell the reader something they couldn't learn by reading the
 
 Don't summarize — the reader just read it. Instead, tell them what they can now *do*, what to avoid, and suggest 2-3 follow-up tours.
 
----
 
 ## The 20 personas
 
@@ -309,7 +321,6 @@ Don't summarize — the reader just read it. Instead, tell them what they can no
 | **External contributor** | Contribute without breaking | Safe areas, code style, architecture landmines. | Deep internals |
 | **Tech lead / architect** | Shape and rationale | Module boundaries, design tradeoffs, risk hotspots. | Line-by-line walkthroughs |
 
----
 
 ## Designing a tour series
 
@@ -324,7 +335,6 @@ launch the next automatically.
 
 Set `nextTour` in each tour to the `title` of the next one (must match exactly). Each tour should be standalone enough to be useful on its own.
 
----
 
 ## What CodeTour cannot do
 
@@ -338,7 +348,6 @@ If asked for any of these, say clearly that it's not supported — do not sugges
 | **Branch / conditional next step** | Not supported. Tours are linear. `when` controls whether a tour is shown, not which step follows which. |
 | **Show a step without opening a file** | Partially — content-only steps work, but step 1 must have a `file` or `directory` anchor or VS Code shows a blank page. |
 
----
 
 ## Anti-patterns
 
@@ -350,7 +359,6 @@ If asked for any of these, say clearly that it's not supported — do not sugges
 | **Ignoring the persona** | Cut every step that doesn't serve their specific goal |
 | **Hallucinated files** | If a file doesn't exist, skip the step |
 
----
 
 ## Quality checklist — verify before writing the file
 
@@ -371,7 +379,6 @@ If asked for any of these, say clearly that it's not supported — do not sugges
 - [ ] At most 2 content-only steps (intro + closing)
 - [ ] All fields conform to `references/codetour-schema.json`
 
----
 
 ## Step 5: Validate the tour
 

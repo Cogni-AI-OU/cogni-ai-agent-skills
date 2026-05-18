@@ -1,5 +1,6 @@
 ---
 name: gh-aw-troubleshooting
+license: MIT
 description: Diagnose and fix GitHub Agentic Workflows (gh-aw) failures by analyzing logs for missing tools, permissions, or MCP server configurations.
 license: MIT
 ---
@@ -7,6 +8,27 @@ license: MIT
 # gh-aw-troubleshooting
 
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
+
+## When to Use
+- A GitHub Agentic Workflow run has failed and you need to identify the root cause from logs, audit data, and MCP diagnostics.
+- A workflow run is missing tools, shows `Tool '...' not found`, or has MCP connectivity timeouts.
+- A workflow completes but produces unexpected results, and you need to compare runs for regressions or behavioral drift.
+- You need to validate frontmatter configuration — `permissions:`, `tools:`, `mcp-scripts:`, or `safe-outputs:` — after editing a workflow `.md` file.
+- A workflow is silently skipping operations, failing authentication (401/403), or blocked by the firewall (egress to a domain not in `network.allowed`).
+- You are investigating token usage, agent reasoning, or workflow health metrics across multiple runs.
+
+## When Not to Use
+- You are designing or creating a new Agentic Workflow from scratch — use the **gh-aw-new** skill instead.
+- You are adjusting workflow prompts or markdown body content without changing frontmatter — no troubleshooting needed if the workflow already runs successfully.
+- The issue is a pure GitHub Actions workflow (non-agentic) failure — use **github-actions** or **actions- troubleshooting** skills instead.
+- You simply need to list, compile, or run workflows without debugging failures — use the **gh-aw** skill.
+
+## Common Pitfalls
+- The `gh aw audit RUN_ID --json` output contains a `missing_tools` array that is the single most important diagnostic signal — always check it first before diving into raw logs.
+- Misspelled frontmatter fields are **silently discarded** by the compiler, not rejected; always use `gh aw compile --verbose` to catch schema errors before debugging runtime failures.
+- Agent runs triggered by `workflow_dispatch` or `issue_comment` may not appear in `gh pr checks` output — use `gh aw logs` or audit endpoints to find them.
+- The `.lock.yml` file timestamp must match your last workflow edit; if it's stale, the compiled workflow may use outdated configuration — always recompile after any frontmatter change.
+- `gh aw logs` and `gh aw audit` may require specific permissions (e.g., `actions: read`); if commands return empty or permission-denied errors, verify your token scopes first.
 
 Diagnose, troubleshoot, and fix failing GitHub Agentic Workflows by analyzing logs, verifying MCP configurations, and correcting frontmatter.
 

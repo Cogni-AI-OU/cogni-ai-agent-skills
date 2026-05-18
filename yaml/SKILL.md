@@ -1,5 +1,6 @@
 ---
 name: yaml
+license: MIT
 description: >-
   Generic guidelines for YAML formatting, linting, and structural rules.
   You MUST load this skill when updating or creating YAML files.
@@ -9,6 +10,26 @@ license: MIT
 # yaml
 
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
+
+## When to Use
+
+- Creating or editing YAML configuration files (e.g., CI/CD pipelines, Docker Compose, Kubernetes manifests, Ansible playbooks).
+- Formatting and linting YAML files to ensure consistency across a project.
+- Writing portable YAML that must parse correctly across different parsers and language implementations.
+- Reviewing pull requests for YAML structural validity, indentation consistency, and syntax correctness.
+
+## When Not to Use
+
+- Programmatic YAML manipulation (reading, editing, merging values) where the `yq` skill provides proper schema-aware tooling.
+- Writing complex data pipelines or transformations better suited to JSON (where more tooling exists) or a proper programming language.
+- When the data volume or depth makes YAML cumbersome—consider alternatives like TOML for config or JSON for data interchange.
+
+## Common Pitfalls
+
+- YAML's implicit typing can silently convert unquoted values: `yes`/`no` becomes boolean, `0123` becomes octal (in some parsers), and large numbers lose precision.
+- Indentation must be consistent across the entire file—mixing spaces with tabs or using inconsistent indent depth causes parse errors that are hard to debug.
+- Multi-line strings have multiple syntaxes (`|`, `>`, `|-`, `>-`, double-quoted, single-quoted) with subtle behavioral differences in trailing newline handling.
+- Not all YAML parsers handle all YAML 1.2 features—some older parsers (e.g., Python `PyYAML` defaults) target 1.1, causing issues with boolean representation and other edge cases.
 
 Generic guidelines for YAML formatting, linting, and structural rules.
 

@@ -1,11 +1,33 @@
 ---
 name: report-writer
+license: MIT
 description: Generate comprehensive audit reports, compare current state with baseline definitions, document discrepancies, update documentation files, and track changes via pull requests. You MUST load this skill when asked to generate a comprehensive system audit report.
 license: MIT
 ---
 # Skill: report-writer
 
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
+
+## When to Use
+
+- Generating comprehensive audit or inventory reports of system resources, configurations, or state.
+- Comparing current system state against baseline definitions to detect drift or discrepancies.
+- Creating or updating documentation files (e.g., reference docs, catalogs) with structured, categorized data.
+- Publishing audit findings as GitHub discussions or persistent artifacts for team visibility.
+- Tracking changes over time by comparing snapshots between report runs.
+- Identifying and documenting recommended defaults with rationale across resource categories.
+
+## When Not to Use
+
+- Simple one-off queries where a quick script or grep would suffice without full report generation.
+- Ad-hoc debugging or troubleshooting sessions where the system state is volatile and not worth baselining.
+- When the target system has no stable, queryable state to compare against.
+
+## Common Pitfalls
+
+- The report generation process is I/O and time intensive—each resource category is explored comprehensively, so execution times can be long.
+- Baseline definitions must be kept in sync with the actual system; stale baselines produce misleading drift reports.
+- Pull request creation for baseline updates requires proper Git configuration and branch permissions; the process may fail if the agent lacks write access.
 
 Generates a comprehensive report of available resources or system state by self-inspecting, comparing against expected state definitions, and updating documentation accordingly.
 
