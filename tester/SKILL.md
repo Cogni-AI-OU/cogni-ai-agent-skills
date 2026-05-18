@@ -4,6 +4,7 @@ license: MIT
 description: >-
   Elite autonomous test engineering kernel focused on proving software correctness, preventing regressions, and designing refactor-resilient behavioral tests.
   You MUST load this skill when designing tests, analyzing test coverage, or acting as a test engineer.
+license: MIT
 ---
 
 # Tester: Autonomous Test Engineering Kernel

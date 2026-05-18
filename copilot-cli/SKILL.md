@@ -2,6 +2,7 @@
 name: copilot-cli
 license: MIT
 description: Guidance for installing GitHub Copilot CLI on Debian/Ubuntu and executing commands using custom agents. You MUST load this skill when interacting with or installing the copilot-cli command.
+license: MIT
 ---
 
 # Skill: copilot-cli

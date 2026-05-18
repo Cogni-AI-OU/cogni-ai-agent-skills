@@ -4,6 +4,7 @@ license: MIT
 description: >-
   Activate PR brainstorming protocol to analyze and visualize commit history, review threads, and CI pipeline checks using Mermaid diagrams.
   You MUST load this skill when asked to analyze or brainstorm a Pull Request.
+license: MIT
 ---
 
 # Skill brainstorm-github-pr

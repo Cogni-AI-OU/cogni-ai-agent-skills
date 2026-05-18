@@ -2,6 +2,7 @@
 name: unicode
 license: MIT
 description: 'Reference for Unicode character hex ranges and regex blocks for searching, matching, or filtering text across international scripts and symbols.'
+license: MIT
 ---
 
 # Unicode Regex Ranges

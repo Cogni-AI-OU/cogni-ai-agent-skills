@@ -4,6 +4,7 @@ license: MIT
 description: >-
   Commands, step-by-step procedures, and mechanical execution for test engineering, testability audits, and the TDD lifecycle.
   You MUST load this skill when executing test tasks, designing tests, doing TDD, or verifying system behavior.
+license: MIT
 ---
 
 # Test-Driven Development (TDD) & Test Engineering Execution

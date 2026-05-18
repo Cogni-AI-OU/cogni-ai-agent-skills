@@ -2,6 +2,7 @@
 name: gh-aw-firewall-debug
 license: MIT
 description: Debug the AWF firewall by inspecting Docker containers, analyzing Squid access logs, checking iptables rules, and troubleshooting network issues.
+license: MIT
 ---
 
 # AWF Firewall Debugging

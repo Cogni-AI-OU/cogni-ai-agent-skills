@@ -2,6 +2,7 @@
 name: datadog-agent
 license: MIT
 description: Use when installing, configuring, or updating Datadog Agent;
+license: MIT
 ---
 
 # Skill: datadog-agent

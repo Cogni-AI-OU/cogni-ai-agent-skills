@@ -2,6 +2,7 @@
 name: datadog-mcp
 license: MIT
 description: Query observability data via Datadog MCP, selecting minimal toolsets to optimize context window and scope.
+license: MIT
 ---
 
 # Datadog MCP

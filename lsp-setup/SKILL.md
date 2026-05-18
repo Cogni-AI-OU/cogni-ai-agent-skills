@@ -2,6 +2,7 @@
 name: lsp-setup
 license: MIT
 description: 'Enable code intelligence (go-to-definition, find-references, hover, type info) for any programming language by installing and configuring an LSP server for Copilot CLI.'
+license: MIT
 ---
 
 # LSP Setup for GitHub Copilot CLI

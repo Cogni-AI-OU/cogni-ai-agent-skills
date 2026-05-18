@@ -2,6 +2,7 @@
 name: devcontainer
 license: MIT
 description: Create, update, and maintain robust devcontainer.json configurations and lifecycle scripts for reproducible development environments.
+license: MIT
 ---
 # Devcontainer
 

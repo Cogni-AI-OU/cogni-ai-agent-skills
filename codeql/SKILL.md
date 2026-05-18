@@ -2,6 +2,7 @@
 name: codeql
 license: MIT
 description: Configure and execute CodeQL code scanning analysis via GitHub Actions workflows and the CodeQL CLI.
+license: MIT
 ---
 
 # Skill: codeql

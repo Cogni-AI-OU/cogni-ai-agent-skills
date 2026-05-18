@@ -2,6 +2,7 @@
 name: gitattributes
 license: MIT
 description: Define and modify .gitattributes to standardize line endings, merge drivers, diff generation, and GitHub linguist overrides.
+license: MIT
 ---
 # Skill gitattributes
 
