@@ -115,6 +115,8 @@ Structure the generated file with the following sections (omit optional ones if 
      **Skill name → When to load it**.
      Use to suggest companion skills while avoiding circular dependencies (e.g. don't link parent skills).
 
+Note: Keep unordered lists in order for better readability.
+
 ## Bundling Resources
 
 If the skill requires additional files, organize them into these specific folders and reference them via relative paths in `SKILL.md`:
