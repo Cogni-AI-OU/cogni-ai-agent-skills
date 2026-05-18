@@ -22,7 +22,7 @@ license: MIT
 - When the user only needs to merge or split PDF pages — use `qpdf --empty --pages ... -- output.pdf` or `pdfunite` rather than this skill's full workflow.
 - When the PDF should remain fully uncompressed for debugging — object-level editing with QDF is the right approach, but skip lossy reduction steps.
 
-## Gotchas
+## Common Pitfalls
 - Running Ghostscript (`gs`) first is destructive — it rewrites the entire document and prevents object-level editing; always inspect with `qpdf --json` first.
 - The `--recompress-flate` flag in qpdf may produce larger files on already-well-compressed content — always verify size reduction with `ls -lh`.
 - Lossy reduction with Ghostscript presets (`/screen`, `/ebook`) can degrade image quality significantly — use `/printer` or `/prepress` for document preservation.

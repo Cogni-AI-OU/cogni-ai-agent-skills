@@ -138,7 +138,7 @@ sed -i 's/old/new/g' <file>
 - **Quote Safely**: Use single quotes `'...'` for sed commands to avoid shell expansion issues, unless you intentionally need variable expansion (in which case use double quotes `"..."` carefully).
 - **Non-Interactive First**: Never assume human intervention is possible.
 
-## Gotchas
+## Common Pitfalls
 
 - **macOS/BSD vs. GNU `sed`**: macOS `sed -i` requires an extension argument (like `sed -i '' 's/old/new/g' file`), whereas Linux (GNU) `sed` allows `-i` without an extension. Since the agent primarily runs on Linux, `sed -i` is usually safe, but be cautious of cross-platform scripts.
 - **Regex Dialects**: By default, `sed` uses Basic Regular Expressions (BRE). You must escape `+`, `?`, `|`, `(`, `)`, `{`, `}`. To use Extended Regular Expressions (ERE), pass the `-E` flag (e.g., `sed -E 's/(foo|bar)/baz/g'`).

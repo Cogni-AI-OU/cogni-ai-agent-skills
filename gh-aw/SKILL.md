@@ -24,7 +24,7 @@ license: MIT
 - Managing GitHub Copilot preview agent tasks — use `gh-agent-task` skill instead.
 - Performing operations on repositories that do not have gh-aw initialized — run `gh aw init` first.
 
-## Gotchas
+## Common Pitfalls
 
 - `.lock.yml` files are auto-generated from markdown workflow sources — never manually edit `.lock.yml` files, as changes will be overwritten on the next compile.
 - Always review AI-agent-generated changes for security and correctness before committing — agentic workflows execute with repository permissions and can make significant changes.

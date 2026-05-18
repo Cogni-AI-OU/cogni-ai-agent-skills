@@ -20,7 +20,7 @@ license: MIT
 - Creating Datadog dashboards, monitors, or SLOs — those are separate configuration domains
 - Setting up Datadog in serverless environments (Lambda extensions) — the Agent runs on hosts/containers
 
-## Gotchas
+## Common Pitfalls
 - Custom check script names must exactly match their configuration file names (e.g., `my_check.py` requires `my_check.yaml`) or the check will not load
 - Never use Python's native `subprocess` module in checks; always use `get_subprocess_output()` from `datadog_checks.base.utils.subprocess_output` to avoid Go-runtime threading issues
 - Prefix custom checks with `custom_` to avoid naming conflicts with built-in integrations

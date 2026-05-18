@@ -24,7 +24,7 @@ license: MIT
 - Performing dynamic analysis, runtime debugging, or penetration testing — this skill relies solely on static analysis and code reading.
 - Brainstorming architectural options or exploring multiple design paths — load `brainstorm` instead.
 
-## Gotchas
+## Common Pitfalls
 
 - **Static Analysis Limitation**: This skill does not execute code to verify runtime behavior. Dynamic issues (race conditions, memory leaks, timing bugs, concurrency problems) may not be detectable through static analysis alone.
 - **Strict Review-Only Mode**: Do not modify files, create commits, or execute test suites directly. Operate strictly in review-only mode, reading the code and providing structured feedback.

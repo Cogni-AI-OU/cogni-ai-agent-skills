@@ -22,7 +22,7 @@ license: MIT
 - When the interaction requires persistent state across calls — each `mcp-cli` invocation is stateless.
 - When dealing with extremely large payloads — prefer streaming approaches or tool-specific SDKs.
 
-## Gotchas
+## Common Pitfalls
 - The JSON argument string must be properly escaped; use heredocs (`<<EOF`) or file piping for complex payloads with nested quotes, not inline strings.
 - Server errors (exit code 2) and network errors (exit code 3) are distinct — always check exit codes when scripting.
 - The `grep` subcommand searches tool names, not descriptions or parameters; use `-d` flag to include descriptions in output before filtering.

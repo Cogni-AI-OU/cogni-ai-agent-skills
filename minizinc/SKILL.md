@@ -22,7 +22,7 @@ license: MIT
 - When simple arithmetic or a spreadsheet calculation suffices — MiniZinc adds unnecessary complexity for straightforward computations.
 - When real-time (<100ms) solutions are required — MiniZinc solvers typically need seconds to minutes for non-trivial models.
 
-## Gotchas
+## Common Pitfalls
 - Wide or unbounded domains (`var int` without explicit bounds) cause massive search spaces and solver failures — always provide tight `1..n` ranges.
 - Raw `forall` loops are often replaceable by global constraints (`all_different`, `cumulative`, `table`) that provide much stronger propagation — prefer globals first.
 - Instance data MUST be kept separate in `.dzn` files or `-D` flags — hard-coding values in the model prevents reuse and makes parameter tuning impossible.

@@ -22,7 +22,7 @@ license: MIT
 - Internal notes, brainstorming documents, or personal drafts where the audience does not need normative language.
 - User-facing UI text, error messages, or tooltips—RFC 2119 keywords belong in specifications, not in the interface.
 
-## Gotchas
+## Common Pitfalls
 
 - Capitalization is semantic: lowercase "must" or "should" does NOT carry RFC 2119 weight and can cause ambiguity if mixed with capitalized forms.
 - Overuse of MUST/SHOULD/MAY dilutes their impact—reserve them for true interoperability or safety requirements only.

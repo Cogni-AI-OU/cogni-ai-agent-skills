@@ -21,7 +21,7 @@ license: MIT
 - Writing project-level `AGENTS.md` context files — load the `agents-md-writer` skill instead.
 - Writing mechanical step-by-step execution playbooks for a specific tool — those belong in a `SKILL.md` (load `agent-skill-md-writer`).
 
-## Gotchas
+## Common Pitfalls
 
 - **Description Overlap Causes Wrong Activation**: If two agent personas have similar or overlapping `description` fields, the wrong agent may be selected. Ensure each description is unique and narrowly scoped to a specific role.
 - **Fluff Wastes Context Budget**: Abstract descriptions like "helpful assistant" consume tokens without guiding behavior. Use contract-style imperatives and real code snippets instead.

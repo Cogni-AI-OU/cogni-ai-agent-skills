@@ -24,7 +24,7 @@ license: MIT
 - Server-side rendering or screenshot generation in production CI/CD pipelines — use `puppeteer` or `playwright` directly instead.
 - Automated accessibility auditing at scale — use dedicated tools like `axe-core` or Lighthouse CLI.
 
-## Gotchas
+## Common Pitfalls
 
 - **Stale `uid` Values**: Snapshot `uid` values change after any DOM mutation or page navigation. Always call `take_snapshot` again after clicking, filling forms, or navigating to get current `uid` values.
 - **Snapshot Over Screenshot**: Use `take_snapshot` (text-based accessibility tree) for element identification, not `take_screenshot`. Screenshots do not provide the `uid` values required by interaction tools.

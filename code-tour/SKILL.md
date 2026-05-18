@@ -22,7 +22,7 @@ license: MIT
 - Replacing interactive debugging or pair programming sessions with static tours
 - Writing tours for codebases the agent cannot read and verify file paths against
 
-## Gotchas
+## Common Pitfalls
 - The first step of any tour MUST have a `file` or `directory` anchor; a content-only first step renders as a blank page in VS Code CodeTour
 - Line numbers MUST be verified by reading the actual file — guessing line numbers produces tours that navigate to wrong locations
 - File and directory paths must be relative to the repo root with no leading `./` or `/`

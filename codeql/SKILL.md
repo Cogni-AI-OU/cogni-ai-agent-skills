@@ -20,7 +20,7 @@ license: MIT
 - Performing general-purpose code quality linting or style checks — CodeQL targets security and correctness vulnerabilities only
 - Debugging application runtime behavior or performance issues — use APM and logging tools instead
 
-## Gotchas
+## Common Pitfalls
 - Autobuild often fails for compiled languages with complex build systems; switch to `build-mode: manual` and provide explicit build commands
 - SARIF files exceeding 10 MB will fail to upload — split across categories or reduce query scope
 - Running two CodeQL workflows simultaneously (default setup + advanced) causes conflicts — disable one

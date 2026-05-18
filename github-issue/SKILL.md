@@ -21,7 +21,7 @@ license: MIT
 - The user asks about GitHub Projects, discussions, or other non-issue GitHub features.
 - The user asks about workflow runs or CI status related to an issue — load `gh-run` or `github-actions` instead.
 
-## Gotchas
+## Common Pitfalls
 - Always verify the trigger source via `github.event_name` — an `issue_comment` event could be on a pull request (`github.event.issue.pull_request` is truthy), which requires PR-specific routing.
 - Use `gh issue comment <number> --body-file /tmp/comment.md` for long comments — heredocs can cause shell hangs in restricted environments.
 - If your task is purely informational (no code changes), you MUST keep the workspace clean — run `git clean -fd` before finishing to avoid triggering unwanted auto-commits.

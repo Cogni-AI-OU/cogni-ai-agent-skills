@@ -22,7 +22,7 @@ license: MIT
 - Debugging network connectivity, DNS resolution, or SSH issues unrelated to Ansible's execution environment.
 - Running or managing Molecule tests for Ansible roles — load the `molecule` skill instead.
 
-## Gotchas
+## Common Pitfalls
 
 - **Package Manager Hangs**: Ansible's `apt` module can hang indefinitely waiting for interactive prompts on Debian/Ubuntu systems. Always set `DEBIAN_FRONTEND=noninteractive` in your playbook environment or as an environment variable.
 - **Mocking is Prohibited**: Never use `mock_modules` or `mock_roles` to bypass tasks that are failing due to environment-specific issues. Masking failures with mocks hides root causes and can lead to production incidents. Fix the underlying issue directly.

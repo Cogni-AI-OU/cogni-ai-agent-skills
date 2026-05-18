@@ -20,7 +20,7 @@ license: MIT
 - When the language already has working code intelligence — only add new servers when needed.
 - When the setup requires interactive GUI tools or package managers not available on the target OS.
 
-## Gotchas
+## Common Pitfalls
 - Copilot CLI requires a full restart (`/exit`, then re-launch) before new LSP configuration takes effect — merely reloading is insufficient.
 - Repo-level config (`lsp.json` or `.github/lsp.json`) takes precedence over user-level (`~/.copilot/lsp-config.json`), which can cause confusion when both exist with conflicting entries.
 - Some LSP servers (e.g., `pyright`, `typescript-language-server`) require runtime dependencies (Node.js, Python) that must be verified separately.

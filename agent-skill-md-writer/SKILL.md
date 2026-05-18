@@ -22,7 +22,7 @@ license: MIT
 - Writing project-level `AGENTS.md` files — use `agents-md-writer` instead.
 - General documentation writing that does not involve agent skill structure or the `SKILL.md` format.
 
-## Gotchas
+## Common Pitfalls
 
 - **Description Precision is Critical**: The `description` field in frontmatter is the sole trigger an agent uses to determine skill activation. A vague or overly broad description causes missed activations or false positives. Append "You MUST load this skill when <condition>" only for unambiguous CLI-based triggers.
 - **Circular Dependencies**: Never create circular `## Related Skills` references between skill files (e.g., parent references child and child references parent). This can cause infinite loading loops or context corruption.
@@ -38,7 +38,7 @@ the portable progressive loading architecture.
 1. **Infer Name & Context**: Determine a unique, descriptive `name` in lowercase-hyphenated format that will exactly match the folder name.
 2. **Draft the Description**: Write a keyword-dense `description` (10–1024 characters) wrapped in single quotes that clearly states WHAT the skill does and WHEN to use it.
 3. **Structure the File**: Follow the exact layout specified in `Skill Structure & Formatting`.
-4. **Enforce Style**: Write imperative, expert-level instructions. Focus on what the agent doesn't know (quirks, internal conventions, gotchas). Skip standard language syntax.
+4. **Enforce Style**: Write imperative, expert-level instructions. Focus on what the agent doesn't know (quirks, internal conventions, common pitfalls). Skip standard language syntax.
 5. **Manage Context Budget**: Keep `SKILL.md` under 500 lines (ideally <200). Split large workflows or detailed references into a `references/` directory.
 6. **Preserve Quality**: When updating, always choose the better, clearer sections. If previous changes are better, leave them intact. Always pick the best format.
 7. **Output**: Output ONLY the complete, ready-to-commit file content without conversational wrappers. Do not explain changes unless requested.
@@ -50,7 +50,7 @@ the portable progressive loading architecture.
 - **Description Precision**: Write the `description` as a single, highly specific sentence that matches user intent patterns without overlap—poor phrasing causes missed or false activations.
 - **Avoid Hardcoding**: Never embed specific values, file paths, repository names, user details, or tool versions; instead, use clear placeholders (e.g., `<repository-name>`, `<file-path>`, `<version>`).
 - **Pure Markdown Body**: Use only Markdown in the body; never include extraneous files, scripts, or resources unless explicitly required for the skill.
-- **Gotchas are High Signal**: Always include a `## Gotchas` section for documenting proactive warnings about non-obvious behavior.
+- **Common Pitfalls are High Signal**: Always include a `## Common Pitfalls` section for documenting proactive warnings about non-obvious behavior.
 
 ## Skill Structure & Formatting
 

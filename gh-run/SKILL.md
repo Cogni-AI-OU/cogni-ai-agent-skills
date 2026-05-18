@@ -21,7 +21,7 @@ license: MIT
 - You need to modify workflow files or workflow configuration (`.github/workflows/*.yml`) — use **github-actions** or the **github-aw** skill for agentic workflows.
 - You need to search across all workflow runs in an organization with complex filters — use **gh-api** with `/actions/runs` query parameters.
 
-## Gotchas
+## Common Pitfalls
 - `gh run view --log` only fetches logs for the **latest completed** attempt and often returns empty for in-progress runs or expired attempts — use the ZIP log endpoint (`gh api /repos/*/actions/runs/<run_id>/attempts/<attempt_num>/logs`) for reliable access.
 - Jobs can conclude `success` while still containing pathological agent behavior — never assume a green checkmark means the run is clean; inspect step-level logs and annotations.
 - `gh workflow run` does not return the run ID; you must poll `gh run list --workflow <id> --limit 1` to find the triggered run, then use `gh run watch` to await completion.

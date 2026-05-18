@@ -23,7 +23,7 @@ license: MIT
 - Creating new agentic workflows from scratch — use `gh-aw-new` skill for initial workflow creation.
 - Editing `.lock.yml` files directly — these are auto-generated and will be overwritten.
 
-## Gotchas
+## Common Pitfalls
 
 - Verification after EVERY lock file change is mandatory — `pre-commit run --all-files` is not optional. Skipping it can result in broken workflows being committed.
 - Strict mode violations (e.g., `contents: write` permissions) cause compilation failures — workflows should request only `read` permissions and use `safe-outputs` for write operations.

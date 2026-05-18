@@ -25,7 +25,7 @@ Design, review, and optimize secure AI prompts using advanced prompt engineering
 - Performing code review on application logic that does not involve prompt templates or LLM interaction patterns.
 - Writing agent persona definitions (`.agent.md`) — those follow a different format covered by `agent-md-writer`.
 
-## Gotchas
+## Common Pitfalls
 
 - **Injection via Raw Interpolation**: Never directly interpolate untrusted user input into a prompt string. Use parameterization, clear delimiters (`"""`, `###`, `<tag>`), or server-side sanitization to isolate dynamic content.
 - **Data Leakage via Echo**: Prompts that repeat user input verbatim in their output may inadvertently expose sensitive data. Apply data minimization and output filtering strategies.

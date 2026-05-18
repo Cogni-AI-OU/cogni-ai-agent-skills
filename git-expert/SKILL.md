@@ -23,7 +23,7 @@ license: MIT
 - You need to extract a subdirectory with full history using filter-branch — use the **git-filter-branch** skill.
 - You need to define or modify `.gitattributes` for line endings, merge drivers, or linguist overrides — use the **gitattributes** skill.
 
-## Gotchas
+## Common Pitfalls
 - `git fsck --full` is the primary diagnostic tool for corruption but may itself crash on severely damaged repos — always back up the entire repository (`cp -a`) before running any repair commands.
 - Reflog is a **local-only** history; if you've cloned fresh or switched machines, previous SHAs may not be available — for force-push recovery, try terminal history, GitHub PR/issue events, or CI logs as alternative sources.
 - `git clean -fd` is **destructive** — it removes untracked files and directories permanently; use `git stash push -u` instead if you might need the files later.

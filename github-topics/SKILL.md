@@ -20,7 +20,7 @@ license: MIT
 - The user needs to search issues, pull requests, or discussions — topic search is for repositories only; use `gh search` subcommands for other content types.
 - The user already knows the exact repository name — no need for topic search; go directly to the repository.
 
-## Gotchas
+## Common Pitfalls
 - Broad searches without topic filters return too many irrelevant results — always combine keyword searches with `--topic` filters for precision (e.g., `gh search repos "ansible" --topic python`).
 - GitHub's search index may be stale — recently created or updated repositories may not appear in search results immediately.
 - The `--limit` flag caps results but doesn't guarantee quality — the first page of results is ordered by relevance, but you should still fetch READMEs to evaluate actual suitability.

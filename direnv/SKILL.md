@@ -18,7 +18,7 @@ license: MIT
 - Simple single-variable exports that don't warrant the direnv overhead — a regular `export` command suffices
 - Cross-session environment persistence — direnv only loads per-shell; use shell init files for always-present variables
 
-## Gotchas
+## Common Pitfalls
 - Running `direnv allow` without immediately following with `eval "$(direnv export bash)"` within the same execution context will NOT load the variables into the current agent shell session
 - Never use `cat` or `source` on `.env` files — this exposes secrets in the terminal output and may persist in logs
 - The `.envrc` file must be explicitly allowed with `direnv allow` before direnv will load it; a new `.envrc` silently does nothing until authorized

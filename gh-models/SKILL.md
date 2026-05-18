@@ -22,7 +22,7 @@ license: MIT
 - You are building a prompt that will be used in a non-GitHub context where `.prompt.yml` format is not supported — consider a standalone prompt management approach.
 - You need to train or fine-tune a model — `gh models` only supports inference on existing models, not training.
 
-## Gotchas
+## Common Pitfalls
 - Marketplace model IDs (e.g., `azureml-xai/grok-3-mini`) may differ from CLI model IDs (e.g., `xai/grok-3-mini`); always use `gh models list` to get the exact identifier rather than guessing from marketplace names.
 - `gh models generate --effort high` can be token-expensive — monitor usage and start with `--effort low` or `--effort medium` for iterative prompt development before committing to full coverage.
 - Never use a `.prompt.yml` without running `gh models eval --json` first — the eval gate catches 80%+ of failure modes including hallucinations, edge cases, and security risks.

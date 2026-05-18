@@ -22,7 +22,7 @@ license: MIT
 - Operating on files larger than a few hundred lines — use `grep`, the Read tool, or `head` for targeted extraction.
 - Any operation where the file content can be provided as a tool argument (e.g., `--file`, `--body-file`) — prefer native file flags over stdin piping.
 
-## Gotchas
+## Common Pitfalls
 
 - **Heredoc Truncation Hangs**: If output is truncated before the `EOF` delimiter is printed, `cat` hangs forever waiting for input. This is the #1 cause of shell hangs in agentic workflows. Never use heredocs for long or generated content.
 - **Timeout Enforcement**: When you must execute `cat` reading from stdin or a heredoc, always wrap it in `timeout 10s cat <<'EOF'...EOF` so a hang fails fast instead of locking the workflow.

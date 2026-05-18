@@ -20,7 +20,7 @@ license: MIT
 - Creating Datadog monitors through the API directly — use `datadog-api` for raw REST calls
 - Designing monitor queries or alert logic — use `datadog-monitors` for evaluation semantics, then map to Pulumi
 
-## Gotchas
+## Common Pitfalls
 - Datadog API JSON keys do NOT map 1:1 to Pulumi YAML field names — always run `pulumi package get-schema datadog@<version>` to discover exact types
 - Some fields use intentionally awkward names in the Pulumi provider (e.g., `groupBies` instead of `groupBy`) — do not "fix" them to match API JSON
 - Threshold math must be consistent with the query comparator: a query `> 0` requires `monitorThresholds.critical: 0`, not `1`

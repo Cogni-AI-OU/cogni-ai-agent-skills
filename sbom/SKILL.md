@@ -21,7 +21,7 @@ license: MIT
 - Projects with no external dependencies or only development dependencies that are not distributed.
 - When the build environment lacks internet access required to install syft or resolve transitive dependency metadata.
 
-## Gotchas
+## Common Pitfalls
 
 - syft must be installed separately—it is not available in most base OS images or CI runner environments by default.
 - The generated SBOM is only as accurate as the build environment at the time of generation; stale or incomplete build artifacts produce incomplete SBOMs.

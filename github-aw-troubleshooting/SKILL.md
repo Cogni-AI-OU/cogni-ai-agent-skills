@@ -23,7 +23,7 @@ license: MIT
 - The issue is specifically with the AWF firewall network configuration or blocked domains (load `gh-aw-firewall-debug`).
 - The user needs syntax reference for frontmatter fields (load `github-aw-syntax`).
 
-## Gotchas
+## Common Pitfalls
 - `gh aw audit` returns `"status": "in_progress"` for running workflows — you MUST poll every ~45 seconds until a terminal status (`completed`, `failure`, `cancelled`) before the audit data is complete.
 - Per-request token details live in `firewall-audit-logs/token-usage.jsonl`, NOT in `agent_usage.json` — the latter contains aggregated totals only. Looking in the wrong file wastes time.
 - If a maintainer cancels a workflow run, artifacts may be missing entirely — check `gh run view <run-id>` first and consider re-running instead of searching for non-existent files.

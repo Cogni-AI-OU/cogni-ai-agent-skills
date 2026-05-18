@@ -22,7 +22,7 @@ license: MIT
 - Ad-hoc debugging or troubleshooting sessions where the system state is volatile and not worth baselining.
 - When the target system has no stable, queryable state to compare against.
 
-## Gotchas
+## Common Pitfalls
 
 - The report generation process is I/O and time intensive—each resource category is explored comprehensively, so execution times can be long.
 - Baseline definitions must be kept in sync with the actual system; stale baselines produce misleading drift reports.

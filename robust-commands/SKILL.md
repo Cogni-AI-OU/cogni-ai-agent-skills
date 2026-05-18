@@ -22,7 +22,7 @@ license: MIT
 - Security-sensitive operations where automatic fallback to an alternative tool could bypass intended security controls or audit trails.
 - When the correct command behavior depends on exact tool semantics—silently falling back to a different tool may produce subtly different results.
 
-## Gotchas
+## Common Pitfalls
 
 - Automatic installation commands (e.g., `apt-get install`) require root/sudo privileges and may fail in restricted containers or CI runners; always check for install capability first.
 - Fallback commands may produce different output formats or behavior (e.g., `curl` vs. `wget` exit codes and output defaults differ)—validate fallback results, don't assume equivalence.

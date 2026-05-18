@@ -35,7 +35,7 @@ Apply dictation correction protocols to fix common speech-to-text errors, especi
 - Providing step-by-step planning or execution instructions — output should primarily be the corrected text
 - Simplifying technical concepts or altering the user's intended meaning — preserve original intent and technical accuracy
 
-## Gotchas
+## Common Pitfalls
 - Compound modifiers (e.g., `pull-request`, `cache-memory`) require hyphenation only when used as adjectives before a noun, not as standalone nouns
 - Engine names must be properly capitalized: `GitHub Copilot` (not `copilot`), `Claude` (not `cloud`), `Gemini` (not `gem ini`)
 - The vocabulary correction list is opinionated and project-specific — do not apply it blindly to text from unrelated domains

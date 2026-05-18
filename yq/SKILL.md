@@ -23,7 +23,7 @@ license: MIT
 - When the file size is very large and streaming approaches (e.g., iterative parsing) are preferable to loading the entire document into memory.
 - Environments where only the Python yq (kislyuk/yq) is available—its CLI syntax differs significantly from the Go version.
 
-## Gotchas
+## Common Pitfalls
 
 - The Go version (`mikefarah/yq`) and Python version (`kislyuk/yq`) have completely different CLI syntax and expression languages—always verify which is installed.
 - `yq eval-all` merges documents using a merge semantics that may not match your expectations for deeply nested structures; test merge behavior with representative data first.

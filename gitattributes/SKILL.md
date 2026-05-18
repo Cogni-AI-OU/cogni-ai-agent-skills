@@ -21,7 +21,7 @@ license: MIT
 - You need to enforce branch protection rules or code review policies — those belong in GitHub repository settings, not `.gitattributes`.
 - You are working with symlinks — `.gitattributes` does not follow symbolic links, so attributes applied via symlinked files will not work.
 
-## Gotchas
+## Common Pitfalls
 - **Negative patterns** (e.g., `!pattern`) are **explicitly forbidden** in `.gitattributes` — they will cause parsing errors and are not supported by git's attribute system.
 - **Trailing-slash syntax** (`dir/`) does not recursively match paths in `.gitattributes` — use `dir/**` instead to match all files within a directory tree.
 - Later lines in the same file override earlier lines for the same path, and closer `.gitattributes` directories take precedence over parent directories — order and location matter significantly.

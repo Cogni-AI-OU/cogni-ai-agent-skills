@@ -22,7 +22,7 @@ license: MIT
 - You need real-time or precise commit-search results — code search has indexing delays; very recent changes may not appear immediately.
 - You need to perform administrative searches (e.g., finding all repos in an org with specific settings) — use **gh-api** with GraphQL for org-level queries.
 
-## Gotchas
+## Common Pitfalls
 - Code search has **indexing delays**; changes pushed within the last few minutes may not appear in search results — wait before assuming a push failed.
 - The default `--limit` is 30, which can return too many or too few results depending on your query — always set an explicit limit appropriate to your use case.
 - Parsing default tabular output of `gh search` with tools like `grep` or `awk` is fragile — always use `--json` for structured JSON output that is safe to parse programmatically.

@@ -22,7 +22,7 @@ license: MIT
 - You only need to view repository content or run simple commands — a local clone or GitHub Workspace is more appropriate.
 - You are managing GitHub-hosted runners or Actions infrastructure — those belong to **github-actions** or **gh-run** skills.
 
-## Gotchas
+## Common Pitfalls
 - `gh codespace ssh` and `gh codespace code` are interactive commands that will hang in non-interactive/agent environments — only use them when providing instructions to the user.
 - `gh codespace ports forward` blocks the terminal; you must run it in the background (`&`) or in a separate process for non-interactive automation.
 - Creating a codespace triggers a full container build which can take several minutes — always verify creation with `gh codespace list` rather than assuming immediate availability.

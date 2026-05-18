@@ -24,7 +24,7 @@ license: MIT
 - Managing GitHub Agentic Workflows — use `gh-aw` skill for `gh aw` subcommands.
 - Searching code across repositories — use `gh-search` skill for structured search queries.
 
-## Gotchas
+## Common Pitfalls
 
 - Using `-f` (`--raw-field`) when intending to read a file with `@` silently passes the literal string `@path` instead of expanding the file — always use `-F` (`--field`) for file expansion.
 - Empty stdout from a `gh` query is NOT a success — verify with `--json` or `--jq` to ensure the subcommand supports the requested mode. Check exit codes explicitly.

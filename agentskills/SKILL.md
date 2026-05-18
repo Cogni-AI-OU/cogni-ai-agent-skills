@@ -22,7 +22,7 @@ license: MIT
 - Executing `gh skill` CLI commands for searching, installing, or publishing skills — load the `gh-skill` skill instead.
 - Designing agent persona definitions (`*.agent.md`, `CLAUDE.md`) — those follow a different schema covered by the `agent-md` skill.
 
-## Gotchas
+## Common Pitfalls
 
 - **Supply Chain Risk**: Skills can execute arbitrary commands if `shell` or `bash` tools are pre-approved in the frontmatter. Always inspect third-party skills before installing, and pin to specific tags or commit SHAs for deterministic behavior.
 - **CI/CD Discoverability**: In GitHub Actions, skills cloned outside the workspace (e.g., `${{ runner.temp }}/.skills`) must be symlinked into the workspace (`.skills/`) for the agent to discover them.
@@ -102,7 +102,7 @@ Recommended sections:
 - `## When to Use This Skill`: List of scenarios reinforcing description triggers.
 - `## Prerequisites`: Required tools or dependencies.
 - `## Step-by-Step Workflows`: Numbered steps for repeatable procedures (build, deploy, setup). Use flexible guidelines instead of rigid steps for open-ended tasks.
-- `## Gotchas`: Proactive warnings about non-obvious behavior. **This is the highest-signal content**. Bold the key constraint and explain why.
+- `## Common Pitfalls`: Proactive warnings about non-obvious behavior. **This is the highest-signal content**. Bold the key constraint and explain why.
 - `## Troubleshooting`: Reactive fixes for known issues (symptom → solution pairs).
 - `## References`: Links to bundled docs (`references/`) or external resources.
 
@@ -146,7 +146,7 @@ Before publishing a skill, verify:
 - [ ] `name` is lowercase with hyphens, ≤64 characters
 - [ ] `description` clearly states **WHAT** it does, **WHEN** to use it, and relevant **KEYWORDS**
 - [ ] Body focuses on information Copilot wouldn't know from training data
-- [ ] `## Gotchas` section present if skill involves non-obvious behavior, API quirks, or common traps
+- [ ] `## Common Pitfalls` section present if skill involves non-obvious behavior, API quirks, or common traps
 - [ ] SKILL.md body under 500 lines (consider splitting into `references/` at ~200 lines)
 - [ ] Large workflows (>5 steps) split into `references/` folder with clear links
 - [ ] Scripts include help documentation and error handling

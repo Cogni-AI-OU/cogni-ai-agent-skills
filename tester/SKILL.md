@@ -23,7 +23,7 @@ license: MIT
 - Codebases where the primary concern is architectural design or proof-of-concept exploration, not test rigor.
 - Environments where execution of the target test suite is not possible (no test runner, missing dependencies, unsupported platform).
 
-## Gotchas
+## Common Pitfalls
 
 - "Tests that don't fail when the code is wrong are worse than no tests" is a hard principle—assertions that always pass (e.g., tautologies, over-mocked tests) create false confidence.
 - Mocking must stop at process boundaries; mocking internal domain objects produces fragile tests that break during refactoring.

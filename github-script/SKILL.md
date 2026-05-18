@@ -22,7 +22,7 @@ license: MIT
 - The task involves long-running or complex external API integrations that would be better served by a dedicated action or MCP server.
 - Infrastructure-as-code operations (use `github-pulumi` for Pulumi-based GitHub resource management).
 
-## Gotchas
+## Common Pitfalls
 - NEVER evaluate GitHub Actions expressions directly inside the `script:` string — this creates script injection vulnerabilities. Always pass values via `env:` and read them with `process.env.VAR_NAME`.
 - The default `GITHUB_TOKEN` is scoped ONLY to the current repository — accessing other repos requires a PAT passed via `github-token:` input.
 - The `context` object structure varies by event type — always verify `context.eventName` and `context.payload` shape before accessing nested properties to avoid undefined errors.

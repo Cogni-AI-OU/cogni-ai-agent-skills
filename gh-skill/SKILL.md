@@ -22,7 +22,7 @@ license: MIT
 - You are troubleshooting why a skill is not loading in a specific host — check agent-specific documentation rather than the CLI tool.
 - You need to search for skills by capability rather than by name — use `gh skill search <topic>` with broader keywords or browse the Awesome Copilot Skills directory.
 
-## Gotchas
+## Common Pitfalls
 - `gh skill install` and `gh skill update` without arguments launch interactive prompts that will **hang** in non-interactive/agent environments — always provide explicit arguments or use `--all` / `--dry-run`.
 - `--pin` and `@VERSION` syntax are mutually exclusive — use one or the other, not both simultaneously.
 - Third-party skills are not verified by GitHub and may contain malicious content — always run `gh skill preview` before installing any skill from an untrusted source.

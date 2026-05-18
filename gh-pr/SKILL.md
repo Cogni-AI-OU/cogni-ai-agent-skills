@@ -21,7 +21,7 @@ license: MIT
 - You are only viewing PR content for informational purposes without interacting — use the **github** skill for `.diff`/`.patch` URL retrieval.
 - You need to analyze agentic workflow runs triggered by PR events — use **gh-run** and **gh-aw-troubleshooting** skills instead.
 
-## Gotchas
+## Common Pitfalls
 - `gh pr checks` only evaluates the HEAD commit; manually triggered (`workflow_dispatch`) or comment-triggered (`issue_comment`) agent runs on the same branch will be missed — use `gh run list` or `gh api` to find those.
 - `gh pr review` is often restricted in automated environments (e.g., OpenCode); prefer `gh pr comment` for adding feedback when review approval is not required.
 - Draft PRs cannot be merged — always call `gh pr ready <number>` first before attempting to merge a draft.

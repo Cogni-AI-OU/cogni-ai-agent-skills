@@ -23,7 +23,7 @@ Dynamically generate a coding standards document based on the existing syntax, f
 - Replacing mandatory linting tools (ESLint, Prettier, ruff) — generated standards complement, not replace, automated enforcement
 - Generating standards from a single file that may be unrepresentative of the broader codebase
 
-## Gotchas
+## Common Pitfalls
 - The analysis may produce conflicting results if the codebase uses multiple styles equally — prompt the user to choose a baseline reference file before generating
 - External style guides should only be used as supplemental reference when explicitly requested and must not override the codebase's existing majority conventions
 - The generated document reflects the current state of analyzed files and will become outdated as the codebase evolves — recommend periodic regeneration

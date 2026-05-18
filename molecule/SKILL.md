@@ -20,7 +20,7 @@ license: MIT
 - When running outside a controlled environment without Docker or Podman — Molecule requires a container runtime for most drivers.
 - When the Ansible role is not idempotent by design — Molecule tests will highlight this, but the role should be fixed first.
 
-## Gotchas
+## Common Pitfalls
 - `molecule test` runs the entire lifecycle and may hang indefinitely on slow operations — always use `timeout 600s` when automating Molecule commands.
 - Ansible may use a different Python interpreter (e.g., pipx-managed) than the one where Python modules are installed — check `ansible --version` and install libraries in the correct environment.
 - Broken conditional handling in upstream plugins may require `ANSIBLE_ALLOW_BROKEN_CONDITIONALS=1` to proceed — only use as a temporary workaround.

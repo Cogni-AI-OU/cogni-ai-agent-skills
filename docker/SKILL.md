@@ -21,7 +21,7 @@ license: MIT
 - Building images for production deployment without also considering Dockerfile best practices — use `dockerfile` skill
 - Parsing tabular CLI output with `grep`/`awk` when `--format '{{json .}}'` structured output is available
 
-## Gotchas
+## Common Pitfalls
 - Interactive flags (`-it`) in automated scripts will cause containers to hang indefinitely waiting for input that never comes
 - Relative paths in volume mounts (`-v ./data:/data`) resolve relative to the Docker daemon's filesystem, not the current terminal directory — always use absolute paths or `$PWD`
 - Non-privileged containers may get `permission denied` errors on mounted host volumes due to user ID mismatches — check UID/GID or apply `:z`/`:Z` SELinux labels

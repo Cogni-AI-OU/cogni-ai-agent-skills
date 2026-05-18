@@ -34,7 +34,7 @@ Use this skill when the request involves:
 - When the user explicitly requests a performance review, functional correctness review, or code style review rather than a security audit.
 - Projects or components that have been verified as non-production, throwaway, or sandbox code where formal security analysis would be disproportionate.
 
-## Gotchas
+## Common Pitfalls
 
 - The skill uses static analysis only—it cannot detect runtime vulnerabilities like race conditions, memory corruption under load, or environment-specific misconfigurations.
 - False positives are possible, especially with heuristic secret detection (e.g., variables named "password" may not be actual credentials).

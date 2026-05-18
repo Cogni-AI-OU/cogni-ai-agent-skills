@@ -20,7 +20,7 @@ license: MIT
 - You need to merge multiple PRs or branches in bulk with automated conflict resolution — use **gh-pr** with merge queue strategies.
 - You suspect the repository is shallow — unshallow it first with `git fetch --unshallow` before merging, as shallow repos can produce unexpected merge results.
 
-## Gotchas
+## Common Pitfalls
 - Merging in a **shallow repository** can lead to unexpected results or silent failures — always verify with `git rev-parse --is-shallow-repository` before starting a merge.
 - After resolving conflicts, you must check for **logical duplicates** (duplicate imports, repeated declarations, duplicate lines) — merges often introduce redundant code that passes compilation but is logically wrong.
 - Never commit while `git status` shows unmerged files — always run `git status` after conflict resolution to ensure all files are staged before finalizing.

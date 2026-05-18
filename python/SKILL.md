@@ -23,7 +23,7 @@ license: MIT
 - When the task is purely about packaging or distribution (setup.py, pyproject.toml) — use dedicated packaging skills.
 - When debugging Python runtime issues unrelated to code style/quality (e.g., segfaults, interpreter crashes) — those require platform-specific troubleshooting.
 
-## Gotchas
+## Common Pitfalls
 - Type hints do not enforce anything at runtime — they are purely for static analysis and documentation; never rely on them for input validation.
 - Python 3.11+ features like `Self` type or `@dataclass(slots=True)` may not work in codebases targeting older versions — always check the project's minimum Python version.
 - `pytest` discovery requires `test_` prefix or `_test` suffix in file/function names — incorrectly named test files are silently ignored.

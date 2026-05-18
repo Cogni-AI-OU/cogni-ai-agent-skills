@@ -20,7 +20,7 @@ license: MIT
 - Situations requiring immediate action where speed trumps depth (e.g., production incident mitigation)
 - Replacing empirical testing and data collection with pure reasoning — always verify assumptions with facts
 
-## Gotchas
+## Common Pitfalls
 - Confirmation bias is the most common reasoning failure — actively design experiments to disprove your hypothesis, not confirm it
 - The "Steelman Protocol" requires articulating the opposing position in its strongest form before critiquing; skipping this leads to straw-man rebuttals
 - MiniZinc dry-code modeling is a reasoning aid, not a formal proof — it can surface hidden constraints but cannot validate runtime behavior

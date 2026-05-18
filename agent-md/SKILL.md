@@ -21,7 +21,7 @@ license: MIT
 - Defining domain formatting standards or coding conventions — those belong in `*.instructions.md` files.
 - Asking one-off questions or quick clarifications — use direct prompts or chat modes instead.
 
-## Gotchas
+## Common Pitfalls
 
 - **File Size Limit**: GitHub Copilot truncates custom agent files beyond 500 KiB. Keep content concise and reference external documentation rather than embedding it wholesale.
 - **Relative Links Required**: Always use relative links (e.g., `docs/CONTRIBUTING.md`) for intra-repository references instead of absolute URLs. Absolute links break when the repository is cloned.
