@@ -11,7 +11,7 @@ on:
       - synchronize
       - reopened
     paths:
-      - "**/SKILL.md"
+      - '**/SKILL.md'
 permissions:
   contents: read
 jobs:
@@ -107,6 +107,7 @@ jobs:
       - name: Run skill-validator check
         id: check
         if: steps.detect.outputs.total != '0'
+        shell: bash
         run: |
           SKILL_ARGS="${{ steps.detect.outputs.skill_args }}"
           AGENT_ARGS="${{ steps.detect.outputs.agent_args }}"
@@ -127,17 +128,17 @@ jobs:
           set -e
 
           # Downgrade "2 directories deep" findings to warnings (project policy allows up to 2 levels)
-          if echo "$OUTPUT" | grep -q "is 2 directories deep — maximum is 1 level from SKILL.md"; then
+          if grep -q "is 2 directories deep — maximum is 1 level from SKILL.md" <<< "$OUTPUT"; then
             echo "Downgrading 2-level depth findings to warnings per project policy."
             # Replace ❌ with ⚠ and add a note
-            OUTPUT=$(echo "$OUTPUT" | sed 's/❌ \(.* is 2 directories deep — maximum is 1 level from SKILL.md\)/⚠ \1 (Allowed by project policy)/g')
+            # shellcheck disable=SC2001
+            OUTPUT=$(sed 's/❌ \(.* is 2 directories deep — maximum is 1 level from SKILL.md\)/⚠ \1 (Allowed by project policy)/g' <<< "$OUTPUT")
             
             # If no other errors remain, treat the run as successful
-            if ! echo "$OUTPUT" | grep -q "❌"; then
+            if ! grep -q "❌" <<< "$OUTPUT"; then
               EXIT_CODE=0
             fi
           fi
-
           echo "exit_code=$EXIT_CODE" >> "$GITHUB_OUTPUT"
 
           # Save output to file (multi-line safe)
