@@ -11,10 +11,7 @@ on:
       - synchronize
       - reopened
     paths:
-      - skills/**
-      - agents/**
-      - plugins/**/skills/**
-      - plugins/**/agents/**
+      - "**/SKILL.md"
 permissions:
   contents: read
 jobs:
@@ -66,17 +63,15 @@ jobs:
             CHANGED_FILES=$(git diff --name-only origin/${{ github.base_ref }}...HEAD)
           fi
 
-          # Extract unique skill directories that were touched
+          # Extract unique skill directories that were touched (directories containing SKILL.md)
           {
-            SKILL_DIRS=$(echo "$CHANGED_FILES" | grep -oP '^skills/[^/]+' | sort -u || true)
+            SKILL_DIRS=$(echo "$CHANGED_FILES" | grep 'SKILL\.md$' | xargs -I {} dirname {} | sort -u || true)
 
             # Extract agent files that were touched
-            AGENT_FILES=$(echo "$CHANGED_FILES" | grep -oP '^agents/[^/]+\.agent\.md$' | sort -u || true)
+            AGENT_FILES=$(echo "$CHANGED_FILES" | grep -oP '^[^/]+\.agent\.md$' | sort -u || true)
 
-            # Extract plugin skill directories
+            # Plugins are not used in this repo layout, but keeping for compatibility if they appear
             PLUGIN_SKILL_DIRS=$(echo "$CHANGED_FILES" | grep -oP '^plugins/[^/]+/skills/[^/]+' | sort -u || true)
-
-            # Extract plugin agent files
             PLUGIN_AGENT_FILES=$(echo "$CHANGED_FILES" | \
               grep -oP '^plugins/[^/]+/agents/[^/]+\.agent\.md$' | sort -u || true)
           }
