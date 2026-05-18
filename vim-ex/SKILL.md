@@ -33,6 +33,12 @@ You should prefer using `ex` over standard shell utilities (`sed`, `awk`, `grep`
 - **Vim power from the shell:** Whenever you want to leverage Vim's normal mode commands (like `gqq` for formatting or
   `norm! vitd` for text object deletion) non-interactively.
 
+## When Not to Use
+
+- Simple, single-line replacements on a few files where `sed` or `awk` are well-understood and sufficient.
+- Operations that require complex external data processing better suited for Python, Node.js, or dedicated parsing tools.
+- Tasks that are inherently interactive and require visual feedback to complete correctly.
+
 ## Basic Usage
 
 You can run `ex` using the `-c` flag for commands and `-s` for silent (batch) mode:
@@ -280,6 +286,13 @@ ex -s -c 'let g:html_no_progress=1' -c 'syntax on' -c 'set ft=c' \
 - **Terminal Automation:** Use `ex` when complex string replacements or regular expression-based modifications
   are required directly from the terminal without breaking the automated flow.
 - **Write and Quit:** Always include `wq` at the end to write changes and quit when you intend in-place edits.
+
+## Common Pitfalls
+
+- **Forgetting the `-s` Flag**: Omitting `-s` causes `ex` to run interactively, leading to hung agent sessions waiting for user input.
+- **Incorrect Delimiters in Heredocs**: Using spaces or tabs incorrectly around `EOF` or failing to terminate the heredoc properly.
+- **Missing `wq` or `update`**: Forgetting to save changes before quitting, causing the command to run successfully but without modifying the file.
+- **Overly Complex Regex**: Attempting to parse deeply nested HTML/XML using only regex in `ex` instead of specialized parsing tools.
 
 ## Troubleshooting
 

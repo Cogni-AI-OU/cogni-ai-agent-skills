@@ -10,6 +10,24 @@ license: MIT
 
 Create and maintain highly optimized, secure, and minimal Dockerfiles. Focus on strict deterministic builds, security compliance, and caching efficiency.
 
+## When to Use
+
+- When writing, optimizing, or reviewing a `Dockerfile` for a new or existing service.
+- To reduce the image size or improve the layer caching efficiency of an existing Docker build.
+- When auditing a `Dockerfile` for security compliance (e.g., non-root users, pinned bases).
+
+## When Not to Use
+
+- When configuring local development environments that rely strictly on `devcontainer.json` without custom Dockerfiles.
+- For managing runtime container orchestration (use `docker` or `docker-compose` instead).
+- If the project relies on Cloud Native Buildpacks (CNB) rather than explicit Dockerfiles.
+
+## Common Pitfalls
+
+- **Leaking Secrets**: Using `COPY` or `ENV` to handle build secrets instead of the secure `--mount=type=secret` directive.
+- **Late User Switching**: Defining `USER nonroot` but forgetting to `chown` the files copied from the builder stage, leading to permission denied errors at runtime.
+- **Cache Busting**: Placing rapidly changing instructions (like `COPY . .`) before slow, static instructions (like `npm install`), destroying layer cache efficiency on every code change.
+
 ## Core Process
 
 1. **Base Selection**: Use official, minimal bases (e.g., `alpine`, `distroless`) with precise version tags or SHA256 pinning.

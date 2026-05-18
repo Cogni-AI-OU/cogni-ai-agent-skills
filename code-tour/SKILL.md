@@ -24,6 +24,24 @@ Two reference files are bundled:
 - **`references/codetour-schema.json`** — the authoritative JSON schema. Read it to verify any field name or type. Every field you use must conform to it.
 - **`references/examples.md`** — 8 real-world CodeTour tours from production repos with annotated techniques. Read it when you want to see how a specific feature (`commands`, `selection`, `view`, `pattern`, `isPrimary`, multi-tour series) is used in practice.
 
+## When to Use
+
+- When tasked with creating an onboarding guide for new repository contributors.
+- To generate a step-by-step walkthrough of a complex bug fix or architectural feature.
+- Whenever a user asks to "create a tour" or "make a code tour" for a specific codebase subsystem.
+
+## When Not to Use
+
+- When writing standard `README.md` documentation that doesn't require interactive IDE navigation.
+- If the requested files are highly volatile and change line numbers constantly (unless using `pattern` anchors).
+- For generating automated API reference documentation.
+
+## Common Pitfalls
+
+- **Hallucinated Files**: Creating a `.tour` file that points to non-existent files or invalid line numbers, instantly breaking the VS Code extension.
+- **Content-Only Starts**: Opening the tour with a `content` step instead of a `file` or `directory` anchor, which causes VS Code to render a completely blank page.
+- **Absolute Paths**: Writing file paths with a leading `/` or `./` instead of making them strictly relative to the repository root.
+
 ## Real-world `.tour` files on GitHub
 
 These are confirmed production `.tour` files. Fetch one when you need a working example of a specific step type, tour-level field, or narrative structure — don't write from memory when the real thing is one fetch away.

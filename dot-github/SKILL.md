@@ -11,6 +11,24 @@ license: MIT
 
 Standardize `.github` directory structure, enforce agentic documentation patterns.
 
+## When to Use
+
+- When establishing or organizing the structure of the `.github/` directory for a new repository.
+- To create or update `AGENTS.md` documentation specifically for the workflows folder.
+- When you need to safely disable a workflow by moving it instead of deleting it.
+
+## When Not to Use
+
+- For creating generic documentation outside of the `.github/` folder (use `docs-writer` instead).
+- When configuring actual CI/CD pipeline logic inside the YAML files (use `github-actions` or `gh-aw-syntax`).
+- If you are managing organization-wide `.github` repository templates and don't want to override them locally.
+
+## Common Pitfalls
+
+- **Creating `.github/README.md`**: Generating a README inside the `.github/` directory, which GitHub prioritizes and uses to completely overwrite the repository's main homepage.
+- **Inventing CODEOWNERS**: Guessing usernames or teams in the `CODEOWNERS` file instead of verifying their existence, rendering the file invalid and breaking PR approvals.
+- **Destructive Deletion**: Deleting a workflow file completely instead of moving it to `.github/workflows-disabled/`, losing its history and configuration.
+
 ## Core Principles
 
 - **Configuration Validation**:

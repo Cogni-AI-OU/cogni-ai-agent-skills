@@ -20,6 +20,24 @@ For deep dives, use the guidance below in these areas:
 
 ---
 
+## When to Use
+
+- When designing the schema for a new user database or authentication system.
+- Before merging a Pull Request that introduces new logging telemetry or analytics tracking.
+- When reviewing data export, erasure (right to be forgotten), or data retention workflows.
+
+## When Not to Use
+
+- For configuring network-level firewalls or pure infrastructure routing that does not touch user data.
+- When styling UI components or fixing simple frontend rendering bugs.
+- If the application strictly handles anonymous, machine-generated data with absolutely zero possibility of PII linkage.
+
+## Common Pitfalls
+
+- **Infinite Retention**: Creating a new database table for user events without simultaneously defining a TTL (Time To Live) or automated cleanup job.
+- **PII in URLs**: Passing email addresses, national IDs, or auth tokens as GET query parameters, meaning they get permanently logged in edge CDNs and proxy servers.
+- **"Just in Case" Data**: Adding optional fields (like birthdate or phone number) to a user profile schema without a strictly documented legal basis or business need.
+
 ## 1. Core GDPR Principles (Article 5)
 
 | Principle | Engineering obligation |

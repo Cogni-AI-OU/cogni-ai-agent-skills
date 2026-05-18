@@ -9,6 +9,25 @@ license: MIT
 
 Define attributes per path to enforce line-ending conversions, custom merge drivers, textual diff strategies, and language statistics overrides across repositories.
 
+## When to Use
+
+- When line endings (CRLF vs LF) are causing cross-platform issues for developers.
+- To prevent merge conflicts in auto-generated files (e.g., `package-lock.json`) by setting a custom merge driver.
+- When GitHub's language statistics are incorrectly classifying repository code.
+- To exclude vendored or binary files from standard diff outputs.
+
+## When Not to Use
+
+- For ignoring files from version control entirely (use `.gitignore` instead).
+- When resolving a single, isolated merge conflict manually.
+- To enforce coding style or formatting rules inside the files themselves (use linters or `.editorconfig`).
+
+## Common Pitfalls
+
+- **Using Trailing Slashes**: Writing `docs/` expecting it to match all files inside, instead of the correct `docs/**` or `docs/*`.
+- **Negative Patterns**: Attempting to use `!pattern` syntax, which is strictly forbidden and unsupported in `.gitattributes`.
+- **Precedence Confusion**: Forgetting that later lines in the file override earlier ones, or that deeper directories override root files.
+
 ## Core Principles
 
 - **Global Consistency**: Ensure line endings (`text`, `eol`) and text normalization are explicitly controlled.

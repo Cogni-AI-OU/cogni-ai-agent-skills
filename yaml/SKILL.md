@@ -12,6 +12,24 @@ license: MIT
 
 Generic guidelines for YAML formatting, linting, and structural rules.
 
+## When to Use
+
+- When creating or modifying YAML configuration files (e.g., `.yml`, `.yaml`).
+- To ensure proper formatting, quoting, and indentation of YAML data structures.
+- Before committing YAML files to ensure they pass project linting standards.
+
+## When Not to Use
+
+- When performing complex, programmatic queries, merges, or deep value extractions from YAML files (use the `yq` skill instead).
+- For processing JSON files, unless converting them explicitly to YAML.
+- When working in a repository that mandates a strictly different data serialization format (e.g., TOML, INI).
+
+## Common Pitfalls
+
+- **Tabs for Indentation**: Using tabs instead of spaces, which is strictly invalid in the YAML specification and will cause parsing errors.
+- **Unquoted Boolean Strings**: Writing unquoted `yes`, `no`, `on`, or `off`, which older YAML 1.1 parsers evaluate as booleans rather than strings.
+- **Relying on Text Tools**: Using `sed` or `awk` to modify YAML structures, leading to broken indentation and corrupted files.
+
 ## Core Principles
 
 - **Indentation**: Use 2 spaces for indentation. Never use tabs.

@@ -9,6 +9,24 @@ license: MIT
 
 Execute Datadog API requests to fetch live objects, metrics, or monitor statuses.
 
+## When to Use
+
+- When querying Datadog metrics, logs, or traces directly from the command line in an automated script.
+- To retrieve and analyze the status of Datadog monitors.
+- When you need to fetch a dashboard configuration JSON to inspect or backup its definition.
+
+## When Not to Use
+
+- When full MCP observability tools (`datadog-mcp`) are available, as they natively format data for LLM context windows.
+- If the project uses Pulumi or Terraform for Datadog resource creation (use the respective Infrastructure-as-Code skill).
+- When a simple web UI link to the Datadog dashboard would suffice for a human user.
+
+## Common Pitfalls
+
+- **Paginating Endlessly**: Running an API query that returns millions of log lines without using `jq` to truncate or filter the output, causing the agent to run out of memory.
+- **Leaking API Keys**: Accidentally echoing the `DD-API-KEY` or `DD-APPLICATION-KEY` in the terminal during debugging, exposing it in the workflow logs.
+- **Incorrect Endpoint Region**: Sending requests to `datadoghq.com` when the organization's Datadog instance is actually hosted on `datadoghq.eu` or `us3.datadoghq.com`, resulting in HTTP 403 or 404 errors.
+
 ## Core Process
 
 1. **Verify Credentials**: Ensure `DD-API-KEY` and `DD-APPLICATION-KEY` are available in the environment.

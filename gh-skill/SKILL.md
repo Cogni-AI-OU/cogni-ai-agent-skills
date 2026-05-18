@@ -17,6 +17,24 @@ Manage agent skills directly via the `gh skill` CLI command. This tool automates
 - **Supply Chain Integrity**: Prefer pinning skills to specific tags or commit SHAs via the `--pin` flag to ensure deterministic behavior.
 - **Automated Metadata**: `gh skill` automatically writes tracking metadata (repository, ref, tree SHA) into the `SKILL.md` frontmatter during installation.
 
+## When to Use
+
+- When installing, searching, or managing GitHub Copilot skills via the command line.
+- To validate the frontmatter and metadata of a locally developed skill before publishing.
+- When adding a new capability (like `awesome-copilot`) to your personal or project-level agent scope.
+
+## When Not to Use
+
+- When running generic shell operations unrelated to Copilot Agent Skills.
+- For managing standard GitHub extensions (use `gh extension` instead).
+- If the current environment uses a GitHub CLI version older than v2.90.0, which does not support the `skill` subcommand.
+
+## Common Pitfalls
+
+- **Interactive Freezes**: Running `gh skill install` without the `--all` or specific arguments, causing the agent to hang at a user selection prompt.
+- **Blind Installation**: Installing untrusted, unpinned third-party skills without using `gh skill preview` to inspect their scripts, risking supply chain attacks.
+- **Conflicting Flags**: Attempting to use `--pin` simultaneously with an `@VERSION` suffix in the install command.
+
 ## Core Process
 
 1. **Discovery & Inspection**: Use `gh skill search` to find skills and `gh skill preview` to review their content and requirements BEFORE installation.

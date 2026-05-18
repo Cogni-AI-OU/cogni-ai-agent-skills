@@ -11,6 +11,24 @@ license: MIT
 
 Use this skill for managing Python project environments and dependencies through the `pipenv` CLI tool.
 
+## When to Use
+
+- When initializing a new Python project that requires deterministic dependency management.
+- To add, update, or remove Python packages while keeping the `Pipfile.lock` strictly synchronized.
+- When executing tests or scripts securely within an isolated virtual environment (`pipenv run`).
+
+## When Not to Use
+
+- For managing global Python system packages or basic scripting where `pip` or `pipx` is strictly preferred.
+- In projects mandated to use `poetry`, `uv`, or raw `requirements.txt` workflows.
+- When building Python wheels or distributing packages to PyPI (use `build` or `twine` instead).
+
+## Common Pitfalls
+
+- **Interactive Shell Hangs**: Running `pipenv shell` in an automated agent session, which locks the terminal waiting for human TTY input. (Always use `pipenv run`).
+- **Ignoring Lock Failures**: Modifying the `Pipfile` but forgetting to run `pipenv lock`, leading to CI failures due to out-of-sync hashes.
+- **Global Pollution**: Using `pip install` while inside the project directory, accidentally modifying the system Python environment instead of the Pipenv virtual environment.
+
 ## Core Process
 
 1. **Initialization**: Create a new environment and `Pipfile` if none exists using `pipenv install`.

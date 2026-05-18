@@ -20,6 +20,18 @@ cross-platform execution, and secure script implementation.
 - You're looking for examples of how to use the pre-authenticated `octokit` client provided by `actions/github-script`.
 - You need to execute shell commands cross-platform within a GitHub Script block.
 
+## When Not to Use
+
+- When a native `gh` CLI command or existing standard GitHub Action already performs the exact required task efficiently.
+- For running complex bash scripts that don't need the GitHub API (use standard `run:` steps instead).
+- If the required API endpoint is not supported by the `octokit` version embedded in the current `actions/github-script` release.
+
+## Common Pitfalls
+
+- **Script Injection**: Passing user-controlled input (like PR titles) directly into the JavaScript template literal instead of passing it via the `env:` block.
+- **Scope Creep**: Writing massive, 500-line monolithic JavaScript functions inside the workflow YAML instead of extracting the logic into a proper `.js` file or local action.
+- **Assuming Global Context**: Forgetting that `github-script` runs inside the runner environment and doesn't automatically have access to all repository files unless actions/checkout has been run.
+
 ## Core Concepts
 
 `actions/github-script` allows you to write JavaScript within your workflow to interact

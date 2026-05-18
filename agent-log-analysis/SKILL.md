@@ -20,6 +20,18 @@ This skill dictates the mechanical execution and rigid formatting requirements f
 - Get a prioritized remediation plan with concrete next steps
 - Health-check a workflow after significant changes
 
+## When Not to Use
+
+- When writing or designing the actual prompts for the agent (use `ai-prompt-writer` instead).
+- For analyzing standard, non-agentic GitHub Actions workflow logs (use `github-actions` instead).
+- When the logs are completely inaccessible or have expired from the CI retention period.
+
+## Common Pitfalls
+
+- **Ignoring the Prompt Summary**: Generating beautiful diagrams but failing to actually extract and report the specific prompt that triggered the agent's failure.
+- **Overloading Diagrams**: Creating a massive, illegible Mindmap with 50 nodes instead of focusing on the top 5 key tool invocations.
+- **Skipping the Root Cause**: Reporting that a session "Failed" without actually performing the mandatory Ishikawa (fishbone) root cause analysis.
+
 ## 1. Log Retrieval Mechanics
 
 If logs are not directly provided in the prompt, retrieve them using:

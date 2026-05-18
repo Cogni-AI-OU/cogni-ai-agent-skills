@@ -11,6 +11,42 @@ license: MIT
 Use `gh run` and `gh workflow` to interact with GitHub Actions workflows. Prefer structured output and explicit
 routing over brittle shell post-processing.
 
+## When to Use
+
+- When diagnosing why a specific GitHub Actions CI/CD pipeline failed.
+- To download artifact logs for a run that is currently stuck or in progress.
+- When manually triggering a `workflow_dispatch` event via the CLI.
+
+## When Not to Use
+
+- For retrieving standard Pull Request metadata (use `gh pr view` instead).
+- When attempting to write or modify the actual `.github/workflows/*.yml` files (this skill is for *execution and monitoring*, not authoring).
+- To read agent-specific artifacts (like `token-usage.jsonl`) when the `gh aw audit` command provides a better native parser.
+
+## Common Pitfalls
+
+- **Assuming Empty Logs Mean Success**: Using `gh run view --log` and getting nothing back, assuming the job passed, when it actually means the log stream failed or the job was cancelled.
+- **Missing Triggered Runs**: Running `gh pr checks` and assuming it shows all related runs, completely missing manually triggered runs or `issue_comment` triggers that aren't bound to the HEAD commit.
+- **Ignoring Job Context**: Looking at the overarching run status instead of drilling down into the specific `job_id` that actually failed, wasting time searching healthy logs.
+
+## When to Use
+
+- When diagnosing why a specific GitHub Actions CI/CD pipeline failed.
+- To download artifact logs for a run that is currently stuck or in progress.
+- When manually triggering a `workflow_dispatch` event via the CLI.
+
+## When Not to Use
+
+- For retrieving standard Pull Request metadata (use `gh pr view` instead).
+- When attempting to write or modify the actual `.github/workflows/*.yml` files (this skill is for *execution and monitoring*, not authoring).
+- To read agent-specific artifacts (like `token-usage.jsonl`) when the `gh aw audit` command provides a better native parser.
+
+## Common Pitfalls
+
+- **Assuming Empty Logs Mean Success**: Using `gh run view --log` and getting nothing back, assuming the job passed, when it actually means the log stream failed or the job was cancelled.
+- **Missing Triggered Runs**: Running `gh pr checks` and assuming it shows all related runs, completely missing manually triggered runs or `issue_comment` triggers that aren't bound to the HEAD commit.
+- **Ignoring Job Context**: Looking at the overarching run status instead of drilling down into the specific `job_id` that actually failed, wasting time searching healthy logs.
+
 ## Mindmap of Commands
 
 ```mermaid

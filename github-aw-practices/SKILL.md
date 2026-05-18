@@ -9,6 +9,24 @@ license: MIT
 This skill provides organizational practices, rollout strategies, and A/B experiment specifications for maintaining
 repositories with GitHub Agentic Workflows (gh-aw).
 
+## When to Use
+
+- When planning the rollout of a new GitHub Agentic Workflow across an organization.
+- When configuring A/B experiments to test prompt variations in production.
+- When establishing centralized repository practices for AI agents.
+
+## When Not to Use
+
+- For debugging syntax errors within a specific workflow file (use `github-aw-syntax` or `github-aw-troubleshooting` instead).
+- When writing the actual prompts for the agent (use `ai-prompt-writer`).
+- For generic GitHub Actions that do not involve AI agents.
+
+## Common Pitfalls
+
+- **Immediate Production Writes**: Giving a new, untested agentic workflow full write access to the main branch without going through a staged or shadow evaluation phase.
+- **Unbounded Triggers**: Allowing any user to trigger expensive AI workflows via issue creation without implementing integrity filtering or safe-outputs.
+- **Ignoring A/B Stats**: Running an A/B experiment but failing to actually collect or analyze the metrics needed to determine the winning variant.
+
 ## A/B Experiments
 
 The experiments section of the workflow frontmatter enables statistical A/B testing by defining named experiments,

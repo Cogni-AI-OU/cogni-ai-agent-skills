@@ -12,6 +12,24 @@ license: MIT
 Extract a specific subdirectory from an external repository and merge it into another repository's root,
 permanently preserving the git commit history of those files, using `git filter-branch` as a built-in fallback.
 
+## When to Use
+
+- To extract a specific subdirectory from a repository while completely preserving its commit history.
+- When migrating a mono-repo folder into its own standalone repository.
+- As a fallback when modern tools like `git filter-repo` or `git subtree` are unavailable in the environment.
+
+## When Not to Use
+
+- For standard merges, rebases, or cherry-picks within the same repository (use standard `git` commands).
+- When the environment supports `git filter-repo`, which is significantly faster and safer than `filter-branch`.
+- For simply copying files without needing to preserve their git history.
+
+## Common Pitfalls
+
+- **Ignoring Root Conflicts**: Merging the filtered branch and blindly accepting conflicts on root files (like `README.md` or `.gitignore`), accidentally overwriting the target repo's core files.
+- **Slow Execution**: Running `filter-branch` on a massive, decade-old repository without realizing it can take hours to process every commit.
+- **Pre-Commit Hook Crashes**: Attempting the final merge without using `--no-verify`, causing pre-commit hooks to trigger on thousands of old files and timing out the environment.
+
 ## Core Process
 
 1. **Clone Source**: Clone the external repository into a temporary directory:

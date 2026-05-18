@@ -44,6 +44,24 @@ mindmap
       View details
 ```
 
+## When to Use
+
+- When managing, creating, or connecting to GitHub Codespaces natively from the CLI.
+- When you need to securely transfer files between the local machine and a Codespace without configuring SCP manually.
+- To handle port forwarding for local testing of applications running inside a Codespace.
+
+## When Not to Use
+
+- For managing local Docker containers or Devcontainers not hosted on GitHub's infrastructure (use `docker` or `devcontainer` skills instead).
+- When attempting to perform automated Git commits (the agent should use native local `git` tools instead of proxying through a Codespace).
+- If the user explicitly asks to work locally and has not initialized a Codespace environment.
+
+## Common Pitfalls
+
+- **Interactive Hangs**: Running `gh codespace ssh` in an automated agent session, which blocks execution by dropping the agent into an interactive TTY shell.
+- **Dangling Port Forwards**: Starting a port forward with `gh codespace ports forward` without backgrounding it (`&`), locking up the terminal.
+- **Ignoring State**: Attempting to execute commands against a Codespace that is currently in a "Stopped" or "Rebuilding" state, causing immediate connection failures.
+
 ## Core Principles
 
 - Verify codespace status with `gh codespace list` or `gh codespace view` before attempting interactive connections.

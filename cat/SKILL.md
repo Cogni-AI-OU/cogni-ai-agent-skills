@@ -17,6 +17,18 @@ truncated EOF delimiters can cause persistent shell hangs.
 - Using heredoc (`<<EOF`) to pass multiline strings.
 - Reading or streaming file contents.
 
+## When Not to Use
+
+- For modifying or appending to files when specific, robust file-writing tools (like the Edit or Write tools) are available.
+- When printing massive, multi-gigabyte log files to standard out, which will completely crash the terminal or context window.
+- In automated scripts that write complex YAML or JSON where a missing quote or delimiter can silently break the entire file structure.
+
+## Common Pitfalls
+
+- **Heredoc Hangs**: Using `cat <<EOF` inside a script without quoting the EOF delimiter or failing to print the delimiter exactly, causing the shell to hang indefinitely waiting for input.
+- **Overwriting Files**: Accidentally using `>` instead of `>>` and instantly destroying the contents of a critical configuration file.
+- **Binary Garbling**: Running `cat` on a compiled binary or PDF, dumping control characters into the terminal that corrupt the session's display state.
+
 ## Avoid Heredocs for Long Strings
 
 Never use heredocs (`cat <<EOF > file.md` or `command --body "$(cat <<EOF)"`) for long strings or generated code. If the

@@ -12,6 +12,18 @@ license: MIT
 
 Analyze and visualize GitHub Pull Requests by mapping commit history, reviewer feedback, and CI/CD status into structured Mermaid diagrams to establish context before deep analysis.
 
+## When Not to Use
+
+- When tasked with writing actual code to fix the PR; this skill is for *analyzing and visualizing* the PR state first.
+- If the PR is trivial (e.g., a one-line typo fix) where generating four different Mermaid diagrams is unnecessary overhead.
+- When analyzing repository-wide architecture outside the context of a specific Pull Request.
+
+## Common Pitfalls
+
+- **Skipping the Base Branch**: Creating a `gitGraph` without properly identifying where the feature branch diverged from `main`, resulting in a misleading history.
+- **Overloading Diagrams**: Attempting to put every single CI log line into an Ishikawa diagram instead of summarizing the *categories* of failures.
+- **Assuming Sequential Data**: Failing to account for concurrent or out-of-order review comments when mapping out the Kanban board.
+
 ## Core Process
 
 1. **Commit History Visualization**: Map out the historical context of the PR by generating a list of commits into a Mermaid `gitGraph` diagram.

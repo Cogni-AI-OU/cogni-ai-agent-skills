@@ -15,6 +15,18 @@ Elite autonomous PR review workflow for ensuring structural integrity, metadata 
 - Triggered when asked to review, audit, or verify a GitHub Pull Request.
 - Loaded automatically during the final verification phase of a PR lifecycle.
 
+## When Not to Use
+
+- When fixing a localized, single-file typo where a full architectural review is overkill.
+- When the PR is in a Draft state and explicitly marked as "Do Not Review".
+- For evaluating purely aesthetic UI/UX changes that require manual visual inspection.
+
+## Common Pitfalls
+
+- **Ignoring Base Branch Drift**: Reviewing code without realizing the PR branch is severely outdated compared to `main`, leading to false positive approvals on code that will cause merge conflicts.
+- **Rubber-Stamping CI Failures**: Assuming a red CI check is "just a flaky test" without actually verifying the failure logs.
+- **Nitpicking Over Architecture**: Focusing exclusively on variable names and formatting while ignoring massive architectural flaws or security vulnerabilities.
+
 ## Core Review Checkpoints
 
 Execute these checks systematically using `gh` and `git` tools:

@@ -16,6 +16,18 @@ Execute shell commands with performance monitoring and timeout protection.
 - Long-running commands (builds, tests, deployments)
 - Performance optimization and debugging
 
+## When Not to Use
+
+- Quick, reliable commands that execute in milliseconds
+- Interactive terminal sessions requiring human input
+- Operations better handled by specialized built-in agents or native APIs
+
+## Common Pitfalls
+
+- **Ignoring Exit Codes**: Piping with `time` or `timeout` can mask the exit code of the underlying command. Use `set -o pipefail` or check `$?` carefully.
+- **Overly Aggressive Timeouts**: Setting a timeout too close to the expected duration can cause false failures on slower environments (like CI/CD). Add a healthy buffer.
+- **Runaway Child Processes**: `timeout` might not kill child processes spawned by the target command unless used with `--kill-after` or running in a new process group.
+
 ## Core Patterns
 
 ### Measure Execution Time

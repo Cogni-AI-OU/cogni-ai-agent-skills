@@ -12,6 +12,24 @@ license: MIT
 Execute safe and verified git merges. This skill enforces pre-merge checks, explicit conflict resolution,
 and strict post-merge validation to prevent duplicate lines or lingering conflict markers.
 
+## When to Use
+
+- When explicitly integrating a feature branch into a target branch (like `main`).
+- When syncing upstream changes into your current branch to resolve an out-of-date PR.
+- Before running a test suite that requires the absolute latest code from the base branch.
+
+## When Not to Use
+
+- When a linear history is strictly enforced by the repository policies (use `git rebase` instead).
+- For extracting a specific subdirectory into a new repository (use `git-filter-branch` or `filter-repo`).
+- If you just need to apply a single, isolated commit (use `git cherry-pick`).
+
+## Common Pitfalls
+
+- **Shallow History**: Attempting a complex merge in a shallow-cloned repository (`fetch-depth: 1`), resulting in weird conflicts or missing base commits.
+- **Blind Commits**: Running `git commit -am "merge"` without actually inspecting the conflicted files, leaving `<<<<<<< HEAD` markers in the production codebase.
+- **Duplicate Imports**: Resolving a conflict by keeping "both" sides without realizing that this duplicated an `import` statement or variable declaration, breaking the build.
+
 ## Core Process
 
 1. **Pre-Flight Check**: Ensure the working directory is perfectly clean (`git status`)

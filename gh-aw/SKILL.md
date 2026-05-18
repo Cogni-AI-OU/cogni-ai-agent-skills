@@ -11,6 +11,24 @@ license: MIT
 
 Use `gh aw` to orchestrate GitHub Agentic Workflows for repository automation.
 
+## When to Use
+
+- To initialize, create, update, or run GitHub Agentic Workflows.
+- When compiling `.md` agent definitions into executable `.lock.yml` GitHub Actions.
+- To manage MCP (Model Context Protocol) servers and toolsets within a repository's agent configuration.
+
+## When Not to Use
+
+- For standard GitHub CLI operations that don't involve the Agentic Workflows extension (e.g., just listing issues or PRs).
+- When writing application code that simply uses the OpenAI or Anthropic API directly.
+- For troubleshooting a failed workflow run (use `gh-aw-troubleshooting` instead).
+
+## Common Pitfalls
+
+- **Manual Lockfile Edits**: Directly editing the `.lock.yml` file, which will be silently overwritten the next time `gh aw compile` is run.
+- **Skipping Compilation**: Changing an agent's `.md` definition but forgetting to run `gh aw compile`, causing the CI pipeline to run the outdated version.
+- **Missing Extension**: Attempting to run `gh aw` commands on a fresh runner without first executing `gh extension install github/gh-aw`.
+
 ## How to Install the Extension
 
 To install the GitHub Agentic Workflows extension for the GitHub CLI, run:

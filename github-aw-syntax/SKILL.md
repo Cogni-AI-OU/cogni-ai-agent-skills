@@ -12,6 +12,24 @@ license: MIT
 
 Reference for GitHub Agentic Workflows frontmatter schema, engines, networking, tools, and safe-outputs.
 
+## When to Use
+
+- When writing, editing, or debugging the YAML frontmatter of a `.md` Agentic Workflow file.
+- To configure MCP server tools, permissions, network allowlists, or safe-outputs for an agent.
+- When optimizing the caching or runtime environments of a GitHub Agentic Workflow.
+
+## When Not to Use
+
+- For standard GitHub Actions workflows (`.github/workflows/*.yml`) that do not use the `gh-aw` engine.
+- When writing the natural language instructions inside the workflow body (use `ai-prompt-writer` instead).
+- For troubleshooting execution failures (use `gh-aw-troubleshooting` instead).
+
+## Common Pitfalls
+
+- **Silent Schema Ignorance**: Misspelling a configuration key in the frontmatter, which the compiler silently ignores unless `gh aw compile --verbose` is used.
+- **Network Egress Blocking**: Attempting to call an external API without explicitly adding its domain to the `network.allowed` array, resulting in a blocked connection.
+- **Granting Write Permissions**: Adding `issues: write` or `contents: write` to the `permissions:` block instead of properly using `safe-outputs`, which violates the security model.
+
 ## Core Principles
 
 - **No Write Permissions in Main Job**: Never use `issues: write`, `pull-requests: write`, or `contents: write`. Write operations must use `safe-outputs`.

@@ -12,6 +12,25 @@ license: MIT
 
 Use this skill when developing Python code. For inline bash script Python execution, refer to the `python-cli` skill.
 
+## When to Use
+
+- Writing new Python 3 scripts, modules, or classes.
+- Refactoring existing Python code for performance, readability, or modern syntax.
+- Writing unit tests using `pytest` or `unittest`.
+- Debugging complex Python tracebacks or logic errors.
+
+## When Not to Use
+
+- When executing one-off shell pipeline data transformations (use `python-cli` instead).
+- For writing shell scripts (`bash`) or other languages (`JS/TS`, `Go`, `Rust`).
+- When managing project dependencies or virtual environments (use `pipenv` or `pipfile` skills instead).
+
+## Common Pitfalls
+
+- **Ignoring Type Hints**: Writing naked functions without `typing` module annotations, making the code harder to maintain and refactor.
+- **Mutable Default Arguments**: Using `def foo(items=[])` instead of `def foo(items=None)`.
+- **Catch-All Exceptions**: Using a bare `except:` or `except Exception:` without logging the traceback or re-raising, swallowing critical errors silently.
+
 ## Core Principles
 
 - **Idiomatic Python**: Follow PEP 8 guidelines for code style. Use standard Python naming conventions.

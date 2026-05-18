@@ -28,6 +28,18 @@ Apply dictation correction protocols to fix common speech-to-text errors, especi
 - When processing raw dictation or speech-to-text input.
 - When refining draft documentation or workflow descriptions that contain filler words or inaccuracies.
 
+## When Not to Use
+
+- For refactoring actual source code, where technical syntax must remain untouched by NLP heuristics.
+- When generating new content from scratch (use documentation generation skills instead).
+- For translating text between distinct human languages.
+
+## Common Pitfalls
+
+- **Over-Correction**: Attempting to "fix" valid code snippets or shell commands that happen to contain words resembling dictation errors (e.g., changing a literal `"get actions"` variable name to `"GitHub Actions"`).
+- **Losing Tone**: Stripping out conversational nuance entirely when editing a community-facing discussion, making it sound robotic.
+- **Ignoring Project Context**: Applying global acronyms (like expanding `API`) when the project glossary specifically demands a different domain-specific expansion.
+
 ## Quick Start
 
 ```markdown

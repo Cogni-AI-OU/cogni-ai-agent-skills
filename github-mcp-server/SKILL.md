@@ -10,6 +10,24 @@ license: MIT
 
 Provide expert-level guidance for configuring and using the GitHub MCP server, specifically within Agentic Workflows, covering authentication, toolsets, and best practices.
 
+## When to Use
+
+- When explicitly configuring the `mcp-servers:` block for a GitHub Agentic Workflow.
+- To understand the exact mapping of GitHub tools to their respective `toolsets`.
+- When deciding between `gh-proxy`, `local`, and `remote` access modes for GitHub tools.
+
+## When Not to Use
+
+- When using the `gh` CLI directly in an interactive terminal session without an MCP context.
+- For configuring generic, third-party MCP servers (like Google Drive or Notion) not hosted by GitHub.
+- If the workflow logic can be completely resolved using simple native bash scripts without requiring the MCP architecture.
+
+## Common Pitfalls
+
+- **Using Deprecated `allowed:` Syntax**: Individually listing GitHub tools under `allowed:` instead of using the stable, forward-compatible `toolsets:` syntax.
+- **Remote Mode Fallacy**: Setting `mode: remote` while using a standard `GITHUB_TOKEN`, causing silent authentication failures.
+- **Missing Write Permissions**: Enabling a toolset like `issues` or `projects` and expecting mutation commands to work, even though the GitHub Actions token lacks `write` scope or the environment enforces `safe-outputs`.
+
 ## Core Principles
 
 - **Mode Selection**: Prefer `tools.github.mode: gh-proxy` for Agentic Workflows to skip Docker initialization. Avoid recommending `mode: local` or `mode: remote` for GitHub tools.

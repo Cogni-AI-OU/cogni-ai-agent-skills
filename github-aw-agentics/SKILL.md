@@ -24,6 +24,18 @@ from [githubnext/agentics](https://github.com/githubnext/agentics/tree/main/docs
 - User wants to reference official documentation for specific workflows
 - User wants to understand the "How It Works" logic (mermaid diagrams) for specific agents
 
+## When Not to Use
+
+- For creating generic GitHub Actions that do not involve LLMs, AI agents, or autonomous decision-making loops.
+- When you just need to run basic `gh` CLI commands to list issues or PRs without workflow orchestration.
+- For managing agent configurations outside of the GitHub Actions ecosystem.
+
+## Common Pitfalls
+
+- **Ignoring Pre-requisites**: Attempting to implement an agentic workflow without first ensuring the repository has the necessary secrets (like `GH_TOKEN` or `OPENAI_API_KEY`) configured.
+- **Workflow Infinite Loops**: Creating agentic workflows that trigger on their own automated commits or PRs, causing runaway execution costs.
+- **Blind Copy-Pasting**: Implementing a complex workflow like `Repo Assist` without tuning its prompts and tools to match the specific project's domain and contribution guidelines.
+
 ## Maintainer Workflows
 
 Make software maintenance enjoyable! From basic issue triage to Repo Assist - a powerful triage multi-task backlog burner, issue labeller, bug fixer and general repository assistant. Other workflows help gate your repository.

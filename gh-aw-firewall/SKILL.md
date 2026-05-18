@@ -28,6 +28,18 @@ Use AWF when:
 - Running untrusted commands with limited network access
 - Testing Playwright or other tools against localhost services
 
+## When Not to Use
+
+- When running standard unit tests that do not require any external network requests.
+- For workflows that are already running in a fully air-gapped, self-hosted runner environment where AWF is redundant.
+- If the task only requires compiling YAML frontmatter (AWF is for runtime execution, not compilation).
+
+## Common Pitfalls
+
+- **Subdomain Blocking**: Allowing `example.com` but forgetting that API calls actually go to `api.example.com`, causing unexpected `TCP_DENIED` errors in the Squid log.
+- **Hanging Interactive Shells**: Running `sudo awf` with an interactive tool (like the Copilot CLI) without providing the `--prompt` argument, causing the firewall container to hang forever.
+- **Missing Cleanup**: Failing to provide `--keep-containers` during debugging, or conversely, leaving debug containers running indefinitely and eating up host memory.
+
 ## Quick Start
 
 ### Basic Command

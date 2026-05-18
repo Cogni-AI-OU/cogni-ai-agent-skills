@@ -10,6 +10,24 @@ license: MIT
 
 This skill provides procedural guidance for configuring and running CodeQL code scanning — both through GitHub Actions workflows and the standalone CodeQL CLI.
 
+## When to Use
+
+- When configuring advanced CodeQL security scanning via GitHub Actions (`.github/workflows/codeql.yml`).
+- To manually build CodeQL databases and run queries using the standalone CodeQL CLI.
+- When troubleshooting CodeQL autobuild failures for compiled languages like C++ or Java.
+
+## When Not to Use
+
+- When running standard linters (like ESLint or Ruff) that do not use CodeQL's semantic analysis.
+- For managing third-party dependency vulnerabilities (use Dependabot or the `sbom` skill).
+- If the repository has explicitly disabled CodeQL in favor of a different enterprise SAST tool.
+
+## Common Pitfalls
+
+- **Autobuilding Complex Projects**: Relying on `build-mode: autobuild` for compiled languages with complex, non-standard build scripts, resulting in empty databases.
+- **Missing Write Permissions**: Forgetting to add `security-events: write` to the GitHub Actions job, causing the SARIF upload step to fail with HTTP 403.
+- **Disk Space Exhaustion**: Running CodeQL on massive monorepos without filtering paths or using caching, exhausting the GitHub Actions runner's disk space.
+
 ## Core Process
 
 1. **Choose Setup Type**: Select between Default setup or Advanced setup (`.github/workflows/codeql.yml`).

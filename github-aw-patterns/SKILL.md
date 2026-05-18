@@ -15,6 +15,18 @@ license: MIT
 - When implementing specific Agentic Workflow patterns such as BatchOps, CentralRepoOps, ChatOps, DailyOps, etc.
 - When organizing multi-repository or cross-repository workflow operations.
 
+## When Not to Use
+
+- When writing the specific Markdown or YAML syntax of an individual workflow (use `github-aw-syntax`).
+- For debugging a workflow that failed during execution (use `gh-aw-troubleshooting`).
+- If the required automation is trivial and standard GitHub Actions without AI agents is perfectly sufficient.
+
+## Common Pitfalls
+
+- **Pattern Mismatch**: Using `WorkQueueOps` (sequential) for processing 500 independent items, leading to severe timeouts, instead of using `BatchOps`.
+- **Missing Orchestration**: Trying to cram an entire company's CentralRepoOps logic into a single monolithic workflow file instead of utilizing Orchestrator/Worker dispatch patterns.
+- **Ignoring Feedback**: Implementing CorrectionOps but failing to properly persist the human corrections into `repo-memory`, meaning the agent repeatedly makes the same mistakes.
+
 ## Core Principles
 
 - **Pattern Selection**: Choose the pattern that best fits the scale, dependencies, and triggers of the operation.

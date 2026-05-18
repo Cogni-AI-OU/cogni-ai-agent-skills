@@ -14,6 +14,12 @@ license: MIT
 - You are writing regex to validate or extract international characters, symbols, or specific scripts.
 - You need a reference for exact hexadecimal ranges for various languages or symbols.
 
+## When Not to Use
+
+- Simple ASCII string matching where standard regex bounds (`[a-zA-Z]`) are sufficient.
+- Language translation or natural language processing tasks (regex only identifies character classes, not semantic meaning).
+- Environment setups where Unicode regex support is severely limited or disabled.
+
 ## Core Process
 
 When tasked with matching specific languages or symbols:
@@ -31,7 +37,7 @@ When tasked with matching specific languages or symbols:
 
 For a comprehensive list of Unicode character hex ranges and regex blocks categorized by script, language, and symbol type, see the [Unicode Range Reference](references/unicode-ranges.md).
 
-## Gotchas
+## Common Pitfalls
 
 - **Surrogate Pairs in JS/Python**: If using standard JavaScript or Python (`re` module, not `regex`), you cannot use `\x{10000}`. You must either use the `\uXXXX` equivalent, `\U00010000`, or the ES6 `\u{10000}` syntax with the `/u` flag in JS.
 - **Combined Ranges**: Take care not to overlap or create invalid ranges when combining (e.g., `[\x{2500}-\x{257F}\x{2580}-\x{259F}]` can safely be written as `[\x{2500}-\x{259F}]`).

@@ -11,6 +11,18 @@ license: MIT
 
 Create new GitHub Agentic Workflows (gh-aw) by installing the CLI extension and fetching official step-by-step creation instructions.
 
+## When Not to Use
+
+- To modify or debug an *existing* agentic workflow (use `github-aw` or `gh-aw-troubleshooting` instead).
+- When creating standard GitHub Actions (`.yml`) that don't use the Agentic Workflows framework.
+- If you simply need to execute an agent prompt in the CLI rather than scaffolding a repository integration.
+
+## Common Pitfalls
+
+- **Ignoring the Prompt**: Trying to create the `.md` workflow file manually without fetching the official `create-agentic-workflow.md` prompt, resulting in invalid frontmatter.
+- **Forgetting Compilation**: Scaffolding the workflow but failing to run `gh aw compile`, leaving the repository without an executable `.lock.yml` file.
+- **Missing Hooks**: Bypassing `pre-commit run --all-files` after generation, pushing a workflow that violates repository standards.
+
 ## Core Process
 
 1. **Install or Upgrade gh-aw**:

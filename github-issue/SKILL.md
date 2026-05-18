@@ -12,6 +12,42 @@ license: MIT
 
 This skill helps with work on issues.
 
+## When to Use
+
+- When triggered by an issue comment event in a GitHub Action workflow.
+- When tasked with labeling, assigning, or editing a GitHub Issue natively via `gh issue`.
+- When diagnosing bug reports or feature requests filed as GitHub Issues.
+
+## When Not to Use
+
+- For interacting with Pull Requests (use `github-pr` and `gh-pr` instead).
+- When attempting to write project documentation (Issues are ephemeral trackers, not persistent wiki pages).
+- If the agent lacks the `issues: write` permission but needs to modify state.
+
+## Common Pitfalls
+
+- **Committing Informational Comments**: Accidentally writing a comment to a local file and committing it to the repo instead of using the `gh issue comment` API, polluting the commit history.
+- **Ignoring Event Context**: Failing to check `github.event_name` and replying to a PR comment using the Issue API, causing the response to land in the wrong thread.
+- **Dirty Workspaces**: Running an informational query but leaving untracked analysis files in the workspace, which can inadvertently trigger downstream CI jobs on the next step.
+
+## When to Use
+
+- When triggered by an issue comment event in a GitHub Action workflow.
+- When tasked with labeling, assigning, or editing a GitHub Issue natively via `gh issue`.
+- When diagnosing bug reports or feature requests filed as GitHub Issues.
+
+## When Not to Use
+
+- For interacting with Pull Requests (use `github-pr` and `gh-pr` instead).
+- When attempting to write project documentation (Issues are ephemeral trackers, not persistent wiki pages).
+- If the agent lacks the `issues: write` permission but needs to modify state.
+
+## Common Pitfalls
+
+- **Committing Informational Comments**: Accidentally writing a comment to a local file and committing it to the repo instead of using the `gh issue comment` API, polluting the commit history.
+- **Ignoring Event Context**: Failing to check `github.event_name` and replying to a PR comment using the Issue API, causing the response to land in the wrong thread.
+- **Dirty Workspaces**: Running an informational query but leaving untracked analysis files in the workspace, which can inadvertently trigger downstream CI jobs on the next step.
+
 ## 1. Initialization & Context Routing
 
 ### Initialization Sequence

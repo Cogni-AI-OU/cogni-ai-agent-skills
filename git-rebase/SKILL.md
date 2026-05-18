@@ -12,6 +12,24 @@ license: MIT
 
 Expert-level guidance for executing Git rebase operations safely, particularly distinguishing between interactive manual usage and automated environments.
 
+## When to Use
+
+- When updating a feature branch with the latest changes from `main` to maintain a linear history.
+- To squash or fix up messy, intermediate commits before opening a Pull Request (using `git rebase -i --autosquash` locally).
+- When moving a branch's base from one commit to another to untangle dependency chains.
+
+## When Not to Use
+
+- On shared or public branches where other developers have already pulled the commits (doing so rewrites history and causes severe integration headaches).
+- For simple feature integrations where a standard merge commit is explicitly requested or preferred by the team's workflow.
+- In fully automated CI/CD environments unless strictly using non-interactive scripting to handle specific autosquash patterns.
+
+## Common Pitfalls
+
+- **Interactive Terminal Hangs**: Using `-i` in an automated agent environment, causing the system to freeze while waiting for a VIM editor input that will never happen.
+- **Force-Pushing Blindly**: Running `git push --force` after a rebase instead of `git push --force-with-lease`, potentially destroying a teammate's recent commits.
+- **Conflict Panic**: Encountering a merge conflict during a rebase and running chaotic commands instead of methodically resolving the files, adding them, and running `git rebase --continue` (or `--abort` if hopelessly stuck).
+
 ## Interactive Rebasing (`git rebase -i`)
 
 - **Objective**: Clean up local commit history before pushing.

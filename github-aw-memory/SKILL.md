@@ -9,6 +9,24 @@ license: MIT
 
 Persistent memory strategy for GitHub Agentic Workflows (`cache-memory`, `repo-memory`, `comment-memory`).
 
+## When to Use
+
+- To persist workflow state across multiple runs (e.g., maintaining a daily progress tracker).
+- When a workflow needs to remember which PRs or issues it has already processed to avoid duplicate work.
+- To store configuration baselines or operational notes (using `repo-memory`) that must survive cache expiration.
+
+## When Not to Use
+
+- When the state can be trivially derived from existing GitHub abstractions (e.g., checking if a label exists instead of writing a memory file).
+- For storing highly sensitive secrets or credentials (use GitHub Secrets instead).
+- If the workflow runs completely statelessly and completes all processing in a single run.
+
+## Common Pitfalls
+
+- **Colons in Filenames**: Using timestamps with colons (like `2026-05-01-12:00:00`) as cache keys, which instantly breaks the artifact upload on Windows runners.
+- **Cache Eviction**: Relying on `cache-memory` for long-term storage, forgetting that GitHub automatically deletes caches after 7 days of inactivity.
+- **Noisy Commits**: Using `repo-memory` for ephemeral per-run state, polluting the Git history with hundreds of tiny, meaningless commits.
+
 ## Core Principles
 
 - **Prefer Built-in History**: Rely on Git history, issue timelines, and graph links before writing new persistent files. Store only stable watermarks (SHA, updated_at).

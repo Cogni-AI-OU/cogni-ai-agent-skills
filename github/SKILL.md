@@ -16,6 +16,18 @@ Guidance on interacting with GitHub features, specifically around Pull Requests 
 - When working with GitHub Pull Requests, comparing branches, or needing to view diffs/patches.
 - When needing to extract plain text diffs from GitHub PRs.
 
+## When Not to Use
+
+- For scripting bulk issue creation or complex repository management (use the `gh` CLI or `gh-api` skills instead).
+- When resolving Git merge conflicts directly in the local repository (use `git` or `git-expert`).
+- If you need deep code-level semantic analysis that a raw `.patch` or `.diff` format doesn't provide.
+
+## Common Pitfalls
+
+- **Ignoring Context**: Looking only at the few lines of a `.diff` file and missing the broader architectural implications of a Pull Request.
+- **Scraping HTML**: Attempting to curl and scrape the standard GitHub web UI instead of using the `.diff`/`.patch` extensions or the GitHub API.
+- **Misinterpreting Line Numbers**: Taking a user's `#L123` link out of context, failing to realize the code has shifted significantly since the permalink was generated.
+
 ## Pull Request Plain Text View Modes
 
 GitHub allows viewing pull requests and commits in plain text formats by simply appending an extension to the URL.

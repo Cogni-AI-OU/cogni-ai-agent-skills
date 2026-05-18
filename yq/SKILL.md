@@ -13,6 +13,19 @@ license: MIT
 
 Safely parse, edit, merge, and transform YAML files using yq, providing robust command-line examples for extraction and in-place modifications.
 
+## When to Use
+
+- Automating modifications to YAML configuration files in CI/CD pipelines.
+- Extracting specific values from complex or deeply nested YAML structures.
+- Merging multiple YAML files programmatically.
+- Converting between JSON and YAML formats in shell scripts.
+
+## When Not to Use
+
+- When writing full-fledged Python or Node.js scripts (use native YAML parsing libraries instead).
+- When dealing with malformed or non-compliant YAML files (fix the files first).
+- Simple string replacements where the YAML structure is flat and strictly controlled (though `yq` is still safer).
+
 ## Core Principles
 
 - **Use yq**: Rely on `yq` (mikefarah/yq) for robust, correct YAML parsing rather than fragile tools like `grep` or `sed` to avoid breaking structure or indentation.
@@ -43,6 +56,12 @@ Safely parse, edit, merge, and transform YAML files using yq, providing robust c
 
 - Using `sed`, `awk`, or `grep` to modify YAML structures, as these tools are not schema-aware and often break indentation.
 - Hardcoding complex bash string manipulation for YAML extraction.
+
+## Common Pitfalls
+
+- **Syntax Confusion**: Mixing `kislyuk/yq` (Python) syntax with `mikefarah/yq` (Go) syntax. They are different tools; this skill assumes `mikefarah/yq`.
+- **Losing Comments**: Depending on the version and flags used, in-place edits might strip comments or reformat the file unexpectedly. Always test non-destructively first.
+- **Quoting Issues**: Failing to properly escape quotes in shell wrappers around `yq` commands, leading to syntax errors.
 
 ## Limitations
 

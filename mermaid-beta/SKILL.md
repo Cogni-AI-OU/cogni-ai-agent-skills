@@ -16,6 +16,18 @@ Expert in creating, optimizing, and troubleshooting experimental Mermaid.js beta
 - User wants to use experimental beta Mermaid diagram types like Architecture, Flow, Sankey, etc.
 - Working with newer versions of Mermaid.js.
 
+## When Not to Use
+
+- For standard, fully stable Mermaid diagrams (like simple Flowcharts, Sequence diagrams, or Class diagrams) where `mermaid/SKILL.md` is more appropriate.
+- In environments or markdown renderers that use outdated Mermaid versions (pre-v11.x) lacking beta support.
+- When generating complex, data-heavy visualizations better suited for dedicated charting libraries (e.g., D3.js, Chart.js).
+
+## Common Pitfalls
+
+- **Renderer Incompatibility**: Embedding beta diagrams in platforms (like standard GitHub markdown rendering) that haven't updated to the required Mermaid version, resulting in syntax errors.
+- **Syntax Volatility**: Relying on beta syntax for permanent, strict documentation without acknowledging that beta features may break or change in future updates.
+- **Missing Plugin Registration**: Attempting to use external integrations like ZenUML without explicitly registering the required plugins in the rendering environment.
+
 ## Related Instructions
 
 - **mermaid.instructions.md**: Formatting standards, best

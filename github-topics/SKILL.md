@@ -11,6 +11,24 @@ license: MIT
 
 Search GitHub repositories using topics and keywords to discover relevant software and resources.
 
+## When to Use
+
+- To discover new tools, libraries, or frameworks that match the project's technology stack.
+- When searching for curated "awesome lists" to find community-approved resources.
+- If the user asks for recommendations on how to solve a specific technical problem and you need to find open-source solutions.
+
+## When Not to Use
+
+- When searching for specific code snippets or implementations inside a single repository (use `gh search code` instead).
+- To find issues or PRs (use `gh issue list` or `gh pr list`).
+- When looking up official documentation that is better found via a direct web search.
+
+## Common Pitfalls
+
+- **Overly Broad Queries**: Searching for generic terms like "javascript" without adding specific topic filters, resulting in millions of useless hits.
+- **Ignoring Star Counts**: Blindly adopting the first repository found without checking its star count, recent activity, or maintenance status.
+- **Failing to Read the README**: Recommending a tool based solely on its topic tags without fetching and verifying its README to ensure it actually does what the user needs.
+
 ## Core Process
 
 1. **Identify Repositories**: Use `gh search repos` to find repositories matching specific topics or keywords.

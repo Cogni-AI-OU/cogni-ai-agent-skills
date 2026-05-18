@@ -22,6 +22,18 @@ to gh CLI.
 - User provides a GitHub Actions URL (e.g., `https://github.com/owner/repo/actions/runs/RUN_ID/job/JOB_ID`)
 - User reports a failing GitHub Actions workflow, CI failure, or red status check
 
+## When Not to Use
+
+- For modifying application code logic completely unrelated to CI/CD infrastructure.
+- For local build issues that don't manifest in GitHub Actions.
+- When you only need to trigger a run without needing to diagnose failures.
+
+## Common Pitfalls
+
+- **Ignoring Authentication**: Assuming `gh run` commands will work on private repositories without verifying `gh auth status` first.
+- **Reading Full Logs Blindly**: Fetching 10,000-line log files without using `--log-failed` or text filtering, resulting in immediate context window exhaustion.
+- **Misinterpreting Success**: Assuming a workflow failed just because the user asked you to check it, without first verifying the run conclusion.
+
 ## Step-by-Step Process
 
 1. Extract IDs from GitHub Actions URL if provided.

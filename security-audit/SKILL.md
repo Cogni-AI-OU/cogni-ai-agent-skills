@@ -28,6 +28,18 @@ Use this skill when the request involves:
 - Any request phrasing like "is my code secure?", "scan this file", or "check my repo for vulnerabilities"
 - Running `/security-audit` or `/security-audit <path>`
 
+## When Not to Use
+
+- When writing tests for functional validation (use `tester` or `tdd`).
+- When optimizing code purely for performance without a security context.
+- For basic code formatting or linting fixes.
+
+## Common Pitfalls
+
+- **False Positives**: Flagging code as vulnerable purely based on regex matches without considering existing sanitization or trust boundaries.
+- **Ignoring the Supply Chain**: Auditing the source code meticulously but neglecting to check `package.json` or `requirements.txt` for known CVEs.
+- **Suggesting Breaking Changes**: Recommending heavy-handed security controls (e.g., dropping all database privileges) that completely break the application's core business logic.
+
 ## Role Persona & Cognitive Framework
 
 - **Adversarial Attacker Engine**: Think like an advanced persistent threat (APT). Ask "How can I bypass this check?",

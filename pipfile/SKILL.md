@@ -11,6 +11,24 @@ license: MIT
 
 Use this skill for managing the structure and content of `Pipfile` and `Pipfile.lock` files.
 
+## When to Use
+
+- When manually resolving merge conflicts in a `Pipfile` following standard TOML syntax.
+- To strictly review the separation of `[packages]` vs `[dev-packages]` in a Python project.
+- When migrating legacy `requirements.txt` declarations into a structured `Pipfile`.
+
+## When Not to Use
+
+- When actually installing or resolving the dependencies (use the `pipenv` skill to execute the CLI commands).
+- For attempting to manually edit the `Pipfile.lock` (which should never be touched by humans or agents directly).
+- If the project relies on `pyproject.toml` instead of Pipenv for dependency definitions.
+
+## Common Pitfalls
+
+- **Syntax Errors**: Breaking the TOML syntax in the `Pipfile` during manual edits, causing subsequent `pipenv lock` commands to fail entirely.
+- **Manual Lockfile Edits**: Attempting to resolve hash conflicts by manually editing the `Pipfile.lock` JSON, resulting in a corrupted environment.
+- **Dependency Co-mingling**: Placing testing libraries (like `pytest`) in the production `[packages]` block instead of `[dev-packages]`, bloating the deployment artifact.
+
 ## Core Process
 
 1. **Structure Definition**: Define the `Pipfile` structure including source, packages, and dev-packages.

@@ -12,6 +12,24 @@ license: MIT
 
 Guidelines and commands for generating a Software Bill of Materials (SBOM) to provide visibility into the dependency tree, enabling compliance reporting, vulnerability tracking, and supply chain risk assessment.
 
+## When to Use
+
+- When required to generate compliance reports for software supply chain security.
+- To produce an inventory of all third-party dependencies used in a project.
+- When configuring a CI/CD pipeline step that requires SPDX or CycloneDX artifacts.
+
+## When Not to Use
+
+- For routine unit testing or local syntax linting.
+- When specifically auditing source code for logic vulnerabilities (use `security-audit` instead).
+- If the repository strictly uses another proprietary SBOM generator mandated by the organization.
+
+## Common Pitfalls
+
+- **Missing Transitive Dependencies**: Generating an SBOM from source code without resolving lockfiles, leading to an incomplete dependency tree.
+- **Format Confusion**: Assuming a single JSON format is sufficient without verifying whether the downstream consumer requires SPDX or CycloneDX.
+- **Stale Generation**: Generating the SBOM before the final build step, resulting in an inaccurate representation of the shipped artifact.
+
 ## Core Process
 
 1. **Install Syft**: Ensure the `syft` CLI tool is installed for SBOM generation.

@@ -31,6 +31,18 @@ Dynamically generate a coding standards document based on the existing syntax, f
 - To detect and fix formatting inconsistencies across multiple files.
 - When generating `CONTRIBUTING.md`, `STYLE.md`, or `STYLEGUIDE.md`.
 
+## When Not to Use
+
+- When the project already has an explicit, well-documented `CONTRIBUTING.md` or `.editorconfig` that should not be overwritten.
+- To enforce rules that contradict the organization's global engineering standards.
+- When generating general project documentation unrelated to coding style (use `docs-writer`).
+
+## Common Pitfalls
+
+- **Ignoring Edge Cases**: Establishing a "majority rule" based on a single small file, leading to a standard that conflicts with the rest of the massive codebase.
+- **Overwriting Existing Rules**: Blindly generating a new `STYLE.md` that overrides a carefully curated, existing style guide without asking the user.
+- **Opinionated Hallucinations**: Injecting Python conventions (like PEP 8) into a JavaScript project just because the LLM prefers them, rather than strictly empirical inference.
+
 ## Quick Start
 
 1. Identify the reference file or folder.

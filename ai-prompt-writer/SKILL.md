@@ -45,7 +45,13 @@ Design, review, and optimize secure AI prompts using advanced prompt engineering
 - Establish A/B testing and automated evaluation for continuous prompt refinement.
 - Document prompt purpose, scope, assumptions, and limitations.
 
-## Common Pitfalls to Avoid
+## When Not to Use
+
+- When writing strict procedural code (like Python or Bash scripts) where natural language ambiguity is unacceptable.
+- For managing low-level hardware or infrastructure where strict, deterministic APIs should be used instead of LLMs.
+- When generating general project documentation without targeting an AI consumer (use `docs-writer` instead).
+
+## Common Pitfalls
 
 - **Too Vague**: "Make the code better" → Specify exactly what "better" means.
 - **Too Restrictive**: Over-constraining can prevent useful optimizations.

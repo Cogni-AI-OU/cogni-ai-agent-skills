@@ -22,6 +22,18 @@ capabilities.
 - When searching through codebases
 - When working with logs, build outputs, or data files
 
+## When Not to Use
+
+- For trivially small, single-file edits where the overhead of checking file size slows down the workflow unnecessarily.
+- When the user explicitly demands the full output of a specific file and context limits are known to be sufficient.
+- For interactive terminal sessions where pagination tools (`less`, `more`) are natively handled by the user.
+
+## Common Pitfalls
+
+- **Blind Dumping**: Running `cat` on a build log without checking its size, instantly blowing out the LLM's context window.
+- **Truncating Crucial Errors**: Using `head` to sample a file when the actual error message resides at the very end of the stack trace (where `tail` was needed).
+- **Ignoring Binary Files**: Attempting to read binary artifacts or minified JS without filtering, resulting in unreadable token noise.
+
 ## Core Principle
 
 **Always check before you dump!**
@@ -348,7 +360,7 @@ current=$((current + chunk_size))
 sed -n "${current},$((current + chunk_size))p" file.txt
 ```
 
-## Common Pitfalls to Avoid
+## What to Avoid
 
 1. **Don't**: `cat huge_file.log`
    **Do**: `head -100 huge_file.log && echo "... (showing first 100 of $(wc -l < huge_file.log) lines)"`

@@ -21,6 +21,18 @@ Never give up when a command fails - try alternatives!
 - When working in different environments (containers, CI, local)
 - When you need to ensure commands succeed
 
+## When Not to Use
+
+- For highly sensitive or destructive commands (like `rm -rf /` or database drops) where silent fallback execution could be disastrous.
+- Inside performance-critical inner loops where checking for tool existence on every iteration introduces unacceptable overhead.
+- When working within strictly constrained, immutable environments where installing new packages is explicitly forbidden.
+
+## Common Pitfalls
+
+- **Masking Genuine Errors**: Catching all errors with `||` and proceeding blindly, ignoring that the primary command failed for a critical reason (e.g., missing permissions, not just a missing tool).
+- **Infinite Loops in Fallbacks**: Creating a fallback mechanism that continuously retries a command without a hard cap or backoff strategy.
+- **Assuming Installation Succeeds**: Trying to `apt-get install` a missing tool without verifying whether the script actually has root/sudo privileges to do so.
+
 ## Core Principle
 
 **If a command doesn't work, don't just report failure - fix it!**

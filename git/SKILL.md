@@ -20,6 +20,12 @@ maintain clean history and respect repository conventions.
 - User asks for help to execute Git operations natively (committing, moving files, merging).
 - User encounters issues when amending or reverting code changes in history.
 
+## When Not to Use
+
+- When managing massive binary blobs where Git LFS or external artifact storage is required.
+- For interacting with GitHub-specific abstractions like Pull Requests, Issues, or GitHub Actions (use `gh` instead).
+- When resolving excessively complex merge conflicts that require human intuition and domain knowledge to untangle correctly.
+
 ## Core Principles
 
 - **Anti-Panic Mutation Ban (Desperation Guardrail)**: NEVER chain rapid-fire state-mutating Git commands
@@ -212,13 +218,13 @@ that includes ALL commits from the target branch in your PR, making it impossibl
 
    The diff should show ONLY files you created/modified for your feature, not unrelated files from target branch.
 
-### Common Pitfalls
+## Common Pitfalls
 
 - **Merge commits in PR**: Indicates wrong approach was used. Start over with reset + cherry-pick workflow.
 - **Too many changed files**: Verify you reset to correct target branch before cherry-picking.
-- **Conflict resolution mistakes**: When resolving conflicts, don't remove existing target branch content - only add
-  your feature changes.
+- **Conflict resolution mistakes**: When resolving conflicts, don't remove existing target branch content - only add your feature changes.
 - **Wrong commit order**: When cherry-picking multiple commits, maintain original chronological order.
+- **Committing Conflict Markers**: Blindly committing files that still contain `<<<<<<<`, `=======`, and `>>>>>>>`.
 
 ### Working with Automation Tools
 

@@ -10,6 +10,42 @@ license: MIT
 
 Guidance for installing the GitHub Copilot CLI on Debian/Ubuntu and using it with custom agents via command-line options.
 
+## When to Use
+
+- When executing programmatic requests against GitHub Copilot via the terminal.
+- To orchestrate specialized subagents using the `--agent` flag.
+- When installing or authenticating the Copilot CLI in a CI/CD or local environment.
+
+## When Not to Use
+
+- When trying to use standard `gh` commands for repo management (Copilot CLI is an extension specifically for AI assistance).
+- Inside highly restricted environments without internet access or where external API calls to `api.github.com` are blocked.
+- For generating extremely large, multi-file architectural scaffolds where a dedicated repository generation tool is more appropriate.
+
+## Common Pitfalls
+
+- **Interactive Prompts in Scripts**: Using the raw `copilot` command in a CI script without the `-s` (silent) or programmatic flags, causing the pipeline to hang waiting for user input.
+- **Agent Name Clashes**: Creating a custom agent that shares a name with a built-in alias, leading to the wrong prompt instructions being loaded.
+- **Untrusted Directories**: Failing to pre-approve or trust the working directory, causing Copilot CLI to block execution and demand a manual terminal confirmation.
+
+## When to Use
+
+- When executing programmatic requests against GitHub Copilot via the terminal.
+- To orchestrate specialized subagents using the `--agent` flag.
+- When installing or authenticating the Copilot CLI in a CI/CD or local environment.
+
+## When Not to Use
+
+- When trying to use standard `gh` commands for repo management (Copilot CLI is an extension specifically for AI assistance).
+- Inside highly restricted environments without internet access or where external API calls to `api.github.com` are blocked.
+- For generating extremely large, multi-file architectural scaffolds where a dedicated repository generation tool is more appropriate.
+
+## Common Pitfalls
+
+- **Interactive Prompts in Scripts**: Using the raw `copilot` command in a CI script without the `-s` (silent) or programmatic flags, causing the pipeline to hang waiting for user input.
+- **Agent Name Clashes**: Creating a custom agent that shares a name with a built-in alias, leading to the wrong prompt instructions being loaded.
+- **Untrusted Directories**: Failing to pre-approve or trust the working directory, causing Copilot CLI to block execution and demand a manual terminal confirmation.
+
 ## Core Process
 
 1. **Install CLI**: Use `npm install -g @github/copilot` (recommended), `curl -fsSL https://gh.io/copilot-install | bash` (install script), or `snap install copilot-cli` on Debian/Ubuntu.

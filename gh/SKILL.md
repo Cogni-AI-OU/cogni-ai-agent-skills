@@ -301,6 +301,18 @@ mindmap
       (Load gh-run skill if required)
 ```
 
+## When Not to Use
+
+- For interacting with raw git mechanisms (use `git` instead).
+- When a dedicated GraphQL client or specific SDK is better suited for a massive data synchronization task than CLI iteration.
+- For non-GitHub version control platforms (e.g., GitLab, Bitbucket).
+
+## Common Pitfalls
+
+- **Paginating Endlessly**: Using `gh api` to fetch thousands of records without a `--jq` filter or `--paginate` limit, causing out-of-memory errors or API rate limits.
+- **Shell Pipeline Brittleness**: Piping `gh` JSON output through `grep` and `awk` instead of natively querying with `--jq`, leading to broken scripts when GitHub's API response order shifts.
+- **Interactive Hangs**: Running commands like `gh pr create` without the `--fill` or `--body` flags in a headless environment, causing the workflow to stall indefinitely waiting for a TTY editor.
+
 ## Core Process
 
 1. Verify availability and auth first: `gh --version`, then `gh auth status`.

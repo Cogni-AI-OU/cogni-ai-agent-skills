@@ -10,6 +10,24 @@ license: MIT
 
 Diagnose, troubleshoot, and fix failing GitHub Agentic Workflows by analyzing logs, verifying MCP configurations, and correcting frontmatter.
 
+## When to Use
+
+- When a GitHub Agentic Workflow run fails and requires root-cause analysis.
+- To diagnose `401 Unauthorized`, missing tools, or firewall egress blocks in an agent session.
+- When an agent's `safe-outputs` configuration is rejecting intended file writes or API calls.
+
+## When Not to Use
+
+- For debugging standard CI/CD pipelines (like unit tests or linters) that do not involve `gh-aw` agents (use `github-actions` instead).
+- When editing the conversational prompt text inside the markdown file without changing the YAML frontmatter constraints (this rarely causes structural failures).
+- For troubleshooting standard GitHub CLI authentication issues unrelated to Agentic Workflows.
+
+## Common Pitfalls
+
+- **Ignoring the Firewall**: Assuming a network call failed due to code errors, rather than checking the `network.allowed` list in the frontmatter which strictly blocks unapproved domains.
+- **Missing Recompilation**: Editing the `.md` workflow file but forgetting to run `gh aw compile`, meaning the actual executed GitHub Actions `.lock.yml` remains unchanged and still fails.
+- **Over-Permissive Fixes**: "Fixing" a permissions error by granting `write-all` to the GitHub token instead of carefully mapping the exact minimum required scope in `safe-outputs`.
+
 ## Core Process
 
 1. **Extract Run ID**: Parse the workflow run URL (e.g., `https://github.com/*/actions/runs/<run-id>`) to identify the `{run-id}`.

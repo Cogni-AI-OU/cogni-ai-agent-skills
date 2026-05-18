@@ -12,6 +12,24 @@ license: MIT
 Use `gh search` to query GitHub for code, commits, issues, pull requests, and repositories.
 Prefer structured JSON output over manual text parsing.
 
+## When to Use
+
+- To find examples of specific function usage or API patterns across millions of repositories.
+- When looking for issues or PRs that match specific criteria (labels, state, author) across an entire organization.
+- To programmatically aggregate repository metadata using structured `--json` output.
+
+## When Not to Use
+
+- For searching file contents within a small, local repository (use `grep` or `rg` directly instead of incurring API latency).
+- When attempting to perform automated code modifications or refactoring across multiple repos.
+- If you just need to view a single known issue or PR by its number (use `gh issue view` or `gh pr view`).
+
+## Common Pitfalls
+
+- **Parsing Tabular Output**: Attempting to use `awk` or `grep` on the default visual output instead of utilizing `--json` and `--jq`, leading to brittle scripts.
+- **Unbounded Searches**: Running a query without the `--limit` flag, pulling down an overwhelming number of results that exhaust the API rate limit or the agent's context window.
+- **Indexing Delays**: Searching for code that was committed only minutes ago and assuming it doesn't exist when GitHub's search index hasn't caught up yet.
+
 ## Commands / Usage Patterns
 
 - **Search Repositories**:

@@ -9,6 +9,24 @@ license: MIT
 
 Generates a comprehensive report of available resources or system state by self-inspecting, comparing against expected state definitions, and updating documentation accordingly.
 
+## When to Use
+
+- When required to perform a comprehensive audit of system configuration against a baseline definition.
+- To discover and document orphaned, duplicated, or miscategorized items in a repository.
+- When generating status reports that track changes (diffs) since the last execution.
+
+## When Not to Use
+
+- For simply writing a single documentation file (use `docs-writer` instead).
+- When investigating a specific failure or bug report rather than conducting a full system audit.
+- If the required baseline definitions or historical state data are completely unavailable or undefined.
+
+## Common Pitfalls
+
+- **Unstructured Outputs**: Dumping thousands of lines of raw text instead of organizing findings into Markdown tables and clear sections.
+- **Ignoring the Baseline**: Generating a report of current items without actually diffing them against the expected baseline definitions.
+- **Failing to Update Docs**: Reporting the discrepancies but forgetting to execute the step that actually updates the reference documentation and creates the PR.
+
 ## Core Process
 
 1. **Load Previous Data**: Check persistent storage or historical logs to load the previous state for comparison.

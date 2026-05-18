@@ -22,6 +22,18 @@ Use `gh api` and `gh api graphql` when standard `gh` subcommands do not expose t
 - Task to resolve outdated PR comments.
 - User specifically asks for `gh api` or `gh api graphql` usage.
 
+## When Not to Use
+
+- When a native `gh` command (like `gh issue view` or `gh pr create`) already provides the exact functionality and fields needed.
+- When performing heavy, sustained data scraping where a dedicated script using octokit/PyGithub handles rate limiting and pagination better.
+- For interacting with raw git mechanisms like pushing commits or resolving merges (use `git` instead).
+
+## Common Pitfalls
+
+- **Blind Pagination**: Using `--paginate` on endpoints with thousands of items without piping to a file or `jq` filter, crashing the terminal or hitting memory limits.
+- **Incorrect Field Types**: Using `-f` instead of `-F` for file uploads or boolean values, causing the API to interpret the input as a literal string.
+- **Ignoring Caching/Delays**: Expecting newly created GitHub Actions runs or comments to be instantly visible in the API without accounting for indexing delays.
+
 ## Mindmap of Commands
 
 ```mermaid

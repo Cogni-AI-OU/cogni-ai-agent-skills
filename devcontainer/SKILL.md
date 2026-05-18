@@ -27,6 +27,24 @@ Create, update, and maintain robust `devcontainer.json` configurations and assoc
 - **Root vs RemoteUser**: Execute system installs as `root` (e.g., using `sudo` if `remoteUser` is `vscode`) and user installs (e.g., Python packages) as the `remoteUser`.
 - **Reproducibility**: Pin feature versions and base image tags (e.g., `:jammy` instead of `:latest`).
 
+## When to Use
+
+- When setting up a reproducible development environment for a repository.
+- To standardize tooling, linters, and extensions for all contributors via VS Code or GitHub Codespaces.
+- When upgrading base images or adding new Dev Container Features to an existing project.
+
+## When Not to Use
+
+- For creating lightweight, production-ready Docker images (devcontainers are heavy and optimized for development, not production).
+- If the project strictly uses Nix, Flox, or another purely declarative package manager without containerization.
+- When executing a one-off script that doesn't require a persistent, isolated environment.
+
+## Common Pitfalls
+
+- **Monolithic Dockerfiles**: Writing massive, custom `Dockerfile`s full of `apt-get` commands instead of using standardized, cached Dev Container Features.
+- **Wrong Lifecycle Hook**: Using `postCreateCommand` for heavy OS-level installations, drastically delaying the time it takes for the user's workspace to become interactive.
+- **Root Permission Errors**: Forgetting that certain `onCreateCommand` scripts run as `root`, while `postCreateCommand` runs as the `remoteUser` (e.g., `vscode`), leading to permission denied errors on npm/pip installs.
+
 ## Example: devcontainer.json
 
 ```jsonc

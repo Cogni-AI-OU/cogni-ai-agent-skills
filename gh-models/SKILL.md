@@ -23,6 +23,18 @@ agentic workflows on issues, PRs, repo events, and prompt engineering at scale.
 - User asks to use GitHub Models, `gh models`, or perform AI inference via CLI.
 - Task involves running, evaluating, or generating tests for AI prompts and LLM-based workflows.
 
+## When Not to Use
+
+- When querying production LLM endpoints that require direct API integration (e.g., using `openai` Python package in application code).
+- For traditional, deterministic unit testing of standard application logic.
+- When working offline or without authenticated access to the GitHub API.
+
+## Common Pitfalls
+
+- **Skipping Evaluation**: Pushing a modified `.prompt.yml` to production without running `gh models eval` to verify that the changes haven't degraded performance.
+- **Hardcoding Context**: Passing static strings into `gh models run` instead of dynamically piping real repository context (like issue bodies or git diffs).
+- **Ignoring Model Limits**: Selecting a massive model for a simple triage task, wasting tokens and time, instead of using a smaller, faster model (e.g., `gpt-4o-mini`).
+
 ## Mindmap of Commands
 
 ```mermaid

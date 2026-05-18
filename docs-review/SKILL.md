@@ -21,6 +21,18 @@ Guidance for reviewing core architecture, documentation, and constraint files fo
 - When encountering complex code to ensure it's properly documented.
 - When verifying an operational procedure or tradeoff.
 
+## When Not to Use
+
+- For performing deep code execution or logic validation (use `tester` or `code-review` instead).
+- When the user explicitly requests purely formatting/linting fixes (use `markdown` or `yaml` skills).
+- For writing completely new features from scratch without reviewing existing architecture.
+
+## Common Pitfalls
+
+- **Overzealous Editing**: Modifying architectural constraint files (`CONSTRAINTS.mzn`) arbitrarily without understanding the global impact, leading to runtime failures.
+- **Surface-Level Checks**: Verifying that a markdown file exists without actually reading its content to ensure it accurately reflects the current codebase.
+- **Ignoring Dependency Context**: Updating a README file while neglecting the corresponding `AGENTS.md` or ADR, creating localized inconsistency.
+
 ## Core Process
 
 1. **Analyze Relationships**:

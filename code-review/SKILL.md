@@ -13,6 +13,24 @@ license: MIT
 
 Execute expert-level code reviews, dissecting codebases and Pull Requests (PRs) with surgical precision to identify logical flaws, architectural drift, performance bottlenecks, and security vulnerabilities before they merge.
 
+## When to Use
+
+- When explicitly asked to review, audit, or verify a Pull Request before it merges.
+- To analyze a specific code snippet or file for security vulnerabilities, architectural drift, or logical flaws.
+- When performing a final verification check as part of a larger agentic task.
+
+## When Not to Use
+
+- When the objective is simply to format code or fix syntax errors (use `coding-standard-writer` or linters).
+- If the PR is a trivial documentation update (use `docs-review` instead).
+- When tasked with writing new features from scratch.
+
+## Common Pitfalls
+
+- **Bypassing the Tests**: Jumping straight into the implementation code without checking if the accompanying tests actually assert the correct behavior.
+- **Nitpicking the Trivial**: Leaving dozens of comments about trailing whitespace or variable naming conventions while completely missing a critical SQL injection vulnerability.
+- **Vague Suggestions**: Pointing out that a function is "too complex" without actually providing a concrete, refactored snippet to solve the problem.
+
 ## Core Process
 
 1. **Review Tests First**: Always analyze the tests before the implementation code; they reveal the true intent and coverage gaps.

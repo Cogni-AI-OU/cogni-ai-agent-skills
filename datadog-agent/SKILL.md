@@ -10,6 +10,24 @@ license: MIT
 
 Expert-level guidance for installing, configuring, and extending the Datadog Agent, including Ansible orchestration and custom OpenMetrics checks.
 
+## When to Use
+
+- When configuring, installing, or troubleshooting the Datadog Agent on a Linux host.
+- To write custom Python check scripts (`AgentCheck` or `OpenMetricsBaseCheckV2`) for the agent.
+- When updating Ansible playbooks that deploy the `datadog.dd.agent` role.
+
+## When Not to Use
+
+- For querying Datadog APIs to read telemetry or dashboard data (use `datadog-api` instead).
+- When managing Datadog SaaS configurations like Monitors or SLOs (use `datadog-monitors`).
+- If you are deploying Datadog strictly via a Helm chart in Kubernetes without needing custom host-level Python checks.
+
+## Common Pitfalls
+
+- **Subprocess Hangs**: Using Python's native `subprocess` module inside a custom check instead of `get_subprocess_output()`, which deadlocks the Agent's Go-runtime.
+- **Misnamed Files**: Creating a custom check script named `my_check.py` but naming the configuration file `custom_check.yaml`, causing the Agent to silently ignore it.
+- **Root Level Logs**: Defining `- type: file` at the root of a check's YAML configuration instead of properly nesting it under a `logs:` key.
+
 ## Core Principles
 
 - **Agent Immutability**: Prefer immutable configuration deployments (e.g., Ansible) over manual modifications to `datadog.yaml` or `conf.d/`.

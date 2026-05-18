@@ -12,6 +12,24 @@ license: MIT
 
 Analyze execution logs of agentic runs in CI/CD pipelines to extract insights about implementation status, challenges, and next steps for a Pull Request.
 
+## When to Use
+
+- When analyzing a Pull Request and you need to understand the outcome of associated agentic workflow runs.
+- If an agent task was triggered on a PR but the results are unclear or hidden within CI check details.
+- To map out the execution history and failures of agents interacting with a specific Pull Request.
+
+## When Not to Use
+
+- For analyzing non-agent CI pipelines (e.g., standard unit tests or linters), where `github-actions` or `gh-run` skills are more direct.
+- When generating diagrams for codebase architecture or generic GitHub PR history (use `brainstorm-github-pr` instead).
+- If the repository does not employ GitHub Agentic Workflows (`gh-aw`).
+
+## Common Pitfalls
+
+- **Using `gh pr checks` Exclusively**: Relying solely on `gh pr checks` and missing `workflow_dispatch` or `issue_comment` triggers that aren't natively attached to the HEAD commit.
+- **Fetching Full Logs Too Early**: Trying to download the complete execution logs for every run before creating the high-level Ishikawa diagram, wasting token budget.
+- **Ignoring Branch Context**: Querying the `/actions/runs` API without filtering by the PR's `headRefName` or `title`, returning unrelated runs from `main` or other branches.
+
 ## Core Process
 
 1. **Trigger Recognition**: Activate when an active Pull Request is associated with the runtime context or the user requests PR analysis.

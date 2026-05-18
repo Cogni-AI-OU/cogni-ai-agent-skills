@@ -16,6 +16,24 @@ Use this skill when you need to regenerate all agentic workflow lock files and v
 Any time `.lock.yml` files are regenerated — whether via `gh aw compile`, `gh aw upgrade`, or any other gh-aw
 command — you MUST run the repo-standard pre-commit hooks afterward. This is not optional.
 
+## When to Use
+
+- When you have modified a `.md` GitHub Agentic Workflow file and need to update its `.lock.yml` GitHub Actions file.
+- After running `gh aw upgrade` to ensure the repository has the latest action definitions.
+- When prompted by the system or another workflow to validate the schema of an agentic workflow.
+
+## When Not to Use
+
+- When editing generic GitHub Actions workflows (`.github/workflows/*.yml`) that are not managed by `gh-aw`.
+- For compiling application source code (e.g., C++, Java, or TypeScript).
+- If you lack write permissions to the repository's `.github/` directory.
+
+## Common Pitfalls
+
+- **Forgetting Pre-Commit**: Compiling the workflow but failing to run `pre-commit run --all-files`, leaving the repository in a lint-failed state.
+- **Ignoring Validation Errors**: Running `gh aw compile` but missing the schema validation warnings in the output, resulting in broken agent features.
+- **Direct YAML Edits**: Trying to manually fix the `.lock.yml` file instead of editing the `.md` source and running the compile command.
+
 ## Steps
 
 ### 1. Compile or upgrade workflows

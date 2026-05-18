@@ -12,6 +12,24 @@ license: MIT
 
 A cognitive framework for deep analytical reasoning.
 
+## When to Use
+
+- When confronted with an ambiguous, contradictory, or complex problem that defies immediate technical fixes.
+- Before embarking on a massive, repository-wide architectural refactoring.
+- When an automated test or build fails silently and standard debugging yields no obvious root cause.
+
+## When Not to Use
+
+- For trivial syntax errors or obvious spelling mistakes.
+- When the user explicitly requests immediate, uncritical execution of a basic command without review.
+- If a problem is already solved and simply requires writing documentation.
+
+## Common Pitfalls
+
+- **Paralysis by Analysis**: Spending so much time red-teaming and generating alternative hypotheses that no actual code gets written or debugged.
+- **Ignoring Empirical Data**: Relying purely on abstract logical models while ignoring the actual tracebacks or logs presented in the current environment.
+- **Over-Modeling**: Writing a 500-line MiniZinc model for a problem that can be solved with a simple unit test.
+
 ## Core Process
 
 1. **Deconstruct & Frame**: Separate the final goal (Conclusion) from the underlying logic (Premises).

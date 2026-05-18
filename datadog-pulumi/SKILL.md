@@ -12,6 +12,24 @@ license: MIT
 
 Use this skill to work with Datadog API examples using Pulumi.
 
+## When to Use
+
+- When migrating existing Datadog monitors from JSON definitions into declarative Pulumi YAML.
+- To troubleshoot type errors or schema validation failures during a `pulumi preview`.
+- When updating monitor thresholds or query definitions within an established Infrastructure as Code codebase.
+
+## When Not to Use
+
+- When writing raw Datadog API curl commands without Pulumi (use `datadog-api`).
+- For diagnosing why a specific Datadog monitor fired false positives in production (use `datadog-monitors`).
+- If the project uses Terraform instead of Pulumi for infrastructure management.
+
+## Common Pitfalls
+
+- **Blind JSON Copy-Pasting**: Pasting raw Datadog API JSON directly into Pulumi YAML and expecting it to work, ignoring the fact that Pulumi uses camelCase and slightly different type shapes.
+- **Ignoring Preview Errors**: Running `pulumi up` without fixing all the schema mismatch errors shown in `pulumi preview`, causing the provider to crash midway through execution.
+- **Threshold Disconnects**: Changing a monitor's alert threshold in the YAML but forgetting to update the corresponding mathematical operator in the query string itself.
+
 ## Core Process
 
 1. Read the current `Pulumi.yaml` before editing; preserve recent user changes.

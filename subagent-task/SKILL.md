@@ -27,6 +27,18 @@ The use of the `task` tool and spawning sub-agents is permitted for complex, mul
 - **Maintain Context**: Ensure that the primary agent remains the coordinator and synthesizes the results from sub-agents into the final response.
 - **Strategic Delegation**: Delegate only when the task involves broad codebase analysis or independent sub-tasks that can be executed in parallel.
 
+## When Not to Use
+
+- For trivial, single-step operations (e.g., running a quick `ls` or a simple `git commit`).
+- When the overhead of explaining the task to a sub-agent outweighs doing it directly.
+- If the primary agent is already a specialized agent perfectly suited for the entire task.
+
+## Common Pitfalls
+
+- **Vague Delegation Prompts**: Sending ambiguous instructions to the sub-agent ("fix the code") without explicit context or success criteria, resulting in poor outcomes.
+- **Ignoring Sub-Agent Output**: Failing to properly read and synthesize the results returned by the `task` tool before taking further action.
+- **Spawning the Wrong Agent Type**: Delegating a task to an inappropriate agent (e.g., using `python-dev` for DevOps automation instead of `devops`), leading to failed runs.
+
 ## Example: Agent Delegation Protocol
 
 ```mermaid

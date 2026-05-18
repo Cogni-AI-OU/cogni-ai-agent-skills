@@ -10,6 +10,24 @@ license: MIT
 
 Use this skill to design, debug, and troubleshoot Datadog monitor evaluation logic, query semantics, and alert state management.
 
+## When to Use
+
+- When writing Pulumi, Terraform, or API payloads to create or update Datadog monitors.
+- To debug Datadog alerts that are stuck in a "ghost" or frozen state.
+- When reducing noise and false positives in infrastructure and application monitoring.
+
+## When Not to Use
+
+- For installing the actual Datadog Agent on a host (use `datadog-agent` instead).
+- When querying raw log or trace telemetry directly (use `datadog-api` or `datadog-mcp` instead).
+- If the user simply wants a link to the Datadog UI without altering query definitions.
+
+## Common Pitfalls
+
+- **Missing Evaluation Timeouts**: Forgetting to set a `timeoutH` on multidimensional alerts, resulting in "ghost alerts" when a pod or host terminates unexpectedly.
+- **Ignoring Loop Devices**: Failing to exclude `device_name:loop*` in disk monitors, causing a flood of false alerts for 100% full SquashFS mounts.
+- **Scope Creep**: Grouping a monitor by too many high-cardinality tags, causing massive evaluation lag and delayed alerting.
+
 ## Common Query Issues & Operational Fixes
 
 ### 1. Frozen Multidimensional Alerts (Ghost Alerts)

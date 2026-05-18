@@ -15,6 +15,18 @@ license: MIT
 - User needs to run Ansible automation scripts.
 - Troubleshooting hanging issues during Ansible execution.
 
+## When Not to Use
+
+- For localized script automation on a single machine where simple shell scripts suffice.
+- For managing ephemeral, immutable container infrastructure better suited for Terraform or Dockerfiles.
+- When the task explicitly requires agentic AI decision-making loops (Ansible is deterministic).
+
+## Common Pitfalls
+
+- **Interactive Hangs**: Failing to set `DEBIAN_FRONTEND=noninteractive` or handling sudo passwords poorly, causing the agent to hang indefinitely.
+- **Ignoring Idempotency**: Writing raw shell commands (`ansible.builtin.shell`) instead of using native Ansible modules, breaking the idempotency guarantee of playbooks.
+- **Masking Errors**: Using `ignore_errors: yes` to bypass failures rather than fixing the underlying system state.
+
 ## Troubleshooting
 
 ### Ansible Environment issues

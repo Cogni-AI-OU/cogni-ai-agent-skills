@@ -29,6 +29,18 @@ Generate a robust, comprehensive, and best-practice-oriented `.editorconfig` fil
 - When requested to generate, update, or configure an `.editorconfig` file.
 - When standardizing coding styles or formatting hooks for a workspace.
 
+## When Not to Use
+
+- When the project already has an established `.editorconfig` that simply needs minor adjustments (edit the existing file rather than generating a new one from scratch).
+- For enforcing complex logic constraints or code quality metrics (use Linters like ESLint or Pylint instead).
+- If the repository strictly uses an automated formatter like Prettier or Black that overrides editor configurations.
+
+## Common Pitfalls
+
+- **Overriding Markdown Semantics**: Setting `trim_trailing_whitespace = true` globally without adding an exception for `[*.md]`, breaking Markdown's hard-line breaks (which require two trailing spaces).
+- **Ignoring Project Context**: Generating a generic `.editorconfig` that defaults to 4 spaces, even when every file in the current repository clearly uses 2 spaces.
+- **Missing `root = true`**: Forgetting to add `root = true` at the top of the file, causing editors to continue searching parent directories for conflicting rules.
+
 ## Quick Start
 
 ```editorconfig

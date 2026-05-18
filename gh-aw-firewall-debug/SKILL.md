@@ -10,6 +10,24 @@ license: MIT
 
 Use this skill when you need to debug the awf firewall, inspect container state, analyze traffic, or troubleshoot network issues.
 
+## When to Use
+
+- When an agentic workflow run fails with a `blocked egress` error.
+- To inspect Docker container states (`awf-squid`, `awf-agent`) during local firewall debugging.
+- When needing to view or analyze Squid access logs or `iptables` rules to troubleshoot network issues.
+
+## When Not to Use
+
+- For debugging simple YAML schema errors in the workflow frontmatter (use `gh aw compile --verbose`).
+- When diagnosing missing MCP tools (use `gh aw audit` instead of checking the network firewall).
+- For standard GitHub Actions CI/CD network issues unrelated to the AWF infrastructure.
+
+## Common Pitfalls
+
+- **Stray Containers**: Starting a debug session but forgetting to run the manual cleanup commands, leaving `awf-squid` and `awf-agent` containers running and consuming resources.
+- **Ignoring Subdomains**: Assuming allowing `github.com` implicitly allows `api.github.com`, leading to confusing TCP_DENIED errors in the Squid log.
+- **DNS Confusion**: Failing to check `dmesg` for `FW_DNS` blocks when a domain simply won't resolve, assuming it's a HTTP layer issue.
+
 ## Core Principles
 
 - **Non-Interactive Debugging**: Rely on `docker exec` and `grep`/`awk` pipelines to extract logs and states.

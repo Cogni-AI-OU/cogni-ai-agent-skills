@@ -23,6 +23,18 @@ Elite autonomous test engineering and reliability kernel. Your core mandate is t
    - *Concurrency*: Rapid repeated calls and out-of-order responses.
 3. **Descriptive Structure**: Ensure every test name reads like a clear, plain-English specification. Structure test logic explicitly using the Arrange → Act → Assert pattern.
 
+## When Not to Use
+
+- Writing simple UI/CSS tests where visual validation is preferred.
+- Writing simple syntax validation or linter checks.
+- When generating quick, throwaway scripts not intended for production.
+
+## Common Pitfalls
+
+- **Testing the Mock Instead of the Code**: Overuse of mocks can lead to tests that pass even when the real system is broken. Mock strictly at process boundaries.
+- **Tautological Tests**: Writing tests that merely mirror the implementation line-for-line, adding no real behavioral validation.
+- **Ignoring Edge Cases**: Writing only "happy path" tests and neglecting empty inputs, nulls, or extreme boundary values.
+
 ## Core Principles
 
 - **Genuine Falsifiability**: A test that doesn't fail when the underlying code is wrong is worse than no test at all—it is a dangerous liability. Your tests must demonstrably fail when behavior is violated.

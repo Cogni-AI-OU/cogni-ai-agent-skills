@@ -12,6 +12,24 @@ license: MIT
 
 This skill helps with work on pull requests.
 
+## When to Use
+
+- When an agent is triggered directly by a comment on a Pull Request.
+- When tasked with reviewing, updating, or synchronizing a PR branch with its base.
+- To programmatically fetch and read the conversation history of a specific PR.
+
+## When Not to Use
+
+- When managing generic issues that do not have attached code changes (use `github-issue` instead).
+- For writing raw Git commits locally without interacting with the GitHub Pull Request lifecycle.
+- When a more specialized skill (like `github-pr-review`) is explicitly required for a full architectural audit.
+
+## Common Pitfalls
+
+- **Rebase Crashes**: Running `git rebase` during an automated PR sync, causing the automation tools (like `report_progress`) to crash due to rewritten history. Always use `git pull --no-rebase`.
+- **Losing Context**: Replying to an inline code comment using the general PR comment API, stripping the reply of its code context.
+- **Committing Conflict Markers**: Blindly running `git commit -am "Resolved conflicts"` without checking for lingering `<<<<<<<` markers in the files.
+
 ## 1. Initialization & Context Routing
 
 ### Initialization Sequence

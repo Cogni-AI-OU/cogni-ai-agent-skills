@@ -10,6 +10,24 @@ license: MIT
 
 **UTILITY SKILL** — installs and configures Language Server Protocol servers for Copilot CLI.
 
+## When to Use
+
+- When the user asks to enable code intelligence, go-to-definition, or hover information for Copilot CLI.
+- When configuring a new development environment that lacks Language Server Protocol support.
+- If Copilot CLI fails to provide contextual code completions due to a missing language server.
+
+## When Not to Use
+
+- When configuring LSP servers for a full IDE like VS Code or Neovim (this is specifically for Copilot CLI).
+- If the language does not have a widely supported or functioning Language Server Protocol implementation.
+- For simple syntax highlighting tasks.
+
+## Common Pitfalls
+
+- **Missing Binary on PATH**: Configuring the LSP JSON correctly but failing to ensure the installed binary is actually accessible in the system `$PATH`.
+- **Overwriting Configs**: Using `>` to write the config file instead of safely merging, thereby destroying previously configured LSP servers for other languages.
+- **Forgetting to Restart**: Assuming the new configuration takes effect immediately without instructing the user to exit and restart the Copilot CLI session.
+
 ## Core Process
 
 1. **Ask the language** — use `ask_user` to ask which programming language(s) the user wants LSP support for.

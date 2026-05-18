@@ -19,6 +19,19 @@ license: MIT
 - When conducting testability audits on existing or new codebases.
 - When addressing bugs that require regression test coverage.
 
+## When Not to Use
+
+- Rapid prototyping or throwaway exploratory code where architecture is highly fluid.
+- Pure configuration file updates or minor static text changes without logic.
+- UI/CSS styling tweaks that are verified visually rather than behaviorally.
+
+## Common Pitfalls
+
+- **Testing Implementation Details**: Coupling tests to private methods or specific internal structures, making refactoring impossible without breaking tests.
+- **Over-Mocking**: Mocking everything to the point where the test only verifies that mocks were called, not that the system behaves correctly.
+- **Skipping the Refactor Step**: Writing passing tests but leaving the implementation messy and unoptimized, leading to technical debt.
+- **Testing Too Much at Once**: Trying to test multiple behaviors or edge cases in a single test block, making failures hard to diagnose.
+
 ## Related Skills
 
 - **critical-thinking**:

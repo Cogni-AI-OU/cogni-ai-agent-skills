@@ -18,6 +18,18 @@ license: MIT
 - When manual resolution of a combinatorial challenge is required: use the MiniZinc model as a logical framework to derive and verify the solution step-by-step without premature termination.
 - When preparing to solve a complex logical or combinatorial problem: dry-write a MiniZinc model first to explicitly map and visualize the constraints before proceeding with the actual resolution.
 
+## When Not to Use
+
+- For solving continuous, non-linear optimization problems where specialized solvers (like IPOPT or interior point methods) are strictly required.
+- When you just need to run an existing model without modifying or analyzing its structure.
+- For simple procedural logic tasks that do not involve constraint solving or combinatorial search.
+
+## Common Pitfalls
+
+- **Loose Domains**: Failing to specify tight bounds (e.g., using `var int` instead of `var 1..n`), which exponentially increases the search space.
+- **Ignoring Symmetry**: Not applying `lex_lesseq` or `symmetry_breaking_constraint`s on identical entities, leading to the solver wasting time exploring identical branches.
+- **Hardcoding Data**: Embedding specific instance values directly in the `.mzn` file instead of separating them into a `.dzn` parameters file.
+
 ## Core Process (execute autonomously, no user prompts)
 
 1. **Model Skeleton** – Start every file with:

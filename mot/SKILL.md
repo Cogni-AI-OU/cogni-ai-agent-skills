@@ -29,6 +29,18 @@ MOT provides a list of all the models currently registered and how they rank aga
 - When classifying a machine learning model's degree of openness using MOF.
 - When extracting specific model properties like architecture, release date, or components.
 
+## When Not to Use
+
+- When searching for general-purpose software libraries or non-AI code repositories (use `github-topics` instead).
+- For evaluating the runtime performance, latency, or accuracy benchmarks of an LLM.
+- If you need to actually download and run the weights of a machine learning model.
+
+## Common Pitfalls
+
+- **Ignoring the Framework**: Classifying a model simply as "open source" without actually evaluating it against the specific tiers and definitions of the Model Openness Framework (MOF).
+- **Outdated Metadata**: Relying on external web searches for model licensing instead of parsing the official YAML files maintained within the MOT repository.
+- **Hallucinating Components**: Assuming a model includes training data or specific architecture details without explicitly extracting that information from its metadata file.
+
 ## Commands / Usage Patterns
 
 Fetch and parse a model definition directly from the source repository using `curl` and `yq`:

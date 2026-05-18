@@ -20,6 +20,18 @@ Guidance for writing core architecture, documentation, and constraint files. Use
 - Updating README files to reflect current state or instructions.
 - Creating local `AGENTS.md` files for subdirectories.
 
+## When Not to Use
+
+- When writing the actual application source code or fixing a software bug.
+- For generating automated API references where dedicated tools (like JSDoc or Swagger) should be used instead.
+- When tasked with creating specific Agentic Workflow or Copilot CLI configurations (use specialized skills for those).
+
+## Common Pitfalls
+
+- **Stating the Obvious**: Writing comments like `// increments the counter` instead of explaining the business logic or edge cases behind the operation.
+- **Orphaned ADRs**: Writing an Architectural Decision Record but forgetting to link it in the main README or index, making it undiscoverable.
+- **Outdated Runbooks**: Copy-pasting old CLI commands into a new runbook without verifying that they still work on the current infrastructure.
+
 ## Architectural Decision Records (ADRs)
 
 Code explains what. Documentation explains why. The most valuable documentation records decisions that aren't obvious from reading the code: why this architecture, why this tradeoff, why not the obvious alternative.

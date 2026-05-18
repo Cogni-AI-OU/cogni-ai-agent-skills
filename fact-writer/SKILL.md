@@ -19,6 +19,18 @@ Guidance for structuring and maintaining verifiable project fact files. Use this
 - Documenting verifiable ecosystem properties, constraints, or architectural decisions.
 - Resolving state conflicts or contradictions within documentation limits.
 
+## When Not to Use
+
+- For writing conversational READMEs or unstructured tutorial documentation (use `docs-writer` instead).
+- When recording temporal, ephemeral state like "Build 45 failed" (fact stores are for persistent architectural truths).
+- For writing executable code or scripts.
+
+## Common Pitfalls
+
+- **Violating Lexical Order**: Appending a new fact at the bottom of the list instead of inserting it in strict alphabetical order, breaking the state compression logic.
+- **Silent Contradictions**: Adding a fact that explicitly contradicts an existing node without explicitly removing or updating the old node.
+- **Prose Injection**: Writing long paragraphs of explanation instead of dense, structured nodes.
+
 ## Core Process
 
 1. **Verify State**:
