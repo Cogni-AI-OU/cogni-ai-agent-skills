@@ -27,6 +27,11 @@ license: MIT
 - **Vague Activation Triggers**: Using broad descriptions that lack specific CLI keywords, causing the skill to remain dormant or activate incorrectly.
 - **Circular Loading Loops**: Creating `## Related Skills` references that point back to a parent or create cycles, leading to context corruption.
 - **Interactive Hangs**: Including command examples that wait for human input (e.g., `gh pr merge` without flags) in autonomous agent workflows.
+- **Too Vague**: "Make the code better" → Specify exactly what "better" means.
+- **Too Restrictive**: Over-constraining can prevent useful optimizations.
+- **Missing Context**: Include relevant domain knowledge and terminology.
+- **No Examples**: Concrete examples guide LLM better than abstract descriptions.
+- **Ignoring Artifacts**: Don't refine prompts based on error feedback.
 
 Generate or update Agent Skills for coding agents, ensuring
 precise activation, concise expert-level guidance, and full compliance with
@@ -137,14 +142,6 @@ If the skill requires additional files, organize them into these specific folder
 - **Example Discipline**: Use fewer, shorter examples. Include only essential examples that demonstrate key patterns. Quality over quantity.
 - **Command-Line Tool Examples**: Derive usage dynamically via read/glob operations. Provide concise examples of key commands—focus on complex, multi-flag, piped, or non-standard operations.
 - **Skill Length Management**: Keep `SKILL.md` under 500 lines (ideally <200). Use `references/` for progressive loading of long content.
-
-## Common Pitfalls to Avoid
-
-- **Too Vague**: "Make the code better" → Specify exactly what "better" means.
-- **Too Restrictive**: Over-constraining can prevent useful optimizations.
-- **Missing Context**: Include relevant domain knowledge and terminology.
-- **No Examples**: Concrete examples guide LLM better than abstract descriptions.
-- **Ignoring Artifacts**: Don't refine prompts based on error feedback.
 
 ## What to Avoid
 
