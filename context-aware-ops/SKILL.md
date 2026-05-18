@@ -5,9 +5,10 @@ description: >-
   context window.
   You MUST load this skill when managing large resources or context window limits.
 license: MIT
-<!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
 ---
 # Context-Aware Operations Skill
+
+<!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
 
 This skill provides patterns and techniques for managing large files and command outputs
 efficiently, preventing context window exhaustion while maintaining effective problem-solving
