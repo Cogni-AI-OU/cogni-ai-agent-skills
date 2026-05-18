@@ -1,10 +1,10 @@
 ---
 name: gh-pr
+license: MIT
 description: >-
   GitHub CLI (`gh pr`) operations for pull requests, reviews, PR checks, and PR
   branches.
   You MUST load this skill when working with the `gh pr` command.
-license: MIT
 ---
 # gh-pr Skill
 

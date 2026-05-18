@@ -1,7 +1,7 @@
 ---
 name: unicode
-description: 'Reference for Unicode character hex ranges and regex blocks for searching, matching, or filtering text across international scripts and symbols.'
 license: MIT
+description: 'Reference for Unicode character hex ranges and regex blocks for searching, matching, or filtering text across international scripts and symbols.'
 ---
 
 # Unicode Regex Ranges

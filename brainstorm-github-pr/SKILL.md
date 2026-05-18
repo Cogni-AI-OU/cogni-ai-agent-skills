@@ -1,9 +1,9 @@
 ---
 name: brainstorm-github-pr
+license: MIT
 description: >-
   Activate PR brainstorming protocol to analyze and visualize commit history, review threads, and CI pipeline checks using Mermaid diagrams.
   You MUST load this skill when asked to analyze or brainstorm a Pull Request.
-license: MIT
 ---
 
 # Skill brainstorm-github-pr
@@ -84,10 +84,8 @@ This provides a clear track of outstanding issues and reviewer feedback before d
 **Example `kanban` Diagram:**
 
 ```mermaid
----
 kanban:
   tickInterval: 1
----
 %% This diagram visualizes PR review threads and comments.
 %% Data can be retrieved using:
 %% gh api graphql -F owner="<owner>" -F repo="<repo>" -F number=<pr_number> ...

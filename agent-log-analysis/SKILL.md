@@ -1,10 +1,10 @@
 ---
 name: agent-log-analysis
+license: MIT
 description: >-
   Procedures and templates for analyzing agent session logs, extracting telemetry, and generating
   standardized visual audit reports.
   You MUST load this skill when auditing or analyzing autonomous agent log files.
-license: MIT
 ---
 
 # Agent Log Analysis & Reporting
@@ -357,11 +357,9 @@ and escape/remove these characters from the label content itself.
 ##### Agent Task Board
 
 ```mermaid
----
 config:
   kanban:
     ticketBaseUrl: 'https://github.com/{owner}/{repo}/issues/#TICKET#'
----
 kanban
   Todo - Status: pending
     [Create Documentation]

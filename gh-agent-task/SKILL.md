@@ -1,7 +1,7 @@
 ---
 name: gh-agent-task
-description: GitHub CLI (`gh agent-task`) operations for creating, listing, and viewing preview agent tasks. You MUST load this skill when working with the `gh agent-task` command.
 license: MIT
+description: GitHub CLI (`gh agent-task`) operations for creating, listing, and viewing preview agent tasks. You MUST load this skill when working with the `gh agent-task` command.
 ---
 # Skill: gh-agent-task
 

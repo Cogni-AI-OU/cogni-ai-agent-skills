@@ -1,7 +1,7 @@
 ---
 name: dockerfile
-description: Write, review, and optimize Dockerfiles applying multi-stage builds, non-root constraints, layer caching, and strict image pinning.
 license: MIT
+description: Write, review, and optimize Dockerfiles applying multi-stage builds, non-root constraints, layer caching, and strict image pinning.
 ---
 
 # Skill: dockerfile

@@ -1,7 +1,7 @@
 ---
 name: github-aw-practices
-description: 'Organizational practices, rollout strategies, and A/B experiment specifications for maintaining repositories with GitHub Agentic Workflows (gh-aw).'
 license: MIT
+description: 'Organizational practices, rollout strategies, and A/B experiment specifications for maintaining repositories with GitHub Agentic Workflows (gh-aw).'
 ---
 
 # Skill: github-aw-practices

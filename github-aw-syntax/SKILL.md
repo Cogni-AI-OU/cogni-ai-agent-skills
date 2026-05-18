@@ -1,9 +1,9 @@
 ---
 name: github-aw-syntax
+license: MIT
 description: >-
   Complete reference for GitHub Agentic Workflows (gh-aw) frontmatter schema, engine configuration, network access, tools, and imports syntax.
   You MUST load this skill when writing or debugging Agentic Workflow files.
-license: MIT
 ---
 
 # github-aw-syntax
@@ -1003,7 +1003,6 @@ Each ecosystem identifier enables network access to the domains required by that
 Import shared components or Copilot custom agent files using the `imports:` field in frontmatter:
 
 ```yaml
----
 on: issues
 engine: copilot
 imports:
@@ -1013,7 +1012,6 @@ imports:
   - shared/mcp/tavily.md
   - .github/agents/my-agent.md # Local Copilot custom agent file
   - acme-org/shared-agents/.github/agents/code-reviewer.md@v1.0.0 # Remote Copilot custom agent file
----
 ```
 
 **Copilot Custom Agents:**
@@ -1063,7 +1061,6 @@ The following frontmatter fields in imported files are merged into the importing
 Example import file:
 
 ```markdown
----
 tools:
   github:
     allowed: [get_repository, list_commits]
@@ -1074,7 +1071,6 @@ env:
   MY_VAR: "shared-value"
 checkout:
   fetch-depth: 0
----
 
 Additional instructions for the coding agent.
 ```
@@ -1096,7 +1092,6 @@ The `copilot-setup-steps.yml` file receives special handling when imported. Inst
 **Example:**
 
 ```yaml
----
 on: issue_comment
 engine: copilot
 imports:
@@ -1105,7 +1100,6 @@ imports:
 steps:
   - name: Custom environment setup
     run: echo "Main frontmatter step runs last"
----
 ```
 
 In the compiled workflow, the order is: copilot-setup-steps → imported steps from shared/common-tools.md → main frontmatter steps.

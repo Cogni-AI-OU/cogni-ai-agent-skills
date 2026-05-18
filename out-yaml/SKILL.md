@@ -1,7 +1,7 @@
 ---
 name: out-yaml
-description: Instructs the agent to produce output strictly in valid YAML format, ensuring no conversational filler or markdown wrappers.
 license: MIT
+description: Instructs the agent to produce output strictly in valid YAML format, ensuring no conversational filler or markdown wrappers.
 ---
 # Skill: out-yaml
 
