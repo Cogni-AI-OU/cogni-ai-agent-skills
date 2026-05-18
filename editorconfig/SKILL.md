@@ -1,6 +1,6 @@
 ---
 name: editorconfig
-description: 'Generates a comprehensive and best-practice-oriented .editorconfig file based on project analysis and user preferences.'
+description: Generates a comprehensive and best-practice-oriented .editorconfig file based on project analysis and user preferences.
 license: MIT
 ---
 
@@ -20,7 +20,7 @@ license: MIT
 - Overriding individual developer preferences in their personal forks or local overrides — EditorConfig sets baseline defaults, not hard enforcement.
 - Replacing project-wide linting configuration (`eslintrc`, `.rubocop.yml`, `pyproject.toml`) — EditorConfig complements but does not substitute for linters.
 
-## Gotchas
+## Common Pitfalls
 
 - Markdown files need `trim_trailing_whitespace = false` because trailing spaces create hard line breaks in Markdown — globally trimming whitespace corrupts Markdown formatting.
 - `root = true` must be at the top of the file or EditorConfig will continue searching parent directories, potentially inheriting conflicting settings.

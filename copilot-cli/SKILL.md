@@ -1,6 +1,6 @@
 ---
 name: copilot-cli
-description: 'Guidance for installing GitHub Copilot CLI on Debian/Ubuntu and executing commands using custom agents. You MUST load this skill when interacting with or installing the copilot-cli command.'
+description: Guidance for installing GitHub Copilot CLI on Debian/Ubuntu and executing commands using custom agents. You MUST load this skill when interacting with or installing the copilot-cli command.
 license: MIT
 ---
 
@@ -20,7 +20,7 @@ license: MIT
 - Situations where the GitHub CLI (`gh`) or native GitHub Actions would be simpler and require less setup
 - Running commands that require interactive TTY authentication — the CLI cannot handle login prompts autonomously
 
-## Gotchas
+## Common Pitfalls
 - Fine-grained PATs require the `Copilot Requests` permission — missing this permission causes silent auth failures
 - Custom agent resolution order is: User (`~/.copilot/agents/`) > Project (`.github/agents/`) > Organization (`.github-private/agents/`) — name collisions resolve silently
 - The `--yolo` flag grants unrestricted tool access; only use after explicit user confirmation of full trust

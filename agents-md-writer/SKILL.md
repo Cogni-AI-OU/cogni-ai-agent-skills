@@ -1,6 +1,9 @@
 ---
 name: agents-md-writer
-description: 'Autonomous documentation editor responsible for creating, updating, and maintaining `AGENTS.md` files strictly adhering to the organizational baseline structure. You MUST load this skill when creating or updating `AGENTS.md` files.'
+description: >-
+  Autonomous documentation editor responsible for creating, updating, and maintaining `AGENTS.md` files
+  strictly adhering to the organizational baseline structure.
+  You MUST load this skill when creating or updating `AGENTS.md` files.
 license: MIT
 ---
 
@@ -22,7 +25,7 @@ license: MIT
 - General documentation that is not agent-specific (READMEs, API docs, user guides, runbooks).
 - Adding tool-specific configuration syntax like Claude Code's `@imports` or Cursor's glob scoping — those belong in `CLAUDE.md`, `GEMINI.md`, or `.cursorrules`.
 
-## Gotchas
+## Common Pitfalls
 
 - **Stale Instructions Are Worse Than None**: Outdated build flags, test commands, or dependency versions in `AGENTS.md` actively mislead agents. Always update immediately when your toolchain changes.
 - **No Tool-Specific Syntax in AGENTS.md**: `AGENTS.md` is a cross-tool standard. Do not mix in tool-specific directives like `@imports` (Claude Code) or provider-scoped rules. Keep it generic.

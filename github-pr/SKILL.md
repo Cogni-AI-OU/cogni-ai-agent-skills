@@ -1,6 +1,10 @@
 ---
 name: github-pr
-description: 'Skills for working with changes on a GitHub Pull Request. You MUST load this skill when working with changes associated with a pull request or when the runtime was triggered by a PR comment. Load this before any gh skills.'
+description: >-
+  Skills for working with changes on a GitHub Pull Request.
+  You MUST load this skill when working with changes associated with a pull request
+  or when the runtime was triggered by a PR comment.
+  Load this before any gh skills.
 license: MIT
 ---
 
@@ -22,7 +26,7 @@ license: MIT
 - The task is purely informational with no code changes and no commenting needed — this skill's mandatory upstream sync steps add unnecessary overhead.
 - The user asks about GitHub Actions workflow runs (not PR-specific operations) — load `gh-run` or `github-actions`.
 
-## Gotchas
+## Common Pitfalls
 - You MUST NOT use rebase-based sync (`git pull --rebase`, `git rebase`, `gh pr update-branch --rebase`) during runtime — always use `git pull --no-rebase` to preserve remote branch compatibility.
 - PR comments from bots are often mistaken — always validate bot suggestions before applying fixes, and reply inline with reasoning if incorrect.
 - Short PR comments like "fix it", "^^", or "as above" require loading parent/inline comments to establish context — never act on ambiguous comments without full thread context.

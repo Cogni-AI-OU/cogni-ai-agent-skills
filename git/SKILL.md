@@ -1,6 +1,8 @@
 ---
 name: git
-description: 'Guide for using git. You MUST load this skill when performing standard git operations.'
+description: >-
+  Guide for using git.
+  You MUST load this skill when performing standard git operations.
 license: MIT
 ---
 
@@ -23,7 +25,7 @@ license: MIT
 - You need to extract a subdirectory with full history from one repo into another — use the **git-filter-branch** skill.
 - You need GitHub CLI operations for PRs, issues, or workflow runs — use **gh-pr**, **gh-issue**, or **gh-run** skills instead.
 
-## Gotchas
+## Common Pitfalls
 - Interactive modes (`-i`, `--interactive`) will hang automation tools — always use non-interactive alternatives like `git commit -m`, `GIT_EDITOR=true`, or `--no-edit` flags.
 - Automation tools like `report_progress` automatically attempt to rebase your branch against the remote tracking branch, which crashes if you've rewritten history — use a new branch name after history rewrites to prevent this.
 - `git pull` in scripts is ambiguous — prefer explicit `git fetch` + `git rebase` (or `git merge --no-edit`) to control the integration strategy precisely.

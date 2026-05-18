@@ -1,6 +1,6 @@
 ---
 name: gh-aw-troubleshooting
-description: 'Diagnose and fix GitHub Agentic Workflows (gh-aw) failures by analyzing logs for missing tools, permissions, or MCP server configurations.'
+description: Diagnose and fix GitHub Agentic Workflows (gh-aw) failures by analyzing logs for missing tools, permissions, or MCP server configurations.
 license: MIT
 ---
 
@@ -22,7 +22,7 @@ license: MIT
 - The issue is a pure GitHub Actions workflow (non-agentic) failure — use **github-actions** or **actions- troubleshooting** skills instead.
 - You simply need to list, compile, or run workflows without debugging failures — use the **gh-aw** skill.
 
-## Gotchas
+## Common Pitfalls
 - The `gh aw audit RUN_ID --json` output contains a `missing_tools` array that is the single most important diagnostic signal — always check it first before diving into raw logs.
 - Misspelled frontmatter fields are **silently discarded** by the compiler, not rejected; always use `gh aw compile --verbose` to catch schema errors before debugging runtime failures.
 - Agent runs triggered by `workflow_dispatch` or `issue_comment` may not appear in `gh pr checks` output — use `gh aw logs` or audit endpoints to find them.

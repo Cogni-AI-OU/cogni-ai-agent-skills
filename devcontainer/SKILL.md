@@ -1,6 +1,6 @@
 ---
 name: devcontainer
-description: 'Create, update, and maintain robust devcontainer.json configurations and lifecycle scripts for reproducible development environments.'
+description: Create, update, and maintain robust devcontainer.json configurations and lifecycle scripts for reproducible development environments.
 license: MIT
 ---
 # Devcontainer
@@ -19,7 +19,7 @@ license: MIT
 - Managing CI/CD pipeline configurations — use GitHub Actions workflows instead
 - Solving runtime dependency issues unrelated to the development environment setup
 
-## Gotchas
+## Common Pitfalls
 - `postCreateCommand` runs as `remoteUser` while system installs need `sudo` — forgetting this causes silent permission failures
 - Feature versions and base image tags MUST be pinned (e.g., `:jammy` not `:latest`) to ensure reproducibility across team members
 - Long-running synchronous `postCreateCommand` tasks block the container from appearing ready — move OS updates to `onCreateCommand` or `updateContentCommand`

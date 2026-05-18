@@ -1,6 +1,9 @@
 ---
 name: docs-review
-description: 'Enforce documentation quality, completeness, and mutual consistency across architecture files, ADRs, runbooks, READMEs, and code-level documentation. You MUST load this skill when asked to review or check consistency of documentation (such as *.md/*.mmd files).'
+description: >-
+  Enforce documentation quality, completeness, and mutual consistency across
+  architecture files, ADRs, runbooks, READMEs, and code-level documentation.
+  You MUST load this skill when asked to review or check consistency of documentation (such as *.md/*.mmd files).
 license: MIT
 ---
 
@@ -24,7 +27,7 @@ license: MIT
 - Reviewing documentation that is explicitly marked as work-in-progress or draft status.
 - Making subjective style changes without identifying actual inconsistencies or factual errors.
 
-## Gotchas
+## Common Pitfalls
 
 - The critical instruction is to ONLY apply changes when actual inconsistencies are found — do not edit files that are mutually consistent, even if they could be improved stylistically.
 - ADR verification is often missed: every significant decision needs an ADR, but "significant" is subjective. When in doubt, document the tradeoff.

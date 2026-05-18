@@ -1,6 +1,8 @@
 ---
 name: yaml
-description: 'Generic guidelines for YAML formatting, linting, and structural rules. You MUST load this skill when updating or creating YAML files.'
+description: >-
+  Generic guidelines for YAML formatting, linting, and structural rules.
+  You MUST load this skill when updating or creating YAML files.
 license: MIT
 ---
 
@@ -21,7 +23,7 @@ license: MIT
 - Writing complex data pipelines or transformations better suited to JSON (where more tooling exists) or a proper programming language.
 - When the data volume or depth makes YAML cumbersome—consider alternatives like TOML for config or JSON for data interchange.
 
-## Gotchas
+## Common Pitfalls
 
 - YAML's implicit typing can silently convert unquoted values: `yes`/`no` becomes boolean, `0123` becomes octal (in some parsers), and large numbers lose precision.
 - Indentation must be consistent across the entire file—mixing spaces with tabs or using inconsistent indent depth causes parse errors that are hard to debug.

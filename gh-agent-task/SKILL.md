@@ -1,6 +1,6 @@
 ---
 name: gh-agent-task
-description: 'GitHub CLI (`gh agent-task`) operations for creating, listing, and viewing preview agent tasks. You MUST load this skill when working with the `gh agent-task` command.'
+description: GitHub CLI (`gh agent-task`) operations for creating, listing, and viewing preview agent tasks. You MUST load this skill when working with the `gh agent-task` command.
 license: MIT
 ---
 # Skill: gh-agent-task
@@ -23,7 +23,7 @@ license: MIT
 - Interacting with pull request or issue content unrelated to task automation.
 - Tasks requiring GitHub CLI versions older than v2.80.0 (agent-task is unavailable).
 
-## Gotchas
+## Common Pitfalls
 
 - The `gh agent-task` commands are in public preview and subject to breaking changes — behavior may differ between CLI versions without notice.
 - Using `-f body=...` instead of `-F body=@file` for multi-line descriptions does not expand `@` — always use `-F` with a file for complex task descriptions, or pipe via stdin.

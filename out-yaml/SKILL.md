@@ -1,6 +1,6 @@
 ---
 name: out-yaml
-description: 'Instructs the agent to produce output strictly in valid YAML format, ensuring no conversational filler or markdown wrappers.'
+description: Instructs the agent to produce output strictly in valid YAML format, ensuring no conversational filler or markdown wrappers.
 license: MIT
 ---
 # Skill: out-yaml
@@ -19,7 +19,7 @@ license: MIT
 - When the user expects Markdown-formatted responses with code blocks — this skill strips all Markdown wrapping.
 - When the output needs Markdown code block fencing for copy-paste convenience in chat interfaces.
 
-## Gotchas
+## Common Pitfalls
 - The agent cannot validate output against an arbitrary schema — it enforces YAML syntax only, not semantic correctness against a specific schema.
 - Invisible characters, trailing spaces, or mixed indentation can cause YAML parse failures — the output must be strictly valid per the YAML spec.
 - Comments in YAML use `#` — other comment styles (`//`, `/* */`, `<!-- -->`) are not valid YAML and will cause parsing errors.

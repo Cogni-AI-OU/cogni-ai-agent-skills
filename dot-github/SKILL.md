@@ -1,6 +1,8 @@
 ---
 name: dot-github
-description: 'Standardize `.github` directory structure, enforce agentic documentation patterns. You MUST load this skill when creating or updating files in `.github/` dir.'
+description: >-
+  Standardize `.github` directory structure, enforce agentic documentation patterns.
+  You MUST load this skill when creating or updating files in `.github/` dir.
 license: MIT
 ---
 # Skill: dot-github
@@ -22,7 +24,7 @@ license: MIT
 - Writing agent skill files (`SKILL.md`) or instructions (`*.instructions.md`) — those belong in the repo root, not `.github/`.
 - Creating `.github/README.md` — this overrides the main repository README on the GitHub homepage.
 
-## Gotchas
+## Common Pitfalls
 
 - Creating `.github/README.md` is a hard NEVER — GitHub renders it with the highest priority, completely overriding the main project README.md on the repository homepage.
 - Refactoring workflow triggers (e.g., removing required pull_request events) can silently break your own runtime workflow — always double-check that your CI/CD pipeline remains triggerable.

@@ -1,6 +1,6 @@
 ---
 name: datadog-monitors
-description: 'Guidelines for designing, debugging, and troubleshooting Datadog monitor queries, handling common false positives, and operational edge cases.'
+description: Guidelines for designing, debugging, and troubleshooting Datadog monitor queries, handling common false positives, and operational edge cases.
 license: MIT
 ---
 
@@ -20,7 +20,7 @@ license: MIT
 - Configuring the Datadog Agent or custom checks — use `datadog-agent` instead
 - Querying raw telemetry data to build monitor queries from scratch — use `datadog-mcp` for exploration first
 
-## Gotchas
+## Common Pitfalls
 - Monitors grouping by transient dimensions (short-lived hosts, workloads) will NOT auto-resolve when the entity stops sending data unless `timeoutH` is explicitly configured
 - Linux loop devices (Snap packages) and tmpfs mounts will trigger disk usage alerts if not excluded via `!device_name:loop*` and `!device_name:tmpfs`
 - The `on_missing_data` setting controls behavior during normal evaluation windows, while `timeoutH` controls what happens when an alerting entity vanishes entirely — they serve different purposes

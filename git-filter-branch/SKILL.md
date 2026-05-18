@@ -1,6 +1,8 @@
 ---
 name: git-filter-branch
-description: 'Extract a specific subdirectory with history using git filter-branch when modern tools like filter-repo are unavailable. You MUST load this skill when extracting a subdirectory with history using `git filter-branch`.'
+description: >-
+  Extract a specific subdirectory with history using git filter-branch when modern tools like filter-repo are unavailable.
+  You MUST load this skill when extracting a subdirectory with history using `git filter-branch`.
 license: MIT
 ---
 
@@ -20,7 +22,7 @@ license: MIT
 - You need to simply merge two repositories at the root level (no subdirectory filtering) — use standard `git merge --allow-unrelated-histories` instead.
 - You are working in a shared repository where rewriting history would disrupt other contributors — `filter-branch` rewrites all affected commits, changing SHAs.
 
-## Gotchas
+## Common Pitfalls
 - `git filter-branch` **rewrites commit SHAs** for every commit that touched the target subdirectory — this is a destructive history rewrite that will cause divergence from any forks or clones.
 - The `FILTER_BRANCH_SQUELCH_WARNING=1` environment variable is recommended to suppress verbose warnings, but it does not silence all output — expect significant terminal output for large repositories.
 - When merging filtered history with `--allow-unrelated-histories`, files with generic names (e.g., `README.md`, `AGENTS.md`, `LICENSE`) will conflict — handle these deliberately with `git checkout --ours` or `--theirs` per file.

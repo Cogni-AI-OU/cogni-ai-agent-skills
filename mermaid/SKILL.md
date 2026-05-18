@@ -1,6 +1,12 @@
 ---
 name: mermaid
-description: 'Expert guide for creating, optimizing, troubleshooting, and maintaining **stable** Mermaid.js diagrams (v11+). Covers C4, Class, Entity Relationship, Flowchart (with v11.3+ shapes/icons/images), Gantt, GitGraph, Kanban, Mindmap, Pie, Quadrant, Requirement, Sequence, State, Timeline, User Journey. Emphasizes clarity, render-portability, and Doc-Rot prevention. You MUST load this skill when creating or maintaining Mermaid.js diagrams.'
+description: >-
+  Expert guide for creating, optimizing, troubleshooting, and maintaining
+  **stable** Mermaid.js diagrams (v11+). Covers C4, Class, Entity Relationship,
+  Flowchart (with v11.3+ shapes/icons/images), Gantt, GitGraph, Kanban, Mindmap,
+  Pie, Quadrant, Requirement, Sequence, State, Timeline, User Journey.
+  Emphasizes clarity, render-portability, and Doc-Rot prevention.
+  You MUST load this skill when creating or maintaining Mermaid.js diagrams.
 license: MIT
 ---
 
@@ -22,7 +28,7 @@ license: MIT
 - When precise pixel-level control over layout is needed — Mermaid auto-layouts diagrams and does not support manual node positioning.
 - When the diagram has hundreds of nodes — very large diagrams may cause performance issues; consider splitting into multiple diagrams or using the ELK renderer.
 
-## Gotchas
+## Common Pitfalls
 - The `end` keyword conflicts with parser tokenization — always quote node IDs or labels that contain reserved words like `end`.
 - Double quotes within labels break parsing — use backtick markdown strings (`` ` ``) for labels containing quotes, or escape them.
 - GitGraph does not reconstruct branch topology from real commits automatically — you must manually map branches and merges from git log output.

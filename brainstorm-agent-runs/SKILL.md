@@ -1,6 +1,8 @@
 ---
 name: brainstorm-agent-runs
-description: 'Activate agent-run brainstorming protocol to identify and analyze Agent CI/CD runs via GitHub API for a given Pull Request. You MUST activate this skill when analyzing or brainstorming agent runs.'
+description: >-
+  Activate agent-run brainstorming protocol to identify and analyze Agent CI/CD runs via GitHub API for a given Pull Request.
+  You MUST activate this skill when analyzing or brainstorming agent runs.
 license: MIT
 ---
 
@@ -21,7 +23,7 @@ license: MIT
 - Deep debugging of GitHub Actions workflow configuration or runner failures — load `github-actions` or `gh-run` instead.
 - Analyzing non-agentic CI/CD pipelines (standard build, test, deploy workflows without AI agent involvement).
 
-## Gotchas
+## Common Pitfalls
 
 - **`gh pr checks` Limitations**: `gh pr checks` only shows HEAD commit runs and silently misses `workflow_dispatch` or `issue_comment` triggered executions. Always use the GitHub API to query all runs matching both the PR branch AND title.
 - **Branch Name Collisions**: Multiple workflows on the same branch may have different trigger events. Filter by both `head_branch` AND workflow `name` to isolate agentic runs from other CI jobs.

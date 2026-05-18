@@ -1,6 +1,6 @@
 ---
 name: github-aw
-description: 'Safely update existing GitHub Agentic Workflows (gh-aw), distinguishing between frontmatter configuration that requires recompilation and markdown body prompt edits that do not.'
+description: Safely update existing GitHub Agentic Workflows (gh-aw), distinguishing between frontmatter configuration that requires recompilation and markdown body prompt edits that do not.
 license: MIT
 ---
 # Skill github-aw
@@ -21,7 +21,7 @@ license: MIT
 - Designing workflow architecture patterns (load `github-aw-patterns` for BatchOps, ChatOps, DailyOps guidance).
 - Diagnosing issues with the AWF firewall or network blocks (load `gh-aw-firewall-debug` instead).
 
-## Gotchas
+## Common Pitfalls
 - Editing the YAML frontmatter REQUIRES running `gh aw compile <workflow-id>` afterward — forgetting this leaves the workflow in a broken state with a stale `.lock.yml`.
 - Never use `mode: remote` or `mode: local` for GitHub tools in agentic workflows; always prefer `mode: gh-proxy` to skip Docker overhead and use `gh` CLI directly.
 - Write permissions (`issues: write`, `pull-requests: write`) in the main job will cause compilation errors — all writes must go through `safe-outputs`.

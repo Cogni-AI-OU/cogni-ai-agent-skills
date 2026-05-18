@@ -1,6 +1,8 @@
 ---
 name: subagent-task
-description: 'Guidance and protocols for spawning sub-agents via the task tool to handle complex, multi-step, or parallelizable tasks. You MUST load this skill when the task tool for invoking sub-agents is available.'
+description: >-
+  Guidance and protocols for spawning sub-agents via the task tool to handle complex, multi-step, or parallelizable tasks.
+  You MUST load this skill when the task tool for invoking sub-agents is available.
 license: MIT
 ---
 
@@ -22,7 +24,7 @@ license: MIT
 - When the task scope is too small to justify the latency overhead of spawning and synthesizing sub-agent results.
 - Tasks that involve modifying shared files or state that could cause conflicts between concurrent sub-agents.
 
-## Gotchas
+## Common Pitfalls
 
 - Sub-agents start with a completely fresh context—they have no memory of the current conversation or prior decisions unless explicitly included in the prompt.
 - The primary agent must synthesize all sub-agent results; if sub-agents return conflicting information, the primary agent needs logic to reconcile.

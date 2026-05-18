@@ -1,6 +1,8 @@
 ---
 name: github-pr-review
-description: 'Comprehensive PR review workflow for verifying code quality, metadata accuracy, and merge readiness. You MUST load this skill when reviewing, auditing, or verifying a GitHub Pull Request.'
+description: >-
+  Comprehensive PR review workflow for verifying code quality, metadata accuracy, and merge readiness.
+  You MUST load this skill when reviewing, auditing, or verifying a GitHub Pull Request.
 license: MIT
 ---
 
@@ -22,7 +24,7 @@ license: MIT
 - The user needs general GitHub Actions troubleshooting (load `github-actions`) or workflow run analysis (load `gh-run`).
 - The changes are trivial (typo fix, dependency bump) that don't warrant deep architectural or security review.
 
-## Gotchas
+## Common Pitfalls
 - Never approve a PR without verifying EVERY checkpoint — blanket approvals bypass critical quality gates and erode trust in the review process.
 - Always read the PR description AND linked issues before reviewing code — reviewing in isolation misses context, design decisions, and trade-offs documented elsewhere.
 - Delegated reviews via `task` tool run asynchronously; you MUST synthesize results from all sub-agents into a single coherent review summary — don't post multiple disjointed reviews.

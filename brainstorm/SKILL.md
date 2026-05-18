@@ -1,6 +1,8 @@
 ---
 name: brainstorm
-description: 'Activate brainstorming protocol to explore options, research, deconstruct complexities, and summarize available data into simple diagrams. You MUST load this skill when asked to brainstorm, explore options, or break down complex problems.'
+description: >-
+  Activate brainstorming protocol to explore options, research, deconstruct complexities, and summarize available data into simple diagrams.
+  You MUST load this skill when asked to brainstorm, explore options, or break down complex problems.
 license: MIT
 ---
 
@@ -25,7 +27,7 @@ license: MIT
 - Analyzing agent runs in CI/CD pipelines — load `brainstorm-agent-runs` instead.
 - Analyzing Pull Request commit history, reviews, and CI checks — load `brainstorm-github-pr` instead.
 
-## Gotchas
+## Common Pitfalls
 
 - **Premature Convergence**: The most common failure is settling on the first viable solution. Always generate at least two distinct architectural paths (Design-It-Twice) before recommending a preferred option.
 - **Diagram Overload**: Large, complex Mermaid diagrams with too many nodes become unreadable. Break them into focused, single-concept visualizations — one mindmap, one quadrant chart, etc.

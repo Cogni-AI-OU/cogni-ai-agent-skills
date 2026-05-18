@@ -1,6 +1,8 @@
 ---
 name: docs-writer
-description: 'Create, update, and maintain documentation including Architectural Decision Records (ADRs), runbooks, READMEs, and code-level documentation. You MUST load this skill when asked to write, document, or generate new documentation.'
+description: >-
+  Create, update, and maintain documentation including Architectural Decision Records (ADRs), runbooks, READMEs, and code-level documentation.
+  You MUST load this skill when asked to write, document, or generate new documentation.
 license: MIT
 ---
 
@@ -24,7 +26,7 @@ license: MIT
 - Generating API reference documentation that should be auto-generated from code comments or OpenAPI specs.
 - Writing documentation for unstable or experimental features that are likely to change before release.
 
-## Gotchas
+## Common Pitfalls
 
 - ADRs explain WHY, not WHAT — the code already explains what it does. A good ADR captures the context, alternatives considered, and consequences, not the implementation details.
 - Code comments should document the WHY, not the WHAT — comments like `// Retry the request` add noise; `// Using exponential backoff — payment API limits to 3 req/sec` adds value.

@@ -1,6 +1,8 @@
 ---
 name: github-aw-syntax
-description: 'Complete reference for GitHub Agentic Workflows (gh-aw) frontmatter schema, engine configuration, network access, tools, and imports syntax. You MUST load this skill when writing or debugging Agentic Workflow files.'
+description: >-
+  Complete reference for GitHub Agentic Workflows (gh-aw) frontmatter schema, engine configuration, network access, tools, and imports syntax.
+  You MUST load this skill when writing or debugging Agentic Workflow files.
 license: MIT
 ---
 
@@ -23,7 +25,7 @@ license: MIT
 - Organizational rollout strategies, A/B experiment design, or safe-deployment practices — load `github-aw-practices`.
 - The user needs to update an existing workflow's prompt without changing frontmatter — load `github-aw` instead.
 
-## Gotchas
+## Common Pitfalls
 - The compiler does NOT warn about unknown or misspelled frontmatter fields — a typo like `agent:` (use `engine:`) or `mcp-servers:` (use `mcp-servers` under `tools:`) silently produces no effect.
 - Write permissions (`issues: write`, `pull-requests: write`, `contents: write`) in the main job are FORBIDDEN and cause compilation errors — all writes go through `safe-outputs` with dedicated separate jobs.
 - Network wildcards only allow a SINGLE leading `*` (e.g., `*.example.com`) — patterns like `*.*.example.com` are invalid and will be rejected.

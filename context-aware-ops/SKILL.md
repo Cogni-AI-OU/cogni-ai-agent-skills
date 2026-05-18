@@ -1,6 +1,9 @@
 ---
 name: context-aware-ops
-description: 'Intelligent resource management with size checking and filtering to preserve context window. You MUST load this skill when managing large resources or context window limits.'
+description: >-
+  Intelligent resource management with size checking and filtering to preserve
+  context window.
+  You MUST load this skill when managing large resources or context window limits.
 license: MIT
 ---
 # Context-Aware Operations Skill
@@ -19,7 +22,7 @@ license: MIT
 - Situations where the complete output is required for correctness (e.g., exact error messages for debugging)
 - Replacing proper log aggregation and observability tools with ad-hoc shell filtering for production debugging
 
-## Gotchas
+## Common Pitfalls
 - `grep -C 5` context lines can multiply quickly — always chain with `head` or `tail` to limit output
 - Piped commands like `command | head` may cause the upstream process to receive a SIGPIPE, which some tools treat as an error
 - Using `shuf -n` for random sampling may miss critical rare events — prefer stratified sampling for error analysis

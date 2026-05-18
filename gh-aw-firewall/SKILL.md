@@ -1,6 +1,7 @@
 ---
 name: gh-aw-firewall
-description: 'Use the AWF (Agentic Workflow Firewall) to run commands with network isolation and domain whitelisting. Provides L7 HTTP/HTTPS egress control for AI agents.'
+description: >-
+  Use the AWF (Agentic Workflow Firewall) to run commands with network isolation and domain whitelisting. Provides L7 HTTP/HTTPS egress control for AI agents.
 license: MIT
 ---
 
@@ -23,7 +24,7 @@ license: MIT
 - Environment where `sudo` or Docker is not available — AWF requires elevated privileges for iptables and container management.
 - High-throughput network testing — AWF proxies all traffic through Squid, adding latency compared to direct connections.
 
-## Gotchas
+## Common Pitfalls
 
 - Direct IP-based access is always blocked — AWF works at the domain level. If a tool resolves IPs and connects directly, it will fail.
 - HTTP to HTTPS redirects may fail — always use HTTPS URLs directly when possible to avoid redirect issues through the proxy.

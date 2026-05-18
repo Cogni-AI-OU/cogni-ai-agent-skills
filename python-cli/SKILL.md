@@ -1,6 +1,9 @@
 ---
 name: python-cli
-description: 'Execute Python inline scripts via heredocs for complex log processing, data transformation, or CLI utilities like URL encoding/decoding. You MUST load this skill when processing large logs or performing one-liner data operations.'
+description: >-
+  Execute Python inline scripts via heredocs for complex log processing, data transformation,
+  or CLI utilities like URL encoding/decoding.
+  You MUST load this skill when processing large logs or performing one-liner data operations.
 license: MIT
 ---
 
@@ -23,7 +26,7 @@ license: MIT
 - When the Python code needs to be imported or reused across multiple contexts — inline heredocs are single-use by nature.
 - When debugging requires persistent state or step-through execution — write a file-based script for interactive debugging.
 
-## Gotchas
+## Common Pitfalls
 - The heredoc delimiter MUST be quoted (`<<'PY'`), NOT unquoted (`<<PY`) — unquoted delimiters cause bash to expand variables, potentially corrupting Python code containing `$` or backticks.
 - If `python3` is unavailable, fall back to `python` — but verify it points to Python 3, not Python 2, which may be the default on older systems.
 - Inline scripts do not persist on disk — any output must be captured via stdout or written to a file explicitly; errors during execution lose all in-memory state.

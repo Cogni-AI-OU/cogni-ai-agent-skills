@@ -1,6 +1,8 @@
 ---
 name: shell
-description: 'Efficient shell command handling. You MUST load this skill when handling shell commands with performance monitoring or timeouts.'
+description: >-
+  Efficient shell command handling.
+  You MUST load this skill when handling shell commands with performance monitoring or timeouts.
 license: MIT
 
 ---
@@ -21,7 +23,7 @@ license: MIT
 - Interactive debugging sessions where the user can manually interrupt a hanging command.
 - Commands that must run in the background or as daemons—timeout will terminate them prematurely.
 
-## Gotchas
+## Common Pitfalls
 
 - `timeout` sends SIGTERM by default, which some commands may catch and ignore; use `--kill-after` for a hard SIGKILL after a grace period.
 - The `time` command's output format differs between bash built-in and `/usr/bin/time`—when parsing output, use the built-in `TIMEFORMAT` variable or redirect to stderr.

@@ -1,6 +1,8 @@
 ---
 name: brainstorm-github-pr
-description: 'Activate PR brainstorming protocol to analyze and visualize commit history, review threads, and CI pipeline checks using Mermaid diagrams. You MUST load this skill when asked to analyze or brainstorm a Pull Request.'
+description: >-
+  Activate PR brainstorming protocol to analyze and visualize commit history, review threads, and CI pipeline checks using Mermaid diagrams.
+  You MUST load this skill when asked to analyze or brainstorm a Pull Request.
 license: MIT
 ---
 
@@ -24,7 +26,7 @@ license: MIT
 - Executing `gh pr merge`, `gh pr review`, or other PR write operations — load `gh-pr` instead.
 - Debugging workflow configuration or runner-level CI failures — load `github-actions` instead.
 
-## Gotchas
+## Common Pitfalls
 
 - **Mermaid Rendering Limits**: Complex `gitGraph` diagrams with many branches become visually unreadable. Limit to the base branch, feature branch, and key merge commits only.
 - **Review Thread State Lag**: GitHub's GraphQL API returns review thread states (ACTIVE, RESOLVED, OUTDATED) that may lag behind the UI. Treat "ACTIVE" threads as possibly resolved if a newer commit addressed the feedback.

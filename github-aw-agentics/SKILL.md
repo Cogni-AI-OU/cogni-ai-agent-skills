@@ -1,6 +1,11 @@
 ---
 name: github-aw-agentics
-description: 'Expert-level guidance for using, optimizing, and building GitHub Agentic Workflows. Load this skill when the user wants to explore available workflows, understand their internal mechanics, or add new agentic patterns. Focuses on maintenance, automation, documentation, and performance improvement agents.'
+description: >-
+  Expert-level guidance for using, optimizing, and building GitHub Agentic
+  Workflows. Load this skill when the user wants to explore available
+  workflows, understand their internal mechanics, or add new agentic
+  patterns. Focuses on maintenance, automation, documentation, and
+  performance improvement agents.
 license: MIT
 ---
 
@@ -26,7 +31,7 @@ from [githubnext/agentics](https://github.com/githubnext/agentics/tree/main/docs
 - The user needs organizational rollout strategies or safe-deployment practices (load `github-aw-practices`).
 - The user needs guidance on persistent memory strategies (load `github-aw-memory`).
 
-## Gotchas
+## Common Pitfalls
 - The agentics catalog references live repositories (`githubnext/agentics`) — workflow implementations may change upstream; always verify the actual workflow files for current behavior.
 - Workflows listed here are templates/references — they must be adapted to your repository's specific permissions, secrets, and network configuration before deployment.
 - The "How It Works" Mermaid diagrams are simplified overviews; the actual workflow logic may include deterministic pre-steps (bash scripts) not shown in the diagram.

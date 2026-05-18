@@ -1,6 +1,10 @@
 ---
 name: mermaid-beta
-description: 'Guide for creating and maintaining experimental Mermaid.js beta diagrams (Architecture, Block, Ishikawa, Packet, Radar, Sankey, Treemap, TreeView, Venn, XY Chart, ZenUML). You MUST load this skill when working with experimental Mermaid.js beta diagrams.'
+description: >-
+  Guide for creating and maintaining experimental Mermaid.js beta diagrams
+  (Architecture, Block, Ishikawa, Packet, Radar, Sankey, Treemap, TreeView,
+  Venn, XY Chart, ZenUML).
+  You MUST load this skill when working with experimental Mermaid.js beta diagrams.
 license: MIT
 ---
 # Mermaid Beta Skill
@@ -21,7 +25,7 @@ license: MIT
 - When a stable diagram type (flowchart, sequence, class, etc.) adequately conveys the information — prefer stable types for reliability.
 - When working with ZenUML without verifying the external plugin (`@mermaid-js/mermaid-zenuml`) is registered — it will not render otherwise.
 
-## Gotchas
+## Common Pitfalls
 - Beta diagram syntax is volatile — always check the official Mermaid.js documentation for the latest syntax changes before writing beta diagrams.
 - ZenUML is NOT built into Mermaid.js — it requires importing and registering the `@mermaid-js/mermaid-zenuml` external plugin, which most viewers do not include by default.
 - Architecture diagrams require explicit side indicators (`L`, `R`, `T`, `B`) on connections — omitting them causes rendering failures.

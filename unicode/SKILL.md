@@ -38,7 +38,7 @@ When tasked with matching specific languages or symbols:
 
 For a comprehensive list of Unicode character hex ranges and regex blocks categorized by script, language, and symbol type, see the [Unicode Range Reference](references/unicode-ranges.md).
 
-## Gotchas
+## Common Pitfalls
 
 - **Surrogate Pairs in JS/Python**: If using standard JavaScript or Python (`re` module, not `regex`), you cannot use `\x{10000}`. You must either use the `\uXXXX` equivalent, `\U00010000`, or the ES6 `\u{10000}` syntax with the `/u` flag in JS.
 - **Combined Ranges**: Take care not to overlap or create invalid ranges when combining (e.g., `[\x{2500}-\x{257F}\x{2580}-\x{259F}]` can safely be written as `[\x{2500}-\x{259F}]`).

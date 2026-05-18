@@ -1,6 +1,6 @@
 ---
 name: github-pulumi
-description: 'Activate when managing GitHub resources with Pulumi CLI to import, preview, update, and repair state.'
+description: Activate when managing GitHub resources with Pulumi CLI to import, preview, update, and repair state.
 license: MIT
 ---
 
@@ -23,7 +23,7 @@ license: MIT
 - Simple one-off GitHub resource changes that don't benefit from state management — Pulumi adds unnecessary overhead for ad-hoc operations.
 - The user is using Terraform instead of Pulumi for GitHub management — this skill covers Pulumi-specific commands and patterns.
 
-## Gotchas
+## Common Pitfalls
 - `pulumi state delete` only removes the resource from Pulumi state — it does NOT delete the actual GitHub resource. Use `pulumi destroy` (or manual GitHub deletion) for actual resource removal.
 - Always run Pulumi commands with `--non-interactive` and `--yes` in automated environments — interactive prompts will hang CI/CD pipelines indefinitely.
 - Never commit state files (`.pulumi/stacks/`) or secrets to the repository — use `pulumi config set --secret` and rely on stack export/import for backup.

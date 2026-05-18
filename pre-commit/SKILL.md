@@ -1,6 +1,9 @@
 ---
 name: pre-commit
-description: 'Guide for using pre-commit hooks to validate code formatting, linting, and security checks before commits. You MUST load this skill when using pre-commit hooks for validation.'
+description: >-
+  Guide for using pre-commit hooks to validate code formatting, linting, and
+  security checks before commits.
+  You MUST load this skill when using pre-commit hooks for validation.
 license: MIT
 ---
 
@@ -23,7 +26,7 @@ license: MIT
 - When a simple `git commit --no-verify` bypass suffices for an emergency — this should be rare and well-documented.
 - When you need a full CI/CD pipeline — pre-commit is a pre-commit hook framework, not a replacement for CI testing.
 
-## Gotchas
+## Common Pitfalls
 - Pre-commit only runs on staged files — unstaged changes are invisible to hooks, which can lead to false passes if files aren't fully staged.
 - Auto-fix hooks (like `trailing-whitespace`, `end-of-file-fixer`) modify files in-place but do not re-stage them — you must `git add -u` and re-run pre-commit before committing.
 - `trailing-whitespace` typically excludes YAML files because `yamllint` handles trailing spaces with warning-level enforcement — adding both can cause duplicate warnings.

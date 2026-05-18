@@ -1,6 +1,10 @@
 ---
 name: fact-writer
-description: 'Strict guidelines for creating, writing, and maintaining verifiable project fact files (e.g., FACTS.md or FACTS.mmd) without contradictions, ensuring state compression and lexical ordering. You MUST load this skill when managing canonical project fact files.'
+description: >-
+  Strict guidelines for creating, writing, and maintaining verifiable project
+  fact files (e.g., FACTS.md or FACTS.mmd) without contradictions, ensuring
+  state compression and lexical ordering.
+  You MUST load this skill when managing canonical project fact files.
 license: MIT
 ---
 
@@ -23,7 +27,7 @@ license: MIT
 - Writing narrative documentation, tutorials, or explanations — use `docs-writer` instead for prose documentation.
 - Adding facts that duplicate existing entries — always check for existing facts before insertion.
 
-## Gotchas
+## Common Pitfalls
 
 - Insertion order is strict lexical sorting (case-insensitive, natural number sorting) — inserting out of order breaks the structure and wastes reviewer time.
 - Contradictions must be surfaced immediately: when a proposed fact conflicts with an existing `A ≠ ¬A` state, reject the silent overwrite and flag the conflict rather than accepting either value blindly.

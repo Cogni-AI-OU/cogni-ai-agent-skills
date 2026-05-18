@@ -1,6 +1,6 @@
 ---
 name: mot
-description: 'Evaluate and classify machine learning models based on the Model Openness Framework (MOF), and extract model metadata such as architecture, origin, producer, and components.'
+description: Evaluate and classify machine learning models based on the Model Openness Framework (MOF), and extract model metadata such as architecture, origin, producer, and components.
 license: MIT
 ---
 
@@ -21,7 +21,7 @@ license: MIT
 - When comparing models on non-openness criteria (e.g., training cost, dataset provenance beyond MOF) — use domain-specific tools instead.
 - When the model is not registered in the MOT repository — the tool cannot evaluate unregistered models.
 
-## Gotchas
+## Common Pitfalls
 - The MOT classification is based on the Model Openness Framework (MOF), which evaluates components like training data, code, and parameters — a high openness score does not imply permissive licensing or usability.
 - Model definitions in the MOT repository may lag behind new releases — always verify the model version and date against the official source.
 - Raw YAML files from the MOT repository may contain nested structures that require careful `yq` querying — test your extraction queries against the actual file format.

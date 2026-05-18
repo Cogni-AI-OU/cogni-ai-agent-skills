@@ -22,7 +22,7 @@ license: MIT
 - You already have a clear, simple, and working workflow — pattern over-engineering adds unnecessary complexity.
 - The user is asking about token optimization, prompt minimization, or cost reduction techniques (load `github-aw`).
 
-## Gotchas
+## Common Pitfalls
 - Pattern selection is not one-size-fits-all: BatchOps is wrong for dependent items (use WorkQueueOps), and ChatOps requires `slash_command` trigger setup that not all repos support.
 - DeterministicOps pattern combines shell commands with AI reasoning — the bash steps run OUTSIDE the firewall sandbox and must never execute untrusted content or agentic compute.
 - MultiRepoOps and CentralRepoOps require careful token configuration (PAT or GitHub App with cross-repo access) — the default `GITHUB_TOKEN` is scoped to the current repository.

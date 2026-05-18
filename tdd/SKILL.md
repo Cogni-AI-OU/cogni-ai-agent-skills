@@ -1,6 +1,8 @@
 ---
 name: tdd
-description: 'Commands, step-by-step procedures, and mechanical execution for test engineering, testability audits, and the TDD lifecycle. You MUST load this skill when executing test tasks, designing tests, doing TDD, or verifying system behavior.'
+description: >-
+  Commands, step-by-step procedures, and mechanical execution for test engineering, testability audits, and the TDD lifecycle.
+  You MUST load this skill when executing test tasks, designing tests, doing TDD, or verifying system behavior.
 license: MIT
 ---
 
@@ -23,7 +25,7 @@ license: MIT
 - When the project has no test infrastructure (runner, assertions, mocks) and setting it up exceeds the value of the tests themselves.
 - Codebases where the existing architecture makes testing effectively impossible without prior refactoring (though TDD can help guide that refactoring).
 
-## Gotchas
+## Common Pitfalls
 
 - The Red-Green-Refactor cycle must be followed strictly—writing tests after implementation violates the TDD contract and produces implementation-biased rather than behavior-specified tests.
 - "Test names as behavioral specifications" is easy to neglect; vague names like `test_login()` obscure what is actually being verified.

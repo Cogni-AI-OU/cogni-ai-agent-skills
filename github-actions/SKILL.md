@@ -1,6 +1,9 @@
 ---
 name: github-actions
-description: 'Diagnose GitHub Actions workflow failures by retrieving run statuses and logs using MCP tools or gh CLI. You MUST load this skill when diagnosing or debugging GitHub Actions workflow failures.'
+description: >-
+  Diagnose GitHub Actions workflow failures by retrieving run statuses and logs
+  using MCP tools or gh CLI.
+  You MUST load this skill when diagnosing or debugging GitHub Actions workflow failures.
 license: MIT
 ---
 
@@ -22,7 +25,7 @@ license: MIT
 - You only need to re-run a workflow without diagnosing the failure — use `gh run rerun` directly.
 - The environment lacks both MCP tools and authenticated `gh` CLI access, making automated diagnosis impossible.
 
-## Gotchas
+## Common Pitfalls
 - `gh run view --log` or `gh api .../logs` may return empty output or a signed-blob `403` in restricted environments — do not retry the same command; pivot immediately.
 - Per-request token usage is found in `firewall-audit-logs` (`token-usage.jsonl`), NOT in `agent_usage.json` which only contains aggregated totals.
 - Workflow log content is ephemeral; logs expire after a retention period (default 400 days for public repos, shorter for private). Always capture evidence promptly.

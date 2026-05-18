@@ -1,6 +1,8 @@
 ---
 name: pipenv
-description: 'Manage Python project dependencies, virtual environments, and security using the pipenv CLI. This skill MUST be loaded when using pipenv to manage environments or dependencies.'
+description: >-
+  Manage Python project dependencies, virtual environments, and security using the pipenv CLI.
+  This skill MUST be loaded when using pipenv to manage environments or dependencies.
 license: MIT
 ---
 # pipenv
@@ -23,7 +25,7 @@ license: MIT
 - When the project already has a mature `requirements.txt` workflow and migration overhead is not justified — only migrate if deterministic locking is needed.
 - When the agent would need to run `pipenv shell` — this is interactive and MUST be avoided in automated contexts.
 
-## Gotchas
+## Common Pitfalls
 - NEVER run `pipenv shell` as an automated agent — it spawns an interactive subshell that stalls indefinitely waiting for human input; always use `pipenv run <command>` instead.
 - `Pipfile.lock` MUST NOT be edited manually — always regenerate with `pipenv lock` to maintain hash integrity.
 - Editable installs ( `-e` ) with parallel builds can cause `BackendUnavailable` race conditions — set `PIP_NO_BUILD_ISOLATION=1` if this occurs.

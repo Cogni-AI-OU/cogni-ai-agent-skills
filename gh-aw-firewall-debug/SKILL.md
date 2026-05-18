@@ -1,6 +1,6 @@
 ---
 name: gh-aw-firewall-debug
-description: 'Debug the AWF firewall by inspecting Docker containers, analyzing Squid access logs, checking iptables rules, and troubleshooting network issues.'
+description: Debug the AWF firewall by inspecting Docker containers, analyzing Squid access logs, checking iptables rules, and troubleshooting network issues.
 license: MIT
 ---
 
@@ -23,7 +23,7 @@ license: MIT
 - Diagnosing issues in non-AWF environments — this skill is specific to the AWF Docker-based firewall.
 - Performance profiling or load testing — this skill focuses on connectivity debugging, not throughput analysis.
 
-## Gotchas
+## Common Pitfalls
 
 - Logs inside normal AWF executions are moved after cleanup — always access archived logs via `/tmp/squid-logs-*/access.log` instead of relying on container inspection, which may find empty directories.
 - Leaving debug containers running (`--keep-containers`) without cleanup leaves iptables rules and Docker networks active — always run manual cleanup (`docker rm -f awf-squid awf-agent && docker network rm awf-net`) after inspection.

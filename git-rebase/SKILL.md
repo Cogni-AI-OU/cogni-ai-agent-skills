@@ -1,6 +1,9 @@
 ---
 name: git-rebase
-description: 'Advanced Git rebase operations including interactive history cleanup and non-interactive scripted rewrites. You MUST load this skill before performing Git rebase operations.'
+description: >-
+  Advanced Git rebase operations including interactive history cleanup and
+  non-interactive scripted rewrites.
+  You MUST load this skill before performing Git rebase operations.
 license: MIT
 ---
 
@@ -21,7 +24,7 @@ license: MIT
 - You have already pushed commits to a shared/public branch — rebasing shared commits rewrites history and causes divergence for all collaborators.
 - You are operating in a GitHub Actions runtime where the auto-PR/push logic requires compatible remote branch history — rebasing will change commit SHAs and break post-run push workflows.
 
-## Gotchas
+## Common Pitfalls
 - `GIT_SEQUENCE_EDITOR=true` only skips opening the editor during `git rebase -i`; it does **not** rewrite the todo list — you need a script or command as the editor value to perform automated todo manipulation.
 - Interactive mode (`git rebase -i`) is **FORBIDDEN** in automated runtime environments — it will hang waiting for user input with no fallback.
 - Rebasing commits that have already been pushed requires `--force-with-lease` to push the rewritten history, which is destructive to any collaborator's work based on the original commits.

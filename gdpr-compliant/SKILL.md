@@ -1,6 +1,6 @@
 ---
 name: gdpr-compliant
-description: 'Apply GDPR-compliant engineering practices across your codebase. You MUST load this skill whenever you are designing APIs, writing data models, handling user data, implementing logging, or reviewing pull requests for privacy compliance.'
+description: Apply GDPR-compliant engineering practices across your codebase. You MUST load this skill whenever you are designing APIs, writing data models, handling user data, implementing logging, or reviewing pull requests for privacy compliance.
 license: MIT
 ---
 
@@ -24,7 +24,7 @@ license: MIT
 - Infrastructure provisioning or cloud resource configuration that does not handle PII.
 - Code review focused purely on business logic correctness without data privacy implications.
 
-## Gotchas
+## Common Pitfalls
 
 - Logging full request/response bodies is an extremely common GDPR violation — default to logging structured event metadata only (e.g., `"User {UserId} updated email"` not `"Email changed from a@b.com to c@d.com"`).
 - "Anonymized" data that can still be re-identified through linkage attacks is NOT anonymized under GDPR — verify k-anonymity and test linkage resistance before claiming data is anonymized.

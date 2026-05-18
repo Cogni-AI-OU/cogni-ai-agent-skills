@@ -1,6 +1,8 @@
 ---
 name: gh-api
-description: 'Advanced GitHub CLI (`gh api`) queries and mutations via REST or GraphQL. You MUST load this skill when working with the `gh api` command.'
+description: >-
+  Advanced GitHub CLI (`gh api`) queries and mutations via REST or GraphQL.
+  You MUST load this skill when working with the `gh api` command.
 license: MIT
 ---
 
@@ -23,7 +25,7 @@ license: MIT
 - General web API interactions outside of GitHub — this skill is specific to `gh api` for the GitHub API.
 - Operations where `GH_TOKEN` or `GITHUB_TOKEN` does not have the required scopes — check auth first before building complex queries.
 
-## Gotchas
+## Common Pitfalls
 
 - Using `-f` (`--raw-field`) when intending to expand a file with `@` silently passes the literal string — always use `-F` (`--field`) for file expansion. The `query` parameter in GraphQL is a common exception where `-f` is correct.
 - Process substitution `@<(...)` is brittle across shells and may fail silently in restricted environments — write to a temp file first, then use `-F body=@tempfile`.

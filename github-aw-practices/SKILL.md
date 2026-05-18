@@ -23,7 +23,7 @@ license: MIT
 - The organization has a single repository with no need for cross-repo governance or staged rollout.
 - Token optimization or prompt minimization for an existing workflow (load `github-aw`).
 
-## Gotchas
+## Common Pitfalls
 - Safe-outputs and integrity filtering form a defense-in-depth model — disabling either one creates a security gap. Integrity filtering prevents the agent from SEEING untrusted content, while safe-outputs prevent it from ACTING on it.
 - The A/B experiments system uses round-robin balanced selection, NOT random assignment — runs with the same experiment configuration receive variants in deterministic rotation, which can confound results if run counts are uneven.
 - Staged mode (preview writes) and shadow evaluation (real writes to a safe target) serve different purposes and are NOT interchangeable — staged mode answers "what would the workflow do," shadow evaluation answers "does the real write path work correctly."

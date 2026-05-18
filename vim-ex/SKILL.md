@@ -1,6 +1,9 @@
 ---
 name: vim-ex
-description: 'How to use Ex mode in Vim for non-interactive file editing (e.g., complex text substitution, deleting lines, file parsing, wrapping text, sorting lines). You MUST load this skill when using Vim Ex mode for non-interactive file editing.'
+description: >-
+  How to use Ex mode in Vim for non-interactive file editing (e.g., complex text
+  substitution, deleting lines, file parsing, wrapping text, sorting lines).
+  You MUST load this skill when using Vim Ex mode for non-interactive file editing.
 license: MIT
 ---
 # File Editing with Ex Mode
@@ -23,7 +26,7 @@ license: MIT
 - Collaborative editing scenarios where line-based patch files (`diff`/`patch`) are the standard interchange format.
 - When the edits require only basic stream processing (e.g., grepping lines, counting)—simpler tools suffice.
 
-## Gotchas
+## Common Pitfalls
 
 - Forgetting the `-s` (silent) flag causes `ex` to drop into interactive mode, which hangs automated scripts—always include `-s` for batch editing.
 - `ex` substitution syntax uses `\r` for newlines in replacement (not `\n`), which is a common source of confusion for those coming from `sed`.

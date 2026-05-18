@@ -1,6 +1,9 @@
 ---
 name: github
-description: 'Provides guidance on GitHub-specific features, pull requests viewing modes, and collaborative practices. You MUST load this skill when working with GitHub-specific features or PR view modes.'
+description: >-
+  Provides guidance on GitHub-specific features, pull requests viewing modes,
+  and collaborative practices.
+  You MUST load this skill when working with GitHub-specific features or PR view modes.
 license: MIT
 ---
 
@@ -22,7 +25,7 @@ license: MIT
 - You need to manage issues — use the **gh-issue** skill.
 - You are troubleshooting GitHub Actions workflow failures — use the **github-actions** or **gh-run** skills.
 
-## Gotchas
+## Common Pitfalls
 - The `.diff` and `.patch` URL formats return **raw text** — they are not interactive and do not include comments, review status, or CI check information; they contain only the code changes (`.diff`) or changes plus commit metadata (`.patch`).
 - `.patch` output is formatted for `git am` consumption — it includes author, date, and commit message metadata that `.diff` omits; choose the format that matches your use case.
 - GitHub file links with line numbers (e.g., `#L10-L20`) reference the **current version** of the file on the default branch — if the file has changed since the link was shared, the line numbers may no longer correspond to the relevant code.

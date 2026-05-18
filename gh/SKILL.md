@@ -1,6 +1,10 @@
 ---
 name: gh
-description: 'GitHub CLI (`gh`) operations for issues, pull requests, workflow runs, reviews, or API queries, especially in restricted shells where structured output and fallback choice matter. You MUST load this skill when working with the `gh` command and its subcommands.'
+description: >-
+  GitHub CLI (`gh`) operations for issues, pull requests, workflow runs,
+  reviews, or API queries, especially in restricted shells where structured
+  output and fallback choice matter.
+  You MUST load this skill when working with the `gh` command and its subcommands.
 license: MIT
 ---
 
@@ -24,7 +28,7 @@ license: MIT
 - Managing GitHub Agentic Workflows — use `gh-aw` skill for `gh aw` subcommands.
 - Searching code across repositories — use `gh-search` skill for structured search queries.
 
-## Gotchas
+## Common Pitfalls
 
 - Using `-f` (`--raw-field`) when intending to read a file with `@` silently passes the literal string `@path` instead of expanding the file — always use `-F` (`--field`) for file expansion.
 - Empty stdout from a `gh` query is NOT a success — verify with `--json` or `--jq` to ensure the subcommand supports the requested mode. Check exit codes explicitly.
