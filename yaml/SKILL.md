@@ -4,7 +4,6 @@ license: MIT
 description: >-
   Generic guidelines for YAML formatting, linting, and structural rules.
   You MUST load this skill when updating or creating YAML files.
-license: MIT
 ---
 
 # yaml
@@ -16,7 +15,6 @@ license: MIT
 - Creating or editing YAML configuration files (e.g., CI/CD pipelines, Docker Compose, Kubernetes manifests, Ansible playbooks).
 - Formatting and linting YAML files to ensure consistency across a project.
 - Writing portable YAML that must parse correctly across different parsers and language implementations.
-- Reviewing pull requests for YAML structural validity, indentation consistency, and syntax correctness.
 
 ## When Not to Use
 

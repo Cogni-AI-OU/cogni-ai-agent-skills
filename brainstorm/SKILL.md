@@ -4,7 +4,6 @@ license: MIT
 description: >-
   Activate brainstorming protocol to explore options, research, deconstruct complexities, and summarize available data into simple diagrams.
   You MUST load this skill when asked to brainstorm, explore options, or break down complex problems.
-license: MIT
 ---
 
 # Skill brainstorm
@@ -16,17 +15,12 @@ license: MIT
 - Exploring multiple architectural paths or design options before committing to a single solution (Design-It-Twice protocol).
 - Breaking down a complex, ambiguous problem into atomic, manageable components for structured analysis.
 - Gathering facts, constraints, and empirical data from the codebase before formulating any conclusions.
-- Visualizing trade-offs across competing options using Mermaid diagrams (mindmaps, quadrant charts, radar charts, block diagrams).
-- Performing root cause analysis of systemic failures using fishbone (Ishikawa) diagrams.
-- Prioritizing tasks, options, or initiatives by mapping effort vs. impact on a quadrant chart.
 
 ## When Not to Use
 
 - Executing a known, well-defined procedure with a single correct approach — use a task-specific skill instead.
 - Performing deep analytical reasoning, validation, or adversarial testing of a single option — load the `critical-thinking` skill instead.
 - Making direct edits or committing changes to the codebase — brainstorming is for exploration only, not execution.
-- Analyzing agent runs in CI/CD pipelines — load `brainstorm-agent-runs` instead.
-- Analyzing Pull Request commit history, reviews, and CI checks — load `brainstorm-github-pr` instead.
 
 ## Common Pitfalls
 

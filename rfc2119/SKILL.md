@@ -1,8 +1,9 @@
 ---
 name: rfc2119
 license: MIT
-description: Enforce correct usage of RFC 2119 requirement level keywords (MUST, SHOULD, MAY, etc.) in documentation and specifications. You MUST load this skill when writing or reviewing standards, specifications, or when applying RFC 2119 terminology.
-license: MIT
+description: >-
+             Enforce correct usage of RFC 2119 requirement level keywords (MUST, SHOULD, MAY, etc.) in documentation and specifications.
+             You MUST load this skill when writing or reviewing standards, specifications, or when applying RFC 2119 terminology.
 ---
 
 # Skill: rfc2119
@@ -14,8 +15,6 @@ license: MIT
 - Writing or reviewing technical specifications, RFCs, standards documents, or formal API documentation that needs precise requirement-level semantics.
 - Defining compliance or conformance criteria where MUST/SHOULD/MAY distinctions carry legal or contractual weight.
 - Auditing existing documentation for correct and consistent use of RFC 2119 keyword capitalization and semantics.
-- Establishing interoperability requirements between system components where ambiguous language could cause integration failures.
-- Creating security or safety-critical documentation where the consequences of ignoring a directive must be explicitly elaborated.
 
 ## When Not to Use
 

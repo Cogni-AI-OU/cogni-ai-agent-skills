@@ -5,7 +5,6 @@ description: >-
   Procedures and templates for analyzing agent session logs, extracting telemetry, and generating
   standardized visual audit reports.
   You MUST load this skill when auditing or analyzing autonomous agent log files.
-license: MIT
 ---
 
 # Agent Log Analysis & Reporting
@@ -17,7 +16,6 @@ license: MIT
 - Find hidden problems before a workflow goes to production
 - Audit an existing agent for quality and reliability
 - Get a prioritized remediation plan with concrete next steps
-- Health-check a workflow after significant changes
 
 ## When Not to Use
 

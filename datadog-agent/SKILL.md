@@ -2,7 +2,6 @@
 name: datadog-agent
 license: MIT
 description: Use when installing, configuring, or updating Datadog Agent;
-license: MIT
 ---
 
 # Skill: datadog-agent
@@ -10,13 +9,13 @@ license: MIT
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
 
 ## When to Use
+
 - Installing or upgrading the Datadog Agent on Linux/Windows/macOS hosts
 - Configuring log collection, integrations, or custom checks via Ansible or manual configuration
 - Writing custom Python checks (AgentCheck or OpenMetricsBaseCheckV2) for bespoke metrics
-- Diagnosing Agent connectivity issues, check failures, or status anomalies
-- Managing Agent configuration as immutable infrastructure through Ansible roles
 
 ## When Not to Use
+
 - Querying or analyzing telemetry data already collected — use `datadog-api` or `datadog-mcp` instead
 - Creating Datadog dashboards, monitors, or SLOs — those are separate configuration domains
 - Setting up Datadog in serverless environments (Lambda extensions) — the Agent runs on hosts/containers

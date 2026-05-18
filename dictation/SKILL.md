@@ -2,7 +2,6 @@
 name: dictation
 license: MIT
 description: Fix speech-to-text errors, correct technical terminology, and improve text clarity in documentation and workflows.
-license: MIT
 ---
 # Skill: dictation
 
@@ -25,13 +24,13 @@ Apply dictation correction protocols to fix common speech-to-text errors, especi
 - **Maintain Intent**: Do not simplify technical concepts or alter the user's intended meaning.
 
 ## When to Use
+
 - Processing raw dictation or speech-to-text input with common misrecognitions
 - Refining draft documentation or workflow descriptions containing filler words or inaccuracies
 - Standardizing technical terminology (GitHub product names, AI engine names, compound modifiers) across documents
-- Correcting hyphenation and capitalization in project-specific glossary terms
-- Cleaning up transcribed meeting notes or voice-to-text output for publication
 
 ## When Not to Use
+
 - Generating code examples or writing new source code — this skill corrects text, not code
 - Providing step-by-step planning or execution instructions — output should primarily be the corrected text
 - Simplifying technical concepts or altering the user's intended meaning — preserve original intent and technical accuracy

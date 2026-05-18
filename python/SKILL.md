@@ -4,7 +4,6 @@ license: MIT
 description: >-
   Expert Python language skill for writing, refactoring, and testing idiomatic Python 3 code.
   You MUST load this skill when developing Python modules, classes, or scripts.
-license: MIT
 ---
 
 # Skill: python
@@ -12,19 +11,16 @@ license: MIT
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
 
 ## When to Use
+
 - When writing or refactoring Python 3 modules, classes, functions, or scripts following PEP 8 and idiomatic patterns.
 - When adding type hints, dataclasses, or modern Python 3.11+ features (`match`/`case`, `Self` type, etc.) to existing code.
 - When creating unit tests with `pytest` for Python business logic.
-- When reviewing Python code for adherence to naming conventions, docstring standards, and type safety.
-- When developing new Python projects where code structure, maintainability, and testability are priorities.
-- When applying error handling patterns with proper logging and exception chaining.
 
 ## When Not to Use
+
 - When executing quick one-off Python commands or inline scripts from the shell — use the **python-cli** skill for heredoc-based or `-c` one-liner execution.
 - When managing Python dependencies or virtual environments — use the **pipenv** or **pipfile** skills instead.
 - When writing Python that targets versions below 3.10 — this skill assumes modern Python features are available.
-- When the task is purely about packaging or distribution (setup.py, pyproject.toml) — use dedicated packaging skills.
-- When debugging Python runtime issues unrelated to code style/quality (e.g., segfaults, interpreter crashes) — those require platform-specific troubleshooting.
 
 ## Common Pitfalls
 - Type hints do not enforce anything at runtime — they are purely for static analysis and documentation; never rely on them for input validation.

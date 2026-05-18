@@ -2,7 +2,6 @@
 name: dockerfile
 license: MIT
 description: Write, review, and optimize Dockerfiles applying multi-stage builds, non-root constraints, layer caching, and strict image pinning.
-license: MIT
 ---
 
 # Skill: dockerfile
@@ -14,15 +13,12 @@ license: MIT
 - Writing a new Dockerfile from scratch for a production service or application.
 - Reviewing an existing Dockerfile for security, performance, or best-practice compliance.
 - Optimizing image size by applying multi-stage builds, layer consolidation, or base image minimization.
-- Configuring deterministic and reproducible container builds with pinned base image digests.
-- Setting up a CI/CD pipeline step that builds and publishes container images.
 
 ## When Not to Use
 
 - Debugging runtime container behavior or network issues — use the `docker` skill instead for container troubleshooting.
 - Managing container orchestration (Kubernetes, Docker Compose, Docker Swarm) — this skill focuses on Dockerfile syntax only.
 - Writing quick ad-hoc Dockerfiles for local development where reproducibility is not a concern.
-- Diagnosing application-level runtime errors inside a running container.
 
 ## Common Pitfalls
 

@@ -12,18 +12,16 @@ license: MIT
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
 
 ## When to Use
+
 - When creating experimental Mermaid.js diagram types: Architecture, Block, Ishikawa, Packet, Radar, Sankey, Treemap, TreeView, Venn, XY Chart, or ZenUML.
 - When visualizing cloud infrastructure topology with `architecture-beta` diagrams.
 - When creating cause-and-effect analyses using `ishikawa-beta` (fishbone) diagrams.
-- When modeling network protocols, binary data structures, or bit-field layouts with `packet-beta` diagrams.
-- When representing hierarchical data proportions via `treemap-beta` or directory structures via `treeView-beta`.
-- When plotting multivariate data on radar charts, flow volumes on Sankey diagrams, or Cartesian data on XY charts.
 
 ## When Not to Use
+
 - When producing stable, production-critical diagrams for public documentation — beta diagram types may change syntax or break across Mermaid.js versions.
 - When the diagram must render on platforms that only support stable Mermaid.js (e.g., some GitHub Markdown renderers) — beta types may not be supported.
 - When a stable diagram type (flowchart, sequence, class, etc.) adequately conveys the information — prefer stable types for reliability.
-- When working with ZenUML without verifying the external plugin (`@mermaid-js/mermaid-zenuml`) is registered — it will not render otherwise.
 
 ## Common Pitfalls
 - Beta diagram syntax is volatile — always check the official Mermaid.js documentation for the latest syntax changes before writing beta diagrams.

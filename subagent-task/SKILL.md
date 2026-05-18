@@ -4,7 +4,6 @@ license: MIT
 description: >-
   Guidance and protocols for spawning sub-agents via the task tool to handle complex, multi-step, or parallelizable tasks.
   You MUST load this skill when the task tool for invoking sub-agents is available.
-license: MIT
 ---
 
 # subagent-task
@@ -16,14 +15,12 @@ license: MIT
 - Breaking down a complex, multi-step task into independent parallel sub-tasks (e.g., fact-gathering, log analysis, and plan validation).
 - Leveraging specialized agent personas (e.g., security auditor, Python developer, code reviewer) for domain-specific work.
 - Preventing context-window overload by delegating large file analysis or broad codebase searches to sub-agents.
-- Running multiple independent research or analysis tasks concurrently to reduce overall execution time.
 
 ## When Not to Use
 
 - Simple, single-step tasks that can be completed directly without delegation overhead.
 - Tasks requiring tight coordination or shared state between sub-steps—the sub-agent model handles isolation better than collaboration.
 - When the task scope is too small to justify the latency overhead of spawning and synthesizing sub-agent results.
-- Tasks that involve modifying shared files or state that could cause conflicts between concurrent sub-agents.
 
 ## Common Pitfalls
 

@@ -16,16 +16,12 @@ license: MIT
 - Checking core architecture files (`*.mmd`, `*.mzn`) for mutual consistency and accuracy.
 - Reviewing documentation (`**/AGENTS.md`, `**/README.md`) for outdated references or contradictions.
 - After any significant architectural decision to verify documentation is created and remains accurate.
-- When encountering complex code to ensure it has proper "why" comments and non-obvious logic is documented.
-- When verifying an operational procedure or tradeoff decision is accurately reflected in runbooks.
-- Auditing the full documentation surface before a release or major refactor.
 
 ## When Not to Use
 
 - Writing new documentation from scratch — use the `docs-writer` skill for authoring.
 - Fixing minor typos or formatting issues — these are simple edits, not reviews.
 - Reviewing documentation that is explicitly marked as work-in-progress or draft status.
-- Making subjective style changes without identifying actual inconsistencies or factual errors.
 
 ## Common Pitfalls
 
@@ -35,14 +31,6 @@ license: MIT
 - Runbooks for alerts are frequently out of sync with actual operational procedures — verify by mentally walking through the steps, not just checking for existence.
 
 Guidance for reviewing core architecture, documentation, and constraint files for mutual consistency and accuracy. Use this skill when checking repository documentation.
-
-## When to Use
-
-- Checking core architecture files (`*.mmd`, `*.mzn`) for consistency.
-- Reviewing documentation (`**/AGENTS.md`, `**/README.md`) for outdated references.
-- After any significant architectural decision to verify documentation exists and is accurate.
-- When encountering complex code to ensure it's properly documented.
-- When verifying an operational procedure or tradeoff.
 
 ## Core Process
 

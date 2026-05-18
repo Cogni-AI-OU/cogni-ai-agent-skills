@@ -6,7 +6,6 @@ description: >-
   You MUST load this skill when working with changes associated with a pull request
   or when the runtime was triggered by a PR comment.
   Load this before any gh skills.
-license: MIT
 ---
 
 # github-pr Skill
@@ -14,18 +13,16 @@ license: MIT
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
 
 ## When to Use
+
 - The runtime was triggered by a PR comment or PR event (`pull_request`, `pull_request_review`, `pull_request_review_comment`, `issue_comment` on a PR).
 - You need to comment on, review, approve, or request changes on a pull request.
 - You need to commit and push code changes to a PR branch, then sync with the upstream base branch.
-- You are asked to analyze a PR diff, check build status, or verify merge readiness.
-- You need to reply to inline review comments, resolve threads, or maintain PR metadata (title, description).
-- You are asked to revert or re-implement a previous PR change based on new feedback.
 
 ## When Not to Use
+
 - The trigger is an issue (not a PR) event — load `github-issue` instead for issue-specific routing policies.
 - The user asks for a comprehensive PR review with code quality and security analysis — load `github-pr-review` instead.
 - The task is purely informational with no code changes and no commenting needed — this skill's mandatory upstream sync steps add unnecessary overhead.
-- The user asks about GitHub Actions workflow runs (not PR-specific operations) — load `gh-run` or `github-actions`.
 
 ## Common Pitfalls
 - You MUST NOT use rebase-based sync (`git pull --rebase`, `git rebase`, `gh pr update-branch --rebase`) during runtime — always use `git pull --no-rebase` to preserve remote branch compatibility.

@@ -2,7 +2,6 @@
 name: gh-aw-firewall-debug
 license: MIT
 description: Debug the AWF firewall by inspecting Docker containers, analyzing Squid access logs, checking iptables rules, and troubleshooting network issues.
-license: MIT
 ---
 
 # AWF Firewall Debugging
@@ -14,15 +13,12 @@ license: MIT
 - Debugging unexpected network blocks or access failures in AWF-protected commands.
 - Inspecting Squid proxy logs to determine which domains are being allowed or blocked.
 - Checking iptables rules to verify firewall enforcement in the Docker network.
-- Troubleshooting DNS resolution failures within the AWF container environment.
-- Analyzing AWF container state (running, exited, network config) after a failed execution.
 
 ## When Not to Use
 
 - Setting up or configuring the AWF firewall for the first time — use `gh-aw-firewall` skill for initial setup and basic usage.
 - Debugging application-level code issues unrelated to network connectivity.
 - Diagnosing issues in non-AWF environments — this skill is specific to the AWF Docker-based firewall.
-- Performance profiling or load testing — this skill focuses on connectivity debugging, not throughput analysis.
 
 ## Common Pitfalls
 

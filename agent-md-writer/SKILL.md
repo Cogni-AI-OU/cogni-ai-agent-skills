@@ -13,7 +13,6 @@ license: MIT
 - Creating a new specialized agent persona from scratch (e.g., `docs-agent`, `test-agent`, `security-auditor`).
 - Refining or optimizing an existing agent persona to improve task success rates, reduce hallucination, or tighten scope.
 - Ensuring an agent definition includes all high-performance sections: role persona, invariants, cognitive framework, tooling rules, and verification gates.
-- Applying strict three-tier boundaries (Always / Ask first / Never) to any agent definition.
 
 ## When Not to Use
 

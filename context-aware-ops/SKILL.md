@@ -11,13 +11,13 @@ license: MIT
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
 
 ## When to Use
+
 - Reading or processing files that may exceed the agent context window limit
 - Analyzing large log files where full content would exhaust available tokens
 - Querying command outputs that produce hundreds or thousands of lines
-- Managing context budget during multi-step investigations across many files
-- Filtering relevant information from noisy or verbose command output
 
 ## When Not to Use
+
 - Reading small files under 100 lines where full content is safe — the overhead of filtering is unnecessary
 - Situations where the complete output is required for correctness (e.g., exact error messages for debugging)
 - Replacing proper log aggregation and observability tools with ad-hoc shell filtering for production debugging

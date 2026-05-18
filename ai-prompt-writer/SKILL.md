@@ -2,7 +2,6 @@
 name: ai-prompt-writer
 license: MIT
 description: Design, review, and optimize secure AI prompts using advanced prompt engineering patterns, safety frameworks, and injection mitigation strategies.
-license: MIT
 ---
 
 # Skill: AI Prompt Writer
@@ -16,15 +15,12 @@ Design, review, and optimize secure AI prompts using advanced prompt engineering
 - Engineering system prompts, LLM templates, or Copilot instructions for production-grade AI applications.
 - Auditing existing prompts for injection vulnerabilities, data leakage risks, or biased outputs.
 - Defining automated prompt evaluation metrics, red-teaming checklists, or safety guardrails.
-- Applying structured prompt patterns (Zero-Shot, Few-Shot, Chain-of-Thought, Role Prompting) to complex reasoning tasks.
-- Designing prompts with explicit output schema definitions and strict format constraints.
 
 ## When Not to Use
 
 - Writing general-purpose documentation, READMEs, or user-facing content that does not involve LLM prompt design.
 - Configuring infrastructure, CI/CD pipelines, or deployment tooling unrelated to prompt engineering.
 - Performing code review on application logic that does not involve prompt templates or LLM interaction patterns.
-- Writing agent persona definitions (`.agent.md`) — those follow a different format covered by `agent-md-writer`.
 
 ## Common Pitfalls
 
@@ -48,12 +44,6 @@ Design, review, and optimize secure AI prompts using advanced prompt engineering
 - **Secure Construction**: Never directly interpolate untrusted input. Use parameterization or robust sanitization (e.g., `Translate this text: [SANITIZED_USER_INPUT]`).
 - **Data Minimization**: Exclude sensitive, personal, or proprietary data from prompts.
 - **Neutrality**: Enforce inclusive language; eliminate demographic or contextual assumptions.
-
-## When to Use
-
-- Engineering system prompts, LLM templates, or Copilot instructions.
-- Auditing existing prompts for injection vulnerabilities or data leakage risks.
-- Defining automated prompt evaluation metrics or safety checklists.
 
 ## Commands / Usage Patterns
 

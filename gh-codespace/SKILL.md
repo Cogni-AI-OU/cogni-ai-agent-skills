@@ -5,7 +5,6 @@ description: >-
   GitHub CLI (`gh codespace` or `gh cs`) operations for connecting to, managing,
   creating, or editing GitHub Codespaces.
   You MUST load this skill when working with the `gh codespace` command.
-license: MIT
 ---
 
 # gh-codespace
@@ -13,18 +12,16 @@ license: MIT
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
 
 ## When to Use
+
 - You need to create a new GitHub Codespace for development on a specific repository and branch.
 - You are already working in a codespace and need to rebuild it after modifying devcontainer configuration.
 - You need to transfer files between your local machine and a codespace without manual SCP setup.
-- You need to expose a codespace port to your local machine for testing web services or APIs.
-- You need to stop or delete idle codespaces to clean up resources and manage billing.
-- You need to troubleshoot connectivity or configuration issues inside a running codespace.
 
 ## When Not to Use
+
 - You need to modify the devcontainer definition itself (Dockerfile, devcontainer.json) — use the **devcontainer** skill instead.
 - You are running in a fully automated CI/CD pipeline that cannot use interactive terminal sessions — codespace commands like `code`, `ssh`, or `jupyter` require interactive environments.
 - You only need to view repository content or run simple commands — a local clone or GitHub Workspace is more appropriate.
-- You are managing GitHub-hosted runners or Actions infrastructure — those belong to **github-actions** or **gh-run** skills.
 
 ## Common Pitfalls
 - `gh codespace ssh` and `gh codespace code` are interactive commands that will hang in non-interactive/agent environments — only use them when providing instructions to the user.

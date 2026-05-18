@@ -16,16 +16,12 @@ license: MIT
 - **Browser Automation**: Navigating pages, clicking elements, filling forms, and handling dialogs in a live browser.
 - **Visual Inspection**: Taking screenshots or text accessibility snapshots of web pages for visual verification.
 - **Debugging**: Inspecting console messages, evaluating JavaScript in the page context, and analyzing network request failures.
-- **Performance Analysis**: Recording and analyzing performance traces to identify LCP bottlenecks, layout shifts, and Core Web Vital issues.
-- **Emulation**: Resizing the viewport or throttling CPU/network conditions for responsive design and performance testing.
 
 ## When Not to Use
 
 - Static HTML parsing or content scraping without browser interaction — use HTTP clients (curl, wget) or headless scripts instead.
 - API testing or endpoint validation — use dedicated tools like `curl`, Postman, or REST API clients.
 - Network-level packet analysis or deep protocol inspection — use Wireshark or `tcpdump` instead.
-- Server-side rendering or screenshot generation in production CI/CD pipelines — use `puppeteer` or `playwright` directly instead.
-- Automated accessibility auditing at scale — use dedicated tools like `axe-core` or Lighthouse CLI.
 
 ## Common Pitfalls
 

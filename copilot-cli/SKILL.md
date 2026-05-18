@@ -1,8 +1,9 @@
 ---
 name: copilot-cli
 license: MIT
-description: Guidance for installing GitHub Copilot CLI on Debian/Ubuntu and executing commands using custom agents. You MUST load this skill when interacting with or installing the copilot-cli command.
-license: MIT
+description: >-
+             Guidance for installing GitHub Copilot CLI on Debian/Ubuntu and executing commands using custom agents.
+             You MUST load this skill when interacting with or installing the copilot-cli command.
 ---
 
 # Skill: copilot-cli
@@ -10,13 +11,13 @@ license: MIT
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
 
 ## When to Use
+
 - Installing, authenticating, or configuring GitHub Copilot CLI for the first time
 - Executing automated agent tasks via `copilot --agent <name> --prompt "<instruction>"` in scripts
 - Setting up custom agents, skills, MCP servers, or plugins to extend Copilot CLI capabilities
-- Managing tool permissions and security boundaries for agentic workflows
-- Automating code review, PR management, or session chronicle tracking via CLI
 
 ## When Not to Use
+
 - Interactive slash commands (e.g., `/agent`) in automated scripts — always use `--agent` and `--prompt` flags
 - Situations where the GitHub CLI (`gh`) or native GitHub Actions would be simpler and require less setup
 - Running commands that require interactive TTY authentication — the CLI cannot handle login prompts autonomously

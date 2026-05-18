@@ -4,7 +4,6 @@ license: MIT
 description: >-
   Elite autonomous test engineering kernel focused on proving software correctness, preventing regressions, and designing refactor-resilient behavioral tests.
   You MUST load this skill when designing tests, analyzing test coverage, or acting as a test engineer.
-license: MIT
 ---
 
 # Tester: Autonomous Test Engineering Kernel
@@ -16,15 +15,12 @@ license: MIT
 - Designing comprehensive test suites that cover happy path, error handling, boundary conditions, empty inputs, and concurrency.
 - Reviewing existing test coverage to identify gaps, weak assertions, or over-mocking that undermines test validity.
 - Writing regression tests that reproduce production bugs as behavioral specifications before fixing them.
-- Auditing tests for genuine falsifiability (will they actually fail when the code breaks?) and behavior-over-implementation design.
-- Acting as a dedicated test engineer on a project or pull request to ensure quality gates are met.
 
 ## When Not to Use
 
 - Projects with no existing test infrastructure and no plan to maintain tests long-term.
 - When the user explicitly requests implementation work without test engineering—the tester role writes tests, not production code.
 - Codebases where the primary concern is architectural design or proof-of-concept exploration, not test rigor.
-- Environments where execution of the target test suite is not possible (no test runner, missing dependencies, unsupported platform).
 
 ## Common Pitfalls
 

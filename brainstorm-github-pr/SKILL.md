@@ -4,7 +4,6 @@ license: MIT
 description: >-
   Activate PR brainstorming protocol to analyze and visualize commit history, review threads, and CI pipeline checks using Mermaid diagrams.
   You MUST load this skill when asked to analyze or brainstorm a Pull Request.
-license: MIT
 ---
 
 # Skill brainstorm-github-pr
@@ -16,16 +15,12 @@ license: MIT
 - Mapping out the full context of a Pull Request (commits, reviews, CI status) before diving into code review or detailed log analysis.
 - Visualizing commit history, review thread status, and CI pipeline health in a single consolidated diagrammatic view.
 - Communicating PR status and bottlenecks to team members using Mermaid diagrams (gitGraph, kanban, flowchart).
-- Root-causing CI/CD failures associated with a Pull Request using Ishikawa (fishbone) diagrams.
-- Establishing a shared mental model of PR scope before delegating review or implementation work to sub-agents.
 
 ## When Not to Use
 
 - Performing deep line-by-line code review of the actual diff — load the `code-review` skill instead.
 - Analyzing agent-specific CI/CD workflow runs — load `brainstorm-agent-runs` instead.
 - Directly modifying files or committing changes related to the PR — use task-specific implementation skills.
-- Executing `gh pr merge`, `gh pr review`, or other PR write operations — load `gh-pr` instead.
-- Debugging workflow configuration or runner-level CI failures — load `github-actions` instead.
 
 ## Common Pitfalls
 

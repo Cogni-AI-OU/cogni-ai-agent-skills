@@ -15,16 +15,12 @@ license: MIT
 - Writing or generating Architectural Decision Records (ADRs) to capture rationale for significant technical decisions.
 - Documenting non-obvious code or complex algorithms with "why" comments.
 - Creating or updating runbooks for production processes, incident response, or operational tasks.
-- Updating README files to reflect the current state, setup instructions, or architecture.
-- Creating local `AGENTS.md` files for subdirectories with specific functionality or workflows.
-- Writing project documentation after a significant architectural change or new feature addition.
 
 ## When Not to Use
 
 - Reviewing existing documentation for correctness or consistency — use the `docs-review` skill instead.
 - Making trivial formatting or spelling fixes that do not add new documentation content.
 - Generating API reference documentation that should be auto-generated from code comments or OpenAPI specs.
-- Writing documentation for unstable or experimental features that are likely to change before release.
 
 ## Common Pitfalls
 
@@ -34,14 +30,6 @@ license: MIT
 - READMEs rot faster than code — always verify setup instructions by mentally walking through them on a hypothetical fresh machine, and update architecture diagrams after significant changes.
 
 Guidance for writing core architecture, documentation, and constraint files. Use this skill when creating or updating repository documentation.
-
-## When to Use
-
-- Writing or generating Architectural Decision Records (ADRs).
-- Documenting non-obvious code or complex algorithms.
-- Creating or updating runbooks for production processes.
-- Updating README files to reflect current state or instructions.
-- Creating local `AGENTS.md` files for subdirectories.
 
 ## Architectural Decision Records (ADRs)
 

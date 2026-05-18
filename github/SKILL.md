@@ -12,18 +12,16 @@ license: MIT
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
 
 ## When to Use
+
 - A user has shared a GitHub PR URL and you need to retrieve the diff or patch content for analysis.
 - You need to view a pull request or commit in plain text format (`.diff` or `.patch`) for programmatic processing or ingestion by AI tools.
 - A user has shared a GitHub file link with line number annotations (`#L123` or `#L10-L20`) and you need to inspect the specific lines referenced.
-- You need to understand how GitHub's diff/patch URL extensions work for scripting and automation.
-- You need to explain GitHub-specific collaborative features, PR view modes, or review workflows to users.
 
 ## When Not to Use
+
 - You need to create, merge, comment on, or manage PRs — use the **gh-pr** skill for CLI-based PR operations.
 - You need to search for repositories, code, issues, or commits — use the **gh-search** skill for CLI-based search.
 - You need to interact with the GitHub API programmatically for complex queries — use the **gh-api** skill.
-- You need to manage issues — use the **gh-issue** skill.
-- You are troubleshooting GitHub Actions workflow failures — use the **github-actions** or **gh-run** skills.
 
 ## Common Pitfalls
 - The `.diff` and `.patch` URL formats return **raw text** — they are not interactive and do not include comments, review status, or CI check information; they contain only the code changes (`.diff`) or changes plus commit metadata (`.patch`).

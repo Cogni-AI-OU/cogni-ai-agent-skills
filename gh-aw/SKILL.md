@@ -16,16 +16,12 @@ license: MIT
 - Orchestrating GitHub Agentic Workflows for repository automation (create, run, audit, lint).
 - Initializing a repository for agentic workflows with `gh aw init` or setting up secrets.
 - Compiling markdown workflow definitions into GitHub Actions YAML lock files.
-- Running, auditing, or troubleshooting agentic workflow executions on GitHub Actions.
-- Listing workflow health, status, or checking CI state classification.
 
 ## When Not to Use
 
 - Creating standard (non-agentic) GitHub Actions workflows — use standard `.github/workflows/*.yml` patterns instead.
 - Debugging native GitHub Actions runner issues — use `github-actions` or `gh-run` skills.
 - Executing `gh` CLI operations unrelated to agentic workflows — use `gh` or its specialized sub-skills.
-- Managing GitHub Copilot preview agent tasks — use `gh-agent-task` skill instead.
-- Performing operations on repositories that do not have gh-aw initialized — run `gh aw init` first.
 
 ## Common Pitfalls
 

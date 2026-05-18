@@ -5,21 +5,19 @@ description: >-
   Engage deep analytical reasoning, deconstruct assumptions, apply Socratic questioning, and perform adversarial red-teaming
   to solve complex problems and validate architectural plans.
   You MUST load this skill when facing challenges that require critical thinking.
-license: MIT
 ---
 # critical-thinking
 
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
 
 ## When to Use
+
 - Validating architectural plans or design decisions before implementation begins
 - Debugging complex, non-deterministic failures where root cause is not obvious
 - Breaking down ambiguous requirements into concrete, testable hypotheses
-- Performing adversarial review of a proposed solution to identify edge cases and failure modes
-- Resolving design tensions between competing constraints (performance vs. correctness, speed vs. maintainability)
-- Applying Socratic questioning (3-Why drill-down) to surface hidden assumptions or dependencies
 
 ## When Not to Use
+
 - Simple, well-understood tasks with straightforward solutions — over-analysis wastes time and tokens
 - Situations requiring immediate action where speed trumps depth (e.g., production incident mitigation)
 - Replacing empirical testing and data collection with pure reasoning — always verify assumptions with facts

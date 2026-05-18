@@ -15,7 +15,6 @@ license: MIT
 - Executing shell commands that may take a long time to complete and need performance timing.
 - Running commands in automated or agent-driven workflows where indefinite hangs must be prevented.
 - Building CI/CD pipeline steps that need explicit timeout guards and duration tracking.
-- Wrapping any external command execution where resource limits (time, output size) must be enforced.
 
 ## When Not to Use
 

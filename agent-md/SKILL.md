@@ -13,7 +13,6 @@ license: MIT
 - Learning the syntax and structure of Agent MD persona files (`.agent.md`, `CLAUDE.md`, `opencode.json`) across GitHub Copilot, Claude Code, and OpenCode platforms.
 - Distinguishing between Agents (the "Who"), Skills (the "How"), and Instructions (the "Rules") to avoid content overlap and context drift.
 - Creating or editing agent persona files at the repository, organization, or global level for any supported platform.
-- Understanding where to place agent files for each platform (`.github/agents/`, `.opencode/agents/`, `CLAUDE.md`).
 
 ## When Not to Use
 

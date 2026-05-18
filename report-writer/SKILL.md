@@ -1,8 +1,9 @@
 ---
 name: report-writer
 license: MIT
-description: Generate comprehensive audit reports, compare current state with baseline definitions, document discrepancies, update documentation files, and track changes via pull requests. You MUST load this skill when asked to generate a comprehensive system audit report.
-license: MIT
+description: >-
+             Generate comprehensive audit reports, compare current state with baseline definitions, document discrepancies, update documentation files, and track changes via pull requests.
+             You MUST load this skill when asked to generate a comprehensive system audit report.
 ---
 # Skill: report-writer
 
@@ -13,9 +14,6 @@ license: MIT
 - Generating comprehensive audit or inventory reports of system resources, configurations, or state.
 - Comparing current system state against baseline definitions to detect drift or discrepancies.
 - Creating or updating documentation files (e.g., reference docs, catalogs) with structured, categorized data.
-- Publishing audit findings as GitHub discussions or persistent artifacts for team visibility.
-- Tracking changes over time by comparing snapshots between report runs.
-- Identifying and documenting recommended defaults with rationale across resource categories.
 
 ## When Not to Use
 

@@ -12,17 +12,16 @@ license: MIT
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
 
 ## When to Use
+
 - You need to rebase a feature branch onto a target branch to maintain a linear, clean commit history.
 - You need to clean up local commit history before pushing (squashing fixups, reordering commits, dropping WIP commits).
 - You need to automate rebase operations with scripted `GIT_SEQUENCE_EDITOR` for non-interactive todo list manipulation.
-- You need to use `git rebase --autosquash` with pre-created `fixup!` / `squash!` commits to automate history cleanup.
-- You need to recover from a rebase that has gone wrong using `git rebase --abort`.
 
 ## When Not to Use
+
 - You need to perform a standard merge (with merge commit) to preserve branch topology — use the **git-merge** skill instead.
 - You need to integrate changes from a target branch into your feature branch while avoiding history rewrites — use the **git** skill's merge workflow or cherry-pick approach.
 - You have already pushed commits to a shared/public branch — rebasing shared commits rewrites history and causes divergence for all collaborators.
-- You are operating in a GitHub Actions runtime where the auto-PR/push logic requires compatible remote branch history — rebasing will change commit SHAs and break post-run push workflows.
 
 ## Common Pitfalls
 - `GIT_SEQUENCE_EDITOR=true` only skips opening the editor during `git rebase -i`; it does **not** rewrite the todo list — you need a script or command as the editor value to perform automated todo manipulation.

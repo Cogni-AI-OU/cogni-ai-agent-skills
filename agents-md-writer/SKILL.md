@@ -16,14 +16,12 @@ license: MIT
 - Creating or updating a project's root `AGENTS.md` file from scratch or aligning it with the organizational baseline structure.
 - Adding directory-specific `AGENTS.md` files for nested subdirectory context (e.g., `src/AGENTS.md`, `api/AGENTS.md`).
 - Refactoring an existing `AGENTS.md` to improve clarity, remove fluff, fix outdated instructions, or align with the latest cross-tool standard.
-- Ensuring agent-facing project documentation includes build commands, test procedures, code style rules, architectural constraints, and file boundaries.
 
 ## When Not to Use
 
 - Writing agent persona files (`.agent.md`) for specific roles — use `agent-md-writer` instead.
 - Writing portable `SKILL.md` files for agent capabilities — use `agent-skill-md-writer` instead.
 - General documentation that is not agent-specific (READMEs, API docs, user guides, runbooks).
-- Adding tool-specific configuration syntax like Claude Code's `@imports` or Cursor's glob scoping — those belong in `CLAUDE.md`, `GEMINI.md`, or `.cursorrules`.
 
 ## Common Pitfalls
 

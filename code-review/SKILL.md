@@ -5,7 +5,6 @@ description: >-
   Execute expert-level code reviews, dissecting codebases and Pull Requests (PRs) with surgical precision
   to identify logical flaws, architectural drift, performance bottlenecks, and security vulnerabilities before they merge.
   You MUST load this skill when reviewing code or Pull Requests.
-license: MIT
 ---
 
 # Skill: code-review
@@ -17,16 +16,12 @@ license: MIT
 - Reviewing a Pull Request diff to identify logical flaws, security vulnerabilities, architectural drift, and performance bottlenecks before merge.
 - Auditing code quality and hygiene across a codebase for technical debt assessment or pre-release validation.
 - Validating that tests adequately cover the implementation, edge cases, and error paths.
-- Performing security-focused code reviews with adversarial self-inquiry and zero-trust mindset.
-- Reviewing documentation currency to ensure `AGENTS.md`, `README.md`, and other relevant docs accurately reflect code changes.
 
 ## When Not to Use
 
 - Running test suites, build scripts, or executing code — this skill operates in review-only mode and does not execute code or verify runtime behavior.
 - Making direct edits to files or creating commits — use specialized implementation or writing skills instead.
 - Analyzing non-code artifacts such as architecture diagrams, ADRs, or design specifications — load `docs-review` instead.
-- Performing dynamic analysis, runtime debugging, or penetration testing — this skill relies solely on static analysis and code reading.
-- Brainstorming architectural options or exploring multiple design paths — load `brainstorm` instead.
 
 ## Common Pitfalls
 

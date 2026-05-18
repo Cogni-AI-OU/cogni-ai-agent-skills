@@ -17,15 +17,12 @@ license: MIT
 - Creating or updating a canonical fact file (`FACTS.md`, `FACTS.mmd`) that captures immutable project knowledge.
 - Adding a new verifiable fact about project architecture, context, or ecosystem after a confirmed codebase change.
 - Pruning outdated or superseded facts to maintain high-density state compression.
-- Reconciling contradictions between existing fact entries and current repository state.
-- Preparing a fact file for agent context injection to reduce hallucination and improve decision consistency.
 
 ## When Not to Use
 
 - Recording subjective opinions, plans, or speculative future states — facts must be objectively verifiable from the repository.
 - Keeping historical changelogs or version histories — Git handles history; fact files hold only the current canonical state.
 - Writing narrative documentation, tutorials, or explanations — use `docs-writer` instead for prose documentation.
-- Adding facts that duplicate existing entries — always check for existing facts before insertion.
 
 ## Common Pitfalls
 

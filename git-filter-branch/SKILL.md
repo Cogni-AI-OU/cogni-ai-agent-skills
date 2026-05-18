@@ -11,16 +11,16 @@ license: MIT
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
 
 ## When to Use
+
 - You need to extract a specific subdirectory from an external repository and import it into your repository while preserving the full git history of those files.
 - You are splitting a monorepo into smaller repositories or migrating a component from one repository to another.
 - You need to merge code from an upstream repository that is organized differently (files are in a subdirectory) into your root-level project structure.
-- Modern tools like `git filter-repo` or `git subtree` are not available in your environment, and you need a built-in git solution.
 
 ## When Not to Use
+
 - You need to extract a directory without preserving history — a simple file copy (`cp -r`) or `git checkout` with path-specific commands is faster and less risky.
 - `git filter-repo` or `git subtree` is available in your environment — prefer those tools as they are faster, safer, and have better documentation.
 - You need to simply merge two repositories at the root level (no subdirectory filtering) — use standard `git merge --allow-unrelated-histories` instead.
-- You are working in a shared repository where rewriting history would disrupt other contributors — `filter-branch` rewrites all affected commits, changing SHAs.
 
 ## Common Pitfalls
 - `git filter-branch` **rewrites commit SHAs** for every commit that touched the target subdirectory — this is a destructive history rewrite that will cause divergence from any forks or clones.

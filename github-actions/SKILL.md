@@ -12,18 +12,16 @@ license: MIT
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
 
 ## When to Use
+
 - Troubleshooting a GitHub Actions workflow run that failed or produced unexpected results.
 - A user provides a GitHub Actions run URL and asks "why did this fail?" or "investigate this failure."
 - You need to extract error details from workflow logs (via MCP tools or `gh` CLI) to identify root cause.
-- Diagnosing flaky tests, permission errors, missing secrets, or environment-specific CI failures.
-- Analyzing workflow run metadata to correlate failure patterns across multiple runs.
-- Auditing recent workflow runs to find the first failing run after a code merge.
 
 ## When Not to Use
+
 - The user is asking to create, modify, or design a new GitHub Actions workflow (use the `actionlint` or workflow authoring skill instead).
 - The issue is a local build failure unrelated to GitHub Actions infrastructure.
 - You only need to re-run a workflow without diagnosing the failure — use `gh run rerun` directly.
-- The environment lacks both MCP tools and authenticated `gh` CLI access, making automated diagnosis impossible.
 
 ## Common Pitfalls
 - `gh run view --log` or `gh api .../logs` may return empty output or a signed-blob `403` in restricted environments — do not retry the same command; pivot immediately.

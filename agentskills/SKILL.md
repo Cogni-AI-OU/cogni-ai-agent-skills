@@ -4,7 +4,6 @@ license: MIT
 description: >-
   Reference for the Agent Skills open standard. Defines the schema, directory structure, formatting, and portability requirements for agent skills.
   You MUST load this skill to understand the technical structure of an agent skill.
-license: MIT
 ---
 
 # Agent Skills (Standard)
@@ -18,8 +17,6 @@ The Agent Skills open standard provides a framework for structuring and specifyi
 - Understanding the Agent Skills open standard schema, directory structure, and portability requirements before creating a new skill.
 - Creating a new portable skill directory following the standard convention (`SKILL.md` + optional `scripts/`, `references/`, `templates/`, `assets/`).
 - Validating an existing skill against the standard checklist before publishing or distributing.
-- Auditing third-party skills for safety, supply chain integrity, and trustworthiness before installation.
-- Distinguishing between skill scope levels: project, personal, installable, and system.
 
 ## When Not to Use
 

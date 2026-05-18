@@ -5,25 +5,22 @@ description: >-
   GitHub CLI (`gh pr`) operations for pull requests, reviews, PR checks, and PR
   branches.
   You MUST load this skill when working with the `gh pr` command.
-license: MIT
 ---
 # gh-pr Skill
 
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
 
 ## When to Use
+
 - You need to create, view, edit, close, merge, or reopen GitHub Pull Requests from the command line or automation.
 - You need to inspect PR checks, CI status, and diff content to diagnose failures or review changes.
 - You need to add reviews (approve, request changes, or comment) or reply to PR thread comments.
-- You are operating in a GitHub Actions runtime triggered by a `pull_request` or `issue_comment` event and need to reply symmetrically.
-- You need to list PRs by author, label, state, or branch, and retrieve structured metadata via `--json`.
-- You need to manage PR merge strategy (`--merge`, `--squash`, `--rebase`) explicitly with merge queue compatibility.
 
 ## When Not to Use
+
 - You need raw commit data, review thread diffs, or cross-repo PR data not exposed by `gh pr` subcommands — use **gh-api** with custom GraphQL or REST queries.
 - You need to perform branch syncing or complex git operations associated with a PR (rebasing, force-push) — use **git** and **git-rebase** skills.
 - You are only viewing PR content for informational purposes without interacting — use the **github** skill for `.diff`/`.patch` URL retrieval.
-- You need to analyze agentic workflow runs triggered by PR events — use **gh-run** and **gh-aw-troubleshooting** skills instead.
 
 ## Common Pitfalls
 - `gh pr checks` only evaluates the HEAD commit; manually triggered (`workflow_dispatch`) or comment-triggered (`issue_comment`) agent runs on the same branch will be missed — use `gh run list` or `gh api` to find those.

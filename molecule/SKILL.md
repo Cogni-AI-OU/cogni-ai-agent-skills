@@ -11,13 +11,13 @@ license: MIT
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
 
 ## When to Use
+
 - When running Molecule tests to validate Ansible roles and playbooks across multiple scenarios.
 - When debugging a failing `molecule test` by breaking it into individual steps (`create`, `converge`, `destroy`).
 - When setting up Molecule testing inside a devcontainer or GitHub Codespace for local Ansible development.
-- When verifying idempotency of Ansible roles through Molecule's built-in test sequences.
-- When troubleshooting Ansible environment issues like missing Python modules or interpreter mismatches inside test containers.
 
 ## When Not to Use
+
 - When testing can be done via lightweight syntax checks (`ansible-playbook --syntax-check`) without full container provisioning — Molecule is heavy and should be reserved for integration tests.
 - When running outside a controlled environment without Docker or Podman — Molecule requires a container runtime for most drivers.
 - When the Ansible role is not idempotent by design — Molecule tests will highlight this, but the role should be fixed first.

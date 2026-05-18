@@ -1,8 +1,9 @@
 ---
 name: gdpr-compliant
 license: MIT
-description: Apply GDPR-compliant engineering practices across your codebase. You MUST load this skill whenever you are designing APIs, writing data models, handling user data, implementing logging, or reviewing pull requests for privacy compliance.
-license: MIT
+description: >-
+             Apply GDPR-compliant engineering practices across your codebase.
+             You MUST load this skill whenever you are designing APIs, writing data models, handling user data, implementing logging, or reviewing pull requests for privacy compliance.
 ---
 
 # GDPR Engineering Skill
@@ -14,16 +15,12 @@ license: MIT
 - Designing or reviewing APIs that accept, process, or return personal data.
 - Writing data models and database schemas that include personally identifiable information (PII).
 - Implementing logging, telemetry, or analytics systems that could capture user data.
-- Reviewing pull requests for privacy compliance — especially when new data collection or processing is introduced.
-- Setting up data retention, erasure, or anonymization pipelines for production systems.
-- Conducting a Data Protection Impact Assessment (DPIA) or updating a Record of Processing Activities (RoPA).
 
 ## When Not to Use
 
 - General security audit tasks unrelated to data privacy — use `security-audit` skill instead for broader security concerns.
 - Performance optimization or scalability reviews that do not involve personal data.
 - Infrastructure provisioning or cloud resource configuration that does not handle PII.
-- Code review focused purely on business logic correctness without data privacy implications.
 
 ## Common Pitfalls
 

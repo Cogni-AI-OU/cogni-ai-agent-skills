@@ -4,7 +4,6 @@ license: MIT
 description: >-
   Activate agent-run brainstorming protocol to identify and analyze Agent CI/CD runs via GitHub API for a given Pull Request.
   You MUST activate this skill when analyzing or brainstorming agent runs.
-license: MIT
 ---
 
 # Skill: brainstorm-agent-runs
@@ -16,7 +15,6 @@ license: MIT
 - Analyzing CI/CD agent workflow runs associated with an active GitHub Pull Request to determine implementation status.
 - Identifying whether agentic workflow executions succeeded, failed, are still in progress, or were skipped for a given PR.
 - Extracting insights about missing facts, challenge areas, or next steps from failed agent runs to guide remediation.
-- Visualizing agent run results and status distribution using Ishikawa (fishbone) diagrams for PR review context.
 
 ## When Not to Use
 

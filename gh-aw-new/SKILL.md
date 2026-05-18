@@ -4,7 +4,6 @@ license: MIT
 description: >-
   Create new GitHub Agentic Workflows (gh-aw) from scratch using the CLI extension.
   You MUST load this skill when creating new Agentic Workflow files.
-license: MIT
 ---
 # Skill: gh-aw-new
 
@@ -15,16 +14,12 @@ license: MIT
 - Creating a new GitHub Agentic Workflow from scratch that does not exist yet in the repository.
 - Adding automation to a repository that has gh-aw initialized and needs a new workflow definition.
 - Designing a shared agentic workflow that can be reused across multiple repositories in an organization.
-- Scaffolding a new workflow that follows gh-aw conventions and best practices.
-- Setting up the initial workflow structure before customizing the prompt logic.
 
 ## When Not to Use
 
 - Editing or updating an existing workflow — use `github-aw` skill for modifying existing workflows.
 - Debugging a failing workflow execution — use `gh-aw-troubleshooting` or `github-aw-troubleshooting` skills.
 - Recompiling workflows after source changes — use `gh-aw-compile` skill for regeneration.
-- Running or executing an existing workflow — use `gh-aw` skill with `gh aw run` instead.
-- Working in a repository that has not been initialized with gh-aw — run `gh aw init` first.
 
 ## Common Pitfalls
 
@@ -61,10 +56,6 @@ Create new GitHub Agentic Workflows (gh-aw) by installing the CLI extension and 
 
 - **Dynamic Loading**: Never guess the structure of a new workflow. Always fetch and read the appropriate `ROOT/.github/aw/create-*.md` prompt first.
 - **Artifact Inclusion**: Always include regenerated lock files and agent definitions in the commit to ensure the workflow is ready for execution.
-
-## When to Use
-
-- When the user wants to create a new workflow from scratch, add automation, or design a workflow that doesn't exist yet.
 
 ## Commands / Usage Patterns
 

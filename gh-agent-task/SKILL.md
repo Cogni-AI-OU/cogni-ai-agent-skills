@@ -1,8 +1,9 @@
 ---
 name: gh-agent-task
 license: MIT
-description: GitHub CLI (`gh agent-task`) operations for creating, listing, and viewing preview agent tasks. You MUST load this skill when working with the `gh agent-task` command.
-license: MIT
+description: >-
+             GitHub CLI (`gh agent-task`) operations for creating, listing, and viewing preview agent tasks.
+             You MUST load this skill when working with the `gh agent-task` command.
 ---
 # Skill: gh-agent-task
 
@@ -13,16 +14,12 @@ license: MIT
 - Creating a new agent task to run on a repository or pull request.
 - Listing existing agent tasks to track progress or find a specific session.
 - Viewing a specific agent task session by ID or associated pull request number.
-- Following agent task execution logs in real-time during long-running automation.
-- Using a custom agent from `.github/agents/` to execute a task with specialized instructions.
 
 ## When Not to Use
 
 - Running ad-hoc GitHub CLI queries not related to agent tasks — use `gh` or `gh-api` skills.
 - Managing GitHub Actions workflow runs — use `gh-run` skill for workflow execution and monitoring.
 - Creating or managing GitHub Agentic Workflows — use `gh-aw` skill for `gh aw` subcommands.
-- Interacting with pull request or issue content unrelated to task automation.
-- Tasks requiring GitHub CLI versions older than v2.80.0 (agent-task is unavailable).
 
 ## Common Pitfalls
 

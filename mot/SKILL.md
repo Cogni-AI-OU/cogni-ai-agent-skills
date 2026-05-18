@@ -2,7 +2,6 @@
 name: mot
 license: MIT
 description: Evaluate and classify machine learning models based on the Model Openness Framework (MOF), and extract model metadata such as architecture, origin, producer, and components.
-license: MIT
 ---
 
 # Skill: Model Openness Tool (MOT)
@@ -10,17 +9,16 @@ license: MIT
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
 
 ## When to Use
+
 - When finding a list of open models or specific model metadata from the Model Openness Tool repository.
 - When classifying a machine learning model's degree of openness using MOF.
 - When extracting specific model properties like architecture, release date, or components.
-- When evaluating a model against MOF criteria for research or compliance documentation.
-- When comparing openness levels across multiple models using the MOT classification system.
 
 ## When Not to Use
+
 - When evaluating model performance (accuracy, latency, throughput) — MOT only assesses openness, not quality or capability.
 - When determining license compatibility for production use — MOT classifies openness but does not provide legal advice or license compatibility analysis.
 - When comparing models on non-openness criteria (e.g., training cost, dataset provenance beyond MOF) — use domain-specific tools instead.
-- When the model is not registered in the MOT repository — the tool cannot evaluate unregistered models.
 
 ## Common Pitfalls
 - The MOT classification is based on the Model Openness Framework (MOF), which evaluates components like training data, code, and parameters — a high openness score does not imply permissive licensing or usability.

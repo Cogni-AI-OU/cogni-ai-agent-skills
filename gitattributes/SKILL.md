@@ -2,25 +2,22 @@
 name: gitattributes
 license: MIT
 description: Define and modify .gitattributes to standardize line endings, merge drivers, diff generation, and GitHub linguist overrides.
-license: MIT
 ---
 # Skill gitattributes
 
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
 
 ## When to Use
+
 - You need to standardize line endings across a repository (e.g., enforcing `LF` for shell scripts, `CRLF` for Windows project files).
 - You need to prevent merge conflicts on auto-generated files (lockfiles, compiled assets) using custom merge drivers like `merge=ours`.
 - You need to exclude binary files from diff generation or language statistics on GitHub.
-- You need to override GitHub's language detection for specific files or directories using `linguist-language` or `linguist-generated`.
-- You need to define custom attribute macros to reuse attribute sets across many file patterns.
-- You need to verify which attributes are applied to a specific file using `git check-attr`.
 
 ## When Not to Use
+
 - You need to ignore files from version control entirely — use `.gitignore` instead of `.gitattributes` for exclusion.
 - You are configuring Git hooks or filters for local development workflows — use `.git/config` or `$GIT_DIR/info/attributes` for local-only overrides.
 - You need to enforce branch protection rules or code review policies — those belong in GitHub repository settings, not `.gitattributes`.
-- You are working with symlinks — `.gitattributes` does not follow symbolic links, so attributes applied via symlinked files will not work.
 
 ## Common Pitfalls
 - **Negative patterns** (e.g., `!pattern`) are **explicitly forbidden** in `.gitattributes` — they will cause parsing errors and are not supported by git's attribute system.

@@ -2,25 +2,22 @@
 name: github-aw
 license: MIT
 description: Safely update existing GitHub Agentic Workflows (gh-aw), distinguishing between frontmatter configuration that requires recompilation and markdown body prompt edits that do not.
-license: MIT
 ---
 # Skill github-aw
 
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
 
 ## When to Use
+
 - A user asks to update, modify, or refine an existing GitHub Agentic Workflow (`.md` file in `.github/workflows/`).
 - You need to change the agent prompt (markdown body) — a quick edit with no recompilation required.
 - You need to modify the YAML frontmatter configuration (tools, network, triggers) and recompile the workflow.
-- Optimizing token usage of an existing workflow through prompt minimization, DataOps, or batching strategies.
-- Auditing token consumption between workflow variants using `gh aw audit` for A/B experiment comparison.
-- The user explicitly requests help with the `gh aw` CLI command or its subcommands (`compile`, `audit`, `logs`, etc.).
 
 ## When Not to Use
+
 - Creating a new agentic workflow from scratch (use `gh aw new` or the appropriate creation flow instead).
 - Debugging a workflow execution failure (load `github-aw-troubleshooting` instead for root-cause analysis).
 - Designing workflow architecture patterns (load `github-aw-patterns` for BatchOps, ChatOps, DailyOps guidance).
-- Diagnosing issues with the AWF firewall or network blocks (load `gh-aw-firewall-debug` instead).
 
 ## Common Pitfalls
 - Editing the YAML frontmatter REQUIRES running `gh aw compile <workflow-id>` afterward — forgetting this leaves the workflow in a broken state with a stale `.lock.yml`.

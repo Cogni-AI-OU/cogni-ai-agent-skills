@@ -4,7 +4,6 @@ license: MIT
 description: >-
   Standardize `.github` directory structure, enforce agentic documentation patterns.
   You MUST load this skill when creating or updating files in `.github/` dir.
-license: MIT
 ---
 # Skill: dot-github
 
@@ -15,15 +14,12 @@ license: MIT
 - Creating or updating the `.github` directory structure for a new or existing repository.
 - Adding or modifying AGENTS.md files within `.github/` subdirectories (workflows, prompts, instructions).
 - Configuring CODEOWNERS, workflow files, issue templates, or other `.github` governance files.
-- Setting up firewall documentation in `.github/FIREWALL.md` for agentic workflows.
-- Standardizing agentic documentation patterns across a repository or organization.
 
 ## When Not to Use
 
 - Editing the main repository README or project-level documentation outside `.github/` — use `docs-writer` instead.
 - Modifying CI/CD workflow logic — use `github-actions` or `gh-aw` skills for workflow content changes.
 - Writing agent skill files (`SKILL.md`) or instructions (`*.instructions.md`) — those belong in the repo root, not `.github/`.
-- Creating `.github/README.md` — this overrides the main repository README on the GitHub homepage.
 
 ## Common Pitfalls
 

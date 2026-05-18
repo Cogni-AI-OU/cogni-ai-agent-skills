@@ -12,18 +12,16 @@ license: MIT
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
 
 ## When to Use
+
 - When modeling constraint satisfaction problems (CSPs) like scheduling, timetabling, or resource allocation that require declarative optimization.
 - When solving combinatorial puzzles or enumeration problems with clear search spaces (e.g., Sudoku, N-Queens, graph coloring).
 - When formalizing business rules as verifiable constraints with automatic solver feedback (SAT/UNSAT).
-- When prototyping optimization problems before implementing in production systems.
-- When comparing solver performance across different strategies (Gecode, Chuffed, HiGHS) on the same model.
-- When generating validated solutions with symmetry breaking and redundant constraints for robust results.
 
 ## When Not to Use
+
 - When the problem requires imperative logic, side-effects, or sequential control flow — MiniZinc is purely declarative.
 - When optimizing extremely large (terabyte-scale) datasets — MiniZinc is designed for structured combinatorial problems, not big data.
 - When simple arithmetic or a spreadsheet calculation suffices — MiniZinc adds unnecessary complexity for straightforward computations.
-- When real-time (<100ms) solutions are required — MiniZinc solvers typically need seconds to minutes for non-trivial models.
 
 ## Common Pitfalls
 - Wide or unbounded domains (`var int` without explicit bounds) cause massive search spaces and solver failures — always provide tight `1..n` ranges.

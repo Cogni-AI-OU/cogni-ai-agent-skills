@@ -17,16 +17,12 @@ license: MIT
 - Performing GitHub operations via CLI: issues, pull requests, workflow runs, releases, secrets, or repository management.
 - Querying GitHub metadata where structured JSON output (`--json`, `--jq`, `--template`) is needed instead of web scraping.
 - Automating GitHub tasks in CI/CD pipelines, scripts, or restricted shell environments.
-- Posting comments, reviews, or replies on issues and pull requests without touching workspace files.
-- Using `gh api` as a fallback when native subcommands do not expose the required data.
 
 ## When Not to Use
 
 - Operating outside a GitHub context — this skill is specific to `gh` CLI and GitHub API interactions.
 - Performing local Git operations (clone, commit, branch management) — use the `git` skill instead.
 - Performing advanced Git history manipulation — use `git-expert` or `git-rebase` skills.
-- Managing GitHub Agentic Workflows — use `gh-aw` skill for `gh aw` subcommands.
-- Searching code across repositories — use `gh-search` skill for structured search queries.
 
 ## Common Pitfalls
 

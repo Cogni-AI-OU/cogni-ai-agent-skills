@@ -11,19 +11,16 @@ license: MIT
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
 
 ## When to Use
+
 - You need to perform standard git operations: commit, push, pull, branch, merge, rebase, stash, cherry-pick, or revert.
 - You need to manage commit history with fixups, amends, and conventional commit messages.
 - You need to integrate changes from a target branch into a feature branch while keeping history clean and reviewable.
-- You need to diagnose repository state: check for shallow clones, unresolved conflicts, unpushed commits, or tracking branch status.
-- You need to safely rename, move, or delete files while preserving git history.
-- You are operating in an automated/CI environment and need non-interactive git patterns that avoid editor prompts and interactive modes.
 
 ## When Not to Use
+
 - You need to perform advanced recovery operations (reflog recovery, corrupted repository repair, bisecting) — use the **git-expert** skill.
 - You need to execute complex rebase workflows with interactive todo list manipulation — use the **git-rebase** skill.
 - You need to perform a merge with strict conflict marker and deduplication checks — use the **git-merge** skill.
-- You need to extract a subdirectory with full history from one repo into another — use the **git-filter-branch** skill.
-- You need GitHub CLI operations for PRs, issues, or workflow runs — use **gh-pr**, **gh-issue**, or **gh-run** skills instead.
 
 ## Common Pitfalls
 - Interactive modes (`-i`, `--interactive`) will hang automation tools — always use non-interactive alternatives like `git commit -m`, `GIT_EDITOR=true`, or `--no-edit` flags.

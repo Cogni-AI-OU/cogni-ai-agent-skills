@@ -16,8 +16,6 @@ license: MIT
 - Executing commands in automated scripts or agent workflows where manual intervention is not possible.
 - Writing CI/CD pipeline steps that must gracefully handle missing tools, permission issues, or transient failures.
 - Building resilient deployment, data-processing, or ETL pipelines that need fallback strategies.
-- Creating portable scripts that need to work across different Linux distributions with varying tool availability.
-- Implementing retry logic with backoff for network-dependent operations.
 
 ## When Not to Use
 

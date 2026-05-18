@@ -4,24 +4,22 @@ license: MIT
 description: >-
   Search GitHub repositories by topics and keywords.
   You MUST load this skill when searching for relevant tools, libraries, or curated resources.
-license: MIT
 ---
 # Skill: github-topics
 
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
 
 ## When to Use
+
 - You need to find curated "awesome" lists for a specific technology or domain (e.g., "awesome python", "awesome machine learning").
 - You need to discover high-quality libraries, tools, or frameworks for a given programming language or task.
 - Searching for reference implementations, starter templates, or example projects for a given topic.
-- The user asks "find me a library that does X" or "what are the best tools for Y?"
-- You need to evaluate repository quality by fetching README content and metadata for comparison.
 
 ## When Not to Use
+
 - The user needs specific code search within a known repository — use `gh search code` with the `gh-api` skill instead.
 - The user is asking for documentation on a known tool or library — a direct web search or URL fetch is more efficient.
 - The user needs to search issues, pull requests, or discussions — topic search is for repositories only; use `gh search` subcommands for other content types.
-- The user already knows the exact repository name — no need for topic search; go directly to the repository.
 
 ## Common Pitfalls
 - Broad searches without topic filters return too many irrelevant results — always combine keyword searches with `--topic` filters for precision (e.g., `gh search repos "ansible" --topic python`).

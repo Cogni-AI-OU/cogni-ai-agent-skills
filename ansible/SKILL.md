@@ -15,14 +15,12 @@ license: MIT
 - Running Ansible playbooks or ad-hoc commands in automated CI/CD or agentic environments.
 - Debugging Ansible execution hangs or failures, especially when interacting with package managers on Debian/Ubuntu hosts.
 - Profiling playbook execution performance to identify slow-running tasks and optimize automation.
-- Setting up Ansible environment variables (`DEBIAN_FRONTEND`, callback plugins) for non-interactive execution.
 
 ## When Not to Use
 
 - Managing infrastructure that uses a different configuration management tool (e.g., Terraform, Pulumi, Chef, CloudFormation).
 - Writing Ansible roles or collections from scratch — role scaffolding and best practices are beyond this skill's scope.
 - Debugging network connectivity, DNS resolution, or SSH issues unrelated to Ansible's execution environment.
-- Running or managing Molecule tests for Ansible roles — load the `molecule` skill instead.
 
 ## Common Pitfalls
 

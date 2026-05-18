@@ -15,18 +15,16 @@ license: MIT
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
 
 ## When to Use
+
 - When creating any Mermaid.js diagram type (C4, Class, ER, Flowchart, Gantt, GitGraph, Kanban, Mindmap, Pie, Quadrant, Requirement, Sequence, State, Timeline, User Journey) for documentation or architectural visualization.
 - When troubleshooting rendering issues, parsing errors, or cross-platform compatibility problems in existing Mermaid diagrams.
 - When optimizing diagram layout with ELK renderer, classDef styling, or frontmatter configuration for large/complex graphs.
-- When generating GitGraph diagrams from real commit history using CLI tools (`git log`, `gh api`).
-- When building markdown-embedded diagrams for READMEs, ADRs, or GitHub wikis that must render correctly on GitHub and VS Code.
-- When adding structured visual context to pull requests, issue comments, or architectural decision records.
 
 ## When Not to Use
+
 - When the diagram requires interactive or animated elements — Mermaid produces static SVG/PNG output only.
 - When working with experimental/beta diagram types (Architecture, Block, Ishikawa, Sankey, etc.) — use the **mermaid-beta** skill instead.
 - When precise pixel-level control over layout is needed — Mermaid auto-layouts diagrams and does not support manual node positioning.
-- When the diagram has hundreds of nodes — very large diagrams may cause performance issues; consider splitting into multiple diagrams or using the ELK renderer.
 
 ## Common Pitfalls
 - The `end` keyword conflicts with parser tokenization — always quote node IDs or labels that contain reserved words like `end`.

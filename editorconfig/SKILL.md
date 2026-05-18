@@ -2,7 +2,6 @@
 name: editorconfig
 license: MIT
 description: Generates a comprehensive and best-practice-oriented .editorconfig file based on project analysis and user preferences.
-license: MIT
 ---
 
 # editorconfig
@@ -19,7 +18,6 @@ license: MIT
 - Enforcing coding style at the linter level — EditorConfig handles editor defaults only, not rules like "no unused variables" or "prefer const over let".
 - Configuring language-specific formatters (Prettier, Black, rustfmt) — those tools have their own config files and EditorConfig only sets basic editor behavior.
 - Overriding individual developer preferences in their personal forks or local overrides — EditorConfig sets baseline defaults, not hard enforcement.
-- Replacing project-wide linting configuration (`eslintrc`, `.rubocop.yml`, `pyproject.toml`) — EditorConfig complements but does not substitute for linters.
 
 ## Common Pitfalls
 
@@ -43,11 +41,6 @@ Generate a robust, comprehensive, and best-practice-oriented `.editorconfig` fil
 - **Precision Targeting**: Apply rules via universal and specific glob patterns without polluting unrelated scopes.
 - **Universal Standards**: Use `lf` for line endings, `utf-8` charset, trim trailing whitespace, and insert final newlines globally unless context demands otherwise.
 - **Exceptions Mapping**: Explicitly disable `trim_trailing_whitespace` for `[*.md]` files since trailing whitespace holds semantic meaning (hard line breaks).
-
-## When to Use
-
-- When requested to generate, update, or configure an `.editorconfig` file.
-- When standardizing coding styles or formatting hooks for a workspace.
 
 ## Quick Start
 

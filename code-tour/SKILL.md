@@ -4,7 +4,6 @@ license: MIT
 description: >-
   Use this skill to create CodeTour .tour files — persona-targeted, step-by-step walkthroughs that link to real files and line numbers.
   You MUST load this skill when creating or updating .tours/ files. Trigger for: "create a tour", "make a code tour", "generate a tour", "onboarding tour", "architecture tour", etc.
-license: MIT
 ---
 
 # Code Tour Skill
@@ -12,18 +11,16 @@ license: MIT
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
 
 ## When to Use
+
 - Creating or updating `.tour` files for persona-targeted codebase walkthroughs
 - Onboarding new team members with structured, step-by-step code navigation tours
 - Documenting architecture decisions, bug root causes, or feature implementations for later reference
-- Generating PR review tours that map the change story and highlight risk areas
-- Building multi-tour series that chain related walkthroughs via `nextTour`
-- Responding to trigger phrases: "create a tour", "make a code tour", "generate a tour", "onboarding tour", "architecture tour"
 
 ## When Not to Use
+
 - Scaffolding or modifying any source code files — this skill exclusively creates `.tour` JSON files
 - Creating long-form standalone documentation — use `docs-writer` instead
 - Replacing interactive debugging or pair programming sessions with static tours
-- Writing tours for codebases the agent cannot read and verify file paths against
 
 ## Common Pitfalls
 - The first step of any tour MUST have a `file` or `directory` anchor; a content-only first step renders as a blank page in VS Code CodeTour

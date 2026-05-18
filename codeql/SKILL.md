@@ -2,7 +2,6 @@
 name: codeql
 license: MIT
 description: Configure and execute CodeQL code scanning analysis via GitHub Actions workflows and the CodeQL CLI.
-license: MIT
 ---
 
 # Skill: codeql
@@ -10,13 +9,13 @@ license: MIT
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
 
 ## When to Use
+
 - Configuring or troubleshooting CodeQL code scanning in GitHub Actions workflows
 - Setting up advanced CodeQL analysis with custom build modes for compiled languages
 - Diagnosing CodeQL workflow failures such as autobuild issues, permission errors, or SARIF upload failures
-- Running standalone CodeQL CLI commands for local code analysis and database creation
-- Enabling `security-extended` or `security-and-quality` query suites for comprehensive vulnerability detection
 
 ## When Not to Use
+
 - Replacing dedicated SAST tools already configured and producing reliable results — avoid duplicate scanning pipelines
 - Performing general-purpose code quality linting or style checks — CodeQL targets security and correctness vulnerabilities only
 - Debugging application runtime behavior or performance issues — use APM and logging tools instead

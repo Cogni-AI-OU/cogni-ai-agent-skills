@@ -4,7 +4,6 @@ license: MIT
 description: >-
   Advanced GitHub CLI (`gh api`) queries and mutations via REST or GraphQL.
   You MUST load this skill when working with the `gh api` command.
-license: MIT
 ---
 
 # gh-api Skill
@@ -16,15 +15,12 @@ license: MIT
 - Fetching GitHub API data that native `gh` subcommands do not expose (e.g., check run annotations, workflow logs, discussion threads).
 - Executing GraphQL queries and mutations for complex data shapes not available via REST.
 - Downloading workflow run logs when `gh run view --log` fails (e.g., canceled matrix jobs or cached runs).
-- Performing paginated queries across large result sets using `--paginate`.
-- Creating discussions, managing review threads, or accessing undocumented API endpoints.
 
 ## When Not to Use
 
 - Performing standard GitHub operations that have dedicated native `gh` subcommands — prefer `gh issue`, `gh pr`, `gh run` etc. over raw API calls.
 - Simple metadata lookups (issue title, PR status, commit SHA) — these are faster and more reliable with native `gh` commands.
 - General web API interactions outside of GitHub — this skill is specific to `gh api` for the GitHub API.
-- Operations where `GH_TOKEN` or `GITHUB_TOKEN` does not have the required scopes — check auth first before building complex queries.
 
 ## Common Pitfalls
 

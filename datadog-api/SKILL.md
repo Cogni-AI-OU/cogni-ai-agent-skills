@@ -1,21 +1,22 @@
 ---
 name: datadog-api
 license: MIT
-description: Execute Datadog API requests to fetch live objects, metrics, or monitor statuses using cURL and API keys. You MUST load this skill when interacting with the Datadog API.
-license: MIT
+description: >-
+             Execute Datadog API requests to fetch live objects, metrics, or monitor statuses using cURL and API keys.
+             You MUST load this skill when interacting with the Datadog API.
 ---
 # Skill: datadog-api
 
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
 
 ## When to Use
+
 - Fetching specific dashboard, monitor, or SLO definitions by ID via the Datadog REST API
 - Querying timeseries metrics with specific time ranges and aggregation functions
 - Searching monitors by tag, name, or status for inventory and audit purposes
-- Administrative API actions not available through MCP toolsets (e.g., key management, account settings)
-- Automating Datadog configuration workflows where Pulumi or Terraform is not in use
 
 ## When Not to Use
+
 - Routine telemetry queries (logs, metrics, traces, monitor status) when MCP tools are available — prefer `datadog-mcp` for context-optimized responses
 - Creating or modifying Datadog monitors via raw API JSON — use `datadog-pulumi` or Terraform for infrastructure-as-code
 - Streaming or tailing live data — the REST API is designed for point-in-time queries, not real-time observation

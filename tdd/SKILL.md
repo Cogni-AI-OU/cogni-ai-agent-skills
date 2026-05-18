@@ -4,7 +4,6 @@ license: MIT
 description: >-
   Commands, step-by-step procedures, and mechanical execution for test engineering, testability audits, and the TDD lifecycle.
   You MUST load this skill when executing test tasks, designing tests, doing TDD, or verifying system behavior.
-license: MIT
 ---
 
 # Test-Driven Development (TDD) & Test Engineering Execution
@@ -16,15 +15,12 @@ license: MIT
 - Writing unit, integration, or end-to-end tests with strict Red-Green-Refactor discipline.
 - Performing testability audits on existing code before introducing test coverage.
 - Reproducing and fixing bugs by first writing a failing test that demonstrates the defect.
-- Evaluating whether a codebase or pull request has adequate test coverage and quality.
-- Establishing behavioral contracts for new features through test-first specifications.
 
 ## When Not to Use
 
 - Exploratory coding or prototyping where the API surface is too unstable to commit to test contracts.
 - One-off scripts, utilities, or throwaway code that will not be maintained or reused.
 - When the project has no test infrastructure (runner, assertions, mocks) and setting it up exceeds the value of the tests themselves.
-- Codebases where the existing architecture makes testing effectively impossible without prior refactoring (though TDD can help guide that refactoring).
 
 ## Common Pitfalls
 

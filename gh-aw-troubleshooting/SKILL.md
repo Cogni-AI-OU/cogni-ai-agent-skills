@@ -2,7 +2,6 @@
 name: gh-aw-troubleshooting
 license: MIT
 description: Diagnose and fix GitHub Agentic Workflows (gh-aw) failures by analyzing logs for missing tools, permissions, or MCP server configurations.
-license: MIT
 ---
 
 # gh-aw-troubleshooting
@@ -10,18 +9,16 @@ license: MIT
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
 
 ## When to Use
+
 - A GitHub Agentic Workflow run has failed and you need to identify the root cause from logs, audit data, and MCP diagnostics.
 - A workflow run is missing tools, shows `Tool '...' not found`, or has MCP connectivity timeouts.
 - A workflow completes but produces unexpected results, and you need to compare runs for regressions or behavioral drift.
-- You need to validate frontmatter configuration — `permissions:`, `tools:`, `mcp-scripts:`, or `safe-outputs:` — after editing a workflow `.md` file.
-- A workflow is silently skipping operations, failing authentication (401/403), or blocked by the firewall (egress to a domain not in `network.allowed`).
-- You are investigating token usage, agent reasoning, or workflow health metrics across multiple runs.
 
 ## When Not to Use
+
 - You are designing or creating a new Agentic Workflow from scratch — use the **gh-aw-new** skill instead.
 - You are adjusting workflow prompts or markdown body content without changing frontmatter — no troubleshooting needed if the workflow already runs successfully.
 - The issue is a pure GitHub Actions workflow (non-agentic) failure — use **github-actions** or **actions- troubleshooting** skills instead.
-- You simply need to list, compile, or run workflows without debugging failures — use the **gh-aw** skill.
 
 ## Common Pitfalls
 - The `gh aw audit RUN_ID --json` output contains a `missing_tools` array that is the single most important diagnostic signal — always check it first before diving into raw logs.

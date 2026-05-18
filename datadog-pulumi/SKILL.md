@@ -4,7 +4,6 @@ license: MIT
 description: >-
   Use when creating or debugging Datadog monitors in Pulumi YAML,
   especially for schema mismatches, monitor validation errors, and provider-specific field mapping.
-license: MIT
 ---
 
 # Datadog Pulumi
@@ -12,13 +11,13 @@ license: MIT
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
 
 ## When to Use
+
 - Creating or updating Datadog monitors via Pulumi YAML infrastructure-as-code
 - Debugging schema mismatches between Datadog API JSON and Pulumi provider type definitions
 - Converting Terraform or API monitor examples into Pulumi YAML field names
-- Running `pulumi preview` to validate monitor definitions before deployment
-- Investigating provider panics, validation errors, or `400 Bad Request` responses from Datadog
 
 ## When Not to Use
+
 - Managing non-Datadog Pulumi resources (AWS, Azure, GCP) — this skill is scoped to the Datadog provider
 - Creating Datadog monitors through the API directly — use `datadog-api` for raw REST calls
 - Designing monitor queries or alert logic — use `datadog-monitors` for evaluation semantics, then map to Pulumi

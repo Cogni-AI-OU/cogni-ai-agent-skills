@@ -15,16 +15,12 @@ license: MIT
 - Performing complex multi-line text transformations across files where `sed`'s stream model is too limited.
 - Editing files in-place without the portability issues of `sed -i` (GNU vs. BSD incompatibilities).
 - Applying structural edits using Vim's text objects (paragraphs, brackets, tags) across multiple files.
-- Automating bulk file edits in CI/CD pipelines or agent workflows with precise non-interactive control.
-- Running complex macro-based transformations (e.g., extracting URLs from Markdown, wrapping text, sorting ranges).
 
 ## When Not to Use
 
 - Simple single-line substitutions where `sed` would be more efficient and readable.
 - Editing structured data formats (JSON, YAML) where dedicated tools like `jq` or `yq` preserve schema integrity.
 - Environments where Vim/Ex is not installed and cannot be installed.
-- Collaborative editing scenarios where line-based patch files (`diff`/`patch`) are the standard interchange format.
-- When the edits require only basic stream processing (e.g., grepping lines, counting)—simpler tools suffice.
 
 ## Common Pitfalls
 

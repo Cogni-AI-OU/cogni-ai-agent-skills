@@ -4,7 +4,6 @@ license: MIT
 description: >-
   Commands and guidelines for generating a Software Bill of Materials (SBOM) locally in SPDX and CycloneDX formats using syft.
   You MUST load this skill when asked to create, generate, or update an SBOM.
-license: MIT
 ---
 
 # Skill: sbom
@@ -16,7 +15,6 @@ license: MIT
 - Generating an SBOM for compliance with supply chain security standards (e.g., EO 14028, NTIA minimum elements, OWASP CycloneDX).
 - Creating dependency visibility for vulnerability scanning and CVE tracking across direct and transitive dependencies.
 - Producing SBOM artifacts in SPDX or CycloneDX format for integration with security tooling or GRC platforms.
-- Auditing a project's dependency tree before a release, acquisition, or third-party review.
 
 ## When Not to Use
 

@@ -2,7 +2,6 @@
 name: datadog-monitors
 license: MIT
 description: Guidelines for designing, debugging, and troubleshooting Datadog monitor queries, handling common false positives, and operational edge cases.
-license: MIT
 ---
 
 # Datadog Monitors
@@ -10,13 +9,13 @@ license: MIT
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
 
 ## When to Use
+
 - Designing new Datadog monitors with correct query syntax, thresholds, and alert conditions
 - Debugging frozen or ghost alerts where alert groups remain stuck in Alert state after entities disappear
 - Troubleshooting false positives from disk usage, forecast, or system-level monitors
-- Configuring `timeout` parameters for auto-resolving alerts on transient dimensions
-- Investigating missing data, permission errors, or unexpected evaluation behavior in existing monitors
 
 ## When Not to Use
+
 - Creating or managing Datadog dashboards, SLOs, or synthetics — this skill is scoped to monitors only
 - Configuring the Datadog Agent or custom checks — use `datadog-agent` instead
 - Querying raw telemetry data to build monitor queries from scratch — use `datadog-mcp` for exploration first

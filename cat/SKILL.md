@@ -15,14 +15,12 @@ license: MIT
 - Reading the content of small text files during automated or agentic workflow execution.
 - Concatenating multiple short files for combined inspection or display output.
 - Displaying short file contents in CI/CD log output for quick debugging.
-- Creating small temporary files via heredocs (`<<EOF`) when absolutely necessary and the content is short.
 
 ## When Not to Use
 
 - Creating files with long or programmatically generated content — use the Write tool or `--body-file` flags instead to avoid heredoc truncation hangs.
 - Reading or processing binary files — `cat` can corrupt binary output in terminal. Use `xxd`, `od`, or dedicated binary tools.
 - Operating on files larger than a few hundred lines — use `grep`, the Read tool, or `head` for targeted extraction.
-- Any operation where the file content can be provided as a tool argument (e.g., `--file`, `--body-file`) — prefer native file flags over stdin piping.
 
 ## Common Pitfalls
 

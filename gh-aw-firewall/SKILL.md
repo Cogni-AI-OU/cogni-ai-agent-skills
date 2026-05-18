@@ -14,15 +14,12 @@ license: MIT
 - Running AI agents (Copilot CLI, Claude, etc.) that need network access restricted to approved domains only.
 - Testing code that makes network requests in a controlled, sandboxed environment.
 - Enforcing network security policies for automated workflows in CI/CD pipelines.
-- Running untrusted commands or scripts with limited network access to prevent data exfiltration.
-- Testing Playwright or other tools against localhost services while blocking external network calls.
 
 ## When Not to Use
 
 - Running commands that need unrestricted network access to many dynamic domains — AWF's allowlist model requires explicit domain configuration.
 - Debugging network issues unrelated to firewall rules — use standard networking tools (`curl`, `ping`, `traceroute`) without AWF first.
 - Environment where `sudo` or Docker is not available — AWF requires elevated privileges for iptables and container management.
-- High-throughput network testing — AWF proxies all traffic through Squid, adding latency compared to direct connections.
 
 ## Common Pitfalls
 

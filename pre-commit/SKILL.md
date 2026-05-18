@@ -12,19 +12,16 @@ license: MIT
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
 
 ## When to Use
+
 - When validating code quality and consistency before committing via pre-commit hooks (linting, formatting, secret scanning).
 - When debugging a failing pre-commit hook by running it against specific files with verbose output.
 - When configuring or updating `.pre-commit-config.yaml` with new hooks, versions, or custom local hooks.
-- When setting up pre-commit hooks in a new repository for automated code quality enforcement.
-- When running `pre-commit autoupdate` to update hooks to their latest versions and verifying the changes.
-- When creating custom local hooks (shell or Python scripts) for project-specific validation rules.
-- When troubleshooting hook conflicts (e.g., `yamllint` vs `yamlfix`, or `trailing-whitespace` excluding YAML).
 
 ## When Not to Use
+
 - When the project does not use pre-commit — loading this skill for non-pre-commit linting tasks adds unnecessary context.
 - When validating files outside Git tracking — pre-commit only operates on staged/cached files, not untracked files.
 - When a simple `git commit --no-verify` bypass suffices for an emergency — this should be rare and well-documented.
-- When you need a full CI/CD pipeline — pre-commit is a pre-commit hook framework, not a replacement for CI testing.
 
 ## Common Pitfalls
 - Pre-commit only runs on staged files — unstaged changes are invisible to hooks, which can lead to false passes if files aren't fully staged.

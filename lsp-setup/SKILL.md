@@ -2,7 +2,6 @@
 name: lsp-setup
 license: MIT
 description: 'Enable code intelligence (go-to-definition, find-references, hover, type info) for any programming language by installing and configuring an LSP server for Copilot CLI.'
-license: MIT
 ---
 
 # LSP Setup for GitHub Copilot CLI
@@ -10,13 +9,13 @@ license: MIT
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
 
 ## When to Use
+
 - When enabling code intelligence features (go-to-definition, find-references, hover, type info) for a programming language in GitHub Copilot CLI.
 - When setting up a new LSP server for a language not yet configured in `~/.copilot/lsp-config.json`.
 - When a developer asks for step-by-step guidance on installing and registering a language server.
-- When troubleshooting missing or broken code intelligence in Copilot CLI sessions.
-- When migrating or merging LSP configurations across user-level and repo-level config files.
 
 ## When Not to Use
+
 - When configuring LSP servers for IDEs (VS Code, IntelliJ, etc.) — this skill is exclusively for Copilot CLI.
 - When the language already has working code intelligence — only add new servers when needed.
 - When the setup requires interactive GUI tools or package managers not available on the target OS.

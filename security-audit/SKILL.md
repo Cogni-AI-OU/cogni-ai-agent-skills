@@ -5,7 +5,6 @@ description: >-
   Commands, step-by-step procedures, and mechanical execution for performing deep security audits,
   vulnerability assessments, and threat modeling on codebases and configurations.
   You MUST load this skill when performing security audits or validation.
-license: MIT
 ---
 
 # Security Auditing Skill
@@ -23,20 +22,12 @@ Use this skill when the request involves:
 - Scanning a codebase or file for security vulnerabilities
 - Running a security review or vulnerability check
 - Checking for SQL injection, XSS, command injection, or other injection flaws
-- Finding exposed API keys, hardcoded secrets, or credentials in code
-- Auditing dependencies for known CVEs
-- Reviewing authentication, authorization, or access control logic
-- Detecting insecure cryptography or weak randomness
-- Performing a data flow analysis to trace user input to dangerous sinks
-- Any request phrasing like "is my code secure?", "scan this file", or "check my repo for vulnerabilities"
-- Running \`/security-audit\` or \`/security-audit <path>\`
 
 ## When Not to Use
 
 - Quick code style or formatting reviews where no security-sensitive logic is involved.
 - High-level architecture discussions that do not involve code-level security analysis.
 - When the user explicitly requests a performance review, functional correctness review, or code style review rather than a security audit.
-- Projects or components that have been verified as non-production, throwaway, or sandbox code where formal security analysis would be disproportionate.
 
 ## Common Pitfalls
 

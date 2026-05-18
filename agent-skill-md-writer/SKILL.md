@@ -1,6 +1,8 @@
 ---
 name: agent-skill-md-writer
-description: 'Workflow and guidelines for generating or refining agent skills. You MUST load this skill when creating or updating SKILL.md files to ensure correct tone and writing style.'
+description: >-
+  Workflow and guidelines for generating or refining agent skills.
+  You MUST load this skill when creating or updating SKILL.md files to ensure correct tone and writing style.
 license: MIT
 ---
 
@@ -13,8 +15,6 @@ license: MIT
 - Creating a new agent skill directory with a `SKILL.md` and optional bundled resources (scripts, templates, references).
 - Updating or refining an existing `SKILL.md` to improve description precision, add missing sections, or fix activation triggers.
 - Bundling scripts, templates, or references alongside a skill following the progressive loading architecture.
-- Troubleshooting skill activation failures or context budget issues in an existing skill.
-- Refactoring an overlong skill by splitting detailed content into a `references/` directory.
 
 ## When Not to Use
 
