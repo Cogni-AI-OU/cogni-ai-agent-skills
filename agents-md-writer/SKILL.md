@@ -32,6 +32,11 @@ Autonomous documentation editor responsible for creating, updating, and maintain
 - **Informational Bloat**: Including abstract descriptions or basics the agent can easily infer; favor dense, contract-style imperatives.
 - **Stale Command Sets**: Failing to update build or test flags when the underlying tools change, leading to agent execution failures.
 - **Vague Boundaries**: Providing non-actionable constraints like "make it better" instead of explicit, empirical verification gates.
+- **Too Vague**: "Make the code better" → Specify exactly what "better" means.
+- **Too Restrictive**: Over-constraining can prevent useful optimizations.
+- **Missing Context**: Include relevant domain knowledge and terminology.
+- **No Examples**: Concrete examples guide an LLM better than abstract descriptions.
+- **Ignoring Artifacts**: Don't refine prompts based on error feedback.
 
 AGENTS.md is a simple, open format for guiding coding agents.
 Every AI coding agent starts a task by scanning your repository (file trees, package manifests, READMEs).
@@ -96,14 +101,6 @@ It is the cross-tool standard—one file, every agent.
 - **Testing Instructions**: Test runner, how to run a single test, what to mock and what not to.
 - **Git Workflow**: Branch naming conventions, commit message format, PR requirements.
 - **Boundaries**: What the agent should never touch. Never modify files in /generated/. Never commit .env files.
-
-## Common Pitfalls to Avoid
-
-- **Too Vague**: "Make the code better" → Specify exactly what "better" means.
-- **Too Restrictive**: Over-constraining can prevent useful optimizations.
-- **Missing Context**: Include relevant domain knowledge and terminology.
-- **No Examples**: Concrete examples guide an LLM better than abstract descriptions.
-- **Ignoring Artifacts**: Don't refine prompts based on error feedback.
 
 ## What to Avoid
 
