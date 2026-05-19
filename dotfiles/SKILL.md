@@ -56,8 +56,6 @@ license: MIT
 - **`.github/CODEOWNERS`**: Defines individuals or teams responsible for specific code paths, automatically assigning them as PR reviewers.
 - **`.github/ISSUE_TEMPLATE/*.yml`**: Structured templates for bug reports and feature requests to ensure consistent issue reporting.
 - **`.devcontainer/devcontainer.json`**: Configures a containerized development environment with specific tools, extensions, and settings.
-- **`.devcontainer/requirements*.txt`**: Defines Python dependencies required within the development container.
-- **`.devcontainer/apt-packages.txt`**: Lists system-level packages (Debian/Ubuntu) to be installed in the development container.
 - **`.tours/*.tour`**: VS Code CodeTour files providing step-by-step interactive walkthroughs of the codebase.
 - **`AGENTS.md`**: The primary entry point and quick reference for AI agents, defining common tasks, commands, and context.
 - **`.gemini/settings.json`**: Configuration for Google Gemini, typically pointing it to use `AGENTS.md` for context.
@@ -74,44 +72,7 @@ license: MIT
 
 ## Common Snippets
 
-### .editorconfig (Organizational Standard)
-
-```ini
-root = true
-
-[*]
-charset = utf-8
-end_of_line = lf
-insert_final_newline = true
-trim_trailing_whitespace = true
-indent_style = space
-indent_size = 4
-
-[*.{yml,yaml,json,md}]
-indent_size = 2
-```
-
-### .gitattributes (Normalization)
-
-```gitattributes
-* text=auto eol=lf
-*.{png,jpg,jpeg,gif} binary
-*.lock linguist-generated
-```
-
-### .github/workflows/check.yml (Reusable Reference)
-
-```yaml
----
-name: Check
-on:
-  pull_request:
-  push:
-    branches: [main]
-jobs:
-  check:
-    uses: Cogni-AI-OU/.github/.github/workflows/check.yml@main
-```
+TBC
 
 ## Common Pitfalls
 
