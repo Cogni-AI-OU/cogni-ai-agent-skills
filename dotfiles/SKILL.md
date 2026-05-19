@@ -47,23 +47,25 @@ license: MIT
 - **`.yamlfix.toml`**: Configures `yamlfix` for automated YAML formatting and style enforcement.
 - **`.nvmrc` / `.node-version`**: Specifies the required Node.js version for the project, automatically picked up by tools like nvm or n (Node Version Manager).
 - **`.env.example` / `.env.sample`**: Provides a template of required environment variables without including actual secret values.
+- **`.fdignore`**: Specifies files and directories to ignore for the `fd` search tool, often mirroring `.gitignore` but used for faster file finding.
+- **`.ripgreprc`**: Project-specific configuration for `ripgrep` (`rg`), defining default flags and ignore patterns.
+- **`.npmrc`**: Project-specific npm configuration, such as registry URLs or dependency resolution strategies.
 - **`.github/dependabot.yml`**: Configures GitHub Dependabot to automatically check for and create pull requests to update dependencies.
 - **`.github/workflows/*.yml`**: GitHub Actions workflow files for CI/CD automation, testing, and deployment.
 - **`.github/workflows/README.md`**: Documentation for GitHub Actions workflows, describing their purpose, inputs, and usage.
 - **`.github/workflows/AGENTS.md`**: Agent instruction file specifically for managing and understanding GitHub workflows.
 - **`.github/{actionlint,pre-commit}-matcher.json`**: GitHub Actions problem matchers that enable inline error reporting for linters in PRs.
+- **`.github/actionlint.yml`**: Configuration file for `actionlint` to define custom linting rules or ignore specific errors in GitHub Actions workflows.
 - **`.github/prompts/*.{md,yml}`**: Prompt templates and instructions for GitHub Models, Copilot, and other AI agents.
 - **`.github/copilot-instructions.md`**: Comprehensive coding standards and instructions for GitHub Copilot in the repository context.
 - **`.github/mcp-config.json`**: Configuration for the Model Context Protocol (MCP) server, providing agents with access to GitHub tools.
 - **`.github/CODEOWNERS`**: Defines individuals or teams responsible for specific code paths, automatically assigning them as PR reviewers.
 - **`.github/ISSUE_TEMPLATE/*.yml`**: Structured templates for bug reports and feature requests to ensure consistent issue reporting.
-- **`.devcontainer/devcontainer.json`**: Configures a containerized development environment with specific tools, extensions, and settings.
-- **`.tours/*.tour`**: VS Code CodeTour files providing step-by-step interactive walkthroughs of the codebase.
+- **`.devcontainer/`**: Directory for containerized development environments, containing `devcontainer.json` (configuration), `requirements.txt` (Python dependencies), and `apt-packages.txt` (system packages).
+- **`.vscode/`**: Directory for VS Code-specific configurations, including `settings.json` (workspace settings), `extensions.json` (recommended extensions), and `launch.json` (debug configurations).
+- **`.tours/`**: Directory for VS Code CodeTour files, including `*.tour` (walkthroughs) and `README.md` (documentation).
 - **`AGENTS.md`**: The primary entry point and quick reference for AI agents, defining common tasks, commands, and context.
-- **`.gemini/settings.json`**: Configuration for Google Gemini, typically pointing it to use `AGENTS.md` for context.
-- **`.fdignore`**: Specifies files and directories to ignore for the `fd` search tool, often mirroring `.gitignore` but used for faster file finding.
-- **`.ripgreprc`**: Project-specific configuration for `ripgrep` (`rg`), defining default flags and ignore patterns.
-- **`.npmrc`**: Project-specific npm configuration, such as registry URLs or dependency resolution strategies.
+- **`.gemini/`**: Directory containing configuration for Google Gemini, such as `settings.json` which typically points it to use `AGENTS.md` for context.
 
 ### Linux-specific & User Home ($HOME) Dotfiles
 
@@ -78,7 +80,7 @@ license: MIT
 - **`.screenrc`**: Configuration file for GNU Screen, a terminal multiplexer similar to Tmux.
 - **`.curlrc`**: Default configuration for the `curl` command-line tool, used to specify common flags or proxy settings.
 - **`.wgetrc`**: Configuration for the `wget` tool, defining default download behaviors and network settings.
-- **`.netrc`**: Stores credentials for automatic login to FTP servers, HTTP sites, and other services used by tools like `curl` and `git`.
+- **`.netrc`**: Stores credentials for automatic login to FTP servers, HTTP sites, and other services used by tools like `curl` and `git`. **CRITICAL**: Should be kept secure with `600` permissions.
 - **`.gitconfig`**: The global Git configuration file (typically in `$HOME`), containing user identity, global aliases, and default behaviors.
 - **`.npmrc`**: User-level npm configuration, often containing authentication tokens for registries.
 - **`.terraformrc`**: Global configuration for Terraform, used to set provider mirrors or CLI behavior.
