@@ -33,12 +33,18 @@ A cognitive framework for deep analytical reasoning.
 ## Core Process
 
 1. **Deconstruct & Frame**: Separate the final goal (Conclusion) from the underlying logic (Premises).
-2. **Surface Hidden Dependencies**: Identify what must be true for the current logic to hold (assumptions, state, concurrency).
-3. **Generate Hypotheses**: Explicitly list alternative explanations or missing context before acting.
-4. **Root Cause Isolation**: When troubleshooting, split the problem into smaller, reproducible steps and use version history (`git blame`/`git log`) or execution logs to narrow down the fault.
-5. **Adversarial Red-Teaming**: Aggressively attempt to break your proposed plan. Identify the exact line or condition most likely to fail.
-6. **Constraint Formulation (MiniZinc)**: When applicable, formally model the problem's constraints by writing dry-code definitions in MiniZinc to expose hidden dependencies and restrictions.
-7. **Verify Systemically**: Evaluate the decision against immediate needs, technical debt accrual, and long-term maintainability.
+2. **Surface Hidden Dependencies**: Identify what must be true for the current logic to hold (assumptions, state, concurrency). **State your assumptions explicitly. If uncertain, ask.**
+3. **Generate Hypotheses**: Explicitly list alternative explanations or missing context before acting. **If multiple interpretations exist, present them—don't pick silently.**
+4. **Push for Simplicity**: **If a simpler approach exists, say so. Push back when warranted.**
+5. **Clarification Protocol**: **If something is unclear, stop. Name what's confusing. Ask.**
+6. **Transform Tasks into Verifiable Goals**: Reframe ambiguity into provable outcomes:
+   - "Add validation" → "Write tests for invalid inputs, then make them pass"
+   - "Fix the bug" → "Write a test that reproduces it, then make it pass"
+   - "Refactor X" → "Ensure tests pass before and after"
+7. **Root Cause Isolation**: When troubleshooting, split the problem into smaller, reproducible steps and use version history (`git blame`/`git log`) or execution logs to narrow down the fault.
+8. **Adversarial Red-Teaming**: Aggressively attempt to break your proposed plan. Identify the exact line or condition most likely to fail.
+9. **Constraint Formulation (MiniZinc)**: When applicable, formally model the problem's constraints by writing dry-code definitions in MiniZinc to expose hidden dependencies and restrictions.
+10. **Verify Systemically**: Evaluate the decision against immediate needs, technical debt accrual, and long-term maintainability.
 
 ## Core Principles
 
