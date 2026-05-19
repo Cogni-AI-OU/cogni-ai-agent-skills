@@ -103,7 +103,11 @@ license: MIT
 
 ## Common Snippets
 
-TBC
+### Search for dotfiles repositories
+
+```bash
+gh search repos "dotfiles" --limit 5 --json nameWithOwner,description,url
+```
 
 ## Common Pitfalls
 
@@ -126,6 +130,8 @@ TBC
   You MUST load this skill when creating or updating an `.editorconfig` file.
 - **gitattributes**:
   You MUST load this skill when configuring Git behaviors via `.gitattributes`.
+- **gh-search**:
+  You MUST load this skill when searching for repositories or code examples using the GitHub CLI.
 - **github-actions**:
   You MUST load this skill when troubleshooting or configuring GitHub Actions workflows.
 - **pre-commit**:
