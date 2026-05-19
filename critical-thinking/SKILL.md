@@ -3,8 +3,8 @@ name: critical-thinking
 description: >-
   Engage deep analytical reasoning, follow behavioral guidelines, deconstruct assumptions, apply Socratic questioning,
   and perform adversarial red-teaming to solve complex problems and validate architectural plans.
-  You MUST load this skill when facing challenges that require critical thinking
-  when writing, reviewing, or refactoring code to avoid overcomplication.
+  You MUST load this skill when facing challenges that require critical thinking,
+  especially when writing, reviewing, or refactoring code to avoid overcomplication.
 license: MIT
 ---
 # critical-thinking
