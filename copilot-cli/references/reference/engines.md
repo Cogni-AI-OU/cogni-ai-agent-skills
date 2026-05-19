@@ -14,6 +14,10 @@ Set `engine:` in your workflow frontmatter and configure the corresponding secre
 | **Google Gemini CLI** | `gemini` | `GEMINI_API_KEY` |
 | **Crush** (experimental) | `crush` | `COPILOT_GITHUB_TOKEN` |
 | **OpenCode** (experimental) | `opencode` | `COPILOT_GITHUB_TOKEN` |
+| **Pi** | `pi` | Special handling (see note) |
+
+Pi is also supported, but its secret behavior differs from the engines above;
+configure it according to the workflow syntax documentation.
 
 Copilot CLI is the default — `engine:` can be omitted when using Copilot.
 
