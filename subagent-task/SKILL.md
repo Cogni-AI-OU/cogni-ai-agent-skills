@@ -55,7 +55,7 @@ flowchart TD
         Arch -->|task tool| BrainOps[cogni-ai-brain-ops<br/>Gather facts, constraints, plan]
         Arch -->|task tool| GHOps[cogni-ai-github-ops<br/>Modify comments, issues, discussions]
         Arch -->|task tool| CodeRev[cogni-ai-code-reviewer<br/>PR analysis, quality, security]
-        Arch -->|task tool| SecAud_Arch[cogni-ai-security-auditor<br/>Expert deep security audit]
+        Arch -->|task tool| SecAud[cogni-ai-security-auditor<br/>Security audit & PR review]
         Arch -->|task tool| PlanRev[cogni-ai-plan-reviewer<br/>Architectural & plan validation]
         Arch -->|task tool| Tester[cogni-ai-tester<br/>Execute tests, verify behavior]
         Arch -->|task tool| C7Ops[cogni-ai-context7-ops<br/>Retrieve & filter documentation]
@@ -75,10 +75,10 @@ flowchart TD
     Trigger -->|Plan validation| PlanRev["plan-reviewer<br/>Validate plan plausibility"]
     Trigger -->|Python needed| PyDev["python-dev<br/>Write and test Python code"]
     Trigger -->|Large diff| CodeRev["code-reviewer<br/>Final code quality review"]
-    Trigger -->|Security audit| SecAud["security-auditor<br/>Perform deep security audit"]
+    Trigger -->|Security audit/review| SecAud["security-auditor<br/>Perform security audit or review"]
 
     classDef scenario fill:#f9f,stroke:#333,stroke-width:2px;
-    class Docs,Brain,PyDev,GHOps,PlanRev,CodeRev,SecAud,DevOps scenario
+    class Docs,Brain,PyDev,GHOps,PlanRev,CodeRev,SecRev,DevOps scenario
 ```
 
 ## Usage Patterns

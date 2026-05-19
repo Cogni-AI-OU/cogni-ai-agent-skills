@@ -119,7 +119,7 @@ Note: Keep unordered lists in order for better readability.
 
 ## Bundling Resources
 
-If the skill requires additional files, organize them into these specific folders and reference them via relative paths in `SKILL.md`:
+If the skill requires additional files, organize them into these specific folders and reference them via relative paths in `SKILL.md` (up to 2 levels deep from the skill root):
 
 | Directory | Purpose | Loaded into Context? |
 | --------- | ------- | -------------------- |

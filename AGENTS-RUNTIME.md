@@ -238,8 +238,11 @@ and planned work into the current context.
 - **[sbom](sbom/SKILL.md)**: Guidelines and commands for generating a Software Bill of Materials (SBOM) using syft.
   You MUST load this skill when asked to create, generate, or update an SBOM.
 - **[security-audit](security-audit/SKILL.md)**: Commands, step-by-step procedures, and mechanical execution for
-  performing deep security audits, vulnerability assessments, and threat modeling.
+  performing deep security audits, vulnerability assessments, and report generation.
   You MUST load this skill when performing security audits or validation.
+- **[security-review](security-review/SKILL.md)**: Lightweight security review focused on Pull Requests and
+  incremental changes.
+  You MUST load this skill when reviewing code changes in a PR.
 - **[sed](sed/SKILL.md)**: Fast, non-interactive text stream editing and precise file segment extraction.
   You MUST load this skill when using the `sed` command for extracting or replacing text.
 - **[shell](shell/SKILL.md)**: Efficient shell command execution with timing, timeouts, and best practices.

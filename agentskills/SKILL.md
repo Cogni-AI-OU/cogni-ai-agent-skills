@@ -106,8 +106,8 @@ Recommended sections:
 ## File References
 
 - Use relative paths from the skill root (e.g., `[reference](./references/REF.md)`).
-- Keep file references one level deep from `SKILL.md` if possible.
-- Avoid deeply nested reference chains.
+- Keep file references up to two levels deep from `SKILL.md` if necessary for organization (e.g., `references/subdir/file.md`).
+- Avoid excessively deep nesting (beyond 2 levels) to maintain portability.
 
 ## Directory Scopes
 

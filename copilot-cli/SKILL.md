@@ -99,7 +99,7 @@ Automate shell commands at specific lifecycle events (session start, post-task, 
 ### Skills
 
 Load instruction sets and scripts to extend agent capabilities for specialized domains.
-- **Impact**: Enhances reasoning for complex workflows like cloud deployments or security audits.
+- **Impact**: Enhances reasoning for complex workflows like cloud deployments or security reviews.
 - **Reference**: See [add-skills.md](references/customize-copilot/add-skills.md) for skill structuring and discovery paths.
 
 ### Custom Agents
