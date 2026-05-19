@@ -1,8 +1,7 @@
 ---
 # See: <https://github.com/rhysd/actionlint/blob/main/docs/usage.md#config-file>
-
 self-check: true
 
 # Note: Keep sections in alphabetical order.
 # config-variables:
-#   # Add custom variables here if needed
+#  # Add custom variables here if needed

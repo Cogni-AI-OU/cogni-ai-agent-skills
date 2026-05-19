@@ -33,6 +33,8 @@ license: MIT
 
 ## Dotfile Reference
 
+### Git Repository & Workspace Dotfiles
+
 - **`.editorconfig`**: Defines consistent coding styles (indentation, line endings, character set) for multiple developers working on the same project across various IDEs.
 - **`.gitignore`**: Specifies intentionally untracked files to ignore (e.g., build artifacts, temporary files, secrets) preventing them from being committed to the Git repository.
 - **`.gitattributes`**: Defines Git attributes per path, controlling line ending normalization, merge strategies, text/binary classification, and diff output.
@@ -59,6 +61,33 @@ license: MIT
 - **`.tours/*.tour`**: VS Code CodeTour files providing step-by-step interactive walkthroughs of the codebase.
 - **`AGENTS.md`**: The primary entry point and quick reference for AI agents, defining common tasks, commands, and context.
 - **`.gemini/settings.json`**: Configuration for Google Gemini, typically pointing it to use `AGENTS.md` for context.
+- **`.fdignore`**: Specifies files and directories to ignore for the `fd` search tool, often mirroring `.gitignore` but used for faster file finding.
+- **`.ripgreprc`**: Project-specific configuration for `ripgrep` (`rg`), defining default flags and ignore patterns.
+- **`.npmrc`**: Project-specific npm configuration, such as registry URLs or dependency resolution strategies.
+
+### Linux-specific & User Home ($HOME) Dotfiles
+
+- **`.bashrc`**: The primary initialization script for non-login Bash shells, used for aliases, environment variables, and prompt settings.
+- **`.bash_profile` / `.profile`**: Initialization scripts for login shells; `.bash_profile` is Bash-specific, while `.profile` is a more general fallback.
+- **`.zshrc`**: The initialization script for Zsh shells, similar to `.bashrc`.
+- **`.zprofile`**: The login shell initialization script for Zsh.
+- **`.p10k.zsh`**: Configuration file for the Powerlevel10k Zsh theme, defining the visual appearance of the terminal prompt.
+- **`.vimrc`**: Configuration file for the Vim text editor, defining key mappings, plugin settings, and UI preferences.
+- **`.tmux.conf`**: Configuration for the Tmux terminal multiplexer, enabling custom key bindings and status bar layouts.
+- **`.inputrc`**: Configuration for the Readline library, used by shells (Bash) and other CLI tools for line editing and history.
+- **`.screenrc`**: Configuration file for GNU Screen, a terminal multiplexer similar to Tmux.
+- **`.curlrc`**: Default configuration for the `curl` command-line tool, used to specify common flags or proxy settings.
+- **`.wgetrc`**: Configuration for the `wget` tool, defining default download behaviors and network settings.
+- **`.netrc`**: Stores credentials for automatic login to FTP servers, HTTP sites, and other services used by tools like `curl` and `git`.
+- **`.gitconfig`**: The global Git configuration file (typically in `$HOME`), containing user identity, global aliases, and default behaviors.
+- **`.npmrc`**: User-level npm configuration, often containing authentication tokens for registries.
+- **`.terraformrc`**: Global configuration for Terraform, used to set provider mirrors or CLI behavior.
+- **`.gdbinit`**: Initialization script for the GDB debugger, used to define custom commands or UI settings.
+- **`.lldbinit`**: Initialization script for the LLDB debugger, similar to `.gdbinit`.
+- **`.ctags`**: Configuration for Ctags, used to define how source code symbols are indexed for navigation.
+- **`my.cnf`**: Configuration for MySQL and MariaDB clients and servers, defining connection parameters and system variables.
+- **`.ripgreprc`**: Global configuration for `ripgrep` (`rg`), ensuring consistent search behavior across all projects.
+- **`.sqliterc`**: Configuration for the SQLite3 command-line interface, used for setting output formats and history.
 
 ## Best Practices
 
