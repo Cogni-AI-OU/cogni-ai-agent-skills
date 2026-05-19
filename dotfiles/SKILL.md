@@ -39,7 +39,6 @@ license: MIT
 - **`.gitignore`**: Specifies intentionally untracked files to ignore (e.g., build artifacts, temporary files, secrets) preventing them from being committed to the Git repository.
 - **`.gitattributes`**: Defines Git attributes per path, controlling line ending normalization, merge strategies, text/binary classification, and diff output.
 - **`.gitmodules`**: Configures Git submodules, mapping their paths to the remote repository URLs.
-- **`.gitignore`**: Specifies intentionally untracked files to ignore (e.g., build artifacts, temporary files, secrets) preventing them from being committed to the Git repository.
 - **`.htaccess`**: Distributed configuration file for Apache web server, allowing for decentralized management of web server configuration.
 - **`.pre-commit-config.yaml`**: Configures pre-commit hooks to automatically format code, check for secrets, and run linters before a commit is finalized.
 - **`.markdownlint.yaml` / `.markdownlint.json`**: Configures rules for Markdownlint to enforce structural and stylistic consistency across Markdown files.
