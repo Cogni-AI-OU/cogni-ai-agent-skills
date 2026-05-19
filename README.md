@@ -125,8 +125,10 @@ Cogni AI capabilities loaded into the `.github/` directory.
 - **[robust-commands](robust-commands/SKILL.md)**: Resilient command execution with automatic
   fallbacks and error recovery
 - **[sbom](sbom/SKILL.md)**: Guidelines and commands for generating a Software Bill of Materials (SBOM) using syft
-- **[security-review](security-review/SKILL.md)**: Commands, step-by-step procedures, and mechanical execution for
-  performing deep security reviews, vulnerability assessments, and threat modeling
+- **[security-audit](security-audit/SKILL.md)**: Commands, step-by-step procedures, and mechanical execution for
+  performing deep security audits, vulnerability assessments, and report generation
+- **[security-review](security-review/SKILL.md)**: Lightweight security review focused on Pull Requests and
+  incremental changes
 - **[shell](shell/SKILL.md)**: Efficient shell command execution with timing, timeouts, and best practices
 - **[agent-skill-md-writer](agent-skill-md-writer/SKILL.md)**: Generate or update SKILL.md files for coding agents
 - **[subagent-task](subagent-task/SKILL.md)**: Guidance and protocols for spawning sub-agents via the task tool.

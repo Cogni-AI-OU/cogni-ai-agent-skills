@@ -174,7 +174,7 @@ copilot --yolo --prompt "Perform complex task"
 **Programmatic Custom Agent Execution**
 Specify the custom agent file name (excluding the `.agent.md` extension) and the exact instruction prompt.
 ```bash
-copilot --agent security-reviewer --prompt "Check <target-file>"
+copilot --agent security-auditor --prompt "Check <target-file>"
 ```
 
 ## References
