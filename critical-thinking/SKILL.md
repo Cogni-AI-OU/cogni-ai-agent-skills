@@ -62,6 +62,7 @@ A cognitive framework for deep analytical reasoning.
 - **Surgical Changes**: Touch only what you must. Clean up only your own mess.
 - **The Steelman Protocol**: Before critiquing a plan, articulate it in its strongest possible form. If you cannot Steelman it, you are not ready to reject it.
 - **Think Before Coding**: Don't assume. Don't hide confusion. Surface tradeoffs.
+- **Use Judgment**: For trivial tasks, use judgment.
 
 ## Diagnostics and Usage Patterns
 
