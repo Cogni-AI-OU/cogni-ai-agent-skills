@@ -183,6 +183,7 @@ copilot --agent security-auditor --prompt "Check <target-file>"
 - [Automate Copilot CLI](references/automate-copilot-cli.md)
 - [Use Copilot CLI](references/use-copilot-cli.md)
 - [Set Up Copilot CLI](references/set-up-copilot-cli.md)
+- [AI Engines (Coding Agents)](references/reference/engines.md)
 - [copilot-cli docs repository](https://github.com/github/docs/tree/main/content/copilot/how-tos/copilot-cli)
 - [Custom agents configuration reference](https://docs.github.com/en/copilot/reference/custom-agents-configuration)
 - [GitHub Copilot CLI command reference](https://docs.github.com/en/copilot/reference/copilot-cli-reference/cli-command-reference)
