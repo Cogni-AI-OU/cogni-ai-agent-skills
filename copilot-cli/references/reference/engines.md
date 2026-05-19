@@ -14,23 +14,20 @@ Set `engine:` in your workflow frontmatter and configure the corresponding secre
 | **Google Gemini CLI** | `gemini` | `GEMINI_API_KEY` |
 | **Crush** (experimental) | `crush` | `COPILOT_GITHUB_TOKEN` |
 | **OpenCode** (experimental) | `opencode` | `COPILOT_GITHUB_TOKEN` |
-| **Pi** | `pi` | Special handling (see note) |
-
-Pi is also supported, but its secret behavior differs from the engines above;
-configure it according to the workflow syntax documentation.
+| **Pi** (experimental) | `pi` | `COPILOT_GITHUB_TOKEN` (default); switches to provider secret with `provider/model` format |
 
 Copilot CLI is the default — `engine:` can be omitted when using Copilot.
 
 ## Engine Feature Comparison
 
-| Feature | Copilot | Claude | Codex | Gemini |
-| :--- | :---: | :---: | :---: | :---: |
-| `max-runs` (AWF invocation cap) | ✓ | ✓ | ✓ | ✓ |
-| `max-turns` | ✗ | ✓ | ✗ | ✗ |
-| `max-continuations` (Autopilot) | ✓ | ✗ | ✗ | ✗ |
-| `engine.agent` (Custom agent file) | ✓ | ✗ | ✗ | ✗ |
-| `engine.api-target` (Custom endpoint) | ✓ | ✓ | ✓ | ✓ |
-| `engine.bare` (Disable context) | ✓ | ✓ | ✓ | ✓ |
+| Feature | Copilot | Claude | Codex | Gemini | Crush | OpenCode | Pi |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| `max-runs` (AWF invocation cap) | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| `max-turns` | ✗ | ✓ | ✗ | ✗ | ✗ | ✗ | ✗ |
+| `max-continuations` (Autopilot) | ✓ | ✗ | ✗ | ✗ | ✗ | ✗ | ✗ |
+| `engine.agent` (Custom agent file) | ✓ | ✗ | ✗ | ✗ | ✗ | ✗ | ✗ |
+| `engine.api-target` (Custom endpoint) | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| `engine.bare` (Disable context) | ✓ | ✓ | ✓ | ✓ | ✗ | ✗ | ✗ |
 
 ## Extended Coding Agent Configuration
 
@@ -49,7 +46,8 @@ engine:
 
 ### Pinning a Specific Engine Version
 
-By default, workflows install the latest available version of each engine CLI. To pin to a specific version, set `version` to the desired release:
+By default, workflows install the latest available version of each engine CLI.
+To pin to a specific version, set `version` to the desired release:
 
 ```yaml
 engine:
@@ -69,7 +67,8 @@ engine:
 
 ### Bare Mode (`bare`)
 
-Set `engine.bare: true` to disable automatic loading of context (memory files, `AGENTS.md`) and custom instructions by the engine.
+Set `engine.bare: true` to disable automatic loading of context (memory files, `AGENTS.md`)
+and custom instructions by the engine.
 
 ```yaml
 engine:
