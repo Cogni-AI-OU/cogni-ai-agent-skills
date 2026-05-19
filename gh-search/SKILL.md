@@ -33,17 +33,17 @@ Prefer structured JSON output over manual text parsing.
 ## Commands / Usage Patterns
 
 - **Search Repositories**:
-  `gh search repos "query" --limit 5 --json nameWithOwner,description,url`
+  `gh search repos "query" --limit 10 --json nameWithOwner,description,url`
   Example output:
   `[{"description":"RAG Framework...","nameWithOwner":"truefoundry/cognita","url":"..."}]`
 
 - **Search Pull Requests**:
-  `gh search prs --state=open --limit 5 --json number,title,repository`
+  `gh search prs --state=open --limit 10 --json number,title,repository`
   Example output:
   `[{"number":123,"repository":{"name":"repo"},"title":"Fix issue"}]`
 
 - **Search Issues**:
-  `gh search issues --state=open --label="bug" --limit 5 --json number,title,url`
+  `gh search issues --state=open --label="bug" --limit 10 --json number,title,url`
   Example output:
   `[{"number":456,"title":"Bug description","url":"..."}]`
 
@@ -53,9 +53,12 @@ Prefer structured JSON output over manual text parsing.
   `[{"path":"src/index.js","url":"https://github.com/.../src/index.js"}]`
 
 - **Search Commits**:
-  `gh search commits "fix regex" --limit 5 --json sha,message,author`
+  `gh search commits "fix regex" --limit 10 --json sha,message,author`
   Example output:
   `[{"author":{"login":"user"},"message":"fix regex","sha":"abcdef"}]`
+
+- **Search for dotfiles repositories**:
+  `gh search repos "dotfiles" --limit 20`
 
 ## Mindmap of Commands
 
