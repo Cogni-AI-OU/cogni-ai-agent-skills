@@ -47,10 +47,14 @@ A cognitive framework for deep analytical reasoning.
 - **Constraint-Aware Design**: Explicitly map and adhere to project-specific constraints (architectural, performance, security).
 - **Fact-Based Reasoning**: Base every decision on empirically gathered facts from the codebase rather than assumptions.
 - **Formal Constraint Mapping**: Use MiniZinc snippets as a dry-code exercise to rigorously define problem boundaries, resources, and requirements.
+- **Goal-Driven Execution**: Define success criteria. Loop until verified.
 - **Information Gain Optimization**: Prioritize actions that maximize information about the system's state over actions that merely "try to fix it."
 - **Internal Tension Scan**: Search for self-contradictions within the plan (e.g., claiming a system is "high-performance" while introducing O(n²) complexity in a critical path).
+- **Simplicity First**: Minimum code that solves the problem. Nothing speculative.
 - **Socratic Depth**: Apply a minimum "3-Why" drill-down for any anomaly. Move from the immediate symptom to the behavioral anomaly, to the foundational flaw.
+- **Surgical Changes**: Touch only what you must. Clean up only your own mess.
 - **The Steelman Protocol**: Before critiquing a plan, articulate it in its strongest possible form. If you cannot Steelman it, you are not ready to reject it.
+- **Think Before Coding**: Don't assume. Don't hide confusion. Surface tradeoffs.
 
 ## Diagnostics and Usage Patterns
 
@@ -62,6 +66,13 @@ A cognitive framework for deep analytical reasoning.
 - **Confirmation Bias**: Over-weighting evidence that supports an initial guess while ignoring contradictory anomalies.
 - **Shallow Fixes**: Patching symptoms instead of addressing the architectural or structural root causes.
 - **The Sunk Cost Fallacy**: Persisting with a failing approach or refactor just because effort was already invested.
+- No features beyond what was asked.
+- No abstractions for single-use code.
+- No "flexibility" or "configurability" that wasn't requested.
+- No error handling for impossible scenarios.
+- Don't "improve" adjacent code, comments, or formatting.
+- Don't refactor things that aren't broken.
+- Don't remove pre-existing dead code unless asked.
 
 ## Limitations
 
