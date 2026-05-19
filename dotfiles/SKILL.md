@@ -33,6 +33,8 @@ license: MIT
 
 ## Dotfile Reference
 
+### Repository Configuration Files
+
 - **`.editorconfig`**: Defines consistent coding styles (indentation, line endings, character set) for multiple developers working on the same project across various IDEs.
 - **`.gitignore`**: Specifies intentionally untracked files to ignore (e.g., build artifacts, temporary files, secrets) preventing them from being committed to the Git repository.
 - **`.gitattributes`**: Defines Git attributes per path, controlling line ending normalization, merge strategies, text/binary classification, and diff output.
@@ -45,6 +47,8 @@ license: MIT
 - **`.yamlfix.toml`**: Configures `yamlfix` for automated YAML formatting and style enforcement.
 - **`.nvmrc` / `.node-version`**: Specifies the required Node.js version for the project, automatically picked up by tools like nvm or n (Node Version Manager).
 - **`.env.example` / `.env.sample`**: Provides a template of required environment variables without including actual secret values.
+- **`.fdignore`**: Specifies files and directories to ignore when using `fd` (a fast alternative to `find`).
+- **`.ripgreprc`**: Configuration file for `ripgrep` (`rg`), allowing for default search settings and ignore patterns.
 - **`.github/dependabot.yml`**: Configures GitHub Dependabot to automatically check for and create pull requests to update dependencies.
 - **`.github/workflows/*.yml`**: GitHub Actions workflow files for CI/CD automation, testing, and deployment.
 - **`.github/workflows/README.md`**: Documentation for GitHub Actions workflows, describing their purpose, inputs, and usage.
@@ -61,6 +65,23 @@ license: MIT
 - **`.tours/`**: Directory for VS Code CodeTour files, including `*.tour` (walkthroughs) and `README.md` (documentation).
 - **`AGENTS.md`**: The primary entry point and quick reference for AI agents, defining common tasks, commands, and context.
 - **`.gemini/`**: Directory containing configuration for Google Gemini, such as `settings.json` which typically points it to use `AGENTS.md` for context.
+
+### User Environment Configuration Files ($HOME)
+
+- **`.bashrc` / `.bash_profile` / `.profile`**: Shell initialization scripts for Bash, used to configure aliases, environment variables, and interactive session behavior.
+- **`.zshrc` / `.zprofile` / `.p10k.zsh`**: Initialization scripts for Zsh (often used with Oh My Zsh and Powerlevel10k), defining shell behavior and appearance.
+- **`.vimrc`**: Configuration file for the Vim text editor, specifying settings, keybindings, and plugins.
+- **`.gitconfig`**: Global or user-specific Git configuration, including user identity, aliases, and default behaviors.
+- **`.inputrc`**: Configuration for Readline, affecting interactive CLI input (e.g., arrow key behavior, completion).
+- **`.screenrc` / `.tmux.conf`**: Configuration files for terminal multiplexers (GNU Screen and tmux), defining window management and status bar settings.
+- **`.curlrc` / `.wgetrc`**: Default arguments and settings for `curl` and `wget` network utilities.
+- **`.netrc`**: Stores credentials for automated login to remote servers (e.g., FTP, HTTP). **CRITICAL**: Should be kept secure with `600` permissions.
+- **`.npmrc`**: Configuration for `npm`, defining registry URLs, authentication, and package installation behavior.
+- **`.terraformrc`**: User-level configuration for Terraform, such as provider installation settings and API tokens.
+- **`.gdbinit` / `.lldbinit`**: Initialization scripts for GDB and LLDB debuggers.
+- **`.ctags`**: Configuration for Ctags, defining how code symbols are indexed for navigation.
+- **`.my.cnf`**: Configuration for the MySQL client.
+- **`.sqliterc`**: Initialization settings for the SQLite command-line tool.
 
 ## Best Practices
 
