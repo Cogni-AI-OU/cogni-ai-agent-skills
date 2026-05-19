@@ -66,13 +66,13 @@ A cognitive framework for deep analytical reasoning.
 - **Confirmation Bias**: Over-weighting evidence that supports an initial guess while ignoring contradictory anomalies.
 - **Shallow Fixes**: Patching symptoms instead of addressing the architectural or structural root causes.
 - **The Sunk Cost Fallacy**: Persisting with a failing approach or refactor just because effort was already invested.
-- No features beyond what was asked.
-- No abstractions for single-use code.
-- No "flexibility" or "configurability" that wasn't requested.
-- No error handling for impossible scenarios.
-- Don't "improve" adjacent code, comments, or formatting.
-- Don't refactor things that aren't broken.
-- Don't remove pre-existing dead code unless asked.
+- **Feature Creep**: No features beyond what was asked.
+- **Over-Abstraction**: No abstractions for single-use code.
+- **Speculative Generality**: No "flexibility" or "configurability" that wasn't requested.
+- **Impossible Scenario Guarding**: No error handling for impossible scenarios.
+- **Adjacent Polishing**: Don't "improve" adjacent code, comments, or formatting.
+- **Proactive Refactoring**: Don't refactor things that aren't broken.
+- **Unauthorized Deletion**: Don't remove pre-existing dead code unless asked.
 
 ## Limitations
 
