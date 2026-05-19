@@ -1,9 +1,10 @@
 ---
 name: critical-thinking
 description: >-
-  Engage deep analytical reasoning, deconstruct assumptions, apply Socratic questioning, and perform adversarial red-teaming
-  to solve complex problems and validate architectural plans.
-  You MUST load this skill when facing challenges that require critical thinking.
+  Engage deep analytical reasoning, follow behavioral guidelines, deconstruct assumptions, apply Socratic questioning,
+  and perform adversarial red-teaming to solve complex problems and validate architectural plans.
+  You MUST load this skill when facing challenges that require critical thinking
+  when writing, reviewing, or refactoring code to avoid overcomplication.
 license: MIT
 ---
 # critical-thinking
@@ -53,7 +54,7 @@ A cognitive framework for deep analytical reasoning.
 - **Constraint-Aware Design**: Explicitly map and adhere to project-specific constraints (architectural, performance, security).
 - **Fact-Based Reasoning**: Base every decision on empirically gathered facts from the codebase rather than assumptions.
 - **Formal Constraint Mapping**: Use MiniZinc snippets as a dry-code exercise to rigorously define problem boundaries, resources, and requirements.
-- **Goal-Driven Execution**: Define success criteria. Loop until verified. Transform tasks into verifiable goals.
+- **Goal-Driven Execution**: Define success criteria. Loop until verified. Transform tasks into verifiable goals. Strong success criteria let you loop independently.
 - **Information Gain Optimization**: Prioritize actions that maximize information about the system's state over actions that merely "try to fix it."
 - **Internal Tension Scan**: Search for self-contradictions within the plan (e.g., claiming a system is "high-performance" while introducing O(n²) complexity in a critical path).
 - **Simplicity First**: Minimum code that solves the problem. Nothing speculative.
