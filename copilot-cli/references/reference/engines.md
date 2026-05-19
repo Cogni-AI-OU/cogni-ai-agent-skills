@@ -81,3 +81,7 @@ engine:
 | `tools.timeout` | Per tool-call limit in seconds |
 | `max-turns` | Iteration budget (Claude only) |
 | `max-continuations` | Autopilot run budget (Copilot only) |
+
+## References
+
+- [AI Engines (Coding Agents)](https://github.github.com/gh-aw/reference/engines/)
