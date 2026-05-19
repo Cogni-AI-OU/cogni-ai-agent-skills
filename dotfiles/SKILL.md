@@ -106,7 +106,7 @@ license: MIT
 ### Search for dotfiles repositories
 
 ```bash
-gh search repos "dotfiles" --limit 5 --json nameWithOwner,description,url
+gh search repos "dotfiles" --limit 20
 ```
 
 ## Common Pitfalls
