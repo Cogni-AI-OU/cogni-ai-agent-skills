@@ -21,7 +21,7 @@ Guidelines and commands for generating a Software Bill of Materials (SBOM) to pr
 ## When Not to Use
 
 - For routine unit testing or local syntax linting.
-- When specifically auditing source code for logic vulnerabilities (use `security-audit` instead).
+- When specifically auditing source code for logic vulnerabilities (use `security-review` instead).
 - If the repository strictly uses another proprietary SBOM generator mandated by the organization.
 
 ## Common Pitfalls

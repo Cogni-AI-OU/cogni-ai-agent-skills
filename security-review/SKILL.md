@@ -1,9 +1,9 @@
 ---
-name: security-audit
+name: security-review
 description: >-
-  Commands, step-by-step procedures, and mechanical execution for performing deep security audits,
+  Commands, step-by-step procedures, and mechanical execution for performing deep security reviews,
   vulnerability assessments, and threat modeling on codebases and configurations.
-  You MUST load this skill when performing security audits or validation.
+  You MUST load this skill when performing security reviews or validation.
 license: MIT
 ---
 
@@ -26,7 +26,7 @@ Use this skill when the request involves:
 - Detecting insecure cryptography or weak randomness
 - Performing a data flow analysis to trace user input to dangerous sinks
 - Any request phrasing like "is my code secure?", "scan this file", or "check my repo for vulnerabilities"
-- Running `/security-audit` or `/security-audit <path>`
+- Running `/security-review` or `/security-review <path>`
 
 ## When Not to Use
 
@@ -171,7 +171,7 @@ Follow these steps **in order** every time:
 
 Determine what to scan:
 
-- If a path was provided (`/security-audit src/auth/`), scan only that scope
+- If a path was provided (`/security-review src/auth/`), scan only that scope
 - If no path given, scan the **entire project** starting from the root
 - Identify the language(s) and framework(s) in use (check package.json, requirements.txt,
   go.mod, Cargo.toml, pom.xml, Gemfile, composer.json, etc.)

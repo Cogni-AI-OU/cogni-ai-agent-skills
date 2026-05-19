@@ -334,7 +334,7 @@ The `on:` section uses standard GitHub Actions syntax to define workflow trigger
   - Must be at least 8 characters and contain only alphanumeric characters, hyphens, and underscores
   - This identifier is inserted in the body/description of all created assets (issues, discussions, comments, pull requests)
   - Enables searching and retrieving assets associated with this workflow
-  - Examples: `"workflow-2024-q1"`, `"team-alpha-bot"`, `"security_audit_v2"`
+  - Examples: `"workflow-2024-q1"`, `"team-alpha-bot"`, `"security_review_v2"`
 
 - **`secret-masking:`** - Configuration for secret redaction behavior in workflow outputs and artifacts (object)
   - `steps:` - Additional secret redaction steps to inject after the built-in secret redaction (array)
