@@ -47,7 +47,7 @@ A cognitive framework for deep analytical reasoning.
 - **Constraint-Aware Design**: Explicitly map and adhere to project-specific constraints (architectural, performance, security).
 - **Fact-Based Reasoning**: Base every decision on empirically gathered facts from the codebase rather than assumptions.
 - **Formal Constraint Mapping**: Use MiniZinc snippets as a dry-code exercise to rigorously define problem boundaries, resources, and requirements.
-- **Goal-Driven Execution**: Define success criteria. Loop until verified.
+- **Goal-Driven Execution**: Define success criteria. Loop until verified. Transform tasks into verifiable goals.
 - **Information Gain Optimization**: Prioritize actions that maximize information about the system's state over actions that merely "try to fix it."
 - **Internal Tension Scan**: Search for self-contradictions within the plan (e.g., claiming a system is "high-performance" while introducing O(n²) complexity in a critical path).
 - **Simplicity First**: Minimum code that solves the problem. Nothing speculative.
@@ -63,15 +63,15 @@ A cognitive framework for deep analytical reasoning.
 
 ## What to Avoid
 
-- **Confirmation Bias**: Over-weighting evidence that supports an initial guess while ignoring contradictory anomalies.
-- **Shallow Fixes**: Patching symptoms instead of addressing the architectural or structural root causes.
-- **The Sunk Cost Fallacy**: Persisting with a failing approach or refactor just because effort was already invested.
-- **Feature Creep**: No features beyond what was asked.
-- **Over-Abstraction**: No abstractions for single-use code.
-- **Speculative Generality**: No "flexibility" or "configurability" that wasn't requested.
-- **Impossible Scenario Guarding**: No error handling for impossible scenarios.
 - **Adjacent Polishing**: Don't "improve" adjacent code, comments, or formatting.
+- **Confirmation Bias**: Over-weighting evidence that supports an initial guess while ignoring contradictory anomalies.
+- **Feature Creep**: No features beyond what was asked.
+- **Impossible Scenario Guarding**: No error handling for impossible scenarios.
+- **The Sunk Cost Fallacy**: Persisting with a failing approach or refactor just because effort was already invested.
+- **Over-Abstraction**: No abstractions for single-use code.
 - **Proactive Refactoring**: Don't refactor things that aren't broken.
+- **Shallow Fixes**: Patching symptoms instead of addressing the architectural or structural root causes.
+- **Speculative Generality**: No "flexibility" or "configurability" that wasn't requested.
 - **Unauthorized Deletion**: Don't remove pre-existing dead code unless asked.
 
 ## Limitations
