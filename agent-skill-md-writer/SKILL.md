@@ -152,6 +152,7 @@ If the skill requires additional files, organize them into these specific folder
 - Using interactive command examples without explicitly warning against them.
 - Creating excessively long files with redundant examples.
 - Explaining basic concepts that a proficient developer or AI agent would already know.
+- Enforcing how agents should fetch regular links (e.g., dictating the use of `curl` or `wget`) when listing links. Agents already have default preferred methods for fetching links, so do not hardcode specific methods for obvious operations unless it's part of a specific example.
 - Outputting conversational filler. ONLY output the file content.
 
 ## Limitations
