@@ -26,12 +26,12 @@ license: MIT
    - For searching: `/api/search/v1`
    - For listing available pages: `/api/pagelist/{language}/{version}`
    - For retrieving full markdown: `/api/article/body`
-3. **Execute the Query**: Use `curl` to fetch the data. The documentation APIs return structured JSON or markdown, which are optimized for LLM consumption.
+3. **Execute the Query**: Use `webfetch` or `curl` to fetch the data. The documentation APIs return structured JSON or markdown, which are optimized for LLM consumption.
 4. **Process Content**: Extract the relevant information to answer the user's query or inform the ongoing task.
 
 ## APIs & Usage
 
-All endpoints are hosted at `https://docs.github.com/`. Use `curl` to access them.
+All endpoints are hosted at `https://docs.github.com/`. Use `webfetch` or `curl` to access them.
 
 - **Versions API**: Lists all available documentation versions.
   `curl "https://docs.github.com/api/pagelist/versions"`
