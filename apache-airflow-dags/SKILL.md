@@ -69,8 +69,13 @@ license: MIT
 - **Hallucinated Schemas**: Generating column names or relationships that do not exist. *Prevention: Use contract-driven definitions with explicit schemas.*
 - **Missing Provider Packages**: Referencing operators that the environment lacks. *Prevention: Verify that the imported operators align with the available or defined providers.*
 
-## References
+## Examples
 
 - [customer_stats.py](references/customer_stats.py)
 - [daily_report.py](references/daily_report.py)
 - [route_performance.py](references/route_performance.py)
+
+## References
+
+- <https://docs.dagger.io/llms.txt>
+- <https://airflow.apache.org/docs/task-sdk/stable/examples.html>
