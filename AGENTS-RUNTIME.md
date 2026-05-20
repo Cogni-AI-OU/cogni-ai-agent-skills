@@ -226,6 +226,8 @@ and planned work into the current context.
 - **[mot](mot/SKILL.md)**: Evaluate and classify machine learning models based on the Model Openness Framework (MOF).
   You MUST load this skill to find model metadata like architecture, producer, components, etc.,
   from the Model Openness Tool.
+- **[npx-skills](npx-skills/SKILL.md)**: Install, find, update, and manage agent skills using the npx skills CLI tool.
+  You MUST load this skill when asked to use the npx skills command.
 - **[opencode](opencode/SKILL.md)**: Manage OpenCode configuration, credentials, and access the OpenCode Zen API.
   You MUST load this skill when working with OpenCode configuration or listing models.
 - **[pdf](pdf/SKILL.md)**: PDF file inspection, object-level editing, and lossless size reduction.
