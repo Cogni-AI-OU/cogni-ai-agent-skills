@@ -1,34 +1,51 @@
 ---
 name: apache-airflow-dags
-description: 'Expert-level guide for authoring Apache Airflow DAGs, focusing on the skeleton strategy, contract-driven logic, and environment context. You MUST load this skill when asked to write, refactor, or structure Airflow DAGs.'
+description: 'Expert-level guide for authoring Apache Airflow Dags, focusing on the skeleton strategy, contract-driven logic, and environment context. You MUST load this skill when asked to write, refactor, or structure Airflow Dags.'
 license: MIT
 ---
 
-# Apache Airflow DAGs
+# Apache Airflow Dags
 
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
 
 ## When to Use
 
-- Generating or writing new Apache Airflow DAGs.
-- Refactoring, debugging, or analyzing existing Airflow DAGs.
+- Generating or writing new Apache Airflow Dags.
+- Refactoring, debugging, or analyzing existing Airflow Dags.
 - Architecting data pipelines using Airflow's TaskFlow API.
 
 ## When Not to Use
 
-- Interacting with the Airflow REST API to trigger DAG runs or manage connections (use `apache-airflow-api` instead).
+- Interacting with the Airflow REST API to trigger Dag runs or manage connections (use `apache-airflow-api` instead).
 
 ## Core Process
 
 1. **Define the Universe**: Explicitly declare the context (Airflow version, executor type, cloud provider, and constraints) before generating code to avoid deprecated syntax.
 2. **Apply the Skeleton Strategy**:
    - Step 1: Draft the high-level plan in natural language without generating code.
-   - Step 2: Generate the DAG structure graph using placeholders (e.g., `EmptyOperator` from `airflow.providers.standard.operators.empty`). Do not add business logic or documentation yet.
+   - Step 2: Generate the Dag structure graph using placeholders (e.g., `EmptyOperator` from `airflow.providers.standard.operators.empty`). Do not add business logic or documentation yet.
    - Step 3: Iteratively replace placeholders with actual business logic and TaskFlow decorators.
    - Step 4: Add selective comments explaining the *why* (not the *what*), configure retries, and set up notifications.
 3. **Establish Data Contracts**: Specify explicit input schemas, output targets, and idempotency constraints (e.g., using `MERGE` or `UPSERT`) rather than vague transformation requests.
 4. **Format as a Technical Spec**: Structure requests and workflows using Markdown headers (`## Goal`, `## Context`, `## Data Contract`) and pseudo-XML tags (`<schema>`, `<code_snippet>`) for raw data.
 5. **Force the Source of Truth**: Inject exact snippets from official documentation (e.g., `llms.txt`) to anchor the execution and prevent context contamination from older Airflow versions.
+
+## Naming Conventions & Grammar
+
+- Write **Dag** (title case) in all prose.
+- Keep the all-caps or lowercase spelling only when reproducing a literal code token — never rewrite these, even inside fenced code blocks:
+  - Python: the SDK class `DAG` (`from airflow.sdk import DAG`, `dag = DAG("my_dag", ...)`); identifiers like `dag_id`, `dag`, `my_dag`.
+  - CLI: `airflow dags list`, `airflow dags test`, etc.
+  - Paths and config keys: `dag_processing/`, `dagprocessor`, `get_dag`, etc.
+- Don't spell out **Directed Acyclic Graph** except for historical context.
+
+## Architecture Boundaries
+
+1. Users author Dags with the Task SDK (`airflow.sdk`).
+2. Dag File Processor parses Dag files in separate processes and stores serialized Dags in the metadata DB. Software guards prevent individual parsing processes from accessing the database directly and enforce use of the Execution API.
+3. Scheduler reads serialized Dags — **never runs user code** — and creates Dag runs / task instances.
+4. Workers execute tasks via Task SDK and communicate with the API server through the Execution API — **never access the metadata DB directly**. Each task receives a short-lived JWT token scoped to its task instance ID.
+5. Triggerer evaluates deferred tasks/sensors in separate processes, steering through the Execution API rather than direct database access.
 
 ## Core Principles
 
@@ -37,12 +54,12 @@ license: MIT
 
 ## Best Practices
 
-- **Use Golden Records**: Reference established, production-ready DAGs (golden records) to enforce organizational naming conventions and architectural patterns.
+- **Use Golden Records**: Reference established, production-ready Dags (golden records) to enforce organizational naming conventions and architectural patterns.
 - **Embrace TaskFlow API**: Leverage `@task` and `@dag` decorators for cleaner data passing over legacy XCom patterns, unless constrained otherwise.
 
 ## What to Avoid
 
-- **Vibe Coding Large Blocks**: Generating hundreds of lines of DAG logic in a single shot without verifying the structural skeleton first.
+- **Vibe Coding Large Blocks**: Generating hundreds of lines of Dag logic in a single shot without verifying the structural skeleton first.
 - **Over-commenting**: Creating comments that simply narrate Python syntax.
 - **Assuming Idempotency**: Never assume a task will automatically be idempotent; explicitly define boundaries like `logical_date` and insert strategies.
 
