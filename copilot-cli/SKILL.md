@@ -94,7 +94,7 @@ Inject project-wide standards and context into every prompt.
 
 Automate shell commands at specific lifecycle events (session start, post-task, errors).
 - **Trigger**: Run tests, refresh environment variables, or trigger CI updates based on agent actions.
-- **Reference**: See [use-hooks.md](references/customize-copilot/use-hooks.md) for trigger definitions and context variables.
+- **Reference**: See [use-hooks.md](references/customize-copilot/use-hooks.md) for trigger definitions and [hooks-reference.md](references/reference/hooks-reference.md) for configuration schemas and events.
 
 ### Skills
 
@@ -184,6 +184,7 @@ copilot --agent security-auditor --prompt "Check <target-file>"
 - [Use Copilot CLI](references/use-copilot-cli.md)
 - [Set Up Copilot CLI](references/set-up-copilot-cli.md)
 - [AI Engines (Coding Agents)](references/reference/engines.md)
+- [Hooks Reference](references/reference/hooks-reference.md)
 - [copilot-cli docs repository](https://github.com/github/docs/tree/main/content/copilot/how-tos/copilot-cli)
 - [Custom agents configuration reference](https://docs.github.com/en/copilot/reference/custom-agents-configuration)
 - [GitHub Copilot CLI command reference](https://docs.github.com/en/copilot/reference/copilot-cli-reference/cli-command-reference)
