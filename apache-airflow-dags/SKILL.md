@@ -71,16 +71,19 @@ license: MIT
 
 ## References
 
-- [example_dag_decorator.py](references/example_dag_decorator.py)
-- [example_task_group_decorator.py](references/example_task_group_decorator.py)
-- [example_setup_teardown_taskflow.py](references/example_setup_teardown_taskflow.py)
-- [example_dynamic_task_mapping.py](references/example_dynamic_task_mapping.py)
-- [example_xcomargs.py](references/example_xcomargs.py)
-- [example_assets.py](references/example_assets.py)
+Examples from <https://airflow.apache.org/docs/task-sdk/stable/examples.html>:
+
 - [example_asset_alias.py](references/example_asset_alias.py)
-- [tutorial_taskflow_api.py](references/tutorial_taskflow_api.py)
+- [example_assets.py](references/example_assets.py)
+- [example_dag_decorator.py](references/example_dag_decorator.py)
+- [example_dynamic_task_mapping.py](references/example_dynamic_task_mapping.py)
+- [example_setup_teardown_taskflow.py](references/example_setup_teardown_taskflow.py)
+- [example_task_group_decorator.py](references/example_task_group_decorator.py)
+- [example_xcomargs.py](references/example_xcomargs.py)
+
+Examples from: <https://github.com/astronomer/webinar-demos/tree/local-data-engineering/dags>:
+
 - [customer_stats.py](references/customer_stats.py)
 - [daily_report.py](references/daily_report.py)
 - [route_performance.py](references/route_performance.py)
-- <https://airflow.apache.org/docs/task-sdk/stable/examples.html>
-
+- [tutorial_taskflow_api.py](references/tutorial_taskflow_api.py)
