@@ -20,6 +20,34 @@ license: MIT
 
 - When configuring built-in Copilot features unrelated to community plugins or awesome-copilot resources.
 
+## Project Overview
+
+The Awesome GitHub Copilot repository is a community-driven collection of custom agents and instructions designed to enhance GitHub Copilot experiences across various domains, languages, and use cases. The project includes:
+
+- **Agents** - Specialized GitHub Copilot agents that integrate with MCP servers.
+- **Instructions** - Coding standards and best practices applied to specific file patterns.
+- **Skills** - Self-contained folders with instructions and bundled resources for specialized tasks.
+- **Hooks** - Automated workflows triggered by specific events during development.
+- **Workflows** - Agentic Workflows for AI-powered repository automation in GitHub Actions.
+- **Plugins** - Installable packages that group related agents, commands, and skills around specific themes.
+
+## Repository Structure
+
+[Awesome Copilot Repository](https://github.com/github/awesome-copilot) structure:
+
+```
+.
+├── agents/           # Custom GitHub Copilot agent definitions (.agent.md files)
+├── instructions/     # Coding standards and guidelines (.instructions.md files)
+├── skills/           # Agent Skills folders (each with SKILL.md and optional bundled assets)
+├── hooks/            # Automated workflow hooks (folders with README.md + hooks.json)
+├── workflows/        # Agentic Workflows (.md files for GitHub Actions automation)
+├── plugins/          # Installable plugin packages (folders with plugin.json)
+├── docs/             # Documentation for different resource types
+├── eng/              # Build and automation scripts
+└── scripts/          # Utility scripts
+```
+
 ## Core Process
 
 ### Install a Plugin
@@ -49,7 +77,6 @@ license: MIT
 
 ## References
 
-- [Awesome Copilot Repository](https://github.com/github/awesome-copilot)
 - [Awesome Copilot llms.txt](https://awesome-copilot.github.com/llms.txt) (Overview, Learning Hub, Agents, Instructions, Skills)
 - [awesome-copilot's AGENTS.md](https://raw.githubusercontent.com/github/awesome-copilot/refs/heads/main/AGENTS.md)
 
