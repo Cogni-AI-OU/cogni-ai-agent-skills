@@ -39,6 +39,16 @@ Examples:
 - **Patch a DAG**: `astro api airflow patch_dag -a <dag_id> -d '{"is_paused": false}'`
 - **Trigger a DAG Run**: `astro api airflow trigger_dag_run -a <dag_id> -d '{"conf": {"my_param": "value"}}'`
 
+### Managing Local Environment
+
+- **Start local Airflow**: `astro dev start`
+- **Stop local Airflow**: `astro dev stop`
+- **Restart local Airflow**: `astro dev restart`
+- **Kill local Airflow**: `astro dev kill`
+- **View logs**: `astro dev logs`
+- **Access container shell**: `astro dev bash`
+- **Run Airflow CLI command**: `astro dev run <command>`
+
 ## Common Pitfalls
 
 - **Missing Authentication**: Forgetting to run `astro login` before `astro api` or `astro deployment` commands will result in auth errors.
@@ -48,3 +58,4 @@ Examples:
 
 - [Astro CLI llms.txt index](https://www.astronomer.io/docs/astro/cli/llms.txt)
 - [Astronomer platform llms.txt](https://www.astronomer.io/llms.txt)
+- [Managing Astro Local Environment](https://www.skills.sh/astronomer/agents/managing-astro-local-env)
