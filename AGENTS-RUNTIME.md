@@ -199,6 +199,8 @@ and planned work into the current context.
   You MUST load this skill when using actions/github-script in workflows.
 - **[github-topics](github-topics/SKILL.md)**: Search GitHub repositories by topics and keywords.
   You MUST load this skill when searching for relevant tools, libraries, or curated resources.
+- **[llmstxt](llmstxt/SKILL.md)**: A proposal to standardise on using an /llms.txt file to provide information to help LLMs use a website at inference time.
+  You MUST load this skill when reading websites, llms.txt, or when creating/updating that file.
 - **[lsp-setup](lsp-setup/SKILL.md)**: Enable code intelligence by installing and configuring an LSP server for Copilot CLI.
   You MUST load this skill when asked to set up, install, or configure an LSP server.
 - **[mcp-cli](mcp-cli/SKILL.md)**: Interface for MCP (Model Context Protocol) servers via CLI.
