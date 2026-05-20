@@ -1,6 +1,8 @@
 ---
 name: pulumi-cli
-description: 'Execute Pulumi CLI commands for stack management, infrastructure deployments, schemas, and API interactions. You MUST load this skill when working with the pulumi command.'
+description: >-
+  Execute Pulumi CLI commands for stack management, infrastructure deployments, schemas, and API interactions.
+  You MUST load this skill when working with the pulumi command.
 license: MIT
 ---
 
@@ -77,3 +79,7 @@ license: MIT
 
 - Avoid modifying Pulumi state directly unless absolutely necessary. Rely on standard deployments where possible.
 - Do not use interactive commands in agent scripts. Always supply all required flags and use `--non-interactive`.
+
+## References
+
+- <https://www.pulumi.com/llms.txt>
