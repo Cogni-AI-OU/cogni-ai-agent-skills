@@ -23,7 +23,7 @@ license: MIT
 
 ### Install Skills
 
-1. **Diverse Source Formats**: Add skills from GitHub, GitLab, bitbucket, or local paths.
+1. **Diverse Source Formats**: Add skills from GitHub, GitLab, Bitbucket, or local paths.
    ```bash
    # GitHub shorthand
    npx skills add vercel-labs/agent-skills
