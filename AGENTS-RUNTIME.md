@@ -73,6 +73,8 @@ and planned work into the current context.
 - **[copilot-cli](copilot-cli/SKILL.md)**: Guidance for installing GitHub Copilot CLI on Debian/Ubuntu and executing
   commands using custom agents.
   You MUST load this skill when interacting with or installing the copilot-cli command.
+- **[copilot-docs](copilot-docs/SKILL.md)**: Reference and documentation for GitHub Copilot CLI customization, automation, and advanced usage.
+  You MUST load this skill when asked to read Copilot CLI documentation.
 - **[critical-thinking](critical-thinking/SKILL.md)**: Engage deep analytical reasoning, deconstruct assumptions,
   apply Socratic questioning, and perform adversarial red-teaming to solve complex problems and validate architectural plans.
   You MUST load this skill when facing challenges that require critical thinking.
