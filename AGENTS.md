@@ -89,6 +89,13 @@ OpenCode (if installed) uses XDG base directories (not a single `~/.opencode` di
 | `~/.cache/opencode`       | Ephemeral binary cache - not worth persisting          |
 | `~/.local/state/opencode` | Runtime state - not worth persisting                   |
 
+### ollama-cli
+
+Ollama is used for local LLM execution.
+
+- **Daemon Dependency**: Ensure the Ollama daemon is running (e.g., `ollama serve &`).
+- **Shell Requirement**: Commands using process substitution (e.g., `<(echo ...)`) MUST run in `bash` or `zsh`, NOT standard `/bin/sh`.
+
 ## Tooling
 
 - Use MCP when possible.
