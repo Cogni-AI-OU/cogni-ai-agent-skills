@@ -35,6 +35,7 @@ license: MIT
 The `astro api airflow` command is a convenient wrapper around the Airflow REST API that automatically handles authentication for your currently active Astro workspace/deployment context.
 
 Examples:
+- **Get a DAG**: `astro api airflow get_dag -a <dag_id>`
 - **Patch a DAG**: `astro api airflow patch_dag -a <dag_id> -d '{"is_paused": false}'`
 - **Trigger a DAG Run**: `astro api airflow trigger_dag_run -a <dag_id> -d '{"conf": {"my_param": "value"}}'`
 
