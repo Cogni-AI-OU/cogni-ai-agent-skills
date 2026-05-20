@@ -83,9 +83,16 @@ Examples:
 - **Standalone Version Pinning**: Standalone mode requires Airflow 3.x/Runtime 13.x+.
 - **Interactive Hangs**: Avoid running interactive commands like `astro login` in non-interactive environments without appropriate flags.
 
+## Related Skills
+
+- **astronomer-docs**:
+  Read and navigate Astronomer documentation using llms.txt context.
+- **apache-airflow-api**:
+  Execute Apache Airflow Stable REST API queries, manage DAGs, backfills, connections, variables, and assets.
+- [Managing Astro Local Environment](https://github.com/astronomer/agents/blob/main/skills/managing-astro-local-env/SKILL.md)
+- [Troubleshooting Astro Deployments](https://github.com/astronomer/agents/blob/main/skills/troubleshooting-astro-deployments/skill.md)
+
 ## References
 
 - [Astro CLI llms.txt index](https://www.astronomer.io/docs/astro/cli/llms.txt)
 - [Astronomer platform llms.txt](https://www.astronomer.io/llms.txt)
-- [Managing Astro Local Environment](https://github.com/astronomer/agents/blob/main/skills/managing-astro-local-env/SKILL.md)
-- [Troubleshooting Astro Deployments](https://github.com/astronomer/agents/blob/main/skills/troubleshooting-astro-deployments/skill.md)
