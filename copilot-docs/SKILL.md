@@ -112,6 +112,7 @@ Adopt strict standards and guidelines to maximize Copilot CLI efficacy and secur
 
 ## References
 
+- [GitHub Docs](https://docs.github.com/llms.txt)
 - [Customize Copilot](references/customize-copilot.md)
 - [Automate Copilot CLI](references/automate-copilot-cli.md)
 - [Use Copilot CLI](references/use-copilot-cli.md)
