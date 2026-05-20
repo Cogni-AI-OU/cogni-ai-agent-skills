@@ -69,6 +69,34 @@ license: MIT
    npx skills init <skill-name>
    ```
 
+## Examples
+
+```
+# List skills in a repository
+npx skills add vercel-labs/agent-skills --list
+
+# Install specific skills
+npx skills add vercel-labs/agent-skills --skill frontend-design --skill skill-creator
+
+# Install a skill with spaces in the name (must be quoted)
+npx skills add owner/repo --skill "Convex Best Practices"
+
+# Install to specific agents
+npx skills add vercel-labs/agent-skills -a claude-code -a opencode
+
+# Non-interactive installation (CI/CD friendly)
+npx skills add vercel-labs/agent-skills --skill frontend-design -g -a claude-code -y
+
+# Install all skills from a repo to all agents
+npx skills add vercel-labs/agent-skills --all
+
+# Install all skills to specific agents
+npx skills add vercel-labs/agent-skills --skill '*' -a claude-code
+
+# Install specific skills to all agents
+npx skills add vercel-labs/agent-skills --agent '*' --skill frontend-design
+```
+
 ## Core Principles
 
 - **Automatic Discovery**: The CLI detects installed agents automatically; manually specifying `-a` is only needed to override this.
@@ -94,3 +122,10 @@ license: MIT
   You MUST load this skill when creating or updating `SKILL.md` files.
 - **agentskills**:
   You MUST load this skill to understand the technical structure of an agent skill.
+
+## References
+
+- [The Open Agent Skills Ecosystem](https://www.skills.sh/)
+- [Official skills from the companies and organizations](https://www.skills.sh/official)
+- [CLI Reference](https://www.skills.sh/docs/cli)
+- <https://github.com/vercel-labs/skills>
