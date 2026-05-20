@@ -7,6 +7,7 @@ from include.utils import print_report_row
 
 _SNOWFLAKE_CONN_ID = "snowflake_astrotrips"
 
+
 @dag(
     schedule="@daily",
     start_date=datetime(2026, 1, 1),
@@ -60,6 +61,7 @@ def daily_report():
         _get_report,
         print_report(),
     )
+
 
 daily_report_dag = daily_report()
 

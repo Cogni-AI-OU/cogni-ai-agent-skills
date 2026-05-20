@@ -5,6 +5,7 @@ from pendulum import datetime
 
 _SNOWFLAKE_CONN_ID = "snowflake_astrotrips"
 
+
 @dag(
     schedule="@daily",
     start_date=datetime(2026, 1, 1),
@@ -41,18 +42,12 @@ def customer_stats():
 
         for row in rows:
             customer_id, full_name, bookings, passengers, paid, first, last = row
-            print(
-                f"{full_name} | "
-                f"{bookings} | "
-                f"{passengers} | "
-                f"{paid:,} | "
-                f"{first} | "
-                f"{last}"
-            )
+            print(f"{full_name} | " f"{bookings} | " f"{passengers} | " f"{paid:,} | " f"{first} | " f"{last}")
 
         print("::endgroup::")
 
     chain(_aggregate, _get_stats, print_stats())
+
 
 customer_stats_dag = customer_stats()
 

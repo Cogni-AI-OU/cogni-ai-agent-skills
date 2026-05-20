@@ -5,6 +5,7 @@ from pendulum import datetime
 
 _SNOWFLAKE_CONN_ID = "snowflake_astrotrips"
 
+
 @dag(
     schedule="@daily",
     start_date=datetime(2026, 1, 1),
@@ -42,17 +43,12 @@ def route_performance():
 
         for row in rows:
             route_id, planet_name, bookings, passengers, revenue = row
-            print(
-                f"{route_id} | "
-                f"{planet_name} | "
-                f"{bookings} | "
-                f"{passengers} | "
-                f"{revenue:,}"
-            )
+            print(f"{route_id} | " f"{planet_name} | " f"{bookings} | " f"{passengers} | " f"{revenue:,}")
 
         print("::endgroup::")
 
     chain(_aggregate, _get_performance, print_performance())
+
 
 route_performance_dag = route_performance()
 

@@ -39,6 +39,8 @@ and planned work into the current context.
   You MUST load this skill when working with the `ansible` command.
 - **[apache-airflow-dags](apache-airflow-dags/SKILL.md)**: Expert-level guide for authoring Apache Airflow DAGs using the skeleton strategy and contract-driven logic.
   You MUST load this skill when asked to write, refactor, or structure Airflow DAGs.
+- **[astronomer-docs](astronomer-docs/SKILL.md)**: Read and navigate Astronomer documentation using llms.txt context.
+  You MUST load this skill when asked to read Astronomer documentation or Airflow documentation hosted by Astronomer.
 - **[brainstorm](brainstorm/SKILL.md)**: Activate brainstorming protocol to explore options, research, deconstruct
   complexities, and summarize available data into simple diagrams and MiniZinc constraints.
   You MUST load this skill when asked to brainstorm, explore options, or break down complex problems.
