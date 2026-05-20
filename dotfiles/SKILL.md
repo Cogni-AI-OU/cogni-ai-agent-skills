@@ -71,6 +71,7 @@ license: MIT
 - **`.tours/`**: Directory for VS Code CodeTour files, including `*.tour` (walkthroughs) and `README.md` (documentation).
 - **`AGENTS.md`**: The primary entry point and quick reference for AI agents, defining common tasks, commands, and context.
 - **`.gemini/`**: Directory containing configuration for Google Gemini, such as `settings.json` which typically points it to use `AGENTS.md` for context.
+- **`.claude/`**: Directory containing configuration for Anthropic Claude, such as `settings.json` which can define workspace-specific personality and constraints.
 
 ### Linux-specific & User Home ($HOME) Dotfiles
 
