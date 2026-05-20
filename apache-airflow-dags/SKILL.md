@@ -71,11 +71,117 @@ license: MIT
 
 ## Examples
 
-- [customer_stats.py](references/customer_stats.py)
-- [daily_report.py](references/daily_report.py)
-- [route_performance.py](references/route_performance.py)
+### Task SDK Dag Decorator
+
+Example of using the `@dag` and `@task` decorators from the Task SDK.
+
+```python
+from typing import TYPE_CHECKING, Any
+import httpx
+import pendulum
+from airflow.providers.standard.operators.bash import BashOperator
+from airflow.sdk import BaseOperator, dag, task
+
+if TYPE_CHECKING:
+    from airflow.sdk import Context
+
+class GetRequestOperator(BaseOperator):
+    """Custom operator to send GET request to provided url"""
+    template_fields = ("url",)
+    def __init__(self, *, url: str, **kwargs):
+        super().__init__(**kwargs)
+        self.url = url
+    def execute(self, context: Context):
+        return httpx.get(self.url).json()
+
+@dag(
+    schedule=None,
+    start_date=pendulum.datetime(2021, 1, 1, tz="UTC"),
+    catchup=False,
+    tags=["example"],
+)
+def example_dag_decorator(url: str = "https://httpbingo.org/get"):
+    get_ip = GetRequestOperator(task_id="get_ip", url=url)
+
+    @task(multiple_outputs=True)
+    def prepare_command(raw_json: dict[str, Any]) -> dict[str, str]:
+        external_ip = raw_json["origin"]
+        return {
+            "command": f"echo 'Connected from IP {external_ip}'",
+        }
+
+    command_info = prepare_command(get_ip.output)
+    BashOperator(task_id="echo_ip_info", bash_command=command_info["command"])
+
+example_dag = example_dag_decorator()
+```
+
+### Task Groups
+
+Example of grouping tasks using the `@task_group` decorator.
+
+```python
+import pendulum
+from airflow.sdk import DAG, task, task_group
+
+@task
+def task_1(value: int) -> str:
+    return f"[ Task1 {value} ]"
+
+@task
+def task_2(value: str) -> str:
+    return f"[ Task2 {value} ]"
+
+@task_group
+def task_group_function(value: int) -> None:
+    task_2(task_1(value))
+
+with DAG(
+    dag_id="example_task_group_decorator",
+    schedule=None,
+    start_date=pendulum.datetime(2021, 1, 1, tz="UTC"),
+    catchup=False,
+    tags=["example"],
+) as dag:
+    for i in range(5):
+        task_group_function(i)
+```
+
+### Setup and Teardown
+
+Example of defining setup and teardown tasks.
+
+```python
+import pendulum
+from airflow.sdk import DAG, setup, task, teardown
+
+with DAG(
+    dag_id="example_setup_teardown_taskflow",
+    schedule=None,
+    start_date=pendulum.datetime(2021, 1, 1, tz="UTC"),
+    catchup=False,
+    tags=["example"],
+) as dag:
+    @setup
+    def create_cluster():
+        return "cluster_id_123"
+
+    @task
+    def run_query(cluster_id):
+        print(f"Running query on {cluster_id}")
+
+    @teardown
+    def delete_cluster(cluster_id):
+        print(f"Deleting cluster {cluster_id}")
+
+    cluster_id = create_cluster()
+    run_query(cluster_id) >> delete_cluster(cluster_id)
+```
 
 ## References
 
-- <https://docs.dagger.io/llms.txt>
+- [customer_stats.py](references/customer_stats.py)
+- [daily_report.py](references/daily_report.py)
+- [route_performance.py](references/route_performance.py)
 - <https://airflow.apache.org/docs/task-sdk/stable/examples.html>
+
