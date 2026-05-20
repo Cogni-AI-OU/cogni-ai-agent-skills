@@ -68,3 +68,9 @@ license: MIT
 - **Context Contamination**: Defaulting to deprecated Airflow paradigms (e.g., `schedule_interval` instead of `schedule` or `timetable`). *Prevention: Always define the target Airflow version (e.g., Airflow 3.1) in the context block.*
 - **Hallucinated Schemas**: Generating column names or relationships that do not exist. *Prevention: Use contract-driven definitions with explicit schemas.*
 - **Missing Provider Packages**: Referencing operators that the environment lacks. *Prevention: Verify that the imported operators align with the available or defined providers.*
+
+## References
+
+- [customer_stats.py](references/customer_stats.py)
+- [daily_report.py](references/daily_report.py)
+- [route_performance.py](references/route_performance.py)
