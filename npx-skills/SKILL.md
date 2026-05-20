@@ -171,7 +171,7 @@ INSTALL_INTERNAL_SKILLS=1 npx skills add vercel-labs/agent-skills --list
 - **Hangs on Interactive Prompts**: Forgetting to use the `-y` flag in automated agent workflows.
   *Prevention*: Always append `-y` or `--yes` for CI/CD or agent-driven non-interactive execution.
 - **Unquoted Spaces or Wildcards**: The shell prematurely expanding `*` or mishandling spaces in skill names.
-  *Prevention*: Always quote names with spaces (e.g., `"Convex Best Practices"`) and asterisks (e.g., `--skill '\*'`).
+  *Prevention*: Always quote names with spaces (e.g., `"Convex Best Practices"`) and asterisks (e.g., `--skill '*'`).
 
 ## Related Skills
 
