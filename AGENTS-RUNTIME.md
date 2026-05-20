@@ -52,6 +52,9 @@ and planned work into the current context.
   You MUST load this skill when asked to analyze or brainstorm a Pull Request.
 - **[cat](cat/SKILL.md)**: Guidelines for safely using `cat` and avoiding shell hangs with heredocs.
   You MUST load this skill before running the `cat` command (especially with `EOF`).
+- **[claude-docs](claude-docs/SKILL.md)**: Reference and APIs for retrieving Anthropic Claude
+  documentation programmatically for LLMs.
+  You MUST load this skill when asked to search or retrieve Claude or Claude Code documentation.
 - **[code-review](code-review/SKILL.md)**: Cognitive framework for expert-level code inspection to identify logical
   flaws, hygiene issues, and architectural drift.
   You MUST load this skill when reviewing code or Pull Requests.

@@ -10,6 +10,7 @@ from airflow.sdk import dag, task
 
 # [END import_module]
 
+
 # [START instantiate_dag]
 @dag(
     schedule=None,
