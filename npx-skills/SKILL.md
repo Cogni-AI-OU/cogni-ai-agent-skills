@@ -23,9 +23,18 @@ license: MIT
 
 ### Install Skills
 
-1. **Repository Installation**: Add skills from a GitHub repo shorthand or URL.
+1. **Diverse Source Formats**: Add skills from GitHub, GitLab, bitbucket, or local paths.
    ```bash
+   # GitHub shorthand
    npx skills add vercel-labs/agent-skills
+   # Full GitHub URL
+   npx skills add https://github.com/vercel-labs/agent-skills
+   # Direct path to a skill in a repo
+   npx skills add https://github.com/vercel-labs/agent-skills/tree/main/skills/web-design-guidelines
+   # GitLab URL
+   npx skills add https://gitlab.com/org/repo
+   # Local path
+   npx skills add ./my-local-skills
    ```
 2. **Target Specific Agents**: Use `-a` or `--agent` to install to specific agents (e.g., `claude-code`, `opencode`, `cursor`, `github-copilot`).
    ```bash
@@ -39,26 +48,53 @@ license: MIT
    ```bash
    npx skills add vercel-labs/agent-skills -g
    ```
+5. **Force Copying**: Use `--copy` to copy files instead of symlinking (default).
+   ```bash
+   npx skills add vercel-labs/agent-skills --copy
+   ```
 
 ### Manage Skills
 
 1. **List Installed Skills**:
    ```bash
+   # List all installed skills (project and global)
    npx skills list
+   # List only global skills
    npx skills ls -g
+   # Filter by specific agents
+   npx skills ls -a claude-code -a cursor
    ```
 2. **Update Skills**: Update all installed skills or specific ones.
    ```bash
+   # Update all skills (interactive scope prompt)
    npx skills update
-   npx skills update frontend-design
+   # Update specific skill(s)
+   npx skills update frontend-design web-design-guidelines
+   # Update only global or project skills
+   npx skills update -g
+   npx skills update -p
+   # Non-interactive update
+   npx skills update -y
    ```
 3. **Remove Skills**:
    ```bash
-   npx skills remove <skill-name>
+   # Remove interactively
+   npx skills remove
+   # Remove specific skill(s)
+   npx skills remove web-design-guidelines
+   # Remove from global scope
+   npx skills remove --global web-design-guidelines
+   # Remove from specific agents only
+   npx skills remove --agent claude-code my-skill
+   # Remove all installed skills without confirmation
+   npx skills remove --all
    ```
 4. **Search Skills**:
    ```bash
-   npx skills find <query>
+   # Interactive fzf-style search
+   npx skills find
+   # Search by keyword
+   npx skills find typescript
    ```
 
 ### Scaffold Skills
@@ -71,11 +107,11 @@ license: MIT
 
 ## Examples
 
-```
-# List skills in a repository
+```bash
+# List skills in a repository without installing
 npx skills add vercel-labs/agent-skills --list
 
-# Install specific skills
+# Install specific skills from a repository
 npx skills add vercel-labs/agent-skills --skill frontend-design --skill skill-creator
 
 # Install a skill with spaces in the name (must be quoted)
@@ -90,11 +126,32 @@ npx skills add vercel-labs/agent-skills --skill frontend-design -g -a claude-cod
 # Install all skills from a repo to all agents
 npx skills add vercel-labs/agent-skills --all
 
-# Install all skills to specific agents
-npx skills add vercel-labs/agent-skills --skill '*' -a claude-code
+# Update only global skills non-interactively
+npx skills update -g -y
 
-# Install specific skills to all agents
-npx skills add vercel-labs/agent-skills --agent '*' --skill frontend-design
+# Remove all installed skills from a specific agent
+npx skills remove --skill '*' -a cursor
+
+# Remove a specific skill from all agents (global and project)
+npx skills remove my-skill --agent '*' --yes
+
+# Remove multiple skills at once
+npx skills remove frontend-design web-design-guidelines
+
+# Use 'rm' alias to remove a skill
+npx skills rm my-skill
+```
+
+## Environment Variables
+
+| Variable | Description |
+| -------- | ----------- |
+| `INSTALL_INTERNAL_SKILLS` | Set to `1` or `true` to show and install skills marked as `internal: true`. |
+| `DISABLE_TELEMETRY` | Set to `1` to disable anonymous usage telemetry. |
+
+Example:
+```bash
+INSTALL_INTERNAL_SKILLS=1 npx skills add vercel-labs/agent-skills --list
 ```
 
 ## Core Principles
