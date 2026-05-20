@@ -36,7 +36,7 @@ license: MIT
 ### Git Repository & Workspace Dotfiles
 
 - **`.astro/config.yaml`**: Configuration file for the Astro web framework, defining build options, integrations, and project settings.
-- **`.claude/`**: Directory containing configuration for Anthropic Claude, such as `settings.json` which can define workspace-specific personality and constraints.
+- **`.claude/`**: Directory containing workspace-specific Claude configuration, such as `settings.json` for hooks, tool permissions, and model or other workspace settings.
 - **`.devcontainer/`**: Directory for containerized development environments, containing `devcontainer.json` (configuration), `requirements.txt` (Python dependencies), and `apt-packages.txt` (system packages).
 - **`.editorconfig`**: Defines consistent coding styles (indentation, line endings, character set) for multiple developers working on the same project across various IDEs.
 - **`.env.example` / `.env.sample` / `.env.dist`**: Provides a template of required environment variables without including actual secret values.
