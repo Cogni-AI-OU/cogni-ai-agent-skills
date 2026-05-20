@@ -25,6 +25,10 @@ license: MIT
 
 ## References
 
+- [Agent SDK overview](https://code.claude.com/docs/en/agent-sdk.md)
+  Includes: Get started, Capabilities (Built-in tools, Hooks, Subagents, MCP, Permissions, Sessions),
+  Features (Agent SDK vs Client SDK, Agent SDK vs Claude Code CLI, Agent SDK vs Managed Agents),
+  Compare the Agent SDK to other Claude tools, Guidelines.
 - [Anthropic Developer Documentation](https://platform.claude.com/llms.txt)
 - [Claude Docs](https://claude.com/llms.txt)
 - [Claude Code Docs](https://code.claude.com/llms.txt)
