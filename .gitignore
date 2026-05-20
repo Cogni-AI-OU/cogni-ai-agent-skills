@@ -226,4 +226,5 @@ actionlint
 *.swp
 *.py
 !**/scripts/**/*.py
+!**/apache-airflow-dags/references/**/*.py
 test*.md
