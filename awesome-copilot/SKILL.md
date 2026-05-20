@@ -52,3 +52,8 @@ license: MIT
 - [Awesome Copilot Repository](https://github.com/github/awesome-copilot)
 - [Awesome Copilot llms.txt](https://awesome-copilot.github.com/llms.txt) (Overview, Learning Hub, Agents, Instructions, Skills)
 - [awesome-copilot's AGENTS.md](https://raw.githubusercontent.com/github/awesome-copilot/refs/heads/main/AGENTS.md)
+
+## Related skills
+
+- **copilot-cli**:
+  Use this skill to interact with GitHub Copilot CLI for command execution and automation.
