@@ -50,7 +50,7 @@ license: MIT
 - **Run Airflow CLI**: `astro dev run dags list`
 - **Check proxy status**: `astro dev proxy status` (for multi-project routing)
 
-### Favorite Astro CLI Commands for Local Dev
+### Astro CLI Commands for Local Dev
 
 - **Get tab completions**: `astro completion <shell>` (script to get tab completions for Astro CLI cmds)
 - **Get registry info**: `astro api registry` (Get info from the Airflow registry API)
