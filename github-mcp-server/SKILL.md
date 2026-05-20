@@ -166,7 +166,6 @@ The following toolsets are enabled by default when `toolsets:` is not specified:
 | `code_security` | Code scanning and security | `list_code_scanning_alerts`, `get_code_scanning_alert` |
 | `dependabot` | Dependency management | Dependabot alerts and updates |
 | `discussions` | GitHub Discussions | `list_discussions`, `create_discussion` |
-| `experiments` | Experimental features | Unstable/preview APIs |
 | `gists` | Gist operations | `create_gist`, `list_gists` |
 | `labels` | Label management | `get_label`, `list_labels`, `create_label` |
 | `notifications` | Notifications | `list_notifications`, `mark_notifications_read` |
@@ -484,7 +483,6 @@ Not all GitHub data is accessible through the GitHub MCP server or the GitHub RE
   - `context` → [`pkg/github/context_tools.go`](https://github.com/github/github-mcp-server/blob/main/pkg/github/context_tools.go)
   - `dependabot` → [`pkg/github/dependabot.go`](https://github.com/github/github-mcp-server/blob/main/pkg/github/dependabot.go)
   - `discussions` → [`pkg/github/discussions.go`](https://github.com/github/github-mcp-server/blob/main/pkg/github/discussions.go)
-  - `experiments` → [`pkg/github/dynamic_tools.go`](https://github.com/github/github-mcp-server/blob/main/pkg/github/dynamic_tools.go)
   - `gists` → [`pkg/github/gists.go`](https://github.com/github/github-mcp-server/blob/main/pkg/github/gists.go)
   - `issues` → [`pkg/github/issues.go`](https://github.com/github/github-mcp-server/blob/main/pkg/github/issues.go)
   - `labels` → [`pkg/github/labels.go`](https://github.com/github/github-mcp-server/blob/main/pkg/github/labels.go)
