@@ -53,3 +53,4 @@ license: MIT
 ## References
 
 - [llms.txt Official Specification](https://llmstxt.org/)
+- <https://llmstxt.org/llms.txt>
