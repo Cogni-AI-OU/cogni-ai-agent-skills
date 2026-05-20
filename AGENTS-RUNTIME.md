@@ -35,8 +35,12 @@ and planned work into the current context.
 - **[agentskills](agentskills/SKILL.md)**: Guidance on the Agent Skills open standard for creating
   portable, non-interactive, and secure Copilot agent skills.
   You MUST load this skill when designing or manually creating agent skills.
+- **[ai-prompt-writer](ai-prompt-writer/SKILL.md)**: Design, review, and optimize secure AI prompts using advanced prompt engineering patterns, safety frameworks, and injection mitigation strategies.
+  You MUST load this skill when engineering system prompts, LLM templates, or Copilot instructions.
 - **[ansible](ansible/SKILL.md)**: How to run and manage Ansible operations safely and prevent hangs.
   You MUST load this skill when working with the `ansible` command.
+- **[apache-airflow-api](apache-airflow-api/SKILL.md)**: Execute Apache Airflow Stable REST API queries, manage DAGs, backfills, connections, variables, and assets.
+  You MUST load this skill when interacting with the Airflow API.
 - **[apache-airflow-dags](apache-airflow-dags/SKILL.md)**: Expert-level guide for authoring Apache Airflow DAGs using the skeleton strategy and contract-driven logic.
   You MUST load this skill when asked to write, refactor, or structure Airflow DAGs.
 - **[astro-cli](astro-cli/SKILL.md)**: Expert-level guide for using the Astro CLI to manage Astronomer Airflow deployments and APIs.
@@ -54,6 +58,8 @@ and planned work into the current context.
   You MUST load this skill when asked to analyze or brainstorm a Pull Request.
 - **[cat](cat/SKILL.md)**: Guidelines for safely using `cat` and avoiding shell hangs with heredocs.
   You MUST load this skill before running the `cat` command (especially with `EOF`).
+- **[chrome-devtools](chrome-devtools/SKILL.md)**: Expert-level browser automation, debugging, and performance analysis using Chrome DevTools MCP.
+  You MUST load this skill when interacting with web pages, capturing screenshots, or profiling performance.
 - **[claude-docs](claude-docs/SKILL.md)**: Reference and APIs for retrieving Anthropic Claude
   documentation programmatically for LLMs.
   You MUST load this skill when asked to search or retrieve Claude or Claude Code documentation.
@@ -111,6 +117,9 @@ and planned work into the current context.
   Create, update, and maintain documentation including Architectural Decision Records (ADRs),
   runbooks, READMEs, and code-level documentation.
   You MUST load this skill when asked to write, document, or generate new documentation.
+- **[dot-claude](dot-claude/SKILL.md)**: Configure and manage Claude Code (.claude) workspace settings,
+  permissions, and tool hooks.
+  You MUST load this skill when configuring or managing Claude Code workspace settings.
 - **[fact-writer](fact-writer/SKILL.md)**: Guidance for writing, structuring, and maintaining verifiable project
   fact files without contradictions.
   You MUST load this skill when managing canonical project fact files.
@@ -131,15 +140,19 @@ and planned work into the current context.
 - **[gh-aw-compile](gh-aw-compile/SKILL.md)**: Regenerate and post-process all agentic workflows.
   You MUST load this skill when gh-aw is updated, workflow .md files change,
   or when asked to recompile/regenerate workflows.
-- **[gh-aw-troubleshooting](gh-aw-troubleshooting/SKILL.md)**: Diagnose and fix GitHub Agentic Workflows (`gh-aw`) failures
-  by analyzing logs for missing tools, permissions, or MCP configurations.
-  You MUST load this skill when diagnosing or fixing `gh aw` workflow failures.
+- **[gh-aw-firewall](gh-aw-firewall/SKILL.md)**: Use the AWF (Agentic Workflow Firewall) to run commands with network isolation and domain whitelisting.
+  You MUST load this skill when you need to run commands with network isolation or restrict network access to approved domains.
 - **[gh-aw-firewall-debug](gh-aw-firewall-debug/SKILL.md)**: Debug the AWF firewall by inspecting Docker containers,
   analyzing Squid access logs, checking iptables rules, and troubleshooting network issues.
   You MUST load this skill when debugging the awf firewall.
 - **[gh-aw-new](gh-aw-new/SKILL.md)**: Create new GitHub Agentic Workflows (gh-aw) from scratch using the CLI extension
   and fetching official remote creation prompts.
   You MUST load this skill when creating new agentic workflows.
+- **[gh-aw-troubleshooting](gh-aw-troubleshooting/SKILL.md)**: Diagnose and fix GitHub Agentic Workflows (`gh-aw`) failures
+  by analyzing logs for missing tools, permissions, or MCP configurations.
+  You MUST load this skill when diagnosing or fixing `gh aw` workflow failures.
+- **[gh-codespace](gh-codespace/SKILL.md)**: GitHub CLI (`gh codespace` or `gh cs`) operations for connecting to, managing, creating, or editing GitHub Codespaces.
+  You MUST load this skill when working with the `gh codespace` command.
 - **[gh-issue](gh-issue/SKILL.md)**: GitHub CLI (`gh issue`) operations for managing, viewing, and editing issues.
   You MUST load this skill when working with the `gh issue` command.
 - **[gh-models](gh-models/SKILL.md)**: GitHub CLI models (`gh models`) operations for running and evaluating AI
@@ -171,6 +184,8 @@ and planned work into the current context.
 - **[git-rebase](git-rebase/SKILL.md)**: Advanced Git rebase operations including
   interactive history cleanup and non-interactive scripted rewrites.
   You MUST load this skill when performing Git rebase operations.
+- **[gitattributes](gitattributes/SKILL.md)**: Define and modify .gitattributes to standardize line endings, merge drivers, diff generation, and GitHub linguist overrides.
+  You MUST load this skill when configuring Git behaviors via `.gitattributes`.
 - **[github](github/SKILL.md)**: GitHub-specific features and collaborative practices.
   You MUST load this skill when working with GitHub-specific features or PR view modes.
 - **[github-actions](github-actions/SKILL.md)**: Diagnosing and debugging failing GitHub Actions workflows.
@@ -178,12 +193,13 @@ and planned work into the current context.
 - **[github-aw](github-aw/SKILL.md)**: Safely update existing GitHub Agentic Workflows (gh-aw), distinguishing between
   frontmatter configuration that requires recompilation and markdown body prompt edits that do not.
   You MUST load this skill when updating or modifying an existing GitHub Agentic Workflow.
-- **[github-aw-troubleshooting](github-aw-troubleshooting/SKILL.md)**: Debug and refine GitHub Agentic Workflows (gh-aw)
-  by analyzing execution logs, auditing runs, and resolving missing tool errors or prompt inefficiencies.
-  You MUST load this skill when asked to debug, audit, or analyze a failing GitHub Agentic Workflow.
+- **[github-aw-agentics](github-aw-agentics/SKILL.md)**: Expert-level guidance for using, optimizing, and building GitHub Agentic Workflows.
+  You MUST load this skill when asked to explore available workflows, understand their internal mechanics, or add new agentic patterns.
 - **[github-aw-memory](github-aw-memory/SKILL.md)**: Guide for persistent memory strategies in agentic workflows.
   You MUST load this skill when designing workflows that persist state across runs via
   cache-memory, repo-memory, or comment-memory.
+- **[github-aw-patterns](github-aw-patterns/SKILL.md)**: Reference and guidelines for designing GitHub Agentic Workflows using established operational patterns like BatchOps, CentralRepoOps, ChatOps, CorrectionOps, and others.
+  You MUST load this skill when designing or architecting a new GitHub Agentic Workflow.
 - **[github-aw-practices](github-aw-practices/SKILL.md)**: Organizational practices,
   rollout strategies, and A/B experiment specifications for maintaining repositories with gh-aw.
   You MUST load this skill when dealing with GitHub Agentic Workflows A/B experiments,
@@ -191,6 +207,11 @@ and planned work into the current context.
 - **[github-aw-syntax](github-aw-syntax/SKILL.md)**: Complete reference for GitHub Agentic Workflows (gh-aw) frontmatter
   schema, engine configuration, network access, tools, and imports syntax.
   You MUST load this skill when writing or debugging Agentic Workflow files.
+- **[github-aw-troubleshooting](github-aw-troubleshooting/SKILL.md)**: Debug and refine GitHub Agentic Workflows (gh-aw)
+  by analyzing execution logs, auditing runs, and resolving missing tool errors or prompt inefficiencies.
+  You MUST load this skill when asked to debug, audit, or analyze a failing GitHub Agentic Workflow.
+- **[github-docs](github-docs/SKILL.md)**: Reference and APIs for retrieving GitHub documentation, page lists, and article content programmatically for LLMs.
+  You MUST load this skill when asked to search or retrieve GitHub documentation.
 - **[github-issue](github-issue/SKILL.md)**: Skills for working with GitHub Issues.
   You MUST load this skill when working with issues or when the runtime was triggered by an issue comment.
   Load this before any gh skills.
@@ -228,8 +249,12 @@ and planned work into the current context.
   from the Model Openness Tool.
 - **[npx-skills](npx-skills/SKILL.md)**: Install, find, update, and manage agent skills using the npx skills CLI tool.
   You MUST load this skill when asked to use the npx skills command.
+- **[ollama-cli](ollama-cli/SKILL.md)**: Execute and manage local LLMs using the ollama CLI, including pulling models and launching agents with MCP configurations.
+  You MUST load this skill when interacting with the `ollama` CLI.
 - **[opencode](opencode/SKILL.md)**: Manage OpenCode configuration, credentials, and access the OpenCode Zen API.
   You MUST load this skill when working with OpenCode configuration or listing models.
+- **[out-yaml](out-yaml/SKILL.md)**: Instructs the agent to produce output strictly in valid YAML format, ensuring no conversational filler or markdown wrappers.
+  You MUST load this skill when an automated downstream process strictly expects a raw YAML response.
 - **[pdf](pdf/SKILL.md)**: PDF file inspection, object-level editing, and lossless size reduction.
   You MUST load this skill when inspecting, editing, or optimizing PDF files.
 - **[pipenv](pipenv/SKILL.md)**: Manage Python project dependencies, virtual environments, and security using the
@@ -244,6 +269,8 @@ and planned work into the current context.
 - **[python-cli](python-cli/SKILL.md)**: Execute Python inline scripts via heredocs for complex log processing,
   data transformation, or CLI utilities like URL encoding/decoding.
   You MUST load this skill when processing large logs or performing one-liner data operations.
+- **[report-writer](report-writer/SKILL.md)**: Generate comprehensive audit reports, compare current state with baseline definitions, document discrepancies, update documentation files, and track changes via pull requests.
+  You MUST load this skill when asked to generate a comprehensive system audit report.
 - **[rfc2119](rfc2119/SKILL.md)**: Enforce correct usage of RFC 2119 requirement level keywords
   (MUST, SHOULD, MAY, etc.) in documentation and specifications.
   You MUST load this skill when writing or reviewing standards, specifications, or when applying RFC 2119 terminology.
@@ -272,6 +299,8 @@ and planned work into the current context.
 - **[tester](tester/SKILL.md)**: Elite autonomous test engineering kernel focused on proving software correctness,
   preventing regressions, and designing refactor-resilient behavioral tests.
   You MUST load this skill when designing tests, analyzing test coverage, or acting as a test engineer.
+- **[unicode](unicode/SKILL.md)**: Reference for Unicode character hex ranges and regex blocks for searching, matching, or filtering text across international scripts and symbols.
+  You MUST load this skill when searching, matching, or filtering text across international scripts.
 - **[vim-ex](vim-ex/SKILL.md)**: Non-interactive file editing with Vim Ex mode (in favor of sed, shell or Python
   editing).
   You MUST load this skill when using Vim Ex mode for non-interactive file editing.

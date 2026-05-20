@@ -1,6 +1,6 @@
 ---
 name: astro-cli
-description: 'Expert-level guide for using the Astro CLI to manage Astronomer Airflow deployments, authenticate, run APIs, and develop dags locally. You MUST load this skill when asked to use the astro command.'
+description: 'Expert-level guide for using the Astro CLI to manage Astronomer projects, develop locally, interact with Airflow APIs, and manage cloud deployments. You MUST load this skill when asked to use the astro command.'
 license: MIT
 ---
 
@@ -10,10 +10,11 @@ license: MIT
 
 ## When to Use This Skill
 
-- When the user asks you to execute commands starting with `astro`.
-- When interacting with Astronomer deployments using the Astro CLI.
-- When calling the Astro API or Airflow REST API via the CLI.
-- When you need context on Astro CLI commands, deployment updates, or triggering dags via CLI.
+- When initializing, configuring, or validating Astro/Airflow projects.
+- When managing local Airflow environments (Docker or Standalone mode).
+- When interacting with Astronomer cloud deployments, workspaces, and deployments.
+- When calling the Airflow REST API via the `astro api airflow` wrapper.
+- When troubleshooting production deployments by viewing logs or managing environment variables.
 
 ## When Not to Use
 
@@ -22,40 +23,76 @@ license: MIT
 ## Prerequisites
 
 - Astro CLI (`astro`) must be installed.
+- Docker must be running (for standard local development).
+- `uv` must be installed (for Standalone local development).
 
 ## Core Process
 
-1. Use `astro login` to authenticate before attempting API or deployment commands.
-2. For API requests, use `astro api` instead of `curl` for automatic authentication handling.
+1. Use `astro login` to authenticate before attempting cloud API or deployment commands.
+2. For local development, use `astro dev start` to launch Airflow.
+3. Use `astro api airflow` for authenticated API requests to both local and cloud environments.
 
 ## Step-by-Step Workflows
 
-### Executing Airflow REST API calls via Astro CLI
+### Project Setup & Configuration
 
-The `astro api airflow` command is a convenient wrapper around the Airflow REST API that automatically handles authentication for your currently active Astro workspace/deployment context.
-
-Examples:
-- **Get a DAG**: `astro api airflow get_dag -a <dag_id>`
-- **Patch a DAG**: `astro api airflow patch_dag -a <dag_id> -d '{"is_paused": false}'`
-- **Trigger a DAG Run**: `astro api airflow trigger_dag_run -a <dag_id> -d '{"conf": {"my_param": "value"}}'`
+- **Initialize project**: `astro dev init`
+- **Validate DAGs locally**: `astro dev parse`
+- **Export connections/variables**: `astro dev object export --connections --variables`
+- **Import connections/variables**: `astro dev object import --connections --variables --file <path>`
 
 ### Managing Local Environment
 
-- **Start local Airflow**: `astro dev start`
-- **Stop local Airflow**: `astro dev stop`
-- **Restart local Airflow**: `astro dev restart`
-- **Kill local Airflow**: `astro dev kill`
-- **View logs**: `astro dev logs`
-- **Access container shell**: `astro dev bash`
-- **Run Airflow CLI command**: `astro dev run <command>`
+- **Start (Docker)**: `astro dev start`
+- **Start (Standalone)**: `astro dev start --standalone`
+- **Stop/Kill**: `astro dev stop` / `astro dev kill` (kill removes volumes/venv)
+- **View local logs**: `astro dev logs --scheduler` (or `--webserver`, `--workers`)
+- **Run Airflow CLI**: `astro dev run dags list`
+- **Check proxy status**: `astro dev proxy status` (for multi-project routing)
+
+### Cloud Deployment Management
+
+- **Switch workspace**: `astro workspace switch <WORKSPACE_ID>`
+- **List/Inspect deployments**: `astro deployment list` / `astro deployment inspect <DEPLOYMENT_ID>`
+- **Create deployment**: `astro deployment create --label <NAME> --executor celery`
+- **Deploy code (Full)**: `astro deploy <DEPLOYMENT_ID>`
+- **Deploy DAGs only**: `astro deploy <DEPLOYMENT_ID> --dags` (requires `dag-deploy-enabled`)
+- **Manage variables**: `astro deployment variable create --deployment-id <ID> --key <KEY> --value <VAL> --secret`
+
+### Troubleshooting Cloud Deployments
+
+- **View deployment logs**: `astro deployment logs <DEPLOYMENT_ID> --error`
+- **Filter logs by component**: `astro deployment logs <ID> --scheduler` (or `--workers`, `--triggerer`)
+- **Search logs**: `astro deployment logs <ID> --keyword "ImportError"`
+
+### Executing Airflow REST API calls via Astro CLI
+
+The `astro api airflow` command automatically handles authentication for your current context.
+
+Examples:
+- **List DAGs**: `astro api airflow get_dags`
+- **Get DAG details**: `astro api airflow get_dag -p dag_id=<dag_id>`
+- **Trigger DAG run**: `astro api airflow trigger_dag_run -p dag_id=<dag_id> -F conf[key]=value`
+- **List task instances**: `astro api airflow get_task_instances -p dag_id=<dag_id> -p dag_run_id=~`
+- **Filter with jq**: `astro api airflow get_dags -q '.dags[].dag_id'`
 
 ## Common Pitfalls
 
-- **Missing Authentication**: Forgetting to run `astro login` before `astro api` or `astro deployment` commands will result in auth errors.
-- **Interactive Hangs**: Avoid running `astro login` or other interactive commands without appropriate non-interactive flags if you are running fully autonomously.
+- **Missing Authentication**: Forgetting to run `astro login` before cloud operations.
+- **Context Mismatch**: Running commands in the wrong workspace or against the wrong deployment. Always check `astro workspace list` or `astro deployment list`.
+- **Standalone Version Pinning**: Standalone mode requires Airflow 3.x/Runtime 13.x+.
+- **Interactive Hangs**: Avoid running interactive commands like `astro login` in non-interactive environments without appropriate flags.
+
+## Related Skills
+
+- **astronomer-docs**:
+  Read and navigate Astronomer documentation using llms.txt context.
+- **apache-airflow-api**:
+  Execute Apache Airflow Stable REST API queries, manage DAGs, backfills, connections, variables, and assets.
+- [Managing Astro Local Environment](https://github.com/astronomer/agents/blob/main/skills/managing-astro-local-env/SKILL.md)
+- [Troubleshooting Astro Deployments](https://github.com/astronomer/agents/blob/main/skills/troubleshooting-astro-deployments/skill.md)
 
 ## References
 
 - [Astro CLI llms.txt index](https://www.astronomer.io/docs/astro/cli/llms.txt)
 - [Astronomer platform llms.txt](https://www.astronomer.io/llms.txt)
-- [Managing Astro Local Environment](https://www.skills.sh/astronomer/agents/managing-astro-local-env)
