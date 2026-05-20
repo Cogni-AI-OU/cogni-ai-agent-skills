@@ -35,6 +35,7 @@ license: MIT
 
 ### Git Repository & Workspace Dotfiles
 
+- **`.astro/config.yaml`**: Configuration file for the Astro web framework, defining build options, integrations, and project settings.
 - **`.editorconfig`**: Defines consistent coding styles (indentation, line endings, character set) for multiple developers working on the same project across various IDEs.
 - **`.gitignore`**: Specifies intentionally untracked files to ignore (e.g., build artifacts, temporary files, secrets) preventing them from being committed to the Git repository.
 - **`.gitattributes`**: Defines Git attributes per path, controlling line ending normalization, merge strategies, text/binary classification, and diff output.
@@ -49,7 +50,7 @@ license: MIT
 - **`.yamllint` / `.yamllint.yaml`**: Defines rules for yamllint to ensure YAML files are syntactically valid and stylistically consistent.
 - **`.yamlfix.toml`**: Configures `yamlfix` for automated YAML formatting and style enforcement.
 - **`.nvmrc` / `.node-version`**: Specifies the required Node.js version for the project, automatically picked up by tools like nvm or n (Node Version Manager).
-- **`.env.example` / `.env.sample`**: Provides a template of required environment variables without including actual secret values.
+- **`.env.example` / `.env.sample` / `.env.dist`**: Provides a template of required environment variables without including actual secret values.
 - **`.fdignore`**: Specifies files and directories to ignore for the `fd` search tool, often mirroring `.gitignore` but used for faster file finding.
 - **`.ripgreprc`**: Project-specific configuration for `ripgrep` (`rg`), defining default flags and ignore patterns.
 - **`.npmrc`**: Project-specific npm configuration, such as registry URLs or dependency resolution strategies.
@@ -66,7 +67,7 @@ license: MIT
 - **`.github/CODEOWNERS`**: Defines individuals or teams responsible for specific code paths, automatically assigning them as PR reviewers.
 - **`.github/ISSUE_TEMPLATE/*.yml`**: Structured templates for bug reports and feature requests to ensure consistent issue reporting.
 - **`.devcontainer/`**: Directory for containerized development environments, containing `devcontainer.json` (configuration), `requirements.txt` (Python dependencies), and `apt-packages.txt` (system packages).
-- **`.vscode/`**: Directory for VS Code-specific configurations, including `settings.json` (workspace settings), `extensions.json` (recommended extensions), and `launch.json` (debug configurations).
+- **`.vscode/`**: Directory for VS Code-specific configurations, including `settings.json` (workspace settings), `extensions.json` (recommended extensions), `launch.json` (debug configurations), and `tasks.json` (task runners).
 - **`.tours/`**: Directory for VS Code CodeTour files, including `*.tour` (walkthroughs) and `README.md` (documentation).
 - **`AGENTS.md`**: The primary entry point and quick reference for AI agents, defining common tasks, commands, and context.
 - **`.gemini/`**: Directory containing configuration for Google Gemini, such as `settings.json` which typically points it to use `AGENTS.md` for context.
