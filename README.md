@@ -38,6 +38,7 @@ Cogni AI capabilities loaded into the `.github/` directory.
   portable, non-interactive, and secure agent skills.
   You MUST load this skill when designing or manually creating agent skills.
 - **[ansible](ansible/SKILL.md)**: How to run and manage Ansible operations safely and prevent hangs.
+- **[apache-airflow-dags](apache-airflow-dags/SKILL.md)**: Expert-level guide for authoring Apache Airflow DAGs using the skeleton strategy and contract-driven logic.
 - **[brainstorm](brainstorm/SKILL.md)**: Activate brainstorming protocol to explore options, research, deconstruct
   complexities, and summarize available data into simple diagrams and MiniZinc constraints.
 - **[brainstorm-agent-runs](brainstorm-agent-runs/SKILL.md)**: Activate agent-run brainstorming protocol to identify and
