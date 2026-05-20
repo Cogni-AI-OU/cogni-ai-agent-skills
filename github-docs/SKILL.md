@@ -59,9 +59,8 @@ All endpoints are hosted at `https://docs.github.com/`. Use `curl` to access the
 
 ## References
 
-- [Curated Documentation Links](references/curated-links.md) - A curated list of direct documentation links extracted from GitHub's LLM endpoints.
-- <https://github.com/llms.txt>
-- <https://docs.github.com/llms.txt>
+- <https://docs.github.com/llms.txt> - The official GitHub documentation curated for LLMs.
+- <https://github.com/llms.txt> - Curated links for GitHub-related projects and resources.
 
 ## Related Skills
 
