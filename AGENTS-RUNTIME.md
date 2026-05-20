@@ -107,6 +107,9 @@ and planned work into the current context.
   Create, update, and maintain documentation including Architectural Decision Records (ADRs),
   runbooks, READMEs, and code-level documentation.
   You MUST load this skill when asked to write, document, or generate new documentation.
+- **[dot-claude](dot-claude/SKILL.md)**: Configure and manage Claude Code (.claude) workspace settings,
+  permissions, and tool hooks.
+  You MUST load this skill when configuring or managing Claude Code workspace settings.
 - **[fact-writer](fact-writer/SKILL.md)**: Guidance for writing, structuring, and maintaining verifiable project
   fact files without contradictions.
   You MUST load this skill when managing canonical project fact files.
