@@ -50,6 +50,19 @@ license: MIT
 - **Run Airflow CLI**: `astro dev run dags list`
 - **Check proxy status**: `astro dev proxy status` (for multi-project routing)
 
+### Favorite Astro CLI Commands for Local Dev
+
+- **Get tab completions**: `astro completion <shell>` (script to get tab completions for Astro CLI cmds)
+- **Get registry info**: `astro api registry` (Get info from the Airflow registry API)
+- **Run bash in scheduler**: `astro dev bash` (Enter the scheduler container to run bash cmds)
+- **Remove all containers**: `astro dev kill` (Remove all containers incl metab, connections)
+- **Get stream/logs**: `astro dev logs` (Get logs -s / -d / -t / -a, -f for a stream)
+- **Check import errors**: `astro dev parse` (Check for import errors)
+- **Run tests in container**: `astro dev pytest` (Run tests in /tests in a container)
+- **Run Airflow CLI command**: `astro dev run` (Run any Airflow CLI command!)
+- **Force reparsing of DAGs**: `astro dev run dags reserialize` (Force reparsing of all Dags incl new ones)
+- **Start locally with cloud connections**: `astro dev start --deployment-id [deployment-id]` (For Astro customers start locally with the same AF connections as your deployment)
+
 ### Cloud Deployment Management
 
 - **Switch workspace**: `astro workspace switch <WORKSPACE_ID>`
