@@ -40,4 +40,4 @@ license: MIT
 
 ## References
 
-- [Example settings.json](references/astronomer-webinar-demos/settings.json)
+- [Example settings.json](references/vojay-dev/settings.json)
