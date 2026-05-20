@@ -25,4 +25,5 @@ license: MIT
 
 ## References
 
+- <https://claude.com/llms.txt> - Claude AI docs
 - <https://code.claude.com/llms.txt> - The official Claude Code documentation curated for LLMs.
