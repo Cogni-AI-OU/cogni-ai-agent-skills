@@ -1,6 +1,8 @@
 ---
 name: awesome-copilot
-description: 'Community-contributed instructions, agents, skills, and configurations to help you make the most of GitHub Copilot.'
+description: >
+  Community-contributed instructions, agents, skills, and configurations to help you make the most of GitHub Copilot.
+  You MUST load this skill when dealing with Awesome GitHub Copilot.
 license: MIT
 ---
 
@@ -48,4 +50,5 @@ license: MIT
 ## References
 
 - [Awesome Copilot Repository](https://github.com/github/awesome-copilot)
-- [Awesome Copilot llms.txt](https://awesome-copilot.github.com/llms.txt)
+- [Awesome Copilot llms.txt](https://awesome-copilot.github.com/llms.txt) (Overview, Learning Hub, Agents, Instructions, Skills)
+- [awesome-copilot's AGENTS.md](https://raw.githubusercontent.com/github/awesome-copilot/refs/heads/main/AGENTS.md)
