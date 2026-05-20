@@ -164,9 +164,9 @@ The following toolsets are enabled by default when `toolsets:` is not specified:
 | `pull_requests` | Pull request operations | `pull_request_read`, `list_pull_requests`, `create_pull_request` |
 | `actions` | GitHub Actions/CI/CD | `list_workflows`, `list_workflow_runs`, `download_workflow_run_artifact` |
 | `code_security` | Code scanning and security | `list_code_scanning_alerts`, `get_code_scanning_alert` |
+| `copilot` | Copilot related tools | `assign_copilot_to_issue`, `request_copilot_review` |
 | `dependabot` | Dependency management | Dependabot alerts and updates |
 | `discussions` | GitHub Discussions | `list_discussions`, `create_discussion` |
-| `experiments` | Experimental features | Unstable/preview APIs |
 | `gists` | Gist operations | `create_gist`, `list_gists` |
 | `labels` | Label management | `get_label`, `list_labels`, `create_label` |
 | `notifications` | Notifications | `list_notifications`, `mark_notifications_read` |
@@ -214,6 +214,11 @@ This section maps individual tools to their respective toolsets to help with mig
 - `get_pull_request` - Get details of a specific pull request
 - `create_pull_request` - Create a new pull request
 - `search_pull_requests` - Search pull requests across repositories
+
+### Copilot Toolset
+
+- `assign_copilot_to_issue` - Assign Copilot to issue
+- `request_copilot_review` - Request Copilot review
 
 ### Actions Toolset
 
@@ -482,9 +487,9 @@ Not all GitHub data is accessible through the GitHub MCP server or the GitHub RE
   - `actions` → [`pkg/github/actions.go`](https://github.com/github/github-mcp-server/blob/main/pkg/github/actions.go)
   - `code_security` → [`pkg/github/code_scanning.go`](https://github.com/github/github-mcp-server/blob/main/pkg/github/code_scanning.go)
   - `context` → [`pkg/github/context_tools.go`](https://github.com/github/github-mcp-server/blob/main/pkg/github/context_tools.go)
+  - `copilot` → [`pkg/github/copilot.go`](https://github.com/github/github-mcp-server/blob/main/pkg/github/copilot.go)
   - `dependabot` → [`pkg/github/dependabot.go`](https://github.com/github/github-mcp-server/blob/main/pkg/github/dependabot.go)
   - `discussions` → [`pkg/github/discussions.go`](https://github.com/github/github-mcp-server/blob/main/pkg/github/discussions.go)
-  - `experiments` → [`pkg/github/dynamic_tools.go`](https://github.com/github/github-mcp-server/blob/main/pkg/github/dynamic_tools.go)
   - `gists` → [`pkg/github/gists.go`](https://github.com/github/github-mcp-server/blob/main/pkg/github/gists.go)
   - `issues` → [`pkg/github/issues.go`](https://github.com/github/github-mcp-server/blob/main/pkg/github/issues.go)
   - `labels` → [`pkg/github/labels.go`](https://github.com/github/github-mcp-server/blob/main/pkg/github/labels.go)
