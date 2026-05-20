@@ -114,6 +114,7 @@ Cogni AI capabilities loaded into the `.github/` directory.
 - **[minizinc](minizinc/SKILL.md)**: Expert MiniZinc modeling for constraint satisfaction and combinatorial problems
 - **[molecule](molecule/SKILL.md)**: Molecule testing workflows for Ansible roles
 - **[mot](mot/SKILL.md)**: Evaluate and classify machine learning models based on the Model Openness Framework (MOF)
+- **[ollama-cli](ollama-cli/SKILL.md)**: Execute and manage local LLMs using the ollama CLI, including pulling models and launching agents with MCP configurations
 - **[opencode](opencode/SKILL.md)**: Manage OpenCode configuration, credentials, and access the OpenCode Zen API
 - **[pdf](pdf/SKILL.md)**: PDF file inspection, object-level editing, and lossless size reduction
 - **[pipenv](pipenv/SKILL.md)**: Manage Python project dependencies, virtual environments, and security using the

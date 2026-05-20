@@ -1,9 +1,9 @@
 ---
-name: ollama
+name: ollama-cli
 description: 'Execute and manage local LLMs using the ollama CLI, including pulling models and launching agents with MCP configurations. You MUST load this skill when interacting with the `ollama` CLI.'
 license: MIT
 ---
-# ollama
+# ollama-cli
 
 <!-- markdownlint-disable MD013 MD023 MD031 MD032 -->
 
