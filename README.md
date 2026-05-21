@@ -15,6 +15,8 @@ This repository mirrors the structure and conventions of the
 
 To set up the required agents, instructions, and skills in your repository:
 
+### Manual setup
+
 ```bash
 # Clone agents, instructions and skills.
 git clone --depth=1 https://github.com/Cogni-AI-OU/cogni-ai-agents .github/agents
@@ -25,8 +27,17 @@ git clone --depth=1 https://github.com/Cogni-AI-OU/cogni-ai-agent-skills .github
 for d in .github/agents/*/ ; do ln -fsv "$(basename "$d")/$(basename "$d").agent.md" .github/agents/ ; done
 ```
 
-After cloning the repositories, your project will have access to the full suite of
-Cogni AI capabilities loaded into the `.github/` directory.
+### User-wide setup (CLI only)
+
+To install these skills for use across all projects in your local environment using the
+[GitHub CLI](https://cli.github.com/):
+
+```bash
+gh skills install Cogni-AI-OU/cogni-ai-agent-skills --scope user
+```
+
+After cloning the repositories or installing the skills, your project will have access to the full suite of
+Cogni AI capabilities.
 
 ## Skills
 
@@ -281,6 +292,12 @@ Skills can be stored at different levels:
 | ----- | -------- | ----- |
 | Project | Root directory (`/`) | Single repository |
 | Personal | `~/.copilot/skills/` or `~/.claude/skills/` | All projects (CLI only) |
+
+Personal skills can be installed and managed using the `gh skills` command:
+
+```bash
+gh skills install Cogni-AI-OU/cogni-ai-agent-skills --scope user
+```
 
 #### How Copilot uses skills
 
